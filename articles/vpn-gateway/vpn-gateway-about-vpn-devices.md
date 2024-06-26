@@ -112,8 +112,6 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 The following tables contain the combinations of algorithms and parameters Azure VPN gateways use in default configuration (**Default policies**). For route-based VPN gateways created using the Azure Resource Management deployment model, you can specify a custom policy on each individual connection. Refer to [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) for detailed instructions.
 
-Additionally, you must clamp TCP **MSS** at **1350**. Or if your VPN devices don't support MSS clamping, you can alternatively set the **MTU** on the tunnel interface to **1400** bytes instead.
-
 In the following tables:
 
 * SA = Security Association
@@ -141,6 +139,13 @@ In the following tables:
 | SA Lifetime (Bytes)           |102,400,000 KB |102,400,000 KB                               |
 | Perfect Forward Secrecy (PFS) |No             |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Not supported  |Supported                                    |
+
+### Azure VPN Gateway TCP MSS Clamping
+
+MSS clamping is done bidirectionally on the Azure VPN Gateway. The following table lists the packet size under different scenarios. 
+| **Packet Flow**               |**IPv4**        | **IPv6**   |
+| Over Internet                 | 1340 bytes     | 1360 bytes |
+| Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Security Association (IKE Quick Mode SA) Offers

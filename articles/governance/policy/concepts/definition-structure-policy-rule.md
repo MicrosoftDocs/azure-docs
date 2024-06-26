@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
+ms.date: 04/25/2024
 ms.topic: conceptual
 ---
 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 
 The policy rule consists of `if` and `then` blocks. In the `if` block, you define one or more conditions that specify when the policy is enforced. You can apply logical operators to these conditions to precisely define the scenario for a policy.
 
-For complete details on each effect, order of evaluation, properties, and examples, see [Understanding Azure Policy Effects](effects.md).
+For complete details on each effect, order of evaluation, properties, and examples, see [Azure Policy definitions effect basics](effect-basics.md).
 
-In the `then` block, you define the effect that happens when the `if conditions are fulfilled.
+In the `then` block, you define the effect that happens when the `if` conditions are fulfilled.
 
 ```json
 {

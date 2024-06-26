@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: ccrestana
+ms.author: cacrest
 ms.date: 5/01/2023
 ms.reviewer: mopeakande
 ms.custom:
@@ -42,22 +42,22 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
-    ml_client = MLClient.from_config(DefaultAzureCredentials())
+    ml_client = MLClient.from_config(DefaultAzureCredential())
     ```
     
     If running outside of Azure Machine Learning compute, you need to specify the workspace where the endpoint is deployed:
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
     subscription_id = "<subscription>"
     resource_group = "<resource-group>"
     workspace = "<workspace>"
     
-    ml_client = MLClient(DefaultAzureCredentials(), subscription_id, resource_group, workspace)
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
        
     # [REST](#tab/rest)
@@ -890,7 +890,7 @@ The following example shows how to change the location where an output named `sc
 
     ```python
     data_path = "batch-jobs/my-unique-path"
-    output = Output(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
+    output = Output(type=AssetTypes.URI_FILE, path=f"{default_ds.id}/paths/{data_path})
     ```
 
     For completeness, let's also create a data input:

@@ -242,8 +242,9 @@ When you don't specify a version, you get an error with a list of the newest sup
 #### Supported API versions
 
 > [!NOTE]
-> Version 2023-07-01 is still being rolled out, it may not be available in some regions.
+> Version 2023-11-15 is still being rolled out, it may not be available in some regions.
 
+- 2023-11-15
 - 2023-07-01
 - 2021-12-13
 - 2021-11-15
@@ -373,6 +374,7 @@ Schema breakdown:
 | `osProfile.computerName` | Specifies the name of the computer | 2020-07-15
 | `osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
 | `osType` | Linux or Windows | 2017-04-02
+| `physicalZone` | [Physical zone](/azure/reliability/availability-zones-overview?tabs=azure-cli#physical-and-logical-availability-zones) of the VM | 2023-11-15
 | `placementGroupId` | [Placement Group](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your scale set | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it's an Azure Marketplace Image | 2018-04-02
 | `platformUpdateDomain` |  [Update domain](availability.md) the VM is running in | 2017-04-02
@@ -730,6 +732,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         }
     ],
     "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+    "physicalZone": "useast-AZ01",
     "resourceGroupName": "macikgo-test-may-23",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
     "securityProfile": {
@@ -822,7 +825,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
-    "zone": ""
+    "zone": "3"
 }
 ```
 
@@ -853,6 +856,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "disablePasswordAuthentication": "true"
     },
     "osType": "Linux",
+    "physicalZone": "useast-AZ01",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
@@ -964,7 +968,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
-    "zone": ""
+    "zone": "3"
 }
 ```
 

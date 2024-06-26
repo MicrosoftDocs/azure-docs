@@ -25,7 +25,16 @@ Document score: 100 (520 words and 0 issues)
 
 # What is Azure Storage Mover?
 
-Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate your files and folders to Azure Storage while minimizing downtime for your workload. You can use Storage Mover for different migration scenarios such as *lift-and-shift*, and for cloud migrations that you have to repeat occasionally. Azure Storage Mover also helps maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource.
+:::row:::
+    :::column:::
+        [![2-Minute demonstration video introducing Azure Storage Mover - click to play!](./media/overview/storage-mover-overview-demo-video-still.png)](https://youtu.be/hFjo-tuJWL0)
+    :::column-end:::
+    :::column:::
+        Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate your files and folders to Azure Storage while minimizing downtime for your workload.         
+    :::column-end:::
+:::row-end:::
+
+You can use Storage Mover for different migration scenarios such as *lift-and-shift*, and for migrations that you have to repeat regularly. Azure Storage Mover also helps maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource.
 
 ## Supported sources and targets
 

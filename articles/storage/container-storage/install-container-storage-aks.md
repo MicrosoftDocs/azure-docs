@@ -1,19 +1,17 @@
 ---
-title: Tutorial - Install Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
-description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
+title: Install Azure Container Storage Preview with Azure Kubernetes Service (AKS)
+description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install Azure Container Storage.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 03/12/2024
+ms.date: 06/20/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Install Azure Container Storage Preview for use with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage on the cluster. Alternatively, you can install Azure Container Storage [using a QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -21,19 +19,22 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > * Create an AKS cluster
 > * Connect to the cluster
 > * Label the node pool
-> * Assign Contributor role to AKS managed identity
-> * Install Azure Container Storage extension
+> * Assign Azure Container Storage Operator role to AKS managed identity
+> * Install Azure Container Storage
 
 ## Prerequisites
 
-[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!NOTE]
-> If you already have an AKS cluster deployed, proceed to [Connect to the cluster](#connect-to-the-cluster).
+* This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
+
+* You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+
+* Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
 ## Getting started
 
-* Take note of your Azure subscription ID. We recommend using a subscription on which you have a [Kubernetes contributor](../../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) role if you want to use Azure Disks or Ephemeral Disk as data storage. If you want to use Azure Elastic SAN as data storage, you'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+* Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription. Owner-level access allows you to install the Azure Container Storage extension, grants access to its storage resources, and gives you permission to configure your Azure Elastic SAN resource. Contributor-level access allows you to install the extension and grants access to its storage resources. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
 
 * [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -54,6 +55,13 @@ The `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` resourc
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService --wait 
 az provider register --namespace Microsoft.KubernetesConfiguration --wait 
+```
+
+To check if these providers are registered successfully, run the following command:
+
+```azurecli-interactive
+az provider list --query "[?namespace=='Microsoft.ContainerService'].registrationState"
+az provider list --query "[?namespace=='Microsoft.KubernetesConfiguration'].registrationState"
 ```
 
 ## Create a resource group
@@ -102,7 +110,7 @@ To use Azure Container Storage, you'll need a node pool of at least three Linux 
 
 If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes.
 
-If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**.
+If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
 > [!IMPORTANT]
 > You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
@@ -162,14 +170,14 @@ Next, you must update your node pool label to associate the node pool with the c
 Run the following command to update the node pool label. Remember to replace `<resource-group>` and `<cluster-name>` with your own values, and replace `<nodepool-name>` with the name of your node pool.
 
 ```azurecli-interactive
-az aks nodepool update --resource-group <resource group> --cluster-name <cluster name> --name <nodepool name> --labels acstor.azure.com/io-engine=acstor
+az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool-name> --labels acstor.azure.com/io-engine=acstor
 ```
 
 You can verify that the node pool is correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: acstor.azure.com/io-engine:acstor`.
 
-## Assign Contributor role to AKS managed identity
+## Assign Azure Container Storage Operator role to AKS managed identity
 
-Azure Container Service is a separate service from AKS, so you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You can do this using the Azure portal or Azure CLI. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+You only need to perform this step if you plan to use Azure Elastic SAN as backing storage. In order to use Elastic SAN, you'll need to grant permissions to allow Azure Container Storage to provision storage for your cluster. Specifically, you must assign the [Azure Container Storage Operator](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-operator) role to the AKS managed identity. You can do this using the Azure portal or Azure CLI. You'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 # [Azure portal](#tab/portal)
 
@@ -178,10 +186,7 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 1. Under **Infrastructure resource group**, you should see a link to the resource group that AKS created when you created the cluster. Select it.
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
-   
-   :::image type="content" source="media/install-container-storage-aks/add-role-assignment.png" alt-text="Screenshot showing how to use the Azure portal to add Contributor role to the AKS managed identity." lightbox="media/install-container-storage-aks/add-role-assignment.png":::
-   
+1. Under the **Job function roles** tab, select or search for **Azure Container Storage Operator**, then select **Next**. If you don't have an **Azure Container Storage Owner** or **Azure Container Storage Contributor** role on the subscription, you won't be able to add the **Azure Container Storage Operator** role.
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
@@ -190,22 +195,22 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 
 # [Azure CLI](#tab/cli)
 
-Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>`, `<cluster-name>`, and `<azure-subscription-id>` with your own values. You can also narrow the scope to your resource group, for example `/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group>`.
+Run the following commands to assign **Azure Container Storage Operator** role to AKS managed identity. Remember to replace `<resource-group>`, `<cluster-name>`, and `<azure-subscription-id>` with your own values. You can also narrow the scope to your resource group, for example `/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group>`.
 
 ```azurecli-interactive
 export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
-az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --scope "/subscriptions/<azure-subscription-id>"
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Azure Container Storage Operator" --scope "/subscriptions/<azure-subscription-id>"
 ```
 ---
 
 ## Install Azure Container Storage
 
-The initial install uses Azure Arc CLI commands to download a new extension. Replace `<cluster-name>` and `<resource-group>` with your own values. The `<name>` value can be whatever you want; it's just a label for the extension you're installing.
+The initial install uses Azure Arc CLI commands to download a new extension. Replace `<cluster-name>` and `<resource-group>` with your own values. The `<extension-name>` value can be whatever you want; it's just a label for the extension you're installing.
 
 During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name <cluster name> --resource-group <resource group name> --name <name of extension> --extension-type microsoft.azurecontainerstorage --scope cluster --release-train stable --release-namespace acstor
+az k8s-extension create --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <extension-name> --extension-type microsoft.azurecontainerstorage --scope cluster --release-train stable --release-namespace acstor
 ```
 
 Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says **Succeeded**:
@@ -216,10 +221,12 @@ az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-g
 
 Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
 
-## Next steps
+## Next step
 
-Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
+Now you can create a storage pool and volumes. Follow the steps in the appropriate article depending on the backing storage type you want to use.
 
-* [Use Azure Container Storage with Azure Elastic SAN](use-container-storage-with-elastic-san.md)
-* [Use Azure Container Storage with Azure Disks](use-container-storage-with-managed-disks.md)
-* [Use Azure Container Storage with Ephemeral Disk (local NVMe or temp SSD)](use-container-storage-with-local-disk.md)
+- [Use Azure managed disks](use-container-storage-with-managed-disks.md)
+- [Use Azure Elastic SAN](use-container-storage-with-elastic-san.md)
+- [Use local NVMe](use-container-storage-with-local-disk.md)
+- [Use temp SSD](use-container-storage-with-temp-ssd.md)
+- [Use local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md)

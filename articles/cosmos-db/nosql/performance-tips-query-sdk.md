@@ -9,7 +9,7 @@ ms.date: 06/20/2023
 ms.author: maquaran
 ms.devlang: csharp
 # ms.devlang: csharp, java
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-python
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-cosmos
 ---
 

@@ -1,5 +1,65 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
+      "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
+      "redirect_document_id": false
+    },
+        {
+             "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-cli.md",
+             "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
+             "redirect_document_id": false
+        },
+        {
+             "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-powershell.md",
+             "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-powershell",
+             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/traffic-manager/powershell-samples.md",
+            "redirect_url": "/previous-versions/azure/traffic-manager/powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/traffic-manager/scripts/traffic-manager-cli-websites-high-availability.md",
+            "redirect_url": "/previous-versions/azure/traffic-manager/scripts/traffic-manager-cli-websites-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-security-group-view-powershell.md",
+            "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-security-group-view-cli.md",
+            "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-security-group-view-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blob-v11-samples-dotnet.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blob-v11-samples-javascript.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/blob-v11-samples-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blob-v2-samples-python.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/blob-v2-samples-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/geo-redundant-design-legacy.md",
+            "redirect_url": "/previous-versions/azure/storage/common/geo-redundant-design-legacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/germany/index.yml",
+            "redirect_url": "/previous-versions/azure/germany/index",
+            "redirect_document_id": false
+        },     
         {
             "source_path_from_root": "/articles/internet-analyzer/internet-analyzer-cli.md",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-cli",
@@ -43,11 +103,6 @@
         {
             "source_path_from_root": "/articles/internet-analyzer/index.yml",
             "redirect_url": "/previous-versions/azure/internet-analyzer/internet-analyzer-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cosmos-db/nosql/sdk-java-spark-v2.md",
-            "redirect_url": "/previous-versions/azure/cosmos-db/nosql/sdk-java-spark-v2",
             "redirect_document_id": false
         },
         {
@@ -215,6 +270,26 @@
             "redirect_url": "/azure/advisor/advisor-alerts-portal",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/advisor/advisor-operational-excellence-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-operational-excellence-recommendations",
+            "redirect_document_id": false
+        },
+	            {
+            "source_path_from_root": "/articles/advisor/advisor-performance-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-performance-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/advisor/advisor-cost-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-cost-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
+            "redirect_document_id": false
+        },	    
         {
             "source_path_from_root": "/articles/network-functions-manager/index.yml",
             "redirect_url": "/azure/network-function-manager",
@@ -566,6 +641,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
+            "redirect_url": "/azure/azure-maps/",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
@@ -653,6 +733,16 @@
         {
             "source_path_from_root": "/articles/azure-maps/power-bi-visual-migrate-from-bing-maps.md",
             "redirect_url": "/azure/azure-maps/power-bi-visual-conversion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps-web-services.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
             "redirect_document_id": false
         },
         {
@@ -1073,6 +1163,11 @@
         {
             "source_path_from_root": "/articles/container-instances/tutorial-docker-compose.md",
             "redirect_url": "/azure/container-instances/container-instances-multi-container-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-instances/container-instances-monitor.md",
+            "redirect_url": "/azure/container-instances/monitor-azure-container-instances",
             "redirect_document_id": false
         },
         {
@@ -1590,6 +1685,11 @@
             "redirect_url": "/azure/dns/dns-getstarted-powershell",
             "redirect_document_id": false
         },
+		{
+            "source_path_from_root": "/articles/time-series-insights/migration-to-adx.md",
+            "redirect_url": "/azure/time-series-insights/migration-to-fabric.md",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/dns/dns-operations-dnszones-cli-nodejs.md",
             "redirect_url": "/azure/dns/dns-operations-dnszones-cli",
@@ -1712,12 +1812,22 @@
         },
         {
             "source_path_from_root": "/articles/guides/developer/index.md",
-            "redirect_url": "/azure/guides/developer/azure-developer-guide",
+            "redirect_url": "/azure/developer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/developer/azure-developer-guide.md",
+            "redirect_url": "/azure/developer/",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/guides/operations/index.md",
-            "redirect_url": "/azure/guides/operations/azure-operations-guide",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/guides/operations/azure-operations-guide.md",
+            "redirect_url": "/azure/developer/intro/azure-developer-key-concepts",
             "redirect_document_id": false
         },
         {
@@ -1814,6 +1924,14 @@
             "source_path_from_root": "/articles/jenkins/java-deploy-webapp-tutorial.md",
             "redirect_url": "/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-app"
+        },
+        {
+            "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-your-app"        
         },
         {
             "source_path_from_root": "/articles/application-insights/app-insights-analytics-reference.md",
@@ -2961,6 +3079,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
+            "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
             "redirect_document_id": false
@@ -3163,16 +3286,6 @@
         {
             "source_path_from_root": "/articles/documentdb/documentdb-create-account.md",
             "redirect_url": "https://aka.ms/acdbnetqa",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/documentdb/index.md",
-            "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
-            "redirect_url": "sql-query-logical-operators",
             "redirect_document_id": false
         },
         {
@@ -3571,6 +3684,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-web.md",
+            "redirect_url": "/azure/azure-functions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
             "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
             "redirect_document_id": false
@@ -3761,11 +3879,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
             "redirect_url": "/azure/private-link/create-private-endpoint-portal",
             "redirect_document_id": false
@@ -3820,11 +3933,6 @@
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         },
         {
-            "source_path_from_root": "/articles/aks/operator-best-practices-multi-region.md",
-            "redirect_url": "/azure/aks/ha-dr-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
             "redirect_url": "/azure/orbital/initiate-licensing",
             "redirect_document_id": false
@@ -3842,7 +3950,7 @@
         {
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
-            "redirect_document_id": false
+            "redirect_document_id": false  
         },
         {
             "source_path_from_root": "/articles/azure-health-insights/request-info.md",
@@ -3873,16 +3981,6 @@
             "source_path_from_root": "/articles/cloud-services-php-create-web-role.md",
             "redirect_url": "/azure/cloud-services/cloud-services-php-create-web-role",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/high-availability.md",
-            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cosmos-db/mongodb/vcore/failover-disaster-recovery.md",
-            "redirect_url": "/azure/reliability/reliability-cosmos-mongodb",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/notification-hubs/notification-hubs-high-availability.md",
@@ -3917,11 +4015,6 @@
         {
             "source_path_from_root": "/articles/batch/batch-diagnostics.md",
             "redirect_url": "/azure/batch/monitor-batch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-auth-aci.md",
-            "redirect_url": "/azure/container-registry/container-registry-authentication",
             "redirect_document_id": false
         },
         {
@@ -3972,13 +4065,94 @@
         },
         {
             "source_path_from_root":"/articles/trusted-signing/concept.md",
-            "redirect_url":"/azure/trusted-signing/concept-trustedsigning-resources-roles",
+            "redirect_url":"/azure/trusted-signing/concept-trusted-signing-resources-roles",
             "redirect_document_id":false 
         },
         {
             "source_path_from_root":"/articles/container-instances/availability-zones.md",
             "redirect_url":"/azure/reliability/reliability-containers",
             "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root": "/articles/copilot/limited-access.md",
+            "redirect_url": "/azure/copilot/manage-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-portal/mobile-app/microsoft-copilot-for-azure.md",
+            "redirect_url": "/azure/azure-portal/mobile-app/microsoft-copilot-in-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/migrate/how-to-assess.md",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root":"/articles/migrate/prepare-isv-movere.md",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
+            "redirect_document_id":false 
+        },
+        {
+            "source_path_from_root": "/articles/physical-server-azure-architecture-preview.md",
+            "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/store-php-create-mysql-database.md",
+            "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cosmos-db/create-website.md",
+            "redirect_url": "/azure/cosmos-db/sql/create-website",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines-linux-nodejs-deploy.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/move-system-topics-across-regions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/move-custom-topics-across-regions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/move-domains-across-regions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/tutorial-create-cluster.md",
+            "redirect_url": "/azure/openshift/create-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/tutorial-connect-cluster.md",
+            "redirect_url": "/azure/openshift/connect-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/tutorial-delete-cluster.md",
+            "redirect_url": "/azure/openshift/delete-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/quickstart-portal.md",
+            "redirect_url": "/azure/openshift/create-cluster",
+            "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
         }
+       
     ]
 }

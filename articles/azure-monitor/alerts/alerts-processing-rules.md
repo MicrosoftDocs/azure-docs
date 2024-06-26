@@ -54,7 +54,7 @@ For those alert types, you can use alert processing rules to add action groups.
 
 This section describes the scope and filters for alert processing rules.
 
-Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You cannot create an alert processing rule on a resource from a different subsciption.   
+Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You cannot create an alert processing rule on a resource from a different subscription.   
 
 You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are described in the following table.  
 

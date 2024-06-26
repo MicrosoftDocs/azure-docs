@@ -40,6 +40,6 @@ To learn more about reservations, see the following articles:
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 
-## Need help? Contact us
+## Related content
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

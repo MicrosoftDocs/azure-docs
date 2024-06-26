@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
-ms.author: bemabonsu
+ms.date: 05/07/2024
+ms.author: lajanuar
 monikerRange: '>=doc-intel-4.0.0'
 ---
 <!-- markdownlint-disable MD033 -->
@@ -25,9 +25,9 @@ The Document Intelligence Mortgage models use powerful Optical Character Recogni
 
 **Supported document types:**
 
-* 1003 End-User License Agreement (EULA)
-* Form 1008
-* Mortgage closing disclosure
+* Uniform Residential Loan Application (Form 1003)
+* Uniform Underwriting and Transmittal Summary (Form 1008)
+* Closing Disclosure form
 
 
 ## Development options
@@ -72,9 +72,9 @@ To see how data extraction works for the mortgage documents service, you need th
 
 *See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
-## Field extraction 1003 End-User License Agreement (EULA)
+## Field extraction 1003 Uniform Residential Loan Application (URLA)
 
-The following are the fields extracted from a 1003 EULA form in the JSON output response.
+The following are the fields extracted from a 1003 URLA form in the JSON output response.
 
 |Name| Type | Description | Example output |
 |:-----|:----|:----|:---:|
@@ -86,9 +86,9 @@ The following are the fields extracted from a 1003 EULA form in the JSON output 
 | Loan| Object | An object that contains loan information including: amount, purpose type, refinance type.| |
 | Property | object | An object that contains information about the property including: address, number of units, value.|  |
 
-The 1003 EULA key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
+The 1003 URLA key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
-## Field extraction form 1008
+## Field extraction 1008 Uniform Underwriting and Transmittal Summary
 
 The following are the fields extracted from a 1008 form in the JSON output response.
 
@@ -111,7 +111,6 @@ The following are the fields extracted from a mortgage closing disclosure form i
 | Closing| Object | An object that contains information about the closing information including: Issue date, Closing date, Disbursement date.  |
 | Transaction | Object | An object that contains information about the transaction information including: Borrowers name, Borrowers address, Seller name.|  |
 | Loan | Object | An object that contains loan information including: term, purpose, product. | |
-
 
 The mortgage closing disclosure key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 

@@ -57,7 +57,7 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 You can use the following commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to resize a capacity pool or a volume:
 
 * [`az netappfiles pool`](/cli/azure/netappfiles/pool)
-* [`az netappfiles volume`](/cli/azure/netappfiles/volume)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume) (use the `--usage-threshold` parameter)
 
 ## Resizing the capacity pool or a volume using REST API
 
@@ -65,7 +65,7 @@ You can build automation to handle the capacity pool and volume size change.
 
 See [REST API for Azure NetApp Files](azure-netapp-files-develop-with-rest-api.md) and [REST API using PowerShell for Azure NetApp Files](develop-rest-api-powershell.md). 
 
-The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/stable). 
+The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/stable). See [this command](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/netapp/resource-manager/Microsoft.NetApp/stable/2023-11-01/examples/Volumes_Update.json) for a sample volume update.
 
 ## Resize a cross-region replication destination volume 
 

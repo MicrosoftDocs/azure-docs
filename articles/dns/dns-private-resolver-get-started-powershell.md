@@ -21,7 +21,7 @@ Azure DNS Private Resolver is a new service that enables you to query Azure DNS 
 
 The following figure summarizes the setup used in this article:
 
-![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 
@@ -250,7 +250,8 @@ In this example:
 - 10.5.5.5 is a protective DNS service.
 
 > [!IMPORTANT]
-> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ## Test the private resolver
 

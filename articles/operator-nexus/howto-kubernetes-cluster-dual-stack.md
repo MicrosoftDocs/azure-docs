@@ -15,7 +15,7 @@ In this article, you learn how to create a dual-stack Nexus Kubernetes cluster. 
 
 In a dual-stack Kubernetes cluster, both the nodes and the pods are configured with an IPv4 and IPv6 network address. This means that any pod that runs on a dual-stack cluster will be assigned both IPv4 and IPv6 addresses within the pod, and the cluster nodes' CNI (Container Network Interface) interface will also be assigned both an IPv4 and IPv6 address. However, any multus interfaces attached, such as SRIOV/DPDK, are the responsibility of the application owner and must be configured accordingly. 
 
-<!-- Network Address Translation (NAT) is configured to enable pods to access resources within the local network infrastructure. The source IP address of the traffic from the pods (either IPv4 or IPv6) is translated to the node's primary IP address corresponding to the same IP family (IPv4 to IPv4 and IPv6 to IPv6). This setup ensures seamless connectivity and resource access for the pods within the on-premises environment. -->
+Network Address Translation (NAT) is configured to enable pods to access resources within the local network infrastructure. The source IP address of the traffic from the pods (either IPv4 or IPv6) is translated to the node's primary IP address corresponding to the same IP family (IPv4 to IPv4 and IPv6 to IPv6). This setup ensures seamless connectivity and resource access for the pods within the on-premises environment.
 
 ## Prerequisites
 
@@ -30,7 +30,6 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 * Single stack IPv6-only isn't supported for node or pod IP addresses. Workload Pods and services can use dual-stack (IPv4/IPv6).
 * Kubernetes administration API access to the cluster is IPv4 only. Any kubeconfig must be IPv4 because kube-vip for the kubernetes API server only sets up an IPv4 address.
-* Network Address Translation for IPv6 is disabled by default. If you need NAT for IPv6, you must enable it manually.
 
 ## Configuration options
 
@@ -97,8 +96,15 @@ This parameter file is intended to be used with the [QuickStart guide](./quickst
     "location": {
       "value": "eastus"
     },
-    "sshPublicKey": {
-      "value": "ssh-rsa AAAAB...."
+    "sshPublicKeys": {
+      "value": [
+        {
+          "keyData": "ssh-rsa AAAAB..."
+        },
+        {
+          "keyData": "ssh-rsa AAAAC..."
+        }
+      ]
     },
     "podCidrs": {
       "value": ["10.244.0.0/16", "fd12:3456:789a::/64"]

@@ -139,17 +139,14 @@ Two different pool membership types are available:
 * The AKS cluster must be version 1.23 or newer.
 * The AKS cluster must be using standard load balancers and virtual machine scale sets.
 
-#### Limitations
-
-* Clusters using IP based backend pools are limited to 2500 nodes.
-
 #### Create a new AKS cluster with IP-based inbound pool membership
 
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --load-balancer-backend-pool-type=nodeIP
+    --load-balancer-backend-pool-type=nodeIP \
+    --generate-ssh-keys
 ```
 
 #### Update an existing AKS cluster to use IP-based inbound pool membership
@@ -262,7 +259,8 @@ Use the `az aks create` command with the `load-balancer-outbound-ips` parameter 
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2>
+    --load-balancer-outbound-ips <publicIpId1>,<publicIpId2> \
+    --generate-ssh-keys
 ```
 
 Use the `az aks create` command with the `load-balancer-outbound-ip-prefixes` parameter to create a new cluster with your own public IP prefixes.
@@ -270,7 +268,8 @@ Use the `az aks create` command with the `load-balancer-outbound-ip-prefixes` pa
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
-    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
+    --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2> \
+    --generate-ssh-keys
 ```
 
 ### Configure the allocated outbound ports

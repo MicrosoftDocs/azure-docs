@@ -345,6 +345,9 @@ InGuestPatchVMPreview   Microsoft.Compute   Unregistered
 ```
 
 ---
+## Configuring preview features using Azure Policy
+
+Subscriptions can be remediated to register to a preview feature if not already registered using a [built-in](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe624c84f-2923-4437-9fd9-4115c6da3888) policy definition. Note that new subscriptions added to an existing tenant won't be automatically registered.
 
 ## Next steps
 

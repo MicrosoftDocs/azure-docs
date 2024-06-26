@@ -15,8 +15,6 @@ The **Network Features** functionality enables you to indicate whether you want 
 
 This article helps you understand the options and shows you how to configure network features.
 
-See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
-
 ## Options for network features 
 
 Two settings are available for network features: 
@@ -35,8 +33,6 @@ Two settings are available for network features:
 
 * Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
  
-* You can create or modify volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
-
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability isn't available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you can't modify the setting.
 
@@ -77,13 +73,11 @@ This section shows you how to set the network features option when you create a 
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible. 
 
-The edit network features option is available in [all regions that support Standard network features](azure-netapp-files-network-topologies.md#supported-regions). 
-
 >[!IMPORTANT]
 >It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
 
 >[!IMPORTANT]
->You should not use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md). Application volume group for SAP HANA only supports Basic network features. 
+> You should only use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md) if you have enrolled in the [extension one preview](application-volume-group-introduction.md#extension-1-features), which adds support for Standard network features. 
 
 > [!NOTE]
 > You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
@@ -118,9 +112,6 @@ The edit network features option is available in [all regions that support Stand
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 
 1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
-
-    >[!IMPORTANT]
-    >The impact of editing network features depends on the region you are using. In some regions, editing network features is a disruptive option that can last up to approximately five minutes. In other regions, its a nondisruptive operation that can last up to approximately 25 minutes. If you are in a nondisruptive region, you cannot create volumes or application volume groups in the network sibling set until the upgrade completes successfully. 
 
     :::image type="content" source="./media/configure-network-features/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window." lightbox="./media/configure-network-features/edit-network-features.png":::
 

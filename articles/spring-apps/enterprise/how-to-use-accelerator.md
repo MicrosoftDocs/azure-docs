@@ -372,8 +372,6 @@ Use the following steps to bootstrap a new project using accelerators:
 
 1. Select **EXPLORE FILE** to view the project structure and source code.
 
-   :::image type="content" source="media/how-to-use-accelerator/explore-accelerator-project.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Explore project pane." lightbox="media/how-to-use-accelerator/explore-accelerator-project.png":::
-
 1. Select **Review and generate** to review the specified parameters, and then select **Generate accelerator**.
 
    :::image type="content" source="media/how-to-use-accelerator/generate-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page that shows the Review and generate section." lightbox="media/how-to-use-accelerator/generate-accelerator.png":::

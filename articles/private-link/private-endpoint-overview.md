@@ -69,9 +69,11 @@ A private-link resource is the destination target of a specified private endpoin
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
+| Azure API Management | Microsoft.ApiManagement/service | Gateway |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
+| Azure Attestation Service | Microsoft.Attestation/attestationProviders | standard |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
@@ -88,6 +90,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Database for PostgreSQL - Flexible server | Microsoft.DBforPostgreSQL/flexibleServers | postgresqlServer |
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |

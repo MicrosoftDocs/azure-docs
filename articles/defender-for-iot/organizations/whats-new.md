@@ -15,12 +15,33 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+## June 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> |
+
+### Malicious URL path alert
+
+The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
+
+For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
 
 ## April 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Sensor time drift detection](#sensor-time-drift-detection) <br> [Security update](#security-update) |
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update) |
+
+### Single sign-on for the sensor console
+
+You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites. 
+
+Using Microsoft Entra ID simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
+
+:::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO.":::
+
+For more information, see [Set up single sign-on on for the sensor console](set-up-sso.md).
 
 ### Sensor time drift detection
 
@@ -54,6 +75,8 @@ For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-i
 Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The number of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
 
 To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
+
+This update is available in sensor version 24.1.3 and later.
 
 For more information, see [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments).
 
@@ -125,7 +148,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 ### OT network sensors now run on Debian 11
 
-Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
+Sensor version 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
 
 Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
 

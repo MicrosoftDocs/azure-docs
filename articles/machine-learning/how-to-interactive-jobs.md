@@ -154,7 +154,7 @@ By specifying interactive applications at job creation, you can connect directly
    > [!NOTE]
    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
-2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id> `to submit your training job. For more details on running a job via CLI, check out this [article](./how-to-train-model.md). 
+2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id>` to submit your training job. For more details on running a job via CLI, check out this [article](./how-to-train-model.md). 
 
 ---
 ### Connect to endpoints

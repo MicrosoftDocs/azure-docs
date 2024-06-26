@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 03/21/2024
+ms.date: 05/13/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: robb
@@ -73,8 +73,10 @@ The following list provides details and more information about the supported Azu
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
-    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+    - **AADAuthenticationFailure** - deprecated
+    - **AADTokenExpired** - deprecated
+    - **MicrosoftEntraAuthenticationFailure** - when there's an authentication failure using Microsoft Entra access token
+    - **MicrosoftEntraTokenExpired** - when a Microsoft Entra access token used for authentication isn't renewed and it expires
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
   - This number maps to `evicted_keys` from the Redis INFO command.
@@ -96,13 +98,13 @@ The following list provides details and more information about the supported Azu
     - This metric is only emitted _from the geo-primary_ cache instance. On the geo-secondary instance, this metric has no value.
     - This metric is only available in the Premium tier for caches with geo-replication enabled.
   - Geo Replication Full Sync Event Finished
-    - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+    - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/#how-redis-replication-works) for a more detailed explanation.
     - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
     - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
     - This metric is only available in the Premium tier for caches with geo-replication enabled.
 
   - Geo Replication Full Sync Event Started
-    - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+    - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/#how-redis-replication-works) for a more detailed explanation.
     - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
     - The metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
     - The metric is only available in the Premium tier for caches with geo-replication enabled.

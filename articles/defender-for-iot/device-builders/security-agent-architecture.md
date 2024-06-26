@@ -24,7 +24,6 @@ Security agents support the following features:
 
 Defender for IoT Security agents is developed as open-source projects, and are available from GitHub:
 
-- [Defender for IoT C-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Defender for IoT C#-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## Prerequisites

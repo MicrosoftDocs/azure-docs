@@ -1,0 +1,9 @@
+{
+	"redirections": [
+        {
+            "source_path_from_root": "/articles/ai-services/computer-vision/how-to/install-sdk.md",
+            "redirect_url": "/articles/ai-services/computer-vision/sdk/install-sdk",
+            "redirect_document_id": false
+        }
+    ]
+}

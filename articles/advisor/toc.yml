@@ -6,10 +6,16 @@
     href: advisor-overview.md
   - name: What's new?
     href: advisor-release-notes.md
-- name: Quickstarts
+- name: Get started
   items:
-  - name: Get started with Advisor
+  - name: Advisor portal basics
     href: advisor-get-started.md
+  - name: Roles and permissions
+    href: permissions.md
+  - name: Use Advisor score 
+    href: azure-advisor-score.md
+  - name: Configure recommendations view
+    href: view-recommendations.md
   - name: Configure alerts for new recommendations
     items:
     - name: Azure portal
@@ -20,22 +26,20 @@
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
-- name: Concepts
+- name: Recommendations list
   items:
-  - name: Recommendations
-    items:
-    - name: Cost
-      href: advisor-reference-cost-recommendations.md
-    - name: Operational Excellence
-      href: advisor-reference-operational-excellence-recommendations.md
-    - name: Performance
-      href: advisor-reference-performance-recommendations.md
-    - name: Reliability
-      href: advisor-reference-reliability-recommendations.md    
-    - name: Security
-      href: ../defender-for-cloud/recommendations-reference.md
-    - name: Sovereign clouds
-      href: advisor-sovereign-clouds.md
+  - name: Cost
+    href: advisor-reference-cost-recommendations.md
+  - name: Operational Excellence
+    href: advisor-reference-operational-excellence-recommendations.md
+  - name: Performance
+    href: advisor-reference-performance-recommendations.md
+  - name: Reliability
+    href: advisor-reference-reliability-recommendations.md    
+  - name: Security
+    href: ../defender-for-cloud/recommendations-reference.md
+  - name: Sovereign clouds
+    href: advisor-sovereign-clouds.md
 - name: Samples 
   items:
   - name: Azure Resource Graph queries
@@ -60,21 +64,13 @@
     href: advisor-how-to-performance-resize-high-usage-vm-recommendations.md
   - name: Use tags to filter recommendations and score
     href: advisor-tag-filtering.md
-  - name: Configure recommendations
-    href: view-recommendations.md
-  - name: Permissions and blocked actions
-    href: permissions.md
-  - name: Configure Alerts for recommendations
-    href: advisor-alerts-portal.md
   - name: Configure recommendations summary
     href: advisor-recommendations-digest.md
   - name: Bulk remediation for recommendations
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
-  - name: Consume Advisor score 
-    href: azure-advisor-score.md
-  - name: Export cost savings
+  - name: Calculate total cost savings
     href: advisor-how-to-calculate-total-cost-savings.md
 - name: Reference
   items:
