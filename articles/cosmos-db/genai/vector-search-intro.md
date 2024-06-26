@@ -1,3 +1,14 @@
+---
+title: What is Vector Search?
+description: Learn the basics of vector search for building gen-ai apps
+author: TheovanKraay
+ms.service: cosmos-db
+ms.subservice: nosql
+ms.topic: conceptual
+ms.date: 06/26/2024
+ms.author: thvankra
+---
+
 # What is Vector Search?
 
 Vector search is transforming the way we retrieve information, especially in the realm of AI and machine learning. This article delves into the core concepts of vector search, exploring vectors and embeddings, different models, distance functions, kNN vs ANN, DiskANN, RAG/GenAI concepts, and multi-agent interactions. Let's dive in!
@@ -42,12 +53,12 @@ By leveraging Azure Cosmos DB, users can enhance their vector search capabilitie
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](ai-advantage.md)
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](../ai-advantage.md)
 
 > [!div class="nextstepaction"]
-> [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
+> [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
 
 ### More vector database solutions
-- [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
+- [Azure PostgreSQL Server pgvector Extension](../../postgresql/flexible-server/how-to-use-pgvector.md)
 
-:::image type="content" source="media/vector-search/azure-databases-and-ai-search.png" lightbox="media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::
+:::image type="content" source="../media/vector-search/azure-databases-and-ai-search.png" lightbox="../media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::

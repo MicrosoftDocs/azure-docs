@@ -9,7 +9,7 @@ ms.date: 06/26/2024
 ms.author: thvankra
 ---
 
-## Multi-Tenancy in Azure Cosmos DB
+# Multi-Tenancy in Azure Cosmos DB
 
 
 Multi-tenancy enables a single instance of a database to serve multiple customers, or tenants, simultaneously. This approach efficiently shares infrastructure and operational overhead, resulting in cost savings and simplified management. It's a crucial design consideration for SaaS applications and some internal enterprise solutions.
@@ -151,4 +151,4 @@ Azure Cosmos DB provides the tools necessary to build a robust, secure, and scal
 ## More vector database solutions
 - [Azure PostgreSQL Server pgvector Extension](../../postgresql/flexible-server/how-to-use-pgvector.md)
 
-:::image type="content" source="media/vector-search/azure-databases-and-ai-search.png" lightbox="media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::
+:::image type="content" source="../media/vector-search/azure-databases-and-ai-search.png" lightbox="../media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::
