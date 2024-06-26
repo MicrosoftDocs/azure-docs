@@ -68,27 +68,7 @@ Create three virtual networks by using the portal. Each virtual network has a `n
 
 Virtual Network Manager applies configurations to groups of virtual networks by placing them in network groups. To create a network group:
 
-1. Browse to the **rg-learn-eastus-001** resource group, and select the **vnm-learn-eastus-001** Virtual Network Manager instance.
-
-1. Under **Settings**, select **Network groups**. Then select **+ Create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of an empty list of network groups and the button for creating a network group.":::
-
-1. On the **Create a network group** pane, then select **Create**:
-   
-   | **Setting** | **Value** |
-    | --- | --- |
-    | **Name** | Enter **ng-learn-prod-eastus-001**. |
-    | **Description** | *(Optional)* Provide a description about this network group. |
-    | **Member type** | Select **Virtual network** from the dropdown menu. |
-    
-    and select **Create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-network-group.png" alt-text="Screenshot of the pane for creating a network group."  lightbox="./media/create-virtual-network-manager-portal/create-network-group.png":::
-
-2. Confirm that the new network group is now listed on the **Network groups** pane.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of a newly created network group on the pane that list network groups.":::
+[!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
 
 ## Define membership for a connectivity configuration
 
