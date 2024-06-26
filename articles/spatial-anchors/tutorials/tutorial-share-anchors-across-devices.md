@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 > * Configure the AzureSpatialAnchorsLocalSharedDemo scene within the Unity sample from our quickstarts to take advantage of the Sharing Anchors web app.
 > * Deploy and run the anchors to one or more devices.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
