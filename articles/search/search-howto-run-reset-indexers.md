@@ -171,7 +171,7 @@ catch (RequestFailedException ex) when (ex.Status == 429)
 
 For indexers that have skillsets, you can reset individual skills to force processing of just that skill and any downstream skills that depend on its output. The [enrichment cache](search-howto-incremental-index.md), if you enabled it, is also refreshed. 
 
-[Reset Skills](/rest/api/searchservice/skillsets/reset-skills?view=rest-searchservice-2024-05-01-preview&preserve-view=true) is currently REST-only, available through `api-version=2020-06-30-Preview` or later. We recommend the latest preview API.
+[Reset Skills](/rest/api/searchservice/skillsets/reset-skills?view=rest-searchservice-2024-05-01-preview&preserve-view=true) is currently REST-only, available through 2020-06-30-preview or later. We recommend the latest preview API.
 
 ```http
 POST /skillsets/[skillset name]/resetskills?api-version=2024-05-01-preview
