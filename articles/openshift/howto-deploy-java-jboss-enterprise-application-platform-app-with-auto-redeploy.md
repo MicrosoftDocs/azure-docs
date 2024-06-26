@@ -36,7 +36,7 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 1. Create a service principal using the following Azure CLI command.
 
    ```azurecli
-   az ad sp create-for-rbac --sdk-auth
+   az ad sp create-for-rbac --name "sp-aro-s2i-$(date +%s)"
    ```
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/create-service-principal-with-azure-cli.png " alt-text="Screenshot of Azure Cloud Shell showing how to create a service principal with Azure CLI." lightbox="media/howto-deploy-java-enterprise-application-platform-app/create-service-principal-with-azure-cli.png":::
@@ -103,9 +103,6 @@ The following steps show you how to fill out the **EAP Application** pane shown 
 1. Track the progress of the deployment on the **Deployment is in progress** page.
 
 Depending on network conditions and other activity in your selected region, the deployment might take up to 40 minutes to complete.
-
-While you wait, you can set up the database.
-
 
 ## Verify the functionality of the deployment
 
