@@ -169,8 +169,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Add the OS disk. Add the OS disk to the configuration by using [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). This example sets the size of the disk to *128 GB* and attaches the disk as a *Windows* OS disk.
  
 ```powershell
-$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
-    -DiskSizeInGB 128 -CreateOption Attach -Windows
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -CreateOption Attach -Windows
 ```
 
 Create the VM by using [New-AzVM](/powershell/module/az.compute/new-azvm) with the configurations that we just created.
