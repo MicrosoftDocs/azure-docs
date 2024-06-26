@@ -2,9 +2,9 @@
 title: Migrate Bing Maps Get a Static Map API to Azure Maps Get Map Static Image API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Get a Static Map API to the Azure Maps Get Map Static Image API.
-author: pbrasil
-ms.author: peterbr 
-ms.date: 06/28/2024
+author: faterceros
+ms.author: aterceros 
+ms.date: 06/26/2024
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
