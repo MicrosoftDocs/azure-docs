@@ -31,37 +31,37 @@ This article contains two scripts. The first script copies a managed disk that's
 
 ```azurecli
 #Provide the subscription Id of the subscription where managed disk exists
-sourceSubscriptionId="<subscriptionId>"
+$sourceSubscriptionId="<subscriptionId>"
 
 #Provide the name of your resource group where managed disk exists
-sourceResourceGroupName=mySourceResourceGroupName
+$sourceResourceGroupName="mySourceResourceGroupName"
 
 #Provide the name of the managed disk
-managedDiskName=myDiskName
+$managedDiskName="myDiskName"
 
 #Provide the name of the target disk encryption set
-diskEncryptionSetName=myName
+$diskEncryptionSetName="myName"
 
 #Provide the target disk encryption set resource group
-diskEncryptionResourceGroup=myGroup
+$diskEncryptionResourceGroup="myGroup"
 
 #Set the context to the subscription Id where managed disk exists
 az account set --subscription $sourceSubscriptionId
 
 #Get the managed disk Id 
-managedDiskId=$(az disk show --name $managedDiskName --resource-group $sourceResourceGroupName --query [id] -o tsv)
+$managedDiskId=$(az disk show --name $managedDiskName --resource-group $sourceResourceGroupName --query [id] -o tsv)
 
 #If managedDiskId is blank then it means that managed disk does not exist.
 echo 'source managed disk Id is: ' $managedDiskId
 
 #Get the disk encryption set ID
-diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName --resource-group $diskEncryptionResourceGroup)
+$diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName --resource-group $diskEncryptionResourceGroup)
 
 #Provide the subscription Id of the subscription where managed disk will be copied to
-targetSubscriptionId=6492b1f7-f219-446b-b509-314e17e1efb0
+$targetSubscriptionId="<TargetsubscriptionId>"
 
 #Name of the resource group where managed disk will be copied to
-targetResourceGroupName=mytargetResourceGroupName
+$targetResourceGroupName="mytargetResourceGroupName"
 
 #Set the context to the subscription Id where managed disk will be copied to
 az account set --subscription $targetSubscriptionId
