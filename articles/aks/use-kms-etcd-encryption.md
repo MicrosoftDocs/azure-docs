@@ -4,7 +4,7 @@ description: Learn how to use Key Management Service (KMS) etcd encryption with 
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 06/19/2024
+ms.date: 06/26/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -191,7 +191,7 @@ After you change the key ID (including changing either the key name or the key v
 > [!WARNING]
 > Remember to update all secrets after key rotation. If you don't update all secrets, the secrets are inaccessible if the keys that were created earlier don't exist or no longer work.
 >
-> After you rotate the key, the previous key (key1) is still cached and shouldn't be deleted. If you want to delete the previous key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without affecting the existing cluster.
+> KMS uses 2 keys at the same time. After the first key rotation, you need to ensure both the old and new keys are valid (not expired) until the next key rotation. After the second key rotation, the oldest key can be safely removed/expired
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
