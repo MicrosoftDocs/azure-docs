@@ -82,7 +82,7 @@ To learn more about how to use index tags to manage and find data using the Azur
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/blob-index-tags/blob-index-tags.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/blob-index-tags/blob_index_tags.go) from this article (GitHub)
 
 ### REST API operations
 
