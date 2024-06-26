@@ -212,7 +212,7 @@ To configure backups for AKS cluster:
 
 ### Backup configurations
 
-Azure Backup for AKS allows you define the application boundary within AKS cluster that you want to backup. You can use the filters that are available within backup configurations to choose the resources to back up and also to run custom hooks. The defined backup configuration are referenced by the value for **Backup Instance Name**. You have below filters available to define your application boundary:
+Azure Backup for AKS allows you to define the application boundary within AKS cluster that you want to back up. You can use the filters that are available within backup configurations to choose the resources to back up and also to run custom hooks. The defined backup configuration is referenced by the value for **Backup Instance Name**. The below filters are available to define your application boundary:
 
 1. **Select Namespaces to backup**, you can either select **All** to back up all existing and future namespaces in the cluster, or you can select **Choose from list** to select specific namespaces for backup.
 
