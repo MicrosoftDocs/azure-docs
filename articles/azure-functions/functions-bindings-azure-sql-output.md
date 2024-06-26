@@ -862,6 +862,8 @@ The following example shows a SQL output binding in a function.json file and a P
 
 # [v2](#tab/python-v2)
 
+The following is sample python code for the function_app.py file:
+
 ```python
 import json
 import logging
@@ -965,6 +967,8 @@ CREATE TABLE dbo.RequestLog (
 ```
 
 # [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
 
 ```python
 from datetime import datetime
