@@ -63,7 +63,7 @@ Then, re-register the `Microsoft.ConfidentialLedger` resource provider as descri
     - **Member Group**: An optional group name.
     - **Certificate**: Paste the contents of the member0_cert.pem file.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen.":::
+   :::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen.":::
 
 1. Select **Review + Create**. After validation has passed, select **Create**.1.
 
