@@ -62,29 +62,29 @@ Increase your prompt accuracy when you have access to multiple Microsoft Sentine
 
 1. Configure the default workspace name.
 
-   :::image type="content" source="media/sentinel-security-copilot/configure-default-sentinel-workspace.png" alt-text="Screenshot of the plugin personlization options for the Microsoft Sentinel plugin.":::
+   :::image type="content" source="media/sentinel-security-copilot/configure-default-sentinel-workspace.png" alt-text="Screenshot of the plugin personalization options for the Microsoft Sentinel plugin.":::
 
-1. When you create prompts designed to access the non-default workspace, specify the workspace ID in your prompt.
+1. When you create prompts designed to access the nondefault workspace, specify the workspace ID in your prompt.
 
    Example prompt:
 
-   *What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?*
+   `*What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?*`
 
 ### Sample prompts
 
 For guidance on writing effective prompts, see [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot). Here are some examples:
 
-- The second part of this prompt nudges Copilot to provide human readable information instead of responding with object ids.
-   *Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.*
+- The second part of this prompt nudges Copilot to provide human readable information instead of responding with object IDs.
+   `*Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.*`
 
 - Copilot knows who you are. 
-   *What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.*
+   `*What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.*`
 
-- When you've narrowed a prompt response down to a single incident, Copilot knows the context.
-   *Tell me about the entities associated with that incident.*
+- When you narrow a prompt response down to a single incident, Copilot knows the context.
+   `*Tell me about the entities associated with that incident.*`
 
-- A useful way to summarize the prompting work you've done.
-   *Write an executive report summarizing this investigation. It should be suited for a non-technical audience.*
+- A useful way to summarize the prompts and responses so far.
+   `*Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.*`
 
 For more information on sample prompts, see [Rod Trent's Copilot for Security GitHub](https://github.com/rod-trent/Copilot-for-Security/blob/main/Prompts/Plugins/Sentinel.md).
 
