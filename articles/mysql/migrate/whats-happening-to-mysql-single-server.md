@@ -7,7 +7,7 @@ ms.reviewer: adig, talawren
 ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: single-server
-ms.topic: migration-guide
+ms.topic: overview
 ms.custom:
   - Single Server deprecation announcement
 ---
