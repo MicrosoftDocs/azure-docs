@@ -59,6 +59,8 @@ Once you start maintenance, your virtual machine will be maintained and the main
 
 If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure.
 
+> [!NOTE]
+> In most cases, scheduled maintenance cannot be delayed; however, by contacting support, Azure will make a best-effort effort to postpone 
 
 ## Next steps
 
