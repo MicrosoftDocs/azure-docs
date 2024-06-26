@@ -348,7 +348,7 @@
 - name: Azure Database for MySQL - Single Server
   items:
   - name: What's happening to Azure Database for MySQL - Single Server?
-    href: single-server/whats-happening-to-mysql-single-server.md
+    href: migrate/whats-happening-to-mysql-single-server.md
     displayName: What's happening to Single Server?
   - name: Overview
     items:
