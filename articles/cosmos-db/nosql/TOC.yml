@@ -75,7 +75,7 @@
       displayName: Python, Scala, Spark, Java, Databricks
     - name: Mirror database to Microsoft Fabric
       displayName: Mirroring, Warehouse, Lighthouse, Fabric
-      href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
 - name: Samples
   items:
     - name: Solution accelerators
@@ -288,7 +288,7 @@
         - name: Analytics overview
           href: analytics.md
         - name: Mirroring in Microsoft Fabric
-          href: /fabric/database/mirrored-database/azure-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
+          href: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Azure Synapse Link
           items:
             - name: Azure Synapse Link for Azure Cosmos DB

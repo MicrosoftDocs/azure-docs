@@ -125,9 +125,9 @@ additionalContent:
             - text: Analytics overview
               url: nosql/analytics.md
             - text: Mirroring in Microsoft Fabric
-              url: /fabric/database/mirrored-database/azure-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
+              url: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
             - text: API for NoSQL mirroring tutorial in Microsoft Fabric
-              url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
+              url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
             - text: Azure Synapse Link for Azure Cosmos DB
               url: synapse-link.md
     - title: Training & certification
