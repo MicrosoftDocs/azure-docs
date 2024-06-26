@@ -58,9 +58,9 @@ To enable Azure Hybrid Benefit when you create a virtual machine, use the follow
 
    ![Screenshot of the Azure portal that shows checkboxes selected for licensing.](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
 1. Create a virtual machine by following the next set of instructions.
-1. On the **Configuration** pane, confirm that the option is enabled.
+1. On the **Operating System** pane, confirm that the option is enabled.
 
-   ![Screenshot of the Azure Hybrid Benefit configuration pane after you create a virtual machine.](./media/azure-hybrid-benefit/create-configuration-blade.png)
+   ![Screenshot of the Azure Hybrid Benefit configuration pane after you create a virtual machine.](./media/azure-hybrid-benefit/azure-hybrid-benefit.png)
 
 #### [Azure CLI](#tab/ahbNewCli)
 
@@ -86,9 +86,9 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 1. Open the virtual machine page on which you want to apply the conversion.
-1. Go to **Configuration** > **Licensing**. To enable the Azure Hybrid Benefit conversion, select **Yes**, and then select the confirmation checkbox.
+1. Go to **Operating System** > **Licensing**. To enable the Azure Hybrid Benefit conversion, select **Yes**, and then select the confirmation checkbox.
 
-![Screenshot of the Azure portal that shows the Licensing section of the configuration page for Azure Hybrid Benefit.](./media/azure-hybrid-benefit/create-configuration-blade.png)
+![Screenshot of the Azure portal that shows the Licensing section of the configuration page for Azure Hybrid Benefit.](./media/azure-hybrid-benefit/azure-hybrid-benefit.png)
 
 #### [Azure CLI](#tab/ahbExistingCli)
 

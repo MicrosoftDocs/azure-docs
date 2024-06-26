@@ -989,6 +989,8 @@ items:
           href: storage-blobs-list-go.md
         - name: Delete and restore blobs
           href: storage-blob-delete-go.md
+        - name: Find blobs using tags
+          href: storage-blob-tags-go.md
         - name: Manage blob properties and metadata
           href: storage-blob-properties-metadata-go.md
       - name: Client library configuration options
