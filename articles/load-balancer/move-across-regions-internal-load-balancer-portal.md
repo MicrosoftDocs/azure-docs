@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-arm-template, engagement-fy23
 
 # Move Azure internal Load Balancer to another region using the Azure portal
 
-There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you can want to create an internal load balancer with the same configuration for testing. You can also want to move an internal load balancer to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you might want to create an internal load balancer with the same configuration for testing. You might also want to move an internal load balancer to another region as part of disaster recovery planning.
 
 Azure internal load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer. You can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region. For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
