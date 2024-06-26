@@ -1,6 +1,6 @@
 ---
-title: How to deploy Azure Education Hub labs through a PowerShell script
-description: This article shows you how to deploy labs in Education Hub through a PowerShell script
+title: Deploy Azure Education Hub labs through a PowerShell script
+description: This article shows you how to deploy labs in Education Hub by using a PowerShell script.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -9,23 +9,23 @@ ms.date: 3/13/2023
 ms.custom: template-how-to
 ---
 
-# Run a script to create lab and call other dependent APIs
+# Run a script to create a lab and call other dependent APIs
 
-With Education Hub's public APIs, you can deploy labs through APIs alone. However, there are a few more APIs that need to be called which are shown in the following PowerShell script.
+With the public APIs in the Azure Education Hub, you can deploy labs through APIs alone. However, there are a few more APIs that you need to call. The PowerShell script in this article includes those APIs.
 
 ## Prerequisites
 
-- Know billing account ID, Billing profile ID, and Invoice Section ID
-- Have an Edu approved Azure account
+- Know your billing account ID, billing profile ID, and invoice section ID.
+- Have an education-approved Azure account.
 
 ## Run the script
 
-Run the script and replace the <> with your information
+Run the following script. Replace the values in angle brackets (`<>`) with your information.
 
 ```ps
 # Requires -Modules Microsoft.Graph.Identity.SignIns, Microsoft.Graph.Users
 
-# this should be the professors tenantId
+# This should be the professor's tenant ID
 $tenantId='<Professor TenantId>'
 
 Connect-AzAccount -TenantId $tenantId
@@ -38,7 +38,7 @@ $authHeader = @{
     'Authorization'='Bearer ' + $token.AccessToken
 }
 
-# Set your billing scope.
+# Set your billing scope
 $billingScope='/billingAccounts/<BillingAccountId>/billingProfiles/<BillingProfileId>/invoiceSections/<InvoiceSectionId>'
 
 # Create a lab
@@ -67,10 +67,10 @@ $studentEmail='<StudentEmail>'
 $studentFname='<StudentFirstName>'
 $studentLName='<StudentLastName>'
 
-# Connect to graph and give the user User.ReadWrite.All permissions if it's not already given
+# Connect to Microsoft Graph and give the user User.ReadWrite.All permissions if it's not already given
 Connect-MgGraph -Scopes User.ReadWrite.All
 
-# Send the invitation, optionally you can check if the user already exists in the tenant using Get-MgUser -Filter "Mail eq '<StudentEmail>'"
+# Send the invitation; optionally, you can check if the user already exists in the tenant by using Get-MgUser -Filter "Mail eq '<StudentEmail>'"
 New-MgInvitation -InvitedUserDisplayName $studentFname+' '+$studentLName -InvitedUserEmailAddress $studentEmail -InviteRedirectUrl "https://aka.ms/startedu" -SendInvitationMessage:$false
 
 
@@ -92,7 +92,7 @@ $createLabUserRequestBody = "{
 $response = Invoke-RestMethod -Uri $createLabUserUri -Method PUT -Headers $authHeader -Body $createLabUserRequestBody
 ConvertTo-Json $response
 
-# send the subscription invite
+# Send the subscription invite
 $subAlias="fddb-5899-abc-127" #should be randomly  generated in the format xxxx-xxxx-xxx-xxx
 $subInviteUri='https://management.azure.com/providers/Microsoft.Subscription/aliases/'+$subAlias+'?api-version=2021-01-01-privatepreview'
 $displayName=$labName+'_'+$studentFname+'_'+$studentLName
@@ -113,7 +113,7 @@ $response = Invoke-RestMethod -Uri $subInviteUri -Method PUT -Headers $authHeade
 ConvertTo-Json $response
 ```
 
-## Next steps
-- [Manage your Academic Grant using the Overview page](hub-overview-page.md)
+## Related content
 
-- [Support options](educator-service-desk.md)
+- [Manage your academic grant by using the Overview page](hub-overview-page.md)
+- [Learn about support options](educator-service-desk.md)

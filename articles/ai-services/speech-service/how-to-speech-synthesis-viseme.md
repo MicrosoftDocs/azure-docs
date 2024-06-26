@@ -241,7 +241,7 @@ Here's an example of the viseme output.
 
 # [2D SVG](#tab/2dsvg)
 
-The SVG output is an xml string that contains the animation.
+The SVG output is an XML string that contains the animation.
 Render the SVG animation along with the synthesized speech to see the mouth movement.
 
 ```xml

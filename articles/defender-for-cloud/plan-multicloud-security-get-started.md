@@ -4,7 +4,7 @@ description: Learn about designing a solution for securing and protecting your m
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.date: 10/03/2022
+ms.date: 05/30/2024
 ---
 
 # Get started

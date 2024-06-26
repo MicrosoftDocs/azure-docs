@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 06/07/2024
 ms.author: rogarana
 ---
 # Introduction to Azure managed disks
@@ -61,7 +61,7 @@ To learn how to transfer your vhd to Azure, see the [CLI](linux/disks-upload-vhd
 
 Private Link support for managed disks can be used to import or export a managed disk internal to your network. Private Links allow you to generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots that you can use to export the data to other regions for regional expansion, disaster recovery, and forensic analysis. You can also use the SAS URI to directly upload a VHD to an empty disk from on-premises. Now you can leverage [Private Links](../private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure virtual network. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network.
 
-To learn how to enable Private Links for importing or exporting a managed disk, see the [CLI](linux/disks-export-import-private-links-cli.md) or [Portal](disks-enable-private-links-for-import-export-portal.md) articles.
+To learn how to enable Private Links for importing or exporting a managed disk, see the [CLI](linux/disks-export-import-private-links-cli.md) or [Portal](disks-enable-private-links-for-import-export-portal.yml) articles.
 
 ### Encryption
 
@@ -89,6 +89,8 @@ There are three main disk roles in Azure: the OS disk, the data disk, and the te
 Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume. Generally, you should only store your OS information on the OS disk, and store all applications, and data on data disks. However, if cost is a concern, you can use the OS disk instead of creating a data disk.
 
 This disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach [data disks](#data-disk) and use them for data storage. If you need to store data on the OS disk and require the additional space, [convert it to GUID Partition Table](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk) (GPT). To learn about the differences between MBR and GPT on Windows deployments, see [Windows and GPT FAQ](/windows-hardware/manufacture/desktop/windows-and-gpt-faq).
+
+On Azure Windows VMs, C: is your OS disk and is persistent storage, unless you're using [Ephemeral OS disks](ephemeral-os-disks.md).
 
 ### Data disk
 
@@ -124,7 +126,7 @@ Managed disks also support creating a managed custom image. You can create an im
 
 For information on creating images, see the following articles:
 
-- [How to capture a managed image of a generalized VM in Azure](windows/capture-image-resource.md)
+- [How to capture a managed image of a generalized VM in Azure](windows/capture-image-resource.yml)
 - [How to generalize and capture a Linux virtual machine using the Azure CLI](linux/capture-image.md)
 
 #### Images versus snapshots

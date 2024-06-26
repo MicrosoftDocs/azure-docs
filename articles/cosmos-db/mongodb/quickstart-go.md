@@ -11,7 +11,7 @@ ms.date: 04/26/2022
 ms.custom: mode-api, devx-track-azurecli, devx-track-go
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >
@@ -330,7 +330,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-account.md#connection-string-requirements).
+> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-account.yml#connection-string-requirements).
 >
 
 For the `MONGODB_CONNECTION_STRING` environment variable, replace the placeholders for `<COSMOSDB_ACCOUNT_NAME>` and `<COSMOSDB_PASSWORD>`

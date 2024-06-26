@@ -1,7 +1,7 @@
 ---
 title: Linter rule - prefer interpolation
 description: Linter rule - prefer interpolation
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---

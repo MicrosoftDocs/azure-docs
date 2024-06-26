@@ -1,6 +1,6 @@
 ---
 title: Device infrastructure and connectivity
-description: An overview of device infrastructure and connectivity in an Azure IoT solution, including gateways and protocols such as MQTT and OPC-UA.
+description: An overview of device infrastructure and connectivity in an Azure IoT solution, including gateways and protocols such as MQTT and OPC UA.
 ms.service: iot
 services: iot
 author: dominicbetts

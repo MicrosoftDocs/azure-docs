@@ -1,12 +1,12 @@
 ---
-title: Translate modbus protocols with gateways - Azure IoT Edge | Microsoft Docs
+title: Translate modbus protocols with gateways - Azure IoT Edge
 description: Allow devices that use Modbus TCP to communicate with Azure IoT Hub by creating an IoT Edge gateway device
 author: PatAltimore
 
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/29/2024
 ms.author: patricka
 ---
 
@@ -46,7 +46,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
 
 4. In the **IoT Edge Modules** section, add the Modbus module:
 
-   1. Click the **Add** dropdown and select **Marketplace Module**.
+   1. Select the **Add** dropdown and select **Marketplace Module**.
    2. Search for `Modbus` and select the **Modbus TCP Module** by Microsoft.
    3. The module is automatically configured for your IoT Hub and appears in the list of IoT Edge Modules. The Routes are also automatically configured. Select **Review + create**.
    4. Review the deployment manifest and select **Create**.

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 3/14/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal

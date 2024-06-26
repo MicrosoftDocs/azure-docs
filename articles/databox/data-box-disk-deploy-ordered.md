@@ -6,15 +6,14 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 04/22/2024
 ms.author: shaas
-# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
 # Doc scores:
-#    10/21/22: 75 (1921/15)
 #    09/24/23: 100 (1996/0)
-
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order an Azure Data Box Disk
 
@@ -64,13 +63,13 @@ Take the following steps to order Data Box Disk.
 
 1. In the upper left corner of the portal, select **+ Create a resource**, and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   :::image type="content" source="media/data-box-disk-deploy-ordered/search-data-box11-sml.png" alt-text="Search Azure Data Box 1" lightbox="media/data-box-disk-deploy-ordered/search-data-box11.png":::
+   :::image type="content" source="media/data-box-disk-deploy-ordered/data-box-import-01.png" alt-text="Screenshot highlighting the location of the Search box while searching for Data Box Disk":::
 
 1. Select **Create**.
 
 1. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
-    :::image type="content" source="media/data-box-disk-deploy-ordered/select-data-box-sku-1-sml.png" alt-text="Select Data Box Disk option" lightbox="media/data-box-disk-deploy-ordered/select-data-box-sku-1.png":::
+    :::image type="content" source="media/data-box-disk-deploy-ordered/data-box-import-03.png" alt-text="Select Data Box Disk option":::
 
     |Setting|Value|
     |---|---|
@@ -82,7 +81,7 @@ Take the following steps to order Data Box Disk.
   
 1. Select **Data Box Disk**. The maximum capacity of the solution for a single order of five disks is 35 TB. You could create multiple orders for larger data sizes.
 
-     :::image type="content" alt-text="Screenshot showing the location of the Data Box Disk option's Select button." source="media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png" lightbox="media/data-box-disk-deploy-ordered/select-data-box-sku-zoom-lrg.png":::
+     :::image type="content" alt-text="Screenshot showing the location of the Data Box Disk option's Select button." source="media/data-box-disk-deploy-ordered/data-box-import-04.png" lightbox="media/data-box-disk-deploy-ordered/data-box-import-04-lrg.png":::
 
 1. In **Order**, specify the **Order details** in the **Basics** tab. Enter or select the following information.
 
@@ -117,11 +116,16 @@ Take the following steps to order Data Box Disk.
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts them into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
 
+    > [!NOTE]
+    > Data Box supports copying only 1 MiB aligned, fixed-size `.vhd` files for creating managed disks. Dynamic VHDs, differencing VHDs, `.vmdk` or `.vhdx` files are not supported.
+    >
+    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
+
 1. Select **Next: Security>** to continue.
 
     The **Security** screen lets you use your own encryption key.
 
-    All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
+    All settings on the **Security** screen are optional. If you don't change any settings, the default settings apply.
 
 1. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -274,7 +278,7 @@ After the order is created, the device is prepared for shipment.
 
 ## Track the order
 
-After you placing the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
+After you place the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
 :::image type="content" alt-text="Data Box Disk status ordered." source="media/data-box-disk-deploy-ordered/data-box-portal-ordered-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-portal-ordered.png":::
 

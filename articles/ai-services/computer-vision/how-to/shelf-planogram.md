@@ -300,4 +300,4 @@ Paired planogram position ID and corresponding detected object from product unde
 ## Next steps
 
 * [Image Analysis overview](../overview-image-analysis.md)
-* [API reference](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/644aba14fb42681ae06f1b0a)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

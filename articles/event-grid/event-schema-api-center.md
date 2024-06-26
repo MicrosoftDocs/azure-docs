@@ -7,9 +7,12 @@ author: dlepow
 ms.author: danlep
 ---
 
-# Azure API Center as an Event Grid source
+# Azure API Center as an Event Grid source (Preview)
 
 This article provides the properties and schema for Azure API Center events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
+
+> [!NOTE]
+> This feature is currently in preview.
 
 ## Available event types
 These events are triggered when a client adds or updates an API definition.

@@ -88,7 +88,7 @@ We updated Azure Health Data Services GitHub samples repo to include a [Te
 [PR #2169](https://github.com/microsoft/fhir-server/pull/2169).
 
 
-- **Fixed: [Conditional Delete](././../healthcare-apis/fhir/fhir-rest-api-capabilities.md#conditional-delete) results in an infinite loop**. See [PR #2269](https://github.com/microsoft/fhir-server/pull/2269).
+- **Fixed: [Conditional Delete](././../healthcare-apis/fhir/rest-api-capabilities.md#conditional-delete) results in an infinite loop**. See [PR #2269](https://github.com/microsoft/fhir-server/pull/2269).
 
 - **Fixed: Resolved 500 error possibly caused by a malformed transaction body in a bundle POST**. We added a check that the URL is populated in the [transaction bundle](././..//healthcare-apis/fhir/fhir-features-supported.md#rest-api) requests. See [PR #2255](https://github.com/microsoft/fhir-server/pull/2255).
 

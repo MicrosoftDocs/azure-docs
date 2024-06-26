@@ -1,16 +1,16 @@
 ---
-title: Use Visual Studio Code extension - Azure API Center
-description: Build, discover, try, and consume APIs from your Azure API center using the API Center extension for Visual Studio Code (preview)
+title: Interact with API inventory using VS Code extension
+description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code.
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 05/17/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use my Visual Studio Code environment to build, discover, try, and consume APIs in my organization's API center.
 ---
 
-# Get started with the Azure API Center extension for Visual Studio Code (preview)
+# Get started with the Azure API Center extension for Visual Studio Code
 
 To build, discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
 
@@ -23,9 +23,6 @@ To build, discover, try, and consume APIs in your [API center](overview.md), you
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
 > [!VIDEO https://www.youtube.com/embed/62X0NALedCc]
-
-> [!NOTE]
-> The API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center).
 
 ## Prerequisites
 
@@ -61,7 +58,7 @@ Register an API in your API center directly from Visual Studio Code, either by r
     * **CI/CD** adds a preconfigured GitHub or Azure DevOps pipeline to your active Visual Studio Code workspace that is run as part of a CI/CD workflow on each commit to source control. It's recommended to inventory APIs with your API center using CI/CD to ensure API metadata including specification and version stay current in your API center as the API continues to evolve over time.
 1. Complete registration steps:
     * For **Step-by-step**, select the API center to register APIs with, and answer prompts with information including API title, type, lifecycle stage, version, and specification to complete API registration.
-    * For **CI/CD**, select either **GitHub** or **Azure DevOps**, depending on your preferred source control mechanism. A Visual Studio Code workspace must be open for the API Center extension to add a pipeline to your workspace. After the file is added, complete steps documented in the CI/CD pipeline file itself to configure Azure Pipeline/GitHub Action environment variables and identity. On push to source control, the API will be registered in your API center.
+    * For **CI/CD**, select either **GitHub** or **Azure DevOps**, depending on your preferred source control mechanism. A Visual Studio Code workspace must be open for the Azure API Center extension to add a pipeline to your workspace. After the file is added, complete steps documented in the CI/CD pipeline file itself to configure Azure Pipeline/GitHub Action environment variables and identity. On push to source control, the API will be registered in your API center.
 
 ## API design conformance
 
@@ -139,7 +136,24 @@ The client is generated.
 
 For details on using the Kiota extension, see [Microsoft Kiota extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota).
 
-  ## Related content
+## Export API specification
+
+You can export an API specification from a definition and then download it as a file.
+
+To export a specification in the extension's tree view:
+
+1. Expand the API Center tree view to show an API definition.    
+1. Right-click on the definition, and select **Export API Specification Document**. A new tab appears that renders an API specification document.
+
+    :::image type="content" source="media/use-vscode-extension/export-specification.png" alt-text="Screenshot of exporting API specification in Visual Studio Code." lightbox="media/use-vscode-extension/export-specification.png":::
+
+You can also export a specification using the Command Palette:
+
+1. Type the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
+1. Select **Azure API Center: Export API Specification Document**.
+1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
+
+## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
-* [Discover APIs with GitHub Copilot Chat and Azure API Center extension for Visual Studio Code](use-vscode-extension-copilot.md)
+

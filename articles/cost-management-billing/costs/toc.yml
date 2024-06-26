@@ -45,6 +45,48 @@
     items:
     - name: Cost Management REST APIs
       href: /rest/api/cost-management/
+    - name: Dataset schema
+      items:
+      - name: Dataset schema index
+        href: ../dataset-schema/schema-index.md
+      - name: Cost and usage details
+        items:
+        - name: Cost and usage details - EA
+          href: ../dataset-schema/cost-usage-details-ea.md
+        - name: Cost and usage details - MCA
+          href: ../dataset-schema/cost-usage-details-mca.md
+        - name: Cost and usage details - MPA
+          href: ../dataset-schema/cost-usage-details-mca-partner.md
+        - name: Cost and usage details - CSP subscription
+          href: ../dataset-schema/cost-usage-details-mca-partner-subscription.md
+        - name: Cost and usage details - pay-as-you-go
+          href: ../dataset-schema/cost-usage-details-pay-as-you-go.md
+        - name: Cost and usage details - FOCUS
+          href: ../dataset-schema/cost-usage-details-focus.md
+      - name: Price sheet
+        items:
+        - name: EA price sheet 
+          href: ../dataset-schema/price-sheet-ea.md
+        - name: MCA price sheet 
+          href: ../dataset-schema/price-sheet-mca.md
+      - name: Reservation details
+        items:
+        - name: EA reservation details
+          href: ../dataset-schema/reservation-details-ea.md
+        - name: MCA reservation details
+          href: ../dataset-schema/reservation-details-mca.md
+      - name: Reservation recommendations
+        items:
+        - name: EA reservation recommendations
+          href: ../dataset-schema/reservation-recommendations-ea.md
+        - name: MCA reservation recommendations
+          href: ../dataset-schema/reservation-recommendations-mca.md
+      - name: Reservation transactions
+        items:
+        - name: EA reservation transactions
+          href: ../dataset-schema/reservation-transactions-ea.md
+        - name: MCA reservation transactions
+          href: ../dataset-schema/reservation-transactions-mca.md
 - name: Pricing and estimation
   items:
   - name: Quickstarts
@@ -280,7 +322,7 @@
     - name: Cost Management REST API
       href: /rest/api/cost-management
     - name: Cost Management REST API samples
-      href: https://github.com/Azure-Samples/Cost-Management-Samples
+      href: https://github.com/Azure-Samples/azure-cost-management-dashboard
     - name: Azure PowerShell cmdlets for Cost Management
       href: /powershell/module/Az.CostManagement
   - name: Resources

@@ -4,7 +4,7 @@ description: In this article, you learn about geographical availability and data
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 06/09/2024
 ms.custom: references_regions
 #Customer intent: As a security operator setting up Microsoft Sentinel, I want to understand where data is stored, so I can meet compliance guidelines.
 ---
@@ -29,6 +29,7 @@ Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explo
 - Microsoft Sentinel processes customer data in one of two locations:
     - If the Log Analytics workspace is located in Europe, customer data is processed in Europe.
     - For all other locations, customer data is processed in the US
+- While Microsoft Sentinel is accessible in both the [Microsoft Defender and Azure portals](microsoft-sentinel-defender-portal.md), Microsoft Sentinel data is stored in Azure regions.
 
 ### Supported regions
 
@@ -36,4 +37,4 @@ Microsoft Sentinel can run on workspaces in the following regions:
 
 |North America  |South America |Asia  |Europe  |Australia  |Africa |
 |---------|---------|---------|---------|---------|---------|
-|**US**<br><br>• Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West<br><br>**Azure government**<br><br>• USGov Arizona<br>• USGov Virginia<br><br>**Canada**<br><br>• Canada Central<br>• Canada East    |• Brazil South<br>• Brazil Southeast |• East Asia<br>• Southeast Asia<br>• Qatar Central<br><br>**Japan**<br><br>• Japan East<br>• Japan West<br><br>**China 21Vianet**<br><br>• China East 2<br><br>**India**<br><br>• Central India<br>• Jio India West<br>• Jio India Central<br><br>**Korea**<br><br>• Korea Central<br>• Korea South<br><br>**UAE**<br><br>• UAE Central<br>• UAE North         |• North Europe<br>• West Europe<br><br>**France**<br><br>• France Central<br>• France South<br><br>**Germany**<br><br>• Germany West Central<br><br>**Italy**<br><br>• Italy North<br><br>**Norway**<br><br>• Norway East<br>• Norway West<br><br>**Sweden**<br><br>• Sweden Central <br><br>**Switzerland**<br><br>• Switzerland North<br>• Switzerland West<br><br>**UK**<br><br>• UK South<br>• UK West	       |• Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	         |• South Africa North	 |
+|**US**<br><br>• Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West<br><br>**Azure government**<br><br>• USGov Arizona<br>• USGov Virginia<br><br>**Canada**<br><br>• Canada Central<br>• Canada East    |• Brazil South<br>• Brazil Southeast |• East Asia<br>• Southeast Asia<br>• Qatar Central<br><br>**Japan**<br><br>• Japan East<br>• Japan West<br><br>**China 21Vianet**<br><br>• China East 2<br>• China North 3<br><br>**India**<br><br>• Central India<br>• Jio India West<br>• Jio India Central<br><br>**Korea**<br><br>• Korea Central<br>• Korea South<br><br>**UAE**<br><br>• UAE Central<br>• UAE North         |• North Europe<br>• West Europe<br><br>**France**<br><br>• France Central<br>• France South<br><br>**Germany**<br><br>• Germany West Central<br><br>**Italy**<br><br>• Italy North<br><br>**Norway**<br><br>• Norway East<br>• Norway West<br><br>**Sweden**<br><br>• Sweden Central <br><br>**Switzerland**<br><br>• Switzerland North<br>• Switzerland West<br><br>**UK**<br><br>• UK South<br>• UK West	       |• Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	         |• South Africa North	 |

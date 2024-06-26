@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 06/13/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -61,7 +61,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
-## API Center (preview) limits
+## API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
@@ -85,7 +85,6 @@ This section provides information about limits that apply to Azure API Managemen
 
 [!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
 
-
 ## App Service limits
 
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
@@ -101,7 +100,6 @@ This section provides information about limits that apply to Azure API Managemen
 ## Azure Cache for Redis limits
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
-
 
 ## Azure Cloud Services limits
 
@@ -564,6 +562,10 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+## Virtual Network Manager limits
+
+[!INCLUDE [virtual-network-manager-limits](../../../includes/azure-virtual-network-manager-limits.md)]
 
 ## Dev tunnels limits
 

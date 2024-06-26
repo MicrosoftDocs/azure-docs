@@ -2,7 +2,7 @@
 title: Configure CI/CD with Azure Pipelines
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with Azure Pipelines.
 ms.topic: article
-ms.date: 12/13/2023
+ms.date: 06/04/2024
 ms.author: jukullam
 ms.manager: mijacobs
 ms.custom: "devops-pipelines-deploy"
@@ -13,6 +13,8 @@ author: cephalin
 # Deploy to App Service using Azure Pipelines
 
 **Azure DevOps Services | Azure DevOps Server 2020 | Azure DevOps Server 2019**
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web app to [Azure App Service](./overview.md) on every successful build. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 
@@ -89,8 +91,6 @@ To get started:
       buildConfiguration: 'Release'
     
     steps:
-    - script: dotnet build --configuration $(buildConfiguration)
-      displayName: 'dotnet build $(buildConfiguration)'
     - task: DotNetCoreCLI@2
       inputs:
         command: 'publish'
@@ -138,8 +138,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
@@ -388,8 +386,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'

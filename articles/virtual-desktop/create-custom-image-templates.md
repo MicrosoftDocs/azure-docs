@@ -25,6 +25,7 @@ Before you can create a custom image template, you need to meet the following pr
    - Microsoft.Compute
    - Microsoft.Network
    - Microsoft.KeyVault
+   - Microsoft.ContainerInstance
 
 - A resource group to store custom image templates, and images. If you specify your own resource group for Azure Image Builder to use, then it needs to be empty before the image build starts.
 
@@ -42,7 +43,7 @@ Before you can create a custom image template, you need to meet the following pr
    "Microsoft.Compute/images/delete"
    ```
 
-- [Assign the custom role to the managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md#user-assigned-managed-identity). This should be scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
+- [Assign the custom role to the managed identity](../role-based-access-control/role-assignments-portal-managed-identity.yml#user-assigned-managed-identity). This should be scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
 
 - *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](../virtual-machines/create-gallery.md), then [create a VM image definition](../virtual-machines/image-version.md). When you create a VM image definition in the gallery you need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
 
@@ -77,7 +78,7 @@ To create a custom image using the Azure portal:
 
    Once you've completed this tab, select **Next**.
 
-1. On the **Source image** tab, for **Source type** select the source of your template from one of the options, then complete the other fields for that source type:
+1. On the **Source image** tab, for **Source type** select the source of your template from one of the options, then complete the other fields for that source type. Confidential VM and Trusted Launch support is inherited from Azure VM Image Builder. For more information, see [Confidential VM and Trusted Launch support](../virtual-machines/image-builder-overview.md#confidential-vm-and-trusted-launch-support).
 
    - **Platform image (marketplace)** provides a list of the available images in the Azure Marketplace for Azure Virtual Desktop.
 
@@ -165,7 +166,9 @@ To create a custom image using the Azure portal:
 1. On the **Review and create** tab, review the information that is used during deployment, then select **Create**.
 
 > [!TIP]
-> The new template may take about 20 seconds to appear. From **Custom images templates**, select **Refresh** to check the status.
+> - The new template may take about 20 seconds to appear. From **Custom images templates**, select **Refresh** to check the status.
+>
+> - Removing or uninstalling the Microsoft Store app isn't supported. Learn how to [Configure access to the Microsoft Store](/windows/configuration/stop-employees-from-using-microsoft-store).
 
 ### Build the image
 

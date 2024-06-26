@@ -1,12 +1,13 @@
 ---
 title: Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
 description: Learn about reserved compute pricing and how to purchase Azure Database for PostgreSQL flexible server reserved capacity.
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: sunila
-author: sunilagarwal
-ms.date: 02/03/2024
 ---
 
 # Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
@@ -29,6 +30,8 @@ A reservation doesn't cover software, networking, or storage charges associated 
 
 > [!IMPORTANT]
 > Reserved capacity pricing is available for [Azure Database for PostgreSQL single server](../single-server/overview-single-server.md) and [Azure Database for PostgreSQL flexible server](overview.md) deployment options.
+
+> Starting July 1st, 2024, new reservations will not be available for Azure Database for PostgreSQL single server. Your existing single server reservations remain valid, and you can still purchase reservations for Azure Database for PostgreSQL flexible server.
 
 You can buy Azure Database for PostgreSQL flexible server reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 

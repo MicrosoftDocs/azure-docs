@@ -1,7 +1,7 @@
 ---
 ms.service: hdinsight
 ms.topic: include
-ms.date: 04/15/2019
+ms.date: 05/23/2024
 ---
 ## Additional SDK functionality
 

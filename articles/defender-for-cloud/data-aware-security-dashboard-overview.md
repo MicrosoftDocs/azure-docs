@@ -1,6 +1,6 @@
 ---
-title: The data-aware security dashboard
-description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud.
+title: The data security posture management dashboard
+description: Learn about the capabilities and functions of the data security posture management view in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 02/11/2024
 ---
@@ -88,13 +88,7 @@ You can select the **Manage data sensitivity settings** to get to the **Data sen
 
 :::image type="content" source="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png" alt-text="Screenshot that shows where to access managing data sensitivity settings." lightbox="media/data-aware-security-dashboard/manage-security-sensitivity-settings.png":::
 
-### Data resources security status
-
-**Sensitive resources status over time** - displays how data security evolves over time with a graph that shows the number of sensitive resources affected by alerts, attack paths, and recommendations within a defined period (last 30, 14, or 7 days).
-
-:::image type="content" source="media/data-aware-security-dashboard/data-resources-security-status.png" alt-text="Screenshot that shows the data resources security status section of the data security view." lightbox="media/data-aware-security-dashboard/data-resources-security-status.png":::
-
 ## Next steps
 
-- Learn more about [data-aware security posture](concept-data-security-posture.md).
+- Learn more about [data security posture management](concept-data-security-posture.md).
 - Learn how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).

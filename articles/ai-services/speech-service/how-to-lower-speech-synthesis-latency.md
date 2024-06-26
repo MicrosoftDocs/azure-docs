@@ -318,6 +318,73 @@ For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
+## Text streaming
+
+Text streaming allows real-time text processing for rapid audio generation. It's perfect for dynamic text vocalization, such as reading outputs from AI models like GPT in real-time. This feature minimizes latency and improves the fluidity and responsiveness of audio outputs, making it ideal for interactive applications, live events, and responsive AI-driven dialogues.
+
+### How to use text streaming
+
+To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
+
+::: zone pivot="programming-language-csharp"
+
+See the sample code for setting the endpoint:
+
+```csharp
+// IMPORTANT: MUST use the websocket v2 endpoint
+var ttsEndpoint = $"wss://{Environment.GetEnvironmentVariable("AZURE_TTS_REGION")}.tts.speech.microsoft.com/cognitiveservices/websocket/v2";
+var speechConfig = SpeechConfig.FromEndpoint(
+    new Uri(ttsEndpoint),
+    Environment.GetEnvironmentVariable("AZURE_TTS_API_KEY"));
+```
+
+#### Key steps
+
+1. **Create a text stream request**: Use `SpeechSynthesisRequestInputType.TextStream` to initiate a text stream.
+1. **Set global properties**: Adjust settings such as output format and voice name directly, as the feature handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them. OpenAI text to speech voices aren't supported by the text streaming feature. See this [language table](language-support.md?tabs=tts#supported-languages) for full language support. 
+
+    ```csharp
+    // Set output format
+    speechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Raw24Khz16BitMonoPcm);
+
+    // Set a voice name
+    SpeechConfig.SetProperty(PropertyId.SpeechServiceConnection_SynthVoice, "en-US-AvaMultilingualNeural");
+    ```
+   
+1. **Stream your text**: For each text chunk generated from a GPT model, use `request.InputStream.Write(text);` to send the text to the stream.
+1. **Close the stream**: Once the GPT model completes its output, close the stream using `request.InputStream.Close();`.
+
+For detailed implementation, see the [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+See the sample code for setting the endpoint:
+
+```python
+# IMPORTANT: MUST use the websocket v2 endpoint
+speech_config = speechsdk.SpeechConfig(endpoint=f"wss://{os.getenv('AZURE_TTS_REGION')}.tts.speech.microsoft.com/cognitiveservices/websocket/v2",
+                                       subscription=os.getenv("AZURE_TTS_API_KEY"))
+```
+
+#### Key steps
+
+1. **Create a text stream request**: Use `speechsdk.SpeechSynthesisRequestInputType.TextStream` to initiate a text stream.
+1. **Set global properties**: Adjust settings such as output format and voice name directly, as the feature handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them. OpenAI text to speech voices aren't supported by the text streaming feature. See this [language table](language-support.md?tabs=tts#supported-languages) for full language support. 
+
+    ```python
+    # set a voice name
+    speech_config.speech_synthesis_voice_name = "en-US-AvaMultilingualNeural"
+    ```
+   
+1. **Stream your text**: For each text chunk generated from a GPT model, use `request.input_stream.write(text)` to send the text to the stream.
+1. **Close the stream**: Once the GPT model completes its output, close the stream using `request.input_stream.close()`.
+
+For detailed implementation, see the [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream).
+
+::: zone-end
+
 ## Others tips
 
 ### Cache CRL files

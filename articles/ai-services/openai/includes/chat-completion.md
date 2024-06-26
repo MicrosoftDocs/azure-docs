@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 04/05/2024
+ms.date: 04/25/2024
 manager: nitinme
 keywords: ChatGPT
 
@@ -363,11 +363,11 @@ while True:
 
 ---
 
-When you run the preceding code, you get a blank console window. Enter your first question in the window and then select the Enter key. After the response is returned, you can repeat the process and keep asking questions.
+When you run the preceding code, you get a blank console window. Enter your first question in the window and then select the `Enter` key. After the response is returned, you can repeat the process and keep asking questions.
 
 ## Manage conversations
 
-The previous example runs until you hit the model's token limit. With each question asked and answer received, the `messages` list grows in size. The token limit for `gpt-35-turbo` is 4,096 tokens. The token limits for `gpt-4` and `gpt-4-32k` are 8,192 and 32,768, respectively. These limits include the token count from both the message list sent and the model response. The number of tokens in the messages list combined with the value of the `max_tokens` parameter must stay under these limits or you receive an error.
+The previous example runs until you hit the model's token limit. With each question asked, and answer received, the `messages` list grows in size. The token limit for `gpt-35-turbo` is 4,096 tokens. The token limits for `gpt-4` and `gpt-4-32k` are 8,192 and 32,768, respectively. These limits include the token count from both the message list sent and the model response. The number of tokens in the messages list combined with the value of the `max_tokens` parameter must stay under these limits or you receive an error.
 
 It's your responsibility to ensure that the prompt and completion fall within the token limit. For longer conversations, you need to keep track of the token count and only send the model a prompt that falls within the limit.
 
@@ -425,7 +425,7 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0613"):
         return num_tokens_from_messages(messages, model="gpt-4-0613")
     else:
         raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+            f"""num_tokens_from_messages() is not implemented for model {model}."""
         )
     num_tokens = 0
     for message in messages:
@@ -547,13 +547,19 @@ The token counting portion of the code demonstrated previously is a simplified v
 
 Here's a troubleshooting tip.
 
-### Don't use ChatML syntax with the chat completion endpoint
+### Don't use ChatML syntax or special tokens with the chat completion endpoint
 
-Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model. This model is [slated for retirement](../concepts/model-retirements.md). If you attempt to use ChatML syntax with newer models and the chat completion endpoint, it can result in errors and unexpected model response behavior. We don't recommend this use.
+Some customers try to use the [legacy ChatML syntax](../how-to/chat-markup-language.md) with the chat completion endpoints and newer models. ChatML was a preview capability that only worked with the legacy completions endpoint with the `gpt-35-turbo` version 0301 model. This model is [slated for retirement](../concepts/model-retirements.md). If you attempt to use ChatML syntax with newer models and the chat completion endpoint, it can result in errors and unexpected model response behavior. We don't recommend this use. This same issue can occur when using common special tokens.
 
-| Error |Cause | Solution |
+| Error Code | Error Message | Solution |
 |---|---|---|
-| 400 - "Failed to generate output due to special tokens in the input." | Your prompt contains legacy ChatML tokens not recognized or supported by the model/endpoint. | Ensure that your prompt/messages array doesn't contain any legacy ChatML tokens. If you're upgrading from a legacy model, exclude all special tokens before you submit an API request to the model.|
+| 400 | 400 - "Failed to generate output due to special tokens in the input." | Your prompt contains special tokens or legacy ChatML tokens not recognized or supported by the model/endpoint. Ensure that your prompt/messages array doesn't contain any legacy ChatML tokens/special tokens. If you're upgrading from a legacy model, exclude all special tokens before you submit an API request to the model.|
+
+### Failed to create completion as the model generated invalid Unicode output
+
+| Error Code | Error Message | Workaround |
+|---|---|---|
+| 500 | 500 - InternalServerError: Error code: 500 - {'error': {'message': 'Failed to create completion as the model generated invalid Unicode output}}. | You can minimize the occurrence of these errors by reducing the temperature of your prompts to less than 1 and ensuring you're using a client with retry logic. Reattempting the request often results in a successful response. |
 
 ## Next steps
 

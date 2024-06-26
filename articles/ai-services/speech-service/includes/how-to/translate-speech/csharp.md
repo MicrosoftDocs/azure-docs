@@ -197,6 +197,64 @@ static async Task TranslateSpeechAsync()
 
 For more information about speech to text, see [the basics of speech recognition](../../../get-started-speech-to-text.md).
 
+## Event based translation
+
+The `TranslationRecognizer` object exposes a `Recognizing` event. The event fires several times and provides a mechanism to retrieve the intermediate translation results. 
+
+> [!NOTE]
+> Intermediate translation results aren't available when you use [multi-lingual speech translation](#multi-lingual-speech-translation-without-source-language-candidates).
+
+The following example prints the intermediate translation results to the console:
+
+```csharp
+using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav"))
+{
+    using (var translationRecognizer = new TranslationRecognizer(config, audioInput))
+    {
+        // Subscribes to events.
+        translationRecognizer.Recognizing += (s, e) =>
+        {
+            Console.WriteLine($"RECOGNIZING in '{fromLanguage}': Text={e.Result.Text}");
+            foreach (var element in e.Result.Translations)
+            {
+                Console.WriteLine($"    TRANSLATING into '{element.Key}': {element.Value}");
+            }
+        };
+
+        translationRecognizer.Recognized += (s, e) => {
+            if (e.Result.Reason == ResultReason.TranslatedSpeech)
+            {
+                Console.WriteLine($"RECOGNIZED in '{fromLanguage}': Text={e.Result.Text}");
+                foreach (var element in e.Result.Translations)
+                {
+                    Console.WriteLine($"    TRANSLATED into '{element.Key}': {element.Value}");
+                }
+            }
+            else if (e.Result.Reason == ResultReason.RecognizedSpeech)
+            {
+                Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}");
+                Console.WriteLine($"    Speech not translated.");
+            }
+            else if (e.Result.Reason == ResultReason.NoMatch)
+            {
+                Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+            }
+        };
+
+        // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
+        Console.WriteLine("Start translation...");
+        await translationRecognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+
+        // Waits for completion.
+        // Use Task.WaitAny to keep the task rooted.
+        Task.WaitAny(new[] { stopTranslation.Task });
+
+        // Stops translation.
+        await translationRecognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+    }
+}
+```
+
 ## Synthesize translations
 
 After a successful speech recognition and translation, the result contains all the translations in a dictionary. The [`Translations`][translations] dictionary key is the target translation language, and the value is the translated text. Recognized speech can be translated and then synthesized in a different language (speech-to-speech).
@@ -314,10 +372,60 @@ The following example anticipates that `en-US` or `zh-CN` should be detected bec
 speechTranslationConfig.AddTargetLanguage("de");
 speechTranslationConfig.AddTargetLanguage("fr");
 var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "zh-CN" });
-var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, autoDetectSourceLanguageConfig, audioConfig)
+var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, autoDetectSourceLanguageConfig, audioConfig);
 ```
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-csharp#run-speech-translation).
+
+
+## Multi-lingual speech translation without source language candidates 
+
+Multi-lingual speech translation implements a new level of speech translation technology that unlocks various capabilities, including having no specified input language, and handling language switches within the same session. These features enable a new level of speech translation powers that can be implemented into your products.
+
+Currently when you use Language ID with speech translation, you must create the `SpeechTranslationConfig` object from the v2 endpoint. Replace the string "YourServiceRegion" with your Speech resource region (such as "westus"). Replace "YourSubscriptionKey" with your Speech resource key.
+
+```csharp
+var v2EndpointInString = String.Format("wss://{0}.stt.speech.microsoft.com/speech/universal/v2", "YourServiceRegion");
+var v2EndpointUrl = new Uri(v2EndpointInString);
+var speechTranslationConfig = SpeechTranslationConfig.FromEndpoint(v2EndpointUrl, "YourSubscriptionKey");
+```
+
+Specify the translation target languages. Replace with languages of your choice. You can add more lines.
+```csharp
+config.AddTargetLanguage("de");
+config.AddTargetLanguage("fr");
+```
+
+A key differentiator with multi-lingual speech translation is that you do not need to specify the source language. This is because the service will automatically detect the source language. Create the `AutoDetectSourceLanguageConfig` object with the `fromOpenRange` method to let the service know that you want to use multi-lingual speech translation with no specified source language. 
+
+```csharp
+AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.fromOpenRange(); 
+var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, autoDetectSourceLanguageConfig, audioConfig);
+```
+
+For a complete code sample with the Speech SDK, see [speech translation samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs#L472).
+
+## Using custom translation in speech translation
+The custom translation feature in speech translation seamlessly integrates with the Azure Custom Translation service, allowing you to achieve more accurate and tailored translations. As the integration directly harnesses the capabilities of the Azure custom translation service, you need to use a multi-service resource to ensure the correct functioning of the complete set of features. For detailed instructions, please consult the guide on [Create a multi-service resource for Azure AI services](/azure/ai-services/multi-service-resource?tabs=windows&pivots=azportal).
+
+Additionally, for offline training of a custom translator and obtaining a "Category ID," please refer to the step-by-step script provided in the [Quickstart: Build, deploy, and use a custom model - Custom Translator](/azure/ai-services/translator/custom-translator/quickstart).
+
+```csharp
+// Creates an instance of a translation recognizer using speech translation configuration
+// You should use the same subscription key, which you used to generate the custom model before.
+// V2 endpoint is required for the “Custom Translation” feature. Example: "wss://westcentralus.stt.speech.microsoft.com/speech/universal/v2"
+
+try (SpeechTranslationConfig config = SpeechTranslationConfig.fromEndpoint(URI.create(endpointUrl), speechSubscriptionKey)) {
+
+            // Sets source and target language(s).
+           ….
+
+            // Set the category id
+            config.setCustomModelCategoryId("yourCategoryId");
+
+       ….
+}
+```
 
 [speechtranslationconfig]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig
 [audioconfig]: /dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig

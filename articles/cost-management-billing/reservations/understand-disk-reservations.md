@@ -49,7 +49,7 @@ Suppose that in a given hour within your reservation period, you want to use a t
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Reduce costs with Azure Disks Reservation](../../virtual-machines/disks-reserved-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)

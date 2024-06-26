@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: optimization-insights
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 03/05/2024
+ms.date: 06/25/2024
 ms.reviewer: ryankahng
 ---
 
@@ -79,5 +79,5 @@ You can also view a graph depicting a specific performance issue's impact and th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Troubleshoot Code Optimizations](/troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting)
+> [Troubleshoot Code Optimizations](./code-optimizations-troubleshoot.md)
 
