@@ -167,7 +167,7 @@ To create and apply resource modification, follow these steps:
 
 ### JSON patch
 
-This *configmap* applies the JSON patch to all the deployments in the namespaces by default and ``nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to *12* for all such deployments.
+This *configmap* applies the JSON patch to all the deployments in the namespaces by default and `nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to *12* for all such deployments.
 
 
 ```json
