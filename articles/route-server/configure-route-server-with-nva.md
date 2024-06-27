@@ -137,7 +137,7 @@ To create an NVA for this tutorial, deploy a Windows Server virtual machine, and
     | Select inbound ports | Select **RDP (3389)**. |
 
 > [!CAUTION]
-> Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../articles/bastion/bastion-overview.md?toc=/azure/network-watcher/toc.json) to securely connect to your virtual machine from the Azure portal.
+> Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md?toc=/azure/route-server/toc.json) to securely connect to your virtual machine from the Azure portal.
 
 1. Select **Review + create** and then **Create** after validation passes.
 
