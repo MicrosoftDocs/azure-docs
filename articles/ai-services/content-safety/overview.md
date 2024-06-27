@@ -121,7 +121,7 @@ See the following list for the input requirements for each feature.
   - Maximum text and query length: 7,500 characters.
 - **Protected material detection (preview)**: 
   - Default maximum length: 1K characters.
-  - Minimum length: 111 characters (for scanning LLM completions, not user prompts).
+  - Default minimum length: 110 characters (for scanning LLM completions, not user prompts).
 
 
 ### Language support
