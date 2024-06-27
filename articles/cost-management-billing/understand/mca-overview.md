@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 06/27/20234
 ms.author: banders
 ---
 
@@ -34,6 +34,8 @@ A billing profile is automatically created for your billing account. It contains
 
 Roles on the billing profiles have permissions to view and manage invoices and payment methods. Assign these roles to users who pay invoices like members of the accounting team in your organization. For more information, see [billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
+> [!NOTE]
+> If you bought Azure through a Cloud Solution Provider (CSP), you might see a billing profile with a tooltip showing that its a billing profile for purchases made through your partner. Your CSP partner is responsible for all related management activities.
 
 ### Each billing profile gets a monthly invoice
 
