@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Database for MySQL - Flexible Server?
     href: flexible-server/overview.md
+  - name: What's happening to Single Server?
+    href: migrate/whats-happening-to-mysql-single-server.md
   - name: Select the right deployment type
     href: select-right-deployment-type.md
   - name: Try for free
@@ -13,7 +15,6 @@
     href: flexible-server/concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
-    displayName: version policy
   - name: Supported versions
     href: flexible-server/concepts-supported-versions.md
 
@@ -347,9 +348,6 @@
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Azure Database for MySQL - Single Server
   items:
-  - name: What's happening to Azure Database for MySQL - Single Server?
-    href: migrate/whats-happening-to-mysql-single-server.md
-    displayName: What's happening to Single Server?
   - name: Overview
     items:
     - name: What is Azure Database for MySQL - Single Server?
