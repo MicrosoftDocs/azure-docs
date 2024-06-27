@@ -185,7 +185,7 @@ You can:
 The error message is as follows:
 
 ````bash
-AMLArc failed to connect to the cluster, reason: Unauthorized.
+Request to Kubernetes cluster unauthorized.
 ````
 
 This error should only occur in TA-enabled cluster, means the access token has expired during the deployment.
