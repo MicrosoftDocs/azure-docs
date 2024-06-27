@@ -102,7 +102,7 @@ If you are new to Azure Resource Manager templates and would like to try it, you
 
 You may use the Azure Cloud Shell in the browser, or Install Azure CLI on your own computer to run the code blocks in this tutorial.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ```azurecli-interactive
 az login

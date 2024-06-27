@@ -62,7 +62,7 @@ By default, this template creates a Bastion deployment with a resource group, a 
 ## Deploy the template
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 In this section, you deploy Bastion by using the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion directly from your VM.
 

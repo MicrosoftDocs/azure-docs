@@ -10,7 +10,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query. Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is saved to the individuals portal profile and isn't visible to others. A shared query is a Resource Manager object that can be shared with others through permissions and role-based access. A shared query provides common and consistent execution of resource discovery.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

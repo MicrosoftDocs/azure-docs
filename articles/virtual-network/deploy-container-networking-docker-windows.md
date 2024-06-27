@@ -18,11 +18,11 @@ The Azure CNI plugin enables per container/pod networking for stand-alone docker
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 It can take a few minutes for the network and Bastion host to deploy. Continue with the next steps when the deployment is complete or the virtual network creation is complete.
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+[!INCLUDE [create-test-virtual-machine.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine.md)]
 
 ## Add IP configuration
 
@@ -228,7 +228,7 @@ The script that creates the containers with the Azure CNI plugin requires the ap
 
 1. Exit the container and close the Bastion connection to **vm-1**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 
