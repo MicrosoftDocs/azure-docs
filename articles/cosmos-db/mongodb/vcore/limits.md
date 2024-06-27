@@ -104,6 +104,7 @@ The following limitations can be overidden by upgrading a paid tier
 - HNSW vector indexes not supported (available in M40+)
 - Diagnostic logging not supported (available in M30+)
 - No service-level-agreement provided (requires HA to be enabled)
+- Free tier clusters are paused after 60 days of inactivity where there are no connections to the cluster.
 
 ## Collection, Index, and Database Limits
 
