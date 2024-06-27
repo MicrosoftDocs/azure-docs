@@ -4,7 +4,7 @@ description: How to migrate from the metrics API to the getBatch API
 author: EdB-MSFT
 services: azure-monitor
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 06/27/2024
 ms.author: edbaynash
 ms.reviewer: priyamishra
 
