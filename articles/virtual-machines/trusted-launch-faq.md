@@ -50,7 +50,7 @@ You can use the `securityType` parameter with the `Standard` value to disable Tr
 > [!NOTE]
 > We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
 
-### [Azure portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
 
