@@ -443,7 +443,7 @@ The **init.py** file commences by initiating the loading of environment variable
 The LLM prompt initially began with the simple statement "You are a helpful and friendly travel assistant for a cruise company." However, through testing, it was determined that more consistent results could be obtained by including the instruction "Answer travel questions to the best of your ability, providing only relevant information. To book a cruise, capturing the person's name is essential." The results are presented in HTML format to enhance the visual appeal within the web interface.
 
 #### Agent Tools
-[Tools](#common-features-of-ai-agents) are interfaces that an agent can use to interact with the world, often done through function calling.
+[Tools](#what-are-ai-agents) are interfaces that an agent can use to interact with the world, often done through function calling.
 
 When creating an agent, it is essential to furnish it with a set of tools that it can utilize. The ```@tool``` decorator offers the most straightforward approach to defining a custom tool. By default, the decorator uses the function name as the tool name, although this can be replaced by providing a string as the first argument. Moreover, the decorator will utilize the function's docstring as the tool's description, thus requiring the provision of a docstring.
 
