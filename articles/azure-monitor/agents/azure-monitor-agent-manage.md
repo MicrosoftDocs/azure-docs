@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Monitor Agent
+title: Install and manage Azure Monitor Agent
 description: Options for managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
 ms.topic: conceptual
 author: guywi-ms
@@ -10,7 +10,7 @@ ms.reviewer: jeffwo
 
 ---
 
-# Manage Azure Monitor Agent
+# Install and manage Azure Monitor Agent
 
 This article details the different methods to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md) on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. 
 
