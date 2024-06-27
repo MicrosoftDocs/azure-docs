@@ -4,7 +4,7 @@ description: Learn how to use Key Management Service (KMS) etcd encryption with 
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 05/24/2024
+ms.date: 06/26/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -36,7 +36,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Deleting the key, the key vault, or the associated identity isn't supported.
 * KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy must be set before the feature is turned on. System-assigned managed identity isn't available until after the cluster is created. Consider the cycle dependency.
-* Azure Key Vault with a firewall to allow public access isn't supported because it blocks traffic from the KMS plugin to the key vault.
+* Azure Key Vault with a firewall setting "allow public access from specific virtual networks and IP addresses" or "disable public access" isn't supported because it blocks traffic from the KMS plugin to the key vault.
 * The maximum number of secrets that are supported by a cluster that has KMS turned on is 2,000. However, it's important to note that [KMS v2][kms-v2-support] isn't limited by this restriction and can handle a higher number of secrets.
 * Bring your own (BYO) Azure key vault from another tenant isn't supported.
 * With KMS turned on, you can't change the associated key vault mode (public versus private). To [update a key vault mode][update-a-key-vault-mode], you must first turn off KMS, and then turn it on again.
@@ -191,7 +191,7 @@ After you change the key ID (including changing either the key name or the key v
 > [!WARNING]
 > Remember to update all secrets after key rotation. If you don't update all secrets, the secrets are inaccessible if the keys that were created earlier don't exist or no longer work.
 >
-> After you rotate the key, the previous key (key1) is still cached and shouldn't be deleted. If you want to delete the previous key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without affecting the existing cluster.
+> KMS uses 2 keys at the same time. After the first key rotation, you need to ensure both the old and new keys are valid (not expired) until the next key rotation. After the second key rotation, the oldest key can be safely removed/expired
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
@@ -336,7 +336,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 > [!NOTE]
 > To change a different key vault with a different mode (whether public or private), you can run `az aks update` directly. To change the mode of an attached key vault, you must first turn off KMS, and then turn it on again by using the new key vault IDs.
 
-The following sections describe how to migrate an attached public key vault to private mode.
+The following sections describe how to migrate an attached public key vault to private mode.  These steps can also be used for migrating from private to public.
 
 ### Turn off KMS on the cluster
 
@@ -353,6 +353,8 @@ Update the key vault from public to private:
 ```azurecli-interactive
 az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disabled
 ```
+
+To migrate from private to public set `--public-network-access` to `Enabled` in the command above.
 
 ### Turn on KMS for the cluster by using the updated key vault
 
@@ -445,6 +447,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [turn-on-kms-for-a-public-key-vault]: #turn-on-kms-for-a-public-key-vault
+[azure-keyvault-firewall]:../key-vault/general/how-to-azure-key-vault-network-security.md
 [turn-on-kms-for-a-private-key-vault]: #turn-on-kms-for-a-private-key-vault
 [update-a-key-vault-mode]: #update-a-key-vault-mode
 [api-server-vnet-integration]: api-server-vnet-integration.md

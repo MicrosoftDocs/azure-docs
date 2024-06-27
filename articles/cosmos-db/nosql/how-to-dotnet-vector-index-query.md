@@ -30,7 +30,7 @@ Vector search in Azure Cosmos DB for NoSQL is currently a preview feature. You'r
 - An existing Azure Cosmos DB for NoSQL account.
   - If you don't have an Azure subscription, [Try Azure Cosmos DB for NoSQL free](https://cosmos.azure.com/try/).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for NoSQL account](how-to-create-account.md).
-- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK.
+- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK preview (3.41.0-preview.0)
 
 ## Registering for the preview
 Vector search for Azure Cosmos DB for NoSQL requires preview feature registration. Follow the below steps to register: 

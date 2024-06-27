@@ -35,7 +35,7 @@ Some of these features require you to install additional components to customize
 
 ## Instructions
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 1.  Download and install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 

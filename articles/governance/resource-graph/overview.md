@@ -1,17 +1,14 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 05/08/2024
+ms.date: 06/18/2024
 ms.topic: overview
 ms.custom: devx-track-arm-template
 ---
 
 # What is Azure Resource Graph?
 
-Azure Resource Graph is an Azure service designed to extend Azure Resource Management by
-providing efficient and performant resource exploration with the ability to query at scale across a
-given set of subscriptions so that you can effectively govern your environment. These queries
-provide the following abilities:
+Azure Resource Graph is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration. Resource Graph has the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. These queries provide the following abilities:
 
 - Query resources with complex filtering, grouping, and sorting by resource properties.
 - Explore resources iteratively based on governance requirements.
@@ -25,7 +22,7 @@ In this documentation, you review each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## How Resource Graph complements Azure Resource Manager
 
@@ -61,7 +58,7 @@ With Azure Resource Graph, you can:
 
 ## How Resource Graph is kept current
 
-When an Azure resource is updated, Azure Resource Manager notifies Azure Resource Graph about the change. Azure Resource Graph then updates its database. Azure Resource Graph also does a regular _full scan_. This scan ensures that Azure Resource Graph data is current if there are missed notifications or when a resource is updated outside of Azure Resource Manager.
+When an Azure resource is updated, Azure Resource Manager notifies Azure Resource Graph about the change. Azure Resource Graph then updates its database. Azure Resource Graph also does a regular _full scan_. This scan ensures that Azure Resource Graph data is current if there are missed notifications. Or when a resource is updated outside of Azure Resource Manager.
 
 > [!NOTE]
 > Resource Graph uses a `GET` to the latest non-preview application programming interface (API) of each resource provider to gather

@@ -5094,6 +5094,11 @@
             "source_path_from_root": "/articles/virtual-machines/sizes-hpc.md",
             "redirect_url": "/azure/virtual-machines/sizes/overview#high-performance-compute",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm.md",
+            "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm",
+            "redirect_document_id": false
         }
     ]
 }

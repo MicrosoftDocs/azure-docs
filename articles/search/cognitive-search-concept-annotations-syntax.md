@@ -154,5 +154,5 @@ If you're having trouble with specifying skill inputs, these tips might help you
 + [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/skillsets/create)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

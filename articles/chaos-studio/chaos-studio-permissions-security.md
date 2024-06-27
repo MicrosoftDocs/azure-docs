@@ -61,7 +61,7 @@ Chaos Studio has the following operations:
 | Microsoft.Chaos/experiments/start/action | Start a chaos experiment. |
 | Microsoft.Chaos/experiments/cancel/action | Stop a chaos experiment. |
 | Microsoft.Chaos/experiments/executions/Read | Get the execution status for a run of a chaos experiment. |
-| Microsoft.Chaos/experiments/getExecutionDetails/action | Get the execution details (status and errors for each action) for a run of a chaos experiment. |
+| Microsoft.Chaos/experiments/executions/getExecutionDetails/action | Get the execution details (status and errors for each action) for a run of a chaos experiment. |
 
 To assign these permissions granularly, you can [create a custom role](../role-based-access-control/custom-roles.md).
 
