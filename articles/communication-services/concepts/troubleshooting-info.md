@@ -15,6 +15,8 @@ ms.service: azure-communication-services
 
 This document helps you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
+## Subscribe to Azure Service Health notifications
+
 ## Getting help
 
 We encourage developers to submit questions, suggest features, and report problems as issues. To aid in getting help, we have a [dedicated support and help options page](../support.md) that lists your options for support. 
