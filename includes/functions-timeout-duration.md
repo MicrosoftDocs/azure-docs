@@ -4,7 +4,7 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 06/17/2024
+ms.date: 06/27/2024
 ms.author: glenga
 ---
 ## <a name="timeout"></a>Function app timeout duration 

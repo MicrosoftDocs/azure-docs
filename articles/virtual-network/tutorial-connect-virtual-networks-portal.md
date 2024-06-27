@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to connect virtual networks with vi
 author: asudbring
 ms.service: virtual-network
 ms.topic: tutorial
-ms.date: 08/22/2023
+ms.date: 06/17/2024
 ms.author: allensu
 ms.custom: template-tutorial, linux-related-content
 # Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
