@@ -135,7 +135,7 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 You can enable experimental features by adding the following section to your `bicepconfig.json` file.
 
-Here's an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
+Here's an example of enabling features 'assertions' and 'userDefinedFunctions`. 
 
 ```json
 {
