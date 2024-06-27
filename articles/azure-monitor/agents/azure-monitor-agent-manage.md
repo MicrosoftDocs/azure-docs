@@ -37,7 +37,6 @@ The following table lists the different options for installing the Azure Monitor
 | [Create a DCR]() | When you create a DCR in the Azure portal, the Azure Monitor agent is installed on any machines that are added as **Resources** for the DCR. The agent will begin collecting data defined in the DCR immediately.
 | [VM insights](../vm/vminsights-enable-overview.md) | When you enable VM insights on a machine, the Azure Monitor agent is installed, and a DCR is created that collects a predefined set of data. You shouldn't modify this DCR, but you can create additional DCRs to collect other data. |
 | [Container insights](../containers/kubernetes-monitoring-enable.md#container-insights) | When you enable Container insights on a Kubernetes cluster, a containerized version of Azure Monitor agent is installed in the cluster, and a DCR is created that immediately begins collecting data. You can modify this DCR using guidance at [Configure data collection and cost optimization in Container insights using data collection rule](../containers/container-insights-data-collection-dcr.md).
-| Sentinel |
 | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer for Windows 10 and Windows 11 clients. |
 
 
@@ -51,7 +50,7 @@ The following table lists the different options for installing the Azure Monitor
 This section provides details on installing Azure Monitor agent using the VM extension.
 
 ### [Portal](#tab/azure-portal)
-
+Use the guidance at [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md) to install the agent using the Azure portal and create a DCR to collect data.
 
 ### [PowerShell](#tab/azure-powershell)
 
