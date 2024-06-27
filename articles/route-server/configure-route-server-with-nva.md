@@ -38,7 +38,6 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
 
 1. On the Azure portal home page, search for *virtual network*, and select **Virtual networks** from the search results. 
 
-    :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/create-new-virtual-network.png" alt-text="Screenshot of create a new virtual network resource.":::
 
 1. On the **Virtual networks** page, select **+ Create**. 
 
@@ -124,10 +123,6 @@ To create an NVA for this tutorial, deploy a Windows Server virtual machine, and
     | Username | Enter a username. |
     | Password | Enter a password. |
     | Confirm password | Reenter the password. |
-    | **Inbound port rules** |  |
-    | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **RDP (3389)**. |
-
 
  
 1. On the **Networking** tab, select the following network settings:
@@ -139,25 +134,23 @@ To create an NVA for this tutorial, deploy a Windows Server virtual machine, and
     | Public IP | Leave as default. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **SSH (22)**. |
+    | Select inbound ports | Select **RDP (3389)**. |
 
-    :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/create-quagga-networking-tab.png" alt-text="Screenshot of networking tab for creating a new virtual machine." lightbox="./media/tutorial-configure-route-server-with-quagga/create-quagga-networking-tab-expanded.png":::
+> [!CAUTION]
+> Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../articles/bastion/bastion-overview.md?toc=/azure/network-watcher/toc.json) to securely connect to your virtual machine from the Azure portal.
 
 1. Select **Review + create** and then **Create** after validation passes.
 
 1. Once the virtual machine has deployed, go to the **Networking** page of the virtual machine and select the network interface.
 
-     :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/quagga-network-settings.png" alt-text="Screenshot of networking page of the Quagga VM.":::
 
 1. Select **IP configuration** under **Settings** and then select **ipconfig1**.
 
-    :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/quagga-ip-configuration.png" alt-text="Screenshot of IP configurations page of the Quagga VM.":::
 
 1. Under **Private IP address Settings**, change the **Assignment**  from **Dynamic** to **Static**, and then change the **IP address** from **10.1.4.4** to **10.1.4.10**.
 
 1. Take note of the public IP, and select **Save** to update the IP configurations of the virtual machine. 
 
-    :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/change-ip-configuration.png" alt-text="Screenshot of changing IP configurations the VM.":::
 
 ### Configure BGP on the virtual machine
 
@@ -169,7 +162,6 @@ To create an NVA for this tutorial, deploy a Windows Server virtual machine, and
 
 1. Select **Peers** under **Settings**. Then, select **+ Add** to add a new peer.
 
-    :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/peers.png" alt-text="Screenshot of peers page for Route Server.":::
 
 1. On the **Add Peer** page, enter the following information, and then select **Add** to save the configuration:
 
@@ -198,7 +190,6 @@ To create an NVA for this tutorial, deploy a Windows Server virtual machine, and
 
     The output should look like the following output: 
 
-    :::image type="content" source="./media/tutorial-configure-route-server-with-quagga/routes-learned.png" alt-text="Screenshot of routes learned by Route Server.":::
 
 
 ## Clean up resources
