@@ -15,16 +15,16 @@ ms.author: pafarley
 # Language support for Azure AI Content Safety
 
 > [!IMPORTANT]
-> Azure AI Content Safety features not listed in this article, such as Prompt Shields, Protected material detection, Groundedness detection, and Custom categories (rapid) only support English.
+> Azure AI Content Safety features not listed in this article, such as Protected material detection, Groundedness detection, and Custom categories (rapid) only support English.
 
 ## Text moderation
 
-The Azure AI Content Safety text moderation feature supports many languages, but it has been specially trained and tested on a smaller set of languages.
+The Azure AI Content Safety text moderation and Prompt Shields feature supports many languages, but it has been specially trained and tested on a smaller set of languages.
 
 > [!NOTE]
 > **Language auto-detection**
 >
-> You don't need to specify a language code for text moderation. The service automatically detects your input language.
+> You don't need to specify a language code for text moderation and Prompt Shields. The service automatically detects your input language.
 
 | Language name         | Language code | Text moderation | Specially trained |
 |-----------------------|---------------|--------|--|
