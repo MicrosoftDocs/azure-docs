@@ -61,6 +61,8 @@ items:
     href: concepts/jailbreak-detection.md
   - name: Groundedness detection
     href: concepts/groundedness.md
+  - name: Protected material detection
+    href: concepts/protected-material.md
   - name: Custom categories (rapid)
     href: concepts/custom-categories-rapid.md
   - name: Harm categories
