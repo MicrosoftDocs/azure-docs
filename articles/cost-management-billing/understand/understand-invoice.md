@@ -51,7 +51,7 @@ first page and shows information about your profile and subscription.
 | Payment method |Type of payment used on the account (invoice or credit card) |
 | Bill to |Billing address that is listed for the account |
 | Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased, such as Pay-As-You-Go and Azure Pass. For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
-| Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.md). |
+| Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.yml). |
 
 ### Understand the invoice summary
 The **Invoice Summary** section of the invoice lists the total
@@ -90,7 +90,7 @@ on the second page of your Invoice.
 
 | Term |Description |
 | --- | --- |
-| Sold to |Profile address that's on the account. <br/><br/>If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.md).|
+| Sold to |Profile address that's on the account. <br/><br/>If you need to change the address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.yml).|
 | Payment instructions |Instructions on how to pay depending on payment method (such as by credit card or by invoice). |
 
 #### Usage Charges

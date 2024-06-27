@@ -14,7 +14,7 @@ ms.date: 09/19/2023
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
 
 In this article, you learn how to synchronize your GitHub repository in Azure Data Factory Workflow Orchestration Manager in two different ways:
 
@@ -31,7 +31,7 @@ In this article, you learn how to synchronize your GitHub repository in Azure Da
 To sync your GitHub repository by using the Workflow Orchestration Manager UI:
 
 1. Ensure that your repository contains the necessary folders and files:
-   - **Dags/**: For Apache Airflow directed acyclic graphs (DAGs) (required).
+   - **dags/**: For Apache Airflow directed acyclic graphs (dags) (required).
    - **Plugins/**: For integrating external features to Airflow.
 
      :::image type="content" source="media/airflow-git-sync-repository/airflow-folders.png" alt-text="Screenshot that shows the Airflow folders structure in GitHub.":::

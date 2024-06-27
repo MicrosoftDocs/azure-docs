@@ -123,9 +123,9 @@ Cloud Workload Protection Platform. See [CWPP](./overview-page.md).
 
 ## D
 
-### Data Aware Security Posture
+### Data Security Posture Management
 
-Data-aware security posture automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. Learn about [data-aware security posture](concept-data-security-posture.md).
+Data security posture management automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. Learn about [data security posture management](concept-data-security-posture.md).
 
 ### Defender sensor
 
@@ -151,7 +151,7 @@ Amazon Elastic Kubernetes Service, Amazon's managed service for running Kubernet
 
 ### **eBPF**
 
-Extended Berkley Packet Filter [What is eBPF?](https://ebpf.io/)
+Extended Berkeley Packet Filter [What is eBPF?](https://ebpf.io/)
 
 ## F
 

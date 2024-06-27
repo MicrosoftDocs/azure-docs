@@ -4,7 +4,7 @@ description: This article describes how to move Azure VMware Solution resources 
 ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 2/23/2024
+ms.date: 3/28/2024
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution resources from Azure Region A to Azure Region B.
 ---
@@ -18,9 +18,9 @@ You can move Azure VMware Solution resources to a different region for several r
 
 This article helps you plan and migrate Azure VMware Solution from one Azure region to another, such as Azure region A to Azure region B.
 
-The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the red line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
+The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the purple line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
 
-:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false" lightbox="media/move-across-regions/move-ea-csp-across-regions-2.png":::
 
 >[!NOTE]
 >You don't need to migrate any workflow back to on-premises because the traffic will flow between the private clouds (source and target):
@@ -29,7 +29,7 @@ The diagram shows the recommended ExpressRoute connectivity between the two Azur
 
 The diagram shows the connectivity between both Azure VMware Solution environments. 
 
-:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-connectivity-diagram.png" alt-text="Diagram showing communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-connectivity-diagram.png" alt-text="Diagram showing communication between the source and target Azure VMware Solution environments." border="false" lightbox="media/move-across-regions/move-ea-csp-across-regions-connectivity-diagram.png":::
 
 In this article, walk through the steps to: 
 

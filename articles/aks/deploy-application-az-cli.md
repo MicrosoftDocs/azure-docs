@@ -37,7 +37,7 @@ First, you need to select the Kubernetes application that you want to deploy in 
           },
       ```
   
-   1. In the resource `Microsoft.KubernetesConfiguration/extensions' section, copy the `configurationSettings` section for later use..
+   1. In the resource `Microsoft.KubernetesConfiguration/extensions` section, copy the `configurationSettings` section for later use.
   
    ```json
    {
@@ -77,3 +77,4 @@ To deploy the application (extension) through Azure CLI, follow the steps outlin
 
 - Learn about [Kubernetes applications available through Marketplace](deploy-marketplace.md).
 - Learn about [cluster extensions](cluster-extensions.md).
+

@@ -598,9 +598,10 @@ This article included some external components to AKS. To learn more about these
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
-[client-source-ip]: concepts-network.md#ingress-controllers
+[client-source-ip]: concepts-network-ingress.md#ingress-controllers
 [aks-supported versions]: supported-kubernetes-versions.md
 [aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [aks-app-add-on]: app-routing.md
+

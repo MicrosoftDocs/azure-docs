@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 03/27/2024
 ms.author: abell
 ms.custom: fasttrack-edit, linux-related-content
 ---
@@ -143,7 +143,7 @@ DDoS Protection is designed for services that are deployed in a virtual network.
 In this architecture diagram Azure DDoS IP Protection is enabled on the public IP Address.
 
 > [!NOTE]
-> Azure DDoS Protection protects the Public IPs of Azure resource. DDoS infrastructure protection, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md).
+> At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md).
 For more information about hub-and-spoke topology, see [Hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Details on what to keep in mind when choosing Azure File Sync cloud
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 05/06/2024
 ms.author: kendownie
 ---
 
@@ -16,7 +16,7 @@ This article provides guidance on selecting and adjusting cloud tiering policies
 
 - Cloud tiering isn't supported on the Windows system volume.
 
-- You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting.
+- If you're using File Server Resource Manager (FSRM) for quota management on server endpoints, we recommend applying the quotas at the folder level and not at the volume level. You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting. However, when a hard quota is present on a volume root, the actual free space on the volume and the quota restricted space on the volume might not be the same. This could cause endless tiering if Azure File Sync thinks there isn't enough volume free space on the server endpoint.
 
 ### Minimum file size for a file to tier
 
@@ -39,21 +39,24 @@ Azure File Sync supports cloud tiering on volumes with cluster sizes up to 2 MiB
 
 All file systems that are used by Windows organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes don't come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
 
-Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and newer. The following table describes the default cluster sizes when you create a new NTFS volume with Windows Server 2019.
+Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and newer. The following table describes the default cluster sizes when you create a new NTFS volume with Windows Server.
 
-|Volume size    |Windows Server 2019             |
+|Volume size    |Windows Server             |
 |---------------|--------------------------------|
 |7 MiB – 16 TiB   | 4 KiB                |
 |16 TiB – 32 TiB   | 8 KiB                |
 |32 TiB – 64 TiB   | 16 KiB               |
 
-It's possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes might also be different. [This article provides more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Even if you choose a cluster size smaller than 4 KiB, an 8 KiB limit as the smallest file size that can be tiered still applies. (Even if technically 2x cluster size would equate to less than 8 KiB.)
+It's possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes might also be different. Even if you choose a cluster size smaller than 4 KiB, an 8 KiB limit as the smallest file size that can be tiered still applies. (Even if technically 2x cluster size would equate to less than 8 KiB.)
 
 The reason for the absolute minimum is due to the way NTFS stores extremely small files - 1 KiB to 4 KiB sized files. Depending on other parameters of the volume, it's possible that small files aren't stored in a cluster on disk at all. It's possibly more efficient to store such files directly in the volume's Master File Table or "MFT record". The cloud tiering reparse point is always stored on disk and takes up exactly one cluster. Tiering such small files could end up with no space savings. Extreme cases could even end up using more space with cloud tiering enabled. To safeguard against that, the smallest size of a file that cloud tiering will tier is 8 KiB on a 4 KiB or smaller cluster size.
 
 ## Selecting your initial policies
 
 Generally, when you enable cloud tiering on a server endpoint, you should create one local virtual drive for each individual server endpoint. Isolating the server endpoint makes it easier to understand how cloud tiering works and adjust your policies accordingly. However, Azure File Sync works even if you have multiple server endpoints on the same drive, for details see the [Multiple server endpoints on local volume](file-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume) section. We also recommend that when you first enable cloud tiering, you keep the date policy disabled and volume free space policy at around 10% to 20%. For most file server volumes, 20% volume free space is usually the best option.
+
+> [!NOTE]
+> In some migration scenarios, if you provisioned less storage on your Windows Server instance than your source, you can temporarily set volume free space to 99% during the migration to tier files to the cloud, and then set it to a more useful level after the migration is complete.
 
 For simplicity and to have a clear understanding of how items will be tiered, we recommend you primarily adjust your volume free space policy and keep your date policy disabled unless needed. We recommend this because most customers find it valuable to fill the local cache with as many hot files as possible and tier the rest to the cloud. However, the date policy may be beneficial if you want to proactively free up local disk space and you know files in that server endpoint accessed after the number of days specified in your date policy don't need to be kept locally. Setting the date policy frees up valuable local disk capacity for other endpoints on the same volume to cache more of their files.
 

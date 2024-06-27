@@ -4,6 +4,8 @@ description: Learn how to connect to Azure Kubernetes Service (AKS) cluster node
 ms.topic: troubleshooting
 ms.subservice: aks-security
 ms.date: 01/08/2024
+author: nickomang
+ms.author: nickoman
 ms.reviewer: mattmcinnes
 ms.custom:
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -27,9 +29,9 @@ Complete these steps if you don't have an SSH key. Create an SSH key depending o
 
 ### Linux and macOS
 
-Linux and macOS users can SSH to access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
+Linux and macOS users can access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
 
-#### SSH using kubectl debug
+#### Connect using kubectl debug
 
 To create an interactive shell connection, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -231,7 +233,7 @@ If your Linux proxy node isn't reachable, using Azure Bastion as a proxy is an a
 
 If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS agent pool API (preview)][agent-pool-rest-api], (available on preview versions `07-02-2023` or above) to connect to AKS nodes.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ### Create an interactive shell connection to a node using the IP address
 
@@ -288,4 +290,4 @@ To learn about managing your SSH keys, see [Manage SSH configuration][manage-ssh
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [agent-pool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
-[azure-bastion-linux]:../bastion/bastion-connect-vm-ssh-linux.md
+[azure-bastion-linux]: /azure/bastion/bastion-connect-vm-ssh-linux

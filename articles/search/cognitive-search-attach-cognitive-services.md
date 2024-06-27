@@ -52,7 +52,7 @@ If you leave the property unspecified, your search service attempts to use the f
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2023-11-01
 api-key: [admin key]
 Content-Type: application/json
 {
@@ -140,7 +140,7 @@ Enrichments are billable operations. If you no longer need to call Azure AI serv
 1. Remove the key in the body of the definition, and then send the request:
 
     ```http
-    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2023-11-01
     api-key: [admin key]
     Content-Type: application/json
     {

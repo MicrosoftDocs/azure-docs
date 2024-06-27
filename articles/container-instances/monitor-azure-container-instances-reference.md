@@ -11,39 +11,35 @@ ms.service: container-instances
 
 # Container Instances monitoring data reference
 
-<!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Container Instances](monitor-azure-container-instances.md) for details on the data you can collect for Container Instances and how to use it.
 
-<!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 ### Supported metrics for Microsoft.ContainerInstance/containerGroups
 The following table lists the metrics available for the Microsoft.ContainerInstance/containerGroups resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [microsoft-containerinstance-containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containergroups-metrics-include.md)]
+[!INCLUDE [microsoft-containerinstance-containergroups-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-containerinstance-containergroups-metrics-include.md)]
 
 ### Supported metrics for Microsoft.ContainerInstance/containerScaleSets
 The following table lists the metrics available for the Microsoft.ContainerInstance/containerScaleSets resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [microsoft-containerinstance-containerscalesets-metrics](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containerscalesets-metrics-include.md)]
+[!INCLUDE [microsoft-containerinstance-containerscalesets-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-containerinstance-containerscalesets-metrics-include.md)]
 
-<!-- ## Metric dimensions. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | **containerName** | The name of the container. The name must be between 1 and 63 characters long. It can contain only lowercase letters numbers, and dashes. Dashes can't begin or end the name, and dashes can't be consecutive. The name must be unique in its resource group. |
 
-<!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.ContainerInstance/containerGroups
-[!INCLUDE [microsoft-containerinstance-containergroups-logs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-containerinstance-containergroups-logs-include.md)]
+[!INCLUDE [microsoft-containerinstance-containergroups-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-containerinstance-containergroups-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 Container Instances has two table schemas, a legacy schema for Log Analytics and a new schema that supports diagnostic settings. Diagnostic settings is in public preview in the Azure portal. You can use either or both schemas at the same time.
@@ -99,14 +95,24 @@ The following *_CL* tables represent the legacy Log Analytics integration. Users
 
 ### Azure Monitor Log Analytics tables
 
-The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different. For more information, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
+The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different.
+
+Once this feature is enabled for a subscription, diagnostic settings can be applied to a container group. Applying diagnostic settings causes a container group to restart.
+
+For example, here's how you can use `New-AzDiagnosticSetting` command to apply a diagnostic settings object to a container group.
+
+```azurepowershell
+$log = @()
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -Category ContainerInstanceLog -RetentionPolicyDay 7 -RetentionPolicyEnabled $true
+ 
+New-AzDiagnosticSetting -Name test-setting -ResourceId <container-group-resource-id> -WorkspaceId <log-analytics-workspace-id> -Log $log
+```
 
 #### Container Instances
 Microsoft.ContainerInstance/containerGroups
 - [ContainerInstanceLog](/azure/azure-monitor/reference/tables/containerinstancelog)
 - [ContainerEvent](/azure/azure-monitor/reference/tables/containerevent)
 
-<!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 The following table lists a subset of the operations that Azure Container Instances may record in the Activity log. For the complete listing, see [Microsoft.ContainerInstance resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerinstance).

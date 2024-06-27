@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/22/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -28,7 +28,7 @@ Application Gateway v2 can now address each of these items to further eliminate 
 2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
 3. Ability to define a **Deny All** outbound Network Security Group (NSG) rule to restrict egress traffic to the Internet
 4. Ability to override the default route to the Internet (0.0.0.0/0)
-5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
+5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.yml#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be configured independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration.
 
@@ -329,7 +329,7 @@ In the following example, we create a route table and associate it to the Applic
 
 To create a route table and associate it to the Application Gateway subnet:
 
-1.	[Create a route table](../virtual-network/manage-route-table.md#create-a-route-table):
+1.	[Create a route table](../virtual-network/manage-route-table.yml#create-a-route-table):
 
  ![View the newly created route table](./media/application-gateway-private-deployment/route-table-create.png)
 
@@ -350,6 +350,10 @@ While in public preview, the following limitations are known.
 ### Private link configuration (preview)
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
+
+### WAF Rate Limiting
+
+[Rate limiting custom rules](../web-application-firewall/ag/rate-limiting-configure.md) for Application Gateway WAF v2 are not currently supported.
 
 ### Private IP frontend configuration only with AGIC
 

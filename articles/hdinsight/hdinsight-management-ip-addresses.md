@@ -37,6 +37,8 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
 | 23.99.5.239 | \*:443 | Inbound |
 | 168.61.48.131 | \*:443 | Inbound |
 | 138.91.141.162 | \*:443 | Inbound |
+| 52.164.210.96 | \*:443 | Inbound |
+| 13.74.153.132 | \*:443 | Inbound |
 
 ## Health and management services: Specific regions
 

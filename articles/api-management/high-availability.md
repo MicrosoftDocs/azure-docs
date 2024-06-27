@@ -7,11 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 03/08/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, build-2024
 ---
 
 # Ensure API Management availability and reliability
 
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
 This article introduces service capabilities and considerations to ensure that your API Management instance continues to serve API requests if Azure outages occur. 
 
@@ -80,8 +81,8 @@ For details, see the blog post [Back-end API redundancy with Azure API Manager](
 
 API Management [backend](backends.md) entities allow you to manage and apply backend properties to improve the availability of backends. For example:
 
-* Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool-preview)
-* Configure [circuit breaker rules](backends.md#circuit-breaker-preview) to apply the circuit breaker pattern to protect the backend from too many requests
+* Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool)
+* Configure [circuit breaker rules](backends.md#circuit-breaker) to apply the circuit breaker pattern to protect the backend from too many requests
 
 ## Next steps
 

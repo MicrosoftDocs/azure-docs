@@ -21,7 +21,7 @@ This section covers some of the frequently asked questions about the Azure Healt
 
 ### What is FHIR?
 
-The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The FHIR service supports R4 and the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
+The Fast Healthcare Interoperability Resources (FHIR) is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The FHIR service supports R4 and the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
 
 ### Is the data behind the FHIR APIs stored in Azure?
 
@@ -131,8 +131,7 @@ No, the FHIR service doesn't support terminology operations today.
 
 ### What are the differences between delete types in the FHIR service? 
 
-There are two basic Delete types supported within the FHIR service. These are [Delete and Conditional Delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
-
+There are two basic Delete types supported within the FHIR service. They are [Delete and Conditional Delete](rest-api-capabilities.md#delete-and-conditional-delete).
 
 * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
 * With Conditional Delete, you can pass search criteria to delete a resource one item at a time or several at a time.

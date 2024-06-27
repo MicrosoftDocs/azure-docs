@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for GCP resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Google Cloud Platform (GCP) resources.
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 06/09/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -285,6 +285,22 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 **Severity**: Medium
 
 ## GCP Container recommendations
+
+### [[Preview] Container images in GCP registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)
+
+**Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
+### [[Preview] Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)
+
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
 
 ### [Advanced configuration of Defender for Containers should be enabled on GCP connectors](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b7683ca3-3a11-49b6-b9d4-a112713edfa3)
 
@@ -961,19 +977,19 @@ GCP facilitates up to 10 external service account keys per service account to fa
 
 **Severity**: High
 
-### [Super Identities in your GCP environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7057d0ba-7d1c-4484-8bae-e82785cf8418)
+### [Super Identities in your GCP environment should be removed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7057d0ba-7d1c-4484-8bae-e82785cf8418)
 
 **Description**: A super identity has a powerful set of permissions. Super admins are human or workload identities that have access to all permissions and all resources. They can create and modify configuration settings to a service, add or remove identities, and access or even delete data. Left unmonitored, these identities present a significant risk of permission misuse if breached.
 
 **Severity**: High
 
-### [Unused identities in your GCP environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/257e9506-fd47-4123-a8ef-92017f845906)
+### [Permissions of inactive identities in your GCP project should be revoked](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/257e9506-fd47-4123-a8ef-92017f845906)
 
-**Description**: It's imperative to identify unused identities as they pose significant security risks. These identities often involve bad practices, such as excessive permissions and mismanaged keys that leave organizations open to credential misuse or exploitation and increases your resource`s attack surface. Inactive identities are human and nonhuman entities that haven't performed any action on any resource in the last 90 days. Service account keys can become a security risk if not managed carefully.
+**Description**: Microsoft Defender for Cloud discovered an identity that has not performed any action on any resource within your GCP project in the past 45 days. It is recommended to revoke permissions of inactive identities, in order to reduce the attack surface of your cloud environment.
 
 **Severity**: Medium
 
-### [GCP overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fa210cff-18da-474a-ac60-8f93f7c6f4c9)
+### [GCP overprovisioned identities should have only the necessary permissions](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/8353c257-30be-4048-8ac3-b8f26d89d2ea)
 
 **Description**: An over-provisioned active identity is an identity that has access to privileges that they haven't used. Over-provisioned active identities, especially for nonhuman accounts that have very defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise The principle of least privilege states that a resource should only have access to the exact resources it needs in order to function. This principle was developed to address the risk of compromised identities granting an attacker access to a wide range of resources.
 

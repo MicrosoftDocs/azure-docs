@@ -78,7 +78,7 @@ Follow these steps to get the IoT Visual Alerts app running on your PC or IoT de
 
 If you're running the app on your PC, select **Local Machine** for the target device in Visual Studio, and select **x64** or **x86** for the target platform. Then press F5 to run the program. The app should start and display the live feed from the camera and a status message.
 
-If you're deploying to a IoT device with an ARM processor, you'll need to select **ARM** as the target platform and **Remote Machine** as the target device. Provide the IP address of your device when prompted (it must be on the same network as your PC). You can get the IP Address from the Windows IoT default app once you boot the device and connect it to the network. Press F5 to run the program.
+If you're deploying to an IoT device with an ARM processor, you'll need to select **ARM** as the target platform and **Remote Machine** as the target device. Provide the IP address of your device when prompted (it must be on the same network as your PC). You can get the IP Address from the Windows IoT default app once you boot the device and connect it to the network. Press F5 to run the program.
 
 When you run the app for the first time, it won't have any knowledge of visual states. It will display a status message that no model is available. 
 

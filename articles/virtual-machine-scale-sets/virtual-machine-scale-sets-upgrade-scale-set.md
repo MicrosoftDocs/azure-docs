@@ -1,14 +1,13 @@
 ---
 title: Modify an Azure Virtual Machine Scale Set
 description: Learn how to modify and update an Azure Virtual Machine Scale Set with the REST APIs, Azure PowerShell, and Azure CLI
-author: ju-shim
-ms.author: jushiman
+author: mimckitt
+ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 05/31/2023
-ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
-
+ms.date: 6/14/2024
+ms.reviewer: ju-shim
+ms.custom: upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Modify a Virtual Machine Scale Set
 
@@ -290,7 +289,7 @@ Some properties may be changed, with exceptions depending on the current value. 
 - imageReferenceOffer
 - Availability Zones (Preview)
 
-#### Examples
+#### Example 1
 To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 
 
 ```azurecli
@@ -302,6 +301,23 @@ az vmss update \
 --set virtualMachineProfile.storageProfile.imageReference.sku=22_04-lts-gen2 \
 --set virtualMachineProfile.storageProfile.imageReference.version=latest
 ```
+
+#### Example 2
+To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Windows Server 2016 to Windows Server 2019. 
+
+```powershell
+$VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
+Set-AzVmssStorageProfile $vmss `
+    -OsDiskCreateOption "FromImage" `
+    -ImageReferencePublisher "MicrosoftWindowsServer" `
+    -ImageReferenceOffer "WindowsServer" `
+    -ImageReferenceSku "2019-datacenter" `
+    -ImageReferenceVersion "latest"
+
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $VMSS
+```
+
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:

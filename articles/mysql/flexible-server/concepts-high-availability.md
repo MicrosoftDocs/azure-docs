@@ -1,12 +1,13 @@
 ---
 title: Zone-redundant HA
 description: Get a conceptual overview of zone-redundant high availability in Azure Database for MySQL - Flexible Server.
+author: VandhanaMehta
+ms.author: vamehta
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: VandhanaMehta
-ms.author: vamehta
-ms.date: 08/26/2021
 ---
 
 # High availability concepts in Azure Database for MySQL - Flexible Server
@@ -133,6 +134,11 @@ Here are some considerations to keep in mind when you use high availability:
 
 >[!Note] 
 >If you are enabling same-zone HA post the server create, you need to make sure the server parameters enforce_gtid_consistency” and [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) is set to ON before enabling HA.
+
+> [!NOTE]
+>Storage autogrow is default enabled for a High-Availability configured server and can not to be disabled.
+
+
 
 ## Frequently asked questions (FAQ)
 

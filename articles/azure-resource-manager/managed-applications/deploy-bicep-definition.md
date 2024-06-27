@@ -3,7 +3,7 @@ title: Use Bicep to deploy an Azure Managed Application definition
 description: Describes how to use Bicep to deploy an Azure Managed Application definition from your service catalog.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-bicep, devx-track-azurecli
-ms.date: 05/12/2023
+ms.date: 06/24/2024
 ---
 
 # Quickstart: Use Bicep to deploy an Azure Managed Application definition
@@ -20,10 +20,10 @@ To deploy a managed application definition from your service catalog, do the fol
 
 To complete the tasks in this article, you need the following items:
 
-- Completed the quickstart to [use Bicep to create and publish](publish-bicep-definition.md) a managed application definition in your service catalog.
+- Deployed a definition with [Quickstart: Use Bicep to create and publish an Azure Managed Application definition](publish-bicep-definition.md).
 - An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- The latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Get managed application definition
 
@@ -39,10 +39,10 @@ Connect-AzAccount
 
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-From Azure PowerShell, get your managed application's definition. In this example, use the resource group name _bicepDefinitionRG_ that was created when you deployed the managed application definition.
+From Azure PowerShell, get your managed application's definition. In this example, use the resource group name _bicepDefinitionGroup_ that was created when you deployed the managed application definition.
 
 ```azurepowershell
-Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionRG
+Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionGroup
 ```
 
 `Get-AzManagedApplicationDefinition` lists all the available definitions in the specified resource group, like _sampleBicepManagedApplication_.
@@ -50,7 +50,7 @@ Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionRG
 The following command parses the output to show only the definition name and resource group name. You use the names when you deploy the managed application.
 
 ```azurepowershell
-Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionRG | Select-Object -Property Name, ResourceGroupName
+Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionGroup | Select-Object -Property Name, ResourceGroupName
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -65,10 +65,10 @@ az login
 
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-From Azure CLI, get your managed application's definition. In this example, use the resource group name _bicepDefinitionRG_ that was created when you deployed the managed application definition.
+From Azure CLI, get your managed application's definition. In this example, use the resource group name _bicepDefinitionGroup_ that was created when you deployed the managed application definition.
 
 ```azurecli
-az managedapp definition list --resource-group bicepDefinitionRG
+az managedapp definition list --resource-group bicepDefinitionGroup
 ```
 
 The command lists all the available definitions in the specified resource group, like _sampleBicepManagedApplication_.
@@ -76,7 +76,7 @@ The command lists all the available definitions in the specified resource group,
 The following command parses the output to show only the definition name and resource group name. You use the names when you deploy the managed application.
 
 ```azurecli
-az managedapp definition list --resource-group bicepDefinitionRG --query "[].{Name:name, ResourcGroup:resourceGroup}"
+az managedapp definition list --resource-group bicepDefinitionGroup --query "[].{Name:name, ResourcGroup:resourceGroup}"
 ```
 
 ---
@@ -157,39 +157,19 @@ For more information about the resource type, go to [Microsoft.Solutions/applica
 
 ## Create the parameter file
 
-Open Visual Studio Code and create a parameter file named _deployServiceCatalog.parameters.json_. Copy and paste the following code into the file and save it.
+Open Visual Studio Code and create a parameter file named _deployServiceCatalog-parameters.bicepparam_. Copy and paste the following code into the file and save it.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "definitionName": {
-      "value": "sampleBicepManagedApplication"
-    },
-    "definitionRG": {
-      "value": "bicepDefinitionRG"
-    },
-    "managedAppName": {
-      "value": "sampleBicepManagedApp"
-    },
-    "mrgName": {
-      "value": "<placeholder for managed resource group name>"
-    },
-    "appServicePlanName": {
-      "value": "demoAppServicePlan"
-    },
-    "appServiceNamePrefix": {
-      "value": "demoApp"
-    },
-    "storageAccountNamePrefix": {
-      "value": "demostg1234"
-    },
-    "storageAccountType": {
-      "value": "Standard_LRS"
-    }
-  }
-}
+```bicep
+using './deployServiceCatalog.bicep'
+
+param definitionName = 'sampleBicepManagedApplication'
+param definitionRG = 'bicepDefinitionGroup'
+param managedAppName = 'sampleBicepManagedApp'
+param mrgName = 'placeholder for managed resource group name'
+param appServicePlanName = 'demoAppServicePlan'
+param appServiceNamePrefix = 'demoApp'
+param storageAccountNamePrefix = 'demostg1234'
+param storageAccountType = 'Standard_LRS'
 ```
 
 You need to provide several parameters to deploy the managed application:
@@ -197,9 +177,9 @@ You need to provide several parameters to deploy the managed application:
 | Parameter | Value |
 | ---- | ---- |
 | `definitionName` | Name of the service catalog definition. This example uses _sampleBicepManagedApplication_. |
-| `definitionRG` | Resource group name where the definition is stored. This example uses _bicepDefinitionRG_.
+| `definitionRG` | Resource group name where the definition is stored. This example uses _bicepDefinitionGroup_.
 | `managedAppName` | Name for the deployed managed application. This example uses _sampleBicepManagedApp_.
-| `mrgName` | Unique name for the managed resource group that contains the application's deployed resources. The resource group is created when you deploy the managed application. To create a managed resource group name, you can run the commands that follow this parameter list. |
+| `mrgName` | Unique name for the managed resource group that contains the application's deployed resources. The resource group is created when you deploy the managed application. To create a managed resource group name, run the commands that follow this parameter list and use the `$mrgname` value to replace the placeholder in the parameters file. |
 | `appServicePlanName` | Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription. |
 | `appServiceNamePrefix` | Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure. |
 | `storageAccountNamePrefix` | Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. |
@@ -236,23 +216,30 @@ Use Azure PowerShell or Azure CLI to create a resource group and deploy the mana
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name bicepAppRG -Location westus3
+New-AzResourceGroup -Name bicepApplicationGroup -Location westus
 
-New-AzResourceGroupDeployment `
-  -ResourceGroupName bicepAppRG `
-  -TemplateFile deployServiceCatalog.bicep `
-  -TemplateParameterFile deployServiceCatalog.parameters.json
+$deployparms = @{
+  ResourceGroupName = "bicepApplicationGroup"
+  TemplateFile = "deployServiceCatalog.bicep"
+  TemplateParameterFile = "deployServiceCatalog-parameters.bicepparam"
+  Name = "deployServiceCatalogApp"
+}
+
+New-AzResourceGroupDeployment @deployparms
 ```
+
+The `$deployparms` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values.
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name bicepAppRG --location westus3
+az group create --name bicepApplicationGroup --location westus
 
 az deployment group create \
-  --resource-group bicepAppRG \
+  --resource-group bicepApplicationGroup \
   --template-file deployServiceCatalog.bicep \
-  --parameters @deployServiceCatalog.parameters.json
+  --parameters deployServiceCatalog-parameters.bicepparam \
+  --name deployServiceCatalogApp
 ```
 
 ---
@@ -272,13 +259,13 @@ After the deployment is finished, you can check your managed application's statu
 Run the following command to check the managed application's status.
 
 ```azurepowershell
-Get-AzManagedApplication -Name sampleBicepManagedApp -ResourceGroupName bicepAppRG
+Get-AzManagedApplication -Name sampleBicepManagedApp -ResourceGroupName bicepApplicationGroup
 ```
 
 Expand the properties to make it easier to read the `Properties` information.
 
 ```azurepowershell
-Get-AzManagedApplication -Name sampleBicepManagedApp -ResourceGroupName bicepAppRG | Select-Object -ExpandProperty Properties
+Get-AzManagedApplication -Name sampleBicepManagedApp -ResourceGroupName bicepApplicationGroup | Select-Object -ExpandProperty Properties
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -286,13 +273,13 @@ Get-AzManagedApplication -Name sampleBicepManagedApp -ResourceGroupName bicepApp
 Run the following command to check the managed application's status.
 
 ```azurecli
-az managedapp show --name sampleBicepManagedApp  --resource-group bicepAppRG
+az managedapp show --name sampleBicepManagedApp  --resource-group bicepApplicationGroup
 ```
 
 The following command parses the data about the managed application to show only the application's name and provisioning state.
 
 ```azurecli
-az managedapp show --name sampleBicepManagedApp --resource-group bicepAppRG --query "{Name:name, provisioningState:provisioningState}"
+az managedapp show --name sampleBicepManagedApp --resource-group bicepApplicationGroup --query "{Name:name, provisioningState:provisioningState}"
 ```
 
 ---
@@ -359,16 +346,16 @@ To review the managed resource group's deny assignments, use the Azure portal or
 
 ## Clean up resources
 
-When you're finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, you created the resource groups _bicepAppRG_ and a managed resource group with the prefix _mrg-bicepManagedApplication_.
+When you're finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, you created the resource groups _bicepApplicationGroup_ and a managed resource group with the prefix _mrg-bicepManagedApplication_.
 
-When you delete the _bicepAppRG_ resource group, the managed application, managed resource group, and all the Azure resources are deleted.
+When you delete the _bicepApplicationGroup_ resource group, the managed application, managed resource group, and all the Azure resources are deleted.
 
 # [PowerShell](#tab/azure-powershell)
 
 The command prompts you to confirm that you want to remove the resource group.
 
 ```azurepowershell
-Remove-AzResourceGroup -Name bicepAppRG
+Remove-AzResourceGroup -Name bicepApplicationGroup
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -376,12 +363,12 @@ Remove-AzResourceGroup -Name bicepAppRG
 The command prompts for confirmation, and then returns you to command prompt while resources are being deleted.
 
 ```azurecli
-az group delete --resource-group bicepAppRG --no-wait
+az group delete --resource-group bicepApplicationGroup --no-wait
 ```
 
 ---
 
-If you want to delete the managed application definition, delete the resource groups you created named _packageStorageRG_ and _bicepDefinitionRG_.
+If you want to delete the managed application definition, delete the resource groups you created named _packageStorageGroup_ and _bicepDefinitionGroup_.
 
 ## Next steps
 

@@ -47,9 +47,18 @@ Each number in the version indicates general compatibility with the previous ver
 
 To take advantage of the latest HDInsight on AKS features, we recommend regularly migrating your clusters to the latest patch or minor versions. Currently, HDInsight on AKS support's [in-place upgrades](./in-place-upgrade.md) as part of public preview with hotfix, node os and AKS patch upgrades, where existing clusters are upgraded to newer versions. 
 
-You  need to create a new HDInsight on AKS cluster in your existing cluster pool and migrate your application to use the new cluster with latest minor version or patch. All cluster pools align with the major version, and clusters within the pool align to the same major version, and you can create clusters with subsequent minor or patch versions. 
+You need to create a new HDInsight on AKS cluster in your existing cluster pool and migrate your application to use the new cluster with latest minor version or patch. All cluster pools align with the major version, and clusters within the pool align to the same major version, and you can create clusters with subsequent minor or patch versions.
 
-As part of the best practices, we recommend you to keep your clusters updated on regular basis.HDInsight on AKS release happens every 30 to 60 days. It's always good to move to the latest releases as early as possible. The recommended maximum duration for cluster upgrades is less than three months.
+## Lifecycle and supportability
+
+As HDInsight on AKS relies on the underlying Azure Kubernetes Service (AKS) infrastructure, it needs to be periodically updated to ensure security and compatibility with the latest features. With [in-place upgrades](./in-place-upgrade.md) you can upgrade your clusters for with cluster hotfix updates, security updates on the node os and AKS patch upgrades. 
+
+| HDInsight on AKS Cluster pool Version | Release date | Release stage | Mapped AKS Version | AKS End of life | 
+| --- | --- | --- | --- | --- |
+| 1.1 | Oct 2023 | Public Preview |1.27|Jul 2024|
+| 1.2 | May 2024 | - | 1.29 | - 
+
+As part of the best practices, we recommend you to keep your clusters updated on regular basis. HDInsight on AKS release happens every 30 to 60 days. It's always good to move to the latest releases as early as possible. The recommended maximum duration for cluster upgrades is less than three months.
 
 ### Sample Scenarios 
 

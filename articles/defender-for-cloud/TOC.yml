@@ -115,7 +115,7 @@
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
-    - name: Set up email notifications
+    - name: Configure email notifications for alerts and attack paths
       displayName: email,e-mail, notifications
       href: configure-email-notifications.md
     - name: Create autoresponses to alerts using an ARM template or Bicep
@@ -139,7 +139,8 @@
         - name: Defender for Cloud support matrices
           displayName: coverage, supported platforms, cloud services, roles, permissions
           href: support-matrix-defender-for-cloud.md
-        - name: Defender for Cloud cloud support
+        - name: Defender for Cloud cloud support matrices
+          displayName: matrices, gov, government, 21via, net, support
           href: support-matrix-cloud-environment.md
         - name: Defender for Servers support matrices
           displayName: coverage, machines, windows, linux, multicloud, supported features,
@@ -211,8 +212,20 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
+      - name: Permissions management (CIEM)
+        displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
+        href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
+      - name: Secrets protection
+        items:
+        - name: Overview
+          href: secrets-scanning.md
+        - name: Protecting VM secrets
+          href: secrets-scanning-servers.md
+        - name: Protecting cloud deployment secrets
+          href: secrets-scanning-cloud-deployment.md
+          
       - name: Integrations
         items:  
         - name: ServiceNow
@@ -234,7 +247,7 @@
         href: faq-cspm.yml
     - name: Improve your data security posture
       items:
-        - name: About data-aware security posture
+        - name: About data security posture management
           href: concept-data-security-posture.md
         - name: Support and prerequisites
           href: concept-data-security-posture-prepare.md
@@ -246,6 +259,14 @@
       items:
         - name: Agentless container posture in Defender CSPM
           href: concept-agentless-containers.md
+    - name: Improve your AI security posture management
+      items:
+      - name: AI security posture management (Preview)
+        displayName: AI, security, posture, management
+        href: ai-security-posture.md
+    - name: Copilot for Security in Defender for Cloud
+      displayName: copilot, security, recommendations
+      href: copilot-security-in-defender-for-cloud.md
     - name: Security recommendations
       items:
         - name: Reference list of Azure recommendations
@@ -305,11 +326,20 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
-        - name: Enable Permissions Management
+        - name: Enable permissions management (CIEM)
+          displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
           href: enable-permissions-management.md
-    - name: Data-aware security posture
+    - name: AI security posture
       items:
-        - name: Enable data-aware security posture
+        - name: Discover generative AI workloads
+          displayName: AI, workloads, models, applications, apps, AI BOM
+          href: identify-ai-workload-model.md
+        - name: Explore risks to pre-deployment generative AI artifacts
+          displayName: AI, risks, generative, applications, apps
+          href: explore-ai-risk.md
+    - name: Data security posture management
+      items:
+        - name: Enable data security posture management
           href: data-security-posture-enable.md
         - name: Explore risks to sensitive data
           href: data-security-review-risks.md
@@ -322,10 +352,33 @@
         - name: Attack path analysis and enhanced risk-hunting for containers
           displayName: attack paths, paths, security explorer, test
           href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
+    - name: Secrets security posture
+      items: 
+      - name: Remediate issues with VM secrets
+        href: remediate-server-secrets.md
+      - name: Remediate cloud deployment secrets
+        href: remediate-cloud-deployment-secrets.md
+    - name: Improve security posture with Copilot for Security
+      items:
+        - name: Analyze recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, analyze
+          href: analyze-with-copilot.md
+        - name: Summarize recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, summarize
+          href: summarize-with-copilot.md
+        - name: Remediate recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, remediate
+          href: remediate-with-copilot.md
+        - name: Delegate recommendations with Copilot for Security
+          displayName: copilot, security, recommendations, delegate
+          href: delegate-with-copilot.md
+        - name: Remediate code with Copilot for Security
+          displayName: copilot, security, recommendations, code, remediate, iac, infrastructure as code
+          href: remediate-code-with-copilot.md
     - name: Manage security standards and recommendations
       items:
       - name: Choose standards for your compliance dashboard
-        href: update-regulatory-compliance-packages.md
+        href: update-regulatory-compliance-packages.yml
       - name: Create custom standards/recommendations
         href: create-custom-recommendations.md
       - name: Manage MCSB recommendations
@@ -341,7 +394,7 @@
           displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
           href: review-security-recommendations.md
-        - name: Review exempted resources
+        - name: Review resources exempted from recommendations
           href: review-exemptions.md
         - name: Remediate recommendations
           displayName: remediation, steps, recommendations, fix, actions, activity log
@@ -352,7 +405,7 @@
           href: governance-rules.md
         - name: Automate remediation responses
           displayName: workflow, triggers, logic app, automation, policies, breaking change
-          href: workflow-automation.md
+          href: workflow-automation.yml
         - name: View recommendations and alerts in Windows Admin Center
           displayName: windows, admin, center
           href: windows-admin-center-integration.md
@@ -363,6 +416,9 @@
         - name: Identify and remediate attack paths
           displayName: attack paths, paths, investigate, easm,
           href: how-to-manage-attack-path.md
+        - name: Retrieve attack path data with API
+          displayName: attack paths, paths, investigate, easm, rest api
+          href: attack-path-api.md
         - name: Build queries with cloud security explorer
           displayName: queries, security explorer, explorer, templates, query
           href: how-to-manage-cloud-security-explorer.md
@@ -407,7 +463,7 @@
       items:
         - name: Manage and respond to security alerts
           displayName: security alerts, alerts
-          href: managing-and-responding-alerts.md
+          href: managing-and-responding-alerts.yml
         - name: Create and manage alerts suppression rules
           displayName: alert suppression, alert suppression, create, suppressions rules,
             rules
@@ -451,11 +507,11 @@
           displayName: threat intelligence reports
           href: threat-intelligence-reports.md
         - name: Validate your alert configuration
-          displayname: eicar, Kubernetes, Linux
+          displayName: eicar, Kubernetes, Linux
           href: alert-validation.md
         - name: Automate responses to alerts
           displayName: workflow
-          href: workflow-automation.md
+          href: workflow-automation.yml
 
 - name: Protect your workloads
   items:
@@ -496,6 +552,10 @@
         href: defender-partner-applications.md
       - name: Onboard 42Crunch (preview)
         href: onboarding-guide-42crunch.md
+      - name: Onboard StackHawk (preview)
+        href: onboarding-guide-stackhawk.md
+      - name: Onboard Bright Security (preview)
+        href: onboarding-guide-bright.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
@@ -527,9 +587,13 @@
       - name: Agentless machine scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
-      - name: Manage secrets with agentless secret scanning
+      - name: Protect secrets
         displayName: secrets, secret scanning, agentless
-        href: secret-scanning.md
+        items: 
+        - name: Overview
+          href: secrets-scanning-servers.md
+        - name: Remediate VM secrets
+          href: remediate-server-secrets.md
       - name: Protect servers with agentless malware scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, Microsoft Defender Antivirus
         href: agentless-malware-scanning.md
@@ -549,7 +613,7 @@
         href: auto-deploy-vulnerability-assessment.md
       - name: Transition to Microsoft Defender Vulnerability Management for servers
         displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
-        href: how-to-transition-to-built-in.md
+        href: how-to-transition-to-built-in.yml
       - name: Common questions 
         displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
         href: faq-scanner-detection.yml
@@ -574,7 +638,7 @@
         href: just-in-time-access-overview.md
       - name: Enable just-in-time access on VMs
         displayName: jit, management, ports
-        href: just-in-time-access-usage.md
+        href: just-in-time-access-usage.yml
     - name: Endpoint detection and response
       items:
       - name: Understand endpoint detection and response
@@ -598,6 +662,9 @@
         href: enable-adaptive-application-controls.md
     - name: Review server protection
       items:
+        - name: Remediate security baselines recommendation powered by MDVM
+          displayName: security, baseline, remediate, mdvm, vulnerability, assessment, va
+          href: remediate-security-baseline.md
         - name: Review hardening recommendations
           displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
           href: apply-security-baseline.md
@@ -650,13 +717,19 @@
             href: agentless-vulnerability-assessment-gcp.md
           - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
-          - name: View and remediate vulnerabilities for registry images
-            href: view-and-remediate-vulnerability-assessment-findings.md
-          - name: View and remediate vulnerabilities for running images
-            href: view-and-remediate-vulnerabilities-for-images.md
-          - name: Disable vulnerabilities on images
+          - name: View and remediate vulnerabilities for registry images (Risk based)
+            href: view-and-remediate-vulnerability-registry-images.md
+          - name: View and remediate vulnerabilities for running containers (Risk based)
+            href: view-and-remediate-vulnerabilities-containers.md
+          - name: Disable vulnerabilities on images (Risk based)
             href: disable-vulnerability-findings-containers.md
-          - name: REST API
+          - name: View and remediate vulnerabilities for registry images (Secure score)
+            href: view-and-remediate-vulnerability-assessment-findings-secure-score.md
+          - name: View and remediate vulnerabilities for running images (Secure score)
+            href: view-and-remediate-vulnerabilities-for-images-secure-score.md
+          - name: Disable vulnerabilities on images (Secure score)
+            href: disable-vulnerability-findings-containers-secure-score.md
+          - name: REST API (Secure score)
             href: subassessment-rest-api.md
           - name: Transition to Defender Vulnerability Management
             href: transition-to-defender-vulnerability-management.md
@@ -665,6 +738,9 @@
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md
+      - name: Kubeaudit events in advanced hunting
+        displayName: k8s, containers
+        href: kubeaudit-events-advanced-hunting.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md
@@ -738,7 +814,13 @@
           - name: Overview
             displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-introduction.md
-          - name: Enable Defender for OSS RDBs and respond to alerts
+          - name: Enable on Azure
+            displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+            href: enable-defender-for-databases-azure.md
+          - name: Enable on AWS (Preview)
+            displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+            href: enable-defender-for-databases-aws.md
+          - name: Respond to Defender open-source database alerts
             displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases,
               Azure Defender, OS RDBs, OSRDB
             href: defender-for-databases-usage.md
@@ -853,7 +935,7 @@
       - name: DevOps environment security posture
         href: concept-devops-environment-posture-management-overview.md
       - name: Reliability in Cloud for DevOps security
-        href: ../reliability/reliability-defender-devops.md?toc=/azure/defender-for-cloud/toc.json&bc=/azure/defender-for-cloud/breadcrumb/toc.json
+        href: /azure/reliability/reliability-defender-devops?toc=/azure/defender-for-cloud/toc.json&bc=/azure/defender-for-cloud/breadcrumb/toc.json
       - name: Onboard
         items:
           - name: Connect your Azure DevOps environment
@@ -863,7 +945,7 @@
           - name: Connect your GitLab environment
             href: quickstart-onboard-gitlab.md
           - name: Configure the Microsoft Security DevOps Azure DevOps extension
-            href: azure-devops-extension.md
+            href: azure-devops-extension.yml
           - name: Configure the Microsoft Security DevOps GitHub action
             href: github-action.md
           - name: Configure pull request annotations
@@ -882,6 +964,14 @@
             href: review-pull-request-annotations.md
       - name: Common questions about DevOps security
         href: faq-defender-for-devops.yml
+  - name: Threat protection for AI workloads (preview)
+    items:
+      - name: Overview
+        displayName: AI, Defender for AI
+        href: ai-threat-protection.md
+      - name: Enable threat protection for AI workloads (preview)
+        displayName: AI, Defender for AI
+        href: ai-onboarding.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)
@@ -970,7 +1060,7 @@
           href: episode-twenty-nine.md
         - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
           href: episode-thirty.md
-        - name: Understanding data aware security posture capability
+        - name: Understanding data security posture management capability
           href: episode-thirty-one.md
         - name: API Security with Defender for APIs
           href: episode-thirty-two.md
@@ -997,13 +1087,19 @@
         - name: Unified insights from Microsoft Entra permissions management
           href: episode-forty-three.md
         - name: Agentless malware detection
-          href: episode-forty-four.md   
+          href: episode-forty-four.md
+        - name: Risk prioritization
+          href: episode-forty-five.md
+        - name: DevOps Security Capabilities in Defender CSPM
+          href: episode-forty-six.md
+        - name: Vulnerability management in Defender CSPM
+          href: episode-forty-seven.md
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation
-      href: ../defender-for-iot/index.yml
+      href: /azure/defender-for-iot/
     - name: Azure security documentation
-      href: ../security/index.yml
+      href: /azure/security/
     - name: Microsoft Defender for Cloud tech community blogs
       href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
     - name: Microsoft Defender for Cloud on Stack Overflow

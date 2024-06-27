@@ -2,7 +2,7 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 02/16/2024
+ms.date: 05/31/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -87,21 +87,9 @@ There are some important factors to consider when defining your resource group:
 
 * You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
-* The resources in a resource group can be located in different regions than the resource group.
+* The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#what-location-should-i-use-for-my-resource-group)
 
-* When you create a resource group, you need to provide a location for that resource group. 
-
-  You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?"
-
-  The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
-
-  To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
-  
-  If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
-   
-  For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
-
-* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.md), or [resource locks](lock-resources.md).
+* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.yml), or [resource locks](lock-resources.md).
 
 * You can [apply tags](tag-resources.md) to a resource group. The resources in the resource group don't inherit those tags.
 
@@ -114,6 +102,22 @@ There are some important factors to consider when defining your resource group:
 * Some resources can exist outside of a resource group. These resources are deployed to the [subscription](../templates/deploy-to-subscription.md), [management group](../templates/deploy-to-management-group.md), or [tenant](../templates/deploy-to-tenant.md). Only specific resource types are supported at these scopes.
 
 * To create a resource group, you can use the [portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups), or an [ARM template](../templates/deploy-to-subscription.md#resource-groups).
+
+## What location should I use for my resource group?
+
+When you create a resource group, you need to provide a location for that resource group.
+
+You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?"
+
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+
+To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
+  
+If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
+
+To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group. When the resource group's region is unavailable, Azure Resource Manager is unable to update your resource's metadata and blocks your write calls. By colocating your resource and resource group region, you reduce the risk of region unavailability because your resources and metadata exist in one region instead of multiple regions.
+
+For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
 ## Resiliency of Azure Resource Manager
 
@@ -128,14 +132,6 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 * Never taken down for maintenance activities.
 
 This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
-
-## Resource group location alignment
-
-To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group.
-
-The resource group location is where Azure Resource Manager stores metadata for the resources in the resource group. Azure Resource Manager uses this location for routing and caching. For example, when you list your resources at the subscription or resource group scopes, Azure Resource Manager gets the information from the cache.
-
-When the resource group's region is unavailable, Azure Resource Manager is unable to update your resource's metadata and blocks your write calls. By colocating your resource and resource group region, you reduce the risk of region unavailability because your resources and metadata exist in one region instead of multiple regions.
 
 ## Resolve concurrent operations
 

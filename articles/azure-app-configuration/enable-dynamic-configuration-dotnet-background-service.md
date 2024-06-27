@@ -3,7 +3,7 @@ title: "Tutorial: Use dynamic configuration in a .NET background service"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET background services.
 services: azure-app-configuration
-author: zhiyuanliang
+author: zhiyuanliang-ms
 manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
@@ -43,7 +43,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new .NET background service project:
+1. In the new folder, run the following command to create a new .NET background service project:
 
     ```dotnetcli
     dotnet new worker
@@ -51,7 +51,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 ## Reload data from App Configuration
 
-1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following commands:
+1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
     ```dotnetcli
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
@@ -175,7 +175,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
     ---
 
-1. Run the following command to build the console app.
+1. Run the following command to build the app.
 
     ```dotnetcli
     dotnet build
@@ -197,7 +197,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     |----------------------------|-----------------------------------------------|
     | *TestApp:Settings:Message* | *Data from Azure App Configuration - Updated* |
 
-1. Wait for about 30 seconds. You should see the console outputs changed.
+1. Wait a few moments for the refresh interval time window to pass. You will see the console outputs changed.
 
     ![Screenshot of the refreshed background service.](./media/dotnet-background-service-refresh.png)
 

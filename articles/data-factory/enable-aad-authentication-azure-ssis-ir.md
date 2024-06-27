@@ -7,8 +7,8 @@ ms.devlang: powershell
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
-ms.date: 07/17/2023
+ms.custom: has-azure-ad-ps-ref
+ms.date: 05/15/2024
 ---
 
 # Enable Microsoft Entra authentication for Azure-SSIS integration runtime
