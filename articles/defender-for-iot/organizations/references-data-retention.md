@@ -7,18 +7,31 @@ ms.date: 01/22/2023
 
 # Data retention, privacy, and sharing across Microsoft Defender for IoT
 
-Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinitely on your sensors.
+Mircosoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
-Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
+Each storage type has various storage capacity options and retention times. This article describes the data retention policy as well as the amount of data and length of time it's stored in each storage type before being deleted or overwritten.
 
-Each storage location affords a certain storage capacity and retention times. This article describes how much and how long each type of data is stored in each location before being deleted or overwritten.
+## What are we collecting? 
+
+Defender for IoT collects information from your configured devices and stores it in a service specific, customer-dedicated and segregated tenant. The stored data is for administration, tracking, and reporting purposes.
+
+Information collected includes network connection data (IPs and ports), and device details (device identifiers, names, operating system versions, firmware versions). 
+
+Microsoft stores this data securely in Microsoft Azure portal and maintains it in accordance with Microsoft privacy practices and [Microsoft Trust Center policies](https://azure.microsoft.com/en-us/explore/trusted-cloud/). <!-- check the link works from within azure like this: /explore/trusted-cloud/ -->
+
+This data enables Defender for IoT to: 
+
+- Proactively identify indicators of attack (IOAs) in your organization.
+- Generate alerts if a possible attack is detected.
+- Provide your security operations with a view into devices and addresses related to threat signals from your network, enabling you to investigate and explore possible security threats on the network. 
+
+Microsoft doesn't use your data for advertising. 
 
 ## Data Location 
 
 Defender for Iot uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in:  
 
-- the geo-location of the tenant as identified during provisioning, or <!-- remove?--> 
-
+- the geo-location of the tenant as identified during provisioning, or <!-- remove? how do i find this in the style guide. --> 
 - the geo-location as defined by the data storage rules of an online service if this online service is used by Defender for Endpoint to process such data. 
 
 ## Data Retention 
