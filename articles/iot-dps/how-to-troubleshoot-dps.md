@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-dps
 ms.topic: troubleshooting
-ms.date: 05/25/2022
+ms.date: 06/28/2024
 ---
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service

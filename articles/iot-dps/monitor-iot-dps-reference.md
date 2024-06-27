@@ -1,5 +1,5 @@
 ---
-title: Monitoring DPS data reference
+title: Monitoring Device Provisioning Service data reference
 description: This article contains important reference material you need when you monitor Azure IoT Hub Device Provisioning Service.
 ms.date: 06/28/2024
 ms.custom: horz-monitor, subject-monitoring
@@ -63,11 +63,11 @@ DPS uses the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagn
 | Level | Int | The logging severity of the event. For example, Information or Error. |
 | OperationName | String | The type of action performed during the event. For example: Query, Get, Upsert, and so on.  |
 | OperationVersion | String | The API Version used during the event. |
-| Resource | String | The name forOF the resource where the event took place. For example, "MYEXAMPLEDPS". |
+| Resource | String | The name forOF the resource where the event took place. For example, `MYEXAMPLEDPS`. |
 | ResourceGroup | String | The name of the resource group where the resource is located. |
 | ResourceId | String | The Azure Resource Manager Resource ID for the resource where the event took place. |
-| ResourceProvider | String | The resource provider for the event. For example, "MICROSOFT.DEVICES". |
-| ResourceType | String | The resource type for the event. For example, "PROVISIONINGSERVICES". |
+| ResourceProvider | String | The resource provider for the event. For example, `MICROSOFT.DEVICES`. |
+| ResourceType | String | The resource type for the event. For example, `PROVISIONINGSERVICES`. |
 | ResultDescription | String | Error details for the event if unsuccessful. |
 | ResultSignature | String | HTTP status code for the event if unsuccessful. |
 | ResultType | String | Outcome of the event: Success, Failure, ClientError, and so on. |

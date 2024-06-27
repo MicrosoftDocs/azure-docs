@@ -21,7 +21,7 @@ For more information about the resource types for IoT Hub DPS, see [Azure IoT Hu
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your DPS instance followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your instance.
 
@@ -44,7 +44,7 @@ To view and set up alerts on IoT Hub Device Provisioning Service metrics:
 1. Select **Metrics**.
 1. Select the desired metric. For supported metrics, see [Metrics](monitor-iot-dps-reference.md#metrics).
 1. Select desired aggregation method to create a visual view of the metric.
-1. To set up an alert of a metric, select **New alert rules** from the top right of the metric blade, similarly you can go to **Alert** blade and select **New alert rules**.
+1. To set up an alert of a metric, select **New alert rules** from the top right of the metric area, similarly you can go to **Alert** pane and select **New alert rules**.
 1. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
 To learn more about viewing metrics and setting up alerts on your DPS instance, see [Analyzing metrics](monitor-iot-dps.md#analyzing-metrics) and [Alerts](monitor-iot-dps.md#alerts) in Monitor Device Provisioning Service.
@@ -72,9 +72,9 @@ For the available resource log categories, their associated Log Analytics tables
 1. Select **Diagnostics settings**.
 1. Select **Add diagnostic setting**.
 1. Configure the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
-1. Tick the box **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)) and save.
+1. Select the box **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)) and save.
 1. Go to **Logs** tab in the Azure portal under Device Provisioning Service resource.
-1. Write **AzureDiagnostics** as a query and click **Run** to view recent events.
+1. Write **AzureDiagnostics** as a query and select **Run** to view recent events.
 1. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
 
 ### Analyzing logs
@@ -85,12 +85,12 @@ To route data to Azure Monitor Logs, you must create a diagnostic setting to sen
 
 In Azure portal, you can select **Logs** under **Monitoring** on the left-pane of your DPS instance to perform Log Analytics queries scoped, by default, to the logs and metrics collected in Azure Monitor Logs for your instance.
 
-:::image type="content" source="media/monitor-iot-dps/logs-portal.png" alt-text="Logs page for a Dps instance.":::
+:::image type="content" source="media/monitor-iot-dps/logs-portal.png" alt-text="Screenshot shows the Logs page for a DPS instance.":::
 
 > [!IMPORTANT]
 > When you select **Logs** from the DPS menu, Log Analytics is opened with the query scope set to the current DPS instance. This means that log queries will only include data from that resource. If you want to run a query that includes data from other DPS instances or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
-Run queries against the **AzureDiagnostics** table to see the resource logs collected for the diagnostic settings you've created for your DPS instance.
+Run queries against the **AzureDiagnostics** table to see the resource logs collected for the diagnostic settings you created for your DPS instance.
 
 ```kusto
 AzureDiagnostics
@@ -100,7 +100,7 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics. 
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -125,5 +125,5 @@ The following table lists some suggested alert rules for IoT Hub DPS. These aler
 
 ## Related content
 
-- See [Azure IoT Hub Device Provisioning Service monitoring data reference](monitor-iot-dps-reference.md) for a reference of the metrics, logs, and other important values created for [TODO-replace-with-service-name].
+- See [Azure IoT Hub Device Provisioning Service monitoring data reference](monitor-iot-dps-reference.md) for a reference of the metrics, logs, and other important values created for IoT Hub Device Provisioning Service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
