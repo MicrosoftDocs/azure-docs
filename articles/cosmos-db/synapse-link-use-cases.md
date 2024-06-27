@@ -90,7 +90,7 @@ The following is an architecture leveraging the cloud native HTAP capabilities i
 
 * **Operational reporting:** With the growth of digital twin initiatives, companies are collecting vast amounts of operational data from large number of sensors to build a digital copy of each machine. This data powers BI needs to understand trends over historical data in addition to real-time applications over recent hot data.
 
-## Next steps
+## Related content
 
 To learn more, see the following docs:
 * [Analytics and BI overview for Azure Cosmos DB](analytics-bi-overview.md)
