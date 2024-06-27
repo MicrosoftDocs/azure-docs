@@ -80,4 +80,5 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 ## Next steps
 
-- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](../../aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension.md)
+- To walk through a quickstart, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](../../aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension.md).
+- To learn about how to use the Microsoft Graph extension, see [Bicep templates for Microsoft Graph](https://aka.ms/graphbicep).
