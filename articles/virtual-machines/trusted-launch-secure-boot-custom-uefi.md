@@ -16,18 +16,18 @@ This feature allows you to bind unified extensible firmware interface (UEFI) key
 
 ## Overview
 
-When a Trusted launch virtual machine (VM) is deployed, during the boot process, signatures of all the boot components such as the UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified against trusted preloaded UEFI keys. Verification failure on any of the boot components results in no-boot of the VM or no-load of the kernel modules/drivers only. Verification can fail because of a component signed by a key that's not in the preloaded UEFI keys list or an unsigned component.
+When a Trusted Launch virtual machine (VM) is deployed, during the boot process, signatures of all the boot components such as the UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified against trusted preloaded UEFI keys. Verification failure on any of the boot components results in no-boot of the VM or no-load of the kernel modules/drivers only. Verification can fail because of a component signed by a key that's not in the preloaded UEFI keys list or an unsigned component.
 
-Many types of Azure partner-provided or customer-procured software (disaster recovery, network monitoring) install driver/kernel modules as part of their solutions. These driver/kernel modules must be signed for a Trusted launch VM to boot. Many Azure partners sign their driver/kernel modules with their own private key. This approach requires that the public key (UEFI keys) of the private key pair must be available in the UEFI layer so that the Trusted launch VM can verify the boot components and boot successfully.
+Many types of Azure partner-provided or customer-procured software (disaster recovery, network monitoring) install driver/kernel modules as part of their solutions. These driver/kernel modules must be signed for a Trusted Launch VM to boot. Many Azure partners sign their driver/kernel modules with their own private key. This approach requires that the public key (UEFI keys) of the private key pair must be available in the UEFI layer so that the Trusted Launch VM can verify the boot components and boot successfully.
 
-For a Trusted launch VM, a new feature called Secure Boot UEFI keys is now in preview. With this feature, you can bind UEFI keys (db/dbx/pk/kek) for driver/kernel modules signed by using a private key that's owned by your third-party vendors. In this public preview, you can bind UEFI keys by using the Azure Compute Gallery. Binding UEFI keys for an Azure Marketplace image, or as part of VM deployment parameters, isn't currently supported.
+For a Trusted Launch VM, a new feature called Secure Boot UEFI keys is now in preview. With this feature, you can bind UEFI keys (db/dbx/pk/kek) for driver/kernel modules signed by using a private key that's owned by your third-party vendors. In this public preview, you can bind UEFI keys by using the Azure Compute Gallery. Binding UEFI keys for an Azure Marketplace image, or as part of VM deployment parameters, isn't currently supported.
 
 > [!NOTE]
-> Binding UEFI keys mostly applies to Linux-based Trusted launch VMs.
+> Binding UEFI keys mostly applies to Linux-based Trusted Launch VMs.
 
 ## Bind Secure Boot keys to an Azure Compute Gallery image
 
-Follow the steps in the following procedures to bind and create a Trusted launch VM.
+Follow the steps in the following procedures to bind and create a Trusted Launch VM.
 
 ### Get the virtual hard disk of an Azure Marketplace image
 
@@ -257,7 +257,7 @@ Use this Azure Compute Gallery image creation template. Provide the OS VHD URL a
 
 ### Create a VM (deploy an ARM template through the portal)
 
-Create a Trusted launch or confidential VM by using the Azure Compute Gallery image previously created.
+Create a Trusted Launch or confidential VM by using the Azure Compute Gallery image previously created.
 
 The following sample shows a `TrustedLaunch` VM creation template with an Azure Compute Gallery image.
 
@@ -553,7 +553,7 @@ $ openssl x509 -inform der -in sb_cert.cer -out sb_cert_base64.cer
 $ sed -e '/BEGIN CERTIFICATE/d;/END CERTIFICATE/d' sb_cert_base64.cer
 ```
 
-## Method to create Azure Compute Gallery and a corresponding Trusted launch VM by using the Azure CLI
+## Method to create Azure Compute Gallery and a corresponding Trusted Launch VM by using the Azure CLI
 
 The following example of an Azure Compute Gallery template has prefilled entries.
 
@@ -671,7 +671,7 @@ The following example of an Azure Compute Gallery template has prefilled entries
 > az deployment group create --resource-group <resourceGroupName> --template-file "<location to template>\SIGWithCustomUEFIKeyExample.json"
 ```
 
-### Deploy a Trusted launch VM by using the Azure Compute Gallery
+### Deploy a Trusted Launch VM by using the Azure Compute Gallery
 
 ```azurecli-interactive
 > $imagDef="/subscriptions/<subscription id>/resourceGroups/<resourcegroup name>/providers/Microsoft.Compute/galleries/customuefigallerytest/images/image_def/versions/1.0.0"
