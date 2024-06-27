@@ -283,12 +283,22 @@
           href: ../integrated-cache.md
         - name: Integrated cache FAQ
           href: ../integrated-cache-faq.md
-    - name: Analytics
+    - name: Analytics and BI
       items:
-        - name: Analytics overview
-          href: analytics.md
+        - name: Analytics and BI overview
+          href: ../analytics-bi-overview.md
+        - name: Analytics and BI use cases
+          href: ../analytics-use-cases.md
         - name: Mirroring in Microsoft Fabric
-          href: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+          items:
+            - name: Overview
+              href: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+            - name: FAQ
+              href: /fabric/database/mirrored-database/azure-cosmos-db-faq?context=/azure/cosmos-db/context/context
+            - name: Limitations
+              href: /fabric/database/mirrored-database/azure-cosmos-db-limitations?context=/azure/cosmos-db/context/context
+            - name: Troubleshoot
+              href: /fabric/database/mirrored-database/azure-cosmos-db-troubleshooting?context=/azure/cosmos-db/context/context
         - name: Azure Synapse Link
           items:
             - name: Azure Synapse Link for Azure Cosmos DB
@@ -730,32 +740,46 @@
           items:
             - name: Troubleshoot Python SDK
               href: troubleshoot-python-sdk.md
-    - name: Analytics and BI with Azure Synapse Link
-      items:
-        - name: Configure Azure Synapse Link
-          href: ../configure-synapse-link.md
-        - name: Connect to Azure Synapse Link
-          href: ../../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Synapse Link and integrated Power BI
-          href: ../integrated-power-bi-synapse-link.md
-        - name: Analytical store and private endpoints
-          href: ../analytical-store-private-endpoints.md
-        - name: Query with Azure Synapse Spark 3
-          href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Query with Azure Synapse Spark 2
-          href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Query with serverless SQL pool
-          href: ../../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Analytics and BI
+      items:        
+        - name: Mirroring in Microsoft Fabric
+          items:
+            - name: Overview
+              href: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+            - name: Get started with mirrored data
+              href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
+            - name: Join mirrored data
+              href: /fabric/database/mirrored-database/azure-cosmos-db-how-to-join-multiple?context=/azure/cosmos-db/context/context
+            - name: Query nested data
+              href: /fabric/database/mirrored-database/azure-cosmos-db-how-to-query-nested?context=/azure/cosmos-db/context/context
+            - name: Access data using Lakehouse and notebooks
+              href: /fabric/database/mirrored-database/azure-cosmos-db-lakehouse-notebooks?context=/azure/cosmos-db/context/context
+        - name: Azure Synapse Link
+          items:
+            - name: Configure Azure Synapse Link
+              href: ../configure-synapse-link.md
+            - name: Connect to Azure Synapse Link
+              href: ../../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Synapse Link and integrated Power BI
+              href: ../integrated-power-bi-synapse-link.md
+            - name: Analytical store and private endpoints
+              href: ../analytical-store-private-endpoints.md
+            - name: Query with Azure Synapse Spark 3
+              href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Query with Azure Synapse Spark 2
+              href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Query with serverless SQL pool
+              href: ../../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Configure custom partitioning
+              href: ../configure-custom-partitioning.md
+            - name: Get started with change data capture
+              href: ../get-started-change-data-capture.md
         - name: Power BI
           items:
             - name: Use Power BI
               href: powerbi-visualize.md
             - name: Use Power BI with Azure Synapse Link
               href: ../synapse-link-power-bi.md
-        - name: Configure custom partitioning
-          href: ../configure-custom-partitioning.md
-        - name: Get started with change data capture
-          href: ../get-started-change-data-capture.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
@@ -944,7 +968,7 @@
           href: dynamo-to-cosmos.md
         - name: Migrate - HBase to API for NoSQL
           href: migrate-hbase-to-cosmos-db.md
-    - name: Integrate with other Azure services
+    - name: Integrate with other services
       items:
         - name: RAG with Azure OpenAI
           href: ../vector-search.md#retrieval-augmented-generation
