@@ -190,7 +190,7 @@ Information about your custom settings is stored in Azure. You can delete the fo
 
 It's a good idea to export and review your settings before you delete them, as described in the previous section. Rebuilding [dashboards](azure-portal-dashboards.md) or redoing custom settings can be time-consuming.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 To delete your portal settings, select **Delete all settings and private dashboards** from the top of **My information**. You'll be prompted to confirm the deletion. When you do so, all settings customizations will return to the default settings, and all of your private dashboards will be lost.
 

@@ -14,6 +14,9 @@ ms.custom: mvc, mode-other
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
+> [!NOTE]
+> Before you enable Azure Automation DSC, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [Azure Machine Configuration](../../governance/machine-configuration/overview.md). The Azure Machine Configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Azure Machine Configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
 By enabling Azure Automation State Configuration, you can manage and monitor the configurations of your Windows and Linux servers using Desired State Configuration (DSC). Configurations that drift from a desired configuration can be identified or auto-corrected. This quickstart steps through enabling an Azure Linux VM and deploying a LAMP stack using Azure Automation State Configuration.
 
 ## Prerequisites

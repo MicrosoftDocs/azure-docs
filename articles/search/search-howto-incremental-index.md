@@ -45,7 +45,9 @@ You can use the Azure portal, preview APIs, or beta Azure SDKs are required to e
 
 ### [**REST**](#tab/rest)
 
-On new indexers, add the "cache" property in the indexer definition payload when calling Create or Update Indexer. You can use preview API versions 2021-04-30-preview and later. We recommend the latest preview for [Create or Update Indexer (2024-05-01-preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+On new indexers, add the "cache" property in the indexer definition payload when calling Create or Update Indexer. 
+
+You can use preview API versions 2021-04-30-preview and later. We recommend the latest preview for [Create or Update Indexer (2024-05-01-preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 ```https
 POST https://[service name].search.windows.net/indexers?api-version=2024-05-01-preview

@@ -17,7 +17,7 @@ Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILog
 >
 >
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Install logging on your app
 
