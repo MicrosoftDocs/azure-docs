@@ -9,6 +9,20 @@ ms.custom: engagement-fy23
 
 # Deploy Zerto disaster recovery on Azure VMware Solution
 
+> [!IMPORTANT]
+> **Temporary pause on new onboarding for Zerto on Azure VMware Solution**
+>
+> Due to ongoing security enhancements and ongoing development work on the Linux version for Azure VMware Solution Run Command and migration activities, we are currently not onboarding new customers for Zerto on Azure VMware Solution. These efforts include transitioning to Linux-based run command, meeting the security requirements to operate the Zerto Linux appliance, and migrating existing customers to latest Zerto version. This pause will be in effect until August 6, 2024.
+>
+>Please Note: Existing customers will continue to receive full support as usual. For further information regarding the timeline and future onboarding availability, please reach out to your Zerto account team.
+>
+>Thank you for your understanding and cooperation.
+
+
+> [!IMPORTANT]
+> AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
+
+
 In this article, learn how to implement disaster recovery for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto disaster recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites.
 
 Zerto is a disaster recovery solution designed to minimize downtime of VMs should a disaster occur. Zerto's platform is built on the foundation of Continuous Data Protection (CDP) that enables minimal or close to no data loss. The platform provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback to ensure minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
@@ -32,8 +46,11 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 > [!NOTE]
 > For Azure NetApp Files (ANFs), [Azure VMware Solution](/azure/azure-vmware/introduction) supports Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance. To leverage ANF datastores, select them as a Recovery Datastore in the Zerto VPG wizard when creating or editing a VPG.
 
->[!TIP]
+> [!TIP]
 > Explore more about ANF datastores and how to [Attach Azure NetApp datastores to Azure VMware Solution hosts](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal).
+
+> [!IMPORTANT]
+> AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
 
 ### Scenario 1: On-premises VMware vSphere to Azure VMware Solution disaster recovery
 

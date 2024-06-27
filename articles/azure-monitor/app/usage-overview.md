@@ -20,7 +20,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 1. **Webpage code:** Use the JavaScript SDK to collect data from webpages. See [Get started with the JavaScript SDK](./javascript-sdk.md).
     
-   [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+   [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 

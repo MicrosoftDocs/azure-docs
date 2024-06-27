@@ -22,7 +22,7 @@ Alternatively, you can create web activities in Data Factory or Azure Synapse An
 
 You can also chain an Execute SSIS Package activity between two web activities that start and stop your IR. Your IR will then start and stop on demand, before or after your package execution. For more information about the Execute SSIS Package activity, see [Run an SSIS package with the Execute SSIS Package activity in the Azure portal](how-to-invoke-ssis-package-ssis-activity.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

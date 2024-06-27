@@ -46,7 +46,7 @@ The SharePoint List Online connector uses service principal authentication to co
 
 2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
 
-    1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
+    1. Open your SharePoint Online site link.
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `contoso.com`

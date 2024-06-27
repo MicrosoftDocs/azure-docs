@@ -126,7 +126,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 }
 ```
 
-Additionally, you can also refence ARM templates using the [module](./modules.md) statement.
+Additionally, you can also reference ARM templates using the [module](./modules.md) statement.
 
 _main.bicep_:
 

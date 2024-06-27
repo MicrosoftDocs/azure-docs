@@ -17,7 +17,7 @@ ms.subservice: web-apps
 
 ## 1. Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## 2. Create and publish a web app on App Service
 
