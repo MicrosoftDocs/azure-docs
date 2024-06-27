@@ -27,9 +27,9 @@ For example, use the `recommendations` API to:
 
 For customers or MSSPs managing multiple environments, the `recommendations` API provides a scalable way to handle recommendations across multiple workspaces. You can also export data from the API and store it externally for audit, archiving, or tracking trends.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 > [!IMPORTANT]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
+>
 > The `recommendations` API is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Get, update, or reevaluate recommendations
