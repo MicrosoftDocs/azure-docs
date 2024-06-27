@@ -377,8 +377,6 @@ To do so, you should do following
    1. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
 More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup).  
-> [!NOTE]  
-> When using `timescale-backup` utilities to restore to Azure, since database user names for Azure Database for PostgreSQL single server must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding.
 
 ## Extensions and Major Version Upgrade
 
