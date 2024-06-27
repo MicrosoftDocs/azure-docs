@@ -323,7 +323,7 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
-    - name: Monitor Azure Stream Analytics
+    - name: Monitor Stream Analytics
       href: monitor-azure-stream-analytics.md
     - name: Monitoring data reference
       href: monitor-azure-stream-analytics-reference.md
