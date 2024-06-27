@@ -12,8 +12,10 @@ ms.reviewer: mmcc
 
 This guide provides step-by-step instructions to migrate various .NET applications from using Application Insights software development kits (SDKs) to Azure Monitor OpenTelemetry.
 
+You can expect an equivalent experience with Azure Monitor OpenTelemetry instrumentation as you did with the Application Insights SDKs. For more information and a feature-by-feature comparison, see <link to chart>.
+
 > [!div class="checklist"]
-> - ASP.NET Core migration to the OpenTelemetry Distro
+> - ASP.NET Core migration to the Azure Monitor OpenTelemetry Distro
 > - ASP.NET, console, and WorkerService migration to the Azure Monitor OpenTelemetry Exporter
 
 If you're getting started with Application Insights and don't need to migrate from the Classic API, see [Enable Azure Monitor OpenTelemetry](opentelemetry-enable.md).
@@ -53,7 +55,7 @@ If you're getting started with Application Insights and don't need to migrate fr
 
     Remove the `Microsoft.ApplicationInsights.AspNetCore` package from your `csproj`.
 
-    ```console
+    ```terminal
     dotnet remove package Microsoft.ApplicationInsights.AspNetCore
     ```
 
@@ -174,7 +176,7 @@ If you're getting started with Application Insights and don't need to migrate fr
 
    Remove any `Microsoft.ApplicationInsights.*` packages from your `csproj` and `packages.config`.
 
-    ```console
+    ```terminal
     dotnet remove package Microsoft.ApplicationInsights
     ```
 
@@ -215,7 +217,7 @@ If you're getting started with Application Insights and don't need to migrate fr
 
     Remove the `Microsoft.ApplicationInsights.WorkerService` package from your `csproj`.
 
-    ```console
+    ```terminal
     dotnet remove package Microsoft.ApplicationInsights.AspNetCore
     ```
 
@@ -254,7 +256,7 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 ## Enable OpenTelemetry
 
-Before you begin, create a temporary [resource](./create-workspace-resource.md) for development and use its [connection string](./sdk-connection-string.md) when following these instructions to store telemetry.
+Before you begin, it's recommended to create a development [resource](./create-workspace-resource.md) and use its [connection string](./sdk-connection-string.md) when following these instructions.
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows the Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
@@ -266,7 +268,7 @@ Plan to update the connection string to send telemetry to the original resource 
 
     Our Azure Monitor Distro enables automatic telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions, and allows collecting custom telemetry.
 
-    ```console
+    ```terminal
     dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
     ```
 
@@ -277,25 +279,35 @@ Plan to update the connection string to send telemetry to the original resource 
     OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
     The Azure Monitor Distro configures each of these signals.
 
-    **Program.cs**
+##### Program.cs
 
     The following code sample shows a simple example meant only to show the basics.
 
     ```csharp
-    var builder = WebApplication.CreateBuilder(args);
+        using Azure.Monitor.OpenTelemetry.AspNetCore;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.Extensions.DependencyInjection;
 
-    // Call AddOpenTelemetry() to add OpenTelemetry to your ServiceCollection.
-    // Call UseAzureMonitor() to fully configure OpenTelemetry.
-    builder.Services.AddOpenTelemetry().UseAzureMonitor();
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
 
-    var app = builder.Build();
-    app.MapGet("/", () => "Hello World");
-    app.Run();
+            // Call AddOpenTelemetry() to add OpenTelemetry to your ServiceCollection.
+            // Call UseAzureMonitor() to fully configure OpenTelemetry.
+            builder.Services.AddOpenTelemetry().UseAzureMonitor();
+
+            var app = builder.Build();
+            app.MapGet("/", () => "Hello World!");
+            app.Run();
+        }
+    }
     ```
 
     We recommend setting your Connection String in an environment variable:
 
-    ```console
+    ```terminal
     APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
     ```
 
@@ -307,7 +319,7 @@ Plan to update the connection string to send telemetry to the original resource 
 
     Installing the Azure Monitor Exporter brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
-    ```console
+    ```terminal
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter
     ```
 
@@ -365,7 +377,7 @@ public class Global : System.Web.HttpApplication
 
     Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
-    ```console
+    ```terminal
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter
     ```
 
@@ -425,13 +437,13 @@ internal class Program
 
     Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
-    ```console
+    ```terminal
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter
     ```
 
     You must also install the [OpenTelemetry Extensions Hosting](https://www.nuget.org/packages/OpenTelemetry.Extensions.Hosting) package.
 
-    ```console
+    ```terminal
     dotnet add package OpenTelemetry.Extensions.Hosting
     ```
 
@@ -477,7 +489,13 @@ public class Program
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-This step isn't applicable to ASP.NET Core.
+[Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies.
+
+The following libraries are included in the Distro.
+
+- [HTTP](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http)
+- [ASP.NET Core](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore)
+- [SQL](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.sqlclient)
 
 ### [ASP.NET](#tab/net)
 
@@ -485,7 +503,7 @@ This step isn't applicable to ASP.NET Core.
 
 1. [OpenTelemetry.Instrumentation.AspNet](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet) can be used to collect telemetry for incoming requests. Azure Monitor maps it to [Request Telemetry](./data-model-complete.md#request).
 
-    ```console
+    ```terminal
     dotnet add package OpenTelemetry.Instrumentation.AspNet
     ```
 
@@ -507,7 +525,7 @@ This step isn't applicable to ASP.NET Core.
 
 2. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor maps it to [Dependency Telemetry](./data-model-complete.md#dependency).
 
-    ```console
+    ```terminal
     dotnet add package OpenTelemetry.Instrumentation.Http
     ```
 
@@ -515,7 +533,7 @@ This step isn't applicable to ASP.NET Core.
 
 3. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor maps it to [Dependency Telemetry](./data-model-complete.md#dependency).
 
-    ```console
+    ```terminal
     dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
     ```
 
@@ -572,7 +590,7 @@ public class Global : System.Web.HttpApplication
 
 1. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor maps it to [Dependency Telemetry](./data-model-complete.md#dependency).
 
-    ```console
+    ```terminal
     dotnet add package OpenTelemetry.Instrumentation.Http
     ```
 
@@ -580,7 +598,7 @@ public class Global : System.Web.HttpApplication
 
 2. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor maps it to [Dependency Telemetry](./data-model-complete.md#dependency).
 
-    ```console
+    ```terminal
     dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
     ```
 
@@ -630,7 +648,7 @@ internal class Program
 
 1. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor maps it to [Dependency Telemetry](./data-model-complete.md#dependency).
 
-    ```console
+    ```terminal
     dotnet add package OpenTelemetry.Instrumentation.Http
     ```
 
@@ -638,7 +656,7 @@ internal class Program
 
 2. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor maps it to [Dependency Telemetry](./data-model-complete.md#dependency).
 
-    ```console
+    ```terminal
     dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
     ```
 
@@ -788,7 +806,7 @@ public class Global : System.Web.HttpApplication
 
 We recommend setting your Connection String in an environment variable:
 
-```console
+```terminal
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 ```
 
@@ -840,7 +858,7 @@ internal class Program
 
 We recommend setting your Connection String in an environment variable:
 
-```console
+```terminal
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 ```
 
@@ -909,7 +927,7 @@ public class Program
 
 We recommend setting your Connection String in an environment variable:
 
-```console
+```terminal
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 ```
 
