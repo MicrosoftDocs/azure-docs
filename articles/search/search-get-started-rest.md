@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download files
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. For more information, see [Downloading files from GitHub](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. Instructions can be found at [Downloading files from GitHub](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
 
 You can also start a new file on your local system and create requests manually by using the instructions in this article.
 
@@ -40,7 +40,9 @@ You can find the search service endpoint in the Azure portal.
 
 1. On the **Overview** home page, find the URL. An example endpoint might look like `https://mydemo.search.windows.net`. 
 
-You're pasting this endpoint into the `.rest` or `.http` file that you create in a later step.
+   :::image type="content" source="media/search-get-started-rest/get-endpoint.png" alt-text="Screenshot of the URL property on the overview page.":::
+
+You're pasting this endpoint into the `.rest` or `.http` file in a later step.
 
 ## Configure access
 
@@ -48,25 +50,19 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
 ### Use API keys
 
-Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one
+Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
-You're pasting this key into the `.rest` or `.http` file that you create in a later step.
+You're pasting this key into the `.rest` or `.http` file in a later step.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot that shows the URL and API keys in the Azure portal.":::
+:::image type="content" source="media/search-get-started-rest/get-api-key.png" alt-text="Screenshot that shows the API keys in the Azure portal.":::
 
 For more information, see [Connect to Azure AI Search using key authentication](search-security-api-keys.md).
 
 ### Use roles
 
-Make sure your search service is [configured for role-based access](search-security-enable-roles.md).
+Make sure your search service is [configured for role-based access](search-security-enable-roles.md). You must have preconfigured [role-assignments for developer access](search-security-rbac.md#assign-roles-for-development). Your role assignments must grant permission to create, load, and query a search index. 
 
-You must have preconfigured [role-assignments for developer access](search-security-rbac.md#assign-roles-for-development). Your role assignments must grant permission to create, load, and query a search index. 
-
-Obtain your personal identity token using either the Azure CLI, Azure PowerShell, or the Azure portal. 
-
-This section assumes you're using a local client that connects to Azure AI Search on your behalf. An alternative approach is [getting a token for the client app](/entra/identity-platform/v2-oauth2-client-creds-grant-flow), assuming your application is [registered](/entra/identity-platform/quickstart-register-app) with Microsoft Entra ID.
-
-You're pasting your personal identity token into the `.rest` or `.http` file that you create in a later step.
+In this section, obtain your personal identity token using either the Azure CLI, Azure PowerShell, or the Azure portal. You're pasting your personal identity token into the `.rest` or `.http` file in a later step.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -102,6 +98,9 @@ You're pasting your personal identity token into the `.rest` or `.http` file tha
 Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
 
 ---
+
+> [!NOTE]
+> This section assumes you're using a local client that connects to Azure AI Search on your behalf. An alternative approach is [getting a token for the client app](/entra/identity-platform/v2-oauth2-client-creds-grant-flow), assuming your application is [registered](/entra/identity-platform/quickstart-register-app) with Microsoft Entra ID.
 
 ## Set up Visual Studio Code
 
