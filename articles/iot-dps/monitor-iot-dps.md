@@ -9,28 +9,6 @@ ms.author: kgremban
 ms.service: iot-dps
 ---
 
-<!-- 
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_07
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-Your service should have the following two articles:
-1. The overview monitoring article (based on this template)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
-
 # Monitor Azure IoT Hub Device Provisioning Service
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
@@ -62,17 +40,11 @@ For a list of available metrics for IoT Hub DPS, see [IoT Hub DPS monitoring dat
 To view and set up alerts on IoT Hub Device Provisioning Service metrics:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. Browse to your IoT Hub Device Provisioning Service.
-
 1. Select **Metrics**.
-
 1. Select the desired metric. For supported metrics, see [Metrics](monitor-iot-dps-reference.md#metrics).
-
 1. Select desired aggregation method to create a visual view of the metric.
-
 1. To set up an alert of a metric, select **New alert rules** from the top right of the metric blade, similarly you can go to **Alert** blade and select **New alert rules**.
-
 1. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
 To learn more about viewing metrics and setting up alerts on your DPS instance, see [Analyzing metrics](monitor-iot-dps.md#analyzing-metrics) and [Alerts](monitor-iot-dps.md#alerts) in Monitor Device Provisioning Service.
@@ -97,21 +69,13 @@ For the available resource log categories, their associated Log Analytics tables
 ### Using Log Analytics to view and resolve errors
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. Browse to your Device Provisioning Service.
-
 1. Select **Diagnostics settings**.
-
 1. Select **Add diagnostic setting**.
-
 1. Configure the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
-
 1. Tick the box **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)) and save.
-
 1. Go to **Logs** tab in the Azure portal under Device Provisioning Service resource.
-
 1. Write **AzureDiagnostics** as a query and click **Run** to view recent events.
-
 1. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
 
 ### Analyzing logs
