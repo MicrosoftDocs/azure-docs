@@ -48,7 +48,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section** and then select the **Add diagnostic setting** option.
 
-    :::image type="content" source="media/monitor-resource-logs/diagnostics-settings-selection.png" lightbox="media/monitor-resource-logs/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
+    :::image type="content" source="media/monitor-resource-logs/add-diagnostic-setting.png" lightbox="media/monitor-resource-logs/add-diagnostic-setting.png" alt-text="Sreenshot of the diagnostics selection page.":::
 
     > [!IMPORTANT]
     > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [enable full-text query](monitor-resource-logs.md#enable-full-text-query-for-logging-query-text).
@@ -69,7 +69,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
-    :::image type="content" source="media/monitor-resource-logs/diagnostics-resource-specific.png" alt-text="Screenshot of the option to enable resource-specific diagnostics.":::
+    :::image type="content" source="media/monitor-resource-logs/configure-diagnostic-setting.png" alt-text="Screenshot of the option to enable resource-specific diagnostics.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -334,11 +334,11 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 1. To enable this feature, navigate to the `Features` page in your Azure Cosmos DB account.
 
-    :::image type="content" source="media/monitor-resource-logs/full-text-query-features.png" lightbox="media/monitor-resource-logs/full-text-query-features.png" alt-text="Screenshot of the navigation process to the Features page.":::
+    :::image type="content" source="media/monitor-resource-logs/enable-account-features.png" lightbox="media/monitor-resource-logs/enable-account-features.png" alt-text="Screenshot of the navigation process to the Features page.":::
 
 2. Select `Enable`. This setting is applied within a few minutes. All newly ingested logs have the full-text or PIICommand text for each request.
 
-    :::image type="content" source="media/monitor-resource-logs/select-enable-full-text.png" alt-text="Screenshot of the full-text feature being enabled.":::
+    :::image type="content" source="media/monitor-resource-logs/enable-diagnostics-full-text-query.png" alt-text="Screenshot of the full-text feature being enabled.":::
 
 ### [Azure CLI / REST API / Bicep / ARM Template](#tab/azure-cli+rest-api+bicep+azure-resource-manager-template)
 
