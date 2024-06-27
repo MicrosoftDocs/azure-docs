@@ -318,7 +318,7 @@ You also need to follow the steps below:
 
 ```json
 {
-    "name": "AzureSqlDbLinkedService",
+    "name": "SQLServerLinkedService",
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
