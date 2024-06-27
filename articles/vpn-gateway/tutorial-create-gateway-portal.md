@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 01/17/2024
+ms.date: 04/17/2024
 
 ---
 
@@ -19,7 +19,7 @@ This tutorial helps you create and manage a virtual network gateway (VPN gateway
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
-If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
+If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 In this tutorial, you learn how to:
 
@@ -71,7 +71,7 @@ Create a virtual network gateway by using the following values:
 * **Public IP address**: Create new
 * **Public IP address name**: VNet1GWpip
 
-For this exercise, you won't select a zone-redundant SKU. If you want to learn about zone-redundant SKUs, see [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md).
+For this exercise, you won't select a zone-redundant SKU. If you want to learn about zone-redundant SKUs, see [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md). Additionally, these steps aren't intended to configure an active-active gateway. For more information, see [Configure active-active gateways](active-active-portal.md).
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]

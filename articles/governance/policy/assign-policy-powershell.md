@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure PowerShell"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure PowerShell.
-ms.date: 02/23/2024
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ The Azure PowerShell modules can be used to manage Azure resources from the comm
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure PowerShell](/powershell/azure/install-az-ps).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
 - A resource group with at least one virtual machine that doesn't use managed disks.
@@ -67,7 +67,7 @@ Run the following command to create the policy assignment:
 ```azurepowershell
 $policyparms = @{
 Name = 'audit-vm-managed-disks'
-DisplayName = 'Audit VMs without managed disks Assignment'
+DisplayName = 'Audit VM managed disks'
 Scope = $rg.ResourceId
 PolicyDefinition = $definition
 Description = 'Az PowerShell policy assignment to resource group'
@@ -171,11 +171,9 @@ Disconnect-AzAccount
 
 ## Next steps
 
-In this quickstart, you assigned a policy definition to identify non-compliant resources in your
-Azure environment.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more how to assign policies that validate if new resources are compliant, continue to the
-tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

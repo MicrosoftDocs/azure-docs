@@ -4,6 +4,7 @@ description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmo
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
@@ -11,7 +12,7 @@ ms.reviewer: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or collection for Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

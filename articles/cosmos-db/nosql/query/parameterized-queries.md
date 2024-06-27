@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 06/05/2024
 ms.custom: query-reference
 ---
 
@@ -20,9 +21,9 @@ Azure Cosmos DB for NoSQL supports queries with parameters expressed by the fami
 
 ## Examples
 
-For example, you can write a query that takes ``lastName`` and ``address.state`` as parameters, and execute it for various values of ``lastName`` and ``address.state`` based on user input.
+For example, you can write a query that takes `upperPriceLimit` as a parameter, and execute it for various values of `price` based on user input.
 
-```sql
+```nosql
 SELECT
     *
 FROM
@@ -46,9 +47,9 @@ You can then send this request to Azure Cosmos DB for NoSQL as a parameterized J
 }
 ```
 
-This next example sets the ``TOP`` argument with a parameterized query:
+This next example sets the `TOP` argument with a parameterized query:
 
-```sql
+```nosql
 {
   "query": "SELECT TOP @pageSize * FROM products",
   "parameters": [

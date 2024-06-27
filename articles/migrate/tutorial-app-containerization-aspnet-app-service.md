@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 03/06/2024
 ms.custom: engagement-fy24
 ---
 # ASP.NET app containerization and migration to Azure App Service
@@ -102,6 +102,9 @@ If you just created a free Azure account, you're the owner of your subscription.
    ```powershell
    .\AppContainerizationInstaller.ps1
    ```
+
+> [!NOTE]
+> For Windows Server 2022, edit line 135 and remove `PowerShell-ISE` from the feature list, as it's no longer supported.
 
 ## Open the App Containerization tool
 

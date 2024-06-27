@@ -5,7 +5,7 @@ author: aahill
 ms.author: aahi
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/11/2023
+ms.date: 03/07/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -20,26 +20,26 @@ To trigger a response from the model, you should end with a user message indicat
 > There are several parameters you can use to change the model's response, such as `temperature` or `top_p`. See the [reference documentation](../reference.md#completions-extensions) for more information.
 
 ```bash
-curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/chat/completions?api-version=2023-06-01-preview \
+curl -i -X POST $AZURE_OPENAI_ENDPOINT/openai/deployments/$AZURE_OPENAI_DEPLOYMENT_ID/chat/completions?api-version=2024-02-15-preview \
 -H "Content-Type: application/json" \
--H "api-key: $AOAIKey" \
+-H "api-key: $AZURE_OPENAI_API_KEY" \
 -d \
 '
 {
-    "dataSources": [
+    "data_sources": [
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'$SearchEndpoint'",
-                "key": "'$SearchKey'",
-                "indexName": "'$SearchIndex'"
+                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
+                "key": "'$AZURE_AI_SEARCH_API_KEY'",
+                "index_name": "'$AZURE_AI_SEARCH_INDEX'"
             }
         }
     ],
     "messages": [
         {
             "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
+            "content": "What are my available health plans?"
         }
     ]
 }
@@ -51,26 +51,37 @@ curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/ch
 ```json
 {
     "id": "12345678-1a2b-3c4e5f-a123-12345678abcd",
-    "model": "",
-    "created": 1684304924,
-    "object": "chat.completion",
+    "model": "gpt-4",
+    "created": 1709835345,
+    "object": "extensions.chat.completion",
     "choices": [
         {
             "index": 0,
-            "messages": [
-                {
-                    "role": "tool",
-                    "content": "{\"citations\": [{\"content\": \"\\nAzure AI services are cloud-based artificial intelligence (AI) services...\", \"id\": null, \"title\": \"What is Azure AI services\", \"filepath\": null, \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=250. Scores=0.4314117431640625 and 1.72564697265625.Org Highlight count=4.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"Learn about Azure AI services.\\\"]\"}",
-                    "end_turn": false
-                },
-                {
-                    "role": "assistant",
-                    "content": " \nAzure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. [doc1]. Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. [doc1].",
-                    "end_turn": true
+            "finish_reason": "stop",
+            "message": {
+                "role": "assistant",
+                "content": "The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans. [doc1].",
+                "end_turn": true,
+                "context": {
+                    "citations": [
+                        {
+                            "content": "...",
+                            "title": "...",
+                            "url": "https://mysearch.blob.core.windows.net/xyz/001.txt",
+                            "filepath": "001.txt",
+                            "chunk_id": "0"
+                        }
+                    ],
+                    "intent": "[\"Available health plans\"]"
                 }
-            ]
+            }
         }
-    ]
+    ],
+    "usage": {
+        "prompt_tokens": 3779,
+        "completion_tokens": 105,
+        "total_tokens": 3884
+    }
 }
 ```
 

@@ -1,12 +1,13 @@
 ---
 title: Supported versions
 description: Learn which versions of the MySQL server are supported in Azure Database for MySQL - Flexible Server.
+author: code-sidd
+ms.author: sisawant
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd
-ms.author: sisawant
-ms.date: 05/24/2022
 ---
 
 # Supported versions for Azure Database for MySQL - Flexible Server
@@ -24,15 +25,15 @@ Azure Database for MySQL flexible server currently supports the following versio
 
 ## MySQL Version 5.7
 
-Bug fix release: 5.7.40
+Bug fix release: 5.7.44
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-40.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-44.html) to learn more about improvements and fixes in this version.
 
 ## MySQL Version 8
 
-Bug fix release: 8.0.32
+Bug fix release: 8.0.35
 
-Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-32.html) to learn more about improvements and fixes in this version.
+Refer to the MySQL [release notes](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-35.html) to learn more about improvements and fixes in this version.
 
 
 The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.

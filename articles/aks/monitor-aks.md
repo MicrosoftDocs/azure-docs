@@ -1,9 +1,10 @@
 ---
 title: Monitor Azure Kubernetes Service (AKS)
 description: Start here to learn how to monitor Azure Kubernetes Service (AKS).
-author: bwren
+author: xuhongl
 ms.author: xuhliu
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ms.custom: subject-monitoring
 ms.date: 11/01/2023
 ---
@@ -68,6 +69,8 @@ Metrics play an important role in cluster monitoring, identifying issues, and op
 - [List of default platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics)
 - [List of default Prometheus metrics](../azure-monitor/containers/prometheus-metrics-scrape-default.md)
 
+AKS also exposes metrics from a critical Control Plane components such as API server, ETCD, Scheduler through Azure Managed Prometheus. This feature is currently in preview and more details can be found [here](./monitor-control-plane-metrics.md).
+
 ## Logs
 
 ### AKS control plane/resource logs
@@ -100,7 +103,7 @@ For more information on the difference between collection modes including how to
 > The ability to select the collection mode isn't available in the Azure portal in all regions yet. For those regions where it's not yet available, use CLI to create the diagnostic setting with a command such as the following:
 > 
 > ```azurecli
-> az monitor diagnostic-settings create --name AKS-Diagnostics --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerService/managedClusters/my-cluster --logs '[{""category"": ""kube-audit"",""enabled"": true}, {""category"": ""kube-audit-admin"", ""enabled"": true}, {""category"": ""kube-apiserver"", ""enabled"": true}, {""category"": ""kube-controller-manager"", ""enabled"": true}, {""category"": ""kube-scheduler"", ""enabled"": true}, {""category"": ""cluster-autoscaler"", ""enabled"": true}, {""category"": ""cloud-controller-manager"", ""enabled"": true}, {""category"": ""guard"", ""enabled"": true}, {""category"": ""csi-azuredisk-controller"", ""enabled"": true}, {""category"": ""csi-azurefile-controller"", ""enabled"": true}, {""category"": ""csi-snapshot-controller"", ""enabled"": true}]'  --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace --export-to-resource-specific true
+> az monitor diagnostic-settings create --name AKS-Diagnostics --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerService/managedClusters/my-cluster --logs '[{"category": "kube-audit","enabled": true}, {"category": "kube-audit-admin", "enabled": true}, {"category": "kube-apiserver", "enabled": true}, {"category": "kube-controller-manager", "enabled": true}, {"category": "kube-scheduler", "enabled": true}, {"category": "cluster-autoscaler", "enabled": true}, {"category": "cloud-controller-manager", "enabled": true}, {"category": "guard", "enabled": true}, {"category": "csi-azuredisk-controller", "enabled": true}, {"category": "csi-azurefile-controller", "enabled": true}, {"category": "csi-snapshot-controller", "enabled": true}]'  --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace --export-to-resource-specific true
 > ```
 
 #### Sample log queries
@@ -175,9 +178,9 @@ When you [enable collection of Prometheus metrics](#integrations) for your clust
 
  Level | Alerts |
 |:---|:---|
-| Pod level | KubePodCrashLooping<br>Job didn't complete in time<br>Pod container restarted in last 1 hour<br>Ready state of pods is less than 80%<br>Number of pods in failed state are greater than 0<br>KubePodNotReadyByController<br>KubeStatefulSetGenerationMismatch<br>KubeJobNotCompleted<br>KubeJobFailed<br>Average CPU usage per container is greater than 95%<br>Average Memory usage per container is greater than 95%<br>KubeletPodStartUpLatencyHigh  |
-| Cluster level | Average PV usage is greater than 80%<br>KubeDeploymentReplicasMismatch<br>KubeStatefulSetReplicasMismatch<br>KubeHpaReplicasMismatch<br>KubeHpaMaxedOut<br>KubeCPUQuotaOvercommit<br>KubeMemoryQuotaOvercommit<br>KubeVersionMismatch<br>KubeClientErrors<br>CPUThrottlingHigh<br>KubePersistentVolumeFillingUp<br>KubePersistentVolumeInodesFillingUp<br>KubePersistentVolumeErrors |
-| Node level | Average node CPU utilization is greater than 80%<br>Working set memory for a node is greater than 80%<br>Number of OOM killed containers is greater than 0<br>KubeNodeUnreachable<br>KubeNodeNotReady<br>KubeNodeReadinessFlapping<br>KubeContainerWaiting<br>KubeDaemonSetNotScheduled<br>KubeDaemonSetMisScheduled<br>KubeletPlegDurationHigh<br>KubeletServerCertificateExpiration<br>KubeletClientCertificateRenewalErrors<br>KubeletServerCertificateRenewalErrors<br>KubeQuotaAlmostFull<br>KubeQuotaFullyUsed<br>KubeQuotaExceeded |
+| Cluster level | KubeCPUQuotaOvercommit<br>KubeMemoryQuotaOvercommit<br>KubeContainerOOMKilledCount<br>KubeClientErrors<br>KubePersistentVolumeFillingUp<br>KubePersistentVolumeInodesFillingUp<br>KubePersistentVolumeErrors<br>KubeContainerWaiting<br>KubeDaemonSetNotScheduled<br>KubeDaemonSetMisScheduled<br>KubeQuotaAlmostFull |
+| Node level | KubeNodeUnreachable<br>KubeNodeReadinessFlapping |
+| Pod level | KubePVUsageHigh<br>KubeDeploymentReplicasMismatch<br>KubeStatefulSetReplicasMismatch<br>KubeHpaReplicasMismatch<br>KubeHpaMaxedOut<br>KubePodCrashLooping<br>KubeJobStale<br>KubePodContainerRestart<br>KubePodReadyStateLow<br>KubePodFailedState<br>KubePodNotReadyByController<br>KubeStatefulSetGenerationMismatch<br>KubeJobFailed<br>KubeContainerAverageCPUHigh<br>KubeContainerAverageMemoryHigh<br>KubeletPodStartUpLatencyHigh |
 
 
 

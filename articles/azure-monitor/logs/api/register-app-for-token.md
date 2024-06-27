@@ -1,7 +1,7 @@
 ---
 title: Register an App to request authorization tokens and work with APIs
 description: How to register an app and assign a role so it can access request a token and work with APIs
-ms.date: 01/04/2023
+ms.date: 05/30/2024
 author: guywi-ms
 ms.author: guywild
 ms.topic: article
@@ -113,9 +113,9 @@ Before you can generate a token using your app, client ID, and secret, assign th
 For example,
 - To grant your app read from a Log Analytics Workspace, add your app as a member to the **Reader** role using Access control (IAM) for your Log Analytics Workspace. For more information, see [Access the API](./access-api.md)
 
-- To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [ Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
+- To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
 
-For more information, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md)
+For more information, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml)
 
 Once you've assigned a role, you can use your app, client ID, and client secret to generate a bearer token to access the REST API.
 

@@ -23,22 +23,26 @@ The application routing add-on with NGINX delivers the following:
 * Integration with [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in Azure Key Vault.
 
-For other configuration information related to SSL encryption and DNS integration, review [DNS and SSL configuration][dns-ssl-configuration] and [application routing add-on configuration][custom-ingress-configurations].
+For other configurations, see:
 
-With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
+* [DNS and SSL configuration][dns-ssl-configuration]
+* [Application routing add-on configuration][custom-ingress-configurations]
+* [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
+
+With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on with OSM is not recommended.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - Azure CLI version 2.54.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-- `aks-preview` Azure CLI extension of version 0.5.171 or later installed
 
 ## Limitations
 
 - The application routing add-on supports up to five Azure DNS zones.
 - All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
-- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap, isn't supported.
+- Editing the ingress-nginx `ConfigMap` in the `app-routing-system` namespace isn't supported.
+- The following snippet annotations are blocked and will prevent an Ingress from being configured: `load_module`, `lua_package`, `_by_lua`, `location`, `root`, `proxy_pass`, `serviceaccount`, `{`, `}`, `'`.
 
 ## Enable application routing using Azure CLI
 
@@ -49,7 +53,12 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying the `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --generate-ssh-keys
 ```
 
 ### Enable on an existing cluster
@@ -57,7 +66,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command.
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 # [Open Service Mesh (OSM) (retired)](#tab/with-osm)
@@ -74,7 +83,13 @@ The following add-ons are required to support this configuration:
 Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command specifying the `--enable-app-routing` flag and the `--enable-addons` parameter with the `open-service-mesh` add-on:
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing --enable-addons open-service-mesh 
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --enable-addons open-service-mesh \
+    --generate-ssh-keys 
 ```
 
 ### Enable on an existing cluster
@@ -82,8 +97,8 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command and the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter set to `open-service-mesh`:
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-service-mesh
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
+az aks enable-addons --resource-group <ResourceGroupName> --name <ClusterName> --addons open-service-mesh
 ```
 
 > [!NOTE]
@@ -99,7 +114,12 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-servi
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --generate-ssh-keys
 ```
 
 ### Enable on an existing cluster
@@ -107,7 +127,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster,  use the [`az aks approuting enable`][az-aks-approuting-enable] command:
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ---
@@ -119,7 +139,7 @@ To connect to the Kubernetes cluster from your local computer, you use [kubectl]
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
+az aks get-credentials --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ## Deploy an application
@@ -217,7 +237,7 @@ The application routing add-on creates an Ingress class on the cluster named *we
     deployment.apps/aks-helloworld created
     ```
 
-   ```bash
+    ```bash
     kubectl apply -f service.yaml -n hello-web-app-routing
     ```
 
@@ -341,7 +361,7 @@ The application routing add-on creates an Ingress class on the cluster called *w
     deployment.apps/aks-helloworld created
     ```
 
-   ```bash
+    ```bash
     kubectl apply -f service.yaml -n hello-web-app-routing
     ```
 
@@ -436,7 +456,7 @@ The application routing add-on creates an Ingress class on the cluster called *w
     deployment.apps/aks-helloworld created
     ```
 
-   ```bash
+    ```bash
     kubectl apply -f service.yaml -n hello-web-app-routing
     ```
 
@@ -483,6 +503,8 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 * [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration and [configure a custom domain using Azure DNS to manage DNS zones and setup a secure ingress][dns-ssl-configuration].
 
+* To integrate with an Azure internal load balancer and configure a private Azure DNS zone to enable DNS resolution for the private endpoints to resolve specific domains, see [Configure internal NGINX ingress controller for Azure private DNS zone][create-nginx-private-controller].
+
 * Learn about monitoring the ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
 
 <!-- LINKS - internal -->
@@ -497,6 +519,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [custom-ingress-configurations]: app-routing-nginx-configuration.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
+[create-nginx-private-controller]: create-nginx-ingress-private-controller.md
 
 <!-- LINKS - external -->
 [kubernetes-ingress-object-overview]: https://kubernetes.io/docs/concepts/services-networking/ingress/
@@ -506,3 +529,4 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [ingress-backend]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api
+

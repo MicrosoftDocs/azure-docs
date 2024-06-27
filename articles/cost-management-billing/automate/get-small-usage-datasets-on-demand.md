@@ -172,7 +172,7 @@ Here's a summary of the key fields in the API response:
   - **byteCount** - The byte count of the individual blob partition.
 - **validTill** - The date when the report is no longer accessible.
 
-## Next steps
+## Related content
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).

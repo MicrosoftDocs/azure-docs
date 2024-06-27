@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-arm-template, linux-related-content, devx-track-azurecli
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: greglin
@@ -17,12 +17,12 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Outline
 
 - [Prerequisites](#prerequisites)
-- [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
+- [Azure Resource Manager authentication](#azure-resource-manager-authentication)
     - Option 1: [Set up Microsoft Entra Workload ID](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
     - Option 2: [Set up a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
@@ -168,10 +168,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pet-supplies-ingress
-  annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
-
 spec:
+  ingressClassName: azure-application-gateway
   rules:
   - http:
       paths:

@@ -1,6 +1,6 @@
 ---
 title: Connect to an Azure Elastic SAN volume - Windows
-description: Learn how to connect to an Azure Elastic SAN volume from a Windows client.
+description: Learn how to connect to an Azure Elastic SAN volume from an individual Windows client using iSCSI and ensure optimal performance.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
@@ -23,10 +23,6 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 - [Deploy an Elastic SAN](elastic-san-create.md)
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
-
-## Limitations
-
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
 ## Connect to volumes
 
@@ -63,7 +59,7 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 
 # Set the default load balancing policy based on your requirements. In this example, we set it to round robin
 # which should be optimal for most workloads.
-Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+mpclaim -L -M 2
 ```
 
 ### Attach Volumes to the client

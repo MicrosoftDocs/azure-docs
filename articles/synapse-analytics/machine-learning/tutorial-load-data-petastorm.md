@@ -5,13 +5,13 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 04/19/2022
+ms.date: 05/02/2024
 ms.author: midesa
 ---
 
 # Load data with Petastorm (Preview)
 
-Petastorm is an open source data access library which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that have already been loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
+Petastorm is an open source data access library, which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that are loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
 
 For more information about Petastorm, you can visit the [Petastorm GitHub page](https://github.com/uber/petastorm) or the [Petastorm API documentation](https://petastorm.readthedocs.io/en/latest).
 
@@ -20,9 +20,14 @@ For more information about Petastorm, you can visit the [Petastorm GitHub page](
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Create a GPU-enabled Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a GPU-enabled Apache Spark pool in Azure Synapse](../spark/apache-spark-gpu-concept.md). For this tutorial, we suggest using the GPU-Large cluster size with 3 nodes.
 
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtime. End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime and the corresponding GPU accelerated preview on Spark 3.2 will be retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now unsupported on the [Azure Synapse 3.1 (unsupported) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+
+
 ## Configure the Apache Spark session
 
-At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
+At the start of the session, we need to configure a few Apache Spark settings. In most cases, we only need to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. In the example, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
 
 ```python
 %%configure -f
@@ -38,7 +43,7 @@ At the start of the session, we will need to configure a few Apache Spark settin
 
 A dataset created using Petastorm is stored in an Apache Parquet format. On top of a Parquet schema, Petastorm also stores higher-level schema information that makes multidimensional arrays into a native part of a Petastorm dataset.
 
-In the sample below, we create a dataset using PySpark. We write the dataset to an Azure Data Lake Storage Gen2 account.
+In the sample, we create a dataset using PySpark. We write the dataset to an Azure Data Lake Storage Gen2 account.
 
 ```python
 import numpy as np
@@ -96,7 +101,7 @@ generate_petastorm_dataset(output_url)
 
 The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as Tensorflow or Pytorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
 
-In the example below, you can see how you can pass an ```abfs``` URL protocol.
+In the example, you can see how you can pass an ```abfs``` URL protocol.
 
 ```python
 from petastorm import make_reader
@@ -109,7 +114,7 @@ with make_reader('abfs://<container_name>/<data directory path>/') as reader:
 
 ### Read dataset from secondary storage account
 
-If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
+If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you need to modify the following properties: ```remote_url```, ```account_name```, and ```linked_service_name```.
 
 ```python
 from petastorm import make_reader
@@ -128,7 +133,7 @@ with make_reader('{}/data_directory'.format(remote_url), storage_options = {'sas
 
 ### Read dataset in batches
 
-In the example below, you can see how you can pass an ```abfs``` URL protocol to read data in batches. This example uses the ```make_batch_reader``` class. 
+In the example, you can see how you can pass an ```abfs``` URL protocol to read data in batches. This example uses the ```make_batch_reader``` class. 
 
 ```python
 from petastorm import make_batch_reader
@@ -140,7 +145,7 @@ with make_batch_reader('abfs://<container_name>/<data directory path>/', schema_
 
 ## PyTorch API
 
-To read a Petastorm dataset from PyTorch, you can use the adapter ```petastorm.pytorch.DataLoader``` class. This allows for custom PyTorch collating functions and transforms to be supplied.
+To read a Petastorm dataset from PyTorch, you can use the adapter ```petastorm.pytorch.DataLoader``` class. This adapter allows for custom PyTorch collating functions and transforms to be supplied.
 
 In this example, we will show how Petastorm DataLoader can be used to load a Petastorm dataset with the help of make_reader API. This first section creates the definition of a ```Net``` class and ```train``` and ```test``` function.
 

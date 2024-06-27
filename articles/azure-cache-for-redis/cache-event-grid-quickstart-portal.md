@@ -21,7 +21,7 @@ When you're finished, you'll see that the event data has been sent to the web ap
 
 ## Create an Azure Cache for Redis cache instance
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Create a message endpoint
 
@@ -29,7 +29,7 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
 1. Select **Deploy to Azure** in GitHub README to deploy the solution to your subscription.
 
-    :::image type="content" source="media/cache-event-grid-portal/deploy-to-azure.png" alt-text="Deploy to Azure button.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" border="false" alt-text="Deploy to Azure button.":::
 
 1. On the **Custom deployment** page, do the following steps:
     1. For **Resource group**, select the resource group that you created when creating the cache instance. It will be easier for you to clean up after you're done with the tutorial by deleting the resource group.  

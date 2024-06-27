@@ -2,7 +2,7 @@
 title: Invalid resource name and type segments
 description: Describes how to resolve an error when the resource name and type don't have the same number of segments.
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 06/20/2024
 ---
 
 # Resolve errors for resource name and type mismatch

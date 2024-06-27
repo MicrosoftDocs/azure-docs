@@ -1,9 +1,9 @@
 ---
 title: Deploy resources with REST API and template
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 03/20/2024
 ---
 
 # Deploy resources with ARM templates and Azure Resource Manager REST API

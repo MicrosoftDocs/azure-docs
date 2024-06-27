@@ -134,20 +134,6 @@ The regulatory compliance has automated and manual assessments that might need t
 
  _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
 
-### Check compliance offerings status
-
-Transparency provided by the compliance offerings (currently in preview), allows you to view the certification status for each of the services provided by Microsoft before adding your product to the Azure platform.
-
-1. In the Defender for Cloud portal, open **Regulatory compliance**.
-
-1. Select **Compliance offerings**.
-
-    :::image type="content" source="media/regulatory-compliance-dashboard/compliance-offerings.png" alt-text="Screenshot that shows where to select the compliance offering button from the dashboard." lightbox="media/regulatory-compliance-dashboard/compliance-offerings.png":::
-
-1. Enter a service in the search bar to view its compliance offering.
-
-    :::image type="content" source="media/regulatory-compliance-dashboard/search-service.png" alt-text="Screenshot of the compliance offering screen with the search bar highlighted." lightbox="media/regulatory-compliance-dashboard/search-service.png":::
-
 ## Continuously export compliance status
 
 If you want to track your compliance status with other monitoring tools in your environment, Defender for Cloud includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hubs or a Log Analytics workspace. Learn more in [continuously export Defender for Cloud data](continuous-export.md).
@@ -169,7 +155,7 @@ Use continuous export data to an Azure Event Hubs or a Log Analytics workspace:
 
 Defender for Cloud's workflow automation feature can trigger Logic Apps whenever one of your regulatory compliance assessments changes state.
 
-For example, you might want Defender for Cloud to email a specific user when a compliance assessment fails. You need to first create the logic app (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
+For example, you might want Defender for Cloud to email a specific user when a compliance assessment fails. You need to first create the logic app (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Defender for Cloud triggers](workflow-automation.yml).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Screenshot that shows how to use changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
@@ -177,6 +163,6 @@ For example, you might want Defender for Cloud to email a specific user when a c
 
 To learn more, see these related pages:
 
-- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard.
+- [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml) - Learn how to select which standards appear in your regulatory compliance dashboard.
 - [Managing security recommendations in Defender for Cloud](review-security-recommendations.md) - Learn how to use recommendations in Defender for Cloud to help protect your multicloud resources.
 - Check out [common questions](faq-regulatory-compliance.yml) about regulatory compliance.

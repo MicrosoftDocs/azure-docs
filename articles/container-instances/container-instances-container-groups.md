@@ -112,7 +112,7 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 <!-- LINKS - Internal -->
 [resource-manager template]: container-instances-multi-container-group.md
 [yaml-file]: container-instances-multi-container-yaml.md
-[region-availability]: container-instances-region-availability.md
+[region-availability]: container-instances-resource-and-quota-limits.md
 [resource-requests]: /rest/api/container-instances/2022-09-01/container-groups/create-or-update#resourcerequests
 [resource-limits]: /rest/api/container-instances/2022-09-01/container-groups/create-or-update#resourcelimits
 [resource-requirements]: /rest/api/container-instances/2022-09-01/container-groups/create-or-update#resourcerequirements

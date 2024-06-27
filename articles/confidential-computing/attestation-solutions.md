@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 05/02/2023
-ms.author: grbury
+ms.author: joelinscott
 ---
 
 # Attestation

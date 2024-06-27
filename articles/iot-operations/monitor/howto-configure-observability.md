@@ -1,36 +1,90 @@
 ---
-title: Configure observability
-titleSuffix: Azure IoT Operations
-description: Configure observability features in Azure IoT Operations to monitor the health of your solution.
-author: timlt
-ms.author: timlt
+title: Get started with observability
+description: How to get started with configuring observability features in Azure IoT Operations so that you can monitor your solution.
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/7/2023
+ms.date: 02/27/2024
 
-# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
-# on the health of my industrial assets and edge environment.
+# CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
 
-# Configure observability
+# Get started: configure observability in Azure IoT Operations Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Observability provides visibility into every layer of your Azure IoT Operations Preview configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability of your solution. 
+Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This article shows you how to configure the services you need for observability. 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- [Git](https://git-scm.com/downloads) for cloning the repository.
 
-## Install Azure Monitor managed service for Prometheus
-Azure Monitor managed service for Prometheus is a component of Azure Monitor Metrics. This managed service provides flexibility in the types of metric data that you can collect and analyze with Azure Monitor. Prometheus metrics share some features with platform and custom metrics.  Prometheus metrics also use some different features to better support open source tools such as PromQL and Grafana.
+## Configure your subscription
 
-Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution.  This fully managed service is based on the Prometheus project from the Cloud Native Computing Foundation (CNCF). The service allows you to use the Prometheus query language (PromQL) to analyze and alert on the performance of monitored infrastructure and workloads, without having to operate the underlying infrastructure.
+Run the following code to register providers with the subscription where your cluster is located:
 
-1. Follow the steps to [enable Prometheus metrics collection from your Arc-enabled Kubernetes cluster](../../azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster.md).
+```azurecli
+az account set -s <subscription-id>
+az provider register -n "Microsoft.Insights"
+az provider register -n "Microsoft.AlertsManagement"
+```
 
-1. Copy and paste the following configuration to a new file named *ama-metrics-prometheus-config.yaml*, and save the file. 
+## Install observability components
+The steps in this section install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights. 
+
+1. In your console, navigate to a local folder where you want to clone the Azure IoT Operations repo: 
+    > [!NOTE]
+    > The repo contains the deployment definition of Azure IoT Operations, and samples that include the sample dashboards used in this article.
+
+1. Clone the repo to your local machine, using the following command:
+
+    ```shell
+    git clone https://github.com/Azure/azure-iot-operations.git
+    ```
+
+1. Navigate to the following path in your local copy of the repo:
+
+    *azure-iot-operations\tools\setup-3p-obs-infra*
+
+1. To deploy the observability components, run the following command. Use the subscription ID and resource group of your Arc-enabled cluster that you want to monitor.
+
+    > [!NOTE]
+    > To discover other optional parameters you can set, see the [bicep file](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-3p-obs-infra/observability-full.bicep). The optional parameters can specify things like alternative locations for cluster resources.
+    
+    ```azurecli
+    az deployment group create \
+          --subscription <subscription-id> \
+          --resource-group <cluster-resource-group> \
+          --template-file observability-full.bicep \
+          --parameters grafanaAdminId=$(az ad user show --id $(az account show --query user.name --output tsv) --query=id --output tsv) \
+                        clusterName=<cluster-name> \
+                        sharedResourceGroup=<shared-resource-group> \
+                        sharedResourceLocation=<shared-resource-location> \
+          --query=properties.outputs
+    ```
+        
+    The previous command grants admin access for the newly created Grafana instance to the user who runs it. If that access isn't what you want, run the following command instead. You need to set up permissions manually before anyone can access the Grafana instance. 
+        
+    ```azurecli
+    az deployment group create \
+        --subscription <subscription-id> \
+        --resource-group <cluster-resource-group> \
+        --template-file observability-full.bicep \
+        --parameters clusterName=<cluster-name> \
+                      sharedResourceGroup=<shared-resource-group> \
+                      sharedResourceLocation=<shared-resource-location> \
+        --query=properties.outputs
+    ```
+
+    To set up permissions manually, [add a role assignment](../../managed-grafana/how-to-share-grafana-workspace.md#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
+
+If the deployment succeeds, a few pieces of information are printed at the end of the command output. The information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Deploy dashboards to Grafana](#deploy-dashboards-to-grafana). The two resource IDs enable you to configure other Arc enabled clusters by following the steps in [Add an Arc-enabled cluster to existing observability infrastructure](howto-add-cluster.md).
+
+## Configure Prometheus metrics collection
+1. Copy and paste the following configuration to a new file named *ama-metrics-prometheus-config.yaml*, and save the file:
     
     ```yml
     apiVersion: v1
@@ -90,40 +144,20 @@ Azure Monitor managed service for Prometheus allows you to collect and analyze m
 
     `kubectl apply -f ama-metrics-prometheus-config.yaml`
 
-
-## Install Container Insights
-Container Insights monitors the performance of container workloads deployed to the cloud. It gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, metrics and container logs are automatically collected through a containerized version of the Log Analytics agent for Linux. Metrics are sent to the metrics database in Azure Monitor. Log data is sent to your Log Analytics workspace.
-
-Complete the steps to [enable container insights](../../azure-monitor/containers/container-insights-onboard.md).
-
 ## Deploy dashboards to Grafana
-Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. Azure Managed Grafana is a fully managed Azure service operated and supported by Microsoft. Grafana helps you bring together metrics, logs and traces into a single user interface. With its extensive support for data sources and graphing capabilities, you can view and analyze your application and infrastructure telemetry data in real-time.
-
 Azure IoT Operations provides a collection of dashboards designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
-
-To deploy a custom curated dashboard to Azure Managed Grafana, complete the following steps:
-
-1. Use the Azure portal to [create an Azure Managed Grafana instance](../../managed-grafana/quickstart-managed-grafana-portal.md).
-
-1. Configure an [Azure Monitor managed service for Prometheus as a data source for Azure Managed Grafana](../../azure-monitor/essentials/prometheus-grafana.md).
 
 Complete the following steps to install the Azure IoT Operations curated Grafana dashboards. 
 
-1. Clone the Azure IoT Operations repo by using the following command:
+1. Sign in to the Grafana console, then in the upper right area of the Grafana application, select the **+** icon
 
-    ```console
-    git clone https://github.com/Azure/azure-iot-operations.git
-    ```
+1. Select **Import dashboard**, follow the prompts to browse to the *samples\grafana-dashboards* path in your local cloned copy of the repo, and select a JSON dashboard file
 
-1. In the upper right area of the Grafana application, select the **+** icon. 
+1. When the application prompts, select your managed Prometheus data source
 
-1. Select **Import dashboard**, then follow the prompts to browse to the *samples\grafana-dashboards* path in your cloned copy of the repo, and select a JSON dashboard file.
-
-1. When the application prompts, select your managed Prometheus data source.
-
-1. Select **Import**. 
-
+1. Select **Import**
 
 ## Related content
 
 - [Azure Monitor overview](../../azure-monitor/overview.md)
+- [How to configure observability manually](howto-configure-observability-manual.md)

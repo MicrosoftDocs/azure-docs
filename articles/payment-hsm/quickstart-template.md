@@ -23,7 +23,7 @@ This quickstart describes how to create a payment HSM with the host and manageme
 
 ## Prerequisites
 
-[!INCLUDE [Create a resource group with the Azure CLI](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -45,7 +45,7 @@ This quickstart describes how to create a payment HSM with the host and manageme
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 

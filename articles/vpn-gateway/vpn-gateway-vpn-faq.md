@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 06/19/2024
 ms.author: cherylmc
 ---
 
@@ -50,6 +50,16 @@ For more information about VPN Gateway connections, see [About VPN Gateway](vpn-
 **Point-to-site** (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.
 
 You can configure your virtual network to use both site-to-site and point-to-site concurrently, as long as you create your site-to-site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
+
+### Does a misconfiguration of custom DNS break the normal operation of Azure VPN Gateway?
+
+For normal functioning, the Azure VPN Gateway must establish a secure, mandatory connection with the Azure control plane, facilitated through Public IPs. This connection relies on resolving communication endpoints via public URLs. By default, Azure Virtual Networks (VNets) utilize the built-in Azure DNS (168.63.129.16) to resolve these public URLs, ensuring seamless communication between the Azure VPN Gateway and the Azure control plane.
+
+In implementation of a custom DNS within the VNet, it is crucial to configure a DNS forwarder that points to the Azure native DNS (168.63.129.16), to maintain uninterrupted communication between the VPN Gateway and control plane. Failure to set up a DNS forwarder to the native Azure DNS can prevent Microsoft from performing operations and maintenance on the Azure VPN Gateway, posing a security risk.
+
+To proper functionalities and healthy state to your VPN Gateway, consider one of the following configurations DNS configurations in VNet:
+1. Revert to the default native Azure DNS by removing the custom DNS within the VNet settings (recommended configuration).
+2. Add in your custom DNS configuration a DNS forwarder pointing to the native Azure DNS (IP address: 168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup may not resolve and fix the issue as expected.
 
 ## <a name="privacy"></a>Privacy
 
@@ -105,15 +115,15 @@ Azure Standard SKU public IP resources must use a static allocation method. Ther
 
 ### Can I request a static public IP address for my VPN gateway?
 
-We recommend that you use a Standard SKU public IP address for your VPN gateway. Standard SKU public IP address resources use a static allocation method. While we do support dynamic IP address assignment for certain gateway SKUs (gateway SKUs that don't have an *AZ* in the name), we recommend that you use a Standard SKU public IP address going forward for all virtual network gateways except gateways using the Basic gateway SKU. The Basic gateway SKU currently supports only Basic SKU public IP addresses. We'll soon be adding support for Standard SKU public IP addresses for Basic gateway SKUs.
+Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This applies to all gateway SKUs except the Basic SKU. The Basic gateway SKU currently supports only Basic SKU public IP addresses. We'll soon be adding support for Standard SKU public IP addresses for Basic gateway SKUs.
 
-For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does Public IP address Basic SKU retirement affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that utilize Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there is no need for you to take any action.
+We're taking action to ensure the continued operation of deployed VPN gateways that utilize Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there's no need for you to take any action.
 
-However, it's important to note that Basic SKU public IP addresses are being phased out. We highly recommend using **Standard SKU** public IP addresses when creating new VPN gateways. Further details on the retirement of Basic SKU public IP addresses can be found [here](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+However, it's important to note that Basic SKU public IP addresses are being phased out. Going forward, when creating a new VPN gateway, you must use the **Standard SKU** public IP address. Further details on the retirement of Basic SKU public IP addresses can be found [here](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
 ### How does my VPN tunnel get authenticated?
 

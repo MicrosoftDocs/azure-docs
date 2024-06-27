@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Onboard in Microsoft Sentinel'
+title: 'Quickstart: Onboard to Microsoft Sentinel'
 description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
-ms.date: 06/14/2023
+ms.date: 06/18/2024
 ms.custom: references_regions, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 ---
@@ -14,6 +14,8 @@ ms.custom: references_regions, mode-other
 In this quickstart, you'll enable Microsoft Sentinel and install a solution from the content hub. Then, you'll set up a data connector to start ingesting data into Microsoft Sentinel.
 
 Microsoft Sentinel comes with many data connectors for Microsoft products such as the Microsoft Defender XDR service-to-service connector. You can also enable built-in connectors for non-Microsoft products such as Syslog or Common Event Format (CEF). For this quickstart, you'll use the Azure Activity data connector that's available in the Azure Activity solution for Microsoft Sentinel.
+
+To onboard to Microsoft Sentinel by using the API, see the latest supported version of [Sentinel Onboarding States](/rest/api/securityinsights/sentinel-onboarding-states). 
 
 ## Prerequisites
 
@@ -44,16 +46,16 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
     :::image type="content" source="media/quickstart-onboard/search-product.png" alt-text="Screenshot of searching for a service while enabling Microsoft Sentinel.":::   
 
-1. Select **Add**.
+1. Select **Create**.
 
 1. Select the workspace you want to use or create a new one. You can run Microsoft Sentinel on more than one workspace, but the data is isolated to a single workspace.
 
     :::image type="content" source="media/quickstart-onboard/choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel.":::      
  
    - The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
-   - Once deployed on a workspace, Microsoft Sentinel **doesn't currently support** moving that workspace to another resource group or subscription.
+   - Once deployed on a workspace, Microsoft Sentinel **doesn't support** moving that workspace to another resource group or subscription.
 
-1. Select **Add Microsoft Sentinel**.
+1. Select **Add**.
 
 ## Install a solution from the content hub
 

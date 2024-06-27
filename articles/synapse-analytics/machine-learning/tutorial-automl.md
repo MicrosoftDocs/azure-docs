@@ -1,17 +1,16 @@
 ---
-title: 'Tutorial: Train a model by using automated machine learning'
-description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics.
+title: 'Tutorial: Train a model by using automated machine learning (deprecated)'
+description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics (deprecated).
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: sngun, garye
-
-ms.date: 09/03/2021
-author: nelgson
-ms.author: negust
+ms.date: 03/06/2024
+author: midesa
+ms.author: midesa
 ---
 
-# Tutorial: Train a machine learning model without code
+# Tutorial: Train a machine learning model without code (deprecated)
 
 You can enrich your data in Spark tables with new machine learning models that you train by using [automated machine learning](../../machine-learning/concept-automated-ml.md). In Azure Synapse Analytics, you can select a Spark table in the workspace to use as a training dataset for building machine learning models, and you can do this in a code-free experience.
 
@@ -20,6 +19,13 @@ In this tutorial, you learn how to train machine learning models by using a code
 You'll use automated machine learning in Azure Machine Learning, instead of coding the experience manually. The type of model that you train depends on the problem you're trying to solve. For this tutorial, you'll use a regression model to predict taxi fares from the New York City taxi dataset.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+
+> [!WARNING]
+> - Effective September 29, 2023, Azure Synapse will discontinue official support for [Spark 2.4 Runtimes](../spark/apache-spark-24-runtime.md). Post September 29, 2023, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> - As part of the deprecation process for Apache Spark 2.4, we would like to notify you that AutoML in Azure Synapse Analytics will also be deprecated. This includes both the low code interface and the APIs used to create AutoML trials through code.
+> - Please note that AutoML functionality was exclusively available through the Spark 2.4 runtime.
+> - For customers who wish to continue leveraging AutoML capabilities, we recommend saving your data into your Azure Data Lake Storage Gen2 (ADLSg2) account. From there, you can seamlessly access the AutoML experience through Azure Machine Learning (AzureML). Further information regarding this workaround is available [here](../machine-learning/access-data-from-aml.md).
+>
 
 ## Prerequisites
 

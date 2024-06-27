@@ -3,12 +3,12 @@ title: Conversational language understanding best practices
 titleSuffix: Azure AI services
 description: Apply best practices when using conversational language understanding
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: best-practice
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-clu
 ---
 
@@ -216,3 +216,39 @@ curl --request POST \
 "targetResourceRegion": "<target-region>" 
 }'
 ```
+
+
+## Addressing out of domain utterances
+
+Customers can use the new recipe version '2024-06-01-preview' in case the model has poor AIQ on out of domain utterances. An example of this with the default recipe can be like the below where the model has 3 intents Sports, QueryWeather and Alarm. The test utterances are out of domain utterances and the model classifies them as InDomain with a relatively high confidence score.
+
+| Text |	Predicted intent |	Confidence score |
+|----|----|----|
+| "*Who built the Eiffel Tower?*" |	 `Sports` | 0.90 |
+| "*Do I look good to you today?*" | `QueryWeather` |	1.00 |
+| "*I hope you have a good evening.*" | `Alarm` | 0.80 |
+
+To address this, use the `2024-06-01-preview` configuration version that is built specifically to address this issue while also maintaining reasonably good quality on In Domain utterances.
+
+```console
+curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<your-project>/:train?api-version=2022-10-01-preview' \
+--header 'Ocp-Apim-Subscription-Key: <your subscription key>' \
+--header 'Content-Type: application/json' \
+--data '{
+      "modelLabel": "<modelLabel>",
+      "trainingMode": "advanced",
+      "trainingConfigVersion": "2024-06-01-preview",
+      "evaluationOptions": {
+            "kind": "percentage",
+            "testingSplitPercentage": 0,
+            "trainingSplitPercentage": 100
+      }
+}
+```
+
+Once the request is sent, you can track the progress of the training job in Language Studio as usual.
+
+Caveats:
+- The None Score threshold for the app (confidence threshold below which the topIntent is marked as None) when using this recipe should be set to 0. This is because this new recipe attributes a certain portion of the in domain probabiliities to out of domain so that the model is not incorrectly overconfident about in domain utterances. As a result, users may see slightly reduced confidence scores for in domain utterances as compared to the prod recipe.
+- This recipe is not recommended for apps with just two (2) intents, such as IntentA and None, for example.
+- This recipe is not recommended for apps with low number of utterances per intent. A minimum of 25 utterances per intent is highly recommended.

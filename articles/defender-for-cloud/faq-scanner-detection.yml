@@ -3,7 +3,7 @@ metadata:
   title: Common questions about the built-in Microsoft Defender Vulnerability Management solution
   description: Frequently asked general questions about the built-in Microsoft Defender Vulnerability Management solution
   services: defender-for-cloud
-  author: elkrieger
+  author: ElazarK
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
@@ -19,7 +19,7 @@ sections:
         answer: |
           1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
-              - **Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
+              - **Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM.
             
               - **Consolidated agent:** (MDVM) uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
           
@@ -59,7 +59,7 @@ sections:
       - question: |
           If I'm using an EDR solution other than MDE, how can I upgrade my VA solution to MDVM?
         answer: |
-          For cloud VMs, we recommend enabling agentless scanning under the Defender for Servers P2 plan, to provide a more comprehensive coverage while ensuring minimal effect on your machine's performance. 
+          For cloud VMs, we recommend enabling agentless scanning under the Defender for Servers P2 plan, to provide a more comprehensive coverage while ensuring minimal effect on your machine's performance.
 
           If you're utilizing an on-premises machine, the [installation of the MDE agent is mandatory](/microsoft-365/security/defender-endpoint/configure-server-endpoints). The MDVM solution requires the agent in order to conduct vulnerability scans.
 

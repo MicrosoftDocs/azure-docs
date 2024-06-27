@@ -4,7 +4,7 @@ description: This article describes on how to enable alerts (preview) with Azure
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/22/2023
+ms.date: 06/21/2024
 ms.topic: how-to
 ---
 
@@ -17,6 +17,9 @@ This article provides steps to enable Alerts (preview) with [Azure Update Manage
 Azure Update Manager is a unified service that allows you to manage and govern updates for all your Windows and Linux virtual machines across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. It's designed as a standalone Azure service to provide SaaS experience to manage hybrid environments in Azure.
 
 Logs created from patching operations such as update assessments and installations are stored by Azure Update Manager in Azure Resource Graph (ARG). You can view up to last seven days of assessment data, and up to last 30 days of update installation results.
+
+> [!NOTE]
+> This feature isn't available in Azure US Government and Azure China operated by 21 Vianet.
 
 ## Prerequisite
 
@@ -50,7 +53,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
    
     :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
 
-1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-the-alert-rule-conditions).
+1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-alert-rule-conditions).
     - To identify alerts & alert rules created for Azure Update Manager, provide unique **Alert rule name** in the **Details** tab.
         :::image type="content" source="./media/manage-alerts/unique-alert-name-inline.png" alt-text="Screenshot that shows how to create unique alert name." lightbox="./media/manage-alerts/unique-alert-name-expanded.png":::
 

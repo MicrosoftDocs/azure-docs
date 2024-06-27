@@ -9,7 +9,7 @@ ms.service: virtual-machines
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: jushiman
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 #Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Linux virtual machines and restrict traffic between them.
 ---
 

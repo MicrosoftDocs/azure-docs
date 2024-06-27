@@ -39,12 +39,24 @@ To add persistence to the application, create an Azure Cache for Redis and an Az
 
 The following steps describe how to provision an Azure Cache for Redis instance and an Azure Database for PostgreSQL Flexible Server by using the Azure CLI.
 
+1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+
+   ```azurecli
+   export REGION=<region>
+   export RESOURCE_GROUP=<resource-group-name>
+   export REDIS_CACHE_NAME=<redis-cache-name>
+   export POSTGRES_SERVER_NAME=<postgres-server-name>
+   export POSTGRES_USERNAME=<postgres-username>
+   export POSTGRES_PASSWORD=<postgres-password>
+   export AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME=<Azure-Spring-Apps-service-instance-name>
+   ```
+
 1. Use the following command to create an instance of Azure Cache for Redis:
 
    ```azurecli
    az redis create \
-       --resource-group <resource-group-name> \
-       --name <redis-cache-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --name ${REDIS_CACHE_NAME} \
        --location ${REGION} \
        --sku Basic \
        --vm-size c0
@@ -57,11 +69,11 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server create \
-       --resource-group <resource-group-name> \
-       --name <postgres-server-name> \
-       --location <location> \
-       --admin-user <postgres-username> \
-       --admin-password <postgres-password> \
+       --resource-group ${RESOURCE_GROUP} \
+       --name ${POSTGRES_SERVER_NAME} \
+       --location ${REGION} \
+       --admin-user ${POSTGRES_USERNAME} \
+       --admin-password ${POSTGRES_PASSWORD} \
        --yes
    ```
 
@@ -70,8 +82,8 @@ The following steps describe how to provision an Azure Cache for Redis instance 
    ```azurecli
    az postgres flexible-server firewall-rule create \
        --rule-name allAzureIPs \
-       --name <postgres-server-name> \
-       --resource-group <resource-group-name> \
+       --name ${POSTGRES_SERVER_NAME} \
+       --resource-group ${RESOURCE_GROUP} \
        --start-ip-address 0.0.0.0 \
        --end-ip-address 0.0.0.0
    ```
@@ -80,18 +92,18 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server parameter set \
-       --resource-group <resource-group-name> \
+       --resource-group ${RESOURCE_GROUP} \
        --name azure.extensions \
        --value uuid-ossp \
-       --server-name <postgres-server-name>
+       --server-name ${POSTGRES_SERVER_NAME}
    ```
 
 1. Use the following command to create a database for the Order Service application:
 
    ```azurecli
    az postgres flexible-server db create \
-       --resource-group <resource-group-name> \
-       --server-name <postgres-server-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --server-name ${POSTGRES_SERVER_NAME} \
        --database-name acmefit_order
    ```
 
@@ -99,8 +111,8 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server db create \
-       --resource-group <resource-group-name> \
-       --server-name <postgres-server-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --server-name ${POSTGRES_SERVER_NAME} \
        --database-name acmefit_catalog
    ```
 
@@ -116,7 +128,7 @@ To deploy this template, follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
 
 1. Enter values for the following fields:
 
@@ -139,15 +151,15 @@ The following steps show how to bind applications running in the Azure Spring Ap
 
    ```azurecli
    az spring connection create postgres-flexible \
-       --resource-group <resource-group-name> \
-       --target-resource-group <target-resource-group> \
+       --resource-group ${RESOURCE_GROUP} \
+       --target-resource-group ${RESOURCE_GROUP} \
        --connection order_service_db \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --app order-service \
        --deployment default \
-       --server <postgres-server-name> \
+       --server ${POSTGRES_SERVER_NAME} \
        --database acmefit_order \
-       --secret name=<postgres-username> secret=<postgres-password> \
+       --secret name=${POSTGRES_USERNAME} secret=${POSTGRES_PASSWORD} \
        --client-type dotnet
    ```
 
@@ -155,15 +167,15 @@ The following steps show how to bind applications running in the Azure Spring Ap
 
    ```azurecli
    az spring connection create postgres-flexible \
-       --resource-group <resource-group-name> \
-       --target-resource-group <target-resource-group> \
+       --resource-group ${RESOURCE_GROUP} \
+       --target-resource-group ${RESOURCE_GROUP} \
        --connection catalog_service_db \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --app catalog-service \
        --deployment default \
-       --server <postgres-server-name> \
+       --server ${POSTGRES_SERVER_NAME} \
        --database acmefit_catalog \
-       --secret name=<postgres-username> secret=<postgres-password> \
+       --secret name=${POSTGRES_USERNAME} secret=${POSTGRES_PASSWORD} \
        --client-type springboot
    ```
 
@@ -171,13 +183,13 @@ The following steps show how to bind applications running in the Azure Spring Ap
 
    ```azurecli
    az spring connection create redis \
-       --resource-group <resource-group-name> \
-       --target-resource-group <target-resource-group> \
+       --resource-group ${RESOURCE_GROUP} \
+       --target-resource-group ${RESOURCE_GROUP} \
        --connection cart_service_cache \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --app cart-service \
        --deployment default \
-       --server <redis-cache-name> \
+       --server ${REDIS_CACHE_NAME} \
        --database 0 \
        --client-type java
    ```
@@ -186,17 +198,17 @@ The following steps show how to bind applications running in the Azure Spring Ap
 
    ```azurecli
    az spring app restart \
-       --resource-group <resource-group-name> \
+       --resource-group ${RESOURCE_GROUP} \
        --name catalog-service \
-       --service <Azure-Spring-Apps-service-instance-name>
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME}
    ```
 
 1. Use the following command to retrieve the database connection information:
 
    ```azurecli
    export POSTGRES_CONNECTION_STR=$(az spring connection show \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --deployment default \
        --connection order_service_db \
        --app order-service \
@@ -210,9 +222,9 @@ The following steps show how to bind applications running in the Azure Spring Ap
 
    ```azurecli
    az spring app update \
-       --resource-group <resource-group-name> \
+       --resource-group ${RESOURCE_GROUP} \
        --name order-service \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --env "DatabaseProvider=Postgres" "ConnectionStrings__OrderContext=${POSTGRES_CONNECTION_STR}"
    ```
 
@@ -220,20 +232,20 @@ The following steps show how to bind applications running in the Azure Spring Ap
 
    ```azurecli
    export REDIS_CONN_STR=$(az spring connection show \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --deployment default \
        --app cart-service \
        --connection cart_service_cache | jq -r '.configurations[0].value')
 
    export GATEWAY_URL=$(az spring gateway show \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} | jq -r '.properties.url')
     
    az spring app update \
-       --resource-group <resource-group-name> \
+       --resource-group ${RESOURCE_GROUP} \
        --name cart-service \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}" "AUTH_URL=https://${GATEWAY_URL}"
    ```
 
@@ -243,8 +255,8 @@ Retrieve the URL for Spring Cloud Gateway and explore the updated application. Y
 
 ```azurecli
 export GATEWAY_URL=$(az spring gateway show \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+    --resource-group ${RESOURCE_GROUP} \
+    --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} | jq -r '.properties.url')
 
 echo "https://${GATEWAY_URL}"
 ```

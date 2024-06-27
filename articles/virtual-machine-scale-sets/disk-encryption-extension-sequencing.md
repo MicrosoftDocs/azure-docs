@@ -6,10 +6,9 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-
+ms.custom: mimckitt, linux-related-content
 ---
 
 # Use Azure Disk Encryption with Virtual Machine Scale Set extension sequencing

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the right part of a string up to the specified number of characters.
   
 ## Syntax
   
-```sql
+```nosql
 RIGHT(<string_expr>, <numeric_expr>)  
 ```  
   
@@ -39,7 +40,7 @@ Returns a string expression.
   
 The following example returns the right part of the string `Microsoft` for various length values.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/right/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/right/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/right/result.json":::
 

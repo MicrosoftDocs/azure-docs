@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 06/20/2024
 ms.author: lajanuar
 ---
 
@@ -26,7 +26,7 @@ ms.author: lajanuar
 > * Azure AI Language public preview releases provide early access to features that are in active development.
 > * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
-Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. The native document support capability enables you to send API requests asynchronously, using an HTTP POST request body to send your data and HTTP GET request query string to retrieve the processed data.
+Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. The native document support capability enables you to send API requests asynchronously, using an HTTP POST request body to send your data and HTTP GET request query string to retrieve the status results. Your processed documents are located in your Azure Blob Storage target container.
 
 A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing before using Azure AI Language resource capabilities. Currently, native document support is available for the following capabilities:
 
@@ -51,7 +51,7 @@ A native document refers to the file format used to create the original document
 |Type|support and limitations|
 |---|---|
 |**PDFs**| Fully scanned PDFs aren't supported.|
-|**Text within images**| Digital images with imbedded text aren't supported.|
+|**Text within images**| Digital images with embedded text aren't supported.|
 |**Digital tables**| Tables in scanned documents aren't supported.|
 
 ***Document Size***
@@ -340,25 +340,28 @@ For this project, you need a **source document** uploaded to your **source conta
 
   ```json
   {
-   "kind": "ExtractiveSummarization",
-   "parameters": {
+  "tasks": [
+    {
+      "kind": "ExtractiveSummarization",
+      "parameters": {
         "sentenceCount": 6
-    },
-   "analysisInput":{
-        "documents":[
-            {
-          "source":{
-            "location":"{your-source-blob-SAS-URL}"
-          },
-          "targets":
-            {
-              "location":"{your-target-container-SAS-URL}",
-            }
-            }
-        ]
+      }
     }
+  ],
+  "analysisInput": {
+    "documents": [
+      {
+        "source": {
+          "location": "{your-source-blob-SAS-URL}"
+        },
+        "targets": {
+          "location": "{your-target-container-SAS-URL}"
+        }
+      }
+    ]
   }
-  ```
+}
+```
 
 ### Run the POST request
 

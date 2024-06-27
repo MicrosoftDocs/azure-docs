@@ -215,7 +215,8 @@ Based on the current health probe state of your backend instances, you receive d
 ## Usage considerations
 
 - ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers.
-- ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts. 
+- ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts.
+- Outbound ICMP pings are not supported on a Load Balancer.  
 
 > [!NOTE]
 > ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer.

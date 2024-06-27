@@ -3,6 +3,7 @@ title: Get CEF-formatted logs from your device or appliance into Microsoft Senti
 description: Use the Log Analytics agent, installed on a Linux-based log forwarder, to ingest logs sent in Common Event Format (CEF) over Syslog into your Microsoft Sentinel workspace.
 author: yelevin
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

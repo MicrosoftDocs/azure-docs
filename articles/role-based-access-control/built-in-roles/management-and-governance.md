@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -345,6 +345,9 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/read | Reads any Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/write | Installs or Updates an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/delete | Deletes an Azure Arc runcommands |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -377,7 +380,10 @@ Can read, write, delete and re-onboard Azure Connected Machines.
         "Microsoft.HybridCompute/licenses/delete",
         "Microsoft.HybridCompute/machines/licenseProfiles/read",
         "Microsoft.HybridCompute/machines/licenseProfiles/write",
-        "Microsoft.HybridCompute/machines/licenseProfiles/delete"
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.HybridCompute/machines/runCommands/read",
+        "Microsoft.HybridCompute/machines/runCommands/write",
+        "Microsoft.HybridCompute/machines/runCommands/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -460,107 +466,6 @@ Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid co
     }
   ],
   "roleName": "Azure Connected Machine Resource Manager",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Azure Resource Bridge Deployment Role
-
-Azure Resource Bridge Deployment Role
-
-[Learn more](/azure/azure-arc/resource-bridge/overview)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Register/Action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
-> | Microsoft.ResourceConnector/register/action | Registers the subscription for Appliances resource provider and enables the creation of Appliance. |
-> | Microsoft.ResourceConnector/appliances/read | Gets an Appliance resource |
-> | Microsoft.ResourceConnector/appliances/write | Creates or Updates Appliance resource |
-> | Microsoft.ResourceConnector/appliances/delete | Deletes Appliance resource |
-> | Microsoft.ResourceConnector/locations/operationresults/read | Get result of Appliance operation |
-> | Microsoft.ResourceConnector/locations/operationsstatus/read | Get result of Appliance operation |
-> | Microsoft.ResourceConnector/appliances/listClusterUserCredential/action | Get an appliance cluster user credential |
-> | Microsoft.ResourceConnector/appliances/listKeys/action | Get an appliance cluster customer user keys |
-> | Microsoft.ResourceConnector/appliances/upgradeGraphs/read | Gets the upgrade graph of Appliance cluster |
-> | Microsoft.ResourceConnector/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
-> | Microsoft.ResourceConnector/operations/read | Gets list of Available Operations for Appliances |
-> | Microsoft.ExtendedLocation/register/action | Registers the subscription for Custom Location resource provider and enables the creation of Custom Location. |
-> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
-> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
-> | Microsoft.ExtendedLocation/customLocations/write | Creates or Updates Custom Location resource |
-> | Microsoft.ExtendedLocation/customLocations/delete | Deletes Custom Location resource |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/register/action | Register the subscription for Microsoft.HybridConnectivity |
-> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/register/action | Registers Subscription with Microsoft.Kubernetes resource provider |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
-> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
-> | Microsoft.HybridContainerService/register/action | Register the subscription for Microsoft.HybridContainerService |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Azure Resource Bridge Deployment Role",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/7b1f81f9-4196-4058-8aae-762e593270df",
-  "name": "7b1f81f9-4196-4058-8aae-762e593270df",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.AzureStackHCI/Register/Action",
-        "Microsoft.ResourceConnector/register/action",
-        "Microsoft.ResourceConnector/appliances/read",
-        "Microsoft.ResourceConnector/appliances/write",
-        "Microsoft.ResourceConnector/appliances/delete",
-        "Microsoft.ResourceConnector/locations/operationresults/read",
-        "Microsoft.ResourceConnector/locations/operationsstatus/read",
-        "Microsoft.ResourceConnector/appliances/listClusterUserCredential/action",
-        "Microsoft.ResourceConnector/appliances/listKeys/action",
-        "Microsoft.ResourceConnector/appliances/upgradeGraphs/read",
-        "Microsoft.ResourceConnector/telemetryconfig/read",
-        "Microsoft.ResourceConnector/operations/read",
-        "Microsoft.ExtendedLocation/register/action",
-        "Microsoft.ExtendedLocation/customLocations/deploy/action",
-        "Microsoft.ExtendedLocation/customLocations/read",
-        "Microsoft.ExtendedLocation/customLocations/write",
-        "Microsoft.ExtendedLocation/customLocations/delete",
-        "Microsoft.HybridConnectivity/register/action",
-        "Microsoft.Kubernetes/register/action",
-        "Microsoft.KubernetesConfiguration/register/action",
-        "Microsoft.KubernetesConfiguration/extensions/write",
-        "Microsoft.KubernetesConfiguration/extensions/read",
-        "Microsoft.KubernetesConfiguration/extensions/delete",
-        "Microsoft.KubernetesConfiguration/extensions/operations/read",
-        "Microsoft.KubernetesConfiguration/namespaces/read",
-        "Microsoft.KubernetesConfiguration/operations/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
-        "Microsoft.HybridContainerService/register/action",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.AzureStackHCI/StorageContainers/Write",
-        "Microsoft.AzureStackHCI/StorageContainers/Read"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Resource Bridge Deployment Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -717,6 +622,47 @@ Can assign existing published blueprints, but cannot create new blueprints. Note
 }
 ```
 
+## Carbon Optimization Reader
+
+Allow read access to Azure Carbon Optimization data
+
+[Learn more](/azure/carbon-optimization/permissions)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Carbon](../permissions/management-and-governance.md#microsoftcarbon)/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read access to Azure Carbon Optimization data",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+  "name": "fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Carbon/carbonEmissionReports/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Carbon Optimization Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Cost Management Contributor
 
 Can view costs and manage cost configuration (e.g. budgets, exports)
@@ -735,7 +681,7 @@ Can view costs and manage cost configuration (e.g. budgets, exports)
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/configurations/read | Get configurations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
-> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read |  |
+> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read | Gets the billing properties for a subscription |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -794,7 +740,7 @@ Can view cost data and configuration (e.g. budgets, exports)
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/configurations/read | Get configurations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
-> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read |  |
+> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read | Gets the billing properties for a subscription |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1526,6 +1472,69 @@ Users with rights to create/modify resource policy, create support ticket and re
     }
   ],
   "roleName": "Resource Policy Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Scheduled Patching Contributor
+
+Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments
+
+[Learn more](/azure/update-manager/scheduled-patching)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/read | Read maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/write | Create or update maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/delete | Delete maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/read | Read maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/write | Create or update maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/delete | Delete maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/read | Read maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Read maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration for InGuestPatch maintenance scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/cd08ab90-6b14-449c-ad9a-8f8e549482c6",
+  "name": "cd08ab90-6b14-449c-ad9a-8f8e549482c6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Maintenance/maintenanceConfigurations/read",
+        "Microsoft.Maintenance/maintenanceConfigurations/write",
+        "Microsoft.Maintenance/maintenanceConfigurations/delete",
+        "Microsoft.Maintenance/configurationAssignments/read",
+        "Microsoft.Maintenance/configurationAssignments/write",
+        "Microsoft.Maintenance/configurationAssignments/delete",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Scheduled Patching Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

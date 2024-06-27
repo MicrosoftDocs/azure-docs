@@ -10,6 +10,8 @@ ms.subservice: change-analysis
 
 # View and use Change Analysis in Azure Monitor
 
+[!INCLUDE [transition](../includes/change/change-analysis-is-moving.md)]
+
 Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application caused breaking issues. 
 
 ## View Change Analysis data
@@ -56,7 +58,7 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 ### View the Activity Log change history
 
-Use the [View change history](../essentials/activity-log.md#view-change-history) feature to call the Azure Monitor Change Analysis service backend to view changes associated with an operation. Changes returned include:
+Use the [View change history](../essentials/activity-log-insights.md#view-change-history) feature to call the Azure Monitor Change Analysis service backend to view changes associated with an operation. Changes returned include:
 
 - Resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md).
 - Resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md).

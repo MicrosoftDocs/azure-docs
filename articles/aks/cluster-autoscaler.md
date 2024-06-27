@@ -4,6 +4,9 @@ description: Learn how to use the cluster autoscaler to automatically scale your
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/11/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Use the cluster autoscaler in Azure Kubernetes Service (AKS)
@@ -40,7 +43,8 @@ This article requires Azure CLI version 2.0.76 or later. Run `az --version` to f
     --load-balancer-sku standard \
     --enable-cluster-autoscaler \
     --min-count 1 \
-    --max-count 3
+    --max-count 3 \
+    --generate-ssh-keys
     ```
 
     It takes a few minutes to create the cluster and configure the cluster autoscaler settings.
@@ -160,8 +164,8 @@ The following table lists the available settings for the cluster autoscaler prof
 | `scale-down-utilization-threshold` | Node utilization level, defined as sum of requested resources divided by capacity, in which a node can be considered for scale down. | 0.5 |
 | `max-graceful-termination-sec` | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. | 600 seconds |
 | `balance-similar-node-groups` | Detects similar node pools and balances the number of nodes between them. | `false` |
-| `expander` | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) uses in scale up. Possible values include `most-pods`, `random`, `least-waste`, and `priority`. |  |
-| `skip-nodes-with-local-storage` | If `true`, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath. | `true` |
+| `expander` | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) uses in scale up. Possible values include `most-pods`, `random`, `least-waste`, and `priority`. | `random` |
+| `skip-nodes-with-local-storage` | If `true`, cluster autoscaler doesn't delete nodes with pods with local storage, for example, EmptyDir or HostPath. | `false` |
 | `skip-nodes-with-system-pods` | If `true`, cluster autoscaler doesn't delete nodes with pods from kube-system (except for DaemonSet or mirror pods). | `true` |
 | `max-empty-bulk-delete` | Maximum number of empty nodes that can be deleted at the same time. | 10 nodes |
 | `new-pod-scale-up-delay` | For scenarios such as burst/batch scale where you don't want CA to act before the Kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they reach a certain age. | 0 seconds |
@@ -175,13 +179,14 @@ The following table lists the available settings for the cluster autoscaler prof
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --node-count 1 \
-      --enable-cluster-autoscaler \
-      --min-count 1 \
-      --max-count 3 \
-      --cluster-autoscaler-profile scan-interval=30s
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-count 1 \
+        --enable-cluster-autoscaler \
+        --min-count 1 \
+        --max-count 3 \
+        --cluster-autoscaler-profile scan-interval=30s \
+        --generate-ssh-keys
     ```
 
 ### Set the cluster autoscaler profile on an existing cluster
@@ -195,6 +200,24 @@ The following table lists the available settings for the cluster autoscaler prof
       --cluster-autoscaler-profile scan-interval=30s
     ```
 
+### Configure cluster autoscaler profile for aggressive scale down
+> [!NOTE]
+> Scaling down aggressively is not recommended for clusters experiencing frequent scale-outs and scale-ins within short intervals, as it could potentially result in extended node provisioning times under these circumstances. Increasing `scale-down-delay-after-add` can help in these circumstances by keeping the node around longer to handle incoming workloads.
+
+   ```azurecli-interactive
+    az aks update \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --cluster-autoscaler-profile scan-interval=30s,scale-down-delay-after-add=0m,scale-down-delay-after-failure=1m,scale-down-unneeded-time=3m,scale-down-unready-time=3m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=1000,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
+   ```
+### Configure cluster autoscaler profile for bursty workloads
+   ```azurecli-interactive
+    az aks update \   
+        --resource-group "myResourceGroup" \
+        --name myAKSCluster \ 
+        --cluster-autoscaler-profile scan-interval=20s,scale-down-delay-after-add=10m,scale-down-delay-after-failure=1m,scale-down-unneeded-time=5m,scale-down-unready-time=5m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=100,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
+   ```
+
 ### Reset cluster autoscaler profile to default values
 
 * Reset the cluster autoscaler profile using the [`az aks update`][az-aks-update-preview] command.
@@ -206,12 +229,11 @@ The following table lists the available settings for the cluster autoscaler prof
       --cluster-autoscaler-profile ""
     ```
 
-## Retrieve cluster autoscaler logs and status updates
+## Retrieve cluster autoscaler logs and status 
 
 You can retrieve logs and status updates from the cluster autoscaler to help diagnose and debug autoscaler events. AKS manages the cluster autoscaler on your behalf and runs it in the managed control plane. You can enable control plane node to see the logs and operations from the cluster autoscaler.
 
 ### [Azure CLI](#tab/azure-cli)
-
 1. Set up a rule for resource logs to push cluster autoscaler logs to Log Analytics using the [instructions here][aks-view-master-logs]. Make sure you check the box for `cluster-autoscaler` when selecting options for **Logs**.
 2. Select the **Log** section on your cluster.
 3. Enter the following example query into Log Analytics:
@@ -224,8 +246,16 @@ You can retrieve logs and status updates from the cluster autoscaler to help dia
     As long as there are logs to retrieve, you should see logs similar to the following logs:
 
     :::image type="content" source="media/cluster-autoscaler/autoscaler-logs.png" alt-text="Screenshot of Log Analytics logs.":::
-
-    The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
+   
+4. View cluster autoscaler scale-up not triggered events on CLI 
+    ```bash
+    kubectl get events --field-selector source=cluster-autoscaler,reason=NotTriggerScaleUp
+    ```
+5. View cluster autoscaler warning events on CLI 
+    ```bash
+    kubectl get events --field-selector source=cluster-autoscaler,type=Warning
+    ```
+6. The cluster autoscaler also writes out the health status to a `configmap` named `cluster-autoscaler-status`. You can retrieve these logs using the following `kubectl` command:
 
     ```bash
     kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
@@ -244,6 +274,8 @@ You can retrieve logs and status updates from the cluster autoscaler to help dia
 ---
 
 For more information, see the [Kubernetes/autoscaler GitHub project FAQ][kubernetes-faq].
+## Cluster Autoscaler Metrics
+You can enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) to see the logs and operations from the [cluster autoscaler](./control-plane-metrics-default-list.md#minimal-ingestion-for-default-off-targets) with the [Azure Monitor managed service for Prometheus add-on](../azure-monitor/essentials/prometheus-metrics-overview.md)
 
 ## Next steps
 
@@ -268,3 +300,4 @@ To further help improve cluster resource utilization and free up CPU and memory 
 [az-aks-nodepool-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview#enable-cluster-auto-scaler-for-a-node-pool
 [kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why
 [kubernetes-cluster-autoscaler]: https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
+

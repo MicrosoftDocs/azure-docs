@@ -1,6 +1,6 @@
 ---
 title: Install a Private package
-description: This article provides step-by-step instructions on how to install a private package in a Managed Airflow environment.
+description: This article provides step-by-step instructions on how to install a private package in a Workflow Orchestration Manager runtime.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -13,10 +13,13 @@ ms.date: 09/23/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-A python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables.
-In the context of Managed Airflow, you can create packages to add your custom code.
+> [!NOTE]
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
 
-This guide provides step-by-step instructions on installing `.whl` (Wheel) file, which serve as a binary distribution format for Python package, in your Managed Airflow runtime.
+A python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables.
+In the context of Workflow Orchestration Manager, you can create packages to add your custom code.
+
+This guide provides step-by-step instructions on installing `.whl` (Wheel) file, which serve as a binary distribution format for Python package in your Workflow Orchestration Manager.
 
 For illustration purpose, I create a simple custom operator as python package that can be imported as a module inside dags file.
 
@@ -84,14 +87,14 @@ For the ADO, prepend the "**/opt/airflow/git/`<repoName>`/**"  to the package pa
 
 When performing the import of your folder into an Airflow IR environment, ensure that you check the import requirements checkbox to load your requirements inside your airflow env.
 
-:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-checkbox.png" alt-text="Screenshot showing the import dialog for an Airflow integrated runtime environment, with the Import requirements checkbox checked.":::
+:::image type="content" source="media/airflow-install-private-package/import-requirements-checkbox.png" alt-text="Screenshot showing the import dialog for an Airflow integrated runtime environment, with the Import requirements checkbox checked.":::
 
-:::image type="content" source="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png" alt-text="Screenshot showing the imported requirements dialog in an Airflow integrated runtime environment." lightbox="media/airflow-create-private-requirement-package/import-requirements-airflow-environment.png":::
+:::image type="content" source="media/airflow-install-private-package/import-requirements-airflow-environment.png" alt-text="Screenshot showing the imported requirements dialog in an Airflow integrated runtime environment." lightbox="media/airflow-install-private-package/import-requirements-airflow-environment.png":::
 
 ### Step 6: Inside Airflow UI, you can run your dag file created at step 1, to check if import is successful.
 
 
 ## Next steps
 
-- [What is Azure Data Factory Managed Airflow?](concept-managed-airflow.md)
+- [What is Workflow Orchestration Manager?](concepts-workflow-orchestration-manager.md)
 - [Run an existing pipeline with Airflow](tutorial-run-existing-pipeline-with-airflow.md)

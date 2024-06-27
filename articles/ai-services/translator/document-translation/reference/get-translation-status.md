@@ -11,28 +11,24 @@ ms.topic: reference
 ms.date: 02/09/2024
 ---
 
-# Get translation status
+# Get status for a specific translation job
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **GET**
 
-The Get translation status method returns the status for a document translation request. The status includes the overall request status and the status for documents that are being translated as part of that request. 
+* Use the `get translation status` method to request the status of a specific translation job. The response includes the overall job status and the status for documents that are being translated as part of that job.
 
 ## Request URL
 
-Send a `GET` request to:
-
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
-```
-
-Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
-
 > [!IMPORTANT]
 >
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
+
+```bash
+curl -i -X GET "{document-translation-endpoint}/translator/document/batches/{id}?api-version={date}"
+```
 
 ## Request parameters
 
@@ -42,13 +38,25 @@ Request parameters passed on the query string are:
 |--- |--- |--- |
 |`id`|True|The operation ID.|
 
+### Locating  the `id` value
+
+ You can find the job `id` in the POST `start-batch-translation` method response Header `Operation-Location` URL value. The alphanumeric string following the `/document/` parameter is the operation's job **`id`**:
+
+|**Response header**|**Response URL**|
+|-----------------------|----------------|
+|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
+
+* You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation _**jobs**_ and their `id`s.
+
 ## Request headers
 
 Request headers are:
 
-|Headers|Description|
-|--- |--- |
-|Ocp-Apim-Subscription-Key|Required request header|
+|Headers|Description|Condition|
+|--- |--- |---|
+|**Ocp-Apim-Subscription-Key**|Your Translator service API key from the Azure portal.|Required|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a regional (geographic) resource like **West US**.</br>&bullet.|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
 
 ## Response status codes
 
@@ -144,4 +152,4 @@ Status code: 401
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)

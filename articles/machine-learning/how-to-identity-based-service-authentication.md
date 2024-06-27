@@ -35,6 +35,16 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 * You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
+## Azure Container Registry and identity types
+
+The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
+
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
+| ---- | :----: | :----: |
+| Admin user | ✓ | ✓ |
+| Workspace system-assigned managed identity | ✓ | ✓ |
+| Workspace user-assigned managed identity</br>with the ACRPull role assigned to the identity |  | ✓ |
+
 ## User-assigned managed identity
 
 ### Workspace
@@ -352,7 +362,7 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command
