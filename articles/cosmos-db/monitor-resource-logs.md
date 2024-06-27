@@ -7,7 +7,7 @@ ms.author: sidandrews
 ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 06/27/2023
 ms.custom: devx-track-azurecli
 ---
 
@@ -19,7 +19,7 @@ Diagnostic settings in Azure are used to collect resource logs. Resources emit A
 
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cosmos DB accounts and send resource logs to the following sources:
 
-- Log Analytics workspaces
+- Azure Monitor Log Analytics workspaces
   - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables
 - Event hub
 - Storage Account
@@ -33,6 +33,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
   - If you have an Azure subscription, [create a new account](nosql/how-to-create-account.md?tabs=azure-portal).
   - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
   - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
+- An existing Azure Monitor Log Analytics workspace.
 
 ## Create diagnostic settings
 
@@ -73,36 +74,48 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
+Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
 
 > [!NOTE]
 > If you are using API for NoSQL, we recommend setting the **export-to-resource-specific** property to **true**.
-
-1. Create shell variables for `subscriptionId`, `diagnosticSettingName`, `workspaceName` and `resourceGroupName`.
-
-    ```azurecli
-    # Variable for subscription id
-    subscriptionId="<subscription-id>"
-
-    # Variable for resource group name
-    resourceGroupName="<resource-group-name>"
-    
-    # Variable for workspace name
-    workspaceName="<workspace-name>"
-
-    # Variable for diagnostic setting name
-    diagnosticSettingName="<diagnostic-setting-name>"
-    ```
 
 1. Use `az monitor diagnostic-settings create` to create the setting.
 
     ```azurecli
     az monitor diagnostic-settings create \
-        --resource "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDb/databaseAccounts/" \
-        --name $diagnosticSettingName \
-        --export-to-resource-specific true \
-        --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' \
-        --workspace "/subscriptions/$subscriptionId/resourcegroups/$resourceGroupName/providers/microsoft.operationalinsights/workspaces/$workspaceName"
+      --resource $(az cosmosdb show \
+        --resource-group "<resource-group-name>" \
+        --name "<account-name>" \
+        --query "id" \
+        --output "tsv" \
+      ) \
+      --workspace $(az monitor log-analytics workspace show \
+        --resource-group "<resource-group-name>" \
+        --name "<account-name>" \
+        --query "id" \
+        --output "tsv" \
+      ) \
+      --name "example-setting" \
+      --export-to-resource-specific true \
+      --logs '[
+        {
+          "category": "QueryRuntimeStatistics",
+          "enabled": true,
+          "retentionPolicy": {
+            "enabled": false,
+            "days": 0
+          }
+        }
+      ]'
+    ```
+
+1. Review the results of creating your new setting using `az monitor diagnostics-settings show`.
+
+    ```azurecli
+    
+    az monitor diagnostic-settings show \
+      --resource-group "<resource-group-name>" \
+      --resource "<account-name>"
     ```
 
 ### [REST API](#tab/rest-api)
@@ -148,51 +161,14 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
             "eventHubAuthorizationRuleId": null,
             "eventHubName": null,
             "logs": [
-                {
-                    "category": "DataPlaneRequests",
-                    "categoryGroup": null,
-                    "enabled": true,
-                    "retentionPolicy": {
-                        "enabled": false,
-                        "days": 0
-                    }
-                },
-                {
-                    "category": "QueryRuntimeStatistics",
-                    "categoryGroup": null,
-                    "enabled": true,
-                    "retentionPolicy": {
-                        "enabled": false,
-                        "days": 0
-                    }
-                },
-                {
-                    "category": "PartitionKeyStatistics",
-                    "categoryGroup": null,
-                    "enabled": true,
-                    "retentionPolicy": {
-                        "enabled": false,
-                        "days": 0
-                    }
-                },
-                {
-                    "category": "PartitionKeyRUConsumption",
-                    "categoryGroup": null,
-                    "enabled": true,
-                    "retentionPolicy": {
-                        "enabled": false,
-                        "days": 0
-                    }
-                },
-                {
-                    "category": "ControlPlaneRequests",
-                    "categoryGroup": null,
-                    "enabled": true,
-                    "retentionPolicy": {
-                        "enabled": false,
-                        "days": 0
-                    }
+              {
+                "category": "QueryRuntimeStatistics",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
                 }
+              }
             ],
             "logAnalyticsDestinationType": "Dedicated"
         },
@@ -265,81 +241,9 @@ Here, use an [Azure Resource Manager (ARM) template](../azure-resource-manager/t
             "logAnalyticsDestinationType": "[parameters('logAnalyticsDestinationType')]",
             "logs": [
               {
-                "category": "DataPlaneRequests",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "MongoRequests",
-                "categoryGroup": null,
-                "enabled": false,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
                 "category": "QueryRuntimeStatistics",
                 "categoryGroup": null,
                 "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "PartitionKeyStatistics",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "PartitionKeyRUConsumption",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "ControlPlaneRequests",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "CassandraRequests",
-                "categoryGroup": null,
-                "enabled": false,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "GremlinRequests",
-                "categoryGroup": null,
-                "enabled": false,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              },
-              {
-                "category": "TableApiRequests",
-                "categoryGroup": null,
-                "enabled": false,
                 "retentionPolicy": {
                   "days": 0,
                   "enabled": false
