@@ -15,7 +15,7 @@ ms.date:     06/26/2024
 
 # Msv3 and Mdsv3 Medium Memory Series 
 
-The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
+The Msv3 and Mdsv3 Medium Memory(MM) Virtual Machine (VM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership (TCO) and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
 
 ## Msv3 Medium Memory series
 
