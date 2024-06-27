@@ -293,7 +293,7 @@
         },
         {
             "source_path_from_root": "/articles/search/ref-create-skillset.md",
-            "redirect_url": "/rest/api/searchservice/create-skillset",
+            "redirect_url": "/rest/api/searchservice/skillsets/create",
             "redirect_document_id": false
         },
         {
