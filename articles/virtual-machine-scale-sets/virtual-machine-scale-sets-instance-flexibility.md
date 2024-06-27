@@ -124,6 +124,8 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
 8. In the **Allocation strategy (preview)** field, select your allocation strategy.
 9. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your Instance Flexible scale set deployment.
 
+---
+
 ## Troubleshooting
 | Error Code                                 | Error Message                                                                                               | Troubleshooting options                                                                                                                                                                                                                                                                                                       |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
