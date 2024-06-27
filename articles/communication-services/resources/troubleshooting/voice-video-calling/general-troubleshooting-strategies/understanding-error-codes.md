@@ -39,7 +39,7 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 3101 | 410 | Call dropped due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | |
 | 3112 | 410 |  Call setup failed due to network configuration problem on the client side, please check client's network configuration, and retry. | ExpectedError | |
 | 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
-| 4507 | 495 | Call ended as application didn't provide a valid Azure Communication Services token. | UnexpectedClientError |- Please make sure that your application implements token refresh mechanism correctly. |
+| 4507 | 495 | Call ended as application didn't provide a valid Azure Communication Services token. | UnexpectedClientError |- Ensure that your application implements token refresh mechanism correctly. |
 | 4521 | 0 | Call ended because user disconnected from the call abruptly, this may be a result of a user closing the application that hosted the call, eg a user terminated application, closed browser of browser tab without proper hang-up. | ExpectedError | |
 | 5000 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
 | 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
