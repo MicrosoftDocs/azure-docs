@@ -46,8 +46,6 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-Visual Studio's *Add Application Insights* experience adds more files.
-
 > [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
@@ -91,11 +89,6 @@ Visual Studio's *Add Application Insights* experience adds more files.
     Verify that your application has no unexpected consequences.
 
 ### [ASP.NET](#tab/net)
-
-When you first added Application Insights to your project, the SDK adds a config file and edits the web.config.
-Visual Studio's *Add Application Insights* experience adds more files.
-If using NuGet tools to remove the Application Insights, then some is cleaned up.
-If you're manually removing the package reference from your csproj, you need to manually clean up these artifacts.
 
 > [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
@@ -214,9 +207,6 @@ If you're manually removing the package reference from your csproj, you need to 
     Verify that your application has no unexpected consequences.
 
 ### [WorkerService](#tab/workerservice)
-
-The first step is to remove the Application Insights SDK.
-If you used Visual Studio's *Add Application Insights* experience, it added more files.
 
 > [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
