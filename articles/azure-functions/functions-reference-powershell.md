@@ -494,6 +494,8 @@ The following considerations apply when using dependency management:
 
 + Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
 
++ Managed dependencies are not supported in Linux Consumption on Flex Consumption plan.
+
 ### Dependency management app settings
 
 The following application settings can be used to change how the managed dependencies are downloaded and installed. 
