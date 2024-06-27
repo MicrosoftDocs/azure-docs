@@ -1,30 +1,23 @@
 ---
-title: Authentication a managed identity with Microsoft Entra ID
+title: Authenticate using managed identity
 description: This article provides information about authenticating a managed identity with Microsoft Entra ID to access Azure Event Hubs resources
-ms.topic: conceptual
-ms.date: 02/08/2023
+ms.topic: concept-article
+ms.date: 06/26/2024
 ms.custom: subject-rbac-steps
+#customer intent: As a developer, I want to know how to authenticate to an Azure event hub using a managed identity.
 ---
 
 # Authenticate a managed identity with Microsoft Entra ID to access Event Hubs Resources
 Azure Event Hubs supports Microsoft Entra authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Microsoft Entra credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Microsoft Entra authentication, you can avoid storing credentials with your applications that run in the cloud. This article shows how to authorize access to an event hub by using a managed identity from an Azure VM.
 
 ## Enable managed identities on a VM
-Before you use managed identities for Azure resources to access Event Hubs resources from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure resources, see one of these articles:
-
-- [Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager template](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager client libraries](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
-
-<a name='grant-permissions-to-a-managed-identity-in-azure-ad'></a>
+Before you use managed identities for Azure resources to access Event Hubs resources from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure resources, see [Configure managed identities on Azure VMs](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
 ## Grant permissions to a managed identity in Microsoft Entra ID
-To authorize a request to Event Hubs service from a managed identity in your application, first configure Azure role-based access control (Azure RBAC) settings for that managed identity. Azure Event Hubs defines Azure roles that encompass permissions for sending and reading from Event Hubs. When the Azure role is assigned to a managed identity, the managed identity is granted access to Event Hubs data at the appropriate scope. For more information about assigning Azure roles, see [Authenticate with Microsoft Entra ID for access to Event Hubs resources](authorize-access-azure-active-directory.md).
+To authorize a request to Event Hubs service from a managed identity in your application, first configure Azure role-based access control (RBAC) settings for that managed identity. Azure Event Hubs defines Azure roles that encompass permissions for sending events to and receiving events from Event Hubs. When an Azure role is assigned to a managed identity, the managed identity is granted access to Event Hubs data at the appropriate scope. For more information about assigning Azure roles, see [Authenticate with Microsoft Entra ID for access to Event Hubs resources](authorize-access-azure-active-directory.md).
 
-## Use Event Hubs with managed identities
-To use Event Hubs with managed identities, assign an Event Hubs RBAC role at the appropriate scope to the identity. The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
+## Sample application
+The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
 
 Here we're using a sample web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). For step-by-step instructions for creating a web application, see [Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md)
 
@@ -55,8 +48,7 @@ Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#
 4. Assign this identity to the **Event Hubs Data Owner** role at the namespace level or event hub level. 
 5. Run the web application, enter the namespace name and event hub name, a message, and select **Send**. To receive the event, select **Receive**. 
 
-#### [Azure.Messaging.EventHubs (latest)](#tab/latest)
-You can now launch your web application and point your browser to the sample aspx page. You can find the sample web application that sends and receives data from Event Hubs resources in the [GitHub repo](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
+You can find the sample web application that sends and receives data from Event Hubs resources in the [GitHub repo](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
 
 Install the latest package from [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/), and start sending events to Event Hubs using **EventHubProducerClient** and receiving events using **EventHubConsumerClient**. 
 
@@ -106,15 +98,6 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 }
 ```
 
-#### [Microsoft.Azure.EventHubs (legacy)](#tab/old)
-You can now launch your web application and point your browser to the sample aspx page. You can find the sample web application that sends and receives data from Event Hubs resources in the [GitHub repo](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
-
-Install the latest package from [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/), and start sending to and receiving data from Event hubs using the EventHubClient as shown in the following code: 
-
-```csharp
-var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
-```
----
 
 ## Event Hubs for Kafka
 You can use Apache Kafka applications to send messages to and receive messages from Azure Event Hubs using managed identity OAuth. See the following sample on GitHub: [Event Hubs for Kafka - send and receive messages using managed identity OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
@@ -129,11 +112,10 @@ You can use Apache Kafka applications to send messages to and receive messages f
     - To learn how to use the Apache Kafka protocol to send events to and receive events from an event hub using a managed identity, see [Event Hubs for Kafka sample to send and receive messages using a managed identity](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
 
 
-. 
 
 
 
-## Next steps
+## Related content
 - See the following article to learn about managed identities for Azure resources: [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 - See the following related articles:
     - [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)

@@ -19,7 +19,7 @@ The script in this article creates an Azure Cosmos DB for NoSQL account, databas
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - This script requires Azure CLI version 2.0.73 or later.
 
