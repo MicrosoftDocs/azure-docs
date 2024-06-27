@@ -109,7 +109,7 @@ Learn more about [resource providers and resource types](../../azure-resource-ma
 
 To allow access to the IoT Hub:
 
-### Set up resource providers for the IoT hub
+#### Set up resource providers for the IoT hub
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to the **Subscriptions** page.
 
@@ -121,7 +121,7 @@ To allow access to the IoT Hub:
 
 1. Select the **Microsoft.IoTSecurity** provider and verify that its status is **Registered**.
 
-### Set up access control for the IoT hub
+#### Set up access control for the IoT hub
 
 1. In your IoT hub, from the left menu bar, select **Access control (IAM)**, and from the top menu, select **Add > Add role assignment**.
 
@@ -137,7 +137,7 @@ To allow access to the IoT Hub:
 
 To connect to a Log Analytics workspace:
 
-### Set up resource providers for the Log Analytics workspace
+#### Set up resource providers for the Log Analytics workspace
 
 1. In the Azure portal, navigate to the **Subscriptions** page.
 
@@ -149,7 +149,7 @@ To connect to a Log Analytics workspace:
 
 1. Select the **Microsoft.OperationsManagement** provider and verify that its status is **Registered**.
 
-## Set up access control for the Log Analytics workspace
+#### Set up access control for the Log Analytics workspace
 
 1. In the Azure portal, search for and navigate to the **Log analytics workspaces** page, select your workspace, and from the left menu, select **Access control (IAM)**.
 
@@ -163,7 +163,7 @@ To connect to a Log Analytics workspace:
 
 1. Back in the **Members** tab, select **Review + assign** at the bottom of the tab, in in the **Review and assign tab**, select **Review + assign** at the bottom again.
 
-### Enable Defender for IoT
+#### Enable Defender for IoT
 
 1. In your IoT hub, from the left menu, select **Settings**, and in the **Settings page**, select **Data Collection**.
 
