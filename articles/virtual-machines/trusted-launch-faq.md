@@ -54,12 +54,16 @@ You can use the `securityType` parameter with the `Standard` value to disable Tr
 
 If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
 
+---
+
 #### [CLI](#tab/cli)
 
 ```azurecli
 az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204 `
     --security-type 'Standard'
 ```
+
+---
 
 #### [PowerShell](#tab/PowerShell)
 
