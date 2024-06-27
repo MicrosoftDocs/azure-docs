@@ -23,7 +23,7 @@ AI agents are designed to perform specific tasks, answer questions, and automate
 -	[Memory](#agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
 
 > [!NOTE]
-> The usage of the term “memory” in the context of AI agents should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
+> The usage of the term "memory" in the context of AI agents should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
 
 ### Copilots
 
@@ -33,7 +33,7 @@ Copilots are a type of AI agent designed to work alongside users rather than ope
 
 Autonomous agents can operate more independently. When you set up autonomous agents to assist with email composition, you could enable them to perform the following tasks:
 
--	Consult existing emails, chats, files, and other information that are related to the subject matter, which may involve searching the appropriate storage or the Internet in accordance with access permissions
+-	Consult existing emails, chats, files, and other internal and public information that are related to the subject matter
 -	Perform qualitative or quantitative analysis on the collected information, and draw conclusions that are relevant to the email
 - Write the complete email based on the conclusions and incorporate supporting evidence
 -	Attach relevant files to the email
@@ -59,7 +59,7 @@ A multi-agent system provides the following advantages over a copilot or a singl
 
 -	Dynamic reasoning: Compared to chain-of-thought or tree-of-thought prompting, multi-agent systems allow for dynamic navigation through various reasoning paths.
 -	Sophisticated abilities: Multi-agent systems can handle complex or large-scale problems by conducting thorough decision-making processes and distributing tasks among multiple agents.
--	Enhanced memory: Multi-agent systems with memory can overcome large language models’ context windows, enabling better understanding and information retention.
+-	Enhanced memory: Multi-agent systems with memory can overcome large language models' context windows, enabling better understanding and information retention.
 
 ## Implementing AI agents
 
@@ -82,7 +82,7 @@ Various frameworks and tools can facilitate the development and deployment of AI
 
 For tool usage and perception that do not require sophisticated planning and memory, some popular LLM orchestrator frameworks are LangChain, LlamaIndex, Prompt Flow, and Semantic Kernel.
 
-For advanced and autonomous planning and execution workflows, [AutoGen](https://microsoft.github.io/autogen/) propelled the multi-agent wave that began in late 2022. OpenAI’s [Assistants API](https://platform.openai.com/docs/assistants/overview) allow their users to create agents natively within the GPT ecosystem. [LangChain Agents](https://python.langchain.com/v0.1/docs/modules/agents/) and [LlamaIndex Agents](https://docs.llamaindex.ai/en/stable/use_cases/agents/) also emerged around the same time.
+For advanced and autonomous planning and execution workflows, [AutoGen](https://microsoft.github.io/autogen/) propelled the multi-agent wave that began in late 2022. OpenAI's [Assistants API](https://platform.openai.com/docs/assistants/overview) allow their users to create agents natively within the GPT ecosystem. [LangChain Agents](https://python.langchain.com/v0.1/docs/modules/agents/) and [LlamaIndex Agents](https://docs.llamaindex.ai/en/stable/use_cases/agents/) also emerged around the same time.
 
 > [!TIP]
 > See the implementation sample section at the end of this article for tutorial on building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
@@ -91,7 +91,7 @@ For advanced and autonomous planning and execution workflows, [AutoGen](https://
 
 The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a [pure vector database](vector-database.md#integrated-vector-database-vs-pure-vector-database) for embedding management.
 
-However, this practice of using a complex web of standalone databases can hurt AI agent memory system’s speed and scalability. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, each type of database’s individual weaknesses are also exacerbated in multi-agent systems:
+However, this practice of using a complex web of standalone databases can hurt AI agent memory system's speed and scalability. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, each type of database's individual weaknesses are also exacerbated in multi-agent systems:
 
 **In-memory databases** are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
 
@@ -104,16 +104,17 @@ However, this practice of using a complex web of standalone databases can hurt A
 - one consistency level (eventual)
 - resource-intensive in-memory vector index
 - limited options for multitenancy
+- limited security
 
 The next section dives deeper into what makes a robust AI agent memory system.
 
 ## Memory can make or break AI agents
 
-Just as efficient database management systems are critical to software applications’ performances, it is critical to provide LLM-powered agents with relevant and useful information to guide their inference. Robust memory systems enable organizing and storing different kinds of information that the agents can retrieve at inference time.
+Just as efficient database management systems are critical to software applications' performances, it is critical to provide LLM-powered agents with relevant and useful information to guide their inference. Robust memory systems enable organizing and storing different kinds of information that the agents can retrieve at inference time.
 
 Currently, LLM-powered applications often use [retrieval-augmented generation](vector-database.md#retrieval-augmented-generation) that uses basic semantic search or vector search to retrieve passages or documents. [Vector search](vector-database.md#vector-search) can be useful for finding general information, but it may not capture the specific context, structure, or relationships that are relevant for a particular task or domain.
 
-For example, if the task is to write code, vector search may not be able to retrieve the syntax tree, the file system layout, the code summaries, or the API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, vector search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
+For example, if the task is to write code, vector search may not be able to retrieve the syntax tree, file system layout, code summaries, or API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, vector search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
 Weaving together [a web of standalone in-memory, relational, and vector databases](#agent-memory-system) is not an optimal solution for the varied data types, either. This approach may work for prototypical agent systems; however, it adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
@@ -129,17 +130,17 @@ Memory systems should provide different memory banks that store information that
 
 #### Sharable but also separable
 
-At the macro level, memory systems should enable multiple AI agents to collaborate on a problem or process different aspects of the problem by providing shared memory that is accessible to all the agents. This can facilitate the exchange of information and the coordination of actions among the agents. At the same time, the memory system must allow agents to preserve their own persona and characteristics, such as their unique collections of prompts and memories.
+At the macro level, memory systems should enable multiple AI agents to collaborate on a problem or process different aspects of the problem by providing shared memory that is accessible to all the agents. Shared memory can facilitate the exchange of information and the coordination of actions among the agents. At the same time, the memory system must allow agents to preserve their own persona and characteristics, such as their unique collections of prompts and memories.
 
 #### Multi-modal (Part II)
 
-Not only are memory systems critical to AI agents; they are also important for the humans who develop, maintain, and use these agents. For example, humans may need to supervise agents’ planning and execution workflows in near real-time. While supervising, humans may interject with guidance or make in-line edits of agents’ dialogues or monologues. Humans may also need to audit the reasoning and actions of agents to verify the validity of the final output. Human-agent interactions are likely in natural or programming languages, while agents "think," "learn," and "remember" through embeddings. This poses another requirement on memory systems’ consistency across data modalities.
+Not only are memory systems critical to AI agents; they are also important for the humans who develop, maintain, and use these agents. For example, humans may need to supervise agents' planning and execution workflows in near real-time. While supervising, humans may interject with guidance or make in-line edits of agents' dialogues or monologues. Humans may also need to audit the reasoning and actions of agents to verify the validity of the final output. Human-agent interactions are likely in natural or programming languages, while agents "think," "learn," and "remember" through embeddings. This data modal difference poses another requirement on memory systems' consistency across data modalities.
 
 ## Infastructure for a robust memory system
 
 The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases](#agent-memory-system) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
-In place of all the standalone databases, Azure Cosmos DB can serve as a unified solution for AI agent memory systems. Its robustness successfully [enabled OpenAI’s ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service that offers a serverless mode. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
+In place of all the standalone databases, Azure Cosmos DB can serve as a unified solution for AI agent memory systems. Its robustness successfully [enabled OpenAI's ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world's first globally distributed [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service that offers a serverless mode. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
 #### Speed
 
@@ -147,7 +148,7 @@ Azure Cosmos DB provides single-digit millisecond latency, making it highly suit
 
 #### Scale
 
-With support for multi-region I/O and multitenancy, this service is engineered for global distribution and horizontal scalability, ensuring that memory systems can expand seamlessly and keep up with rapidly growing data and agents. Its SLA-backed 99.999% availability (less than 5 minutes of downtime per year, contrasting 9 hours or more for pure vector database services) provides a solid foundation fro mission-critical workloads. At the same time, its various service models like [Reserved Capacity](reserved-capacity.md) or Serverless drastically lower financial costs.
+Engineered for global distribution and horizontal scalability, and offering support for multi-region I/O and multitenancy, this service ensures that memory systems can expand seamlessly and keep up with rapidly growing agents and associated data. Its SLA-backed 99.999% availability guarantee (less than 5 minutes of downtime per year, contrasting 9 hours or more for pure vector database services) provides a solid foundation for mission-critical workloads. At the same time, its various service models like [Reserved Capacity](reserved-capacity.md) or Serverless drastically lower financial costs.
 
 #### Simplicity
 
@@ -155,7 +156,7 @@ This service simplifies data management and architecture by integrating multiple
 
 Its integrated vector database capabilities can store, index, and query embeddings alongside the corresponding data in natural or programming languages, enabling greater data consistency, scale, and performance.
 
-Its flexibility easily supports the varied modalities and fluid schemas of the metadata, relationships, entities, summaries, chat history, user preferences, sensory data, decisions made, facts learned, or other operational data involved in agent workflows. The database automatically indexes all data without requiring schema or index management, allowing AI agents to perform complex queries quickly and efficiently.
+Its flexibility easily supports the varied modalities and fluid schemas of the metadata, relationships, entities, summaries, chat history, user preferences, sensory data, decisions, facts learned, or other operational data involved in agent workflows. The database automatically indexes all data without requiring schema or index management, allowing AI agents to perform complex queries quickly and efficiently.
 
 Lastly, its fully managed service eliminates the overhead of database administration, including tasks such as scaling, patching, and backups. Thus, developers can focus on building and optimizing AI agents without worrying about the underlying data infrastructure.
 
@@ -176,9 +177,9 @@ Implementation example
 
 ## Implementation sample
 
-This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application. It uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-ai-agents) uses Azure Cosmos DB to ensure [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system).
+This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application.
 
-Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent, developed using LangChain's agent framework, will utilize the robust [vector database](vector-database.md) and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings. It will operate within a Python FastAPI backend and support user interactions through a React JS user interface.
+Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-ai-agents) uses the [vector database](vector-database.md) and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings, ensuring [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system). It operates within a Python FastAPI backend and support user interactions through a React JS user interface.
 
 ### Prerequisites
 
@@ -221,7 +222,7 @@ Create a file, named **.env** in the **loader** directory, to store the followin
 
 ### Loading Documents and Vectors
 
-Below is the Python file **main.py**; it serves as the central entry point for loading data into Azure Cosmos DB. This code processes the sample travel data from the GitHub repository, including information about ships and destinations. Additionally, it generates travel itinerary packages for each ship and destination, allowing travelers to book them using the AI agent. The CosmosDBLoader is responsible for creating collections, vector embeddings, and indexes in the Azure Cosmos DB instance.
+The Python file **main.py** serves as the central entry point for loading data into Azure Cosmos DB. This code processes the sample travel data from the GitHub repository, including information about ships and destinations. Additionally, it generates travel itinerary packages for each ship and destination, allowing travelers to book them using the AI agent. The CosmosDBLoader is responsible for creating collections, vector embeddings, and indexes in the Azure Cosmos DB instance.
 
 *main.py*
 ```python
@@ -274,14 +275,14 @@ Output:
 
 ### Building Travel AI Agent with Python FastAPI
 
-The AI travel agent will be hosted in a backend API using Python FastAPI, facilitating integration with the frontend user interface. The API project has been configured to process agent requests by grounding the LLM prompts against the data layer, specifically the vectors and documents in Azure Cosmos DB. Furthermore, the agent will make use of various tools, particularly the Python functions provided at the API service layer. This article will focus in on the code necessary for AI agents within the API code.
+The AI travel agent is hosted in a backend API using Python FastAPI, facilitating integration with the frontend user interface. The API project processes agent requests by [grounding](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857) the LLM prompts against the data layer, specifically the vectors and documents in Azure Cosmos DB. Furthermore, the agent makes use of various tools, particularly the Python functions provided at the API service layer. This article focuses on the code necessary for AI agents within the API code.
 
 The API project in the GitHub repository is structured as follows:
 
 - Model – data modeling components using Pydantic models.
 - Web – web layer components responsible for routing requests and managing communication.
 - Service – service layer components responsible for primary business logic and interaction with data layer; LangChain Agent and Agent Tools.
-- Data – data layer components responsible for interacting with Azure Cosmos DB for Mongo DB documents storage and vector search.
+- Data – data layer components responsible for interacting with Azure Cosmos DB for MongoDB documents storage and vector search.
 
 ### Setting Up the Environment for the API
 
@@ -314,7 +315,7 @@ The FastAPI server launches on the localhost loopback 127.0.0.1 port 8000 by def
 ### Using a Session for the AI Agent Memory
 It is imperative for the Travel Agent to have the capability to reference previously provided information within the ongoing conversation. This ability is commonly known as "memory" in the context of LLMs, which should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
 
-To achieve this objective, we will utilize the chat message history, which will be securely stored in our Azure Cosmos DB instance. Each chat session will have its history stored using a session ID to ensure that only messages from the current conversation session are accessible. This necessity is the reason behind the existence of a ‘Get Session’ method in our API. It is a placeholder method for managing web sessions in order to illustrate the use of chat message history.
+To achieve this objective, we use the chat message history, which is securely stored in our Azure Cosmos DB instance. Each chat session will have its history stored using a session ID to ensure that only messages from the current conversation session are accessible. This necessity is the reason behind the existence of a 'Get Session' method in our API. It is a placeholder method for managing web sessions in order to illustrate the use of chat message history.
 
 :::image type="content" source="media/gen-ai/ai-agent/FastAPI-get-session.png" lightbox="media/gen-ai/ai-agent/FastAPI-get-session.png" alt-text="Python FastAPI – Get Session.":::
 Click Try It out for /session/.
@@ -325,7 +326,7 @@ Click Try It out for /session/.
 }
 ```
 
-For the purpose of the AI Agent, we only need to simulate a session, thus the stubbed-out method merely returns a generated session ID for tracking message history. In a practical implementation, this session would be stored in Azure Cosmos DB and potentially in React JS localStorage.
+For the AI Agent, we only need to simulate a session. Thus, the stubbed-out method merely returns a generated session ID for tracking message history. In a practical implementation, this session would be stored in Azure Cosmos DB and potentially in React JS localStorage.
 
 *web/session.py*
 ```python
@@ -336,7 +337,7 @@ For the purpose of the AI Agent, we only need to simulate a session, thus the st
 
 ### Start a Conversation with the AI Travel Agent
 
-Let us utilize the obtained session ID from the step above to initiate a new dialogue with our AI agent in order to validate its functionality. We shall conduct our test by submitting the following phrase: “I want to take a relaxing vacation.”
+Let us utilize the obtained session ID from the previous step to initiate a new dialogue with our AI agent to validate its functionality. We shall conduct our test by submitting the following phrase: "I want to take a relaxing vacation."
 
 :::image type="content" source="media/gen-ai/ai-agent/FastAPI-agent-chat.png" lightbox="media/gen-ai/ai-agent/FastAPI-agent-chat.png" alt-text="Python FastAPI – Agent Chat.":::
 Click Try It out for /agent/agent_chat.
@@ -349,7 +350,7 @@ Example parameter
 }
 ```
 
-The initial execution will result in a recommendation for the Tranquil Breeze Cruise and the Fantasy Seas Adventure Cruise as they are anticipated to be the most ‘relaxing’ cruises available through the vector search. These documents have the highest score for ```similarity_search_with_score``` that is called in the data layer of our API, ```data.mongodb.travel.similarity_search()```.
+The initial execution results in a recommendation for the Tranquil Breeze Cruise and the Fantasy Seas Adventure Cruise as they are anticipated to be the most 'relaxing' cruises available through the vector search. These documents have the highest score for ```similarity_search_with_score``` that is called in the data layer of our API, ```data.mongodb.travel.similarity_search()```.
 
 The similarity search scores are displayed as output from the API for debugging purposes.
 
@@ -364,11 +365,11 @@ Output when calling ```data.mongodb.travel.similarity_search()```
 > [!TIP]
 > If documents are not being returned for vector search modify the ```similarity_search_with_score``` limit or the score filter value as needed (```[doc for doc, score  in docs if score >=.78]```). in ```data.mongodb.travel.similarity_search()```
 
-Calling the ‘agent_chat’ for the first time will create a new collection named ‘history’ in Azure Cosmos DB to store the conversation by session. This will enable the agent to access the stored chat message history as needed. Subsequent executions of ‘agent_chat’ with the same parameters will produce varying results as it will draw from memory.
+Calling the 'agent_chat' for the first time creates a new collection named 'history' in Azure Cosmos DB to store the conversation by session. This call enables the agent to access the stored chat message history as needed. Subsequent executions of 'agent_chat' with the same parameters produce varying results as it draws from memory.
 
 ### Walkthrough of AI Agent
 
-When integrating the AI Agent into the API, the web search components are responsible for initiating all requests. This is followed by the search service, and finally the data components. In our specific case, we utilize MongoDB data search, which connects to Azure Cosmos DB. The layers facilitate the exchange of Model components, with the AI Agent and AI Agent Tool code residing in the service layer. This approach was implemented to enable the seamless interchangeability of data sources and to extend the capabilities of the AI Agent with additional, more intricate functionalities or ‘tools’.
+When integrating the AI Agent into the API, the web search components are responsible for initiating all requests. This is followed by the search service, and finally the data components. In our specific case, we utilize MongoDB data search, which connects to Azure Cosmos DB. The layers facilitate the exchange of Model components, with the AI Agent and AI Agent Tool code residing in the service layer. This approach was implemented to enable the seamless interchangeability of data sources and to extend the capabilities of the AI Agent with additional, more intricate functionalities or 'tools'.
 
 :::image type="content" source="media/gen-ai/ai-agent/Travel-AI-Agent-FastAPI-layers.png" lightbox="media/gen-ai/ai-agent/Travel-AI-Agent-FastAPI-layers.png" alt-text="Travel AI Agent FastAPI layers.":::
 
@@ -432,16 +433,16 @@ def LLM_init():
 LLM_init()
 ```
 
-The **init.py** file commences by initiating the loading of environment variables from a **.env** file utilizing the ```load_dotenv(override=True)``` method. Following this, a global variable named ```agent_with_chat_history``` is instantiated for the agent, intended for use by our **TravelAgent.py**. The ```LLM_init()``` method is invoked during module initialization to configure our AI agent for conversation via the API web layer. The OpenAI Chat object is instantiated using the GPT-3.5 model, incorporating specific parameters such as model name and temperature. The chat object, tools list, and prompt template are combined to generate an ```AgentExecutor```, which operates as our AI Travel Agent. Lastly, the agent with history, ```agent_with_chat_history```, is established using ```RunnableWithMessageHistory``` with chat history (MongoDBChatMessageHistory), enabling it to maintain a complete conversation history via Azure Cosmos DB.
+The **init.py** file commences by initiating the loading of environment variables from a **.env** file utilizing the ```load_dotenv(override=True)``` method. Then, a global variable named ```agent_with_chat_history``` is instantiated for the agent, intended for use by our **TravelAgent.py**. The ```LLM_init()``` method is invoked during module initialization to configure our AI agent for conversation via the API web layer. The OpenAI Chat object is instantiated using the GPT-3.5 model, incorporating specific parameters such as model name and temperature. The chat object, tools list, and prompt template are combined to generate an ```AgentExecutor```, which operates as our AI Travel Agent. Lastly, the agent with history, ```agent_with_chat_history```, is established using ```RunnableWithMessageHistory``` with chat history (MongoDBChatMessageHistory), enabling it to maintain a complete conversation history via Azure Cosmos DB.
 
 #### Prompt
 
-The LLM prompt initially began with the simple statement “You are a helpful and friendly travel assistant for a cruise company.” However, through testing, it was determined that more consistent results could be obtained by including the instruction “Answer travel questions to the best of your ability, providing only relevant information. To book a cruise, capturing the person’s name is essential.” The results are presented in HTML format to enhance the visual appeal within the web interface.
+The LLM prompt initially began with the simple statement "You are a helpful and friendly travel assistant for a cruise company." However, through testing, it was determined that more consistent results could be obtained by including the instruction "Answer travel questions to the best of your ability, providing only relevant information. To book a cruise, capturing the person's name is essential." The results are presented in HTML format to enhance the visual appeal within the web interface.
 
 #### Agent Tools
 [Tools](#common-features-of-ai-agents) are interfaces that an agent can use to interact with the world, often done through function calling.
 
-When creating an agent, it is essential to furnish it with a set of tools that it can utilize. The ```@tool``` decorator offers the most straightforward approach to defining a custom tool. By default, the decorator uses the function name as the tool name, although this can be replaced by providing a string as the first argument. Moreover, the decorator will utilize the function’s docstring as the tool’s description, thus requiring the provision of a docstring.
+When creating an agent, it is essential to furnish it with a set of tools that it can utilize. The ```@tool``` decorator offers the most straightforward approach to defining a custom tool. By default, the decorator uses the function name as the tool name, although this can be replaced by providing a string as the first argument. Moreover, the decorator will utilize the function's docstring as the tool's description, thus requiring the provision of a docstring.
 
 *service/TravelAgentTools.py*
 ```python
@@ -481,14 +482,14 @@ def book_cruise(package_name:str, passenger_name:str, room: str )-> str:
 
     # LLM defaults empty name to John Doe 
     if passenger_name == "John Doe":
-        return "In order to book a cruise I will need to know your name."
+        return "In order to book a cruise I need to know your name."
     else:
         if room == '':
             return "which room would you like to book"            
         return "Cruise has been booked, ref number is 343242"
 ```
 
-In the **TravelAgentTools.py** file, three specific tools are defined. The first tool, ```vacation_lookup```, conducts a vector search against Azure Cosmos DB, using a ```similarity_search``` to retrieve relevant travel-related material. The second tool, ```itinerary_lookup```, retrieves cruise package details and schedules for a specified cruise ship. Lastly, ```book_cruise``` is responsible for booking a cruise package for a passenger. Specific instructions (“In order to book a cruise I will need to know your name.”) might be necessary to ensure the capture of the passenger’s name and room number for booking the cruise package. This is in spite of including such instructions in the LLM prompt.
+In the **TravelAgentTools.py** file, three specific tools are defined. The first tool, ```vacation_lookup```, conducts a vector search against Azure Cosmos DB, using a ```similarity_search``` to retrieve relevant travel-related material. The second tool, ```itinerary_lookup```, retrieves cruise package details and schedules for a specified cruise ship. Lastly, ```book_cruise``` is responsible for booking a cruise package for a passenger. Specific instructions ("In order to book a cruise I need to know your name.") might be necessary to ensure the capture of the passenger's name and room number for booking the cruise package. This is in spite of including such instructions in the LLM prompt.
 
 #### AI Agent
 
@@ -516,7 +517,7 @@ def agent_chat(input:str, session_id:str)->str:
     return  PromptResponse(text=results["output"],ResponseSeconds=(time.time() - start_time))
 ```
 
-The **TravelAgent.py** file is straightforward, as ```agent_with_chat_history```, and its dependencies (tools, prompt, and LLM) are initialized and configured in the **init.py** file. In this file, the agent is called using the input received from the user, along with the session ID for conversation memory. Subsequently, ```PromptResponse``` (model/prompt) is returned with the agent’s output and response time.
+The **TravelAgent.py** file is straightforward, as ```agent_with_chat_history```, and its dependencies (tools, prompt, and LLM) are initialized and configured in the **init.py** file. In this file, the agent is called using the input received from the user, along with the session ID for conversation memory. Afterwards, ```PromptResponse``` (model/prompt) is returned with the agent's output and response time.
 
 ### Integrating AI Agent with React JS User Interface
 
@@ -531,7 +532,7 @@ Run the following command from the **web** directory to perform a clean install 
     npm ci
 ```
 
-Next, it is essential to create a file named **.env** within the **web** directory to facilitate the storage of environment variables. Subsequently, you should include the following details in the newly created **.env** file.
+Next, it is essential to create a file named **.env** within the **web** directory to facilitate the storage of environment variables. Then, you should include the following details in the newly created **.env** file.
 
 REACT_APP_API_HOST=http://127.0.0.1:8000
 
@@ -540,7 +541,7 @@ Now, we have the ability to execute the following command from the **web** direc
     npm start
 ```
 
-Running the command above will launch the React JS web application.
+Running the previous command launches the React JS web application.
 :::image type="content" source="media/gen-ai/ai-agent/React-JS-Travel-Web-Application.png" lightbox="media/gen-ai/ai-agent/React-JS-Travel-Web-Application.png" alt-text="React JS Travel Web Application.":::
 
 #### Walkthrough of React JS Web Interface
@@ -551,7 +552,7 @@ The web project of the GitHub repository is a straightforward application to fac
 
 #### Main
 
-The Main component serves as the central manager of the application, acting as the designated entry point for routing. Within the render function, it produces JSX code to delineate the main page layout. This layout encompasses placeholder elements for the application such as logos and links, a section housing the travel agent component (further details to come), and a footer containing a sample disclaimer regarding the application’s nature.
+The Main component serves as the central manager of the application, acting as the designated entry point for routing. Within the render function, it produces JSX code to delineate the main page layout. This layout encompasses placeholder elements for the application such as logos and links, a section housing the travel agent component (further details to come), and a footer containing a sample disclaimer regarding the application's nature.
 
 *main.js*
 ```javascript
@@ -770,7 +771,7 @@ export default function ChatLayout(messages) {
 }
 ```
 
-User prompts are moved to the right and colored blue, while the Travel AI Agent responses are moved to the left and colored green. As you can see in the image below, the HTML formatted responses are accounted for in the conversation.
+User prompts are on the right side and colored blue, while the Travel AI Agent responses are on the left side and colored green. As you can see in the image below, the HTML formatted responses are accounted for in the conversation.
 :::image type="content" source="media/gen-ai/ai-agent/chat-screenshot.png" lightbox="media/gen-ai/ai-agent/chat-screenshot.png" alt-text="Chat Screenshot":::
 
 
@@ -778,7 +779,7 @@ User prompts are moved to the right and colored blue, while the Travel AI Agent 
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](/ai-advantage.md)
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](ai-advantage.md)
 
 > [!div class="nextstepaction"]
-> [Use the Azure Cosmos DB lifetime free tier](/free-tier.md)
+> [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
