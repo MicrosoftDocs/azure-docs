@@ -24,9 +24,20 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| June 27 | [General Availability of Checkov IaC Scanning in Defender for Cloud](#general-availability-of-checkov-iac-scanning-in-defender-for-cloud) | 
 | June 27 | [Four security incidents have been deprecated](#four-security-incidents-have-been-deprecated) | 
 | June 24 | [Change in pricing for Defender for Containers in multicloud](#change-in-pricing-for-defender-for-containers-in-multicloud) |
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+### General Availability of Checkov IaC Scanning in Defender for Cloud
+
+June 27, 2024
+
+We are announcing the general availability of the Checkov integration for Infrasturcture-as-Code (IaC) scanning through [MSDO](azure-devops-extension.yml). As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
+
+Security findings from Checkov will be represented as recommendations for both Azure DevOps and GitHub repositories under the assessments "Azure DevOps repositories should have infrastructure as code findings resolved" and "GitHub repositories should have infrastructure as code findings resolved". 
+
+To learn more about DevOps security in Defender for Cloud, see the [DevOps Security Overview](defender-for-devops-introduction.md). To learn how to configure the MSDO CLI, see the [Azure DevOps](azure-devops-extension.yml) or [GitHub](github-action.md) documentation.
 
 ### Four security incidents have been deprecated
 
