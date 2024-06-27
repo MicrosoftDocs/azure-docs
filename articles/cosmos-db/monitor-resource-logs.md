@@ -55,7 +55,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. In the **Diagnostic settings** pane, select your preferred categories. Included here's a list of log categories.
 
-    | Category | API | Definition | Key Properties |
+    | | API | Definition | Key Properties |
     | --- | --- | --- | --- |
     | **DataPlaneRequests** | Recommended for API for NoSQL | Logs back-end requests as data plane operations, which are requests executed to create, update, delete, or retrieve data within the account. | `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode` |
     | **MongoRequests** | API for MongoDB | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for MongoDB. When you enable this category, make sure to disable DataPlaneRequests. | `Requestcharge`, `opCode`, `retryCount`, `piiCommandText` |
@@ -75,8 +75,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
 
-> [!NOTE]
-> If you are using API for NoSQL, we recommend setting the **export-to-resource-specific** property to **true**.
+1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Use `az monitor diagnostic-settings create` to create the setting.
 
@@ -108,13 +107,20 @@ Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-
       ]'
     ```
 
+    > [!IMPORTANT]
+    > This sample uses the **--export-to-resource-specific** argument to enable resource-specific tables.
+
 1. Review the results of creating your new setting using `az monitor diagnostics-settings show`.
 
     ```azurecli
-    
     az monitor diagnostic-settings show \
-      --resource-group "<resource-group-name>" \
-      --resource "<account-name>"
+      --name "example-setting" \
+      --resource $(az cosmosdb show \
+        --resource-group "<resource-group-name>" \
+        --name "<account-name>" \
+        --query "id" \
+        --output "tsv" \
+      )
     ```
 
 ### [REST API](#tab/rest-api)
@@ -124,105 +130,152 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 > [!NOTE]
 > We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
 
-1. Create an HTTP `PUT` request.
+1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-    ```HTTP
-    PUT
-    https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
+1. Create the diagnostic setting for your Azure Cosmos DB resource using an HTTP `PUT` request and [`az rest`](/cli/azure/reference-index#az-rest).
+
+    ```azurecli
+    diagnosticSettingName="example-setting"
+
+    resourceId=$(az cosmosdb show \
+      --resource-group "<resource-group-name>" \
+      --name "<account-name>" \
+      --query "id" \
+      --output "tsv" \
+    )
+
+    workspaceId=$(az monitor log-analytics workspace show \
+      --resource-group "<resource-group-name>" \
+      --name "<account-name>" \
+      --query "id" \
+      --output "tsv" \
+    )
+    
+    az rest --method PUT --url "$resourceId/providers/Microsoft.Insights/diagnosticSettings/$diagnosticSettingName" --url-parameters "api-version=2021-05-01-preview" --body '{
+      "properties": {
+        "workspaceId": "'"$workspaceId"'",
+        "logs": [
+          {
+            "category": "QueryRuntimeStatistics",
+            "enabled": true
+          }
+        ],
+        "logAnalyticsDestinationType": "Dedicated"
+      }
+    }'
     ```
 
-1. Use these headers with the request.
+    > [!IMPORTANT]
+    > This sample sets the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
 
-    | Parameters/Headers | Value/Description |
-    | --- | --- |
-    | **name** | The name of your diagnostic setting. |
-    | **resourceUri** | Microsoft Insights subresource URI for Azure Cosmos DB account. |
-    | **api-version** | `2017-05-01-preview` |
-    | **Content-Type** | `application/json` |
+1. Use `az rest` again with an HTTP `GET` verb to get the properties of the diagnostic setting.
 
-    > [!NOTE]
-    > The URI for the Microsoft Insights subresource is in this format: `subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}`. For more information about Azure Cosmos DB resource URIs, see [resource URI syntax for Azure Cosmos DB REST API](/rest/api/cosmos-db/cosmosdb-resource-uri-syntax-for-rest).
+    ```azurecli
+    diagnosticSettingName="example-setting"
 
-1. Set the body of the request to this JSON payload.
+    resourceId=$(az cosmosdb show \
+      --resource-group "<resource-group-name>" \
+      --name "<account-name>" \
+      --query "id" \
+      --output "tsv" \
+    )
+    
+    az rest --method GET --url "$resourceId/providers/Microsoft.Insights/diagnosticSettings/$diagnosticSettingName" --url-parameters "api-version=2021-05-01-preview"
+    ```
 
-    ```json
-    {
-        "id": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}",
-        "type": "Microsoft.Insights/diagnosticSettings",
-        "name": "name",
-        "location": null,
-        "kind": null,
-        "tags": null,
-        "properties": {
-            "storageAccountId": null,
-            "serviceBusRuleId": null,
-            "workspaceId": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}",
-            "eventHubAuthorizationRuleId": null,
-            "eventHubName": null,
-            "logs": [
-              {
-                "category": "QueryRuntimeStatistics",
-                "enabled": true,
-                "retentionPolicy": {
-                  "enabled": false,
-                  "days": 0
-                }
-              }
-            ],
-            "logAnalyticsDestinationType": "Dedicated"
-        },
-        "identity": null
+### [Bicep](#tab/bicep)
+
+Use an [Bicep template](../azure-resource-manager/bicep/overview.md) to create the diagnostic setting.
+
+1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
+1. Create a new file named `diagnosticSetting.bicep`.
+
+1. Enter the following Bicep template content that deploys the diagnostic setting for your Azure Cosmos DB resource.
+
+    ```bicep
+    @description('The name of the diagnostic setting to create.')
+    param diagnosticSettingName string = 'example-setting'
+    
+    @description('The name of the Azure Cosmos DB account to monitor.')
+    param azureCosmosDbAccountName string
+    
+    @description('The name of the Azure Monitor Log Analytics workspace to use.')
+    param logAnalyticsWorkspaceName string
+    
+    resource azureCosmosDbAccount 'Microsoft.DocumentDB/databaseAccounts@2021-06-15' existing = {
+      name: azureCosmosDbAccountName
     }
+    
+    resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' existing = {
+      name: logAnalyticsWorkspaceName
+    }
+    
+    resource diagnosticSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+      name: diagnosticSettingName
+      scope: azureCosmosDbAccount
+      properties: {
+        workspaceId: logAnalyticsWorkspace.id
+        logAnalyticsDestinationType: 'Dedicated'
+        logs: [
+          {
+            category: 'QueryRuntimeStatistics'
+            enabled: true
+          }
+        ]
+      }
+    }    
     ```
+
+    > [!IMPORTANT]
+    > This sample sets the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
+
+1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
+
+    ```azurecli
+    az deployment group create \
+        --resource-group "<resource-group-name>" \
+        --template-file diagnosticSetting.bicep \
+        --parameters \
+          azureCosmosDbAccountName="<azure-cosmos-db-account-name>" \
+          logAnalyticsWorkspaceName="<log-analytics-workspace-name>"
+    ```
+
+    > [!TIP]
+    > Use the [`az bicep build --file diagnosticSetting.bicep --outfile azuredeploy.json`](/cli/azure/bicep#az-bicep-build) command to convert the Bicep template to an Azure Resource Manager template.
 
 ### [ARM Template](#tab/azure-resource-manager-template)
 
-Here, use an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) to create a diagnostic setting.
+Use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to create the diagnostic setting.
 
-> [!NOTE]
-> Set the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
+1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-1. Create the following JSON template file to deploy diagnostic settings for your Azure Cosmos DB resource.
+1. Create a new file named `diagnosticSetting.bicep`.
+
+1. Enter the following Azure Resource Manager template content that deploys the diagnostic setting for your Azure Cosmos DB resource.
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "$schema": "<https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#>",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "settingName": {
+        "diagnosticSettingName": {
           "type": "string",
+          "defaultValue": "example-setting",
           "metadata": {
-            "description": "The name of the diagnostic setting."
+            "description": "The name of the diagnostic setting to create."
           }
         },
-        "dbName": {
+        "azureCosmosDbAccountName": {
           "type": "string",
           "metadata": {
-            "description": "The name of the database."
+            "description": "The name of the Azure Cosmos DB account to monitor."
           }
         },
-        "workspaceId": {
+        "logAnalyticsWorkspaceName": {
           "type": "string",
           "metadata": {
-            "description": "The resource Id of the workspace."
-          }
-        },
-        "storageAccountId": {
-          "type": "string",
-          "metadata": {
-            "description": "The resource Id of the storage account."
-          }
-        },
-        "eventHubAuthorizationRuleId": {
-          "type": "string",
-          "metadata": {
-            "description": "The resource Id of the event hub authorization rule."
-          }
-        },
-        "eventHubName": {
-          "type": "string",
-          "metadata": {
-            "description": "The name of the event hub."
+            "description": "The name of the Azure Monitor Log Analytics workspace to use."
           }
         }
       },
@@ -230,34 +283,15 @@ Here, use an [Azure Resource Manager (ARM) template](../azure-resource-manager/t
         {
           "type": "Microsoft.Insights/diagnosticSettings",
           "apiVersion": "2021-05-01-preview",
-          "scope": "[format('Microsoft.DocumentDB/databaseAccounts/{0}', parameters('dbName'))]",
-          "name": "[parameters('settingName')]",
+          "scope": "[format('Microsoft.DocumentDB/databaseAccounts/{0}', parameters('azureCosmosDbAccountName'))]",
+          "name": "[parameters('diagnosticSettingName')]",
           "properties": {
-            "workspaceId": "[parameters('workspaceId')]",
-            "storageAccountId": "[parameters('storageAccountId')]",
-            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-            "eventHubName": "[parameters('eventHubName')]",
-            "logAnalyticsDestinationType": "[parameters('logAnalyticsDestinationType')]",
+            "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('logAnalyticsWorkspaceName'))]",
+            "logAnalyticsDestinationType": "Dedicated",
             "logs": [
               {
                 "category": "QueryRuntimeStatistics",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
-              }
-            ],
-            "metrics": [
-              {
-                "timeGrain": null,
-                "enabled": false,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                },
-                "category": "Requests"
+                "enabled": true
               }
             ]
           }
@@ -266,46 +300,22 @@ Here, use an [Azure Resource Manager (ARM) template](../azure-resource-manager/t
     }
     ```
 
-1. Create the following JSON parameter file with settings appropriate for your Azure Cosmos DB resource.
-
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "settingName": {
-          "value": "{DIAGNOSTIC_SETTING_NAME}"
-        },
-        "dbName": {
-          "value": "{ACCOUNT_NAME}"
-        },
-        "workspaceId": {
-          "value": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
-        },
-        "storageAccountId": {
-          "value": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Storage/storageAccounts/{STORAGE_ACCOUNT_NAME}"
-        },
-        "eventHubAuthorizationRuleId": {
-          "value": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups{RESOURCE_GROUP}/providers/Microsoft.EventHub/namespaces/{EVENTHUB_NAMESPACE}/authorizationrules/{EVENTHUB_POLICY_NAME}"
-        },
-        "eventHubName": {
-          "value": "{EVENTHUB_NAME}"
-        },
-        "logAnalyticsDestinationType": {
-          "value": "Dedicated"
-        }
-      }
-    }
-    ```
+    > [!IMPORTANT]
+    > This sample sets the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
 
 1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
 
     ```azurecli
     az deployment group create \
-        --resource-group <resource-group-name> \
-        --template-file <path-to-template>.json \
-        --parameters @<parameters-file-name>.json
+        --resource-group "<resource-group-name>" \
+        --template-file azuredeploy.json \
+        --parameters \
+          azureCosmosDbAccountName="<azure-cosmos-db-account-name>" \
+          logAnalyticsWorkspaceName="<log-analytics-workspace-name>"
     ```
+
+    > [!TIP]
+    > Use the [`az bicep decompile --file azuredeploy.json --outfile diagnosticSetting.bicep`](/cli/azure/bicep#az-bicep-decompile) command to convert the Azure Resource Manager template to a Bicep template.
 
 ---
 
@@ -326,80 +336,26 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
     :::image type="content" source="media/monitor-resource-logs/select-enable-full-text.png" alt-text="Screenshot of the full-text feature being enabled.":::
 
-### [Azure CLI / REST API / ARM template](#tab/azure-cli+rest-api+azure-resource-manager-template)
+### [Azure CLI / REST API / Bicep / ARM Template](#tab/azure-cli+rest-api+bicep+azure-resource-manager-template)
 
-1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli). Optionally, ensure that you configured the active subscription for your CLI. For more information, see [change the active Azure CLI subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+Use the Azure CLI to enable full-text query for your Azure Cosmos DB account.
 
-1. Create shell variables for `accountName` and `resourceGroupName`.
-
-    ```azurecli
-    # Variable for resource group name
-    resourceGroupName="<resource-group-name>"
-    
-    # Variable for account name
-    accountName="<account-name>"
-    ```
-
-1. Get the unique identifier for your existing account using [`az show`](/cli/azure/cosmosdb#az-cosmosdb-show).
+1. Enable full-text query using `az rest` again with an HTTP `PATCH` verb and a JSON payload.
 
     ```azurecli
-    az cosmosdb show \
-        --resource-group $resourceGroupName \
-        --name $accountName \
-        --query id
-    ```
-
-    Store the unique identifier in a shell variable named `$uri`.
-
-    ```azurecli
-    uri=$(
-        az cosmosdb show \
-            --resource-group $resourceGroupName \
-            --name $accountName \
-            --query id \
-            --output tsv
-    )
-    ```
-
-1. Query the resource using the REST API and [`az rest`](/cli/azure/reference-index#az-rest) with an HTTP `GET` verb to check if full-text query is already enabled.
-
-    ```azurecli
-    az rest \
-        --method GET \
-        --uri "https://management.azure.com/$uri/?api-version=2021-05-01-preview" \
-        --query "{accountName:name,fullTextQuery:{state:properties.diagnosticLogSettings.enableFullTextQuery}}"
-    ```
-
-    If full-text query isn't enabled, the output would be similar to this example.
-
-    ```json
-    {
-      "accountName": "<account-name>",
-      "fullTextQuery": {
-        "state": "None"
+    az rest --method PATCH --url $(az cosmosdb show --resource-group "<resource-group-name>" --name "<account-name>" --query "id" --output "tsv") --url-parameters "api-version=2021-05-01-preview" --body '{
+      "properties": {
+        "diagnosticLogSettings": {
+          "enableFullTextQuery": "True"
+        }
       }
-    }
+    }'
     ```
 
-1. If full-text query isn't already enabled, enable it using `az rest` again with an HTTP `PATCH` verb and a JSON payload.
+1. Wait a few minutes for the operation to complete. Check the status of full-text query by using `az rest` again with HTTP `GET`.
 
     ```azurecli
-    az rest \
-        --method PATCH \
-        --uri "https://management.azure.com/$uri/?api-version=2021-05-01-preview" \
-        --body '{"properties": {"diagnosticLogSettings": {"enableFullTextQuery": "True"}}}'
-    ```
-
-    > [!NOTE]
-    > If you are using Azure CLI within a PowerShell prompt, you will need to escape the double-quotes using a backslash (`\`) character.
-
-1. Wait a few minutes for the operation to complete. Check the status of full-text query by using `az rest` again.
-
-    ```azurecli
-    az rest \
-        --method GET \
-        --uri "https://management.azure.com/$uri/?api-version=2021-05-01-preview" \
-        --query "{accountName:name,fullTextQuery:{state:properties.diagnosticLogSettings.enableFullTextQuery}}"
+    az rest --method GET --url $(az cosmosdb show --resource-group "<resource-group-name>" --name "<account-name>" --query "id" --output "tsv") --url-parameters "api-version=2021-05-01-preview" --query "{accountName:name,fullTextQueryEnabled:properties.diagnosticLogSettings.enableFullTextQuery}"
     ```
 
     The output should be similar to this example.
@@ -407,9 +363,7 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
     ```json
     {
       "accountName": "<account-name>",
-      "fullTextQuery": {
-        "state": "True"
-      }
+      "fullTextQueryEnabled": "True"
     }
     ```
 
