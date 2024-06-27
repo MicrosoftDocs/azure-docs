@@ -12,7 +12,7 @@ Microsoft Defender for IoT sensors learn a baseline of your network traffic duri
 Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
-nother change
+
 ## Data Location 
 
 Defender for Iot uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in:  
