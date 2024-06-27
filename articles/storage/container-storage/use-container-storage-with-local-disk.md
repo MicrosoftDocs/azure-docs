@@ -139,7 +139,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                  type: my-ephemeral-volume
              spec:
                accessModes: [ "ReadWriteOnce" ]
-               storageClassName: "acstor-ephemeraldisk-nvme" # replace with the name of your storage class if different
+               storageClassName: acstor-ephemeraldisk-nvme # replace with the name of your storage class if different
                resources:
                  requests:
                    storage: 1Gi
