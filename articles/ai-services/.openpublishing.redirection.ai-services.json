@@ -4,6 +4,13 @@
             "source_path_from_root": "/articles/ai-services/computer-vision/how-to/install-sdk.md",
             "redirect_url": "/articles/ai-services/computer-vision/sdk/install-sdk",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-services/document-intelligence/concept-document-intelligence-studio.md",
+            "redirect_url": "/articles/ai-services/document-intelligence/studio-overview",
+            "redirect_document_id": true
         }
+
+
     ]
 }
