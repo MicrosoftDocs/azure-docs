@@ -264,11 +264,11 @@ If you used Visual Studio's *Add Application Insights* experience, it added more
 
 ## Enable OpenTelemetry
 
-Before you begin, create a temporary [workspace-based resource](./create-workspace-resource.md) and use its [connection string](./sdk-connection-string.md) to store telemetry.
+Before you begin, create a temporary [resource](./create-workspace-resource.md) for development and use its [connection string](./sdk-connection-string.md) to store telemetry.
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows the Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-Plan to update the connection string to send telemetry to the original Application Insights resource after confirming the following migration steps work as expected.
+Plan to update the connection string to send telemetry to the original resource after confirming the following migration steps work as expected.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
