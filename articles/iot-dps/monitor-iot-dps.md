@@ -49,7 +49,6 @@ To view and set up alerts on IoT Hub Device Provisioning Service metrics:
 
 To learn more about viewing metrics and setting up alerts on your DPS instance, see [Analyzing metrics](monitor-iot-dps.md#analyzing-metrics) and [Alerts](monitor-iot-dps.md#alerts) in Monitor Device Provisioning Service.
 
-
 ### Analyzing metrics
 
 You can analyze metrics for DPS with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
@@ -82,7 +81,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
+To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Data storage](#data-storage).
 
 In Azure portal, you can select **Logs** under **Monitoring** on the left-pane of your DPS instance to perform Log Analytics queries scoped, by default, to the logs and metrics collected in Azure Monitor Logs for your instance.
 

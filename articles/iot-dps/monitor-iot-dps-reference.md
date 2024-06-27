@@ -150,8 +150,6 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
 
-## Activity log
-
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 - [Microsoft.Devices resource provider operations](/azure/role-based-access-control/resource-provider-operations#internet-of-things)
