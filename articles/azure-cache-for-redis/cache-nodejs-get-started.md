@@ -63,8 +63,8 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
         // Connection configuration
         const cacheConnection = redis.createClient({
-            // rediss for TLS
-            url: `rediss://${cacheHostName}:6380`,
+            // redis for TLS
+            url: `redis://${cacheHostName}:6380`,
             password: cachePassword
         });
     
