@@ -69,10 +69,13 @@ Complex reasoning and planning are the hallmark of advanced autonomous agents. P
 
 [Self-ask](https://arxiv.org/abs/2210.03350)
 > Improves on chain of thought by having the model explicitly asking itself (and answering) follow-up questions before answering the initial question.
+
 [Reason and Act (ReAct)](https://arxiv.org/abs/2210.03629)
 > Use LLMs to generate both reasoning traces and task-specific actions in an interleaved manner. Reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information.
+
 [Plan and Solve](https://arxiv.org/abs/2305.04091)
 > Devise a plan to divide the entire task into smaller subtasks, and then carry out the subtasks according to the plan. This mitigates the calculation errors, missing-step errors, and semantic misunderstanding errors that are often present in zero-shot chain-of-thought (CoT) prompting.
+
 [Reflection/Self-critique](https://arxiv.org/abs/2303.11366)
 > Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials.
 
@@ -91,7 +94,7 @@ For advanced and autonomous planning and execution workflows, [AutoGen](https://
 
 The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a [pure vector database](vector-database.md#integrated-vector-database-vs-pure-vector-database) for embedding management.
 
-However, this practice of using a complex web of standalone databases can hurt AI agent memory system's speed and scalability. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, each type of database's individual weaknesses are also exacerbated in multi-agent systems:
+However, this practice of using a complex web of standalone databases can hurt AI agent's performance. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, many of the frequently used database services are not optimal for the speed and scalability that AI agent systems need. These databases' individual weaknesses are exacerbated in multi-agent systems:
 
 **In-memory databases** are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
 
