@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/10/2024
+ms.date: 06/11/2024
 ---
 
 # Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To start and run your workflow on a schedule, you can use the generic Recurrence trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow. The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
+To start and run your workflow on a schedule, you can use the generic **Recurrence** trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow. The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
 * Run at a specific date and time, then repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 
@@ -27,14 +27,15 @@ To start and run your workflow on a schedule, you can use the generic Recurrence
 
 > [!NOTE]
 >
-> To start and run your workflow only once in the future, use workflow template named 
-> **Scheduler: Run Once Jobs**. This template uses the Request trigger and HTTP action, 
-> rather than the Recurrence trigger, which doesn't support this recurrence pattern.
-> For more information, see [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
+> Advanced scheduling options, such as **At these hours** and **At these days**, are available and 
+> work only with built-in polling triggers, such as the **Recurrence** and **Sliding Window** triggers, 
+> which directly run with the Azure Logic Apps runtime. For connectors that are Microsoft-managed, 
+> hosted, and run in Azure, polling triggers calculate the next recurrence by using only the 
+> **Interval** and **Frequency** values, not the advanced scheduling options.
 
-The Recurrence trigger isn't associated with any specific service, so you can use the trigger with almost any workflow, such as [Consumption logic app workflows and Standard logic app *stateful* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences). This trigger is currently unavailable for [Standard logic app *stateless* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+The **Recurrence** trigger isn't associated with any specific service, so you can use the trigger with almost any workflow, such as [Consumption logic app workflows and Standard logic app *stateful* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences). This trigger is currently unavailable for [Standard logic app *stateless* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
-The Recurrence trigger is part of the built-in Schedule connector and runs natively on the Azure Logic Apps runtime. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+The **Recurrence** trigger is part of the built-in Schedule connector and runs natively on the Azure Logic Apps runtime. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 ## Prerequisites
 
@@ -45,7 +46,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
   > [!NOTE]
   >
   > If you created a Standard logic app workflow, make sure to create a *stateful* workflow. 
-  > The Recurrence trigger is currently unavailable for stateless workflows.
+  > The **Recurrence** trigger is currently unavailable for stateless workflows.
 
 <a name="add-recurrence-trigger"></a>
 
@@ -78,9 +79,9 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
    
      * Provide a start date and time for the recurrence and the specific times to run subsequent recurrences. You can use the properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
 
-     * For Consumption logic app workflows, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+     * For Consumption logic app workflows, use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the **Recurrence** trigger.
 
-   * If you deploy a disabled Consumption workflow that has a Recurrence trigger using an ARM template, the trigger instantly fires when you enable the workflow unless you set the **Start time** parameter before deployment.
+   * If you deploy a disabled Consumption workflow that has a **Recurrence** trigger using an ARM template, the trigger instantly fires when you enable the workflow unless you set the **Start time** parameter before deployment.
 
 1. To set advanced scheduling options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
 
@@ -94,7 +95,7 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
 
    ![Screenshot for Consumption workflow designer and Recurrence trigger with advanced scheduling options.](./media/connectors-native-recurrence/recurrence-trigger-advanced-consumption.png)
 
-   For example, suppose that today is Friday, September 4, 2020. The following Recurrence trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   For example, suppose that today is Friday, September 4, 2020. The following **Recurrence** trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
@@ -140,7 +141,7 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
 
    * To make sure that your workflow doesn't miss a recurrence, especially when the frequency is in days or longer, try providing a start date and time for the recurrence and the specific times to run subsequent recurrences. You can use the properties named **At These hours** and **At These minutes**, which are available only for the **Day** and **Week** frequencies.
 
-   For example, suppose that today is Friday, September 4, 2020. The following Recurrence trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   For example, suppose that today is Friday, September 4, 2020. The following **Recurrence** trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
@@ -160,7 +161,7 @@ Based on whether your logic app is Consumption or Standard, choose one of the fo
 
 * **Standard**: On the workflow menu, select **Code view**. To return to the designer, on the workflow menu, select **Designer**.
 
-The following example shows how a Recurrence trigger definition might appear in the workflow's underlying JSON definition:
+The following example shows how a **Recurrence** trigger definition might appear in the workflow's underlying JSON definition:
 
 ``` json
 "triggers": {
@@ -191,12 +192,57 @@ The following example shows how a Recurrence trigger definition might appear in 
 
 > [!NOTE]
 >
-> In the Recurrence trigger definition, the `evaluatedRecurrence` property appears along with the `recurrence` property 
+> In the **Recurrence** trigger definition, the `evaluatedRecurrence` property appears along with the `recurrence` property 
 > when any expression or parameter reference appears in the recurrence criteria. This `evaluatedRecurrence` property 
 > represents the evaluated values from the expression or parameter reference. If the recurrence criteria doesn't 
 > specify any expressions or parameter references, the `evaluatedRecurrence` and `recurrence` properties are the same.
 
 The following example shows how to update the trigger definition so that the trigger runs only once on the last day of each month:
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
+}
+```
+
+<a name="run-once"></a>
+
+## Run one time only
+
+To run your workflow only at one time in the future, you can apply the **Scheduler: Run once jobs** workflow template, which is available only for Consumption logic app workflows. This template uses the **Request** trigger and **HTTP** action, rather than the **Recurrence** trigger, which doesn't support this recurrence pattern.
+
+1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app.
+
+1. In the designer, open the blank workflow. On the designer toolbar, select **Enable Legacy Designer**.
+
+1. On the designer toolbar, select **Templates**.
+
+1. On the page that opens, scroll past the video to the **Templates** section.
+
+1. From the **Category** list, select **Schedule**, and then select the following template:
+
+   :::image type="content" source="media/connectors-native-recurrence/choose-run-once-template.png" alt-text="Screenshot shows the selected template named Scheduler Run once jobs." lightbox="media/connectors-native-recurrence/choose-run-once-template.png":::
+
+1. On the designer toolbar, select **Generally Available Designer**.
+
+1. [Follow these general steps to add the **Schedule** action named **Delay until**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action), and provide the time for when the next action starts running.
+
+ Or, you can start your workflow with the **Request** trigger named **When a HTTP request is received**, and pass the start time as a parameter for the trigger.
+
+<a name="run-only-last-day-of-month"></a>
+
+## Run one time on last day of the month
+
+For this task, you have to edit the **Recurrence** trigger in the workflow's underlying JSON definition using code view, not the designer, by using the following example:
 
 ```json
 "triggers": {

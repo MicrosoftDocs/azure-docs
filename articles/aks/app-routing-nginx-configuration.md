@@ -531,7 +531,7 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [az-group-create]: /cli/azure/group#az-group-create
-[summary-msi]: use-managed-identity.md#summary-of-managed-identities
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities-used-by-aks
 [rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
 [rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [app-routing-add-on-basic-configuration]: app-routing.md
@@ -551,3 +551,4 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create

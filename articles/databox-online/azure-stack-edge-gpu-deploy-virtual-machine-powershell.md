@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 06/06/2024
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell, linux-related-content
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -334,7 +334,7 @@ C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS
 
 ## Create a managed disk from the VHD
 
-You'll now create a managed disk from the uploaded VHD.
+Create a managed disk from the uploaded VHD.
 
 ### [Az](#tab/az)
 
@@ -735,7 +735,7 @@ You can now use the VM image to create a VM and attach it to the virtual network
     $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
     $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
     ```
-    After you've created and powered up the VM, you'll use the preceding username and password to sign in to it.
+    After you create and power up the VM, use the preceding username and password to sign in to it.
 
 1. Set the parameters.
 
@@ -853,7 +853,7 @@ $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
 $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
 ```
 
-After you've created and powered up the VM, you'll use the following username and password to sign in to it.
+After you create and power up the VM, use the following username and password to sign in to it.
 
 ```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName <VM name> -VMSize "Standard_D1_v2"
@@ -933,7 +933,6 @@ Get-AzureRmVM -ResourceGroupName <String> -Name <String>
 
 ---
 
-
 ### Turn on the VM
 
 To turn on a virtual machine that's running on your device, run the following cmdlet:
@@ -977,6 +976,37 @@ For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/
 
 ---
 
+### Resize the VM
+
+To resize an existing virtual machine, run the following cmdlets:
+
+### [Az](#tab/az)
+
+> [!IMPORTANT]
+> Before you resize it, stop the VM without the `-StayProvisioned` flag.
+
+```powershell
+$vm = Get-AzVM [-Name] <String> [-ResourceGroupName] <String>
+
+$vm.HardwareProfile.VmSize = <new size> - Example: "Standard_D3_v2"
+
+$vm | Update-AzVM
+```
+
+### [AzureRM](#tab/azure-rm)
+
+> [!IMPORTANT]
+> Before you resize it, stop the VM without the `-StayProvisioned` flag.
+
+```powershell
+$vm = Get-AzureRmVM  [-Name] <String> [-ResourceGroupName] <String>
+
+$vm.HardwareProfile.VmSize = <new size> - Example: "Standard_D3_v2"
+
+$vm | Update-AzureRmVM
+```
+---
+
 ### Add a data disk
 
 If the workload requirements on your VM increase, you might need to add a data disk. To do so, run the following command:
@@ -997,8 +1027,6 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso
 Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualMachine
 ```
 ---
-
-
 
 ### Delete the VM
 

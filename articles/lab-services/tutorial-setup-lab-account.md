@@ -82,19 +82,15 @@ Follow these steps to [assign Azure roles using the Azure portal](../role-based-
 
 1. From the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (I A M) page with Add role assignment menu option highlighted.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (I A M) page with Add role assignment menu option highlighted.":::
 
 1. On the **Role** tab, select the **Lab Creator** role.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot that shows the Add roll assignment page with Role tab selected.":::
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot that shows the Add roll assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select the user you want to add to the Lab Creators role.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
-
-## Troubleshooting
-
-[!INCLUDE [Troubleshoot insufficient IP addresses](./includes/lab-services-troubleshoot-insufficient-ip-addresses.md)]
 
 ## Next steps
 

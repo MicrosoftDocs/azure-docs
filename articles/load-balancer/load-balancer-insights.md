@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -27,7 +27,7 @@ You can access this view by visiting the Insights page of your Load Balancer res
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
 
-[!INCLUDE [Resource Graph](../../includes/network-watcher-resource-graph-topology.md)]
+[!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 
 ## Metrics dashboard
 

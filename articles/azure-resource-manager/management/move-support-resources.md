@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 06/27/2024
 ---
 
 # Move operation support for resources
@@ -992,7 +992,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/create-workspace-resource.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | **Yes** | **Yes** | No |
+> | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1378,7 +1378,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
 > | virtualnetworkgateways | No| No | No |
-> | virtualnetworks | **Yes** | **Yes** | No |
+> | virtualnetworks | **Yes** | **Yes** | **Yes** |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |
 > | virtualwans | No | No |

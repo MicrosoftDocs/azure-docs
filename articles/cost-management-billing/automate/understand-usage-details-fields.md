@@ -93,7 +93,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Provider | MCA | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | The name of the publisher. For first-party services, the value should be listed as `Microsoft` or `Microsoft Corporation`.  |
-| PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
+| PublisherType | All |Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value will be `Azure`. |
 | Quantity³ | All | The number of units used by the given product or service for a given day. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
@@ -179,9 +179,17 @@ Meter characteristics - Meters associated with IQ exhibit specific traits in the
 
 ## Rounding adjustment details
 
-Rounding adjustment isn't available in the cost details file during an open month. The adjustment is visible when the month closes and the invoice gets generated.
+### Why do we have rounding adjustment?
 
-The rounding adjustment record is available in the Cost Details file at the Billing Profile scope for an MCA or at the Enrollment scope for EA. Because it's an aggregated value available at the invoice level, there's no lower-scope-level information available for the record. The following fields are the only valid ones for a record on rounding adjustment:
+Every financial system involves rounding logic, which can cause some variance. Invoices aggregate monthly costs at the meter level, with costs rounded depending on the currency. In contrast, the cost file contains costs at the resource instance level with higher precision. This difference results in a variance in the total cost between the invoice and the cost file. The rounding adjustment is provided in the cost file at an aggregated level whenever the invoice is ready, ensuring that the total costs in both files match.
+
+Note: Two separate rounding adjustments are provided—one for first-party records and the other for marketplace records. These adjustments are not available during an open month and become visible when the month closes and the invoice is generated.
+
+Customers can distribute the rounding adjustment across smaller granularities, such as resources, resource groups, or subscription levels, using a weighted average or other methods.
+
+### Rounding adjustment record in the cost file
+
+The rounding adjustment record is available in the cost file at the Billing Profile scope for Microsoft Customer Agreement (MCA) or at the Enrollment scope for Enterprise Agreement (EA). Since it’s an aggregated value at the invoice level, there’s no lower-scope-level information for the record. The following fields are valid for a rounding adjustment record:
 
 - `BillingAccountId`
 - `BillingAccountName`
@@ -192,7 +200,7 @@ The rounding adjustment record is available in the Cost Details file at the Bill
 
 `MeterCategory`, `MeterSubCategory`, and `ChargeType` fields have the value as `RoundingAdjustment`.
 
-Here's an example of how rounding adjustment works in practice:
+### Illustration of rounding adjustment
 
 Suppose you have two resources in your subscription: A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
 
@@ -207,7 +215,7 @@ However, when the invoice is generated, the costs are rounded to two decimal pla
 - Resource B: $5.68
 - Total: $6.91
 
-The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To make sure that Cost Management costs match the invoice, the amount is shown in the cost details file.
+The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To ensure Cost Management costs match the invoice, an amount of -$0.002 is shown in the cost file as the rounding adjustment after the invoice generation.
 
 ## List of terms from older APIs
 

@@ -159,7 +159,7 @@ To resolve the issue:
 - Read more about this issue on [Stack Overflow](https://stackoverflow.com/questions/60015309/running-ios-apps-causes-runtime-error-for-frameworks-code-signature-invalid).
 
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 

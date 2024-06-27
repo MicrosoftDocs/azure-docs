@@ -234,7 +234,7 @@ This output shows that each query string is treated differently:
 
 For more information, see [Control Azure Content Delivery Network caching behavior with query strings](../cdn/cdn-query-string.md).
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 

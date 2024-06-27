@@ -156,12 +156,12 @@ If [sampling](./sampling.md) is in operation, the `itemCount` property shows a v
 
 ## GetMetric
 
-To learn how to effectively use the `GetMetric()` call to capture locally pre-aggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
+To learn how to effectively use the `GetMetric()` call to capture locally preaggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
 
 ## TrackMetric
 
 > [!NOTE]
-> `Microsoft.ApplicationInsights.TelemetryClient.TrackMetric` isn't the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the `GetMetric(..)` overloads to get a metric object for accessing SDK pre-aggregation capabilities.
+> `Microsoft.ApplicationInsights.TelemetryClient.TrackMetric` isn't the preferred method for sending metrics. Metrics should always be preaggregated across a time period before being sent. Use one of the `GetMetric(..)` overloads to get a metric object for accessing SDK pre-aggregation capabilities.
 >
 > If you're implementing your own pre-aggregation logic, you can use the `TrackMetric()` method to send the resulting aggregates. If your application requires sending a separate telemetry item on every occasion without aggregation across time, you likely have a use case for event telemetry. See `TelemetryClient.TrackEvent
 (Microsoft.ApplicationInsights.DataContracts.EventTelemetry)`.
@@ -679,7 +679,7 @@ The function is asynchronous for the [server telemetry channel](https://www.nuge
 
 > [!NOTE]
 > - The Java and JavaScript SDKs automatically flush on application shutdown.
-> - **Review Autoflush configuration**: [Enabling autoflush](https://learn.microsoft.com/dotnet/api/system.diagnostics.trace.autoflush) in your `web.config` file can lead to performance degradation in .NET applications instrumented with Application Insights. With autoflush enabled, every invocation of `System.Diagnostics.Trace.Trace*` methods results in individual telemetry items being sent as separate distinct web requests to the ingestion service. This can potentially cause network and storage exhaustion on your web servers. For enhanced performance, it’s recommended to disable autoflush and also, utilize the [ServerTelemetryChannel](https://learn.microsoft.com/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels), designed for a more effective telemetry data transmission.
+> - **Review Autoflush configuration**: [Enabling autoflush](/dotnet/api/system.diagnostics.trace.autoflush) in your `web.config` file can lead to performance degradation in .NET applications instrumented with Application Insights. With autoflush enabled, every invocation of `System.Diagnostics.Trace.Trace*` methods results in individual telemetry items being sent as separate distinct web requests to the ingestion service. This can potentially cause network and storage exhaustion on your web servers. For enhanced performance, it’s recommended to disable autoflush and also, utilize the [ServerTelemetryChannel](/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels), designed for a more effective telemetry data transmission.
 
 ## Authenticated users
 
@@ -1113,7 +1113,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 ## Limits
 
-[!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
+[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 To avoid hitting the data rate limit, use [sampling](./sampling.md).
 

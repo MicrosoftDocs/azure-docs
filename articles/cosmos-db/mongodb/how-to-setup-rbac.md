@@ -65,17 +65,24 @@ Another column called `userId` has been added to the `MongoRequests` table in th
 ## Built-in Roles
 These roles already exist on every database and don't need to be created.
 
-### read
-Has the following privileges: changeStream, collStats, find, killCursors, listIndexes, listCollections
-
-### readWrite
-Has the following privileges: collStats, createCollection, dropCollection, createIndex, dropIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
-
-### dbAdmin
-Has the following privileges: collStats, createCollection, createIndex, dbStats, dropCollection, dropDatabase, dropIndex, listCollections, listIndexes, reIndex
-
-### dbOwner
-Has the following privileges: collStats, createCollection, createIndex, dbStats, dropCollection, dropDatabase, dropIndex, listCollections, listIndexes, reIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
+| | `read` | `readWrite` | `dbAdmin` | `dbOwner` |
+| --- | --- | --- | --- | --- |
+| **`changeStream`** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`collStats`** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`listCollections`** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`listIndexes`** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`createCollection`** | ✖️ No | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`createIndex`** | ✖️ No | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`dropCollection`** | ✖️ No | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`dbStats`** | ✖️ No | ✖️ No | ✅ Yes | ✅ Yes |
+| **`dropDatabase`** | ✖️ No | ✖️ No | ✅ Yes | ✅ Yes |
+| **`reIndex`** | ✖️ No | ✖️ No | ✅ Yes | ✅ Yes |
+| **`find`** | ✅ Yes | ✅ Yes | ✖️ No | ✅ Yes |
+| **`killCursors`** | ✅ Yes | ✅ Yes | ✖️ No | ✅ Yes |
+| **`dropIndex`** | ✖️ No | ✅ Yes | ✅ Yes | ✅ Yes |
+| **`insert`** | ✖️ No | ✅ Yes | ✖️ No | ✅ Yes |
+| **`remove`** | ✖️ No | ✅ Yes | ✖️ No | ✅ Yes |
+| **`update`** | ✖️ No | ✅ Yes | ✖️ No | ✅ Yes |
 
 ## Azure CLI Setup (Quickstart)
 We recommend using the cmd when using Windows.

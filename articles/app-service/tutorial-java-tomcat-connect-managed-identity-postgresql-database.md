@@ -198,7 +198,7 @@ curl https://${WEBAPP_URL}/checklist
 curl https://${WEBAPP_URL}/checklist/1
 ```
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 

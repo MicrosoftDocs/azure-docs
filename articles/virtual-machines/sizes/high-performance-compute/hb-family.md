@@ -1,11 +1,11 @@
 ---
-title: HB sub-family VM size series
+title: HB family VM size series
 description: List of sizes in the HB family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 06/06/2024
 ms.author: mattmcinnes
 ---
 

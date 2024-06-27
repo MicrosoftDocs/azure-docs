@@ -235,12 +235,12 @@ $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
     az account get-access-token --query accessToken
     ```
 
-1. Use a REST client such as Postman or Curl to make a GET request to the discovery URL. Use the access token retrieved in the previous step for authorization. In the following example, replace `<region>` with the region where your registry is located and `<registry_name>` with the name of your registry. Replace `<token>` with the access token retrieved in the previous step:
+1. Use a REST client such as Curl to make a GET request to the discovery URL. Use the access token retrieved in the previous step for authorization. In the following example, replace `<region>` with the region where your registry is located and `<registry_name>` with the name of your registry. Replace `<token>` with the access token retrieved in the previous step:
 
     ```bash
     curl -X GET "https://<region>.api.azureml.ms/registrymanagement/v1.0/registries/<registry_name>/discovery" -H "Authorization: Bearer <token>" -H "Content-Type: application/json"
     ```
 
-## Next steps
+## Next step
 
 Learn how to [Share models, components, and environments across workspaces with registries](how-to-share-models-pipelines-across-workspaces-with-registries.md).
