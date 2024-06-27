@@ -1,13 +1,14 @@
 ---
 title: Authorize access to Azure Event Hubs
 description: This article provides information about different options for authorizing access to Azure Event Hubs resources. 
-ms.topic: conceptual
-ms.date: 03/13/2023
+ms.topic: concept-article
+ms.date: 06/26/2024
 ms.author: spelluru
+#customer intent: As an Azure Event Hubs user, I want to know how to authorize requests to event hubs. 
 ---
 
 # Authorize access to Azure Event Hubs
-Every time you publish or consume events from an event hub, your client is trying to access Event Hubs resources. Every request to a secure resource must be authorized so that the service can ensure that the client has the required permissions to publish or consume the data. 
+Every time you publish events to or consume events from an event hub, your client is trying to access Event Hubs resources. Every request to a secure resource must be authorized so that the service can ensure that the client has the required permissions to publish or consume the data. 
 
 Azure Event Hubs offers the following options for authorizing access to secure resources:
 
@@ -17,10 +18,9 @@ Azure Event Hubs offers the following options for authorizing access to secure r
 > [!NOTE]
 > This article applies to both Event Hubs and [Apache Kafka](azure-event-hubs-kafka-overview.md) scenarios. 
 
-<a name='azure-active-directory'></a>
 
 ## Microsoft Entra ID
-Microsoft Entra integration with Event Hubs resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to security principal, which may be a user, a group, or an application service principal. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. The token can be used to authorize a request to access an Event Hubs resource.
+Microsoft Entra integration with Event Hubs resources provides Azure role-based access control (RBAC) for fine-grained control over a client's access to resources. You can use Azure RBAC to grant permissions to security principal, which may be a user, a group, or an application service principal. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. The token can be used to authorize a request to access an Event Hubs resource.
 
 For more information about authenticating with Microsoft Entra ID, see the following articles:
 
