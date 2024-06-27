@@ -22,7 +22,7 @@ For more information about the related Microsoft Sentinel solution for each of t
 
 ## Blackberry CylancePROTECT
 
-[Follow these instructions](https://docs.blackberry.com/content/dam/docs-blackberry-com/release-pdfs/en/cylance-products/syslog-guides/Cylance%20Syslog%20Guide%20v2.0%20rev12.pdf) to configure the CylancePROTECT to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
+[Follow these instructions](https://docs.blackberry.com/en/unified-endpoint-security/blackberry-ues/cylance-syslog-guide/Configure_Syslog_Settings) to configure the CylancePROTECT to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 ## Cisco Application Centric Infrastructure (ACI)
 
@@ -188,8 +188,8 @@ This data connector was developed using Ivanti Unified Endpoint Management Relea
 
 Complete the following configuration steps to get McAfee® Network Security Platform logs into Microsoft Sentinel.
 
-1. [Follow these instructions](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-E4A687B0-FAFB-4170-AC94-1D968A10380F.html) to forward alerts from the manager to a syslog server.
-2. You must add a syslog notification profile. See [more details here](https://docs.mcafee.com/bundle/network-security-platform-10.1.x-product-guide/page/GUID-5BADD5D7-21AE-4E3B-AEE2-A079F3FD6A38.html). While creating profile, to make sure that events are formatted correctly, enter the following text in the Message text box:
+1. Forward alerts from the manager to a syslog server.
+2. You must add a syslog notification profile. While creating profile, to make sure that events are formatted correctly, enter the following text in the Message text box:
 
    ``<SyslogAlertForwarderNSP>:|SENSOR_ALERT_UUID|ALERT_TYPE|ATTACK_TIME|ATTACK_NAME|ATTACK_ID``
 ``|ATTACK_SEVERITY|ATTACK_SIGNATURE|ATTACK_CONFIDENCE|ADMIN_DOMAIN|SENSOR_NAME|INTERFACE``
@@ -200,7 +200,7 @@ This data connector was developed using McAfee® Network Security Platform versi
 
 ## McAfee ePolicy Orchestrator
 
-[Follow these instructions](https://docs.mcafee.com/bundle/epolicy-orchestrator-5.10.0-product-guide/page/GUID-5C5332B3-837A-4DDA-BE5C-1513A230D90A.html) to add register syslog server.
+Contact the provider for guidance on how to register a syslog server.
 
 ## Microsoft Sysmon For Linux
 

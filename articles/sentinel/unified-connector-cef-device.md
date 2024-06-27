@@ -84,13 +84,11 @@ Complete the following steps to configure Cisco Secure Email Gateway to forward 
 
 ## Citrix Web App Firewall
 
-Configure Citrix WAF to send syslog messages in CEF format to the proxy machine using the following steps. 
+Configure Citrix WAF to send syslog messages in CEF format to the proxy machine. 
 
-1. Follow [this guide](https://support.citrix.com/article/CTX234174) to configure WAF.
+- Find guides to configure WAF and CEF logs from [Citrix Support](https://support.citrix.com/).
 
-2. Follow [this guide](https://support.citrix.com/article/CTX136146) to configure CEF logs.
-
-3. Follow [this guide](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html) to forward the logs to proxy. Make sure you to send the logs to port 514 TCP on the Linux machine's IP address.
+- Follow [this guide](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html) to forward the logs to proxy. Make sure you to send the logs to port 514 TCP on the Linux machine's IP address.
 
 ## Claroty
 
@@ -125,7 +123,7 @@ Set your security solution to send syslog messages in CEF format to the proxy ma
 
 Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine IP address.
 
-1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://aka.ms/asi-syslog-extrahop-forwarding) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
+1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/extrahop-detection-siem-connector-bundle) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
 1. Enable the trigger for **ExtraHop Detection SIEM Connector - CEF**.
 1. Update the trigger with the ODS syslog targets you created. 
 
@@ -334,7 +332,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the syslog agen
 
 Configure Palo Alto XDR (Cortex) to forward messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
 
-1. Go to [Cortex Settings and Configurations](https://inspira.xdr.in.paloaltonetworks.com/configuration/external-alerting).
+1. Go to **Cortex Settings and Configurations**.
 1. Select to add **New Server** under **External Applications**.
 1. Then specify the name and give the public IP of your syslog server in **Destination**.
 1. Give **Port number** as 514.
