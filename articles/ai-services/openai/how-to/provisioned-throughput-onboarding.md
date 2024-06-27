@@ -46,8 +46,7 @@ The **Provisioned** option and the capacity planner are only available in certai
 | Version | Version of the model you plan to use, for example 0614 |
 | Peak calls per min | The number of calls per minute that are expected to be sent to the model |
 | Tokens in prompt call | The number of tokens in the prompt for each call to the model. Calls with larger prompts will utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance, we recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
-| Tokens in model response | 
-The number of tokens generated from each call to the model. Calls with larger generation sizes will utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance, we recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
+| Tokens in model response | The number of tokens generated from each call to the model. Calls with larger generation sizes will utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance, we recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
 
 After you fill in the required details, select **Calculate** button in the output column.
 
