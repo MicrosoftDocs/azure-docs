@@ -1,23 +1,23 @@
 ---
 title: Data Field Differences between MMA and AMA 
 description: Documents that field lever data changes made in the migration.
-author: jeffwo-MSFT
+author: JefferyWolford
 ms.author: jeffwo
 ms.reviewer: guywild
 ms.topic: reference
 ms.date: 06/21/2024
 
-# Customer intent: As an azure administrator, I want to understand which Log Analytics Workspace queries I may need to update after AMA migration.
+Customer intent: As an azure administrator, I want to understand which Log Analytics Workspace queries I may need to update after AMA migration.
 
 ---
 
-# Purpose
+# AMA agent data field differences from MMA
 [Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises and other clouds. The agent introduces a simplified, flexible method of configuring data collection using [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md). The article provides information on the data fields that change when collected by AMA, which is critical information for you to migrate your LAW queries.
 
 Each of the data changes was carefully considered and the rational for each change is provided in the table. If you encounter a data field that isn't in the tables file a support request. Your help keeping the tables current and complete is appreciated.
 
-# Log Analytics Workspace Tables
-## W3CIISLog Table for Internet Information Services (IIS)
+## Log Analytics Workspace Tables
+### W3CIISLog Table for Internet Information Services (IIS)
 This table collects log data from the Internet Information Service on Window systems.
 
 |LAW Field | Difference | Reason| Additional Information |
