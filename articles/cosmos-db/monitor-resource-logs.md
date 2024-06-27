@@ -384,4 +384,3 @@ Use the Azure CLI to enable full-text query for your Azure Cosmos DB account.
 - [Diagnostic queries in API for NoSQL](nosql/diagnostic-queries.md)
 - [Diagnostic queries in API for MongoDB](mongodb/diagnostic-queries.md)
 - [Diagnostic queries in API for Apache Cassandra](cassandra/diagnostic-queries.md)
-- [Diagnostic queries in API for Apache Gremlin](gremlin/diagnostic-queries.md)
