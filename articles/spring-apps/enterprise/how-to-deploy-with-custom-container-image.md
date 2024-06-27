@@ -6,7 +6,7 @@ ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
-ms.date: 4/28/2022
+ms.date: 06/27/2024
 ---
 
 # Deploy an application with a custom container image

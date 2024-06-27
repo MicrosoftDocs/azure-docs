@@ -538,7 +538,7 @@ catch (Exception e)
 }
 ```
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+[!INCLUDE [storage-check-out-samples-java](~/reusable-content/ce-skilling/azure/includes/storage-check-out-samples-java.md)]
 
 ## Next steps
 

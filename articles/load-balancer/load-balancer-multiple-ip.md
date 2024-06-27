@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
  > [!IMPORTANT]
 
- > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+ > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
  >
 
@@ -99,7 +99,7 @@ In this section, you create two virtual machines to host the IIS websites.
     | Availability zone | **2** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create secondary network configurations
 

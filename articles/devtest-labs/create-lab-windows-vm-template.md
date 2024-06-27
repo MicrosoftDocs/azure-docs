@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, UpdateFrequency2
-ms.date: 06/14/2024
+ms.date: 06/19/2024
 
 #customer intent: As a developer, I want to use ARM templates in Azure DevTest Labs so that I can create labs with virtual machines.
 ---
@@ -15,7 +15,7 @@ ms.date: 06/14/2024
 
 In this quickstart, you use an Azure Resource Manager (ARM) template to create a lab in Azure DevTest Labs that has one Windows Server 2019 Datacenter virtual machine (VM) in it.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 DevTest Labs can use ARM templates for many tasks, from creating and provisioning labs to adding users. This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template from the [Azure Quickstart Templates gallery](/samples/browse/?expanded=azure&products=azure-resource-manager).
 
@@ -61,7 +61,7 @@ The following steps deploy the ARM template and create a DevTest Labs VM:
 
 1. During deployment, you can monitor the deployment progress on the template **Overview** page:
 
-   :::image type="content" source="./media/create-lab-windows-vm-template/monitor-deployment.png" border="false" alt-text="Screenshot that shows the deployment in progress for the new lab and claimed VM on the template Overview page." lightbox="./media/create-lab-windows-vm-template/monitor-deployment-large.png":::
+   :::image type="content" source="./media/create-lab-windows-vm-template/monitor-deployment.png" alt-text="Screenshot that shows the deployment in progress for the new lab and claimed VM on the template Overview page." lightbox="./media/create-lab-windows-vm-template/monitor-deployment-large.png":::
 
    > [!NOTE]
    > The process to deploy a new lab with claimed VM can take a long time.

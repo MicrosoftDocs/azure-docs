@@ -1050,3 +1050,5 @@
           href: ../use-cases.md?toc=/azure/cosmos-db/sql/toc.json
         - name: Social media apps
           href: ../social-media-apps.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: AI agents
+          href: ../ai-agents.md
