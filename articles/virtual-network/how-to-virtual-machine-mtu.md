@@ -274,16 +274,45 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
 1. Open a PowerShell window as an administrator.
 
-1. Use the 'ipconfig` command to show the IP address of **vm-1**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
+1. Use `Get-NetIPAddress` to show the IP address of **vm-1**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
 
     ```powershell
-    ipconfig
+    Get-NetIPAddress -AddressFamily IPv4
     ```
 
     ```output
+    PS C:\Users\azureuser> Get-NetIPAddress -AddressFamily IPv4
+
+    IPAddress         : 10.0.0.4
+    InterfaceIndex    : 7
+    InterfaceAlias    : Ethernet
+    AddressFamily     : IPv4
+    Type              : Unicast
+    PrefixLength      : 24
+    PrefixOrigin      : Dhcp
+    SuffixOrigin      : Dhcp
+    AddressState      : Preferred
+    ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+    PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+    SkipAsSource      : False
+    PolicyStore       : ActiveStore
+
+    IPAddress         : 127.0.0.1
+    InterfaceIndex    : 1
+    InterfaceAlias    : Loopback Pseudo-Interface 1
+    AddressFamily     : IPv4
+    Type              : Unicast
+    PrefixLength      : 8
+    PrefixOrigin      : WellKnown
+    SuffixOrigin      : WellKnown
+    AddressState      : Preferred
+    ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+    PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+    SkipAsSource      : False
+    PolicyStore       : ActiveStore
     ```
 
-1. Use the following example to display the current network interfaces.
+1. Use `Get-NetAdapter` in the following example to display the current network interfaces.
 
     ```powershell
     Get-NetAdapter
@@ -300,7 +329,19 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
     The virtual machine has two network interfaces displayed in the output.
 
-1. Record the value of the MAC address of the network interface. You'll need this value for the next step. For the purposes of this article, the example value is **60-45-BD-CC-77-01**. Replace the value with your own value.
+1. Record the value of the MAC address of the network interface and the name. You'll need these values for the next step. For the purposes of this article, the example values are **60-45-BD-CC-77-01** and **Ethernet 2**. Replace the values with your own value.
+
+1. Use the following example to display the current MTU value for the network interface.
+
+    ```powershell
+    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+    ```
+    
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+
+    MtuSize : 1500
+    ```
 
 1. Windows Virtual machine support both the Mellanox interface and the Microsoft Azure Network Adapter. 
     
@@ -314,6 +355,18 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
     ```powershell
     Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
+    ```
+
+1. Use the following example to verify the MTU value has been set on the network interface.
+
+    ```powershell
+    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+    ```
+
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+
+    MtuSize : 4088
     ```
 
 1. Internet Control Message Protocol (ICMP) traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-1**:
@@ -326,13 +379,42 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
 1. Open a PowerShell window as an administrator.
 
-1. Use the 'ipconfig` command to show the IP address of **vm-2**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.5**.
+1. Use `Get-NetIPAddress` to show the IP address of **vm-1**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
 
     ```powershell
-    ipconfig
+    Get-NetIPAddress -AddressFamily IPv4
     ```
 
     ```output
+    PS C:\Users\azureuser> Get-NetIPAddress -AddressFamily IPv4
+
+    IPAddress         : 10.0.0.5
+    InterfaceIndex    : 7
+    InterfaceAlias    : Ethernet
+    AddressFamily     : IPv4
+    Type              : Unicast
+    PrefixLength      : 24
+    PrefixOrigin      : Dhcp
+    SuffixOrigin      : Dhcp
+    AddressState      : Preferred
+    ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+    PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+    SkipAsSource      : False
+    PolicyStore       : ActiveStore
+
+    IPAddress         : 127.0.0.1
+    InterfaceIndex    : 1
+    InterfaceAlias    : Loopback Pseudo-Interface 1
+    AddressFamily     : IPv4
+    Type              : Unicast
+    PrefixLength      : 8
+    PrefixOrigin      : WellKnown
+    SuffixOrigin      : WellKnown
+    AddressState      : Preferred
+    ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+    PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+    SkipAsSource      : False
+    PolicyStore       : ActiveStore
     ```
 
 1. Use the following example to display the current network interfaces.
@@ -346,26 +428,38 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
     Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
     ----                      --------------------                    ------- ------       ----------             ---------
-    Ethernet 2                Mellanox ConnectX-5 Virtual Adapter          10 Up           60-45-BD-CC-77-01       100 Gbps
-    Ethernet                  Microsoft Hyper-V Network Adapter             6 Up           60-45-BD-CC-77-01       100 Gbps
+    Ethernet 2                Mellanox ConnectX-5 Virtual Adapter          10 Up           60-45-BD-CC-77-02       100 Gbps
+    Ethernet                  Microsoft Hyper-V Network Adapter             6 Up           60-45-BD-CC-77-02       100 Gbps
     ```
 
     The virtual machine has two network interfaces displayed in the output.
 
-1. Record the value of the MAC address of the network interface. You'll need this value for the next step. For the purposes of this article, the example value is **60-45-BD-CC-77-01**. Replace the value with your own value.
+1. Record the value of the MAC address of the network interface and the name. You'll need these values for the next step. For the purposes of this article, the example values are **60-45-BD-CC-77-02** and **Ethernet 2**. Replace the values with your own value.
+
+1. Use the following example to display the current MTU value for the network interface.
+
+    ```powershell
+    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+    ```
+    
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+
+    MtuSize : 1500
+    ```
 
 1. Windows Virtual machine support both the Mellanox interface and the Microsoft Azure Network Adapter. 
     
     * To set the value on the Mellanox interface, use the following example to set the MTU value to **4088**. Replace the value of the MAC address with your own value.
 
     ```powershell
-    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 4088
+    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-02"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 4088
     ```
 
     * To set the value on the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9014**. Replace the value of the MAC address with your own value.
 
     ```powershell
-    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
+    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-02"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
     ```
 
 1. ICMP traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-2**:
