@@ -108,7 +108,7 @@ Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-
     ```
 
     > [!IMPORTANT]
-    > This sample uses the **--export-to-resource-specific** argument to enable resource-specific tables.
+    > This sample uses the `--export-to-resource-specific` argument to enable resource-specific tables.
 
 1. Review the results of creating your new setting using `az monitor diagnostics-settings show`.
 
@@ -126,9 +126,6 @@ Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-
 ### [REST API](#tab/rest-api)
 
 Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
-
-> [!NOTE]
-> We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
 
 1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -170,7 +167,7 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
     ```
 
     > [!IMPORTANT]
-    > This sample sets the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
+    > This sample sets the `logAnalyticsDestinationType` property to `Dedicated` to enable resource-specific tables.
 
 1. Use `az rest` again with an HTTP `GET` verb to get the properties of the diagnostic setting.
 
@@ -235,7 +232,7 @@ Use an [Bicep template](../azure-resource-manager/bicep/overview.md) to create t
     ```
 
     > [!IMPORTANT]
-    > This sample sets the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
+    > This sample sets the `logAnalyticsDestinationType` property to `Dedicated` to enable resource-specific tables.
 
 1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
 
@@ -308,7 +305,7 @@ Use an [Azure Resource Manager template](../azure-resource-manager/templates/ove
     ```
 
     > [!IMPORTANT]
-    > This sample sets the **logAnalyticsDestinationType** property to **Dedicated** to enable resource-specific tables.
+    > This sample sets the `logAnalyticsDestinationType` property to `Dedicated` to enable resource-specific tables.
 
 1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
 
