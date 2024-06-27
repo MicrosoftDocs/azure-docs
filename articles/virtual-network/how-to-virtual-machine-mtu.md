@@ -379,7 +379,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
 1. Open a PowerShell window as an administrator.
 
-1. Use `Get-NetIPAddress` to show the IP address of **vm-1**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
+1. Use `Get-NetIPAddress` to show the IP address of **vm-2**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.5**.
 
     ```powershell
     Get-NetIPAddress -AddressFamily IPv4
@@ -448,7 +448,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     MtuSize : 1500
     ```
 
-1. Windows Virtual machine support both the Mellanox interface and the Microsoft Azure Network Adapter. 
+1. Windows Virtual machines support both the Mellanox interface and the Microsoft Azure Network Adapter. 
     
     * To set the value on the Mellanox interface, use the following example to set the MTU value to **4088**. Replace the value of the MAC address with your own value.
 
@@ -466,6 +466,18 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
     ```powershell
     Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
+    ```
+
+1. Use the following example to verify the MTU value has been set on the network interface.
+
+    ```powershell
+    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+    ```
+
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+
+    MtuSize : 4088
     ```
 
 1. Sign-in to **vm-1**.
