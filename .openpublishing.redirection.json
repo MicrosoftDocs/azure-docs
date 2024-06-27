@@ -4155,7 +4155,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
             "redirect_document_id": false
         }
        
