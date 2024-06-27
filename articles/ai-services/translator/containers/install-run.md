@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -175,7 +175,7 @@ docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 ```
 
-The above command:
+The Docker command:
 
 * Creates a running Translator container from a downloaded container image.
 * Allocates 12 gigabytes (GB) of memory and four CPU core.
