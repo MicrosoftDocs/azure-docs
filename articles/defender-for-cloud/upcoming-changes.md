@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [General Availability of Checkov IaC Scanning in Defender for Cloud](#general-availability-of-checkov-iac-scanning-in-defender-for-cloud) | June 24, 2024 | July 2024 |
 | [Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation](#reminder-of-the-deprecation-scope-of-adaptive-recommendations-as-of-mma-deprecation) | June 20, 2024 | August 2024 |
 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
 | [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
@@ -47,6 +48,19 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## General Availability of Checkov IaC Scanning in Defender for Cloud
+
+**Announcement date: June 24, 2024**
+
+**Estimated date for change: July 2024**
+
+The Checkov integration for infrasturcture-as-code (IaC) scanning through [MSDO](azure-devops-extension.yml) will be released for General Availability (GA) in July 2024. As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
+
+Security findings from Checkov will be represented as recommendations for both Azure DevOps and GitHub repositories under the assessments: "Azure DevOps repositories should have infrastructure as code findings resolved" and "GitHub repositories should have infrastructure as code findings resolved." 
+
+To learn more about DevOps security in Defender for Cloud, see the [DevOps Security Overview](defender-for-devops-introduction.md).
+To learn how to manually configure Checkov in MSDO today, see the [Azure DevOps](azure-devops-extension.yml) or [GitHub](github-action.md) documentation.
 
 ## Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation
 
