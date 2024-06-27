@@ -135,7 +135,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 6. Optionally, you may find it helpful to add the following `meta` elements to the `head` element of the page:
 
    ```HTML
-    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+    <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
     <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
     <!-- Ensures the web page looks good on all screen sizes. -->
@@ -152,7 +152,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
         <meta charset="utf-8">
 
-        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->

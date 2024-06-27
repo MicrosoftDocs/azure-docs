@@ -54,7 +54,7 @@ Before your source code is executed on the frontend, the App Service injects the
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - [Node.js (LTS)](https://nodejs.org/download/)
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -249,7 +249,27 @@ Your apps are now configured. The frontend is now ready to access the backend wi
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-## 6. Frontend calls the authenticated backend
+## 6. Configure backend App Service to accept a token only from the frontend App Service
+
+You should also configure the backend App Service to only accept a token from the frontend App Service. Not doing this may result in a "403: Forbidden error" when you pass the token from the frontend to the backend.
+
+You can set this via the same Azure CLI process you used in the previous step.
+
+1. Get the `appId` of the frontend App Service (you can get this on the "Authentication" blade of the frontend App Service).
+
+1. Run the following Azure CLI, substituting the `<back-end-app-name>` and `<front-end-app-id>`.
+
+```azurecli-interactive
+authSettings=$(az webapp auth show -g myAuthResourceGroup -n <back-end-app-name>)
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.validation.defaultAuthorizationPolicy.allowedApplications += ["<front-end-app-id>"]')
+az webapp auth set --resource-group myAuthResourceGroup --name <back-end-app-name> --body "$authSettings"
+
+authSettings=$(az webapp auth show -g myAuthResourceGroup  -n <back-end-app-name>)
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.validation.jwtClaimChecks += { "allowedClientApplications": ["<front-end-app-id>"]}')
+az webapp auth set --resource-group myAuthResourceGroup --name <back-end-app-name> --body "$authSettings"
+```
+
+## 7. Frontend calls the authenticated backend
 
 The frontend app needs to pass the user's authentication with the correct `user_impersonation` scope to the backend. The following steps review the code provided in the sample for this functionality. 
 

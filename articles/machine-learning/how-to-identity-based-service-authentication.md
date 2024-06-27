@@ -37,9 +37,9 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 ## Azure Container Registry and identity types
 
-The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __public network access__ workspace flag.
+The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
 
-| Authentication method | Public network access</br>disabled | Public network access</br>enabled |
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
 | ---- | :----: | :----: |
 | Admin user | ✓ | ✓ |
 | Workspace system-assigned managed identity | ✓ | ✓ |
@@ -168,6 +168,28 @@ Not supported currently.
 > To add a new UAI, you can specify the new UAI ID under the section user_assigned_identities in addition to the existing UAIs, it's required to pass all the existing UAI IDs.<br>
 To delete one or more existing UAIs, you can put the UAI IDs which needs to be preserved under the section user_assigned_identities, the rest UAI IDs would be deleted.<br>
 To update identity type from SAI to UAI|SAI, you can change type from "user_assigned" to "system_assigned, user_assigned".
+
+### Add a user-assigned managed identity to a workspace in addition to a system-assigned identity
+
+In some scenarios, you may need to use a user-assigned managed identity in addition to the default system-assigned workspace identity. To add a user-assigned managed identity, without changing the existing workspace identity, use the following steps:
+
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). Save the ID for the managed identity that you create.
+1. To attach the managed identity to your workspace, you need a YAML file that specifies the identity. The following is an example of the YAML file contents. Replace the `<TENANT_ID>`, `<RESOURCE_GROUP>`, and `<USER_MANAGED_ID>` with your values.
+   
+    ```yml
+    identity:
+        type: system_assigned,user_assigned
+        tenant_id: <TENANT_ID>
+        user_assigned_identities:
+            '/subscriptions/<SUBSCRIPTION_ID/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_MANAGED_ID>':
+            {}
+    ```
+ 
+1. Use the Azure CLI `az ml workspace update` command to update your workspace. Specify the YAML file from the previous step using the `--file` parameter. The following example shows what this command looks like:
+ 
+    ```azurecli
+    az ml workspace update --resource-group <RESOURCE_GROUP> --name <WORKSPACE_NAME> --file <YAML_FILE_NAME>.yaml
+    ```
 
 ### Compute cluster
 
@@ -362,7 +384,7 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command

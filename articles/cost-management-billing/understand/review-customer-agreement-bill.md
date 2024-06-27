@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/21/2024
+ms.date: 04/30/2024
 ms.author: banders
 ---
 
@@ -82,9 +82,9 @@ The following image shows charges for the Accounting Dept invoice section on a s
 
 :::image type="content" border="true" source="./media/review-customer-agreement-bill/invoicesection-details.png" alt-text="Screenshot showing the details by invoice section information.":::
 
-When you've identified the charges for an invoice section, you can view the transactions in the Azure portal to understand the charges.
+When you identify the charges for an invoice section, you can view the transactions in the Azure portal to understand the charges.
 
-Go to the All transactions page in the Azure portal to view transactions for an invoice.
+To view transactions for an invoice, go to the All transactions page in the Azure portal.
 
 Filter by the invoice section name to view transactions.
 
@@ -96,7 +96,7 @@ In the billing account for a Microsoft Customer Agreement, charges are estimated
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
+Select a billing profile. Depending on your access, you might have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
 Select the **Summary** tab from the top of the screen.
 
@@ -114,7 +114,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 In the Azure portal, type *cost management + billing* in the search box and then select **Cost Management + Billing**.
 
-Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
+Select a billing profile. Depending on your access, you might have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
 Select **All transactions** from the left side of the page.
 
@@ -128,7 +128,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 In the Azure portal, type *cost management + billing* in the search box and then select **Cost Management + Billing**.
 
-Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
+Select a billing profile. Depending on your access, you might have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
 Select **All subscriptions** on the left side of the page.
 
@@ -142,7 +142,10 @@ Use the Azure usage and charges CSV file to analyze your usage-based charges. Yo
 
 ### Download your invoice and usage details
 
-Depending on your access, you might need to select a billing account or billing profile in Cost Management + Billing. In the left menu, select **Invoices** under **Billing**. In the invoice grid, find the row of the invoice you want to download. Select the download symbol or ellipsis (...) at the end of the row. In the **Download** box, download the usage details file and invoice.
+Depending on your access, you might need to select the billing account or billing profile in Cost Management + Billing. In the left menu, select **Invoices** under **Billing**. In the invoice grid, find the row of the invoice you want to download. Select the download symbol or ellipsis (**...**) at the end of the row. In the Download box, download the usage details file and invoice.
+
+Typically, the usage file is ready within 72 hrs after the invoice is issued. It then takes a few minutes to prepare the CSV file for download.
+
 
 ### View detailed usage by invoice section
 
@@ -158,7 +161,7 @@ The following information walks you through reconciling compute charges for the 
 |Usage Charges - Microsoft Azure Plan |productOrderName |
 |Compute |serviceFamily |
 
-Filter the **invoiceSectionName** column in the CSV file to **Accounting Dept**. Then, filter the **productOrderName** column in the CSV file to **Microsoft Azure Plan**. Next, filter the **serviceFamily** column in the CSV file to **Microsoft.Compute**.
+Filter the **invoiceSectionName** column in the CSV file to **Accounting Dept**. Filter the **productOrderName** column in the CSV file to **Microsoft Azure Plan**. Next, filter the **serviceFamily** column in the CSV file to **Microsoft.Compute**.
 
 :::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-usage-file-filtered-by-invoice-section.png" alt-text="Screenshot showing the usage and charges file filtered by invoice section.":::
 
@@ -178,7 +181,7 @@ Filter the **subscriptionName** column in the Azure usage and charges CSV file t
 
 Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](mca-understand-your-invoice.md#how-to-pay).
 
-If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal.
+If you already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal.
 
 ## Next steps
 

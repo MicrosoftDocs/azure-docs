@@ -22,7 +22,7 @@ Alternatively, you can create web activities in Data Factory or Azure Synapse An
 
 You can also chain an Execute SSIS Package activity between two web activities that start and stop your IR. Your IR will then start and stop on demand, before or after your package execution. For more information about the Execute SSIS Package activity, see [Run an SSIS package with the Execute SSIS Package activity in the Azure portal](how-to-invoke-ssis-package-ssis-activity.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    1. On your Data Factory page in the Azure portal, select **Access control (IAM)**.
    1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
       | Setting | Value |
       | --- | --- |

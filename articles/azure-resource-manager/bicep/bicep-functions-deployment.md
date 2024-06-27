@@ -1,9 +1,9 @@
 ---
 title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 06/26/2024
 ---
 
 # Deployment functions for Bicep
@@ -105,7 +105,7 @@ The preceding example returns the following object:
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 

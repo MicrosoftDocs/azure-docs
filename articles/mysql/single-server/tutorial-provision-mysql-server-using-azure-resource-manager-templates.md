@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-arm-template
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 The [Azure Database for MySQL REST API](/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
 
@@ -102,7 +102,7 @@ If you are new to Azure Resource Manager templates and would like to try it, you
 
 You may use the Azure Cloud Shell in the browser, or Install Azure CLI on your own computer to run the code blocks in this tutorial.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ```azurecli-interactive
 az login

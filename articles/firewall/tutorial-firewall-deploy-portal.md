@@ -29,7 +29,7 @@ For production deployments, a [hub and spoke model](/azure/architecture/referenc
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+:::image type="content" source="media/tutorial-firewall-deploy-portal/tutorial-network.png" alt-text="Diagram of Firewall network infrastructure." lightbox="media/tutorial-firewall-deploy-portal/tutorial-network.png":::
 
 In this article, you learn how to:
 
@@ -122,7 +122,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 1. Review the settings on the summary page, and then select **Create**.
 1. After the deployment is complete, select **Go to resource** and note the **Srv-Work** private IP address that you'll need to use later.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 
 ## Examine the firewall

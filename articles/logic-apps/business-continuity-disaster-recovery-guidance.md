@@ -200,7 +200,7 @@ The **Recurrence** trigger is independent from any specific service or endpoint,
 * A fixed frequency and interval, such as every 10 minutes
 * A more advanced schedule, such as the last Monday of every month at 5:00 PM
 
-When your logic app starts with a Recurrence trigger, you need to set up your primary and secondary logic app instances with the [active-passive roles](#roles). To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set up your logic app instances with a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
+When your logic app starts with a Recurrence trigger, you need to set up your primary and secondary logic app instances with the [active-passive roles](#roles). To reduce the *recovery time objective (RTO)*, which refers to the target duration for restoring a business process after a disruption or disaster, you can set up your logic app instances with a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
 
 For example, suppose that you have a logic app that needs to run every 10 minutes. You can set up your logic apps and locations so that if the primary location becomes unavailable, the secondary location can take over the work:
 

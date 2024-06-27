@@ -27,7 +27,8 @@ You need the Azure CLI version 2.2.0 or later installed and configured. Run `az 
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --node-count 2 \
-        --nodepool-labels dept=IT costcenter=9000
+        --nodepool-labels dept=IT costcenter=9000 \
+        --generate-ssh-keys
     ```
 
 2. Verify the labels were set using the `kubectl get nodes --show-labels` command.

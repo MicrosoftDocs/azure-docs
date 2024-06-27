@@ -11,7 +11,8 @@ metadata:
   ms.topic: hub-page
   ms.custom:
     - ignite-2023
-  ms.date: 02/14/2024
+    - build-2024
+  ms.date: 04/08/2024
   ms.author: franlanglois
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -86,3 +87,15 @@ productDirectory:
       links:
         - url: ./astronomer/astronomer-overview.md
           text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
+  # Card 11
+    - title: Informatica
+      imageSrc: ./media/index/informatica.svg
+      links:
+        - url: ./informatica/informatica-overview.md
+          text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management.
+  # Card 12
+    - title: Split Experimentation
+      imageSrc: ./media/index/split-experimentation.svg
+      links:
+        - url: ./split-experimentation/overview.md
+          text: Gain quantifiable insights for new features and enable faster, safer product releases, natively within Azure.

@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 06/26/2024
 ms.custom: template-how-to
 ---
 
@@ -18,6 +18,8 @@ Beyond PR-driven temporary environments, you can enable preview environments tha
   ```text
   <DEFAULT_HOST_NAME>-<BRANCH_OR_ENVIRONMENT_NAME>.<LOCATION>.azurestaticapps.net
   ```
+
+Custom domains do not work with preview environments.
 
 ## Deployment types
 

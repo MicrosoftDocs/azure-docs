@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 02/13/2024
-ms.custom: template-tutorial
+ms.custom: template-tutorial, linux-related-content
 ---
 
 # Tutorial: Integrate a NAT gateway with an internal load balancer using the Azure portal
@@ -79,7 +79,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Close the bastion connection to **vm-1**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

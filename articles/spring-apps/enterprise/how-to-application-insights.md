@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -538,7 +538,5 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../../azure-monitor/app/app-map.md)
 * [Live Metrics](../../azure-monitor/app/live-stream.md)
-* [Performance](../../azure-monitor/app/tutorial-performance.md)
-* [Failures](../../azure-monitor/app/tutorial-runtime-exceptions.md)
 * [Metrics](../../azure-monitor/essentials/tutorial-metrics.md)
 * [Logs](../../azure-monitor/logs/data-platform-logs.md)

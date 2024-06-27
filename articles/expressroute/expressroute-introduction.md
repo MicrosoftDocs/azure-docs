@@ -11,9 +11,6 @@ ms.author: duau
 
 # What is Azure ExpressRoute?
 
-> [!IMPORTANT]
-> Public peering for ExpressRoute is being retired on **March 31, 2024**. For more information, see [**retirement notice**](https://azure.microsoft.com/updates/retirement-notice-migrate-from-public-peering-by-march-31-2024/).
-
 ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
 Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a colocation facility. ExpressRoute connections offer more reliability, faster speeds, consistent latencies, and higher security than typical connections over the Internet, because they don’t go over the public Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
@@ -35,6 +32,12 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 * QoS support for Skype for Business.
 
 For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
+
+## ExpressRoute cheat sheet
+
+Quickly access the most important ExpressRoute resources and information with this [cheat sheet](https://download.microsoft.com/download/b/9/2/b92e3598-6e2e-4327-a87f-8dc210abca6c/AzureNetworking-ExRCheatSheet-v1-2.pdf).
+
+:::image type="content" source="./media/expressroute-introduction/cheat-sheet.png" alt-text="Screenshot of the ExpressRoute cheat sheet for accessing information quickly." lightbox="./media/expressroute-introduction/cheat-sheet-expanded.png":::
 
 ## Features
 

@@ -6,12 +6,12 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 06/17/2022
+ms.date: 04/25/2024
 ---
 
 # Update containers in Azure Container Instances
 
-During normal operation of your container instances, you may find it necessary to update the running containers in a [container group](./container-instances-container-groups.md). For example, you might wish to update a property such as an image version, a DNS name, or an environment variable, or refresh a property in a container whose application has crashed.
+During normal operation of your container instances, you could find it necessary to update the running containers in a [container group](./container-instances-container-groups.md). For example, you might wish to update a property such as an image version, a DNS name, or an environment variable, or refresh a property in a container whose application crashed.
 
 Update the containers in a running container group by redeploying an existing group with at least one modified property. When you update a container group, all running containers in the group are restarted in-place, usually on the same underlying container host.
 
@@ -25,6 +25,9 @@ To update an existing container group:
 * Issue the create command (or use the Azure portal) and specify the name of an existing group 
 * Modify or add at least one property of the group that supports update when you redeploy. Certain properties [don't support updates](#properties-that-require-container-delete).
 * Set other properties with the values you provided previously. If you don't set a value for a property, it reverts to its default value.
+
+> [!NOTE]
+> If you set all properties to the values you previously provided and don't modify or add any, the container will restart in response to the create command.
 
 > [!TIP]
 > A [YAML file](./container-instances-container-groups.md#deployment) helps maintain a container group's deployment configuration, and provides a starting point to deploy an updated group. If you used a different method to create the group, you can export the configuration to YAML by using [az container export][az-container-export], 
@@ -41,7 +44,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Update the container group with a new DNS name label, *myapplication*, and set the remaining properties with the values used previously:
+Update the container group with a new DNS name label, *application*, and set the remaining properties with the values used previously:
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -51,7 +54,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
 
 ## Update benefits
 
-The primary benefit of updating an existing container group is faster deployment. When you redeploy an existing container group, its container image layers are pulled from those cached by the previous deployment. Instead of pulling all image layers fresh from the registry as is done with new deployments, only modified layers (if any) are pulled.
+The primary benefit of updating an existing container group is faster deployment. When you redeploy an existing container group, its container image layers are pulled from layers cached by the previous deployment. Instead of pulling all image layers fresh from the registry as is done with new deployments, only modified layers (if any) are pulled.
 
 Applications based on larger container images like Windows Server Core can see significant improvement in deployment speed when you update instead of delete and deploy new.
 
@@ -69,7 +72,7 @@ Applications based on larger container images like Windows Server Core can see s
 
 Not all container group properties can be updated. For example, to change the restart policy of a container, you must first delete the container group, then create it again.
 
-Changes to these properties require container group deletion prior to redeployment:
+Changes to these properties require container group deletion before redeployment:
 
 * OS type
 * CPU, memory, or GPU resources
@@ -79,17 +82,14 @@ Changes to these properties require container group deletion prior to redeployme
 
 [!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
-When you delete a container group and recreate it, it's not "redeployed," but created new. All image layers are pulled fresh from the registry, not from those cached by a previous deployment. The IP address of the container might also change due to being deployed to a different underlying host.
+When you delete a container group and recreate it, it's not "redeployed," but created new. All image layers are pulled fresh from the registry, not from layers cached by a previous deployment. The IP address of the container might also change due to being deployed to a different underlying host.
 
 ## Next steps
 
-Mentioned several times in this article is the **container group**. Every container in Azure Container Instances is deployed in a container group, and container groups can contain more than one container.
-
-[Container groups in Azure Container Instances](./container-instances-container-groups.md)
-
-[Deploy a multi-container group](container-instances-multi-container-group.md)
-
-[Manually stop or start containers in Azure Container Instances](container-instances-stop-start.md)
+This article mentions **container groups** several times. Every container in Azure Container Instances is deployed in a container group, and container groups can contain more than one container. The following articles provide more information about container groups:
+* [Container groups in Azure Container Instances](./container-instances-container-groups.md)
+* [Deploy a multi-container group](container-instances-multi-container-group.md)
+* [Manually stop or start containers in Azure Container Instances](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 

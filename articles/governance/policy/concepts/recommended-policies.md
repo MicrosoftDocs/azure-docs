@@ -1,24 +1,15 @@
 ---
-title: Recommended policies for Azure services
-description: Describes how to find and apply recommended policies for Azure services such as Azure Virtual Machines.
-ms.date: 04/03/2024
+title: Recommended policies for Azure virtual machines
+description: Describes recommended policies for Azure virtual machines.
+ms.date: 04/15/2024
 ms.topic: conceptual
-ms.custom: generated
 ---
 
-# Recommended policies for Azure services
+# Azure virtual machine recommended policies
 
-Customers who are new to Azure Policy often look to find common policy definitions to manage and govern their resources. Azure Policy's **Recommended policies** provides a focused list of common policy definitions to start with. The **Recommended policies** experience for supported resources is embedded within the portal experience for that resource.
-
-For more Azure Policy built-ins, go to [Azure Policy built-in definitions](../samples/built-in-policies.md).
-
-## Azure Virtual Machines
-
-The **Recommended policies** for [Azure Virtual Machines](../../../virtual-machines/index.yml) are on the **Overview** page for virtual machines and under the **Capabilities** tab. Select the **Azure Policy** card to open a side pane with the recommended policies. Select the recommended policies to apply to this virtual machine and select **Assign policies** to create an assignment for each policy. **Assign policies** is unavailable, or greyed out, for any policy already assigned to a scope where the virtual machine is a member.
+The recommended policies for [Azure virtual machines](../../../virtual-machines/index.yml) are on the portal's **Overview** page for virtual machines and under the **Capabilities** tab. Select **Azure Policy** to open a pane that shows the recommended policies. Select the recommended policies to apply to this virtual machine and select **Assign policies** to create an assignment for each policy. **Assign policies** is unavailable, or greyed out, for any policy already assigned to a scope where the virtual machine is a member.
 
 As an organization reaches maturity with [organizing their resources and resource hierarchy](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions), the recommendation is to transition these policy assignments from one per resource to the subscription or [management group](../../management-groups/index.yml) level.
-
-### Azure Virtual Machines recommended policies
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -28,6 +19,6 @@ As an organization reaches maturity with [organizing their resources and resourc
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](./effects.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- [Azure Policy samples](../samples/index.md) and [Azure Policy built-in definitions](../samples/built-in-policies.md).
+- [Azure Policy definitions effect basics](../concepts/effect-basics.md).
+- [Remediate non-compliant resources with Azure Policy](../how-to/remediate-resources.md).

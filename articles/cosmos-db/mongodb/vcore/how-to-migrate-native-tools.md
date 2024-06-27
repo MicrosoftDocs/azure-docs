@@ -16,7 +16,7 @@ ms.date: 10/24/2023
 
 # Migrate MongoDB to Azure Cosmos DB for MongoDB vCore offline using MongoDB native tools
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 In this tutorial, you use MongoDB native tools to perform an offline (one-time) migration of a database from an on-premises or cloud instance of MongoDB to Azure Cosmos DB for MongoDB vCore. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere. The native tools can be the simplest solution for small datasets where total migration time isn't a concern.
 

@@ -34,7 +34,7 @@ Services available as an add-on include:
 You can get most recent list of add-on services by running the following command:
 
 ```azurecli
-az containerapp service --help
+az containerapp add-on --help
 ```
 
 See the section on how to [manage a service](#manage-a-service) for usage instructions.
@@ -81,10 +81,10 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `containerapp service <SERVICE_TYPE> create` command with the service type and name to create a new service.
+Use the `az containerapp add-on <SERVICE_TYPE> create` command with the service type and name to create a new service.
 
 ``` CLI
-az containerapp service redis create \
+az containerapp add-on redis create \
   --name myredis \
   --environment myenv
 ```

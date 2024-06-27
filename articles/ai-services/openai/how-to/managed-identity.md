@@ -1,17 +1,17 @@
 ---
-title: How to configure Azure OpenAI Service with managed identities
+title: How to configure Azure OpenAI Service with Microsoft Entra ID authentication
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Microsoft Entra ID
 ms.service: azure-ai-openai
 ms.topic: how-to 
-ms.date: 04/03/2024
+ms.date: 06/25/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom: devx-track-azurecli
 ---
 
-# How to configure Azure OpenAI Service with managed identities
+# How to configure Azure OpenAI Service with Microsoft Entra ID authentication
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.
 
@@ -29,7 +29,7 @@ In the following sections, you'll use the Azure CLI to sign in, and obtain a bea
 - Azure CLI - [Installation Guide](/cli/azure/install-azure-cli)
 - The following Python libraries: os, requests, json, openai, azure-identity
 
-## Assign yourself to the Cognitive Services User role
+## Assign role
 
 Assign yourself either the [Cognitive Services OpenAI User](role-based-access-control.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](role-based-access-control.md#cognitive-services-openai-contributor) role to allow you to use your account to make Azure OpenAI inference API calls rather than having to use key-based auth. After you make this change it can take up to 5 minutes before the change takes effect.
 

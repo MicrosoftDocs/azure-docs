@@ -330,7 +330,7 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 ## Reassign an existing VM
 
-You can add reassign an existing multitenant VM or dedicated host VM to a different dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+You can reassign an existing multitenant VM or dedicated host VM to a different dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it couldn't be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
@@ -727,6 +727,39 @@ $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 ## Resize a host
 
 [!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
+
+
+
+## Redeploy a host [Preview]
+
+If a VM or the underlying host remains unresponsive after following all the potential troubleshooting steps users can trigger service healing of the host and not wait for the platform to initiate the repair. Redeploying a host will move the host and all associated VMs to a different node of the same SKU. None of the host parameters would change except for the ‘Host asset ID’, which corresponds to the underlying Node Id.
+
+> [!WARNING]
+> Redeploy operation involves service healing hence would result in loss of any non-persistent data such as data stored on ephemeral disks. Save your work before redeploying.
+
+### [Portal](#tab/portal)
+
+1. Search for and select the host.
+1. In the top menu bar, select the **Redeploy** button.
+1. In the **Essentials** section of the Host Resource Pane, host's provisioning state will switch to **Updating** during the redeploy operation.
+1. Once the redeploy operation is completed, host's provisioning state will revert to **Provisioning succeeded**.
+1.  In the **Essentials** section of the Host Resource Pane, **Host asset ID** would be updated to a new ID
+
+### [CLI](#tab/cli)
+
+Redeploying the host using [az vm host redeploy](/cli/azure/vm#az-vm-host-redeploy).
+
+```azurecli-interactive
+az vm host redeploy \
+ --resource-group myResourceGroup \
+ --host-group myHostGroup \
+ --name myDedicatedHost
+```
+### [PowerShell](#tab/powershell)
+
+PowerShell support coming soon.
+
+---
 
 ## Deleting a host
 

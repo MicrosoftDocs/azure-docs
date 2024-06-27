@@ -13,7 +13,7 @@ ms.custom: devx-track-python
 ---
 
 # Get started with Azure Cosmos DB for MongoDB and Python
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This article shows you how to connect to Azure Cosmos DB for MongoDB using the PyMongo driver package. Once connected, you can perform operations on databases, collections, and docs.
 

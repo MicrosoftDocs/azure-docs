@@ -1,37 +1,23 @@
 ---
-title: Enable NVMe Interface.
-description: Enable NVMe interface on virtual machine
-author: iamwilliew
-ms.author: wwilliams
+title: OS Images Supported
+description: OS Image Support List for Remote NVMe
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.date: 06/25/2024
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/30/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Enabling NVMe and SCSI Interface on Virtual Machine
+# OS Images Supported with Remote NVMe
 
-> [!CAUTION]
+> [!NOTE]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-NVMe stands for nonvolatile memory express, which is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems. With NVMe, data can be transferred at the highest throughput and with the fastest response time. Azure now supports the NVMe interface on the Ebsv5 and Ebdsv5 family, offering the highest IOPS and throughput performance for remote disk storage among all the GP v5 VM series.
+The following lists provide up-to-date information on which OS images are tagged as NVMe supported. These lists will be updated when new OS images are made available with remote NVMe support.
 
-SCSI (Small Computer System Interface) is a legacy standard for physically connecting and transferring data between computers and peripheral devices. Although Ebsv5 VM sizes still support SCSI, we recommend switching to NVMe for better performance benefits.
+Always check the [detailed product pages for specifics](/azure/virtual-machines/sizes) about which VM generations support which storage types. 
 
-## Prerequisites
-
-A new feature has been added to the VM configuration, called DiskControllerType, which allows customers to select their preferred controller type as NVMe or SCSI. If the customer doesn't specify a DiskControllerType value then the platform will automatically choose the default controller based on the VM size configuration. If the VM size is configured for SCSI as the default and supports NVMe, SCSI will be used unless updated to the NVMe DiskControllerType.
-
-To enable the NVMe interface, the following prerequisites must be met:
-
-- Choose a VM family that supports NVMe. It's important to note that only Ebsv5 and Ebdsv5 VM sizes are equipped with NVMe in the Intel v5 generation VMs. Make sure to select either one of the series, Ebsv5 or Ebdsv5 VM.
-- Select the operating system image that is tagged with NVMe support
-- Opt-in to NVMe by selecting NVMe disk controller type in Azure portal or ARM/CLI/Power Shell template. For step-by-step instructions, refer here
-- Only Gen2 images are supported
-- Choose one of the Azure regions where NVMe is enabled
-
-By meeting the above five conditions, you'll be able to enable NVMe on the supported VM family in no time. Please follow the above conditions to successfully create or resize a VM with NVMe without any complications. Refer to the [FAQ](enable-nvme-faqs.yml) to learn about NVMe enablement.
+For more information about enabling the NVMe interface on virtual machines created in Azure, be sure to review the [Remote NVMe Disks FAQ](/azure/virtual-machines/enable-nvme-remote-faqs).
 
 ## OS Images supported
 
@@ -94,121 +80,3 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition)
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core)
 - [Azure portal - Plan 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
-
-
-## Launching a VM with NVMe interface
-NVMe can be enabled during VM creation using various methods such as: Azure portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe.
-
-### Azure portal View
-
-1. Add Disk Controller Filter. To find the NVMe eligible sizes, select **See All Sizes**, select the **Disk Controller** filter, and then select **NVMe**:
-
-   :::image type="content" source="./media/enable-nvme/azure-portal-1.png" alt-text="Screenshot of instructions to add disk controller filter for NVMe interface.":::
-
-1. Enable NVMe feature by visiting the **Advanced** tab.
-
-   :::image type="content" source="./media/enable-nvme/azure-portal-2.png" alt-text="Screenshot of instructions to enable NVMe interface feature.":::
-
-1.  Verify Feature is enabled by going to **Review and Create**.
-
-    :::image type="content" source="./media/enable-nvme/azure-portal-3.png" alt-text="Screenshot of instructions to review and verify features enablement.":::
-
-### Sample ARM template
-
-```json
-
-
-{
-    "apiVersion": "2022-08-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[variables('vmName')]",
-    "location": "[parameters('location')]",
-    "identity": {
-        "type": "userAssigned",
-        "userAssignedIdentities": {
-            "/subscriptions/ <EnterSubscriptionIdHere> /resourcegroups/ManagedIdentities/providers/Microsoft.ManagedIdentity/userAssignedIdentities/KeyVaultReader": {}
-        }
-    },
-    "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-    ],
-    "properties": {
-        "hardwareProfile": {
-            "vmSize": "[parameters('vmSize')]"
-        },
-        "osProfile": "[variables('vOsProfile')]",
-        "storageProfile": {
-            "imageReference": "[parameters('osDiskImageReference')]",
-            "osDisk": {
-                "name": "[variables('diskName')]",
-                "caching": "ReadWrite",
-                "createOption": "FromImage"
-            },
-            "copy": [
-                {
-                    "name": "dataDisks",
-                    "count": "[parameters('numDataDisks')]",
-                    "input": {
-                        "caching": "[parameters('dataDiskCachePolicy')]",
-                        "writeAcceleratorEnabled": "[parameters('writeAcceleratorEnabled')]",
-                        "diskSizeGB": "[parameters('dataDiskSize')]",
-                        "lun": "[add(copyIndex('dataDisks'), parameters('lunStartsAt'))]",
-                        "name": "[concat(variables('vmName'), '-datadisk-', copyIndex('dataDisks'))]",
-                        "createOption": "Attach",
-                        "managedDisk": {
-                            "storageAccountType": "[parameters('storageType')]",
-                            "id": "[resourceId('Microsoft.Compute/disks/', concat(variables('vmName'), '-datadisk-', copyIndex('dataDisks')))]"
-                        }
-                    }
-                }
-            ],
-            "diskControllerTypes": "NVME"
-        },
-        "securityProfile": {
-            "encryptionAtHost": "[parameters('encryptionAtHost')]"
-        },
-                          
-        "networkProfile": {
-            "networkInterfaces": [
-                {
-                    "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
-                }
-            ]
-        },
-        "availabilitySet": {
-            "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySetName'))]"
-        }
-    },
-    "tags": {
-        "vmName": "[variables('vmName')]",
-
-      "location": "[parameters('location')]",
-
-                "dataDiskSize": "[parameters('dataDiskSize')]",
-
-                "numDataDisks": "[parameters('numDataDisks')]",
-
-                "dataDiskCachePolicy": "[parameters('dataDiskCachePolicy')]",
-
-                "availabilitySetName": "[parameters('availabilitySetName')]",
-
-                "customScriptURL": "[parameters('customScriptURL')]",
-
-                "SkipLinuxAzSecPack": "True",
-
-                "SkipASMAzSecPack": "True",
-
-                "EnableCrashConsistentRestorePoint": "[parameters('enableCrashConsistentRestorePoint')]"
-
-            }
-
-        }
-```
-
-
->[!TIP]
-> Use the same parameter **DiskControllerType** if you are using the PowerShell or CLI tools to launch the NVMe supported VM.
-
-## Next steps
-
-- [Ebsv5 and Ebdsv5](ebdsv5-ebsv5-series.md)

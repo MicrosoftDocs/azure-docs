@@ -48,7 +48,7 @@ To submit a batch synthesis request, construct the HTTP PUT request path and bod
 - Optionally you can set the `description`, `timeToLiveInHours`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-properties.md).
 
 > [!NOTE]
-> The maximum JSON payload size that will be accepted is 2 megabytes. Each Speech resource can have up to 300 batch synthesis jobs that are running concurrently.
+> The maximum JSON payload size that will be accepted is 2 megabytes.
 
 Set the required `YourSynthesisId` in path. The `YourSynthesisId` have to be unique. It must be 3-64 long, contains only numbers, letters, hyphens, underscores and dots, starts and ends with a letter or number.
 
@@ -348,7 +348,6 @@ Here are examples that can result in the 400 error:
 - The number of requested text inputs exceeded the limit of 10,000.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
 - You tried to use a _F0_ Speech resource, but the region only supports the _Standard_ Speech resource pricing tier.
-- You tried to create a new batch synthesis job that would exceed the limit of 300 active jobs. Each Speech resource can have up to 300 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
 ### HTTP 404 error
 

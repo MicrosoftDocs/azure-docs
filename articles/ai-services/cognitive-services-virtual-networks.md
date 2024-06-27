@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/25/2024
+ms.date: 06/13/2024
 ms.author: aahi
 ---
 
@@ -26,7 +26,7 @@ An application that accesses an Azure AI services resource when network rules ar
 >
 > Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Scenarios
 
@@ -60,6 +60,8 @@ Virtual networks are supported in [regions where Azure AI services are available
 > - `CognitiveServicesManagement`
 > - `CognitiveServicesFrontEnd`
 > - `Storage` (Speech Studio only)
+> 
+> For information on configuring Azure AI Studio, see the [Azure AI Studio documentation](../ai-studio/how-to/configure-private-link.md).
 
 ## Change the default network access rule
 
@@ -368,11 +370,9 @@ Currently, only IPv4 addresses are supported. Each Azure AI services resource su
 
 To grant access from your on-premises networks to your Azure AI services resource with an IP network rule, identify the internet-facing IP addresses used by your network. Contact your network administrator for help.
 
-If you use Azure ExpressRoute on-premises for public peering or Microsoft peering, you need to identify the NAT IP addresses. For more information, see [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+If you use Azure ExpressRoute on-premises for Microsoft peering, you need to identify the NAT IP addresses. For more information, see [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
-For public peering, each ExpressRoute circuit by default uses two NAT IP addresses. Each is applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or supplied by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting.
-
-To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) use the Azure portal. For more information, see [NAT requirements for Azure public peering](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering).
+For Microsoft peering, the NAT IP addresses that are used are either customer provided or supplied by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting.
 
 ### Managing IP network rules
 
@@ -573,7 +573,10 @@ You can grant a subset of trusted Azure services access to Azure OpenAI, while m
 |Azure AI Search     | `Microsoft.Search`         |
 
 
-You can grant networking access to trusted Azure services by creating a network rule exception using the REST API:
+You can grant networking access to trusted Azure services by creating a network rule exception using the REST API or Azure portal:
+
+### Using the Azure CLI
+
 ```bash
 
 accessToken=$(az account get-access-token --resource https://management.azure.com --query "accessToken" --output tsv)
@@ -595,9 +598,6 @@ curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview
 '
 ```
 
-> [!NOTE]
-> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
-
 To revoke the exception, set `networkAcls.bypass` to `None`. 
 
 To verify if the trusted service has been enabled from the Azure portal, 
@@ -609,6 +609,16 @@ To verify if the trusted service has been enabled from the Azure portal,
 1.  Choose your latest API version under **API versions**. Only the latest API version is supported, `2023-10-01-preview` .
 
     :::image type="content" source="media/vnet/virtual-network-trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/vnet/virtual-network-trusted-service.png":::
+
+### Using the Azure portal
+
+1. Navigate to your Azure OpenAI resource, and select **Networking** from the navigation menu. 
+1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this cognitive services account.**
+    > [!TIP]
+    > You can view the **Exceptions** option by selecting either **Selected networks and private endpoints** or **Disabled** under **Allow access from**.    
+
+    :::image type="content" source="media/vnet/toggle-trusted-service.png" alt-text="A screenshot showing the networking settings for a resource in the Azure portal." lightbox="media/vnet/toggle-trusted-service.png":::
+***
 
 ### Pricing
 

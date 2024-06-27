@@ -1,7 +1,7 @@
 ---
 title: Use Radiology Insights (Preview) 
 titleSuffix: Azure AI Health Insights
-description: This article describes how to use the Radiology Insights model (Preview)
+description: This article describes how to use the Radiology Insights model, part of Azure AI Health Insights  
 services: azure-health-insights
 author: JanSchietse
 manager: JoeriVDV
@@ -12,25 +12,24 @@ ms.author: janschietse
 ---
 
 
-# Quickstart: Use the Radiology Insights (Preview)
+# Quickstart: Use the Radiology Insights model
 
-This quickstart provides an overview on how to use the Radiology Insights (Preview).
+This quickstart provides an overview on how to use the Radiology Insights.
 
 ## Prerequisites
-To use the Radiology Insights (Preview) model, you must have an Azure AI services account created. 
+To use the Radiology Insights (Preview) model, you must have an Azure AI Health Insights service created. 
 
-If you have no Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
+If you have no Azure AI Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
-Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. 
+Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI Health Insights service to see the details, including your Service URL. 
 The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com. 
 
 ## Example request and results
 
-To send an API request, you need your Azure AI services account endpoint and key. 
+To send an API request, you need the endpoint and key of your Azure AI Health Insights service. 
 
 
-<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
-
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
 
 
 ![[Screenshot of the Keys and Endpoints for the Radiology Insights.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
@@ -40,94 +39,124 @@ To send an API request, you need your Azure AI services account endpoint and key
 
 ## Example request
 
+> [!NOTE]
+> The examples below are based on API version: 2024-04-01. There might be changes between
+API versions. For a specific API version, please use the reference to the REST API to see full description.
+
+
 ### Starting with a request that contains a case
 
 You can use the data from this example, to test your first request to the Radiology Insights model.
 
+Definition {jobid}
+- unique identifier
+- maximum 36 characters
+- no spaces
+
+
 ```url
-POST
-http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs?api-version=2023-09-01-preview
+PUT
+https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/{jobid}?api-version=2024-04-01
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
+
 ```json
 {
-  "configuration" : {
-    "inferenceOptions" : {
-      "followupRecommendationOptions" : {
-        "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : false,
-        "provideFocusedSentenceEvidence" : false
-      },
-      "findingOptions" : {
-        "provideFocusedSentenceEvidence" : false
-      }
-    },
-    "inferenceTypes" : [ "lateralityDiscrepancy" ],
-    "locale" : "en-US",
-    "verbose" : false,
-    "includeEvidence" : false
-  },
-  "patients" : [ {
-    "id" : "11111",
-    "info" : {
-      "sex" : "female",
-      "birthDate" : "1986-07-01T21:00:00+00:00",
-      "clinicalInfo" : [ {
-        "resourceType" : "Observation",
-        "status" : "unknown",
-        "code" : {
-          "coding" : [ {
-            "system" : "http://www.nlm.nih.gov/research/umls",
-            "code" : "C0018802",
-            "display" : "MalignantNeoplasms"
-          } ]
-        },
-        "valueBoolean" : "true"
-      } ]
-    },
-    "encounters" : [ {
-      "id" : "encounterid1",
-      "period" : {
-        "start" : "2021-08-28T00:00:00",
-        "end" : "2021-08-28T00:00:00"
-      },
-      "class" : "inpatient"
-    } ],
-    "patientDocuments" : [ {
-      "type" : "note",
-      "clinicalType" : "radiologyReport",
-      "id" : "docid1",
-      "language" : "en",
-      "authors" : [ {
-        "id" : "authorid1",
-        "name" : "authorname1"
-      } ],
-      "specialtyType" : "radiology",
-	  "createdDateTime" : "2021-8-28T00:00:00",
-      "administrativeMetadata" : {
-        "orderedProcedures" : [ {
-          "code" : {
-            "coding" : [ {
-              "system" : "Https://loinc.org",
-              "code" : "26688-1",
-              "display" : "US BREAST - LEFT LIMITED"
-            } ]
+      "jobData": {
+        "configuration": {
+          "inferenceOptions": {
+            "followupRecommendationOptions": {
+              "includeRecommendationsWithNoSpecifiedModality": false,
+              "includeRecommendationsInReferences": false,
+              "provideFocusedSentenceEvidence": false
+            },
+            "findingOptions": {
+              "provideFocusedSentenceEvidence": false
+            }
           },
-          "description" : "US BREAST - LEFT LIMITED"
-        } ],
-        "encounterId" : "encounterid1"
-      },
-      "content" : {
-        "sourceType" : "inline",
-        "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
+          "inferenceTypes": ["lateralityDiscrepancy"],
+          "locale": "en-US",
+          "verbose": false,
+          "includeEvidence": false
+        },
+        "patients": [
+          {
+            "id": "111111",
+            "details": {
+              "sex": "female",
+			  "birthDate" : "1986-07-01T21:00:00+00:00",
+              "clinicalInfo": [
+                {
+                  "resourceType": "Observation",
+                  "status": "unknown",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.nlm.nih.gov/research/umls",
+                        "code": "C0018802",
+                        "display": "MalignantNeoplasms"
+                      }
+                    ]
+                  },
+                  "valueBoolean": "true"
+                }
+              ]
+            },
+            "encounters": [
+              {
+                "id": "encounterid1",
+                "period": {
+                  "start": "2021-8-28T00:00:00",
+                  "end": "2021-8-28T00:00:00"
+                },
+                "class": "inpatient"
+              }
+            ],
+            "patientDocuments": [
+              {
+                "type": "note",
+                "clinicalType": "radiologyReport",
+                "id": "docid1",
+                "language": "en",
+                "authors": [
+                  {
+                    "id": "authorid1",
+                    "fullName": "authorname1"
+                  }
+                ],
+                "specialtyType": "radiology",
+                "createdAt": "2021-8-28T00:00:00",
+                "administrativeMetadata": {
+                  "orderedProcedures": [
+                    {
+                      "code": {
+                        "coding": [
+                          {
+                            "system": "Https://loinc.org",
+                            "code": "26688-1",
+                            "display": "US BREAST - LEFT LIMITED"
+                          }
+                        ]
+                      },
+                      "description": "US BREAST - LEFT LIMITED"
+                    }
+                  ],
+                  "encounterId": "encounterid1"
+                },
+                "content": {
+                  "sourceType": "inline",
+                  "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
+				}
+              }
+            ]
+          }
+        ]
       }
-    } ]
-  } ]
-}
+    }
 ```
 
-<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job). -->
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
 
 
 
@@ -141,7 +170,8 @@ Example code snippet:
 
 ```url
 GET
-http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/d48b4f4d-939a-446f-a000-002a80aa58dc?api-version=2023-09-01-preview
+https://{cognitive-services-account-endpoint}/health-insights/radiology-insights/jobs/{jobid}?api-version=2024-04-01
+Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 ```
 
 ```json
@@ -156,7 +186,7 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
             "lateralityIndication": {
               "coding": [
                 {
-                  "system": "*SNOMED",
+                  "system": "http://snomed.info/sct",
                   "code": "24028007",
                   "display": "RIGHT (QUALIFIER VALUE)"
                 }
@@ -168,7 +198,7 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
       }
     ]
   },
-  "id": "862768cf-0590-4953-966b-1cc0ef8b8256",
+  "id": "jobid",
   "createdDateTime": "2023-12-18T12:25:37.8942771Z",
   "expirationDateTime": "2023-12-18T12:42:17.8942771Z",
   "lastUpdateDateTime": "2023-12-18T12:25:49.7221986Z",
@@ -176,7 +206,7 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
 }
 ```
 
-<!-- You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job). -->
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job).
 
 ## Data limits
 
@@ -215,11 +245,13 @@ Within patients:
 For the patientDocuments within a patient:
 - createdDateTime (serviceDate) should be set
 - Patient Document language should be EN (case-insensitive) 
-- documentType should be set to Note
-- Patient Document clinicalType should be set to radiology report or pathology report
+- documentType should be set to note (case-insensitive)
+- Patient Document clinicalType should be set to radiologyReport or pathologyReport (case-insensitive, in one word)
 - Patient Document specialtyType should be radiology or pathology
 - If set, orderedProcedures in administrativeMetadata should contain code -with code and display- and description
 - Document content shouldn't be blank/empty/null 
+
+Optional: sex and birthDate are optional fields.
 
 
 ```json

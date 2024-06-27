@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - register spacecraft
 description: Learn how to register a spacecraft.
-author: apoorvanori
+author: hrshelar
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
 ms.date: 07/13/2022
-ms.author: apoorvanori
+ms.author: hrshelar
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
@@ -78,13 +78,14 @@ Use the Spacecrafts REST Operation Group to [create a spacecraft resource](/rest
 Submit a spacecraft authorization request in order to schedule [contacts](concepts-contact.md) with your new spacecraft resource at applicable ground station sites.
 
    > [!NOTE]
-   > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required to submit a spacecraft authorization request.
+   > **Private spacecraft** must have an active spacecraft license and be added to all relevant ground station licenses before you can submit an authorization request. Microsoft and partner networks can provide technical information required to complete the federal regulator and ITU processes as needed. Learn more about [initiating ground station licensing](initiate-licensing.md).
 
    > [!NOTE]
-   > **Private spacecraft**: prior to submitting an authorization request, you must have an active spacecraft license for your satellite and work with Microsoft to add your satellite to our ground station licenses. Microsoft can provide technical information required to complete the federal regulator and ITU processes as needed. Learn more about [initiating ground station licensing](initiate-licensing.md).
-   > 
-   > **Public spacecraft**: licensing is not required for authorization. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
+   > **Public spacecraft** are automatically authorized upon creation and do not require an authorization request. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra. Refer to [Tutorial: Downlink data from public satellites](downlink-aqua.md) to verify values of the spacecraft resource.
 
+   > [!NOTE]
+   > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required to submit a spacecraft authorization request.
+ 
 1. Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 2. Navigate to the newly created spacecraft resource's overview page.
 3. Click **New support request** in the Support + troubleshooting section of the left-hand blade.
@@ -115,7 +116,7 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
 7. Click the **Review + create** tab, or click the **Review + create** button.
 8. Click **Create**.
 
-After the spacecraft authorization request is submitted, the Azure Orbital Ground Station team reviews the request and authorizes the spacecraft resource at relevant ground stations according to the licenses. Authorization requests for public satellites will be quickly approved.
+After the spacecraft authorization request is submitted, the Azure Orbital Ground Station team reviews the request and authorizes the spacecraft resource at relevant ground stations according to the licenses.
 
 ## Confirm spacecraft is authorized
 

@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 This quickstart shows you how to use a Bicep file to deploy a Windows virtual machine (VM) in Azure.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

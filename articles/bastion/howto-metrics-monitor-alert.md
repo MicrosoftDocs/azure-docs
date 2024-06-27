@@ -3,12 +3,12 @@ title: 'Configure monitoring and metrics using Azure Monitor'
 titleSuffix: Azure Bastion
 description: Learn about Azure Bastion monitoring and metrics using Azure Monitor.
 services: bastion
-author: mialdrid
+author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/12/2021
-ms.author: mialdrid
+ms.date: 04/05/2024
+ms.author: cherylmc
 
 ---
 # How to configure monitoring and metrics for Azure Bastion using Azure Monitor
@@ -54,13 +54,13 @@ You can view the total memory of Azure Bastion, split across each bastion instan
 
 #### <a name="used-cpu"></a>Used CPU
 
-You can view the CPU utilization of Azure Bastion, split across each bastion instance. Monitoring this metric will help gauge the availability and capacity of the instances that comprise Azure Bastion
+You can view the CPU utilization of Azure Bastion, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
 
 :::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Screenshot showing CPU used.":::
 
 #### <a name="used-memory"></a>Used memory
 
-You can view memory utilization across each bastion instance, split across each bastion instance. Monitoring this metric will help gauge the availability and capacity of the instances that comprise Azure Bastion.
+You can view memory utilization across each bastion instance, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
 
 :::image type="content" source="./media/metrics-monitor-alert/used-memory.png" alt-text="Screenshot showing memory used.":::
 
@@ -68,7 +68,7 @@ You can view memory utilization across each bastion instance, split across each 
 
 #### Session count
 
-You can view the count of active sessions per bastion instance, aggregated across each session type (RDP and SSH). Each Azure Bastion can support a range of active RDP and SSH sessions. Monitoring this metric will help you to understand if you need to adjust the number of instances running the bastion service. For more information about the session count Azure Bastion can support, refer to the [Azure Bastion FAQ](bastion-faq.md).
+You can view the count of active sessions per bastion instance, aggregated across each session type (RDP and SSH). Each Azure Bastion can support a range of active RDP and SSH sessions. Monitoring this metric helps you to understand if you need to adjust the number of instances running the bastion service. For more information about the session count Azure Bastion can support, refer to the [Azure Bastion FAQ](bastion-faq.md).
 
 The recommended values for this metric's configuration are:
 

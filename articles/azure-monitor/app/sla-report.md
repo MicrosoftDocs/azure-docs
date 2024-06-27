@@ -2,8 +2,8 @@
 title: Downtime, SLA, and outages workbook - Application Insights
 description: Calculate and report SLA for web test through a single pane of glass across your Application Insights resources and Azure subscriptions.
 ms.topic: conceptual
-ms.date: 03/22/2023
-ms.reviwer: casocha
+ms.date: 04/28/2024
+ms.reviewer: cogoodson
 ---
 
 # Downtime, SLA, and outages workbook
@@ -36,7 +36,7 @@ The overview page contains high-level information about your:
 
 Outage instances are defined by when a test starts to fail until it's successful, based on your outage parameters. If a test starts failing at 8:00 AM and succeeds again at 10:00 AM, that entire period of data is considered the same outage.
 
-:::image type="content" source="./media/sla-report/overview.gif" alt-text=" Screenshot that shows an overview page showing the Overview Table by Test." lightbox="./media/sla-report/overview.gif":::
+:::image type="content" source="./media/sla-report/overview.png" alt-text="Screenshot that shows an overview page showing the Overview Table by Test." lightbox="./media/sla-report/overview.png":::
 
 You can also investigate the longest outage that occurred over your reporting period.
 
@@ -44,21 +44,33 @@ Some tests are linkable back to their Application Insights resource for further 
 
 ## Downtime, outages, and failures
 
-The **Outages & Downtime** tab has information on total outage instances and total downtime broken down by test. The **Failures by Location** tab has a geo-map of failed testing locations to help identify potential problem connection areas.
+The **Outages & Downtime** tab has information on total outage instances and total downtime broken down by test.
 
-:::image type="content" source="./media/sla-report/outages-failures.gif" alt-text=" Screenshot that shows the Outages & Downtime tab and the Failure by Location tab in the downtime and outages workbook." lightbox="./media/sla-report/outages-failures.gif":::
+:::image type="content" source="./media/sla-report/outages-downtime.png" alt-text="Screenshot that shows the Outages & Downtime tab in the downtime and outages workbook." lightbox="./media/sla-report/outages-downtime.png":::
+
+The **Failures by Location** tab has a geo-map of failed testing locations to help identify potential problem connection areas.
+
+:::image type="content" source="./media/sla-report/failure-location.png" alt-text="Screenshot that shows the Failure by Location tab in the downtime and outages workbook." lightbox="./media/sla-report/failure-location.png":::
 
 ## Edit the report
 
-You can edit the report like any other [Azure Monitor workbook](../visualize/workbooks-overview.md). You can customize the queries or visualizations based on your team's needs.
+You can edit the report like any other [Azure Monitor workbook](../visualize/workbooks-overview.md).
 
-:::image type="content" source="./media/sla-report/edit.gif" alt-text=" Screenshot that shows selecting the Edit button to change the visualization to a pie chart." lightbox="./media/sla-report/edit.gif":::
+:::image type="content" source="./media/sla-report/customize-visualization-edit.png" alt-text="Screenshot that shows selecting the Edit button to change the visualization to a pie chart.":::
+
+You can customize the queries or visualizations based on your team's needs.
+
+:::image type="content" source="./media/sla-report/customize-visualization-pie-chart.png" alt-text="Screenshot that shows changing the visualization to a pie chart." lightbox="./media/sla-report/customize-visualization-pie-chart.png":::
 
 ### Log Analytics
 
-The queries can all be run in [Log Analytics](../logs/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
+The queries can all be run in [Log Analytics](../logs/log-analytics-overview.md) and used in other reports or dashboards.
 
-:::image type="content" source="./media/sla-report/logs.gif" alt-text=" Screenshot that shows a log query." lightbox="./media/sla-report/logs.gif":::
+:::image type="content" source="./media/sla-report/reuse-query.png" alt-text="Screenshot that shows how to access a log query." lightbox="./media/sla-report/reuse-query.png":::
+
+Remove the parameter restriction and reuse the core query.
+
+:::image type="content" source="./media/sla-report/edit-query.png" alt-text="Screenshot that shows a log query that you can reuse." lightbox="./media/sla-report/edit-query.png":::
 
 ## Access and sharing
 

@@ -3,7 +3,7 @@ title: Use instance-level public IPs in Azure Kubernetes Service (AKS)
 description: Learn how to manage instance-level public IPs Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/23/2024
+ms.date: 04/29/2024
 ms.author: pahealy
 author: phealy
 ---
@@ -21,13 +21,18 @@ az group create --name myResourceGroup2 --location eastus
 Create a new AKS cluster and attach a public IP for your nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+az aks create \
+    --resource-group MyResourceGroup2 \
+    --name MyManagedCluster \
+    --location eastus \
+    --enable-node-public-ip \
+    --generate-ssh-keys
 ```
 
 For existing AKS clusters, you can also add a new node pool, and attach a public IP for your nodes.
 
 ```azurecli-interactive
-az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+az aks nodepool add --resource-group MyResourceGroup2 --cluster-name MyManagedCluster --name nodepool2 --enable-node-public-ip
 ```
 
 ## Use a public IP prefix
@@ -53,7 +58,13 @@ View the output, and take note of the `id` for the prefix:
 Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+az aks create \
+    --resource-group MyResourceGroup3 \
+    --name MyManagedCluster \
+    --location eastus \
+    --enable-node-public-ip \
+    --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix \
+    --generate-ssh-keys
 ```
 
 ## Locate public IPs for nodes
@@ -68,66 +79,33 @@ You can locate the public IPs for your nodes in various ways:
 > The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
 
 ```azurecli
-az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+az vmss list-instance-public-ips --resource-group MC_MyResourceGroup2_MyManagedCluster_eastus --name YourVirtualMachineScaleSetName
 ```
 
-## Use public IP tags on node public IPs (PREVIEW)
+## Use public IP tags on node public IPs
 
 Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](../virtual-network/ip-services/routing-preference-overview.md) feature.
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 ### Requirements
 
 * AKS version 1.24 or greater is required.
-* Version 0.5.115 of the aks-preview extension is required.
-
-### Install the aks-preview Azure CLI extension
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### Register the 'NodePublicIPTagsPreview' feature flag
-
-Register the `NodePublicIPTagsPreview` feature flag by using the [`az feature register`][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPTagsPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [`az feature show`][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPTagsPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [`az provider register`][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create a new cluster using routing preference internet
 
 ```azurecli-interactive
-az aks create -n <clusterName> -l <location> -g <resourceGroup> \
-  --enable-node-public-ip \
-  --node-public-ip-tags RoutingPreference=Internet
+az aks create \
+    --name <clusterName> \
+    --location <location> \
+    --resource-group <resourceGroup> \
+    --enable-node-public-ip \
+    --node-public-ip-tags RoutingPreference=Internet \
+    --generate-ssh-keys
 ```
 
 ### Add a node pool with routing preference internet
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location> -g <resourceGroup> \
+az aks nodepool add --cluster-name <clusterName> --name <nodepoolName> --location <location> --resource-group <resourceGroup> \
   --enable-node-public-ip \
   --node-public-ip-tags RoutingPreference=Internet
 ```
@@ -136,7 +114,7 @@ az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location>
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
-If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](../virtual-network/network-security-groups-overview.md#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
+If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group (ASG)](../virtual-network/network-security-groups-overview.md#application-security-groups). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
 
 ### Host port specification format
 
@@ -152,17 +130,17 @@ Examples:
 ### Requirements
 
 * AKS version 1.24 or greater is required.
-* Version 0.5.110 of the aks-preview extension is required.
 
 ### Create a new cluster with allowed ports and application security groups
 
 ```azurecli-interactive
 az aks create \
-  --resource-group <resourceGroup> \
-  --name <clusterName> \
-  --nodepool-name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
-  --nodepool-asg-ids "<asgId>,<asgId>"
+    --resource-group <resourceGroup> \
+    --name <clusterName> \
+    --nodepool-name <nodepoolName> \
+    --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
+    --nodepool-asg-ids "<asgId>,<asgId>" \
+    --generate-ssh-keys
 ```
 
 ### Add a new node pool with allowed ports and application security groups
@@ -192,7 +170,7 @@ When public IPs are configured on nodes, host ports can be utilized to allow pod
 > [!WARNING]
 > Pod host port traffic will be blocked by the default NSG rules in place on the cluster. This feature should be combined with allowing host ports on the node pool to allow traffic to flow.
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ### Requirements
 
@@ -342,4 +320,3 @@ Containers:
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
 [drain-nodes]: resize-node-pool.md#drain-the-existing-nodes
-

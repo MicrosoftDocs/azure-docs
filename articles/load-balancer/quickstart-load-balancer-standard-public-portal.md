@@ -15,7 +15,7 @@ ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 
 Get started with Azure Load Balancer by using the Azure portal to create a public load balancer for a backend pool with two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-overview.png" alt-text="Diagram of resources deployed for a standard load balancer implement.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-overview.png" alt-text="Diagram of resources deployed for a standard load balancer implement." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-overview.png":::
 
 ## Prerequisites
 
@@ -135,12 +135,12 @@ During the creation of the load balancer, you configure:
 
 [!INCLUDE [load-balancer-create-2-virtual-machines](../../includes/load-balancer-create-2-virtual-machines.md)]
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-1. Select **myVM1**.
+1. Select **lb-VM1**.
 1. On the **Overview** page, select **Connect**, then **Bastion**.
 1. Enter the username and password entered during VM creation.
 1. Select **Connect**.
@@ -162,8 +162,8 @@ During the creation of the load balancer, you configure:
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     
     ```
-1. Close the Bastion session with **myVM1**.
-1. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **myVM2**.
+1. Close the Bastion session with **lb-VM1**.
+1. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **lb-VM2**.
 
 ## Test the load balancer
 

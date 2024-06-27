@@ -78,6 +78,8 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
     "outputStatistics": {
         "numMeshPartsCreated": 236,
         "numMeshPartsInstanced": 88,
+        "numMaterials": 149,
+        "numPrimitives": 308306,
         "recenteringOffset": [
             -24.1,
             -50.9,
@@ -106,7 +108,7 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
 This section contains the provided filenames.
 
 * `input`: The name of the source file.
-* `output`: The name of the output file, when the user has specified a nondefault name.
+* `output`: The name of the output file, when the user specifies a nondefault name.
 
 ### The *conversionSettings* section
 
@@ -132,16 +134,16 @@ This section isn't present for point cloud conversions.
 
 ### The *inputStatistics* section
 
-This section provides information about the source scene. There will often be discrepancies between the values in this section and the equivalent values in the tool that created the source model. Such differences are expected, because the model gets modified during the export and conversion steps.
+This section provides information about the source scene. There are often discrepancies between the values in this section and the equivalent values in the tool that created the source model. Such differences are expected, because the model gets modified during the export and conversion steps.
 
 The content of this section is different for triangular meshes and point clouds.
 
 # [Triangular meshes](#tab/TriangularMeshes)
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
-* `numFaces`: The total number of triangles in the whole model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
-* `numVertices`: The total number of vertices in the whole model.
-* `numMaterial`: The total number of materials in the whole model.
+* `numFaces`: The total number of triangles in the source model. For an accurate number of output primitives, refer to the `numPrimitives` entry in the [output section](#the-outputstatistics-section).
+* `numVertices`: The total number of vertices in the source model.
+* `numMaterial`: The total number of materials in the source model.
 * `numFacesSmallestMesh`: The number of triangles/points in the smallest mesh of the model.
 * `numFacesBiggestMesh`: The number of triangles/points in the biggest mesh of the model.
 * `numNodes`: The number of nodes in the model's scene graph.
@@ -152,7 +154,7 @@ The content of this section is different for triangular meshes and point clouds.
 
 For point cloud conversions, this section contains only a single entry:
 
-* `numPoints`: The total number of points in the input model.
+* `numPoints`: The total number of points in the input model. For an accurate number of output points, refer to the `numPoints` entry in the [output section](#the-outputstatistics-section).
 ---
 
 ### The *outputInfo* section
@@ -160,7 +162,7 @@ For point cloud conversions, this section contains only a single entry:
 This section records general information about the generated output.
 
 * `conversionToolVersion`: Version of the model converter.
-* `conversionHash`: A hash of the data within the arrAsset that can contribute to rendering. Can be used to understand whether the conversion service has produced a different result when rerun on the same file.
+* `conversionHash`: A hash of the data within the arrAsset that can contribute to rendering. Can be used to understand whether the conversion service produces a different result when rerun on the same file.
 
 ### The *outputStatistics* section
 
@@ -168,8 +170,10 @@ This section records information calculated from the converted asset. Again, the
 
 # [Triangular meshes](#tab/TriangularMeshes)
 
+* `numPrimitives`: The overall number of triangles/lines in the converted model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
 * `numMeshPartsCreated`: The number of meshes in the arrAsset. It can differ from `numMeshes` in the `inputStatistics` section, because instancing is affected by the conversion process.
 * `numMeshPartsInstanced`: The number of meshes that are reused in the arrAsset.
+* `numMaterials`: The overall number of unique materials in the model, after [material deduplication](../../concepts/materials.md#material-de-duplication).
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
 * `boundingBox`: The bounds of the model.
 
@@ -179,12 +183,6 @@ This section records information calculated from the converted asset. Again, the
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
 * `boundingBox`: The bounds of the model.
 ---
-
-## Deprecated features
-
-The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these files had been the only source of warnings and errors.
-These files are now deprecated. Instead, use
-[result files](#information-about-a-conversion-the-result-file) for this purpose.
 
 ## Next steps
 
