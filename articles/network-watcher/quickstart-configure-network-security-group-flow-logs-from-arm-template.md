@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-arm-t
 
 In this quickstart, you learn how to enable NSG flow logs using an Azure Resource Manager (ARM) template and Azure PowerShell. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 We start with an overview of the properties of the NSG flow log object. We provide sample templates. Then, we use a local Azure PowerShell instance to deploy the template.
 
