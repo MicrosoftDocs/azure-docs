@@ -1,5 +1,5 @@
 ---
-title: Host developer portal on WordPress - Azure API Management
+title: Customize developer portal on WordPress - Azure API Management
 description: Configure a WordPress plugin (preview) for the developer portal in your API Management instance. Use WordPress customizations to enhance the developer portal.
 services: api-management
 author: dlepow
@@ -10,11 +10,11 @@ ms.date: 06/26/2024
 ms.author: danlep
 ---
 
-# Host the API Management developer portal on WordPress
+# Customize the API Management developer portal on WordPress
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-This article shows how to use an open-source developer portal plugin (preview) to host the API Management developer portal on WordPress. With the plugin, turn any WordPress site into a developer portal. Take advantage of site capabilities in WordPress to customize and add features to your developer portal including localization, collapsible and expandable menus, custom stylesheets, file downloads, and more. 
+This article shows how to configure an open-source developer portal plugin (preview) to customize the API Management developer portal on WordPress. With the plugin, turn any WordPress site into a developer portal. Take advantage of site capabilities in WordPress to customize and add features to your developer portal including localization, collapsible and expandable menus, custom stylesheets, file downloads, and more. 
 
 Follow the steps in this article to create a WordPress site on Azure App Service and configure the developer portal plugin on the WordPress site. Microsoft Entra ID is configured for authentication to the WordPress site and the developer portal in the API Management instance.
 
@@ -58,16 +58,16 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
 1. On the **Configure platforms** page, select **Web**.
 1. On the **Configure Web** page, enter the following redirect URI, substituting the name of your app service, and select **Configure**:
 
-    `https://nameofappservice>.azurewebsites.net/.auth/login/aad/callback`
+    `https://app-service-name>.azurewebsites.net/.auth/login/aad/callback`
     
 1. Select **+ Add a platform** again. Select **Single-page application**.
 1. On the **Configure single-page application** page, enter the following redirect URI, substituting the name of your API Management instance, and select **Configure**:
     
-    `https://<apiminstancename>.developer.azure-api.net/signin`
+    `https://<apim-instance-name>.developer.azure-api.net/signin`
     
 1. On the **Authentication** page, under **Single-page application**, select **Add URI** and enter the following URI, substituting the name of your API Management instance:
     
-    `https://<apiminstancename>.developer.azure-api.net/`
+    `https://<apim-instance-name>.developer.azure-api.net/`
 
 1. Under **Implicit grant and hybrid flows**, select **ID tokens** and select **Save**.
 1. In the left menu, under **Manage**, select **Token configuration** > **+ Add optional claim**>
@@ -114,7 +114,7 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 1. In **Client library**, select **MSAL**.
 1. Accept default values for the remaining settings and select **Add**.
 1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
-1. Test the authentication by signing into the developer portal at the following URL, substituting the name of your API Management instance: `https://<apiminstancename>.developer.azure-api.net/signin`. Select the **Azure Active Directory** (Microsoft Entra ID) button to sign in.
+1. Test the authentication by signing into the developer portal at the following URL, substituting the name of your API Management instance: `https://<apim-instance-name>.developer.azure-api.net/signin`. Select the **Azure Active Directory** (Microsoft Entra ID) button to sign in.
 
     When you open it for the first time, you're prompted to consent to specific permissions.
     
@@ -123,14 +123,14 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 
 <!-- essential or just an example? Theme Twenty Twenty-Four was already active in my installation...-->
 
-1. Open the WordPress admin website at the following URL, substituting the name of your app service:  `http://<appservicename>.azurewebsites.net/wp-admin` 
+1. Open the WordPress admin website at the following URL, substituting the name of your app service:  `http://<app-service-name>.azurewebsites.net/wp-admin` 
 
     When you open it for the first time, you're prompted to consent to specific permissions.
 
 1. Sign into the WordPress admin site using the username and password you entered while creating WordPress on App Service. 
 1. In the left menu, select **Appearance** > **Themes** and then **Add New Theme** 
-1. In the next screen, select **Upload Theme**. 
-1. Upload a customized theme by choosing the file `twentytwentyfour.zip` and select **Install Now**. This should load the customized theme. 
+1. Select **Upload Theme**. Select **Choose File** to upload the API Management developer portal theme zip file (`twentytwentyfour.zip`) that you downloaded previously. Select **Install Now**.
+1. In the next screen, select **Replace active with uploaded**. 
 
 ## Step 6: Install the developer portal plugin 
 
@@ -139,121 +139,9 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 1. After successful installation, select **Activate Plugin**.
 1. In the left menu, select **Azure API Management Developer Portal**.
 1. On the **APIM Settings** page, enter the following settings and select **Save Changes**:
-    * Name of your API Management instance
+    * **APIM service name** - Name of your API Management instance
     * Settings to enable **Create default pages** and **Create navigation menu**
-
-## Step 7: Add a custom stylesheet 
-
-Add a custom stylesheet for the API Management developer portal.
-
- 1. In the WordPress admin site, in the left menu, select **Appearance** > **Themes**.
- 1. Select **Customize** and then navigate to **Styles**. 
- 1. Select the pencil icon (**Edit Styles**).
- 1. In the **Styles pane**, select **More** (three dots) > **Additional CSS**.
- 1. In **Additional CSS**, enter the following CSS:  
-
-    ```css
-    .apim-table {
-      width: 100%;
-      border: 1px solid #D1D1D1;
-      border-radius: 4px;
-      border-spacing: 0;
-    }
-    
-    .apim-table th {
-      background: #E6E6E6;
-      font-weight: bold;
-      text-align: left;
-    }
-    
-    .apim-table th,
-    .apim-table td {
-      padding: .7em 1em;
-    }
-    
-    .apim-table td {
-      border-top: #E6E6E6 solid 1px;
-    }
-    
-    .apim-input,
-    .apim-button,
-    .apim-nav-link-btn {
-        border-radius: .33rem;
-        padding: 0.6rem 1rem;
-    }
-    
-    .apim-button,
-    .apim-nav-link-btn {
-        background-color: var(--wp--preset--color--contrast);
-        border-color: var(--wp--preset--color--contrast);
-        border-width: 0;
-        color: var(--wp--preset--color--base);
-        font-size: var(--wp--preset--font-size--small);
-        font-weight: 500;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all .25s ease;
-    }
-    
-    .apim-nav-link-btn:hover {
-        background: var(--wp--preset--color--base);
-        color: var(--wp--preset--color--contrast);
-    }
-    
-    .apim-button:hover {
-        background: var(--wp--preset--color--vivid-cyan-blue);
-    }
-    
-    .apim-button:disabled {
-        background: var(--wp--preset--color--contrast-2);
-        cursor: not-allowed;
-    }
-    
-    .apim-label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-    
-    .apim-input {
-        border: solid 1px var(--wp--preset--color--contrast);
-    }
-    
-    .apim-grid {
-        display: grid;
-        grid-template-columns: 11em max-content;
-    }
-    
-    .apim-link,
-    .apim-nav-link {
-        text-align: inherit;
-        font-size: inherit;
-        padding: 0;
-        background: none;
-        border: none;
-        font-weight: inherit;
-        cursor: pointer;
-        text-decoration: none;
-        color: var(--wp--preset--color--vivid-cyan-blue);
-    }
-    
-    .apim-nav-link {
-        font-weight: 500;
-    }
-    
-    .apim-link:hover,
-    .apim-nav-link:hover {
-        text-decoration: underline;
-    }
-    
-    #apim-signIn {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-    }
-    ```
-1. **Save** the changes. Select **Save** again to save the changes to the theme.
-1. **Log out**
-
+1. **Log Out** of the WordPress admin site.
 
 ## Step 8: Add the WordPress site to the list of origins for the developer portal 
 
@@ -261,14 +149,14 @@ Update the settings of the developer portal in the API Management instance to in
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Developer portal**, select **Portal settings**.
-1. On the **Self-hosted portal configuration** tab, enter the hostname of your WordPress on App Service site as a portal origin, substituting the name of your app service in the following URL: `https://<yourappservicename>.azurewebsites.net`
+1. On the **Self-hosted portal configuration** tab, enter the hostname of your WordPress on App Service site as a portal origin, substituting the name of your app service in the following URL: `https://<yourapp-service-name>.azurewebsites.net`
 1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
 
 ## Step 9: Sign into the API Management developer portal deployed on WordPress 
 
 Sign into the WordPress site to see your new API Management developer portal deployed on WordPress and hosted on App Service.
 
-1. In a new browser window, navigate to your WordPress site, substituting the name of your app service in the following URL: `https://<yourappservicename>.azurewebsites.net` 
+1. In a new browser window, navigate to your WordPress site, substituting the name of your app service in the following URL: `https://<yourapp-service-name>.azurewebsites.net` 
 1. When prompted, sign in using Microsoft Entra ID credentials for a developer account.
 
 
@@ -289,6 +177,7 @@ The following screenshot shows a sample page of the API Management developer por
        
 ## Related content
 
-- [Create a WordPress site on Azure App Service](../app-service/quickstart-wordpress.md).
+- [Create a WordPress site on Azure App Service](../app-service/quickstart-wordpress.md)
+- [WordPress on Linux App Service repo](https://github.com/Azure/wordpress-linux-appservice)
 - [Customize the developer portal](api-management-howto-developer-portal-customize.md) 
 - [Authorize developer accounts by using Microsoft Entra ID in Azure API Management](api-management-howto-aad.md).
