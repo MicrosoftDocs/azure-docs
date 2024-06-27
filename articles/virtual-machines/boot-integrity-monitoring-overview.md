@@ -196,4 +196,4 @@ Azure Attestation provides a [regional shared provider](https://maainfo.azureweb
 
 ## Related content
 
-Learn more about [Trusted Launch](trusted-launch.md) and [deploying a trusted VM](trusted-launch-portal.md).
+Learn more about [Trusted Launch](trusted-launch.md) and [deploying a Trusted Launch VM](trusted-launch-portal.md).
