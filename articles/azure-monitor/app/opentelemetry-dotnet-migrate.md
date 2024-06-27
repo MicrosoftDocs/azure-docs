@@ -12,11 +12,11 @@ ms.reviewer: mmcc
 
 This guide provides step-by-step instructions to migrate various .NET applications from using Application Insights software development kits (SDKs) to Azure Monitor OpenTelemetry.
 
-You can expect a similar experience with Azure Monitor OpenTelemetry instrumentation as you did with the Application Insights SDKs. For more information and a feature-by-feature comparison, see [release state of features](opentelemetry-enable.md#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
+Expect a similar experience with Azure Monitor OpenTelemetry instrumentation as with the Application Insights SDKs. For more information and a feature-by-feature comparison, see [release state of features](opentelemetry-enable.md#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
 
 > [!div class="checklist"]
-> - ASP.NET Core migration to the [Azure Monitor OpenTelemetry Distro](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore). (Azure.Monitor.OpenTelemetry.AspNetCore NuGet package)
-> - ASP.NET, console, and WorkerService migration to the [Azure Monitor OpenTelemetry Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter). (Azure.Monitor.OpenTelemetry.Exporter NuGet package)
+> - ASP.NET Core migration to the [Azure Monitor OpenTelemetry Distro](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore). (`Azure.Monitor.OpenTelemetry.AspNetCore` NuGet package)
+> - ASP.NET, console, and WorkerService migration to the [Azure Monitor OpenTelemetry Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter). (`Azure.Monitor.OpenTelemetry.Exporter` NuGet package)
 
 If you're getting started with Application Insights and don't need to migrate from the Classic API, see [Enable Azure Monitor OpenTelemetry](opentelemetry-enable.md).
 
