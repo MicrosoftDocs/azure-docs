@@ -102,7 +102,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Cipher configuration
 * Client certificate renegotiation
 * Free, managed TLS certificate
-* Request tracing in the test console
 * Requests to the gateway over localhost
 
 ## Resource limits
