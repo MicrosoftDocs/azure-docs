@@ -79,11 +79,11 @@ To configure the clipboard using Intune, follow these steps. This process [deplo
 
          | Value | Description |
          |--|--|
-         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION" value="0"/>]]>` | Disable clipboard transfers from session host to client. |
-         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION" value="1"/>]]>` | Allow plain text. |
-         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION" value="2"/>]]>` | Allow plain text and images. |
-         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION" value="3"/>]]>` | Allow plain text, images, and Rich Text Format. |
-         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION" value="4"/>]]>` | Allow plain text, images, Rich Text Format, and HTML. |
+         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION_Text" value="0"/>]]>` | Disable clipboard transfers from session host to client. |
+         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION_Text" value="1"/>]]>` | Allow plain text. |
+         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION_Text" value="2"/>]]>` | Allow plain text and images. |
+         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION_Text" value="3"/>]]>` | Allow plain text, images, and Rich Text Format. |
+         | `<![CDATA[<enabled/><data id="TS_CS_CLIPBOARD_RESTRICTION_Text" value="4"/>]]>` | Allow plain text, images, Rich Text Format, and HTML. |
 
 1. Select **Save** to add the row. Repeat the previous two steps to configure the clipboard in the other direction, if necessary, then once you configure the settings you want, select **Next**.
 
