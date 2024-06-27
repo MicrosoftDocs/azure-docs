@@ -169,7 +169,7 @@ You can check the following items to troubleshoot the issue:
 
 The error message is as follows:
 
-````
+````bash
 AzureML extension service not found in cluster.
 ````
 
@@ -184,7 +184,7 @@ You can:
 
 The error message is as follows:
 
-````
+````bash
 AMLArc failed to connect to the cluster, reason: Unauthorized.
 ````
 
