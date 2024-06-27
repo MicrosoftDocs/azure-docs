@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 05/31/2024
+ms.date: 06/27/2024
 ms.topic: conceptual
 ---
 
@@ -20,14 +20,7 @@ This article discusses best practices and useful tips for using the Azure Batch 
 
 - **Pool allocation mode:** When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable a small but important subset of scenarios. For more information, see [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **`virtualMachineConfiguration` or `cloudServiceConfiguration`:** While you can currently create pools using either
-configuration, new pools should be configured using `virtualMachineConfiguration` and not `cloudServiceConfiguration`.
-All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Service Configuration
-pools don't support all features and no new capabilities are planned. You won't be able to create new
-`cloudServiceConfiguration` pools or add new nodes to existing pools
-[after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-For more information, see
-[Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+- **`virtualMachineConfiguration`:** You can currently create pools or configure using `virtualMachineConfiguration` configuration. All current and new Batch features will be supported by Virtual Machine Configuration pools.
 
 - **`classic` or `simplified` node communication mode:** Pools can be configured in one of two node communication modes,
 classic or [simplified](simplified-compute-node-communication.md). In the classic node communication model, the Batch service
