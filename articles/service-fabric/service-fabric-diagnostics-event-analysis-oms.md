@@ -16,7 +16,7 @@ ms.date: 07/14/2022
 * How do I know when a node goes down?
 * How do I know if my application's services have started or stopped?
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Overview of the Log Analytics workspace
 
