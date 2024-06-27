@@ -19,7 +19,7 @@ In this article, you learn how Data Lake Storage Gen1 works with HDInsight clust
 > [!NOTE]  
 > Data Lake Storage Gen1 is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Availability for HDInsight clusters
 
