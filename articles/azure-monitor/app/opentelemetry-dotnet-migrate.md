@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Migrate from .NET Application Insights SDKs to Azure Monitor OpenTelemetry
 
-This guide provides step-by-step instructions to migrate various .NET applications from Application Insights software development kits (SDKs) to Azure Monitor OpenTelemetry.
+This guide provides step-by-step instructions to migrate various .NET applications from using Application Insights software development kits (SDKs) to Azure Monitor OpenTelemetry.
 
 > [!div class="checklist"]
 > - ASP.NET Core migration to the OpenTelemetry Distro
@@ -48,7 +48,7 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 Visual Studio's *Add Application Insights* experience adds more files.
 
-> [!Tip]
+> [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
@@ -97,7 +97,7 @@ Visual Studio's *Add Application Insights* experience adds more files.
 If using NuGet tools to remove the Application Insights, then some is cleaned up.
 If you're manually removing the package reference from your csproj, you need to manually clean up these artifacts.
 
-> [!Tip]
+> [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
@@ -174,7 +174,7 @@ If you're manually removing the package reference from your csproj, you need to 
 
 ### [Console](#tab/console)
 
-> [!Tip]
+> [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
@@ -218,7 +218,7 @@ If you're manually removing the package reference from your csproj, you need to 
 The first step is to remove the Application Insights SDK.
 If you used Visual Studio's *Add Application Insights* experience, it added more files.
 
-> [!Tip]
+> [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
@@ -264,11 +264,11 @@ If you used Visual Studio's *Add Application Insights* experience, it added more
 
 ## Enable OpenTelemetry
 
-Before you begin, create a temporary [resource](./create-workspace-resource.md) for development and use its [connection string](./sdk-connection-string.md) to store telemetry.
+Before you begin, create a temporary [resource](./create-workspace-resource.md) for development and use its [connection string](./sdk-connection-string.md) when following these instructions to store telemetry.
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows the Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-Plan to update the connection string to send telemetry to the original resource after confirming the following migration steps work as expected.
+Plan to update the connection string to send telemetry to the original resource after confirming migration is successful.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
