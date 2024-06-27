@@ -1,7 +1,7 @@
 ---
 title: Operational guide - Microsoft Sentinel
 description: Learn about the operational recommendations to help security operations teams to plan and run security activities.
-ms.date: 06/18/2024
+ms.date: 06/25/2024
 ms.topic: reference
 ms.author: cwatson
 author: cwatson-cat
@@ -10,6 +10,10 @@ appliesto:
 ---
 
 # Microsoft Sentinel operational guide
+
+This article lists daily, weekly, and monthly operational activities that we recommend security operations (SOC) teams and security administrators plan and run.
+
+We recommend security operations (SOC) teams and security administrators that use Microsoft Sentinel plan and run the operational activities listed in this article.
 
 This section of the Microsoft Sentinel documentation helps security operations (SOC) teams and security administrators to plan and run regular security activities with Microsoft Sentinel.
 
