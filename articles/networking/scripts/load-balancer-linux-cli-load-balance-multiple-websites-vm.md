@@ -18,7 +18,7 @@ This script sample creates a virtual network with two virtual machines (VM) that
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
