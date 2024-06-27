@@ -48,8 +48,8 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 Visual Studio's *Add Application Insights* experience adds more files.
 
-    > [!Tip]
-    > Before continuing with these steps, you should confirm that you have a current backup of your application.
+> [!Tip]
+> Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -97,8 +97,8 @@ Visual Studio's *Add Application Insights* experience adds more files.
 If using NuGet tools to remove the Application Insights, then some is cleaned up.
 If you're manually removing the package reference from your csproj, you need to manually clean up these artifacts.
 
-    > [!Tip]
-    > Before continuing with these steps, you should confirm that you have a current backup of your application.
+> [!Tip]
+> Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -174,8 +174,8 @@ If you're manually removing the package reference from your csproj, you need to 
 
 ### [Console](#tab/console)
 
-    > [!Tip]
-    > Before continuing with these steps, you should confirm that you have a current backup of your application.
+> [!Tip]
+> Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -218,8 +218,8 @@ If you're manually removing the package reference from your csproj, you need to 
 The first step is to remove the Application Insights SDK.
 If you used Visual Studio's *Add Application Insights* experience, it added more files.
 
-    > [!Tip]
-    > Before continuing with these steps, you should confirm that you have a current backup of your application.
+> [!Tip]
+> Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
