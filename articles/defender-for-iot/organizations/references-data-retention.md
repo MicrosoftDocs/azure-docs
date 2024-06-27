@@ -26,7 +26,7 @@ This data enables Defender for IoT to:
 - Provide your security team a view into devices and addresses related to threat signals from your network, enabling you to investigate and explore possible network security threats.<!-- try to rewrite -->
 
 Microsoft doesn't use your data for advertising. 
-
+<!-- the new doc writes about storage on Azure, but doesnt mention on prem or sensor storage, should those sections later be removed or is this just about adding to what was on the doc? -->
 ## Data Location 
 
 Defender for Iot uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in:  
@@ -42,7 +42,7 @@ Your data is kept and is available while your license is under a grace period or
 
 ## Device data retention periods
 
-The following table lists long device data is stored in each Defender for IoT location.
+The following table lists how long device data is stored in each Defender for IoT location.<!-- storage type?-->
 
 | Storage type | Details |
 |---------|---------|
@@ -52,7 +52,7 @@ The following table lists long device data is stored in each Defender for IoT lo
 
 ## Alert data retention
 
-The following table lists how long alert data is stored in each Defender for IoT location. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
+The following table lists how long alert data is stored in each Defender for IoT location<!-- storage type?-->. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
 
 | Storage type | Details |
 |---------|---------|
@@ -62,7 +62,7 @@ The following table lists how long alert data is stored in each Defender for IoT
 
 ### OT alert PCAP data retention
 
-The following table lists how long PCAP data is stored in each Defender for IoT location.
+The following table lists how long PCAP data is stored in each Defender for IoT location.<!-- storage type?-->
 
 | Storage type | Details |
 |---------|---------|
@@ -114,7 +114,7 @@ For more information, see:
 - [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
 
 ## Data sharing
-
+<!-- should this be added to the list here - ## Data sharing for Microsoft Defender for IoT or should this be removed now, as it wasnt in the doc list below. -->
 Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
 
 - Microsoft Security Exposure Management
@@ -143,7 +143,7 @@ The retention of backup files depends on the sensor's architecture, as each hard
 | **E1800**       |   100 GB |
 | **C5600**       |   100 GB |
 
-If the device doesn't have allocated hard disk space, then only the last backup is saved on the on-premises management console.
+If the device doesn't have allocated<!-- cant allocate (enough) hard disk space --> hard disk space, then only the last backup is saved on the on-premises management console.
 
 ### Backups on the on-premises management console
 
