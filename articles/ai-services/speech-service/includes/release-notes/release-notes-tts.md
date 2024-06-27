@@ -13,6 +13,12 @@ ms.custom: references_regions
 
 Personal voice is now generally available. With personal voice, you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales. For more information, see the [personal voice overview](../../personal-voice-overview.md).
 
+#### Prebuilt neural voice
+
+- Introduce 8 new multilingual voices in public preview: `en-GB-AdaMultilingualNeural`, `en-GB-OllieMultilingualNeural`, `es-ES-ArabellaMultilingualNeural`, `es-ES-IsidoraMultilingualNeural`, `it-IT-AlessioMultilingualNeural`, `it-IT-IsabellaMultilingualNeural`, `it-IT-MarcelloMultilingualNeural`, and `pt-BR-ThalitaMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+  
+- Introduce 2 new `en-US` voices optimized for Call Center scenario in public preview: `en-US-LunaNeural` and `en-US-KaiNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
 ### April 2024 release
 
 #### Text to speech avatar

@@ -40,7 +40,13 @@ Enabling and disabling long-term support is a combination of moving your cluster
 ### Create a cluster with LTS enabled
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport --kubernetes-version 1.27
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier premium \
+    --k8s-support-plan AKSLongTermSupport \
+    --kubernetes-version 1.27 \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -121,9 +127,6 @@ To carry out an in-place upgrade to the latest LTS version, you need to specify 
 ```azurecli
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.32.2
 ```
-> [!NOTE]
->If you use any programming/scripting logic to list and select a minor version of Kubernetes before creating clusters with the `ListKubernetesVersions` API, note that starting from Kubernetes v1.27, the API returns `SupportPlan` as `[KubernetesOfficial, AKSLongTermSupport]`. Please ensure you update any logic to exclude `AKSLongTermSupport` versions to avoid any breaks and choose `KubernetesOfficial` support plan versions.  Otherwise, if LTS is indeed your path forward please first opt-into the Premium tier and the `AKSLongTermSupport` support plan versions from the `ListKubernetesVersions` API before creating clusters.
-
 > [!NOTE]
 > The next Long Term Support Version after 1.27 is to be determined. However Customers will get a minimum 6 months of overlap between 1.27 LTS and the next LTS version to plan upgrades.  
 > Kubernetes 1.32.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.

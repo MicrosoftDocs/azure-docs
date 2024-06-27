@@ -14,4 +14,4 @@ ms.author: eur
 
 | Service | Description | Reference documentation |
 | --- | --- | --- |
-| ![Speech icon](../../../media/service-icons/speech.svg) [Speech](../../../speech-service/index.yml) | Add speech to text, text to speech, translation, and speaker recognition capabilities to applications. | &bullet;&NonBreakingSpace;[Speech SDK for Objective-C](/objectivec/cognitive-services/speech/?branch=main)<br><br>&bullet;&NonBreakingSpace;[Download Speech Objective-C package](https://aka.ms/csspeech/macosbinary) |
+| ![Speech icon](~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg) [Speech](../../../speech-service/index.yml) | Add speech to text, text to speech, translation, and speaker recognition capabilities to applications. | &bullet;&NonBreakingSpace;[Speech SDK for Objective-C](/objectivec/cognitive-services/speech/?branch=main)<br><br>&bullet;&NonBreakingSpace;[Download Speech Objective-C package](https://aka.ms/csspeech/macosbinary) |

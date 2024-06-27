@@ -94,7 +94,7 @@ Quotas for both storage and vector index size increase or decrease as you add or
 
 ### [**REST**](#tab/rest-vector-quota)
 
-Use the following data plane REST APIs (version 2023-10-01-preview, 2023-11-01, and later) for vector usage statistics:
+Data plane REST APIs (version 2023-10-01-preview, 2023-11-01, and all newer APIs) provide vector usage statistics:
 
 + [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up. 
 + [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.

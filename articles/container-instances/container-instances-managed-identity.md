@@ -176,6 +176,12 @@ Output:
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
 ```
 
+For Windows containers, metadata server (169.254.169.254) is not available. Run the following or equivalent commands to get an access token.
+
+```console
+curl -G -v %IDENTITY_ENDPOINT% --data-urlencode resource=https://vault.azure.net --data-urlencode principalId=<principal id> -H secret:%IDENTITY_HEADER%
+```
+
 To store the access token in a variable to use in subsequent commands to authenticate, run the following command:
 
 ```bash
@@ -288,6 +294,8 @@ The value of the secret is retrieved:
 ```output
 "Hello Container Instances"
 ```
+
+For Windows containers, the 'az login' command will not work because the metadata server is unavailable. Additionally, a managed identity token cannot be generated in a Windows VNet container.
 
 ## Enable managed identity using Resource Manager template
 

@@ -3,17 +3,18 @@ title: Migration partners
 description: Lists of third-party migration partners with solutions that support Azure Database for MySQL - Flexible Server.
 author: HJToland3
 ms.author: jtoland
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 06/01/2023
 ---
 
 # Azure Database for MySQL - Flexible Server migration partners
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 To broadly support your Azure Database for MySQL flexible server solution, you can choose from a wide variety of industry-leading partners and tools. This article highlights Microsoft partners with migration solutions that support Azure Database for MySQL flexible server.
 

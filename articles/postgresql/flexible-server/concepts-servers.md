@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Server concepts for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL flexible server.
 

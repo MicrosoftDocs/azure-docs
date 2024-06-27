@@ -6,17 +6,17 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
 
 # Reference: Completions | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Creates a completion for the provided prompt and parameters.
 

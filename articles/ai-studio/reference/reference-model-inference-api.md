@@ -6,17 +6,17 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
 
 # Azure AI Model Inference API | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The Azure AI Model Inference is an API that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. Developers can talk with different models deployed in Azure AI Studio without changing the underlying code they are using.
 
@@ -32,7 +32,7 @@ While foundational models excel in specific domains, they lack a uniform set of 
 > * Use smaller models that can run faster on specific tasks.
 > * Compose multiple models to develop intelligent experiences.
 
-Having a uniform way to consume foundational models allow developers to realize all those benefits without changing a single line of code on their applications.
+Having a uniform way to consume foundational models allow developers to realize all those benefits without sacrificing portability or changing the underlying code.
 
 ## Availability
 
@@ -43,8 +43,8 @@ Models deployed to [serverless API endpoints](../how-to/deploy-models-serverless
 > [!div class="checklist"]
 > * [Cohere Embed V3](../how-to/deploy-models-cohere-embed.md) family of models
 > * [Cohere Command R](../how-to/deploy-models-cohere-command.md) family of models
-> * [Meta Llama 2](../how-to/deploy-models-llama.md) family of models
-> * [Meta Llama 3](../how-to/deploy-models-llama.md) family of models
+> * [Meta Llama 2 chat](../how-to/deploy-models-llama.md) family of models
+> * [Meta Llama 3 instruct](../how-to/deploy-models-llama.md) family of models
 > * [Mistral-Small](../how-to/deploy-models-mistral.md)
 > * [Mistral-Large](../how-to/deploy-models-mistral.md)
 > * [Phi-3](../how-to/deploy-models-phi-3.md) family of models
@@ -153,6 +153,49 @@ __Response__
 
 > [!TIP]
 > You can inspect the property `details.loc` to understand the location of the offending parameter and `details.input` to see the value that was passed in the request.
+
+## Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](../concepts/content-filtering.md). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+The following example shows the response for a chat completion request that has triggered content safety. 
+
+__Request__
+
+```HTTP/1.1
+POST /chat/completions?api-version=2024-04-01-preview
+Authorization: Bearer <bearer-token>
+Content-Type: application/json
+```
+
+```JSON
+{
+    "messages": [
+    {
+        "role": "system",
+        "content": "You are a helpful assistant"
+    },
+    {
+        "role": "user",
+        "content": "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+    }
+    ],
+    "temperature": 0,
+    "top_p": 1,
+}
+```
+
+__Response__
+
+```JSON
+{
+    "status": 400,
+    "code": "content_filter",
+    "message": "The response was filtered",
+    "param": "messages",
+    "type": null
+}
+```
 
 ## Getting started
 

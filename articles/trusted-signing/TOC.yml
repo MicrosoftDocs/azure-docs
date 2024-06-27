@@ -22,6 +22,8 @@
       href: how-to-cert-revocation.md
     - name: Renew Trusted Signing identity validation
       href: how-to-renew-identity-validation.md
+    - name: Change Pricing Tier
+      href: how-to-change-sku.md
   - name: Tutorials
     items:
     - name: Assign roles in Trusted Signing

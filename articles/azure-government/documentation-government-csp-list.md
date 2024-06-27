@@ -32,7 +32,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
 |[ADNET Technologies](https://thinkadnet.com/)|
-|[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Advisicon, Inc](https://advisicon.com/)|
 |[Advizex Technologies](https://advizex.com/)|
 |[Aeon Nexus Corp.](https://www.aeonnexus.com/)|
@@ -143,7 +142,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Datastrong](https://www.datastrong.com)|
 |[Daymark Solutions Inc.](https://www.daymarksi.com/)|
 |[Deborgem Enterprises Incorporated](https://deborgem.com)|
-|[Definitive Logic Corporation](https://www.definitivelogic.com/)|
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|

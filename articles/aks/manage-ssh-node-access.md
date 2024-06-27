@@ -21,7 +21,7 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 * Update the SSH keys on an existing AKS cluster
 * Disable and enable the SSH service
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Before you begin
 

@@ -27,6 +27,7 @@ The application routing add-on with nginx delivers the following:
 - Azure Key Vault if you want to configure SSL termination and store certificates in the vault hosted in Azure.
 - Azure DNS if you want to configure global and private zone management and host them in Azure.
 - To attach an Azure Key Vault or Azure DNS Zone, you need the [Owner][rbac-owner], [Azure account administrator][rbac-classic], or [Azure co-administrator][rbac-classic] role on your Azure subscription.
+- All public DNS Zones must be in the same subscription and Resource Group.
 
 ## Connect to your AKS cluster
 
@@ -226,7 +227,7 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
-[summary-msi]: use-managed-identity.md#summary-of-managed-identities
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities-used-by-aks
 [rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
 [rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [app-routing-add-on-basic-configuration]: app-routing.md

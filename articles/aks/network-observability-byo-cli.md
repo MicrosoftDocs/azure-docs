@@ -36,7 +36,7 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 
 ### Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ```azurecli-interactive
 # Install the aks-preview extension
