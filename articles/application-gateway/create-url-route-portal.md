@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Create a backend listener
 > * Create a path-based routing rule
 
-:::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example.":::
+:::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/application-gateway-create-url-route-portal/scenario.png":::
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
