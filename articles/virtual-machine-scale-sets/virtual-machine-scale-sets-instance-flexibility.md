@@ -16,7 +16,7 @@ ms.reviewer: jushiman
 Instance Flexibility enables you to specify multiple different Virtual Machine (VM) sizes in your Virtual Machine Scale Set with Flexible Orchestration Mode, and an allocation strategy to further optimize your deployments. 
 
 Instance Flexibility is best suited for workloads that are flexible in compute requirements and can be run on various different sized VMs. Using Instance Flexibility you can:
-- Deploy a heterogeneous mix of VM sizes in a single scale set up to the instance size limit. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
+- Deploy a heterogeneous mix of VM sizes in a single scale set. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
 - Optimize your deployments for cost or capacity through allocation strategies.
 - Continue to make use of scale set features, like [Spot Priority Mix](./spot-priority-mix.md), [Autoscale](./virtual-machine-scale-sets-autoscale-overview.md), or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
 - Spread a heterogeneous mix of VMs across Availability Zones and Fault Domains for high availability and reliability.
@@ -42,7 +42,7 @@ The `sku.tier` property is currently an optional scale set property and will be 
 The `sku.capacity` property continues to represent the overall size of the scale set in terms of the total number of VMs.
 
 ### scaleInPolicy
-The optional scale-in property isn't needed for VMSS deployments using Instance Flexibility. When scaling in, the scale set utilizes the allocation strategy to inform the decision on which VMs should be scaled in. For example, when using `LowestPrice`, the scale set scales in by removing the more expensive VMs first.
+The optional scale-in property isn't needed for scale set deployments using Instance Flexibility. During scaling in events, the scale set utilizes the allocation strategy to inform the decision on which VMs should be scaled in. For example, when you use `LowestPrice`, the scale set scales in by removing the more expensive VMs first.
 
 ## New scale set properties
 ### skuProfile
@@ -55,23 +55,23 @@ The `vmSizes` property is where you specify the specific VM sizes that you're us
 Instance Flexibility introduces the ability to set allocation strategies for your scale set. The `allocationStrategy` property is where you specify which allocation strategy you'd like to use for your Instance Flexible scale set deployments. There are two options for allocation strategies, `lowestPrice` and `capacityOptimized`. Allocation strategies apply to both Spot and Standard VMs.
 
 #### lowestPrice (default)
-This allocation strategy is focused on workloads where cost and cost-optimization are most important. When evaluating what VM split to use, Azure looks at the lowest priced VMs of those specified. Azure also considers capacity as part of this allocation strategy. When using the `lowestPrice` allocation strategy, the scale set deploys as many of the lowest priced VMs as it can, depending on available capacity, before moving on to the next lowest priced VM size specified.
+This allocation strategy is focused on workloads where cost and cost-optimization are most important. When evaluating what VM split to use, Azure looks at the lowest priced VMs of the VM sizes specified. Azure also considers capacity as part of this allocation strategy. When using the `lowestPrice` allocation strategy, the scale set deploys as many of the lowest priced VMs as it can, depending on available capacity, before moving on to the next lowest priced VM size specified.
 
 #### capacityOptimized
 This allocation strategy is focused on workloads where attaining capacity is the primary concern. When evaluating what VM size split to deploy in the scale set, Azure looks only at the underlying capacity available. It doesn't take price into account when determining what VMs to deploy. Using `capacityOptimized` can result in the scale set deploying the most expensive, but most readily available VMs. 
 
 ## Cost
-Following the scale set cost model, usage of Instance Flexibility is free. You'll continue to only pay for the underlying resources, like the VM, disk, and networking.
+Following the scale set cost model, usage of Instance Flexibility is free. You continue to only pay for the underlying resources, like the VM, disk, and networking.
 
 ## Limitations
-- Instance Flexibility is currently available in the following regions: West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europe, UK South, and France Central. More regions will be supported during Public Preview.
+- Instance Flexibility is currently available in the following regions: West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europe, UK South, and France Central. 
 - Instance Flexibility is only available for scale sets using Flexible Orchestration Mode.
 - Instance Flexibility is currently only available through ARM template and in the Azure portal.
 - You must have quota for the VM sizes you're requesting with Instance Flexibility.
 - You can specify **up to** five VM sizes with Instance Flexibility at this time.
 - Existing scale sets can't be updated to use Instance Flexibility. 
 - VM sizes can't be changed once the scale set is deployed.
-- For REST API deployments, you must have an existing virtual network inside of the resource group that you'll be deploying your scale set with Instance Flexibility in.
+- For REST API deployments, you must have an existing virtual network inside of the resource group that you're deploying your scale set with Instance Flexibility in.
 
 ## Deploy a scale set using Instance Flexibility
 The following example can be used to deploy a scale set using Instance Flexibility:
@@ -143,4 +143,4 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
 Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Flexibility. To do so, use [Spot Priority Mix](./spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
 
 ## My region doesn't support Instance Flexibility today, will it support Instance Flexibility in the future?
-Instance Flexibility is rolling out to all Azure regions during Public Preview. The documentation will be updated as more regions are supported. Instance Flexibility is currently available in the following regions: West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europe, UK South, and France Central.
+Instance Flexibility is rolling out to all Azure regions during Public Preview. Instance Flexibility is currently available in the following regions: West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europe, UK South, and France Central.
