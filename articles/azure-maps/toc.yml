@@ -106,6 +106,8 @@ items:
         items:
         - name: Get Imagery Metadata
           href: migrate-get-imagery-metadata.md
+        - name: Get a Static Map
+          href: migrate-get-static-map.md
       - name: Bing Maps Locations Services
         items:
         - name: Find a Location by Address
