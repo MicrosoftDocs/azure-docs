@@ -13,7 +13,7 @@ ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track
 
 # Azure Synapse Runtime for Apache Spark 3.2 (deprecated)
 
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2.
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2.
 
 > [!WARNING]
 > Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.2
@@ -2422,4 +2422,4 @@ widgetsnbextension==3.5.2
 
 ## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4, refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
