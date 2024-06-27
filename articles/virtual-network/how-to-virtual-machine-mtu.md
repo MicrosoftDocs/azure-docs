@@ -231,7 +231,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.5
     ```
 
-1. If successful, the output is similar to the following example. If the script's output is not successful, it indicates that the MTU size is not set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
+1. If successful, the output is similar to the following example. If the script's output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
     ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.5
@@ -250,7 +250,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.4
     ```
 
-1. If successful, the output is similar to the following example. If the script's output is not successful, it indicates that the MTU size is not set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
+1. If successful, the output is similar to the following example. If the script's output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
      ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.4
