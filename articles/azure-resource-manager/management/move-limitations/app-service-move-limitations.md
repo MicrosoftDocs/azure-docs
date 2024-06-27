@@ -3,7 +3,7 @@ title: Move Azure App Service resources across resource groups or subscriptions
 description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 10/17/2023
+ms.date: 06/20/2024
 ---
 
 # Move App Service resources to a new resource group or subscription

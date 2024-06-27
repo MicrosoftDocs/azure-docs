@@ -15,7 +15,7 @@ ms.date: 03/21/2024
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create and configure a dev center and project for creating an environment.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template opens in the Azure portal.

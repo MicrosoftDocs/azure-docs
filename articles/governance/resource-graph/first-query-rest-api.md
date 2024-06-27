@@ -18,7 +18,7 @@ Resource Graph query.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Getting started with REST API
 

@@ -16,7 +16,7 @@ ms.custom: mvc, devx-track-azurecli, linux-related-content
 
 This sample script creates a resource group, a Linux App Service plan, and an app. It then deploys an ASP.NET Core application using a Docker Container from the Azure Container Registry.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -81,7 +81,7 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

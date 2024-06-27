@@ -46,9 +46,9 @@ To set up the BTP account and the solution:
     Here are examples of these field values:
 
     - **url**: `https://auditlog-management.cfapps.us10.hana.ondemand.com`
-    - **uaa.clientid**: `sb-ac79fee5-8ad0-4f88-be71-d3f9c566e73a!b136532|auditlog-management!b1237`
-    - **uaa.clientsecret**: `682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=`
-    - **uaa.url**: `https://915a0312trial.authentication.us10.hana.ondemand.com`
+    - **uaa.clientid**: `00001111-aaaa-2222-bbbb-3333cccc4444|auditlog-management!b1237`
+    - **uaa.clientsecret**: `aaaaaaaa-0b0b-1c1c-2d2d-333333333333`
+    - **uaa.url**: `https://trial.authentication.us10.hana.ondemand.com`
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Microsoft Sentinel service.
