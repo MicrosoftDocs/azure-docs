@@ -36,7 +36,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../articles/bastion/bastion-overview.md)
 
     >[!NOTE]
-    >[!INCLUDE [Pricing](./bastion-pricing.md)]
+    >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Enter or select the following information in **Azure Bastion**:
 
