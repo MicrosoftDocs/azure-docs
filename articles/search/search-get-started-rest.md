@@ -61,7 +61,7 @@ You're pasting this key into the `.rest` or `.http` file in a later step.
 
 Make sure your search service is [configured for role-based access](search-security-enable-roles.md). You must have preconfigured [role-assignments for developer access](search-security-rbac.md#assign-roles-for-development). Your role assignments must grant permission to create, load, and query a search index. 
 
-In this section, obtain your personal identity token using either the Azure CLI, Azure PowerShell, or the Azure portal. You're pasting your personal identity token into the `.rest` or `.http` file in a later step.
+In this section, obtain your personal identity token using either the Azure CLI, Azure PowerShell, or the Azure portal. 
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -97,6 +97,8 @@ In this section, obtain your personal identity token using either the Azure CLI,
 Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
 
 ---
+
+You're pasting your personal identity token into the `.rest` or `.http` file in a later step.
 
 > [!NOTE]
 > This section assumes you're using a local client that connects to Azure AI Search on your behalf. An alternative approach is [getting a token for the client app](/entra/identity-platform/v2-oauth2-client-creds-grant-flow), assuming your application is [registered](/entra/identity-platform/quickstart-register-app) with Microsoft Entra ID.
