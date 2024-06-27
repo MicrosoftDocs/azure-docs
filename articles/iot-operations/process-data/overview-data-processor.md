@@ -46,7 +46,7 @@ Key Data Processor features include:
 
 ## Deploy Data Processor
 
-By default, Data Processor isn't included in an Azure IoT Operations Preview deployment. If you plan to use Data Processor, you must include it when you deploy Azure IoT Operations Preview - you can't add it later. To deploy Data Processor, use the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. To learn more, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+By default, Data Processor isn't included in an Azure IoT Operations Preview deployment. If you plan to use Data Processor, you must include it when you deploy Azure IoT Operations Preview - you can't add it later. To deploy Data Processor, use the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. To learn more, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## What is a pipeline?
 
@@ -86,7 +86,7 @@ Data Processor pipelines can use the following stages:
 
 ## Next step
 
-To try out Data Processor pipelines, see the [Azure IoT Operations quickstarts](../get-started/quickstart-deploy.md).
+To try out Data Processor pipelines, see the [Azure IoT Operations quickstarts](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 To learn more about Data Processor, see:
 

@@ -15,10 +15,10 @@ ms.date: 05/02/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to run your own workloads. This article includes guidance for both Ubuntu, Windows, and cloud environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md) to run your own workloads. This article includes guidance for both Ubuntu, Windows, and cloud environments.
 
 > [!TIP]
-> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 [!INCLUDE [validated-environments](../includes/validated-environments.md)]
 
@@ -344,4 +344,4 @@ To manage which clusters your OT users have access to, you can group your cluste
 
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](howto-deploy-iot-operations.md).

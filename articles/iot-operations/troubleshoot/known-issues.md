@@ -36,7 +36,7 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - You can't configure the size of a disk-backed buffer unless your chosen storage class supports it.
 
-- Even though IoT MQ's [diagnostic service](../monitor/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+- Even though IoT MQ's [diagnostic service](../configure-observability-monitoring/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
 
