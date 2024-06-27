@@ -28,7 +28,7 @@ In this article, you learn how to:
 * Download and apply the User VPN client configuration
 * View your virtual WAN
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Before you begin
 
