@@ -25,9 +25,6 @@ To complete this procedure, you need:
 - JSON text must be contained in a single row for proper ingestion. The JSON body (file) format is not supported.
   
 - Optionally a Data Collection Endpoint if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
-    For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
-
-
 
 - A Virtual Machine, Virtual Machine Scale Set, Arc-enabled server on-premises or Azure Monitoring Agent on a Windows on-premises client that writes logs to a text or JSON file.
     
