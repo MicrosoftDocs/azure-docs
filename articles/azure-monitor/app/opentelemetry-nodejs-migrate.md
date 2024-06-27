@@ -40,12 +40,13 @@ This guide provides two options to upgrade from the Azure Monitor Application In
     Remove all Application Insights instrumentation from your code. Delete any sections where the Application Insights client is initialized, modified, or called.
 
 4. Enable Application Insights with the Azure Monitor OpenTelemetry Distro.
-
+    > *Important:* `useAzureMonitor` must be called *before* you import anything else. There may be resulting telemetry loss if other libraries are imported first.
     Follow [getting started](opentelemetry-enable.md?tabs=nodejs) to onboard to the Azure Monitor OpenTelemetry Distro.
 
 #### Azure Monitor OpenTelemetry Distro changes and limitations
 
-The APIs from the Application Insights SDK 2.X aren't available in the Azure Monitor OpenTelemetry Distro. You can access these APIs through a nonbreaking upgrade path in the Application Insights SDK 3.X.
+   * The APIs from the Application Insights SDK 2.X aren't available in the Azure Monitor OpenTelemetry Distro. You can access these APIs through a nonbreaking upgrade path in the Application Insights SDK 3.X.
+   * Filtering dependencies, logs, and exceptions by operation name is not yet supported.
 
 ## [Upgrade](#tab/upgrade)
 
