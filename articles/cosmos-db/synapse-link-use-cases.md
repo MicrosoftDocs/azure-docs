@@ -12,10 +12,14 @@ ms.custom: cosmos-db-noetl-realtime-analytics
 # Azure Cosmos DB: Near real-time analytics use cases
 [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
-Azure Cosmos DB provides various analtytics options for near real-time analytics over operational data. To learn more about these options, please see ["Analytics and BI on your Azure Cosmos DB data"](analytics-bi-overview).
+Azure Cosmos DB provides various analtytics options for near real-time analytics over operational data. You can enable near-real time analytics on your Azure Cosmos DB data using following options:
+* Mirroring Azure Cosmos DB in Microsoft Fabric
+* Azure Synapse Link for Azure Cosmos DB
+
+To learn more about these options, please see "Analytics and BI on your Azure Cosmos DB data".
 
 > [!IMPORTANT]
-> Mirroring in Microsoft Fabric is now available in preview for NoSQL API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance and ability to unify your data estate. If you are considering Azure Synapse Link or getting started on near real-time analytics on your Azure Cosmos DB data, we recommend that you try mirroring to assess overall fit for your organization. For more information, click [here.](/fabric/database/mirrored-database/azure-cosmos-db?toc=/azure/cosmos-db/synapse-link-use-cases.md&bc=/azure/cosmos-db/breadcrumb/synapse-link-use-cases.md) 
+> Mirroring Azure Cosmos DB in Microsoft Fabric is now available in preview for NoSQL API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance and ability to unify your data estate. If you are considering Azure Synapse Link or getting started on near real-time analytics on your Azure Cosmos DB data, we recommend that you try mirroring to assess overall fit for your organization. For more information, click [here.](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context)
 
 Near real-time analytics can open up various possibilities for your businesses. Here are three sample scenarios: 
 
