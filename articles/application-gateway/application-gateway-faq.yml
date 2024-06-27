@@ -6,12 +6,12 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 03/15/2024
+  ms.date: 06/27/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
   The following common questions are asked about Azure Application Gateway.
   
@@ -556,6 +556,9 @@ sections:
 
       - question: Which ports are supported for TLS/TCP listeners?
         answer: The same list of [allowed port range and exceptions](application-gateway-components.md#ports) apply for the Layer 4 proxy too.
+
+      - question: How can I use the same port number for Public and Private TLS/TCP proxy listeners?
+        answer: The use of a common port for TLS/TCP listeners is currently not supported.
 
   - name: Configuration - ingress controller for AKS
     questions:

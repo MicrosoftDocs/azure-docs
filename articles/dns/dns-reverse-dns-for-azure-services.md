@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Configure reverse DNS for services hosted in Azure
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This article explains how to configure reverse DNS lookups for services hosted in Azure.
 

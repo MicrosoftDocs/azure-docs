@@ -20,7 +20,7 @@ This article provides:
 * Links to samples for cluster creation tasks.
 * Links to reference content for other management tasks.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
