@@ -297,18 +297,64 @@ Along with using Elasticsearch databases in Azure OpenAI Studio, you can also us
 
 ---
 
-## Deploy to a copilot (preview) or web app 
+## Deploy to a copilot (preview), Teams app (preview), or web app 
 
 After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
-This gives you the option of deploying a standalone web app for you and your users to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
+This gives you multiple options for deploying your model.
 
-You can also deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (preview) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio (preview) should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
+#### [Copilot](#tab/copilot)
+
+You can deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (preview) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio (preview) should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
 
 > [!NOTE]
 > Deploying to a copilot in Copilot Studio (preview) is only available in US regions.
+
+#### [Teams app](#tab/teams)
+
+You can deploy to a standalone Teams app (preview) directly from Azure OpenAI Studio, enabling you to bring conversational experience to your users in Teams to improve operational efficiency and democratize access of information. This Teams app is limited to users within a single tenant and personal chat (non-group chat) scenarios.  
+
+As a developer, follow the steps below: 
+
+1. Make sure you have fulfilled the prerequisite here 
+   * Tutorial - Build Custom Copilot - Teams | Microsoft Learn 
+   * Sign in to you M365 account and enable “custom app upload” 
+   * How to install the Azure CLI | Microsoft Learn 
+   * You have “Cognitive Service OpenAI user” role of the AOAI resource you are using 
+
+1. After you have added your data, click “deploy” and then “a Teams app(preview)”. Enter the name of your Teams app and download the zip file 
+
+1. Extract the zip file and open the folder in VSCode. 
+
+1. If you chose “API key” in data connection, manually copy and paste your Azure AI Search key in `src\prompts\chat\config.json` file. If you chose “system assigned managed identity”, you can skip this step. Learn more about different data connection options here 
+
+1. Click “debug in Edge” to run it locally only in your environment.  
+
+1. After you have tested it locally, you can provision, deploy and finally publish your Teams app.  
+
+1. Provision your app: https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/provision 
+    1. Go to Azure portal and select the resource group, select the newly created Azure App Service 
+    1. Go to settings > identity, enable system assigned identity 
+        1. Click “Azure role assignments” and click “add role assignments”.  
+        1. Scope: resource group 
+        1. Subscription: the subscription of your AOAI resource 
+        1. Resource group of your AOAI resource 
+        1. Role: Cognitive Service OpenAI user  
+
+1. Deploy to Azure: https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/deploy 
+
+1. Publish to Teams: https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/publish 
+
+
+See also [Tutorial - Build Custom Copilot](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library-tutorial). 
+
+#### [Web app](#tab/web-app)
+
+Deploying to a standalone web app lets you and your users to interact with chat models through a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
+
+---
 
 ## Use Azure OpenAI On Your Data securely
 
