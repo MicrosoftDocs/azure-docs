@@ -110,6 +110,8 @@ Below is a list of error types in **cluster scope** that you might encounter whe
 * [ERROR: GenericClusterError](#error-genericclustererror)
 * [ERROR: ClusterNotReachable](#error-clusternotreachable)
 * [ERROR: ClusterNotFound](#error-clusternotfound)
+* [ERROR: ClusterServiceNotFound](#error-clusterservicenotfound)
+* [ERROR: ClusterUnaithorized](#error-clusterunauthorized)
 
 #### ERROR: GenericClusterError
 
@@ -162,6 +164,34 @@ This error should occur when the system cannot find the AKS/Arc-Kubernetes clust
 You can check the following items to troubleshoot the issue:
 * First, check the cluster resource ID in the Azure portal to verify whether Kubernetes cluster resource still exists and is running normally.
 * If the cluster exists and is running, then you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
+
+#### ERROR: ClusterServiceNotFound
+
+The error message is as follows:
+
+````
+AzureML extension service not found in cluster.
+````
+
+This error should occur when the extension owned ingress service does not have enough backend pod.
+
+You can:
+
+* Access the cluster and check the status of service `azureml-ingress-nginx-controller` and its backend pod under `azureml` namespace.
+* If cluster does not have any running backend pod, check the reason by describe the pod. For example, if the pod does not have enough resources to run, please delete some deployment to free some resources for the ingress pod.
+
+#### ERROR: ClusterUnauthorized
+
+The error message is as follows:
+
+````
+AMLArc failed to connect to the cluster, reason: Unauthorized.
+````
+
+This error should only occur in TA-enabled cluster which means the token has expired during thedeploymen.
+
+You can:
+* Try again after several minutes.
 
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
