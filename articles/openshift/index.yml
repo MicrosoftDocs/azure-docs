@@ -46,7 +46,7 @@ landingContent:
         links:
           - text: Create a private Azure Red Hat OpenShift cluster
             url: ./howto-create-private-cluster-4x.md
-         - text: Deploy a Red Hat OpenShift cluster with an ARM template or Bicip file
+          - text: Deploy a Red Hat OpenShift cluster with an ARM template or Bicip file
             url: quickstart-openshift-arm-bicep-template.md
           - text: Configure DNS Forwarding for an Azure Red Hat OpenShift cluster
             url: dns-forwarding.md
