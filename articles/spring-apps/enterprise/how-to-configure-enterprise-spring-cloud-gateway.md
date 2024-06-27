@@ -832,17 +832,15 @@ The following list shows the supported add-on configurations for the add-on key 
         "PodOverrides": {
             "Containers": [
                 {
-                    {
-                        "Name": "gateway",
-                        "Lifecycle": {
-                            "PreStop": {
-                                "Exec": {
-                                    "Command": [
-                                        "/bin/sh",
-                                        "-c",
-                                        "sleep 20"
-                                    ]
-                                }
+                    "Name": "gateway",
+                    "Lifecycle": {
+                        "PreStop": {
+                            "Exec": {
+                                "Command": [
+                                    "/bin/sh",
+                                    "-c",
+                                    "sleep 20"
+                                ]
                             }
                         }
                     }

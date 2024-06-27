@@ -161,7 +161,7 @@ procedureSection:
       - |
         Achieving the optimal performance documented requires Accelerated Networking. In some cases, you must explicitly enable Accelerated Networking for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
       
-        [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+        [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 relatedContent:
   - text: Create a VM with multiple NICs|CLI
