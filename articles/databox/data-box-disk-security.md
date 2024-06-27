@@ -57,7 +57,7 @@ The Data Box service is protected by the following features.
 
 ## Managing personal data
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Azure Data Box Disk collects and displays personal information in the following key instances in the service:
 

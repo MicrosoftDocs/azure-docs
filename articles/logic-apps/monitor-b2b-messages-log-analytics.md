@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Set up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
@@ -29,7 +29,7 @@ To set up logging for your integration account, [install the Logic Apps B2B solu
 
 This article shows how to enable Azure Monitor logging for your integration account.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 

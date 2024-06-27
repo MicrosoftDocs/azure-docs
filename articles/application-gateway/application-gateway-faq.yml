@@ -11,7 +11,7 @@ metadata:
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
   The following common questions are asked about Azure Application Gateway.
   

@@ -14,7 +14,7 @@ ms.date: 01/05/2024
 
 This sample PowerShell script creates a pipeline in Azure Data Factory that copies data from one location to another location in an Azure Blob Storage.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

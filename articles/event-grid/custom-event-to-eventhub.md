@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 In this quickstart, you use the Azure CLI to create an Event Grid custom topic and an Event Hubs subscription for that topic. You then send sample events to the custom topic and verify that those events are delivered to an event hub.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a resource group
 
