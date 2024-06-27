@@ -79,30 +79,31 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Sign-in to **vm-1**
 
-1. Use the 'ifconfig` command to show the IP address of **vm-1**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
+1. Use the `ip` command to show the current network interfaces and their MTU settings, Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
 
     ```bash
-    ifconfig
+    ip address show
     ```
 
     ```output
-    ```
-
-1. Use the `ip` command to show the current network interfaces and their MTU settings:
-
-    ```bash
-    ip link show
-    ```
-
-    ```output
-    azureuser@vm-linux:~$ ip link show
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    azureuser@vm-1:~$ ip address show
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
-        link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-    3: enP1328s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq eth0 state UP mode DEFAULT group default qlen 1000
-        link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-        altname enP1328p0s2
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+           valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:c5:f3:14 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.4/24 metric 100 brd 10.0.0.255 scope global eth0
+           valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fec5:f314/64 scope link 
+           valid_lft forever preferred_lft forever
+    3: enP46433s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
+        link/ether 00:0d:3a:c5:f3:14 brd ff:ff:ff:ff:ff:ff
+        altname enP46433p0s2
+        inet6 fe80::20d:3aff:fec5:f314/64 scope link 
+           valid_lft forever preferred_lft forever
     ```
 
 1. Set the MTU value on **vm-1** to the highest value supported by the network interface. 
@@ -125,38 +126,57 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 1. Use the `ip` command to verify that the MTU settings have been applied to the network interface:
 
     ```bash
-    ip link show
+    ip address show
     ```
 
     ```output
+    azureuser@vm-1:~$ ip address show
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+           valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 3900 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:c5:f3:14 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.4/24 metric 100 brd 10.0.0.255 scope global eth0
+           valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fec5:f314/64 scope link 
+           valid_lft forever preferred_lft forever
+    3: enP46433s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
+        link/ether 00:0d:3a:c5:f3:14 brd ff:ff:ff:ff:ff:ff
+        altname enP46433p0s2
+        inet6 fe80::20d:3aff:fec5:f314/64 scope link 
+           valid_lft forever preferred_lft forever
     ```
 
 1. Sign-in to **vm-2**.
 
-1. Use the 'ifconfig` command to show the IP address of **vm-2**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.5**.
+1. Use the `ip` command to show the current network interfaces and their MTU settings, Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.5**.
 
     ```bash
-    ifconfig
+    ip address show
     ```
 
     ```output
-    ```
-
-1. Use the `ip` command to show the current network interfaces and their MTU settings:
-
-    ```bash
-    ip link show
-    ```
-
-    ```output
-    azureuser@vm-linux:~$ ip link show
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    azureuser@vm-2:~$ ip address show
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
-        link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-    3: enP1328s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq eth0 state UP mode DEFAULT group default qlen 1000
-        link/ether 00:0d:3a:00:bd:77 brd ff:ff:ff:ff:ff:ff
-        altname enP1328p0s2
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+           valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.5/24 metric 100 brd 10.0.0.255 scope global eth0
+           valid_lft forever preferred_lft forever
+        inet6 fe80::222:48ff:febd:2f39/64 scope link 
+           valid_lft forever preferred_lft forever
+    3: enP4697s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
+        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
+        altname enP4697p0s2
+        inet6 fe80::222:48ff:febd:2f39/64 scope link 
+           valid_lft forever preferred_lft forever
     ```
 
 1. Set the MTU value on **vm-2** to the highest value supported by the network interface. 
@@ -179,10 +199,28 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 1. Use the `ip` command to verify that the MTU settings have been applied to the network interface:
 
     ```bash
-    ip link show
+    ip address show
     ```
 
     ```output
+    azureuser@vm-2:~$ ip address show
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+           valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 3900 qdisc mq state UP group default qlen 1000
+        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.5/24 metric 100 brd 10.0.0.255 scope global eth0
+           valid_lft forever preferred_lft forever
+        inet6 fe80::222:48ff:febd:2f39/64 scope link 
+           valid_lft forever preferred_lft forever
+    3: enP4697s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
+        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
+        altname enP4697p0s2
+        inet6 fe80::222:48ff:febd:2f39/64 scope link 
+           valid_lft forever preferred_lft forever
     ```
 
 1. Sign-in to **vm-1**.
