@@ -151,18 +151,22 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
       --output "tsv" \
     )
     
-    az rest --method PUT --url "$resourceId/providers/Microsoft.Insights/diagnosticSettings/$diagnosticSettingName" --url-parameters "api-version=2021-05-01-preview" --body '{
-      "properties": {
-        "workspaceId": "'"$workspaceId"'",
-        "logs": [
-          {
-            "category": "QueryRuntimeStatistics",
-            "enabled": true
-          }
-        ],
-        "logAnalyticsDestinationType": "Dedicated"
-      }
-    }'
+    az rest \
+      --method "PUT" \
+      --url "$resourceId/providers/Microsoft.Insights/diagnosticSettings/$diagnosticSettingName" \
+      --url-parameters "api-version=2021-05-01-preview" \
+      --body '{
+        "properties": {
+          "workspaceId": "'"$workspaceId"'",
+          "logs": [
+            {
+              "category": "QueryRuntimeStatistics",
+              "enabled": true
+            }
+          ],
+          "logAnalyticsDestinationType": "Dedicated"
+        }
+      }'
     ```
 
     > [!IMPORTANT]
@@ -180,7 +184,10 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
       --output "tsv" \
     )
     
-    az rest --method GET --url "$resourceId/providers/Microsoft.Insights/diagnosticSettings/$diagnosticSettingName" --url-parameters "api-version=2021-05-01-preview"
+    az rest \
+      --method "GET" \
+      --url "$resourceId/providers/Microsoft.Insights/diagnosticSettings/$diagnosticSettingName" \
+      --url-parameters "api-version=2021-05-01-preview"
     ```
 
 ### [Bicep](#tab/bicep)
@@ -343,19 +350,37 @@ Use the Azure CLI to enable full-text query for your Azure Cosmos DB account.
 1. Enable full-text query using `az rest` again with an HTTP `PATCH` verb and a JSON payload.
 
     ```azurecli
-    az rest --method PATCH --url $(az cosmosdb show --resource-group "<resource-group-name>" --name "<account-name>" --query "id" --output "tsv") --url-parameters "api-version=2021-05-01-preview" --body '{
-      "properties": {
-        "diagnosticLogSettings": {
-          "enableFullTextQuery": "True"
+    az rest \
+      --method "PATCH" \
+      --url $(az cosmosdb show \
+        --resource-group "<resource-group-name>" \
+        --name "<account-name>" \
+        --query "id" \
+        --output "tsv" \
+      ) \
+      --url-parameters "api-version=2021-05-01-preview" \
+      --body '{
+        "properties": {
+          "diagnosticLogSettings": {
+            "enableFullTextQuery": "True"
+          }
         }
-      }
-    }'
+      }'
     ```
 
 1. Wait a few minutes for the operation to complete. Check the status of full-text query by using `az rest` again with HTTP `GET`.
 
     ```azurecli
-    az rest --method GET --url $(az cosmosdb show --resource-group "<resource-group-name>" --name "<account-name>" --query "id" --output "tsv") --url-parameters "api-version=2021-05-01-preview" --query "{accountName:name,fullTextQueryEnabled:properties.diagnosticLogSettings.enableFullTextQuery}"
+    az rest \
+      --method "GET" \
+      --url $(az cosmosdb show \
+        --resource-group "<resource-group-name>" \
+        --name "<account-name>" \
+        --query "id" \
+        --output "tsv" \
+      ) \
+      --url-parameters "api-version=2021-05-01-preview" \
+      --query "{accountName:name,fullTextQueryEnabled:properties.diagnosticLogSettings.enableFullTextQuery}"
     ```
 
     The output should be similar to this example.
