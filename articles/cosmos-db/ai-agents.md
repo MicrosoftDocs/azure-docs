@@ -12,13 +12,13 @@ ms.date: 06/26/2024
 
 # AI agents
 
-AI agents are designed to perform specific tasks, answer questions, and automate processes for users. These agents vary widely in complexity, ranging from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can execute complex workflows autonomously.
+AI agents are designed to perform specific tasks, answer questions, and automate processes for users. These agents vary widely in complexity, ranging from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can execute complex workflows autonomously. This article provides conceptual overviews and detailed implementation samples on AI agents.
 
 ## What are AI Agents?
 
-### Common features of AI agents
+Unlike standalone large language models (LLMs) or rule-based software/hardware systems, AI agents possess the follow common features:
 
--	[Planning](#reasoning-and-planning). AI agents can plan and sequence actions to achieve specific goals. The integration of large language models (LLMs) has revolutionized their planning capabilities.
+-	[Planning](#reasoning-and-planning). AI agents can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
 -	[Tool usage](#frameworks). Advanced AI agents can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
 -	[Perception](#frameworks). AI agents can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
 -	[Memory](#agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
@@ -194,7 +194,7 @@ Chatbots have been a long-standing concept, but AI agents are advancing beyond b
 
 ### Download the Project
 
-All of the code and sample datasets are available on [GitHub](https://github.com/jonathanscholtes/Travel-AI-Agent-React-FastAPI-and-Cosmos-DB-Vector-Store).
+All of the code and sample datasets are available on [GitHub](https://github.com/jonathanscholtes/Travel-AI-Agent-React-FastAPI-and-Cosmos-DB-Vector-Store). In this repository, you can find the following folders:
 
 - **loader**: This folder contains Python code for loading sample documents and vector embeddings in Azure Cosmos DB.
 - **api**: This folder contains Python FastAPI for Hosting Travel AI Agent.
