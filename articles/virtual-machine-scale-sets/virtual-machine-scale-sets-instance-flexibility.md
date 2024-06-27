@@ -1,11 +1,11 @@
 ---
-title: Use Multiple Virtual Machine Sizes with Instance Flexibility
+title: Use multiple Virtual Machine sizes with Instance Flexibility
 description: Use multiple Virtual Machine sizes in a scale set using Instance Flexibility. Optimize deployments using allocation strategies. 
 author: brittanyrowe 
 ms.author: brittanyrowe
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 06/17/2024
+ms.date: 06/26/2024
 ms.reviewer: jushiman
 ---
 
