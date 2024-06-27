@@ -421,7 +421,7 @@
       - name: Restore
         href: azure-kubernetes-service-cluster-restore-using-cli.md
     - name: Cross Region Restore for WebLogic Server on AKS
-      href: /azure/developer/java/migration/migrate-weblogic-to-aks-with-ha-geo-redundancy?toc=/azure/backup/toc.json&bc=/azure/breadcrumb/toc.json
+      href: /azure/developer/java/migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Windows backup using MARS agent
     items:
     - name: Install or upgrade
