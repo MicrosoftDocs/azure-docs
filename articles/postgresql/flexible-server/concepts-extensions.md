@@ -283,7 +283,7 @@ The `pg_prewarm` extension loads relational data into cache. Prewarming your cac
 
 ### pg_repack
 
-A typical question people asks when they first try to use this extension is: Is pg_repack an extension or a client-side executable like psql or pg_dump?
+A typical question people ask when they first try to use this extension is: Is pg_repack an extension or a client-side executable like psql or pg_dump?
 
 The answer to that is that it is actually both. [pg_repack/lib](https://github.com/reorg/pg_repack/tree/master/lib) holds the code for the extension, including the schema and SQL artifacts it creates, and the C library implementing the code of several of those functions. On the other hand, [pg_repack/bin](https://github.com/reorg/pg_repack/tree/master/bin) keeps the code for the client application, which knows how to interact with the programmability artifacts created by the extension. This client application aims to ease the complexity of interacting with the different interfaces surfaced by the server-side extension, by means of offering the user some command-line options which are easier to understand. The client application without the extension created on the database it is pointed to, is useless. The server-side extension on its own would be fully functional, but would require the user to understand a complicated interaction pattern consisting on executing queries to retrieve data that is used as input to functions implemented by the extension.
 
