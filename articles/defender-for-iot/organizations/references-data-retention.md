@@ -7,7 +7,7 @@ ms.date: 01/22/2023
 
 # Data retention, privacy, and sharing across Microsoft Defender for IoT
 
-Mircosoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
+Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
 Each storage type has various storage capacity options and retention times. This article describes the data retention policy as well as the amount of data and length of time it's stored in each storage type before being deleted or overwritten.
 
@@ -23,7 +23,7 @@ This data enables Defender for IoT to:
 
 - Proactively identify indicators of attack (IOAs) in your organization.
 - Generate alerts if a possible attack is detected.
-- Provide your security operations with a view into devices and addresses related to threat signals from your network, enabling you to investigate and explore possible security threats on the network. 
+- Provide your security team a view into devices and addresses related to threat signals from your network, enabling you to investigate and explore possible network security threats.<!-- try to rewrite -->
 
 Microsoft doesn't use your data for advertising. 
 
@@ -36,13 +36,13 @@ Defender for Iot uses the Microsoft Azure data centers in the European Union and
 
 ## Data Retention 
 
-Data from Microsoft Defender for IoT is retained for as long as a customer is active or for 90 days after contract termination or expiration. During this period the data is visible across the portal.  
+Data from Defender for IoT is retained for as long as a customer is active or for 90 days after contract termination or expiration<!-- the end of your contract-->. During this period the data is visible across your other services on the portal. <!-- is this correct? i think across other services is what is meant --> 
 
-Your data is kept and is available to you while the license is under grace period or suspended mode. Ninety days after the end of this period, that data will be erased from Microsoft's systems to make it unrecoverable.
+Your data is kept and is available while your license is under a grace period or suspended mode. Ninety days after the end of this period, the <!-- your - which is better? --> data will be erased from Microsoft's systems to make it unrecoverable.
 
 ## Device data retention periods
 
-The following table lists how long device data is stored in each Defender for IoT location.
+The following table lists long device data is stored in each Defender for IoT location.
 
 | Storage type | Details |
 |---------|---------|
