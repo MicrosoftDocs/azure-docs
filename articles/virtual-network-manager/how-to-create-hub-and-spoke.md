@@ -23,7 +23,8 @@ In this article, you learn how to create a hub and spoke network topology with A
 
 This section helps you create a network group containing the virtual networks you're using for the hub-and-spoke network topology.
 
-1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
+> [!NOTE]
+> This how-to guide assumes you created a network manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
 [!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
 
