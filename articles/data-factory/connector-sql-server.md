@@ -318,7 +318,7 @@ You also need to follow the steps below:
 
 ```json
 {
-    "name": "SQLServerLinkedService",
+    "name": "SqlServerLinkedService",
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
