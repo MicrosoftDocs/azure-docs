@@ -67,7 +67,7 @@ Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-
 
 1. Use `az monitor diagnostic-settings create` to create the setting.
 
-    ```azurecli
+    ```azurecli-interactive
     az monitor diagnostic-settings create \
       --resource $(az cosmosdb show \
         --resource-group "<resource-group-name>" \
@@ -86,11 +86,7 @@ Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-
       --logs '[
         {
           "category": "QueryRuntimeStatistics",
-          "enabled": true,
-          "retentionPolicy": {
-            "enabled": false,
-            "days": 0
-          }
+          "enabled": true
         }
       ]'
     ```
@@ -100,7 +96,7 @@ Use the [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-
 
 1. Review the results of creating your new setting using `az monitor diagnostics-settings show`.
 
-    ```azurecli
+    ```azurecli-interactive
     az monitor diagnostic-settings show \
       --name "example-setting" \
       --resource $(az cosmosdb show \
@@ -119,7 +115,7 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 
 1. Create the diagnostic setting for your Azure Cosmos DB resource using an HTTP `PUT` request and [`az rest`](/cli/azure/reference-index#az-rest).
 
-    ```azurecli
+    ```azurecli-interactive
     diagnosticSettingName="example-setting"
 
     resourceId=$(az cosmosdb show \
@@ -159,7 +155,7 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 
 1. Use `az rest` again with an HTTP `GET` verb to get the properties of the diagnostic setting.
 
-    ```azurecli
+    ```azurecli-interactive
     diagnosticSettingName="example-setting"
 
     resourceId=$(az cosmosdb show \
@@ -224,7 +220,7 @@ Use an [Bicep template](../azure-resource-manager/bicep/overview.md) to create t
 
 1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
 
-    ```azurecli
+    ```azurecli-interactive
     az deployment group create \
         --resource-group "<resource-group-name>" \
         --template-file diagnosticSetting.bicep \
@@ -297,7 +293,7 @@ Use an [Azure Resource Manager template](../azure-resource-manager/templates/ove
 
 1. Deploy the template using [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create).
 
-    ```azurecli
+    ```azurecli-interactive
     az deployment group create \
         --resource-group "<resource-group-name>" \
         --template-file azuredeploy.json \
@@ -334,7 +330,7 @@ Use the Azure CLI to enable full-text query for your Azure Cosmos DB account.
 
 1. Enable full-text query using `az rest` again with an HTTP `PATCH` verb and a JSON payload.
 
-    ```azurecli
+    ```azurecli-interactive
     az rest \
       --method "PATCH" \
       --url $(az cosmosdb show \
@@ -355,7 +351,7 @@ Use the Azure CLI to enable full-text query for your Azure Cosmos DB account.
 
 1. Wait a few minutes for the operation to complete. Check the status of full-text query by using `az rest` again with HTTP `GET`.
 
-    ```azurecli
+    ```azurecli-interactive
     az rest \
       --method "GET" \
       --url $(az cosmosdb show \
