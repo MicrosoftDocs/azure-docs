@@ -117,7 +117,8 @@ In this section, you create a
 21. Select **Create** in the **Review + create** tab.
 
     > [!NOTE]
-    > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](**https://aka.ms/homeregionforglb**) for cross region load balancer.
+    > Cross region load-balancer can only be deployed in the following home regions: **East US 2, East US, East Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
+
 ## Test the load balancer
 
 In this section, you test the cross-region load balancer. You connect to the public IP address in a web browser.  You stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
