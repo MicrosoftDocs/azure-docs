@@ -133,7 +133,7 @@ Frequently customers have a need to connect to clients different Azure regions. 
 There are multiple ways to achieve such connectivity, some of which are:
 - **[Global VNET peering](../../virtual-network/virtual-network-peering-overview.md)**. Most common methodology, as it's the easiest way to connect networks in different regions together. Global virtual network peering creates a connection over the Azure backbone directly between the two peered VNETs. This provides best network throughput and lowest latencies for connectivity using this method. When VNETs are peered, Azure will also handle the routing automatically for you, these VNETs can communicate with all resources in the peered virtual network, established on a VPN gateway.
 - **[VNET-to-VNET connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)**. A VIRTUAL NETWORK-to-VIRTUAL NETWORK connection is essentially a VPN between the two different Azure locations. The VIRTUAL NETWORK-to-VIRTUAL NETWORK connection is established on a VPN gateway. This means your traffic incurs two additional traffic hops as compared to global virtual network peering. There's also additional latency and lower bandwidth as compared to that method.
-- **[Communication via network appliance in Hub and Spoke architecture](#using-hub-and-spoke-private-networking-design)**.
+- Communication via network appliance in Hub and Spoke architecture**.
 Instead of connecting spoke virtual networks directly to each other, you can use network appliances to forward traffic between spokes. Network appliances provide more network services like deep packet inspection and traffic segmentation or monitoring, but they can introduce latency and performance bottlenecks if they're not properly sized.
 
 ### Replication across Azure regions and virtual networks with private networking
@@ -142,7 +142,7 @@ Database replication is the process of copying data from a central or primary se
 
 Azure Database for PostgreSQL flexible server offers two methods for replications: physical (that is, streaming) via [built -in Read Replica feature](./concepts-read-replicas.md) and [logical replication](./concepts-logical.md). Both are ideal for different use cases, and a user might choose one over the other depending on the end goal.
 
-Replication across Azure regions, with separate [virtual networks (VNETs)](../../virtual-network/virtual-networks-overview.md) in each region, **requires connectivity across regional virtual network boundaries** that can be provided via **[virtual network peering](../../virtual-network/virtual-network-peering-overview.md)** or in **[Hub and Spoke architectures](#using-hub-and-spoke-private-networking-design) via network appliance**.
+Replication across Azure regions, with separate [virtual networks (VNETs)](../../virtual-network/virtual-networks-overview.md) in each region, **requires connectivity across regional virtual network boundaries** that can be provided via **[virtual network peering](../../virtual-network/virtual-network-peering-overview.md)** or in **Hub and Spoke architectures via network appliance**.
 
 By default **DNS name resolution** is **scoped to a virtual network**. This means that any client in one virtual network (VNET1) is unable to resolve the Azure Database for PostgreSQL flexible server FQDN in another virtual network (VNET2).
 
