@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 This Azure CLI script example creates a DNS zone and record for a domain name. 
 
-[!INCLUDE [sample-cli-install](~/reusable-content/ce-skilling/azure/includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

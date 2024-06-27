@@ -370,6 +370,10 @@ Build issues such as incorrect dependencies in *requirements.txt* and errors in 
 
 When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors such as "SSH_CONNECTION_CLOSED" or a message that the container is restarting, an error may be preventing the app container from starting. See [Troubleshooting](#troubleshooting) for steps to investigate possible issues.
 
+## URL rewrites
+
+When deploying Python applications on Azure App Service for Linux, you may need to handle URL rewrites within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on external web server configurations. For Flask applications, [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) and custom middleware can be used to achieve this. In Django applications, the robust [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) allows for efficient management of URL rewrites.
+
 ## Troubleshooting
 
 In general, the first step in troubleshooting is to use App Service Diagnostics:

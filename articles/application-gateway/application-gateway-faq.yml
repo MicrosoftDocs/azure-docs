@@ -280,8 +280,37 @@ sections:
         answer: Application Gateway v2 supports IPv4 and IPv6 frontends. Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
 
       - question: Does Application Gateway support FIPS?
-        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
+        answer: |
+          Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
 
+          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024. 
+          **Steps to enable FIPS Mode in V1 SKU**
+          
+          * Register the **‘AllowApplicationGatewayEnableFIPS’** feature to enroll the subscription for FIPS mode configuration.
+          
+          ```azurepowershell-interactive
+          Register-AzProviderFeature -FeatureName AllowApplicationGatewayEnableFIPS -ProviderNamespace Microsoft.Network
+          ```
+          Use the following steps to enroll for FIPS Mode in Application Gateway V1 using the **Azure portal**
+          1.	Sign in to the Azure portal.
+          1.	In the search box, enter subscriptions and select **Subscriptions**.
+          1.	Select the link for your subscription's name.
+          1.	From the left menu, under **Settings** select **Preview features**.
+          1.	You see a list of available features and your current registration status.
+          1.	From Preview features type into the filter box **AllowApplicationGatewayEnableFIPS**, select the feature, and then select Register.
+
+          * Once **step 1** is complete, the **enableFips** property needs to be set to True through PowerShell, Azure Resource Manager template, or REST API.
+
+          ```azurepowershell-interactive
+          # Get the application gateway
+          $appgw = Get-AzApplicationGateway -Name <ApplicationGatewayName> -ResourceGroupName <ResourceGroupName>
+          # Set the EnableFips property
+          $appgw.EnableFips = $true
+          # Update the application gateway
+          Set-AzApplicationGateway -ApplicationGateway $appgw
+          ```
+          Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](/windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
+          
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
         answer: |
           Application Gateway v2 currently supports private IP frontend configuration only (no public IP) via public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md).
