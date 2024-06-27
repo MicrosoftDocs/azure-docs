@@ -62,7 +62,7 @@ After the Navigation is updated, we can start preparing to build the OpenAI clie
 
 ### Secure your app with managed identity
 
-Although optional, it's highly recommended to secure your application using [managed identity](../../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you are not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
+Although optional, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you are not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
 
 Follow the steps below to secure your application:
 
