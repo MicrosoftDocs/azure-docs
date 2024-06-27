@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.custom: linux-related-content
-ms.date: 05/13/2024
+ms.date: 06/27/2024
 #Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  
 ---
 
@@ -87,7 +87,7 @@ For more information, see the following articles:
 
 - [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
 - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
-- [Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 ## Data ingestion duplication avoidance
 

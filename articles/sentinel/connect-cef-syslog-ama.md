@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 06/11/2024
+ms.date: 06/27/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -26,15 +26,18 @@ Before you begin, you must have the resources configured and the appropriate per
 
 ### Microsoft Sentinel prerequisites
 
-For Microsoft Sentinel, install the appropriate solution and make sure you have the permissions to complete the steps in this article.
+Install the appropriate Microsoft Sentinel solution and make sure you have the permissions to complete the steps in this article.
 
 - Install the appropriate solution from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-- Identify which data connector the solution requires &mdash; **Syslog via AMA** or **Common Event Format (CEF) via AMA**. In the **Content hub**, select **Manage** on the installed solution and review the data connector listed. Or, find the solution in the one of the following articles:
+- Identify which data connector the Microsoft Sentinel solution requires &mdash; **Syslog via AMA** or **Common Event Format (CEF) via AMA** and whether you need to install the **Syslog** or **Common Event Format** solution. To fulfill this prerequisite, 
+  - In the **Content hub**, select **Manage** on the installed solution and review the data connector listed. 
+  - If either **Syslog via AMA** or **Common Event Format (CEF) via AMA** isn't installed with the solution, identify whether you need to install the **Syslog** or **Common Event Format** solution by finding your appliance or device from one of the following articles:
 
-  - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
-  - [Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+    - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+    - [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
-- Your Azure account must have the following Azure role-based access control (Azure RBAC) roles:
+    Then install either the **Syslog** or **Common Event Format** solution from the content hub to get the related AMA data connector.
+- Have an Azure account with the following Azure role-based access control (Azure RBAC) roles:
 
   | Built-in role | Scope | Reason |
   | ------------- | ----- | ------ |
@@ -84,7 +87,7 @@ Select the appropriate tab for instructions.
 
 ### Create data collection rule
 
-To get started, open the data connector in Microsoft Sentinel and create a data connector rule.
+To get started, open either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel and create a data connector rule.
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
 
@@ -365,7 +368,7 @@ If you're using a log forwarder, configure the syslog daemon to listen for messa
 Get specific instructions to configure your security device or appliance by going to one of the following articles:
 
 - [CEF via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
-- [Syslog via AMA data connector - Configure specific appliances and devices for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+- [Syslog via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
 

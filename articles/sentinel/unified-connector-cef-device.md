@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 06/07/2024
+ms.date: 06/27/2024
 ---
 
 #  CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
@@ -409,7 +409,7 @@ From the Vectra UI, navigate to Settings > Notifications and Edit syslog configu
 1. Select on **Save**.
 1. Select the **Test** button to send some test events.
 
-For more information, refer to Cognito Detect Syslog Guide, which can be downloaded from the resource page in Detect UI.
+For more information, see the Cognito Detect Syslog Guide, which can be downloaded from the resource page in Detect UI.
 
 ## Votiro
 

@@ -5,10 +5,10 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 06/07/2024
+ms.date: 06/27/2024
 ---
 
-# Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion
+# Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
 
 Log collection from many security appliances and devices  are supported by the **Syslog via AMA** data connector in Microsoft Sentinel. This article lists provider supplied installation instructions for specific security appliances and devices that use this data connector. Contact the provider for updates, more information, or where information is unavailable for your security appliance or device.
 
