@@ -26,7 +26,7 @@ ms.custom: include file
     
     and select **Create**.
 
-    :::image type="content" source="./media/virtual-network-manager-create-network-group/create-network-group.png" alt-text="Screenshot of the pane for creating a network group."  lightbox="../media/virtual-network-manager-create-network-group/create-network-group.png":::
+    :::image type="content" source="./media/virtual-network-manager-create-network-group/create-network-group.png" alt-text="Screenshot of the pane for creating a network group." lightbox="./media/virtual-network-manager-create-network-group/create-network-group.png":::
 
 2. Confirm that the new network group is now listed on the **Network groups** pane.
 
