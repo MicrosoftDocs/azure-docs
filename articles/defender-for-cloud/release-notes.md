@@ -24,8 +24,35 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| June 27 | [General Availability of Checkov IaC Scanning in Defender for Cloud](#general-availability-of-checkov-iac-scanning-in-defender-for-cloud) | 
+| June 27 | [Four security incidents have been deprecated](#four-security-incidents-have-been-deprecated) | 
 | June 24 | [Change in pricing for Defender for Containers in multicloud](#change-in-pricing-for-defender-for-containers-in-multicloud) |
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+### General Availability of Checkov IaC Scanning in Defender for Cloud
+
+June 27, 2024
+
+We are announcing the general availability of the Checkov integration for Infrasturcture-as-Code (IaC) scanning through [MSDO](azure-devops-extension.yml). As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
+
+Security findings from Checkov will be represented as recommendations for both Azure DevOps and GitHub repositories under the assessments "Azure DevOps repositories should have infrastructure as code findings resolved" and "GitHub repositories should have infrastructure as code findings resolved". 
+
+To learn more about DevOps security in Defender for Cloud, see the [DevOps Security Overview](defender-for-devops-introduction.md). To learn how to configure the MSDO CLI, see the [Azure DevOps](azure-devops-extension.yml) or [GitHub](github-action.md) documentation.
+
+### Four security incidents have been deprecated
+
+June 27, 2024
+
+The following security incidents are deprecated from the Defender for Cloud portal:
+
+| Alert | Description | Severity |
+|--|--|--|
+| **Security incident detected suspicious source IP activity** | This incident indicates that suspicious activity has been detected on the same source IP. Multiple alerts from different Defender for Cloud plans have been triggered on the same IP address, which increases the fidelity of malicious activity in your environment. Suspicious activity on the same IP address might indicate that an attacker has gained unauthorized access to your environment and is attempting to compromise it. | Medium/High |
+| **Security incident detected on multiple resources** | This incident indicates that suspicious activity had been detected on your cloud resources. Multiple alerts from different Defender for Cloud plan have been triggered, revealing similar attack methods were performed on your cloud resources. This might indicate a threat actor has gained unauthorized access to your environment and is attempting to compromise it. | Medium/High |
+| **Security incident detected compromised machine** | This incident indicates suspicious activity on one or more of your virtual machines. Multiple alerts from different Defender for Cloud plans have been triggered in chronological order on the same resource, following the MITRE ATT&CK framework. This might indicate a threat actor has gained unauthorized access to your environment and successfully compromised this machine.| Medium/High |
+| **Security incident detected suspicious virtual machines activity** | This incident indicates suspicious activity on your virtual machines. Multiple alerts from different Defender for Cloud plans have been triggered revealing a similar pattern on your virtual machines. This might indicate a threat actor has gained unauthorized access to your environment and is attempting to compromise it. | Medium/High |
+
+The security value of these incidents are now available through the Microsoft Defender XDR portal. Learn more about [alerts and incidents in Defender XDR](concept-integration-365.md).
 
 ### Change in pricing for Defender for Containers in multicloud
 
@@ -165,7 +192,6 @@ Learn more about [Defender for open-source databases](defender-for-databases-int
 | April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
 | April 2 | [Update to recommendations to align with Azure AI Services resources](#update-to-recommendations-to-align-with-azure-ai-services-resources) |
 | April 2 | [Deprecation of Cognitive Services recommendation](#deprecation-of-cognitive-services-recommendation) |
-| April 2 | [Containers multicloud recommendations (GA)](#containers-multicloud-recommendations-ga) |
 
 ### Defender for Containers is now generally available (GA) for AWS and GCP
 
@@ -254,35 +280,6 @@ The recommendation [`Public network access should be disabled for Cognitive Serv
 This recommendation is already being covered by another networking recommendation for Azure AI Services, [`Cognitive Services accounts should restrict network access`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar~/false).
 
 See the [list of security recommendations](recommendations-reference.md).
-
-### Containers multicloud recommendations (GA)
-
-April 2, 2024
-
-As part of Defender for Containers multicloud general availability, the following recommendations are announced GA as well:
-
-- For Azure
-
-| **Recommendation** | **Description** | **Assessment Key** |
-| ------------------ | --------------- | ------------------ |
-| Azure registry container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5  |
-| Azure running container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
-
-- For GCP
-
-| **Recommendation** | **Description** | **Assessment Key** |
-| ------------------ | --------------- | ------------------ |
-| GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure  | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.   | c27441ae-775c-45be-8ffa-655de37362ce  |
-| GCP running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure   | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Google Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 5cc3a2c1-8397-456f-8792-fe9d0d4c9145   |
-
-- For AWS
-
-| **Recommendation** | **Description** | **Assessment Key** |
-| ------------------ | --------------- | ------------------ |
-| AWS registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. Scans your AWS registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c27441ae-775c-45be-8ffa-655de37362ce  |
-| AWS running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Elastic Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 682b2595-d045-4cff-b5aa-46624eb2dd8f   |
-
-The recommendations affect the secure score calculation.
 
 ## March 2024
 

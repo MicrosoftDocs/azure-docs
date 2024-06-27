@@ -8,7 +8,7 @@ ms.reviewer: charles.weininger
 
 # Enable Profiler for web apps on an Azure virtual machine
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure virtual machine scale set via three different methods:
 

@@ -1,10 +1,10 @@
 ---
 title: Use Azure Container Storage Preview with temp SSD
-description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod with a generic ephemeral volume.
+description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 06/27/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -63,7 +63,7 @@ Follow these steps to create a storage pool using temp SSD.
    apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
-     name: ephemeraldisk
+     name: ephemeraldisk-temp
      namespace: acstor
    spec:
      poolType:
@@ -80,10 +80,10 @@ Follow these steps to create a storage pool using temp SSD.
    When storage pool creation is complete, you'll see a message like:
    
    ```output
-   storagepool.containerstorage.azure.com/ephemeraldisk created
+   storagepool.containerstorage.azure.com/ephemeraldisk-temp created
    ```
    
-   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **ephemeraldisk**.
+   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **ephemeraldisk-temp**.
    
    ```azurecli-interactive
    kubectl describe sp <storage-pool-name> -n acstor
@@ -100,7 +100,7 @@ Run `kubectl get sc` to display the available storage classes. You should see a 
 ```output
 $ kubectl get sc | grep "^acstor-"
 acstor-azuredisk-internal   disk.csi.azure.com               Retain          WaitForFirstConsumer   true                   65m
-acstor-ephemeraldisk        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
+acstor-ephemeraldisk-temp        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
 ```
 
 > [!IMPORTANT]
@@ -140,13 +140,13 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                  type: my-ephemeral-volume
              spec:
                accessModes: [ "ReadWriteOnce" ]
-               storageClassName: "acstor-ephemeraldisk-nvme" # replace with the name of your storage class if different
+               storageClassName: acstor-ephemeraldisk-temp # replace with the name of your storage class if different
                resources:
                  requests:
                    storage: 1Gi
    ```
 
-When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's temp disk. See [Check node temp disk capacity](#check-node-temp-disk-capacity).
+   When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's temp disk. See [Check node temp disk capacity](#check-node-temp-disk-capacity).
 
 1. Apply the YAML manifest file to deploy the pod.
    
@@ -175,9 +175,9 @@ When you change the storage size of your volumes, make sure the size is less tha
 
 You've now deployed a pod that's using temp SSD as its storage, and you can use it for your Kubernetes workloads.
 
-## Manage storage pools
+## Manage volumes and storage pools
 
-Now that you've created your storage pool, you can expand or delete it as needed.
+In this section, you'll learn how to check the available capacity of ephemeral disk for a single node, and how to expand or delete a storage pool.
 
 ### Check node temp disk capacity
 

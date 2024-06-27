@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > - Use a GitHub Actions workflow to add resources to Azure with a Azure Resource Manager template (ARM template)
 > - Use a GitHub Actions workflow to build a container with the latest web app changes
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

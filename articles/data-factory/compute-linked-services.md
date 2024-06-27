@@ -317,7 +317,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 ## Azure Batch linked service
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data or Synapse workspace. You can run Custom activity using Azure Batch.
 

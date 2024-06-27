@@ -125,7 +125,7 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 ### Add the extension to your code
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 #### [React](#tab/react)
 
