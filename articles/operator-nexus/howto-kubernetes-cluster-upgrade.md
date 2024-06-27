@@ -89,9 +89,9 @@ During the cluster upgrade process, Operator Nexus performs the following operat
   * For each agent pool in the cluster, add a new worker node (or as many nodes as configured in [max surge](#customize-node-surge-or-unavailability-upgrade)) with the specified Kubernetes version. Multiple Agent pools are upgraded simultaneously.
   * [Cordon and drain][kubernetes-drain] one of the old worker nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many worker nodes at the same time as the number of buffer nodes specified.
   * After the old worker node has been drained, it's removed, and a new worker node with the new Kubernetes version is added to the cluster (or as many nodes as configured in [max surge](#customize-node-surge-or-unavailability-upgrade))
-* If upgrading worker nodes via unavailability:
-  * For each agent pool in the cluster, an old worker node (or as many nodes as configured by [max unavailable](#customize-node-surge-or-unavailability-upgrade)) is removed, before being replaced by a new worker node with the specified Kubernetes version. Multiple Agent pools are upgraded simultaneously.
-  * There will be a period of unavailability where pods from the removed old worker node do not yet have a new worker node to move to.
+* If upgrading worker nodes with no surge:
+  * For each agent pool in the cluster, an old worker node (or as many nodes as configured by [max unavailable](#customize-node-surge-or-unavailability-upgrade)) is cordoned, drained, and then removed, before being replaced by a new worker node with the specified Kubernetes version. Multiple Agent pools are upgraded simultaneously.
+  * During the upgrade, there will be a temporary reduction in cluster capacity since pods drained from the old worker node won't immediately have a new node to move to. This can cause pods to enter a pending state if there isn't enough capacity. Therefore, it's crucial to design your cluster to meet application capacity requirements, especially during no-surge upgrades.
 * This process repeats until all worker nodes in the cluster have been upgraded.
 
 > [!NOTE]
@@ -139,7 +139,7 @@ By default, Operator Nexus configures upgrades to surge with one extra worker no
 
 For example, a max surge value of 100% provides the fastest possible upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You might want to use a higher value such as this for testing environments. For production node pools, we recommend a max_surge setting of 33%.
 
-It is not always appropriate to upgrade via surge, for example in resource constrained environments. Upgrades can also proceed via unavailability, where a worker node is first removed and then replaced. This means no extra resource is needed, but leads to periods of unavailability where pods may not be able to be scheduled to a node. This type of upgrade is controlled per node pool by the max unavailable setting. By default max unavailable is set to 0. This indicates that at most 0 nodes can be unavailable, ie this type of upgrade will not happen by default.
+It is not always appropriate to upgrade via surge, for example in resource constrained environments. Upgrades can also proceed without surge, where a worker node is first removed and then replaced. This means no extra resource is needed, but leads to periods of reduced capacity where pods may not be able to be scheduled to a node. This type of upgrade is controlled per node pool by the max unavailable setting. By default max unavailable is set to 0. This indicates that at most 0 nodes can be unavailable, ie this type of upgrade will not happen by default.
 
 The API accepts both integer values and a percentage value for max surge and max unavailable. An integer such as 5 indicates five nodes can be surged/made unavailable. A value of 50% indicates a surge/unavailability value of half the current node count in the pool.
 
@@ -149,7 +149,6 @@ Max surge and max unavailable can be configured at the same time, in which case 
 
 > [!IMPORTANT]
 > The standard Kubernetes workloads natively cycle to the new nodes when they are drained from the nodes being torn down. Please keep in mind that Operator Nexus Kubernetes service cannot make workload promises for nonstandard Kubernetes behaviors.
-
 
 ## Next steps
 
