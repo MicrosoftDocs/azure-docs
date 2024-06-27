@@ -48,7 +48,8 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 Visual Studio's *Add Application Insights* experience adds more files.
 
-Before continuing with these steps, you should confirm that you have a current backup of your application.
+    > [!Tip]
+    > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -91,11 +92,13 @@ Before continuing with these steps, you should confirm that you have a current b
 
 ### [ASP.NET](#tab/net)
 
-When you first added Application Insights to your project, the SDK adds a config file and makes some edits to the web.config.
+When you first added Application Insights to your project, the SDK adds a config file and edits the web.config.
 Visual Studio's *Add Application Insights* experience adds more files.
 If using NuGet tools to remove the Application Insights, then some is cleaned up.
 If you're manually removing the package reference from your csproj, you need to manually clean up these artifacts.
-Before continuing with these steps, you should confirm that you have a current backup of your application.
+
+    > [!Tip]
+    > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -171,7 +174,8 @@ Before continuing with these steps, you should confirm that you have a current b
 
 ### [Console](#tab/console)
 
-Before continuing with these steps, you should confirm that you have a current backup of your application.
+    > [!Tip]
+    > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -213,7 +217,9 @@ Before continuing with these steps, you should confirm that you have a current b
 
 The first step is to remove the Application Insights SDK.
 If you used Visual Studio's *Add Application Insights* experience, it added more files.
-Before continuing with these steps, you should confirm that you have a current backup of your application.
+
+    > [!Tip]
+    > Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -257,6 +263,12 @@ Before continuing with these steps, you should confirm that you have a current b
 ---
 
 ## Enable OpenTelemetry
+
+Before you begin, create a temporary [workspace-based resource](./create-workspace-resource.md) and use its [connection string](./sdk-connection-string.md) to store telemetry.
+
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows the Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+
+Plan to update the connection string to send telemetry to the original Application Insights resource after confirming the following migration steps work as expected.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -475,7 +487,7 @@ public class Program
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-This step is not applicable to ASP.NET Core.
+This step isn't applicable to ASP.NET Core.
 
 ### [ASP.NET](#tab/net)
 
@@ -961,6 +973,8 @@ The following scenarios are optional and apply to advanced users.
 ---
 
 ## Frequently asked questions
+
+This section is for customers who use telemetry initializers or processors, or write custom code against the classic Application Insights API to create custom telemetry.
 
 ### How do the SDK API's map to OpenTelemetry concepts?
 
