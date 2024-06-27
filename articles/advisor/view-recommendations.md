@@ -1,11 +1,11 @@
 ---
-title: View Azure Advisor recommendations that matter to you
+title: Configure Azure Advisor recommendations view
 description: View and filter Azure Advisor recommendations to reduce noise.
 ms.topic: article
 ms.date: 01/02/2024
 ---
 
-# View Azure Advisor recommendations that matter to you
+# Configure Azure Advisor recommendations view
 
 Azure Advisor provides recommendations to help you optimize your Azure deployments. Within Advisor, you have access to a few features that help you to narrow down your recommendations to only those that matter to you.
 

@@ -84,7 +84,7 @@ You should see the name of your newly created managed HSM.
 
 ## Clean up resources
 
-[!INCLUDE [Delete resource group](~/reusable-content/ce-skilling/azure/includes/cli-rg-delete.md)]
+[!INCLUDE [Delete resource group](../../../includes/cli-rg-delete.md)]
 
 > [!WARNING]
 > Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)

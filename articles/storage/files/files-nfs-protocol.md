@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/07/2024
+ms.date: 06/11/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -91,11 +91,12 @@ The status of items that appear in this table might change over time as support 
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
+| Azure Storage Explorer on Azure portal| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
 ## Regional availability
 
-[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
 

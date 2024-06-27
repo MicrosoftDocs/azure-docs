@@ -117,7 +117,7 @@ items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
-  - name: Document Translation SDK guide
+  - name: 🆕 Document Translation SDK guide
     displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
     href: document-translation/document-sdk-overview.md
   - name: 🆕 Document Translation REST API guide
@@ -128,7 +128,7 @@ items:
     - name: "Quickstart: Document Translation client libraries"
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/quickstarts/client-library-sdks.md
-    - name: "🆕 Quickstart: Document Translation REST APIs"
+    - name: "Quickstart: Document Translation REST APIs"
       displayName: get,post,cancel,delete
       href: document-translation/quickstarts/rest-api.md
   - name: How-to guides
@@ -146,12 +146,12 @@ items:
       href: document-translation/how-to-guides/create-sas-tokens.md
   - name: Reference
     items:
-      - name: 🆕 Document Translation operations
+      - name: Document Translation operations
         href: document-translation/reference/rest-api-guide.md
       - name: Translate a single document
         href: document-translation/reference/translate-document.md
       - name: Start a batch translation
-        href: document-translation/reference/start-translation.md
+        href: document-translation/reference/start-batch-translation.md
       - name: Get status of all translation jobs
         href: document-translation/reference/get-translations-status.md
       - name: Get status of a specific translation job
@@ -263,7 +263,7 @@ items:
     - name: Model training
       displayName: tuning
       href: custom-translator/concepts/model-training.md
-    - name: Bilingual Evaluation Understudy (BLEU) score
+    - name: Bilingual Evaluation Understudies (BLEU) score
       href: custom-translator/concepts/bleu-score.md
     - name: Encrypt data at rest
       displayName: encryption,key vault,revoke

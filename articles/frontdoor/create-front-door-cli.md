@@ -15,7 +15,7 @@ In this quickstart, you learn how to create an Azure Front Door Standard/Premium
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure CLI." border="false":::
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

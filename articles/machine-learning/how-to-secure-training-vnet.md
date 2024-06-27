@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 04/08/2024
 ms.custom:
   - tracking-python

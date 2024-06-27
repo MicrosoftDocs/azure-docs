@@ -23,7 +23,7 @@ For examples of using other Node.js clients, see the individual documentation fo
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
@@ -63,8 +63,8 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
         // Connection configuration
         const cacheConnection = redis.createClient({
-            // rediss for TLS
-            url: `rediss://${cacheHostName}:6380`,
+            // redis for TLS
+            url: `redis://${cacheHostName}:6380`,
             password: cachePassword
         });
     

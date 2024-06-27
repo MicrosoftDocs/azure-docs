@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 03/08/2024
+ms.date: 06/14/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
@@ -77,7 +77,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
-- A read-only lock on a **resource group** prevents you from moving existing **resources** in or out of the resource group.
+- A read-only lock on a **resource group** prevents you from moving existing **resources** in or out of the resource group. But note that a **resource** with read-only lock can be moved to another resource group.
 
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
 
@@ -100,6 +100,8 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
 - A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to protect the VM again later, you need to remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+
+- For **Postgresql**, the virtual network shouldn't have any resource locks set at the virtual network or subnet level, as locks may interfere with network and DNS operations. Before creating the server in a virtual network, ensure you remove any delete or read-only locks from your virtual network and all subnets. You can reapply the locks after the server is created.
 
 ## Who can create or delete locks
 

@@ -88,7 +88,7 @@ The following section walks through a sample request with the Python SDK.
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **10K** characters.
+    > See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 1. Then run the application with the `python` command on your quickstart file.
 
     ```console
