@@ -2,6 +2,8 @@
 title: 'Azure Event Hubs geo-replication'
 description: 'This article describes the Azure Event Hubs geo-replication feature'
 ms.topic: article
+author: axisc
+ms.author: aschhabria
 ms.date: 06/10/2024
 ms.custom: references_regions
 ---
@@ -32,14 +34,14 @@ This rest of this document is focused on the Geo-replication feature. For detail
 The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling Dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
 -	Customer Managed Keys (CMK)
 -	Managed Identity for Capture
--	VNet features (service endpoints, or private endpoints)
+-	Virtual network features (service endpoints, or private endpoints)
 -	Large messages support (now in public preview)
 -	Kafka Transactions (now in public preview)
  
 Some of the key aspects of Geo Data Replication public preview are: 
 -	Primary-secondary replication model – Geo-replication is built on primary-secondary replication model, where at a given time there’s only one Primary namespace that serves event producers and event consumers. 
--	Event Hubs performs fully managed byte-to-byte replication of metadata, event data and consumer offset across secondaries with the configured consistency levels. 
--	Stable namespace FQDN – The FQDN does not need to change when promotion is performed. 
+-	Event Hubs performs fully managed byte-to-byte replication of metadata, event data, and consumer offset across secondaries with the configured consistency levels. 
+-	Stable namespace FQDN – The FQDN doesn't need to change when promotion is performed. 
 -	Replication consistency - There are two replication consistency settings, synchronous and asynchronous.
 -	User-managed promotion of a secondary to being the new primary.
 
@@ -70,7 +72,7 @@ With asynchronous replication enabled, all messages are committed in the primary
 
 **Synchronous replication**
 
-When synchronous replication is enabled, published events are replicated to the secondary, which must confirm the message before it's committed in the primary. With synchronous replication, your application publishes at the rate it takes to publish, replicate, acknowledge and commit. It also means that your application is tied to the availability of both regions. If the secondary region goes down, messages can't be acknowledged or committed. 
+When synchronous replication is enabled, published events are replicated to the secondary, which must confirm the message before it's committed in the primary. With synchronous replication, your application publishes at the rate it takes to publish, replicate, acknowledge, and commit. It also means that your application is tied to the availability of both regions. If the secondary region goes down, messages can't be acknowledged or committed. 
 
 **Replication consistency comparison**
 
@@ -82,7 +84,7 @@ With synchronous replication:
 Synchronous replication provides the greatest assurance that your data is safe. If you have synchronous replication, then when it's committed, then it's committed in all of the regions configured for Geo-replication. When synchronous replication is enabled though, your application availability can be reduced due to depending on the availability of both regions. 
 Enabling asynchronous replication doesn't impact latency very much, and service availability isn't impacted by the loss of a secondary region. Asynchronous replication doesn’t have the absolute guarantee that all regions have the data before it's committed it like synchronous replication does. You can also set the amount of time that your secondary can be out of sync before incoming traffic is throttled. The setting can be from 5 minutes to 1,440 minutes, which is one day. If you're looking to use regions with a large distance between them, then asynchronous replication is likely the best option for you.
 
-Replication consistency configuration can change after Geo-replication configuration. You can go from synchronous to asynchronous, or from asynchronous to synchronous. If you go from synchronous to asynchronous, your latency, and application availability improves. If you go from asynchronous to synchronous, your secondary becomes configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous.
+Replication consistency configuration can change after Geo-replication configuration. You can go from synchronous to asynchronous, or from asynchronous to synchronous. If you go from synchronous to asynchronous, your latency, and application availability improves. If you go from asynchronous to synchronous, your secondary becomes configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you might need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous.
 
 The general reasons to have synchronous replication enabled are tied to the importance of the data, specific business needs, or compliance reasons. If your primary goal is application availability rather than data assurance, then asynchronous consistency is likely the better choice.
 
@@ -102,18 +104,19 @@ The Geo-replication feature enables customers to configure a secondary region to
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.
 -	Enable Application Metrics logs in your Event Hubs namespace following [Monitoring Azure Event Hubs - Azure Event Hubs | Microsoft Learn](./monitor-event-hubs.md). 
 -	Once Application Metrics logs are enabled, you need to produce and consume data from namespace for a few minutes before you start to see the logs. 
--	To view Application Metrics logs, navigate to Monitoring section of Event Hubs and click on the ‘Logs’ blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary namespaces. 
-```
-   AzureDiagnostics
-     | where TimeGenerated > ago(1h)
-     | where Category == "ApplicationMetricsLogs"
-     | where ActivityName_s == "ReplicationLag
-```
+-	To view Application Metrics logs, navigate to **Monitoring** section of Event Hubs page, and select **Logs** on the left menu. You can use the following query to find the replication lag (in seconds) between the primary and secondary namespaces. 
+
+    ```kusto
+    AzureDiagnostics
+      | where TimeGenerated > ago(1h)
+      | where Category == "ApplicationMetricsLogs"
+      | where ActivityName_s == "ReplicationLag
+    ```
 -	The column count_d indicates the replication lag in seconds between the primary and secondary region.
 
  ## Publishing Data 
 Event publishing applications can publish data to geo-replicated namespaces via stable namespace FQDN of the geo replicated namespace. The event publishing approach is the same as the non-Geo DR case and no changes to client applications are required. 
-Event publishing may not be available during the following circumstances: 
+Event publishing might not be available during the following circumstances: 
 -	During Failover grace period, the existing primary region rejects any new events that are published to Event Hubs. 
 -	When replication lag between primary and secondary regions reaches the max replication lag duration, the publisher ingress workload may get throttled. 
 Publisher applications can't directly access any namespaces in the secondary regions. 
@@ -134,4 +137,7 @@ Clients that use the Event Hubs SDK need to upgrade to the April 2024 version of
 
 ## Pricing
 Event Hubs dedicated clusters are priced independently of geo-replication. Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions. The dedicated clusters used as secondary instances for geo-replication can be used for other workloads.
-There is a charge for geo-replication based on the published bandwidth * the number of secondary regions. The geo-replication charge is waived in early public preview. 
+There's a charge for geo-replication based on the published bandwidth * the number of secondary regions. The geo-replication charge is waived in early public preview. 
+
+## Related content
+To learn how to use the Geo-replication feature, see [Use Geo-replication](use-geo-replication.md).
