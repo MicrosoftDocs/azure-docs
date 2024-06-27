@@ -22,8 +22,6 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 
 [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
 
-[!INCLUDE [api-management-availability-tracing-v2-tiers](../../includes/api-management-availability-tracing-v2-tiers.md)]
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ## Policy statement
