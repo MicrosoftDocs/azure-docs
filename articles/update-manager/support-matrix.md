@@ -297,7 +297,7 @@ We support VMs created from customized images (including images uploaded to [Azu
 
    |**Linux operating system**|
    |---|
-   |CentOS 7, 8|
+   |CentOS 7 |
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
    |SUSE Linux Enterprise Server 12.x, 15.0-15.4|
