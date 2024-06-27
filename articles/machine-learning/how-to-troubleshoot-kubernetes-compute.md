@@ -178,7 +178,7 @@ This error should occur when the extension owned ingress service does not have e
 You can:
 
 * Access the cluster and check the status of service `azureml-ingress-nginx-controller` and its backend pod under `azureml` namespace.
-* If cluster does not have any running backend pod, check the reason by describe the pod. For example, if the pod does not have enough resources to run, please delete some deployment to free some resources for the ingress pod.
+* If cluster does not have any running backend pod, check the reason by describe the pod. For example, if the pod does not have enough resources to run, you can delete some deployments to free enough resources for the ingress pod.
 
 #### ERROR: ClusterUnauthorized
 
@@ -188,10 +188,9 @@ The error message is as follows:
 AMLArc failed to connect to the cluster, reason: Unauthorized.
 ````
 
-This error should only occur in TA-enabled cluster which means the token has expired during thedeploymen.
+This error should only occur in TA-enabled cluster which means the token has expired during the deployment.
 
-You can:
-* Try again after several minutes.
+You can try again after several minutes.
 
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
