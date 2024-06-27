@@ -327,7 +327,7 @@ To authenticate with a service principal from Batch .NET:
 1. Call this method by using the following code. The `.default` scope ensures that the application has permission to access all the scopes for the resource.
 
    ```csharp
-      var token = await GetAccessToken(new string[] { "BatchResourceId/.default" });
+      var token = await GetAccessToken(new string[] { $"{BatchResourceUri}/.default" });
    ```
 
 1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use the **BatchClient** object for subsequent operations against the Batch service:
