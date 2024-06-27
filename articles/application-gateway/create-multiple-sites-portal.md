@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Create routing rules
 > * Edit hosts file for name resolution
 
-:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Diagram showing multi-site application gateway.":::
+:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Diagram showing multi-site application gateway." lightbox="./media/create-multiple-sites-portal/scenario.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

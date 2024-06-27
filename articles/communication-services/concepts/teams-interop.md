@@ -45,11 +45,11 @@ Applications can implement both authentication models and leave the choice of au
 
 ## External user
 
-The bring your own identity (BYOI) authentication model allows you to build custom applications for external users to connect and communicate with Teams users. You control user authentication, and users of your custom applications don't need to have Microsoft Entra identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that combine employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future, we will be enabling additional scenarios, including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
+The *bring your own identity* (BYOI) authentication model enables you to build custom applications for external users to connect and communicate with Teams users. You control user authentication, and users of your custom applications don't need to have Microsoft Entra identities or Teams licenses. The first scenario enables your application's users to join Microsoft Teams meetings using external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that combine employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future, we plan to implement more scenarios, including direct calling and chat to enable your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
 
 For more information, see [Join a Teams meeting](join-teams-meeting.md).
 
-It is currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
+It's currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
 
 ## Teams user
 
@@ -57,7 +57,7 @@ Developers can use [Communication Services Calling SDK with Teams identity](./in
 
 When a Communication Services endpoint connects to a Teams meeting or Teams call using a Teams identity, the endpoint is treated like a Teams user with a Teams client. The experience is driven by policies assigned to users within and outside of the organization. Teams users can join Teams meetings, place calls to other Teams users, receive calls from phone numbers, and transfer an ongoing call to the Teams call queue or share screen. 
 
-Teams users authenticate against Microsoft Entra ID in the client application. Developers then exchange authentication tokens from Microsoft Entra ID for access tokens via the Communication Services Identity SDK. This exchange creates a connection between Microsoft Entra ID and Communication Services. You are encouraged to implement an exchange of tokens in your backend services as credentials for Azure Communication Services sign exchange requests. In your backend services, you can require any additional authentication.
+Teams users authenticate against Microsoft Entra ID in the client application. Developers then exchange authentication tokens from Microsoft Entra ID for access tokens via the Communication Services Identity SDK. This exchange creates a connection between Microsoft Entra ID and Communication Services. You're encouraged to implement an exchange of tokens in your backend services as credentials for Azure Communication Services sign exchange requests. In your backend services, you can require any other authentication.
 
 ## Teams meeting and calling experiences
 
@@ -65,7 +65,7 @@ There are several ways that users can join a Teams meeting:
 
 - Via Teams clients as authenticated **Teams users**. This includes the desktop, mobile, and web Teams clients.
 - Via Teams clients as unauthenticated **Anonymous users**. 
-- Via custom Communication Services applications as **External users** using the bring your own identity authentication model. 
+- Via custom Communication Services applications as **External users** using the *bring your own identity* authentication model. 
 - Via custom Communication Services applications as **Teams users** using the Teams identity authentication model.
 
 ![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-overview-v2.png)
@@ -76,15 +76,21 @@ Using the Teams identity authentication model, a Communication Services applicat
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
 
-Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
+Microsoft indicates to you via the Azure Communication Services API that recording or transcription has begun, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
 
 ## Pricing
-All usage of Azure Communication Service APIs and SDKs increments [Azure Communication Service billing meters](https://azure.microsoft.com/pricing/details/communication-services/). Interactions with Microsoft Teams, such as joining a meeting or initiating a phone call using a Teams allocated number, will increment these meters. However, there is no additional fee for the Teams interoperability capability itself, and there is no pricing distinction between the BYOI and Microsoft 365 authentication options.
+All usage of Azure Communication Service APIs and SDKs increments [Azure Communication Service billing meters](https://azure.microsoft.com/pricing/details/communication-services/). Interactions with Microsoft Teams, such as joining a meeting or initiating a phone call using a Teams allocated number, increment these meters. However, there is no additional fee for the Teams interoperability capability itself, and there is no pricing distinction between the BYOI and Microsoft 365 authentication options.
 
-If your Azure application has a user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However, the 10 minutes consumed by the user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
+If your Azure application has a user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs are billed to your resource. However, the 10 minutes consumed by the user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
 
 ## Trademark and brand guideline
-Third parties must follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks) when using Microsoft Teams trademarks or product logos in advertising or promotional materials. In general, wordmarks can be used to truthfully convey information about your product or service, as long as customers and the public will not be confused into believing Microsoft is affiliated with or endorses your product or service. However, our logos, app, product icons, illustrations, photographs, videos, and designs can never be used without an express license. To get more details about branding, read [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks).
+Third parties must follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks) when using Microsoft Teams trademarks or product logos in advertising or promotional materials. In general, wordmarks can be used to truthfully convey information about your product or service, as long as customers and the public are not confused into believing Microsoft is affiliated with or endorses your product or service. However, our logos, app, product icons, illustrations, photographs, videos, and designs can never be used without an express license. To get more details about branding, read [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks).
+
+Third party use of Microsoft Teams branding is only allowed for certified Teams partners. Without a license arrangement or certification with Microsoft, everything in your app or product (including developer name, app name, logo, description, screenshots, and other app collateral) must be unique to (company name) and free of Microsoft’s Brand Assets. The only exception is that you may truthfully state whether your app is compatible or interoperable with a Microsoft product or service within the text description about their app.
+
+For example:
+
+> “(Company Name) (application name) integrated with Microsoft Teams”
 
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time.

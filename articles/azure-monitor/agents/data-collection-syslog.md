@@ -49,6 +49,13 @@ The following facilities are supported with the Syslog collector:
 * local6
 * local7
 
+The following are the severity levels of the events:
+* info
+* notice
+* error
+* warning
+* critical
+
 For some device types that don't allow local installation of Azure Monitor Agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. For more information, see the [Sentinel tutorial](../../sentinel/forward-syslog-monitor-agent.md).
 
 ## Configure Syslog

@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to steer traffic from a Virtual Hub to a Network Virtual Appliance. 
 
-![Virtual WAN diagram](./media/virtual-wan-route-table-nva/vwanroute.png)
+:::image type="content" source="./media/virtual-wan-route-table-nva/vwanroute.png" alt-text="Screenshot of Virtual WAN diagram PowerShell." lightbox="./media/virtual-wan-route-table-nva/vwanroute.png":::
 
 In this article you learn how to:
 

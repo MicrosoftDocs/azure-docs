@@ -184,4 +184,4 @@ The PHP sample code is running in an Azure App Service web app.
 
     The web app menu provides different options for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../../../includes/cli-samples-clean-up.md)]

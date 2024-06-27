@@ -55,11 +55,11 @@ When you're done, your workflow looks similar to the following high level exampl
 
 1. On the Azure Marketplace menu, select **Integration** > **Logic App**.
 
-   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png" alt-text="Screenshot shows Azure Marketplace menu with selection options for Integration and Logic App." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/logic-apps/create-new-logic-app-resource.png" alt-text="Screenshot shows Azure Marketplace menu with selection options for Integration and Logic App." lightbox="~/reusable-content/ce-skilling/azure/media/logic-apps/create-new-logic-app-resource.png":::
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following information about your logic app resource.
 
-   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal, logic app creation pane, and info for new logic app resource." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/logic-apps/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal, logic app creation pane, and info for new logic app resource." lightbox="~/reusable-content/ce-skilling/azure/media/logic-apps/create-logic-app-settings.png":::
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
