@@ -978,6 +978,10 @@ This section is for customers who use telemetry initializers or processors, or w
 
 ### How do the SDK API's map to OpenTelemetry concepts?
 
+#### How do Application Insights telemetry types map to OpenTelemetry?
+
+#### How do Application Insights sampling concepts map to OpenTelemetry?
+
 [OpenTelemetry](https://opentelemetry.io/) is a vendor neutral observability framework. There are no Application Insights APIs in the OpenTelemetry SDK or libraries. Before migrating, it's important to understand some of OpenTelemetry's concepts.
 
 * In Application Insights, all telemetry was managed through a single `TelemetryClient` and `TelemetryConfiguration`. In OpenTelemetry, each of the three telemetry signals (Traces, Metrics, and Logs) has its own configuration. You can manually create telemetry via the .NET runtime without external libraries. For more information, see the .NET guides on [distributed tracing](/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs), [metrics](/dotnet/core/diagnostics/metrics), and [logging](/dotnet/core/extensions/logging).
@@ -993,8 +997,6 @@ With OpenTelemetry, you can write a [Processor](https://opentelemetry.io/docs/co
 * Application Insights offered multiple options to configure sampling.
 Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling.
 Currently only Traces (Requests and Dependencies) can be sampled.
-
-#### How do Application Insights telemetry types map to OpenTelemetry?
 
 ##### Understanding Telemetry DataTypes
 
@@ -1144,8 +1146,6 @@ public static void Main()
         .Build();
 }
 ```
-
-#### How do Application Insights sampling concepts map to OpenTelemetry?
 
 While Application Insights offered multiple options to configure sampling, Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling.
 Currently only Traces (Requests and Dependencies) can be sampled.
