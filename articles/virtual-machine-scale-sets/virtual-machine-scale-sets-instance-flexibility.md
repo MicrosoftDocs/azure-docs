@@ -16,9 +16,9 @@ ms.reviewer: jushiman
 Instance Flexibility enables you to specify multiple different VM sizes in your Virtual Machine Scale Set with Flexible Orchestration Mode, as well as an allocation strategy to further optimize your deployments. 
 
 Instance Flexibility is best suited for workloads that are flexible in compute requirements and can be run on various different sized VMs. Using Instance Flexibility you can:
-- Deploy a heterogeneous mix of VM sizes in a single scale set, up to the instance size limit. You can view max scale set instance counts in the [documentation](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
+- Deploy a heterogeneous mix of VM sizes in a single scale set, up to the instance size limit. You can view max scale set instance counts in the [documentation](./virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode).
 - Optimize your deployments for cost or capacity through allocation strategies.
-- Continue to make use of scale set features, like [Spot Priority Mix](/articles/virtual-machine-scale-sets/spot-priority-mix.md), [Autoscale](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md), or [Upgrade Policies](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-set-upgrade-policy.md).
+- Continue to make use of scale set features, like [Spot Priority Mix](./spot-priority-mix.md), [Autoscale](./virtual-machine-scale-sets-autoscale-overview.md), or [Upgrade Policies](./virtual-machine-scale-sets-set-upgrade-policy.md).
 - Spread a heterogeneous mix of VMs across Availability Zones and Fault Domains for high availability and reliability.
 
 ## Enroll in the Preview
@@ -140,7 +140,7 @@ Lastly, be sure to specify the `skuProfile` with **up to 5** VM sizes:
 
 ## FAQs
 ### Can I use Spot and Standard VMs with Instance Flexibility?
-Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Flexibility. To do so, use [Spot Priority Mix](/articles/virtual-machine-scale-sets/spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
+Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Flexibility. To do so, use [Spot Priority Mix](./spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
 
 ## My region doesn't support Instance Flexibility today, will it support Instance Flexibility in the future?
 Instance Flexibility will be rolling out to all public Azure regions during Public Preview. The documentation will be updated as more regions are supported. Instance Flexibility is currently available in West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europle, UK South, and France Central.
