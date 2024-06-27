@@ -1147,6 +1147,8 @@
     href: soc-optimization/soc-optimization-access.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md
+  - name: Use SOC optimizations programmatically
+    href: soc-optimization/soc-optimization-api.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing
