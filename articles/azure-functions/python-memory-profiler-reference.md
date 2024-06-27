@@ -25,7 +25,7 @@ Before you start developing a Python function app, you must meet these requireme
 
 * An active Azure subscription.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Memory profiling process
 

@@ -15,7 +15,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart helps you learn how to use an Azure Resource Manager template (ARM template) to deploy an Azure Route Server into a new or existing virtual network.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button to open the template in the Azure portal.
 

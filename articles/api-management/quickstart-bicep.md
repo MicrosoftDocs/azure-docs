@@ -19,7 +19,7 @@ This quickstart describes how to use a Bicep file to create an Azure API Managem
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This quickstart describes how to use a Bicep file to create an Azure API Managem
 - For Azure PowerShell:
 
 
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 
