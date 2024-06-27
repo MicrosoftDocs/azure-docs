@@ -58,7 +58,7 @@ To choose a region for a zone-redundant configuration:
     - For **Region**, select one of the regions listed in the [Prerequisites section](#prerequisites).
     - For **Availability zone**, select the zones.
 
-    :::image type="content" source="./media/reliability-bastion/create-bastion-zonal.png" alt-text="Screnshot showing the Availability zone setting while creating a Bastion resource.":::
+    :::image type="content" source="./media/reliability-bastion/create-bastion-zonal.png" alt-text="Screenshot showing the Availability zone setting while creating a Bastion resource.":::
 
 >[!NOTE]
 >You can't change the availability zone setting after your Bastion resource is deployed. 
