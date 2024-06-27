@@ -150,6 +150,10 @@
           href: concepts-network-services.md
         - name: Ingress
           href: concepts-network-ingress.md
+    - name: AI and machine learning
+      items:
+        - name: Small and large language models
+          href: concepts-ai-ml-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -899,6 +903,22 @@
           href: /azure/developer/jenkins/deploy-from-github-to-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use Ansible to create AKS clusters
           href: /azure/developer/ansible/aks-configure-clusters?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: AKS for Amazon EKS professionals
+      items:
+      - name: Migrate EKS event-driven workloads
+        items:
+        - name: Overview
+          href: eks-edw-overview.md
+        - name: Understand platform differences
+          href: eks-edw-understand.md
+        - name: Rearchitect for AKS
+          href: eks-edw-rearchitect.md
+        - name: Refactor app
+          href: eks-edw-refactor.md
+        - name: Prepare for deployment
+          href: eks-edw-prepare.md
+        - name: Deploy to Azure
+          href: eks-edw-deploy.md
 - name: Reference
   items:
     - name: Azure CLI

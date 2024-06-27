@@ -37,7 +37,7 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 >
 > Tag values are case-sensitive.
 
-[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Required access
 

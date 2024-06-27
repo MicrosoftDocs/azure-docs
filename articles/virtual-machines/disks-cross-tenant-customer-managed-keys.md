@@ -23,9 +23,9 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
 - This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
-[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../includes/entra-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](~/reusable-content/ce-skilling/azure/includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](~/reusable-content/ce-skilling/azure/includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a disk encryption set
 
@@ -54,7 +54,7 @@ To use the Azure portal, sign in to the portal and follow these steps.
 
 To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 In the script below, `-FederatedClientId` should be the application ID (client ID) of the multi-tenant application. You'll also need to provide the subscription ID, resource group name, and identity name.
 

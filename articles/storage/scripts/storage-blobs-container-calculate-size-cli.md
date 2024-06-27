@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 This script calculates the size of a container in Azure Blob storage by totaling the size of the blobs in the container.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > This CLI script provides an estimated size for the container and should not be used for billing calculations.
@@ -26,7 +26,7 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -34,7 +34,7 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -24,7 +24,7 @@ For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container i
 
 If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) for both Windows and Linux containers.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Azure CLI example
 

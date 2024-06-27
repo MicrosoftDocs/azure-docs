@@ -16,7 +16,7 @@ ms.date: 02/21/2022
 
 The script in this article demonstrates creating an Azure Cosmos DB account with default values and IP Firewall enabled. It uses a API for NoSQL account, but these operations are identical across all database APIs in Azure Cosmos DB. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script to the `az cosmosdb account create` command for your API specific script.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -24,7 +24,7 @@ The script in this article demonstrates creating an Azure Cosmos DB account with
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -32,7 +32,7 @@ The script in this article demonstrates creating an Azure Cosmos DB account with
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

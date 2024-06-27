@@ -115,7 +115,7 @@ Follow the steps in [Create resources you need to get started](quickstart-create
 
 For more options, see [create a new compute instance](how-to-create-compute-instance.md?tabs=azure-studio#create).
 
-As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-compute-instance.md#create-on-behalf-of)**.
+As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-compute-instance.md#create-on-behalf-of)**. SSO has to be disabled for such a compute instance.
 
 You can also **[use a setup script](how-to-customize-compute-instance.md)** for an automated way to customize and configure the compute instance.
 

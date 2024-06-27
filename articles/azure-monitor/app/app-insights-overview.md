@@ -66,7 +66,7 @@ For detailed information about instrumenting applications to enable Application 
 #### OpenTelemetry Distro
 
 * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore)
-* [ASP.NET](opentelemetry-enable.md?tabs=net)
+* [.NET](opentelemetry-enable.md?tabs=net)
 * [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
