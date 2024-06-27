@@ -56,7 +56,7 @@ You're pasting this key into the `.rest` or `.http` file that you create in a la
 
 For more information, see [Connect to Azure AI Search using key authentication](search-security-api-keys.md).
 
-## Use roles
+### Use roles
 
 Make sure your search service is [configured for role-based access](search-security-enable-roles.md).
 
