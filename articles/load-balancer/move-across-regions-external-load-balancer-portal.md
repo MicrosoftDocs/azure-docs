@@ -4,7 +4,7 @@ description: Use an Azure Resource Manager template to move an external load bal
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template, engagement-fy23
 ---
