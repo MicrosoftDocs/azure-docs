@@ -24,8 +24,24 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| June 27 | [Four security incidents have been deprecated](#four-security-incidents-have-been-deprecated) | 
 | June 24 | [Change in pricing for Defender for Containers in multicloud](#change-in-pricing-for-defender-for-containers-in-multicloud) |
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+### Four security incidents have been deprecated
+
+June 27, 2024
+
+The following security incidents are deprecated from the Defender for Cloud portal:
+
+| Alert | Description | Severity |
+|--|--|--|
+| **Security incident detected suspicious source IP activity** | This incident indicates that suspicious activity has been detected on the same source IP. Multiple alerts from different Defender for Cloud plans have been triggered on the same IP address, which increases the fidelity of malicious activity in your environment. Suspicious activity on the same IP address might indicate that an attacker has gained unauthorized access to your environment and is attempting to compromise it. | Medium/High |
+| **Security incident detected on multiple resources** | This incident indicates that suspicious activity had been detected on your cloud resources. Multiple alerts from different Defender for Cloud plan have been triggered, revealing similar attack methods were performed on your cloud resources. This might indicate a threat actor has gained unauthorized access to your environment and is attempting to compromise it. | Medium/High |
+| **Security incident detected compromised machine** | This incident indicates suspicious activity on one or more of your virtual machines. Multiple alerts from different Defender for Cloud plans have been triggered in chronological order on the same resource, following the MITRE ATT&CK framework. This might indicate a threat actor has gained unauthorized access to your environment and successfully compromised this machine.| Medium/High |
+| **Security incident detected suspicious virtual machines activity** | This incident indicates suspicious activity on your virtual machines. Multiple alerts from different Defender for Cloud plans have been triggered revealing a similar pattern on your virtual machines. This might indicate a threat actor has gained unauthorized access to your environment and is attempting to compromise it. | Medium/High |
+
+The security value of these incidents are now available through the Microsoft Defender XDR portal. Learn more about [alerts and incidents in Defender XDR](concept-integration-365.md).
 
 ### Change in pricing for Defender for Containers in multicloud
 

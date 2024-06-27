@@ -30,7 +30,7 @@ The following example shows site traffic coming from both ports 8080 and 8081 an
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
