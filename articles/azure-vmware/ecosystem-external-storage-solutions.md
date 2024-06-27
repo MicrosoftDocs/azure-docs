@@ -30,4 +30,3 @@ For more information, see the following resources:
 - [CBS Plan and Deploy Guide](https://support.purestorage.com/bundle/m_cbs_for_azure/page/Pure_Cloud_Block_Store/CBS_for_Azure_VMware_Solution/topic/t_Implementation_Guide_Plan_and_Deploy_Azure_VMware_Solution_and_Pure_CBS.html)
 - [Troubleshooting CBS Deployment](https://support.purestorage.com/bundle/m_cbs_for_azure/page/Pure_Cloud_Block_Store/CBS_for_Azure_VMware_Solution/topic/t_CBS_for_Azure_VMware_Solution_Troubleshooting.html)
 - [Videos](https://support.purestorage.com/bundle/m_videos_for_vmware_solutions/page/Videos_for_VMware_Solutions/topics/concept/c_azure_vmware_solution_avs_videos.html)
-
