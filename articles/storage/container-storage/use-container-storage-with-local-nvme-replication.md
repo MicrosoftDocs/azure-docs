@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 06/26/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -208,9 +208,9 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 You've now deployed a pod that's using local NVMe with volume replication, and you can use it for your Kubernetes workloads.
 
-## Manage persistent volumes and storage pools
+## Manage volumes and storage pools
 
-Now that you've created a persistent volume, you can detach and reattach it as needed. You can also expand or delete a storage pool.
+In this section, you'll learn how to check the available capacity of ephemeral disk for a single node, how to detach and reattach a persistent volume, and how to expand or delete a storage pool.
 
 ### Check node ephemeral disk capacity
 

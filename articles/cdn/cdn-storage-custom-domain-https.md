@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 06/26/2024
 ms.author: duau
 ms.custom: mvc
 ---
@@ -47,7 +47,7 @@ In the above rule, leaving Hostname, Path, Query string, and Fragment results in
 
 ![Edgio redirect rule](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
-In the above rule, *Cdn-endpoint-name* refers to the name that you configured for your content delivery network endpoint, which you can select from the dropdown list. The value for *origin-path* refers to the path within your origin storage account where your static content resides. If you're hosting all static content in a single container, replace *origin-path* with the name of that container.
+In the above rule, *Cdn-endpoint-name* refers to the name that you configured for your content delivery network endpoint. The value for *origin-path* refers to the path within your origin storage account where your static content resides. If you're hosting all static content in a single container, replace *origin-path* with the name of that container.
 
 ## Pricing and billing
 
