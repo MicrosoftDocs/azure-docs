@@ -59,7 +59,7 @@ Object replication requires that blob versioning is enabled on both the source a
 If your storage account has object replication policies in effect, you cannot disable blob versioning for that account. You must delete any object replication policies on the account before disabling blob versioning.
 
 > [!NOTE]
-> The version ID  on the destination account shall depend upon when the blob gets replicated. Hence, there will be a difference in version ID's of source and destination storage account.
+> Only blobs are copied to the destination. A blob's version ID is not copied. The blob that is placed at the destination location is assigned a new version ID.
 
 ### Deleting a blob in the source account
 
