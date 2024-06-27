@@ -183,7 +183,7 @@
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Bastion
-      href: reliability-bastion.md
+      href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
     - name: Azure Batch
       href: reliability-batch.md
     - name: Azure Cache for Redis
@@ -227,7 +227,11 @@
     - name: Azure DNS 
       href: reliability-dns.md
     - name: Azure Event Grid
-      href: ./reliability-event-grid.md
+      items:
+      - name: Availability zones
+        href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Disaster recovery
+        href: ../event-grid/custom-disaster-recovery-client-side.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Firewall
       href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Firewall Manager
