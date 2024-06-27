@@ -284,7 +284,7 @@ Plan to update the connection string to send telemetry to the original resource 
     The following code sample shows a simple example meant only to show the basics.
 
     ```csharp
-        using Azure.Monitor.OpenTelemetry.AspNetCore;
+    using Azure.Monitor.OpenTelemetry.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.Extensions.DependencyInjection;
 
