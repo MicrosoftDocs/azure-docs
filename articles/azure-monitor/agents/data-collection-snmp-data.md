@@ -9,30 +9,16 @@ ms.reviewer: jeffwo
 
 # Collect SNMP trap data with Azure Monitor Agent
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-  
-Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  
+Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  By forwarding SNMP traps to either syslog or a text file, you can use Azure Monitor Agent to collect them
   
 You can collect SNMP data in two ways: 
 
-- **Polls** - The managing system polls an SNMP agent to gather values for specific properties.
-- **Traps** - An SNMP agent forwards events or notifications to a managing system. 
+- **Polls** - The managing system polls an SNMP agent to gather values for specific properties. Polls are most often used for stateful health detection and collecting performance metrics.
+- **Traps** - An SNMP agent forwards events or notifications to a managing system. Traps are most often used as event notifications.
 
-Traps are most often used as event notifications, while polls are more appropriate for stateful health detection and collecting performance metrics.  
-  
-You can use Azure Monitor Agent to collect SNMP traps as syslog events or as events logged in a text file.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Set up the trap receiver log options and format 
-> * Configure the trap receiver to send traps to syslog or text file
-> * Collect SNMP traps using Azure Monitor Agent
 
 ## Prerequisites
 
-To complete this tutorial, you need: 
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 
@@ -55,6 +41,9 @@ To complete this tutorial, you need:
     It's important that the SNMP trap receiver you use can load MIB files for your environment, so that the properties in the SNMP trap message have meaningful names instead of OIDs.  
  
 ## Set up the trap receiver log options and format
+
+> [!CAUTION]
+> CentOS is a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server:
 
@@ -88,6 +77,7 @@ To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7,
 
         > [!NOTE]
         > snmptrapd logs both traps and daemon messages - for example, service stop and start - to the same log file. In the example above, we’ve defined the log format to start with the word “snmptrap” to make it easy to filter snmptraps from the log later on. 
+
 ## Configure the trap receiver to send trap data to syslog or text file
 
 There are two ways snmptrapd can send SNMP traps to Azure Monitor Agent: 
@@ -123,12 +113,14 @@ To edit the output behavior configuration of snmptrapd:
     
 > [!NOTE]   
 > See Net-SNMP documentation for more information about [how to set output options](https://www.net-snmp.org/docs/man/snmpcmd.html) and [how to set formatting options](https://www.net-snmp.org/docs/man/snmptrapd.html). 
-    
+
 ## Collect SNMP traps using Azure Monitor Agent
 
-If you configured snmptrapd to send events to syslog, follow the steps described in [Collect events and performance counters with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). Make sure to select **Linux syslog** as the data source when you define the data collection rule for Azure Monitor Agent.
+Depending on where you sent SNMP events, use the guidance at one of the following to collect the data with Azure Monitor Agent:
 
-If you configured snmptrapd to write events to a file, follow the steps described in [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md).
+- [Collect Syslog events with Azure Monitor Agent](./data-collection-syslog.md)
+- [Collect logs from a text file with Azure Monitor Agent](./data-collection-log-text.md)
+
 
 ## Next steps
 

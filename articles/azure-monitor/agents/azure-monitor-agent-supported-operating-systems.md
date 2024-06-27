@@ -18,7 +18,7 @@ This article identifies the operating systems supported by [Azure Monitor Agent]
 > [!NOTE]
 > All operating systems listed are assumed to be x64. x86 isn't supported for any operating system.
 
-## Windows
+## Windows operating systems
 
 | Operating system | Azure Monitor agent | Legacy agent|
 |:---|:---:|:---:
@@ -40,10 +40,10 @@ This article identifies the operating systems supported by [Azure Monitor Agent]
 <sup>1</sup> Requires Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
 <sup>2</sup> Also supported on Arm64-based machines.
 
-## Linux
+## Linux operating systems
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> CentOS is a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent <sup>1</sup> |
 |:---|:---:|:---:|
@@ -93,8 +93,13 @@ This article identifies the operating systems supported by [Azure Monitor Agent]
 > [!NOTE]
 > CBL-Mariner 2.0's disk size is by default about 1GB to provide storage savings, compared to other Azure VMs that are about 30GB. The Azure Monitor Agent requires at least 4GB disk size in order to install and run successfully. See [CBL-Mariner's documentation](https://eng.ms/docs/products/mariner-linux/gettingstarted/azurevm/azurevm#disk-size) for more information and instructions on how to increase disk size before installing the agent.
 
-## Linux Hardening Standards
+## Hardening Standards
+Azure Monitoring Agent supports most industry-standard hardening standards and is continuously tested and certified against these standards every release. All Azure Monitor Agent scenarios are designed from the ground up with with security in mind.
 
+### Windows hardening
+Azure Monitoring Agent supports all standard Windows hardening standards, including STIG and FIPs, and is FedRamp compliant under Azure Monitor.
+
+### Linux hardening
 The Azure Monitoring Agent for Linux supports various hardening standards for Linux operating systems and distros. Every release of the agent is tested and certified against the supported hardening standards using images that are publicly available on the Azure Marketplace and published by CIS. Only the settings and hardening that are applied to those images are supported. If you apply additional customizations on your own golden images, and those settings are not covered by the CIS images, it will be considered a non-supported scenario.
 
 > [!NOTE]
@@ -118,13 +123,11 @@ Currently supported hardening standards:
 
 <sup>1</sup> Supports only the above distros and version
 
+
 ## On-premises and other clouds
-Both on-premises machines and machines connected to other clouds require [Azure Arc-enabled servers](../../azure-arc/overview.md). You must install the  to support Azure Monitor agent. You must install the [Azure Connected Machine agent](../../azure-arc/servers/learn/quick-enable-hybrid-vm.md) before Azure Monitor agent can be installed. See [Supported operating systems](../../azure-arc/servers/prerequisites.md#supported-operating-systems)for operating systems that are supported by Azure Arc.
+Azure Monitor agent is supported on machines in other clouds and on-premises with [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). Azure Monitor agent authenticates to your workspace with managed identity, which is created when you install the [Connected Machine agent](../../azure-arc/servers/agent-overview.md), which is part of Azure Arc. The legacy Log Analytics agent authenticated using the workspace ID and key, so it didn't need Azure Arc. Managed identity is a more secure and manageable authentication solution. 
 
-Azure Monitor Agent authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. Managed Identity is a more secure and manageable authentication solution from Azure. The legacy Log Analytics agent authenticated by using the workspace ID and key instead, so it didn't need Azure Arc.
-
-The Azure Arc requirement comes at no extra cost or resource consumption. The Azure Arc agent is only used as an installation mechanism. You don't need to enable the paid management features if you don't want to use them.
-
+The Azure Arc agent is only used as an installation mechanism and does not add any cost or resource consumption. There are paid options for Azure Arc, but these aren't required for the Azure Monitor agent.
 
 
 

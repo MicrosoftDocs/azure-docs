@@ -11,6 +11,8 @@ ms.reviewer: jeffwo
 ---
 
 # Azure Monitor agent requirements
+This article details requirements and prerequisites for the Azure Monitor agent. Refer to the details in this article before you follow the guidance to install the agent in [Install and manage Azure Monitor Agent
+](./azure-monitor-agent-manage.md).
 
 ## Virtual machine extension details
 

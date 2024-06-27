@@ -12,10 +12,10 @@ ms.reviewer: jeffwo
 
 # Manage Azure Monitor Agent
 
-This article provides the different options currently available to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md). This agent extension can be installed on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. Installing, upgrading, or uninstalling Azure Monitor Agent won't require you to restart your server.
+This article details the different methods to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md) on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. 
 
 > [!IMPORTANT]
-> The Azure Monitor agent requires at least one data collection rule (DCR) to begin collecting data after its installed on the client machine. Depending on the installation method you use, a DCR may or may not be created automatically. If not, then you need to configure data collection following the guidance at []().
+> The Azure Monitor agent requires at least one data collection rule (DCR) to begin collecting data after it's installed on the client machine. Depending on the installation method you use, a DCR may or may not be created automatically. If not, then you need to configure data collection following the guidance at [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md).
 
 
 ## Prerequisites
@@ -24,6 +24,9 @@ See the following articles for prerequisites and other requirements for the Azur
 - [Azure Monitor agent requirements](./azure-monitor-agent-requirements.md) 
 - [Azure Monitor agent network configuration](./azure-monitor-agent-network-configuration.md)
 
+
+> [!IMPORTANT]
+> Installing, upgrading, or uninstalling Azure Monitor Agent won't require a machine restart.
 
 ## Installation options
 The following table lists the different options for installing the Azure Monitor agent on Azure VMs and Azure Arc-enabled servers. The [Azure Arc agent](../../azure-arc/servers/deployment-options.md) must be installed on any machines not in Azure before the Azure Monitor agent can be installed.
@@ -265,12 +268,12 @@ To perform a one-time update of the agent, you must first uninstall the existing
 
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
 
-- Windows 
+Windows 
   ```powershell
   Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorWindowsAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
   ```
 
-- Linux
+Linux
   ```powershell
   Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorLinuxAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
   ```
@@ -279,13 +282,13 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
 
 To perform a one-time upgrade of the agent, use the following PowerShell commands.
 
-- Windows
+Windows
   ```powershell
   $target = @{"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent" = @{"targetVersion"=<target-version-number>}}
   Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineName <arc-server-name> -ExtensionTarget $target
   ```
 
-- Linux
+Linux
   ```powershell
   $target = @{"Microsoft.Azure.Monitor.AzureMonitorLinuxAgent" = @{"targetVersion"=<target-version-number>}}
   Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineName <arc-server-name> -ExtensionTarget $target
@@ -293,12 +296,12 @@ To perform a one-time upgrade of the agent, use the following PowerShell command
 
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#manage-automatic-extension-upgrade) feature by using the following PowerShell commands.
 
-- Windows
+Windows
   ```powershell
   Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AzureMonitorWindowsAgent -EnableAutomaticUpgrade
   ```
 
-- Linux
+Linux
   ```powershell
   Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AzureMonitorLinuxAgent -EnableAutomaticUpgrade
   ```
@@ -311,12 +314,12 @@ To perform a one-time update of the agent, you must first uninstall the existing
   
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following CLI commands.
 
-- Windows
+Windows
   ```azurecli
   az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
 
-- Linux
+Linux
   ```azurecli
   az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
@@ -325,24 +328,24 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
 
 To perform a one-time upgrade of the agent, use the following CLI commands.
 
-- Windows
+Windows
   ```azurecli
   az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
   ```
 
-- Linux
+Linux
   ```azurecli
   az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorLinuxAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
   ```
   
  We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#manage-automatic-extension-upgrade) feature by using the following PowerShell commands.
 
-- Windows
+Windows
   ```azurecli
   az connectedmachine extension update --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
 
-- Linux
+Linux
   ```azurecli
   az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
   ```
@@ -408,14 +411,7 @@ The initiatives or policies will apply to each virtual machine as it's created. 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 <!-- convertborder later -->
 :::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent." border="false":::
-
-## Frequently asked questions
-
-This section provides answers to common questions.
-
-### What impact does installing the Azure Arc Connected Machine agent have on my non-Azure machine?
-
-There's no impact to the machine after the Azure Arc Connected Machine agent is installed. It hardly uses system or network resources and is designed to have a low footprint on the host where it's run.    
+   
 
 ## Next steps
 
