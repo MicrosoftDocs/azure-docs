@@ -777,6 +777,8 @@ export default function ChatLayout(messages) {
 User prompts are on the right side and colored blue, while the Travel AI Agent responses are on the left side and colored green. As you can see in the image below, the HTML formatted responses are accounted for in the conversation.
 :::image type="content" source="media/gen-ai/ai-agent/chat-screenshot.png" lightbox="media/gen-ai/ai-agent/chat-screenshot.png" alt-text="Chat Screenshot":::
 
+When your AI agent is ready go to into production, you can improve query performance by 80% and reduce costs by using semantic caching. See this blog post for how to implement [semantic caching](https://stochasticcoder.com/2024/03/22/improve-llm-performance-using-semantic-cache-with-cosmos-db/).
+:::image type="content" source="media/gen-ai/ai-agent/semantic-caching.png" lightbox="media/gen-ai/ai-agent/semantic-caching.png" alt-text="Semantic Caching":::
 
 ### Next steps
 
