@@ -294,7 +294,7 @@ namespace Company.Function
 }
 ```
 
-An HTTP trigger for the migrated version might like the following example:
+An HTTP trigger for the migrated version might look like the following example:
 
 # [.NET 8](#tab/net8)
 
