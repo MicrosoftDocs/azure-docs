@@ -97,7 +97,7 @@ When you narrow a prompt response down to a single incident, Copilot knows the c
 A useful way to summarize the prompts and responses so far.<br>
 `Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`
 
-For more information on sample prompts, see [Rod Trent's Copilot for Security GitHub](https://github.com/rod-trent/Copilot-for-Security/blob/main/Prompts/Plugins/Sentinel.md).
+For more information on sample prompts, see [Rod Trent's Copilot for Security Prompt Library](https://github.com/rod-trent/Copilot-for-Security/tree/main/Prompts).
 
 ### Related articles
 
