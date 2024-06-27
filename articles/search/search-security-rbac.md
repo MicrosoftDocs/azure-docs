@@ -238,7 +238,7 @@ When [using PowerShell to assign roles](../role-based-access-control/role-assign
 
 Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group level can't be deleted or denied at the resource (search service) level. 
 
-Make sure that you [register your client application with Microsoft Entra ID](search-howto-aad.md) and have role assignments in place before testing access. 
+[Configure your application for keyless connections](keyless-connections.md) and have role assignments in place before testing. 
 
 ### [**Azure portal**](#tab/test-portal)
 

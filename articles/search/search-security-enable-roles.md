@@ -31,11 +31,11 @@ Roles for service administration (control plane) are built in and can't be enabl
 
 ## Enable role-based access for data plane operations
 
+Configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
+
 When you enable roles for the data plane, the change is effective immediately, but wait a few seconds before assigning roles.
 
 The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`. 
-
-Once role-based access is enabled, the search service recognizes an **authorization** header on data plane requests that provide an OAuth2 access token.
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
