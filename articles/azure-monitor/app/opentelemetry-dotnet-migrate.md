@@ -12,11 +12,11 @@ ms.reviewer: mmcc
 
 This guide provides step-by-step instructions to migrate various .NET applications from using Application Insights software development kits (SDKs) to Azure Monitor OpenTelemetry.
 
-You can expect an equivalent experience with Azure Monitor OpenTelemetry instrumentation as you did with the Application Insights SDKs. For more information and a feature-by-feature comparison, see <link to chart>.
+You can expect a similar experience with Azure Monitor OpenTelemetry instrumentation as you did with the Application Insights SDKs. For more information and a feature-by-feature comparison, see [release state of features](opentelemetry-enable.md#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
 
 > [!div class="checklist"]
-> - ASP.NET Core migration to the Azure Monitor OpenTelemetry Distro
-> - ASP.NET, console, and WorkerService migration to the Azure Monitor OpenTelemetry Exporter
+> - ASP.NET Core migration to the [Azure Monitor OpenTelemetry Distro](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore). (Azure.Monitor.OpenTelemetry.AspNetCore NuGet package)
+> - ASP.NET, console, and WorkerService migration to the [Azure Monitor OpenTelemetry Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter). (Azure.Monitor.OpenTelemetry.Exporter NuGet package)
 
 If you're getting started with Application Insights and don't need to migrate from the Classic API, see [Enable Azure Monitor OpenTelemetry](opentelemetry-enable.md).
 
@@ -46,10 +46,10 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 ## Remove the Application Insights SDK
 
-### [ASP.NET Core](#tab/aspnetcore)
-
 > [!Note]
 > Before continuing with these steps, you should confirm that you have a current backup of your application.
+
+### [ASP.NET Core](#tab/aspnetcore)
 
 1. Remove NuGet packages
 
@@ -91,9 +91,6 @@ If you're getting started with Application Insights and don't need to migrate fr
     Verify that your application has no unexpected consequences.
 
 ### [ASP.NET](#tab/net)
-
-> [!Note]
-> Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -169,9 +166,6 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 ### [Console](#tab/console)
 
-> [!Note]
-> Before continuing with these steps, you should confirm that you have a current backup of your application.
-
 1. Remove NuGet packages
 
    Remove any `Microsoft.ApplicationInsights.*` packages from your `csproj` and `packages.config`.
@@ -209,9 +203,6 @@ If you're getting started with Application Insights and don't need to migrate fr
     Verify that your application has no unexpected consequences.
 
 ### [WorkerService](#tab/workerservice)
-
-> [!Note]
-> Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
 
@@ -256,7 +247,7 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 ## Enable OpenTelemetry
 
-Before you begin, it's recommended to create a development [resource](./create-workspace-resource.md) and use its [connection string](./sdk-connection-string.md) when following these instructions.
+We recommended creating a development [resource](./create-workspace-resource.md) and using its [connection string](./sdk-connection-string.md) when following these instructions.
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows the Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
@@ -267,6 +258,8 @@ Plan to update the connection string to send telemetry to the original resource 
 1. Install the Azure Monitor Distro
 
     Our Azure Monitor Distro enables automatic telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions, and allows collecting custom telemetry.
+
+    Installing the Azure Monitor Distro brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
     ```terminal
     dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
@@ -283,33 +276,31 @@ Plan to update the connection string to send telemetry to the original resource 
 
     The following code sample shows a simple example meant only to show the basics.
 
-    ```csharp
-    using Azure.Monitor.OpenTelemetry.AspNetCore;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.Extensions.DependencyInjection;
-
-    public class Program
-    {
-        public static void Main(string[] args)
+        ```csharp
+        using Azure.Monitor.OpenTelemetry.AspNetCore;
+        using Microsoft.AspNetCore.Builder;
+        using Microsoft.Extensions.DependencyInjection;
+        
+        public class Program
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Call AddOpenTelemetry() to add OpenTelemetry to your ServiceCollection.
-            // Call UseAzureMonitor() to fully configure OpenTelemetry.
-            builder.Services.AddOpenTelemetry().UseAzureMonitor();
-
-            var app = builder.Build();
-            app.MapGet("/", () => "Hello World!");
-            app.Run();
+            public static void Main(string[] args)
+            {
+                var builder = WebApplication.CreateBuilder(args);
+        
+                // Call AddOpenTelemetry() to add OpenTelemetry to your ServiceCollection.
+                // Call UseAzureMonitor() to fully configure OpenTelemetry.
+                builder.Services.AddOpenTelemetry().UseAzureMonitor();
+        
+                var app = builder.Build();
+                app.MapGet("/", () => "Hello World!");
+                app.Run();
+            }
         }
-    }
-    ```
+        ```
 
     We recommend setting your Connection String in an environment variable:
 
-    ```terminal
-    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
-    ```
+    `APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>`
 
     More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=aspnetcore#connection-string).
 
@@ -700,7 +691,7 @@ public class Program
 
 ---
 
-## Configure OpenTelemetry
+## Configure Azure Monitor
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -806,9 +797,7 @@ public class Global : System.Web.HttpApplication
 
 We recommend setting your Connection String in an environment variable:
 
-```terminal
-APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
-```
+`APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>`
 
 More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=net#connection-string).
 
@@ -858,9 +847,7 @@ internal class Program
 
 We recommend setting your Connection String in an environment variable:
 
-```terminal
-APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
-```
+`APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>`
 
 More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=net#connection-string).
 
@@ -927,9 +914,7 @@ public class Program
 
 We recommend setting your Connection String in an environment variable:
 
-```terminal
-APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
-```
+`APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>`
 
 More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=net#connection-string).
 
