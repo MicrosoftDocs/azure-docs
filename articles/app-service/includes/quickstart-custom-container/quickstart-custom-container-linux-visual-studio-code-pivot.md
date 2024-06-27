@@ -119,7 +119,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 2. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Type **Enter** to run the command.
 
-3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>/<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
+3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>:<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
 
 4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify that the image is built successfully.
 
