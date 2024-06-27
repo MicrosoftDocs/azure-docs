@@ -95,7 +95,7 @@ The following is an architecture leveraging the cloud native HTAP capabilities i
 To learn more, see the following docs:
 * [Analytics and BI overview for Azure Cosmos DB](analytics-bi-overview.md)
 
-* [Mirroring Azure Cosmos DB overview](/fabric/database/mirrored-database/azure-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* [Mirroring Azure Cosmos DB overview](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context)
 
 * [Getting started with mirroring](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
   
