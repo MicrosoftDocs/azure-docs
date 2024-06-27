@@ -20,7 +20,7 @@ This how-to guide shows you how to deploy your app to [Azure App Service](overvi
 
 To follow the steps in this how-to guide:
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
   
 - [Install Git](https://www.git-scm.com/downloads).
 

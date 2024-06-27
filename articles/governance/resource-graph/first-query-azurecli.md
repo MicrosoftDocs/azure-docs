@@ -1,20 +1,20 @@
 ---
 title: "Quickstart: Run Resource Graph query using Azure CLI"
-description: In this quickstart, you run an Azure Resource Graph query using the extension for Azure CLI.
-ms.date: 04/22/2024
+description: In this quickstart, you run a Resource Graph query using Azure CLI and the resource-graph extension.
+ms.date: 06/26/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Run Resource Graph query using Azure CLI
 
-This quickstart describes how to run an Azure Resource Graph query using the extension for Azure CLI. The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. When you're finished, you can remove the extension.
+This quickstart describes how to run an Azure Resource Graph query using the Azure CLI and the Resource Graph extension. The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. When you finish, you can remove the extension.
 
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) must be version 2.22.0 or higher for the Resource Graph extension.
-- [Visual Studio Code](https://code.visualstudio.com/).
+- A Bash shell environment where you can run Azure CLI commands. For example, Git Bash in a [Visual Studio Code](https://code.visualstudio.com/) terminal session.
 
 ## Connect to Azure
 
@@ -30,7 +30,7 @@ az account set --subscription <subscriptionID>
 
 ## Install the extension
 
-To enable Azure CLI to query resources using Azure Resource Graph, the Resource Graph extension must be installed. You can manually install the extension with the following steps. Otherwise, the first time you run a query with `az graph` you're prompted to install the extension.
+To enable Azure CLI to query resources using Azure Resource Graph, the Resource Graph extension must be installed. The first time you run a query with `az graph` a prompt is displayed to install the extension. Otherwise, use the following steps to do a manual installation.
 
 1. List the available extensions and versions:
 

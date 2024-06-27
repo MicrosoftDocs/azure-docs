@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 ## Create subnets
 
@@ -417,7 +417,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. Close the Bastion session.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

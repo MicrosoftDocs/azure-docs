@@ -14,7 +14,7 @@ Learn how to directly connect to Apache Kafka on HDInsight through an Azure Virt
 * From resources in an on-premises network. This connection is established by using a VPN device (software or hardware) on your local network.
 * From a development environment using a VPN software client.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Architecture and planning
 
