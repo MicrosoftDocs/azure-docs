@@ -302,4 +302,4 @@ To use credential-less datastore in prompt flow, you need to grant enough permis
     - Meanwhile, you need to assign user identity `Storage Blob Data Read` role to storage account at least, if you want to use prompt flow to authoring and test flow.
 - If you still can't view the flow detail page and the first time you using prompt flow is earlier than 2024-01-01, you need to grant workspace MSI as `Storage Table Data Contributor` to storage account linked with workspace.
 
-Learn more [Disable shared key access for your workspace's storage account](../how-to-disable-local-auth-storage.md).
+Learn more about [Disable shared key access for your workspace's storage account](../how-to-disable-local-auth-storage.md).
