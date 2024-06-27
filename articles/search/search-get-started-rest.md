@@ -49,7 +49,7 @@ You're pasting this endpoint into the `.rest` or `.http` file in a later step.
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure.
 
-### Use keys
+### Option 1: Use keys
 
 Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one. For more information, see [Connect to Azure AI Search using key authentication](search-security-api-keys.md).
 
@@ -57,7 +57,7 @@ Select **Settings** > **Keys** and then copy an admin key. Admin keys are used t
 
 You're pasting this key into the `.rest` or `.http` file in a later step.
 
-### Use roles
+### Option 2: Use roles
 
 Make sure your search service is [configured for role-based access](search-security-enable-roles.md). You must have preconfigured [role-assignments for developer access](search-security-rbac.md#assign-roles-for-development). Your role assignments must grant permission to create, load, and query a search index. 
 
