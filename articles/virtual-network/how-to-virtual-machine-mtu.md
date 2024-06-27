@@ -67,7 +67,7 @@ It's important to understand the MTU supported across the network path your appl
 
 In this article, the examples used test the MTU path between two virtual machines. Subsequent tests can be performed from a virtual machine to any routable destination.
 
-Use the following steps to set a larger MTU size on a source and destination virtual machine. You'll then verify the path MTU with a shell script for Linux or PowerShell for Windows. If the larger MTU isn't supported, the results shown in the path MTU discovery test will differ from those configured on the source or destination virtual machine interface.
+Use the following steps to set a larger MTU size on a source and destination virtual machine. Verify the path MTU with a shell script for Linux or PowerShell for Windows. If the larger MTU isn't supported, the results shown in the path MTU discovery test differ from the settings configured on the source or destination virtual machine interface.
 
 # [Linux](#tab/linux)
 
@@ -99,7 +99,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
            valid_lft forever preferred_lft forever
         inet6 fe80::20d:3aff:fec5:f314/64 scope link 
            valid_lft forever preferred_lft forever
-    3: enP46433s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
+    3: enP46433s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
         link/ether 00:0d:3a:c5:f3:14 brd ff:ff:ff:ff:ff:ff
         altname enP46433p0s2
         inet6 fe80::20d:3aff:fec5:f314/64 scope link 
@@ -123,7 +123,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     >[!IMPORTANT]
     > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
-1. Use the `ip` command to verify that the MTU settings have been applied to the network interface:
+1. Use the `ip` command to verify that the MTU settings are applied to the network interface:
 
     ```bash
     ip address show
@@ -143,7 +143,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
            valid_lft forever preferred_lft forever
         inet6 fe80::20d:3aff:fec5:f314/64 scope link 
            valid_lft forever preferred_lft forever
-    3: enP46433s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
+    3: enP46433s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
         link/ether 00:0d:3a:c5:f3:14 brd ff:ff:ff:ff:ff:ff
         altname enP46433p0s2
         inet6 fe80::20d:3aff:fec5:f314/64 scope link 
@@ -172,7 +172,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
            valid_lft forever preferred_lft forever
         inet6 fe80::222:48ff:febd:2f39/64 scope link 
            valid_lft forever preferred_lft forever
-    3: enP4697s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
+    3: enP4697s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
         link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
         altname enP4697p0s2
         inet6 fe80::222:48ff:febd:2f39/64 scope link 
@@ -196,7 +196,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     >[!IMPORTANT]
     > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
-1. Use the `ip` command to verify that the MTU settings have been applied to the network interface:
+1. Use the `ip` command to verify that the MTU settings are applied to the network interface:
 
     ```bash
     ip address show
@@ -216,7 +216,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
            valid_lft forever preferred_lft forever
         inet6 fe80::222:48ff:febd:2f39/64 scope link 
            valid_lft forever preferred_lft forever
-    3: enP4697s1: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
+    3: enP4697s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
         link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
         altname enP4697p0s2
         inet6 fe80::222:48ff:febd:2f39/64 scope link 
@@ -231,7 +231,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.5
     ```
 
-1. If the script's output is successful, the MTU size is set correctly. If the script's output is not successful, either the MTU size isn't set correctly, or a network device along the path supports only the MTU size that the GetPathMTU script returned.
+1. If successful, the output is similar to the following example. If the script's output is not successful, it indicates that the MTU size is not set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
     ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.5
@@ -250,7 +250,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.4
     ```
 
-1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script isn't successful, then the MTU size isn't set correctly.
+1. If successful, the output is similar to the following example. If the script's output is not successful, it indicates that the MTU size is not set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
      ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.4
@@ -357,7 +357,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
     ```
 
-1. Use the following example to verify the MTU value has been set on the network interface.
+1. Use the following example to verify the MTU value is set on the network interface.
 
     ```powershell
     Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
@@ -468,7 +468,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
     ```
 
-1. Use the following example to verify the MTU value has been set on the network interface.
+1. Use the following example to verify the MTU value is set on the network interface.
 
     ```powershell
     Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
@@ -490,7 +490,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Test-Connection -TargetName 10.0.0.5 -MtuSize
     ```
 
-1. If successful, the output is similar to the following example:
+1. If successful, the output is similar to the following example. If the commands output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the Test-Connection command.
 
     ```output
     PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.5
@@ -542,7 +542,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Test-Connection -TargetName 10.0.0.4 -MtuSize
     ```
 
-1. If successful, the output is similar to the following example:
+1. If successful, the output is similar to the following example. If the commands output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the Test-Connection command.
 
     ```output
     PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.4
