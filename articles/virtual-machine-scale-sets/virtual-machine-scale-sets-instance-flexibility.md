@@ -76,8 +76,44 @@ Following the scale set cost model, usage of Instance Flexibility is free. You'l
 ## Deploy a scale set using Instance Flexibility
 The following example can be used to deploy a scale set using Instance Flexibility:
 
+### [REST API](#tab/arm-1)
+To deploy an Instance Flexible scale set through REST API, use a `PUT` call to and include the following sections in your request body:
+```json
+PUT https://management.azure.com/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{youScaleSetName}?api-version=2023-09-01
+```
 
-### [Azure portal](#tab/portal-2)
+In the request body, ensure `sku.name` is set to Mix:
+```json
+  "sku": {
+    "name": "Mix",
+    "capacity": {TotalNumberVms}
+  },
+```
+Ensure you reference your existing subnet:
+```json
+"subnet": {
+    "id": "/subscriptions/{YourSubscriptionId}/resourceGroups/{YourResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{YourVnetName}/subnets/default"
+},
+```
+Lastly, be sure to specify the `skuProfile` with **up to 5** VM sizes:
+```json
+    "skuProfile": {
+      "vmSizes": [
+        {
+          "name": "Standard_D8s_v5"
+        },
+        {
+          "name": "Standard_E16s_v5"
+        },
+        {
+          "name": "Standard_D2s_v5"
+        }
+      ],
+      "allocationStrategy": "lowestPrice"
+    },
+```
+
+### [Azure portal](#tab/portal-1)
 1. Go to **Virtual machine scale sets**.
 2. Select the **Create** button to go to the **Create a virtual machine scale set** view.
 3. In the **Basics** tab, fill out the required fields. If the field isn't called out below, you can set fields to what works best for your scale set.
@@ -89,6 +125,18 @@ The following example can be used to deploy a scale set using Instance Flexibili
 9. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your Instance Flexible scale set deployment.
 
 ## Troubleshooting
+| Error Code                                 | Error Message                                                                                               | Troubleshooting options                                                                                                                                                                                                                                                                                                       |
+|--------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SkuProfileAllocationStrategyInvalid        | Sku Profile’s Allocation Strategy is invalid.                                                               | Ensure that you are using either `CapacityOptimized` or `LowestPrice` as the `allocationStrategy`                                                                                                                                                                                                                             |
+| SkuProfileVMSizesCannotBeNullOrEmpty       | Sku Profile VM Sizes cannot be null or empty. Please provide a valid list of VM Sizes and retry.            | Please provide at least one VM size in the `skuProfile`.                                                                                                                                                                                                                                                                      |
+| SkuProfileHasTooManyVMSizesInRequest       | Too many VM Sizes were specified in the request. Please provide no more than 5 VM Sizes.                    | At this time, you can specify up to 5 VM sizes with Instance Flexibility.                                                                                                                                                                                                                                                     |
+| SkuProfileVMSizesCannotHaveDuplicates      | Sku Profile contains duplicate VM Size : {0}. Please remove any duplicates and retry.                       | Check the VM SKUs listed in the `skuProfile` and remove the duplicate VM size(s).                                                                                                                                                                                                                                             |
+| SkuProfileUpdateNotAllowed                 | Virtual Machine Scale Sets with Sku Profile property cannot be updated.                                     | At this time, you cannot update the `skuProfile` of a scale set using Instance Flexibility.                                                                                                                                                                                                                                   |
+| SkuProfileScenarioNotSupported             | ‘{0}’ is not supported on Virtual Machine Scale Sets with Sku Profile                                       | Instance Flexibility doesn’t support certain scenarios today, like Azure Dedicated Host (`properties.hostGroup`), Capacity Reservations (`properties.virtualMachineProfile.capacityReservation`), and StandbyPools (`properties.standbyPoolProfile`). Please adjust the template to ensure you’re not using any of the above. |
+| SkuNameMustBeMixIfSkuProfileIsSpecified    | Sku name is ‘{0}’. Virtual Machine Scale Sets with Sku Profile must have the Sku name property set to ‘Mix’ | Ensure that the `sku.name property` is set to `‘Mix’`.                                                                                                                                                                                                                                                                        |
+| SkuTierMustNotBeSetIfSkuProfileIsSpecified | Sku tier is ‘{0}’. Virtual Machine Scale Sets with Sku Profile must not have the Sku tier property set.     | `sku.tier` is an optional property for VMSS. With VMSS Flex Mix, `sku.tier` must be set to `null` or not specified.                                                                                                                                                                                                           |
+| InvalidParameter                           | The value of parameter skuProfile is invalid.                                                               | Your subscription isn't registered for the Instance Flexibility feature. Follow the enrollment instructions to register for the Preview.                                                                                                                                                                                      |
+| FleetRPInternalError                       | An unexpected error occurred while computing the desired sku split.                                         | Instance Flexibility isn't supported in this region yet. Deploy only in supported regions.                                                                                                                                                                                                                                    |
 
 ## FAQs
 ### Can I use Spot and Standard VMs with Instance Flexibility?
