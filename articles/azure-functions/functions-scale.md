@@ -3,7 +3,7 @@ title: Azure Functions scale and hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 06/17/2024
+ms.date: 06/27/2024
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024
 ---
 # Azure Functions hosting options
@@ -55,8 +55,8 @@ This table shows operating system support for the hosting options.
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |
 
-<sup>1</sup> Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
-<sup>2</sup> Windows deployments are code-only. Functions doesn't currently support Windows containers. 
+1. Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
+2. Windows deployments are code-only. Functions doesn't currently support Windows containers. 
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
