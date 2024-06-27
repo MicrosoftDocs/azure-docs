@@ -117,7 +117,7 @@ In this section, you create a
 21. Select **Create** in the **Review + create** tab.
 
     > [!NOTE]
-    > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](**https://aka.ms/homeregionforglb**) for cross region load balancer.
+    > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](cross-region-overview.md#home-regions-in-azure) for cross region load balancer.
 
 ## Test the load balancer
 
