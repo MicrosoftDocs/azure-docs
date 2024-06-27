@@ -42,7 +42,7 @@ As you begin to plan your product transfer, consider the information needed to a
 - What's the product's current offer type and what do you want to transfer it to?
   - Microsoft Online Service Program (MOSP), also known as pay-as-you-go (PAYG)
   - Previous Azure offer in CSP
-    - Enterprise Agreement (EA)
+  - Enterprise Agreement (EA)
   - Microsoft Customer Agreement in the Enterprise motion (MCA-E) where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
   - Microsoft Customer Agreement that you bought through the Azure website (MCA-online).
   - Cloud Solution Provider - CSP (MCA managed by partner)
