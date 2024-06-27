@@ -66,15 +66,33 @@ Following the scale set cost model, usage of Instance Flexibility is free. You'l
 ## Limitations
 - Instance Flexibility is currently available in West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europle, UK South, and France Central. More regions will be added during Public Preview.
 - Instance Flexibility is only available for scale sets using Flexible Orchestration Mode.
--  Instance Flexibility is currently only available through ARM template and in the Azure portal.
+- Instance Flexibility is currently only available through ARM template and in the Azure portal.
 - You must have quota for the VM sizes you're requesting with Instance Flexibility.
 - You can specify **up to** five VM sizes with Instance Flexibility at this time.
 - Existing scale sets cannot be updated to use Instance Flexibility. 
 - VM sizes cannot be changed once the scale set is deployed.
+- For REST API deployments, you must have an existing virtual network inside of the resource group that you'll be deploying your scale set with Instance Flexibility in.
+
+## Deploy a scale set using Instance Flexibility
+The following example can be used to deploy a scale set using Instance Flexibility:
+
+
+### [Azure portal](#tab/portal-2)
+1. Go to **Virtual machine scale sets**.
+2. Select the **Create** button to go to the **Create a virtual machine scale set** view.
+3. In the **Basics** tab, fill out the required fields. If the field isn't called out below, you can set fields to what works best for your scale set.
+4. Ensure that you select a region that Instance Flexibility is supported in.
+5. Be sure **Orchestration mode** is set to **Flexible**.
+6. In the **Size** section, click **Select up to 5 sizes (preview)** and the **Select a VM size** page will appear.
+7. Use the size picker to select up to 5 VM sizes. Once you have selected your VM sizes, click the **Select** button at the bottom of the page to return to the scale set Basics tab.
+8. In the **Allocation strategy (preview)** field, select your allocation strategy.
+9. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your Instance Flexible scale set deployment.
 
 ## Troubleshooting
 
 ## FAQs
 ### Can I use Spot and Standard VMs with Instance Flexibility?
+Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Flexibility. To do so, use [Spot Priority Mix](/articles/virtual-machine-scale-sets/spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
 
 ## My region doesn't support Instance Flexibility today, will it support Instance Flexibility in the future?
+Instance Flexibility will be rolling out to all public Azure regions during Public Preview. The documentation will be updated as more regions are supported. Instance Flexibility is currently available in West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europle, UK South, and France Central.
