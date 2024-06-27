@@ -193,7 +193,7 @@ items:
       - name: "🆕 Container: Transliterate text"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/transliterate-text-parameters.md
-      - name: "🆕 Container: Translate documents (preview)"
+      - name: "🆕 Container: Translate documents"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translate-document-parameters.md
   - name: Translator container FAQ
