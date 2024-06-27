@@ -203,8 +203,6 @@
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.yml
       displayName: Splunk
-    - name: Aruba ClearPass
-      href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
