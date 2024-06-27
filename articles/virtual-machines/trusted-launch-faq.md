@@ -16,7 +16,7 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that's nearing end-of-life (EOL) status. Consider your use and plan accordingly. For more information, see the [CentOS EOL guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-Frequently asked questions (FAQs) about Trusted Launch feature use cases, support for other Azure features, and fixes for common errors.
+Frequently asked questions (FAQs) about Azure Trusted Launch feature use cases, support for other Azure features, and fixes for common errors.
 
 ## Use cases
 
@@ -41,11 +41,18 @@ Trusted Launch, on the other hand, can be deployed as a standalone VM or as virt
 
 Trusted Launch VMs provide you with foundational compute security. We recommend that you don't disable them for new VM or virtual machine scale set deployments except if your deployments have dependency on:
 
-- [VM size families currently supported with Trusted Launch](trusted-launch.md#virtual-machines-sizes)
-- [Features currently supported with Trusted Launch](trusted-launch.md#unsupported-features)
-- [An OS version that's supported with Trusted Launch](trusted-launch.md#operating-systems-supported)
+- [A VM size currently not supported](trusted-launch.md#virtual-machines-sizes)
+- [Unsupported features with Trusted Launch](trusted-launch.md#unsupported-features)
+- [An OS that supports Trusted Launch](trusted-launch.md#operating-systems-supported)
 
 You can use the `securityType` parameter with the `Standard` value to disable Trusted Launch in new VM or virtual machine scale set deployments by using Azure PowerShell (v10.3.0+) and the Azure CLI (v2.53.0+).
+
+> [!NOTE]
+> We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
+
+### [Azure portal](#tab/portal)
+
+If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
 
 #### [CLI](#tab/cli)
 
@@ -64,14 +71,6 @@ New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 ```
 
 ---
-
-### Can I disable the Secure Boot option for Trusted Launch VMs?
-
-Secure Boot is fundamental for the higher security posture of Trusted Launch. If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
-
-> [!NOTE]
-> We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
-
 
 ## Supported features and deployments
 

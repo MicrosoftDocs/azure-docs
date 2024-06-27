@@ -16,7 +16,7 @@ This feature allows you to bind unified extensible firmware interface (UEFI) key
 
 ## Overview
 
-When a Trusted Launch virtual machine (VM) is deployed, during the boot process, signatures of all the boot components such as the UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified against trusted preloaded UEFI keys. Verification failure on any of the boot components results in no-boot of the VM or no-load of the kernel modules/drivers only. Verification can fail because of a component signed by a key that's not in the preloaded UEFI keys list or an unsigned component.
+When an Azure Trusted Launch virtual machine (VM) is deployed, during the boot process, signatures of all the boot components such as the UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified against trusted preloaded UEFI keys. Verification failure on any of the boot components results in no-boot of the VM or no-load of the kernel modules/drivers only. Verification can fail because of a component signed by a key that's not in the preloaded UEFI keys list or an unsigned component.
 
 Many types of Azure partner-provided or customer-procured software (disaster recovery, network monitoring) install driver/kernel modules as part of their solutions. These driver/kernel modules must be signed for a Trusted Launch VM to boot. Many Azure partners sign their driver/kernel modules with their own private key. This approach requires that the public key (UEFI keys) of the private key pair must be available in the UEFI layer so that the Trusted Launch VM can verify the boot components and boot successfully.
 
