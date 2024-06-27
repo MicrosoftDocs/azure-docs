@@ -7,7 +7,7 @@ metadata:
   ms.topic: faq
   ms.subservice: imaging
   ms.custom: devx-track-azurepowershell, devx-track-azurecli
-  ms.date: 09/27/2022
+  ms.date: 06/26/2024
   ms.author: jushiman
   ms.reviewer: edewe
 title: Deprecated images FAQ
@@ -124,7 +124,7 @@ sections:
           
           If you want to keep using an image that is scheduled for deprecation, generalize the VM, deallocate the VM, then create a custom image for your VM or scale set. Then change the VM or scale set deployment  to point to the custom image. For more information, see [Capture an image of a VM in the portal](capture-image-portal.md).
 
-         **Note: If you are using a deprecated paid Marketplace image that has the Purchase Plan Information defined (the 'plan' object on the Image), when this image gets deprecated you cannot create new Virtual Machines workloads or perform Azure Site Recovery (ASR) or Backup operations with this image due to the missing Plan Information.** 
+          **Note**: If you are using a deprecated paid Marketplace image that has the Purchase Plan Information defined (the 'plan' object on the Image), when this image gets deprecated you cannot create new Virtual Machines workloads or perform Azure Site Recovery (ASR) or Backup operations with this image due to the missing Plan Information.
           
           **You want to migrate to another offer/plan/version:**
 
