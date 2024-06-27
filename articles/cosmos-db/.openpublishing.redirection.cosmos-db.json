@@ -5797,7 +5797,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/synase-link-use-cases.md",
-      "redirect_url": "/azure/cosmos-db/analytics-use-cases",
+      "redirect_url": "/azure/cosmos-db/analytics-bi-use-cases",
       "redirect_document_id": true
     }
   ]

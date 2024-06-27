@@ -120,10 +120,12 @@ additionalContent:
               url: nosql/model-partition-example.md
             - text: Azure Cosmos DB service quotas
               url: concepts-limits.md
-        - title: Analytics
+        - title: Analytics and BI
           links:
-            - text: Analytics overview
-              url: nosql/analytics.md
+            - text: Analytics and BI overview
+              url: analytics-bi-overview.md
+            - text: Analytics and BI use cases
+              url: analytics-bi-use-cases.md
             - text: Mirroring in Microsoft Fabric
               url: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
             - text: API for NoSQL mirroring tutorial in Microsoft Fabric
