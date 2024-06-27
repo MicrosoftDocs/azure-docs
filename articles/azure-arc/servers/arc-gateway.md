@@ -82,7 +82,7 @@ There are six main steps to use the feature:
 
 1. Execute the following command to add the connectedmachine extension:
 
-    `az extension add --allow-limited preview true --yes --source [whl file path]`
+    `az extension add --allow-preview true --source [whl file path]`
 
 ### Step 2: Create an Arc gateway resource
 
