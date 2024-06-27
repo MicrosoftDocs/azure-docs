@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: include
 author: PatrickFarley
 ms.author: pafarley
-ms.date: 08/16/2023
+ms.date: 06/26/2024
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for C#.
@@ -24,9 +24,9 @@ Use this guide to get started generating images with the Azure OpenAI SDK for C#
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 > [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
@@ -67,7 +67,7 @@ dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.6
 
 ## Generate images with DALL-E
 
-From the project directory, open the *program.cs* file and replace with the following code:
+From the project directory, open the *program.cs* file and replace the contents with the following code:
 
 ```csharp
 using System;
