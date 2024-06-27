@@ -50,11 +50,7 @@ You can use the `securityType` parameter with the `Standard` value to disable Tr
 > [!NOTE]
 > We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
 
-#### [Portal](#tab/portal)
-
 If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
-
----
 
 #### [CLI](#tab/cli)
 
@@ -62,8 +58,6 @@ If you need to disable Secure Boot, under the VM's configuration, clear the **En
 az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204 `
     --security-type 'Standard'
 ```
-
----
 
 #### [PowerShell](#tab/PowerShell)
 
