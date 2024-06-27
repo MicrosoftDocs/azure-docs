@@ -39,7 +39,7 @@ Complete the steps in [Create a function app in a Premium plan](functions-create
 
 ### [Deployment templates](#tab/templates)
 
-Use Bicep files or Azure Resource Manager (ARM) templates to create a secured function app and storage account resources. When you create a secured storage account in an automated deployment, you must set the `vnetContentShareEnabled` site property, create the file share as part of your deployment, and set the `WEBSITE_CONTENTSHARE` app setting to the name of the file share. For more information, including links to example deployments, see [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md?tabs=premium-plan#secured-deployment).
+Use Bicep files or Azure Resource Manager (ARM) templates to create a secured function app and storage account resources. When you create a secured storage account in an automated deployment, you must set the `vnetContentShareEnabled` site property, create the file share as part of your deployment, and set the `WEBSITE_CONTENTSHARE` app setting to the name of the file share. For more information, including links to example deployments, see [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md?tabs=premium-plan#secured-deployments).
 
 ---
 
