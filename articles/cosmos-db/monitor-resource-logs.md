@@ -57,7 +57,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. In the **Diagnostic settings** pane, name the setting **example-setting** and then select the **QueryRuntimeStatistics** category. Send the logs to a **Log Analytics Workspace** selecting your existing workspace. Finally, select **Resource specific** as the destination option.
 
-    :::image type="content" source="media/monitor-resource-logs/configure-diagnostic-setting.png" alt-text="Screenshot of the various option to configure a diagnostic setting.":::
+    :::image type="content" source="media/monitor-resource-logs/configure-diagnostic-setting.png" alt-text="Screenshot of the various options to configure a diagnostic setting.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -326,7 +326,7 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 2. In the dialog, select `Enable`. This setting is applied within a few minutes. All newly ingested logs now have the full-text or PIICommand text for each request.
 
-    :::image type="content" source="media/monitor-resource-logs/enable-diagnostics-full-text-query.png" alt-text="Screenshot of the diagnostics full-text queyr feature being enabled for an Azure Cosmos DB account.":::
+    :::image type="content" source="media/monitor-resource-logs/enable-diagnostics-full-text-query.png" alt-text="Screenshot of the diagnostics full-text query feature being enabled for an Azure Cosmos DB account.":::
 
 ### [Azure CLI / REST API / Bicep / ARM Template](#tab/azure-cli+rest-api+bicep+azure-resource-manager-template)
 
