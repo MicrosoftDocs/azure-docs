@@ -43,7 +43,7 @@ Trusted Launch VMs provide you with foundational compute security. We recommend 
 
 - [A VM size currently not supported](trusted-launch.md#virtual-machines-sizes)
 - [Unsupported features with Trusted Launch](trusted-launch.md#unsupported-features)
-- [An OS that supports Trusted Launch](trusted-launch.md#operating-systems-supported)
+- [An OS that doesn't support Trusted Launch](trusted-launch.md#operating-systems-supported)
 
 You can use the `securityType` parameter with the `Standard` value to disable Trusted Launch in new VM or virtual machine scale set deployments by using Azure PowerShell (v10.3.0+) and the Azure CLI (v2.53.0+).
 
