@@ -1,5 +1,6 @@
 ---
 title: AI agents
+titleSuffix: Azure Cosmos DB
 description: AI agent key concepts and implementation of AI agent memory system.
 author: wmwxwa
 ms.author: wangwilliam
@@ -11,9 +12,9 @@ ms.date: 06/26/2024
 
 # AI agents
 
-## What are AI Agents?
-
 AI agents are designed to perform specific tasks, answer questions, and automate processes for users. These agents vary widely in complexity, ranging from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can execute complex workflows autonomously.
+
+## What are AI Agents?
 
 ### Common features of AI agents
 
@@ -61,23 +62,23 @@ A multi-agent system provides the following advantages over a copilot or a singl
 -	Sophisticated abilities: Multi-agent systems can handle complex or large-scale problems by conducting thorough decision-making processes and distributing tasks among multiple agents.
 -	Enhanced memory: Multi-agent systems with memory can overcome large language models' context windows, enabling better understanding and information retention.
 
-## Implementing AI agents
+## Implement AI agents
 
 ### Reasoning and planning
 
 Complex reasoning and planning are the hallmark of advanced autonomous agents. Popular autonomous agent frameworks incorporate one or more of the following methodologies for reasoning and planning:
 
 [Self-ask](https://arxiv.org/abs/2210.03350)
-> Improves on chain of thought by having the model explicitly asking itself (and answering) follow-up questions before answering the initial question.
+Improves on chain of thought by having the model explicitly asking itself (and answering) follow-up questions before answering the initial question.
 
 [Reason and Act (ReAct)](https://arxiv.org/abs/2210.03629)
-> Use LLMs to generate both reasoning traces and task-specific actions in an interleaved manner. Reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information.
+Use LLMs to generate both reasoning traces and task-specific actions in an interleaved manner. Reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information.
 
 [Plan and Solve](https://arxiv.org/abs/2305.04091)
-> Devise a plan to divide the entire task into smaller subtasks, and then carry out the subtasks according to the plan. This mitigates the calculation errors, missing-step errors, and semantic misunderstanding errors that are often present in zero-shot chain-of-thought (CoT) prompting.
+Devise a plan to divide the entire task into smaller subtasks, and then carry out the subtasks according to the plan. This mitigates the calculation errors, missing-step errors, and semantic misunderstanding errors that are often present in zero-shot chain-of-thought (CoT) prompting.
 
 [Reflection/Self-critique](https://arxiv.org/abs/2303.11366)
-> Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials.
+Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials.
 
 ### Frameworks
 
@@ -170,7 +171,6 @@ Azure Cosmos DB incorporates advanced features such as change feed, which allows
 Additionally, the built-in support for multi-master writes enables high availability and resilience, ensuring continuous operation of AI agents even in the face of regional failures.
 
 The five available [consistency levels](consistency-levels.md) (from strong to eventual) can also cater to various distributed workloads depending on the scenario requirements.
-Implementation example
 
 > [!TIP]
 > You may choose from two Azure Cosmos DB APIs to build your AI agent memory system: Azure Cosmos DB for NoSQL, and vCore-based Azure Cosmos DB for MongoDB. The former provides 99.999% availability and [three vector search algorithms](nosql/vector-search.md): IVF, HNSW, and the state-of-the-art DiskANN. The latter provides 99.995% availability and [two vector search algorithms](mongodb/vcore/vector-search.md): IVF and HNSW.
@@ -187,7 +187,7 @@ Chatbots have been a long-standing concept, but AI agents are advancing beyond b
 ### Prerequisites
 
 - If you don't have an Azure subscription, you may [try Azure Cosmos DB free](try-free.md) for 30 days without creating an Azure account; no credit card is required, and no commitment follows when the trial period ends.
-- Setup account for OpenAI API or Azure OpenAI Service.
+- Set up account for OpenAI API or Azure OpenAI Service.
 - Create a vCore cluster in Azure Cosmos DB for MongoDB by following this [QuickStart](mongodb/vcore/quickstart-portal.md).
 - An IDE for Development, such as VS Code.
 - Python 3.11.4 installed on development environment.
@@ -196,17 +196,17 @@ Chatbots have been a long-standing concept, but AI agents are advancing beyond b
 
 All of the code and sample datasets are available on [GitHub](https://github.com/jonathanscholtes/Travel-AI-Agent-React-FastAPI-and-Cosmos-DB-Vector-Store).
 
-- loader: Python code for loading sample documents and vector embeddings in Azure Cosmos DB
-- api: Python FastAPI for Hosting Travel AI Agent
-- web: Web Interface with React JS
+- **loader**: This folder contains Python code for loading sample documents and vector embeddings in Azure Cosmos DB.
+- **api**: This folder contains Python FastAPI for Hosting Travel AI Agent.
+- **web**: The folder contains the Web Interface with React JS.
 
 ### Load Travel Documents into Azure Cosmos DB
 
-The GitHub repository contains a Python project located in the **loader** directory intended for loading the sample travel documents into Azure Cosmos DB. This section sets-up the project to load the documents.
+The GitHub repository contains a Python project located in the **loader** directory intended for loading the sample travel documents into Azure Cosmos DB. This section sets up the project to load the documents.
 
-### Setting Up the Environment for Loader
+### Set Up the Environment for Loader
 
-Setup your Python virtual environment in the **loader** directory by running the following:
+Set up your Python virtual environment in the **loader** directory by running the following:
 ```python
     python -m venv venv
 ```
@@ -223,7 +223,7 @@ Create a file, named **.env** in the **loader** directory, to store the followin
     MONGO_CONNECTION_STRING="mongodb+srv:**your connection string from Azure Cosmos DB**"
 ```
 
-### Loading Documents and Vectors
+### Load Documents and Vectors
 
 The Python file **main.py** serves as the central entry point for loading data into Azure Cosmos DB. This code processes the sample travel data from the GitHub repository, including information about ships and destinations. Additionally, it generates travel itinerary packages for each ship and destination, allowing travelers to book them using the AI agent. The CosmosDBLoader is responsible for creating collections, vector embeddings, and indexes in the Azure Cosmos DB instance.
 
@@ -276,7 +276,7 @@ Output:
 --load vectors ships--
 ```
 
-### Building Travel AI Agent with Python FastAPI
+### Build Travel AI Agent with Python FastAPI
 
 The AI travel agent is hosted in a backend API using Python FastAPI, facilitating integration with the frontend user interface. The API project processes agent requests by [grounding](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857) the LLM prompts against the data layer, specifically the vectors and documents in Azure Cosmos DB. Furthermore, the agent makes use of various tools, particularly the Python functions provided at the API service layer. This article focuses on the code necessary for AI agents within the API code.
 
@@ -287,11 +287,11 @@ The API project in the GitHub repository is structured as follows:
 - Service – service layer components responsible for primary business logic and interaction with data layer; LangChain Agent and Agent Tools.
 - Data – data layer components responsible for interacting with Azure Cosmos DB for MongoDB documents storage and vector search.
 
-### Setting Up the Environment for the API
+### Set Up the Environment for the API
 
 Python version 3.11.4 was utilized for the development and testing of the API.
 
-Setup your python virtual environment in the **api** directory.
+Set up your python virtual environment in the **api** directory.
 ```python
     python -m venv venv
 ```
@@ -308,19 +308,19 @@ Create a file, named **.env** in the **api** directory, to store your environmen
     MONGO_CONNECTION_STRING="mongodb+srv:**your connection string from Azure Cosmos DB**"
 ```
 
-With the environment configured and variables set up, we are ready to initiate the FastAPI server. Run the following command from the api directory to initiate the server.
+With the environment configured and variables set up, we are ready to initiate the FastAPI server. Run the following command from the **api** directory to initiate the server.
 ```python
     python app.py
 ```
 
 The FastAPI server launches on the localhost loopback 127.0.0.1 port 8000 by default. You can access the Swagger documents using the following localhost address: http://127.0.0.1:8000/docs
 
-### Using a Session for the AI Agent Memory
+### Use a Session for the AI Agent Memory
 It is imperative for the Travel Agent to have the capability to reference previously provided information within the ongoing conversation. This ability is commonly known as "memory" in the context of LLMs, which should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
 
 To achieve this objective, we use the chat message history, which is securely stored in our Azure Cosmos DB instance. Each chat session will have its history stored using a session ID to ensure that only messages from the current conversation session are accessible. This necessity is the reason behind the existence of a 'Get Session' method in our API. It is a placeholder method for managing web sessions in order to illustrate the use of chat message history.
 
-:::image type="content" source="media/gen-ai/ai-agent/FastAPI-get-session.png" lightbox="media/gen-ai/ai-agent/FastAPI-get-session.png" alt-text="Python FastAPI – Get Session.":::
+:::image type="content" source="media/gen-ai/ai-agent/fastapi-get-session.png" lightbox="media/gen-ai/ai-agent/fastapi-get-session.png" alt-text="Screenshot of Python FastAPI – Get Session.":::
 Click Try It out for /session/.
 
 ```python
@@ -342,7 +342,7 @@ For the AI Agent, we only need to simulate a session. Thus, the stubbed-out meth
 
 Let us utilize the obtained session ID from the previous step to initiate a new dialogue with our AI agent to validate its functionality. We shall conduct our test by submitting the following phrase: "I want to take a relaxing vacation."
 
-:::image type="content" source="media/gen-ai/ai-agent/FastAPI-agent-chat.png" lightbox="media/gen-ai/ai-agent/FastAPI-agent-chat.png" alt-text="Python FastAPI – Agent Chat.":::
+:::image type="content" source="media/gen-ai/ai-agent/fastapi-agent-chat.png" lightbox="media/gen-ai/ai-agent/fastapi-agent-chat.png" alt-text="Screenshot of Python FastAPI – Agent Chat.":::
 Click Try It out for /agent/agent_chat.
 
 Example parameter
@@ -374,7 +374,7 @@ Calling the 'agent_chat' for the first time creates a new collection named 'hist
 
 When integrating the AI Agent into the API, the web search components are responsible for initiating all requests. This is followed by the search service, and finally the data components. In our specific case, we utilize MongoDB data search, which connects to Azure Cosmos DB. The layers facilitate the exchange of Model components, with the AI Agent and AI Agent Tool code residing in the service layer. This approach was implemented to enable the seamless interchangeability of data sources and to extend the capabilities of the AI Agent with additional, more intricate functionalities or 'tools'.
 
-:::image type="content" source="media/gen-ai/ai-agent/Travel-AI-Agent-FastAPI-layers.png" lightbox="media/gen-ai/ai-agent/Travel-AI-Agent-FastAPI-layers.png" alt-text="Travel AI Agent FastAPI layers.":::
+:::image type="content" source="media/gen-ai/ai-agent/travel-ai-agent-fastapi-layers.png" lightbox="media/gen-ai/ai-agent/travel-ai-agent-fastapi-layers.png" alt-text="Screenshot of Travel AI Agent FastAPI layers.":::
 
 #### Service Layer
 
@@ -522,11 +522,11 @@ def agent_chat(input:str, session_id:str)->str:
 
 The **TravelAgent.py** file is straightforward, as ```agent_with_chat_history```, and its dependencies (tools, prompt, and LLM) are initialized and configured in the **init.py** file. In this file, the agent is called using the input received from the user, along with the session ID for conversation memory. Afterwards, ```PromptResponse``` (model/prompt) is returned with the agent's output and response time.
 
-### Integrating AI Agent with React JS User Interface
+### Integrate AI Agent with React JS User Interface
 
 With the successful loading of the data and accessibility of our AI Agent through our API, we can now complete the solution by establishing a web user interface using React JS for our travel website. By harnessing the capabilities of React JS, we can illustrate the seamless integration of our AI agent into a travel site, enhancing the user experience with a conversational travel assistant for inquiries and bookings.
 
-#### Setting Up the Environment for React JS
+#### Set Up the Environment for React JS
 
 Install Node.js and the dependencies before testing out the React interface.
 
@@ -545,13 +545,13 @@ Now, we have the ability to execute the following command from the **web** direc
 ```
 
 Running the previous command launches the React JS web application.
-:::image type="content" source="media/gen-ai/ai-agent/React-JS-Travel-Web-Application.png" lightbox="media/gen-ai/ai-agent/React-JS-Travel-Web-Application.png" alt-text="React JS Travel Web Application.":::
+:::image type="content" source="media/gen-ai/ai-agent/react-js-travel-web-application.png" lightbox="media/gen-ai/ai-agent/react-js-travel-web-application.png" alt-text="Screenshot of React JS Travel Web Application.":::
 
 #### Walkthrough of React JS Web Interface
 
 The web project of the GitHub repository is a straightforward application to facilitate user interaction with our AI agent. The primary components required to converse with the agent are ```TravelAgent.js``` and ```ChatLayout.js```. The **Main.js** file serves as the central module or user landing page.
 
-:::image type="content" source="media/gen-ai/ai-agent/main.png" lightbox="media/gen-ai/ai-agent/main.png" alt-text="JS Interface":::
+:::image type="content" source="media/gen-ai/ai-agent/main.png" lightbox="media/gen-ai/ai-agent/main.png" alt-text="Screenshot of JS Interface.":::
 
 #### Main
 
@@ -775,10 +775,10 @@ export default function ChatLayout(messages) {
 ```
 
 User prompts are on the right side and colored blue, while the Travel AI Agent responses are on the left side and colored green. As you can see in the image below, the HTML formatted responses are accounted for in the conversation.
-:::image type="content" source="media/gen-ai/ai-agent/chat-screenshot.png" lightbox="media/gen-ai/ai-agent/chat-screenshot.png" alt-text="Chat Screenshot":::
+:::image type="content" source="media/gen-ai/ai-agent/chat-screenshot.png" lightbox="media/gen-ai/ai-agent/chat-screenshot.png" alt-text="Screenshot of Chat.":::
 
 When your AI agent is ready go to into production, you can improve query performance by 80% and reduce costs by using semantic caching. See this blog post for how to implement [semantic caching](https://stochasticcoder.com/2024/03/22/improve-llm-performance-using-semantic-cache-with-cosmos-db/).
-:::image type="content" source="media/gen-ai/ai-agent/semantic-caching.png" lightbox="media/gen-ai/ai-agent/semantic-caching.png" alt-text="Semantic Caching":::
+:::image type="content" source="media/gen-ai/ai-agent/semantic-caching.png" lightbox="media/gen-ai/ai-agent/semantic-caching.png" alt-text="Screenshot of Semantic Caching.":::
 
 ### Next steps
 
