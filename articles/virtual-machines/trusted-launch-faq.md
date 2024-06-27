@@ -63,6 +63,8 @@ $vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $
 New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 ```
 
+---
+
 ### Can I disable the Secure Boot option for Trusted Launch VMs?
 
 Secure Boot is fundamental for the higher security posture of Trusted Launch. If you need to disable Secure Boot, under the VM's configuration, clear the **Enable Secure Boot** option.
@@ -70,7 +72,6 @@ Secure Boot is fundamental for the higher security posture of Trusted Launch. If
 > [!NOTE]
 > We don't recommend disabling Secure Boot unless you're using custom unsigned kernel or drivers.
 
----
 
 ## Supported features and deployments
 
