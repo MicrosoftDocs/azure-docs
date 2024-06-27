@@ -50,7 +50,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. In the **Monitoring** section of the resource menu, select **Diagnostic settings**. Then, select the **Add diagnostic setting** option.
 
-    :::image type="content" source="media/monitor-resource-logs/add-diagnostic-setting.png" lightbox="media/monitor-resource-logs/add-diagnostic-setting.png" alt-text="Sreenshot of the list of diagnostic settings with options to create new ones or edit existing ones.":::
+    :::image type="content" source="media/monitor-resource-logs/add-diagnostic-setting.png" lightbox="media/monitor-resource-logs/add-diagnostic-setting.png" alt-text="Screenshot of the list of diagnostic settings with options to create new ones or edit existing ones.":::
 
     > [!IMPORTANT]
     > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [enable full-text query](monitor-resource-logs.md#enable-full-text-query-for-logging-query-text).
