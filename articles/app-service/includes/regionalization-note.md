@@ -14,5 +14,5 @@ ms.subservice: web-apps
 >
 > Example: `myapp-ds27dh7271aah175.westus-01.azurewebsites.net`
 > 
-> For further details, refer to [Unique Default Hostname for App Service Resource]([https://go.microsoft.com/fwlink/?linkid=2265728](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/public-preview-creating-web-app-with-a-unique-default-hostname/ba-p/4156353)).
+> For further details, refer to [Unique Default Hostname for App Service Resource](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/public-preview-creating-web-app-with-a-unique-default-hostname/ba-p/4156353).
 >
