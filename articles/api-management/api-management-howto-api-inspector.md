@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 06/27/2024
+ms.date: 05/05/2024
 ms.author: danlep
 ms.custom: devdivchpfy22
 ---
@@ -24,8 +24,6 @@ In this tutorial, you learn how to:
 > * Enable tracing for an API
 
 :::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="Screenshot showing the API inspector." lightbox="media/api-management-howto-api-inspector/api-inspector-002.png":::
-
-[!INCLUDE [api-management-availability-tracing-v2-tiers](../../includes/api-management-availability-tracing-v2-tiers.md)]
 
 ## Prerequisites
 
