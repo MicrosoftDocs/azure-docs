@@ -73,4 +73,4 @@ To remove a Geo-replication pairing with a secondary, select **Geo-replication**
 When a secondary region is removed, all of the data that it held is also removed. If you wish to re-enable Geo-replication with that region and cluster, it has to replicate the primary region data all over again. 
 
 ## Related content
-For conceptual information about the Geo-replication feature, see [Azure Event Hubs geo-replication]geo-replication.md). 
+For conceptual information about the Geo-replication feature, see [Azure Event Hubs geo-replication](geo-replication.md). 
