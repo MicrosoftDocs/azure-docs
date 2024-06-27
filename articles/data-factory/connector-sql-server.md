@@ -295,9 +295,9 @@ To use user-assigned managed identity authentication, in addition to the generic
 
 You also need to follow the steps below:
 
-1. [Grant permissions to your user-assigned managed identity in Microsoft Entra ID](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&preserve-view=true&tabs=azure-portal#grant-permissions).
+1. [Grant permissions to your user-assigned managed identity](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&preserve-view=true&tabs=azure-portal#grant-permissions).
 
-1. [Provision a Microsoft Entra administrator](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#grant-permissions) for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or a Microsoft Entra group. If you grant the group with user-assigned managed identity an admin role, skip steps 4. The administrator has full access to the database.
+1. [Enable Microsoft Entra authentication](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#enable-microsoft-entra-authentication) to your SQL Server on Azure VMs.
 
 1. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
