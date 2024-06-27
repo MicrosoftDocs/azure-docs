@@ -83,4 +83,4 @@ For more information, see:
 
 - [Optimize your security operations](soc-optimization-access.md)
 - [SOC optimization reference of recommendations](soc-optimization-reference.md)
-- Blogs: [Introducing SOC Optimization API](https://aka.ms/SocOptimizationAPI) | [SOC optimization: unlock the power of precision-driven security management](https://aka.ms/SOC_Optimization)
+- Blogs: [Introducing the SOC Optimization API](https://aka.ms/SocOptimizationAPI) | [Unlock the power of precision-driven security management](https://aka.ms/SOC_Optimization)
