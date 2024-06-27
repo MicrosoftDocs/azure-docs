@@ -295,7 +295,7 @@ To use user-assigned managed identity authentication, in addition to the generic
 
 You also need to follow the steps below:
 
-1. [Grant permissions to your user-assigned managed identity](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm?view=azuresql&preserve-view=true&tabs=azure-portal#grant-permissions).
+1. [Grant permissions to your user-assigned managed identity](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#grant-permissions).
 
 1. [Enable Microsoft Entra authentication](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#enable-microsoft-entra-authentication) to your SQL Server on Azure VMs.
 
