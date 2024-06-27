@@ -33,13 +33,13 @@ There are different explanations for why a call ended. Here are the meanings of 
 | Subcode | Code | Message  (public preview *) | Result Categories (public preview *) | Advice |
 |---------|------|---------|--------------------------------------|--------|
 | 0 | 0 | Call ended successfully by local participant. | Success | |
-| 0 | 487 | Call ended successfully as caller cancelled the call. | Success | |
-| 0 | 603 | Call ended successfully as it was declined by callee. | Success | |
+| 0 | 487 | Call ended successfully as caller canceled the call. | Success | |
+| 0 | 603 | Call ended successfully as it was declined by the callee. | Success | |
 | 3100 | 410 | Call setup failed due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | - Ensure that you're using the latest SDK in a supported environment.<br> |
 | 3101 | 410 | Call dropped due to unexpected network problem on the client, please check client's network and retry. | UnxpectedClientError | |
 | 3112 | 410 |  Call setup failed due to network configuration problem on the client side, please check client's network configuration, and retry. | ExpectedError | |
 | 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
-| 4507 | 495 | Call ended as application did not provide a valid Azure Communication Services token. | UnexpectedClientError |- Please make sure that your application implements token refresh mechanism correctly. |
+| 4507 | 495 | Call ended as application didn't provide a valid Azure Communication Services token. | UnexpectedClientError |- Please make sure that your application implements token refresh mechanism correctly. |
 | 4521 | 0 | Call ended because user disconnected from the call abruptly, this may be a result of a user closing the application that hosted the call, eg a user terminated application, closed browser of browser tab without proper hang-up. | ExpectedError | |
 | 5000 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
 | 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
@@ -51,7 +51,7 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 10057 | 408 | Call failed, callee failed to finalize call setup, most likely callee lost network or terminated the application abruptly. Ensure clients are connected and available. | ExpectedError | |
 | 301005 | 410 | Participant was removed from the call by the Azure Communication Services infrastructure due to loss of media connectivity with Azure Communication Services infrastructure, this usually happens if participant leaves the call abruptly or looses network connectivity. If participant wants to continue the call, it should reconnect. | UnexpectedClientError | - Ensure that you're using the latest SDK in a supported environment.<br> |
 | 510403 | 403 | Call ended, as it has been marked as a spam and got blocked. | ExpectedError | - Ensure that your Communication Services token is valid and not expired.<br>  - Ensure to pass in AlternateId in the call options.<br> |
-| 540487 | 487 | Call ended successfully as caller cancelled the call. | Success | |
+| 540487 | 487 | Call ended successfully as caller canceled the call. | Success | |
 | 560000 | 0 | Call ended successfully by remote PSTN participant. | Success |Possible causes:<br> - User ended the call.<br> - Call was ended by media agent.<br> |
 | 560486 | 486 | Call ended because remote PSTN participant was busy. The number called was already in a call or having technical issues. | Success | - For Direct Routing calls, check your Session Border Control logs and settings and timeouts configuration.<br> Possible causes: <br>  - The number called was already in a call or having technical issues.<br> |
 
