@@ -18,7 +18,7 @@ This article explains how to enable Microsoft Defender for IoT on an Azure IoT h
 
 - The ability to create a standard tier IoT Hub.
 
-- For the resource group and access management setup process, you need the following roles:
+- For the [resource group and access management setup process](#allow-access-to-the-iot-hub), you need the following roles:
 
     - To add role assignments, you need the Owner, Role Based Access Control Administrator and User Access Administrator roles. 
     - To register resource providers, you need th Owner and Contributor roles. 
@@ -133,7 +133,7 @@ To allow access to the IoT Hub:
 
 1. Back in the **Members** tab, select **Review + assign** at the bottom of the tab, in in the **Review and assign tab**, select **Review + assign** at the bottom again.
 
-## Allow access to a Log Analytics workspace
+### Allow access to a Log Analytics workspace
 
 To connect to a Log Analytics workspace:
 
