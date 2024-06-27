@@ -10,17 +10,19 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 06/27/2024
 ---
 
 # Configure network access and firewall rules for Azure AI Search
 
-As soon as you install Azure AI Search, you can set up network access to limit access to an approved set of devices and cloud services. There are two mechanisms:
+By default, Azure AI Search is configured for connections over a public endpoint. Access to a search service *through* the public endpoint is protected by authentication and authorization protocols, but the endpoint itself is open to the internet at the network layer.
+
+If you aren't hosting a public web site, you might want to configure network access to automatically refuse requests unless they originate from an approved set of devices and cloud services. There are two mechanisms:
 
 + Inbound rules listing the IP addresses, ranges, or subnets from which requests are admitted
 + Exceptions to network rules, where requests are admitted with no checks, as long as the request originates from a [trusted service](#grant-access-to-trusted-azure-services)
 
-Network rules aren't required, but it's a security best practice to add them.
+Network rules aren't required, but it's a security best practice to add them if you use Azure AI Search for intranet or internal corporate network scenarios.
 
 Network rules are scoped to data plane operations against the search service's public endpoint. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
 
@@ -33,6 +35,14 @@ This article assumes the Azure portal for network access configuration. You can 
 + A search service, any region, at the Basic tier or higher
 
 + Owner or Contributor permissions
+
+## Limitations
+
+There are a few drawbacks to locking down the public endpoint.
+
++ It takes time to fully identify IP ranges and set up firewalls, and if you're in early stages of proof-of-concept testing and investigation and using sample data, you might want to defer network access controls until you actually need them.
+
++ Some workflows require access to a public endpoint. Specifically, the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md) in the Azure portal currently connects to embedding models over the public endpoint. You can switch to code or script to complete the same tasks, but if you want to try the wizard, the public endpoint must be available.
 
 <a id="configure-ip-policy"></a> 
 
@@ -140,7 +150,7 @@ Once a request is allowed through the firewall, it must be authenticated and aut
 
 + [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request. This is the default.
 
-+ [Role-based access control (RBAC)](search-security-rbac.md) using Microsoft Entra ID, where the caller is a member of a security role on a search service. This is the most secure option. It uses Microsoft Entra ID for authentication and role assignments on Azure AI Search for permissions to data and operations.
++ [Role-based access control](search-security-rbac.md) using Microsoft Entra ID, where the caller is a member of a security role on a search service. This is the most secure option. It uses Microsoft Entra ID for authentication and role assignments on Azure AI Search for permissions to data and operations.
 
 > [!div class="nextstepaction"]
 > [Enable RBAC on your search service](search-security-enable-roles.md)
