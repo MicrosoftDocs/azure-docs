@@ -44,8 +44,6 @@
       href: cross-region-replication.md
     - name: Indexing
       href: indexing-basics.md
-    - name: Background indexing
-      href: background-indexing.md
     - name: Reliability
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Compute and storage
@@ -80,14 +78,22 @@
           href: how-to-transactions.md
         - name: Connect using Spark connector from Azure Databricks
           href: connect-from-databricks.md
+    - name: Work with indexes
+      items:
+        - name: Background indexing
+          href: background-indexing.md
+        - name: Indexing best practices
+          href: how-to-create-indexes.md
+        - name: Working with wildcard
+          href: how-to-create-wildcard-indexes.md
+        - name: Search and query text
+          href: how-to-create-text-index.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
     - name: Manage replication
       href: how-to-cluster-replica.md
-    - name: Search and query text
-      href: how-to-create-text-index.md
     - name: Monitor diagnostics logs
       href: how-to-monitor-diagnostics-logs.md
     - name: Use Azure Private Link
