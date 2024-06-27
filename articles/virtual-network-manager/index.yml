@@ -115,7 +115,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Virtual Network Verifier?
-            url: concept-virtual-network-verifier
+            url: concept-virtual-network-verifier.md
       - linkListType: how-to-guide
         links:
           - text: Configure event logs for Azure Virtual Network Manager
@@ -123,4 +123,4 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Verify resource reachability with Virtual Network Verifier
-            url: how-to-verify-reachability-with-virtual-network-verifier
+            url: how-to-verify-reachability-with-virtual-network-verifier.md
