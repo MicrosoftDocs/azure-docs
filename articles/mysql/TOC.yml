@@ -35,6 +35,8 @@
             href: flexible-server/release-notes/may-2024.md
           - name: June 2024
             href: flexible-server/release-notes/june-2024.md
+      - name: What's happening to Single Server?
+        href: migrate/whats-happening-to-mysql-single-server.md
       - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
@@ -347,9 +349,6 @@
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Azure Database for MySQL - Single Server
   items:
-  - name: What's happening to Azure Database for MySQL - Single Server?
-    href: migrate/whats-happening-to-mysql-single-server.md
-    displayName: What's happening to Single Server?
   - name: Overview
     items:
     - name: What is Azure Database for MySQL - Single Server?
