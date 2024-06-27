@@ -42,9 +42,9 @@ Because Event Grid supports availability zones automatically in regions that sup
 
 If you relocate your Event Grid resources to a region that supports availability zones, you automatically receive availability zone support. To learn how to relocate your resources to another region that supports availability zones, see the following:
 
-- [Relocate Azure Event Grid system topics to another region](/azure/operational-excellence/relocation-event-grid-system-topic)
-- [Relocate Azure Event Grid custom topics to another region](/azure/operational-excellence/relocation-event-grid-custom-topics)
-- [Relocate Azure Event Grid domains to another region](/azure/operational-excellence/relocation-event-grid-domains)
+- [Relocate Azure Event Grid system topics to another region](../operational-excellence/relocation-event-grid-system-topics.md)
+- [Relocate Azure Event Grid custom topics to another region](../operational-excellence/relocation-event-grid-custom-topics.md)
+- [Relocate Azure Event Grid domains to another region](../operational-excellence/relocation-event-grid-domains.md)
   
 ## Cross-region disaster recovery and business continuity
 
