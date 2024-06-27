@@ -433,7 +433,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
 
-* Studio, using the [Security settings](?tabs=azure-studio-preview#security-settings)
+* Studio, using the security settings in this article.
 
 * [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Microsoft Entra admin center.
 
