@@ -261,7 +261,6 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     3900
     ```
 
-
 # [Windows](#tab/windows)
 
 Use PowerShell to test the connection and MTU size between **vm-1** and **vm-2**.
