@@ -13,6 +13,14 @@ Defender for IoT also stores other data in the Azure portal, on OT network senso
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
+## Data Location 
+
+Defender for Iot uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in:  
+
+- the geo-location of the tenant as identified during provisioning or 
+
+- the geo-location as defined by the data storage rules of an online service if this online service is used by Defender for Endpoint to process such data. 
+
 ## Device data retention periods
 
 The following table lists how long device data is stored in each Defender for IoT location.
@@ -126,6 +134,16 @@ If you're using an on-premises management console, each connected OT sensor also
 
 - A single sensor backup file is limited to a maximum of 40 GB. A file exceeding that size won't be sent to the on-premises management console.
 - Total hard disk space allocated to sensor backup from all sensors on the on-premises management console is 100 GB.
+
+## Data sharing for Microsoft Defender for IoT 
+<!-- This could be placed nearer the beginning but I think generally these lists are kept for end of documents. -->
+Microsoft Defender for IoT shares data, including customer data, among the following Microsoft products, also licensed by the customer. 
+<!-- should we add links to each of these going to their main page? -->
+- Microsoft Defender XDR 
+- Microsoft Sentinel 
+- Microsoft Threat Intelligence <!-- MSTIC - what is this is there a full name for it? is this correct? --> 
+- Microsoft Defender for Cloud 
+- Microsoft Defender for Endpoint 
 
 ## Next steps
 
