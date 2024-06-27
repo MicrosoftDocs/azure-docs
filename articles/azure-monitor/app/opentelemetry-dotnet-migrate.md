@@ -274,35 +274,35 @@ Plan to update the connection string to send telemetry to the original resource 
 
 ##### Program.cs
 
-    The following code sample shows a simple example meant only to show the basics.
+The following code sample demonstrates the basics.
 
-        ```csharp
-        using Azure.Monitor.OpenTelemetry.AspNetCore;
-        using Microsoft.AspNetCore.Builder;
-        using Microsoft.Extensions.DependencyInjection;
-        
-        public class Program
-        {
-            public static void Main(string[] args)
-            {
-                var builder = WebApplication.CreateBuilder(args);
-        
-                // Call AddOpenTelemetry() to add OpenTelemetry to your ServiceCollection.
-                // Call UseAzureMonitor() to fully configure OpenTelemetry.
-                builder.Services.AddOpenTelemetry().UseAzureMonitor();
-        
-                var app = builder.Build();
-                app.MapGet("/", () => "Hello World!");
-                app.Run();
-            }
-        }
-        ```
+```csharp
+using Azure.Monitor.OpenTelemetry.AspNetCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
-    We recommend setting your Connection String in an environment variable:
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-    `APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>`
+        // Call AddOpenTelemetry() to add OpenTelemetry to your ServiceCollection.
+        // Call UseAzureMonitor() to fully configure OpenTelemetry.
+        builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
-    More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=aspnetcore#connection-string).
+        var app = builder.Build();
+        app.MapGet("/", () => "Hello World!");
+        app.Run();
+    }
+}
+```
+
+We recommend setting your Connection String in an environment variable:
+
+`APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>`
+
+More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=aspnetcore#connection-string).
 
 ### [ASP.NET](#tab/net)
 
