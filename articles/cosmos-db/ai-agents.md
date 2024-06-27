@@ -778,7 +778,7 @@ User prompts are moved to the right and colored blue, while the Travel AI Agent 
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](../ai-advantage.md)
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](/ai-advantage.md)
 
 > [!div class="nextstepaction"]
-> [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
+> [Use the Azure Cosmos DB lifetime free tier](/free-tier.md)
