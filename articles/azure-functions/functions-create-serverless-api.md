@@ -5,7 +5,7 @@ author: mattchenderson
 ms.author: mahender
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 06/27/2024
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to customize HTTP trigger endpoints in Azure Functions so that I can build a highly scalable API.
@@ -92,12 +92,14 @@ Repeat the steps in [Create a function app](./functions-create-function-app-port
 1. Navigate to your new frontend function app in the portal.
 1. Expand **Settings**, and then select **Environment variables**.
 1. Select the **App settings** tab, where key/value pairs are stored.
-1. Create a new setting with the key `HELLO_HOST`. Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This value is part of the URL that you copied earlier when you tested your HTTP function. You later reference this setting in the configuration.
+1. Select **+ Add** to create a new setting. Enter **HELLO_HOST** for its **Name** and set its **Value** to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`.
+
+    This value is part of the URL that you copied earlier when you tested your HTTP function. You later reference this setting in the configuration.
 
     > [!NOTE]
     > It's recommended that you use app settings for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
 
-1. Select **Apply**.
+1. Select **Apply** to save the new setting. On the **App settings** tab, select **Apply**, and then select **Confirm** to restart the function app.
 
 ### Create a proxy on the frontend
 
