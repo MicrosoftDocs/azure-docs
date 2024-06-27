@@ -230,7 +230,7 @@ Use an [Bicep template](../azure-resource-manager/bicep/overview.md) to create t
     ```
 
     > [!TIP]
-    > Use the [`az bicep build --file diagnosticSetting.bicep --outfile azuredeploy.json`](/cli/azure/bicep#az-bicep-build) command to convert the Bicep template to an Azure Resource Manager template.
+    > Use the [`az bicep build`](/cli/azure/bicep#az-bicep-build) command to convert the Bicep template to an Azure Resource Manager template.
 
 ### [ARM Template](#tab/azure-resource-manager-template)
 
@@ -303,7 +303,7 @@ Use an [Azure Resource Manager template](../azure-resource-manager/templates/ove
     ```
 
     > [!TIP]
-    > Use the [`az bicep decompile --file azuredeploy.json --outfile diagnosticSetting.bicep`](/cli/azure/bicep#az-bicep-decompile) command to convert the Azure Resource Manager template to a Bicep template.
+    > Use the [`az bicep decompile`](/cli/azure/bicep#az-bicep-decompile) command to convert the Azure Resource Manager template to a Bicep template.
 
 ---
 
