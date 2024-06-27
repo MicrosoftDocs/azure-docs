@@ -779,6 +779,9 @@ User prompts are on the right side and colored blue, while the Travel AI Agent r
 When your AI agent is ready go to into production, you can use semantic caching to improve query performance by 80% and reduce LLM inference/API call costs. See this blog post for how to implement [semantic caching](https://stochasticcoder.com/2024/03/22/improve-llm-performance-using-semantic-cache-with-cosmos-db/).
 :::image type="content" source="media/gen-ai/ai-agent/semantic-caching.png" lightbox="media/gen-ai/ai-agent/semantic-caching.png" alt-text="Screenshot of Semantic Caching.":::
 
+> [!NOTE]
+> If you would like to contribute to this article, feel free to click on the pencil button on the top right corner of the article. If you have any specific questions or comments on this article, you may reach out to cosmosdbgenai@microsoft.com
+
 ### Next steps
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
