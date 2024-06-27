@@ -24,7 +24,6 @@ You need Contributor or Owner permissions in the subscription to create an Azure
 
 Finding an existing Azure Migrate project depends upon whether you're using the current or old version of Azure Migrate. [Follow these steps](create-manage-projects.md#find-a-project).
 
-
 ## Can't find a geography
 
 You can create an Azure Migrate project in supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
@@ -45,10 +44,10 @@ If you try to create a project and encounter a deployment error:
 - Check you have Contributor or Owner permissions in the subscription.
 - If you're deploying in a newly added geography, wait a short time and try again.
 - If you receive the error, "Requests must contain user identity headers", this might indicate that you don't have access to the Microsoft Entra tenant of the organization. In this case:
-    - When you're added to a Microsoft Entra tenant for the first time, you receive an email invitation to join the tenant.
-    - Accept the invitation to be added to the tenant.
-    - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) to you.
-    - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
+  - When you're added to a Microsoft Entra tenant for the first time, you receive an email invitation to join the tenant.
+  - Accept the invitation to be added to the tenant.
+  - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) to you.
+  - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
 
 ## How do I delete a project
 
@@ -56,7 +55,7 @@ If you try to create a project and encounter a deployment error:
 
 ## Added tools don't show
 
-Make sure you have the right project selected. In the Azure Migrate hub, select **Servers, databases and web apps**. Select your project and subscription from the **Project** drop-down list. The page refreshes with the selected project and added tools. 
+Make sure you have the right project selected. In the Azure Migrate hub, select **Servers, databases and web apps**. Select your project and subscription from the **Project** drop-down list. The page refreshes with the selected project and added tools.
 
 ## Next steps
 
