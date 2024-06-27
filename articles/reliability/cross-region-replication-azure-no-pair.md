@@ -32,12 +32,13 @@ To achieve geo-replication in non-paired regions, you can use:
 
 ## Azure Backup
 
-To achieve geo-replication in non-paired regions, you can use:
+To achieve geo-replication in non-paired regions:
 
-- [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery). 
-- Third party backup solutions.
+- Use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery). 
+- Replace the data retention time frame from 14 days to 15 days.
+- Add [Zone-redundant Storage](../backup/backup-overview#why-use-azure-backup.md) as one of the replication options.
 
-- 
+ 
 ## Azure SQL Database
 
 For geo-replication in non-paired regions with Azure SQL Database, you can use:
