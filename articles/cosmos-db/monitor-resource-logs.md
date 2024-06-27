@@ -1,21 +1,21 @@
 ---
-title: Monitor data by using Azure Diagnostic settings
+title: Monitor data using diagnostic settings
 titleSuffix: Azure Cosmos DB
 description: Learn how to use Azure diagnostic settings to monitor the performance and availability of data stored in Azure Cosmos DB
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: esarroyo
+author: stefarroyo
+ms.author: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.custom: devx-track-azurecli
+#Customer Intent: As an operations user, I want to monitor metrics using Azure Monitor, so that I can use a Log Analytics workspace to perform complex analysis.
 ---
 
-# Monitor Azure Cosmos DB data by using diagnostic settings in Azure
+# Monitor Azure Cosmos DB data using Azure Monitor Log Analytics diagnostic settings
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Diagnostic settings in Azure are used to collect resource logs. Resources emit Azure resource Logs and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs." Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Resources emit Azure resource Logs and provide rich, frequent data about the operation of that resource. These logs are captured per request and are referred to as "data plane logs." Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cosmos DB accounts and send resource logs to the following sources:
 
@@ -48,21 +48,20 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section** and then select the **Add diagnostic setting** option.
 
-
-    :::image type="content" source="media/monitor/diagnostics-settings-selection.png" lightbox="media/monitor/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
+    :::image type="content" source="media/monitor-resource-logs/diagnostics-settings-selection.png" lightbox="media/monitor-resource-logs/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
 
     > [!IMPORTANT]
     > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [enable full-text query](monitor-resource-logs.md#enable-full-text-query-for-logging-query-text).
 
-1. In the **Diagnostic settings** pane, fill the form with your preferred categories. Included here's a list of log categories.
+1. In the **Diagnostic settings** pane, select your preferred categories. Included here's a list of log categories.
 
     | Category | API | Definition | Key Properties |
     | --- | --- | --- | --- |
-    | **DataPlaneRequests** | Recommended for API for NoSQL | Logs back-end requests as data plane operations, which are requests executed to create, update, delete or retrieve data within the account. | `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode` |
+    | **DataPlaneRequests** | Recommended for API for NoSQL | Logs back-end requests as data plane operations, which are requests executed to create, update, delete, or retrieve data within the account. | `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode` |
     | **MongoRequests** | API for MongoDB | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for MongoDB. When you enable this category, make sure to disable DataPlaneRequests. | `Requestcharge`, `opCode`, `retryCount`, `piiCommandText` |
     | **CassandraRequests** | API for Apache Cassandra | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Cassandra. | `operationName`, `requestCharge`, `piiCommandText` |
     | **GremlinRequests** | API for Apache Gremlin | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Gremlin. | `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting` |
-    | **QueryRuntimeStatistics** | API for NoSQL | This table details query operations executed against an API for NoSQL account. By default, the query text and its parameters are obfuscated to avoid logging persona  l data with full text query logging available by request. | `databasename`, `partitionkeyrangeid`, `querytext` |
+    | **QueryRuntimeStatistics** | API for NoSQL | This table details query operations executed against an API for NoSQL account. By default, the query text and its parameters are obfuscated to avoid logging personal data with full text query logging available by request. | `databasename`, `partitionkeyrangeid`, `querytext` |
     | **PartitionKeyStatistics** | All APIs | Logs the statistics of logical partition keys by representing the estimated storage size (KB) of the partition keys. This table is useful when troubleshooting storage skews. This PartitionKeyStatistics log is only emitted if the following conditions are true: 1. At least 1% of the documents in the physical partition have same logical partition key. 2. Out of all the keys in the physical partition, the PartitionKeyStatistics log captures the top three keys with largest storage size. </li></ul> If the previous conditions aren't met, the partition key statistics data isn't available. It's okay if the above conditions aren't met for your account, which typically indicates you have no logical partition storage skew. **Note**: The estimated size of the partition keys is calculated using a sampling approach that assumes the documents in the physical partition are roughly the same size. If the document sizes aren't uniform in the physical partition, the estimated partition key size might not be accurate. | `subscriptionId`, `regionName`, `partitionKey`, `sizeKB` |
     | **PartitionKeyRUConsumption** | API for NoSQL or API for Apache Gremlin | Logs the aggregated per-second RU/s consumption of partition keys. This table is useful for troubleshooting hot partitions. Currently, Azure Cosmos DB reports partition keys for API for NoSQL accounts only and for point read/write, query, and stored procedure operations. | `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId` |
     | **ControlPlaneRequests** | All APIs | Logs details on control plane operations, which include, creating an account, adding or removing a region, updating account replication settings etc. | `operationName`, `httpstatusCode`, `httpMethod`, `region` |
@@ -70,7 +69,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
-    :::image type="content" source="media/monitor/diagnostics-resource-specific.png" alt-text="Screenshot of the option to enable resource-specific diagnostics.":::
+    :::image type="content" source="media/monitor-resource-logs/diagnostics-resource-specific.png" alt-text="Screenshot of the option to enable resource-specific diagnostics.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -312,24 +311,24 @@ Here, use an [Azure Resource Manager (ARM) template](../azure-resource-manager/t
 
 ## Enable full-text query for logging query text
 
-> [!NOTE]
-> Enabling this feature may result in additional logging costs, for pricing details visit [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). It is recommended to disable this feature after troubleshooting.
+Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabling full-text query, you're able to view the deobfuscated query for all requests within your Azure Cosmos DB account. You also give permission for Azure Cosmos DB to access and surface this data in your logs.
 
-Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabling full-text query, you're able to view the deobfuscated query for all requests within your Azure Cosmos DB account.  You also give permission for Azure Cosmos DB to access and surface this data in your logs.
+> [!WARNING]
+> Enabling this feature may result in additional logging costs, for pricing details visit [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). It is recommended to disable this feature after troubleshooting.
 
 ### [Azure portal](#tab/azure-portal)
 
 1. To enable this feature, navigate to the `Features` page in your Azure Cosmos DB account.
 
-    :::image type="content" source="media/monitor/full-text-query-features.png" lightbox="media/monitor/full-text-query-features.png" alt-text="Screenshot of the navigation process to the Features page.":::
+    :::image type="content" source="media/monitor-resource-logs/full-text-query-features.png" lightbox="media/monitor-resource-logs/full-text-query-features.png" alt-text="Screenshot of the navigation process to the Features page.":::
 
 2. Select `Enable`. This setting is applied within a few minutes. All newly ingested logs have the full-text or PIICommand text for each request.
 
-    :::image type="content" source="media/monitor/select-enable-full-text.png" alt-text="Screenshot of the full-text feature being enabled.":::
+    :::image type="content" source="media/monitor-resource-logs/select-enable-full-text.png" alt-text="Screenshot of the full-text feature being enabled.":::
 
 ### [Azure CLI / REST API / ARM template](#tab/azure-cli+rest-api+azure-resource-manager-template)
 
-1. Ensure you're logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli). Optionally, ensure that you've configured the active subscription for your CLI. For more information, see [change the active Azure CLI subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
+1. Ensure you logged in to the Azure CLI. For more information, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli). Optionally, ensure that you configured the active subscription for your CLI. For more information, see [change the active Azure CLI subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 1. Create shell variables for `accountName` and `resourceGroupName`.
 
@@ -416,16 +415,9 @@ Azure Cosmos DB provides advanced logging for detailed troubleshooting. By enabl
 
 ---
 
-## Query data
+## Related content
 
-To learn how to query using these newly enabled features, see:
-
-- [API for NoSQL](nosql/diagnostic-queries.md)
-- [API for MongoDB](mongodb/diagnostic-queries.md)
-- [API for Apache Cassandra](cassandra/diagnostic-queries.md)
-- [API for Apache Gremlin](gremlin/diagnostic-queries.md)
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Monitoring Azure Cosmos DB data reference](monitor-reference.md#resource-logs)
+- [Diagnostic queries in API for NoSQL](nosql/diagnostic-queries.md)
+- [Diagnostic queries in API for MongoDB](mongodb/diagnostic-queries.md)
+- [Diagnostic queries in API for Apache Cassandra](cassandra/diagnostic-queries.md)
+- [Diagnostic queries in API for Apache Gremlin](gremlin/diagnostic-queries.md)
