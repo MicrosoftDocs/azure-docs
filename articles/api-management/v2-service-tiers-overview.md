@@ -53,7 +53,12 @@ The v2 tiers are available in the following regions:
 * France Central
 * Germany West Central
 * North Europe
+* West Europe
+* UK South
+* UK West
 * Central India
+* Brazil South
+* Australia Central
 * Australia East
 * Australia Southeast
 * East Asia

@@ -11,13 +11,14 @@ ms.date: 11/28/2022
 ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.2 (End of Support announced)
+# Azure Synapse Runtime for Apache Spark 3.2 (deprecated)
 
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2.
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2.
 
-> [!IMPORTANT]
-> * End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023.
-> * End of Support announced runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+> [!WARNING]
+> Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.2
+> * End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 July 8, 2023.
+> * Effective July 8, 2024, Azure Synapse will discontinue official support for Spark 3.2 Runtimes.
 > * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 will be retired and disabled as of July 8, 2024. After the End of Support date, the retired runtimes are unavailable for new Spark pools and existing workflows can't execute. Metadata will temporarily remain in the Synapse workspace.
 > * **We strongly recommend that you upgrade your Apache Spark 3.2 workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md) before July 8, 2024.** 
 
@@ -2421,4 +2422,4 @@ widgetsnbextension==3.5.2
 
 ## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4, refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).

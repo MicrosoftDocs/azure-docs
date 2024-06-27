@@ -72,7 +72,7 @@ All backups required to perform a PITR within the backup retention period are re
 
 Azure Database for PostgreSQL flexible server provides up to 100 percent of your provisioned server storage as backup storage at no extra cost. Any additional backup storage that you use is charged in gigabytes per month. 
 
-For example, if you have provision a server with 250 gibibytes (GiB) of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption that exceeds 250 GiB is charged as defined in the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+For example, if you have provisioned a server with 250 gibibytes (GiB) of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption that exceeds 250 GiB is charged as defined in the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
 If you configured your server with geo-redundant backup, the backup data is also copied to the Azure paired region. So, your backup size will be twice the size of the local backup copy. Billing is calculated as *( (2 x local backup size) - provisioned storage size ) x price @ gigabytes per month*. 
 
@@ -180,6 +180,7 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 - Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
 - Using pg_dump allows greater flexibility in restoring data across different database versions.
 -	Azure backup vaults support immutability and soft delete (preview) features, protecting your data.
+-	LTR backup support for CMK-enabled servers
 
 #### Limitations and considerations
 
