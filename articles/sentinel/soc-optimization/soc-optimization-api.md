@@ -23,7 +23,7 @@ For example, use the `recommendations` API to:
 
 - Build custom reports and dashboards. For example, see [Visualize custom SOC optimization data](#visualize-custom-soc-optimization-data).
 - Integrate with third-party tools, such as for SOAR and ITSM services
-- Get automated, real-time access to SOC optimization data, triggering evalautions and responding promptly to the suggestions
+- Get automated, real-time access to SOC optimization data, triggering evaluations and responding promptly to the suggestions
 
 For customers or MSSPs managing multiple environments, the `recommendations` API provides a scalable way to handle recommendations across multiple workspaces. You can also export data from the API and store it externally for audit, archiving, or tracking trends.
 
@@ -70,7 +70,7 @@ In the **Microsoft Sentinel Optimization Workbooks**, select the **SOC Optimizat
 
 For example:
 
-:::image type="content" source="media/soc-optimization-api/soc-optimization-workbook.png" alt-text="Screenshot of the Microsoft Sentinel Optimization Workbook.":::
+:::image type="content" source="media/soc-optimization-api/soc-optimization-workbook.png" alt-text="Screenshot of the Microsoft Sentinel Optimization Workbook."  lightbox="media/soc-optimization-api/soc-optimization-workbook.png":::
 
 For more information, see:
 
