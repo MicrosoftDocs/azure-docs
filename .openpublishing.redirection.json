@@ -4152,6 +4152,11 @@
            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
+            "redirect_url": "/azure/reliablity/reliability-event-grid",
+            "redirect_document_id": false
         }
        
     ]
