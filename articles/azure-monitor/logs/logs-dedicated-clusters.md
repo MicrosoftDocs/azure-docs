@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 04/21/2024
+ms.date: 06/21/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -24,7 +24,7 @@ eligible for commitment tier discount.
 - **[Ingest from Azure Event Hubs](../logs/ingest-logs-event-hub.md)** - Lets you ingest data directly from an event hub into a Log Analytics workspace. Dedicated cluster lets you use capability when ingestion from all linked workspaces combined meet commitment tier. 
 
 ## Cluster pricing model
-Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 100 GB/day. Any usage above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
+Log Analytics dedicated clusters have a pricing model based on a commitment tier of minimum 100 GB/day, that applies to data sent to Analytics plan. Ingestion above the tier level incurs charges based on the per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters. The commitment tiers have a 31-day commitment period from the time a commitment tier is selected.
 
 ## Prerequisites
 
@@ -404,7 +404,7 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 - **Identity** - The identity used to authenticate to your Key Vault. This can be System-assigned or User-assigned.
 - **billingType** - Billing attribution for the cluster resource and its data. Includes on the following values:
   - **Cluster (default)**--The costs for your cluster are attributed to the cluster resource.
-  - **Workspaces**--The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./cost-logs.md#dedicated-clusters) to learn more about the cluster pricing model.
+  - **Workspaces**--The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics dedicated clusters](./cost-logs.md#dedicated-clusters) to learn more about the cluster pricing model.
 
 
 >[!IMPORTANT]
