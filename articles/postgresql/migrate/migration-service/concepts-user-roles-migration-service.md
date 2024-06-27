@@ -4,14 +4,14 @@ description: Migration of users/roles, ownerships, and privileges along with sch
 author: shriramm
 ms.author: shriramm
 ms.reviewer: maghan
-ms.date: 03/13/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
 
 # Migration of user roles, ownerships, and privileges for the migrations service in Azure Database for PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 > [!IMPORTANT]  
 > The migration of user roles, ownerships, and privileges feature is available only for the Azure Database for PostgreSQL Single server as the source. This feature is currently disabled for PostgreSQL version 16 servers.
@@ -34,6 +34,8 @@ We removed all privileges for non-superusers on the following pg_catalog tables.
 - pg_authid 
 
 - pg_largeobject 
+
+- pg_statistic
 
 - pg_subscription 
 

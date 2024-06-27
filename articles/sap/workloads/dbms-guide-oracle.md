@@ -296,8 +296,7 @@ Recommended mount options are:
 
 With ANF, some key features are available like consistent snapshot-based backups, low latency, and remarkably high performance. From version 6 of our AzAcSnap tool [Azure Application Consistent Snapshot tool for ANF](../../azure-netapp-files/azacsnap-get-started.md), Oracle databases can be configured for consistent database snapshots. 
 
-Those snapshots remain on the actual data volume and must be copied away using ANF CRR (Cross Region Replication) [Cross-region replication of ANF](../../azure-netapp-files/cross-region-replication-introduction.md)
-or other backup tools.
+Those snapshots remain on the actual data volume and must be copied away using ANF CRR (Cross Region Replication) [Cross-region replication of ANF](../../azure-netapp-files/cross-region-replication-introduction.md) or other backup tools.
 
 ## SAP on Oracle on Azure with LVM
 

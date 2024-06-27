@@ -6,10 +6,11 @@ description: Learn about how to select and prepare data, to be successful in cre
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: jboback
-
 ---
 
 # Format data for custom Summarization
@@ -21,7 +22,7 @@ This page contains information about how to select and prepare data in order to 
 
 ## Custom summarization document sample format
 
-In the abstractive document summarization scenario, each document (whether it has a provided label or not) is expected to be provided in a plain .txt file. The file contains one or more lines. If multiple lines are provided, each is assumed to be a paragraph of the document. The following is an example document with three paragraphs.
+In the abstractive text summarization scenario, each document (whether it has a provided label or not) is expected to be provided in a plain .txt file. The file contains one or more lines. If multiple lines are provided, each is assumed to be a paragraph of the document. The following is an example document with three paragraphs.
 
 *At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality.*
 
@@ -66,7 +67,7 @@ In the abstractive document summarization scenario, each document (whether it ha
 
 ## Sample mapping JSON format
 
-In both document and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. 
+In both text and conversation summarization scenarios, a set of documents and corresponding labels can be provided in a single JSON file that references individual document/conversation and summary files. 
 
 The JSON file is expected to contain the following fields:
 
@@ -96,7 +97,7 @@ The JSON file is expected to contain the following fields:
 ```
 ## Custom document summarization mapping sample
 
-The following is an example mapping file for the abstractive document summarization scenario with three documents and corresponding labels.
+The following is an example mapping file for the abstractive text summarization scenario with three documents and corresponding labels.
 
 ```json
 {

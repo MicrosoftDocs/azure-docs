@@ -273,7 +273,7 @@
           items:
             - name: Use explorer
               href: ../data-explorer.md
-            - name: Keyboard shorcuts
+            - name: Keyboard shortcuts
               href: ../data-explorer-shortcuts.md
     - name: Analytics and BI with Azure Synapse Link
       items:

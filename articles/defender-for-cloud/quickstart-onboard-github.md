@@ -1,9 +1,10 @@
 ---
 title: Connect your GitHub organizations
-description: Learn how to connect your GitHub Environment to Defender for Cloud.
-ms.date: 01/24/2023
+description: Learn how to connect your GitHub Environment to Defender for Cloud and enhance the security of your GitHub resources.
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.custom: ignite-2023
+#customer intent: As a user, I want to learn how to connect my GitHub Environment to Defender for Cloud so that I can enhance the security of my GitHub resources.
 ---
 
 # Quickstart: Connect your GitHub Environment to Microsoft Defender for Cloud

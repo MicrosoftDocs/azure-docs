@@ -1,7 +1,7 @@
 ---
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ms.date: 01/02/2024
 ---
@@ -132,6 +132,7 @@ To install a specific version:
 ```azurecli
 az bicep install --version v0.3.255
 ```
+
 ## lint
 
 The `lint` command returns the errors and the [linter rule](./linter.md) violations of a Bicep file.

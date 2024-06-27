@@ -13,7 +13,7 @@ ms.date: 02/21/2022
 
 # Create a resource lock for Azure Cosmos DB's API for MongoDB using Azure CLI
 
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The script in this article demonstrates performing resource lock operations for a API for MongoDB database and collection.
 

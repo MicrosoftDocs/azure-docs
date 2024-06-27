@@ -1,10 +1,10 @@
 ---
 title: Cross-tenant management 
 description: Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Defender for Cloud using Azure Lighthouse.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/09/2021
+ms.date: 05/30/2024
 ---
 
 # Cross-tenant management in Defender for Cloud
@@ -25,7 +25,7 @@ You're able to review and manage subscriptions across multiple tenants in the sa
 
 From the top menu bar, select the filter icon, and select the subscriptions, from each tenant's directory, you'd like to view.
 
-  ![Filter tenants.](./media/cross-tenant-management/cross-tenant-filter.png)
+:::image type="content" source="media/cross-tenant-management/cross-tenant-filter.png" alt-text="Screenshot that shows where the cross tenant filter button is located.":::
 
 The views and actions are basically the same. Here are some examples:
 

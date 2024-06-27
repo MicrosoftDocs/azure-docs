@@ -138,6 +138,8 @@
         href: manage-route-table.yml
     - name: Manage NICs
       href: virtual-network-network-interface.md
+    - name: Create a subnet with multiple prefixes
+      href: how-to-multiple-prefixes-subnet.md
     - name: Manage virtual network
       href: manage-virtual-network.yml
     - name: Manage subnets

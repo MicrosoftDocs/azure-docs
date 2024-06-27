@@ -1,6 +1,6 @@
 ---
-title: Delete a lab in Azure Education Hub through REST APIs
-description: Learn how to delete a lab in Azure Education Hub using REST APIs
+title: Delete a lab in the Azure Education Hub
+description: Learn how to delete a lab in the Azure Education Hub by using REST APIs.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -9,27 +9,25 @@ ms.date: 1/24/2022
 ms.custom: template-how-to
 ---
 
-# Delete a lab in Education Hub through REST APIs
+# Delete a lab in the Azure Education Hub
 
-This article will walk you through how to delete a lab with REST APIs that has been created in Education Hub. Note, all students must be deleted from the lab in order for the lab to be able to be deleted.
+This article walks you through how to delete a lab in the Azure Education Hub by using REST APIs. Before you delete a lab, you must delete all students from it.
 
 ## Prerequisites
 
-- Know billing account ID, Billing profile ID, and Invoice Section ID
-- Have an Edu approved Azure account
-- Have a lab already created in Education Hub
+- Know your billing account ID, billing profile ID, and invoice section ID.
+- Have an education-approved Azure account.
+- Have a lab already created in the Education Hub.
 
 ## Delete students from a lab
 
-As mentioned previously, before you delete a lab, you must delete every student in the lab first.
-
-To find all of the students that are in a lab, we can call the below API. Replace the text surrounded in the <>.
+To find all of the students in a lab, call the following API. Replace the text surrounded in angle brackets (`<>`) with your ID values.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students?includeDeleted=false&api-version=2021-12-01-preview
 ```
 
-This will return the information about every student in the specified lab. Be sure to note down the ID of every student in the lab because that is what we will be using to delete the students.
+The returned results show information about every student in the specified lab. Be sure to note down the ID of every student in the lab, because that's what you'll use to delete the students.
 
 ```json
 {
@@ -68,13 +66,13 @@ This will return the information about every student in the specified lab. Be su
 }
 ```
 
-After we have the student IDs, we can begin deleting students from the lab. Replace the StudentID surrounded by <> in the below API call with the student ID obtained from the last step.
+For each student that you want to delete, call the following API. Replace `<StudentID>` with the student ID that you obtained from the last step.
 
 ```json
 DELETE https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students/<StudentID>?api-version=2021-12-01-preview
 ```
 
-The API will respond that the student has been deleted:
+The API responds that the student was deleted:
 
 ```json
 student deleted
@@ -82,23 +80,21 @@ student deleted
 
 ## Delete the lab
 
-After all of the students have been deleted from a lab, we can delete the actual lab.
+Now that you've deleted all of the students from a lab, you can delete the lab.
 
-Call the endpoint below and make sure to replace the sections that are surrounded by <>.
+Call the following endpoint. Replace the text surrounded in angle brackets (`<>`) with your ID values.
 
 ```json
 DELETE https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?api-version=2021-12-01-preview
 ```
 
-The API will respond that the Lab has been deleted:
+The API responds that the lab was deleted:
 
 ```json
 Lab deleted
 ```
 
-## Next steps
-In this article, you learned how to delete students from a lab and then delete the lab itself. Follow the tutorials below if you wish to create a new lab and read up on more documentation.
+## Related content
 
-- [Create a lab using REST APIs](create-lab-education-hub.md)
-
-- [Support options](educator-service-desk.md)
+- [Create a lab by using REST APIs](create-lab-education-hub.md)
+- [Learn about support options](educator-service-desk.md)

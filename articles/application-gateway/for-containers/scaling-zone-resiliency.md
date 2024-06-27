@@ -15,7 +15,7 @@ ms.author: greglin
 
 Application Gateway for Containers is configured with autoscaling in a high availability configuration in all cases. The gateway scales in or out based on application traffic. This offers better elasticity to your application and eliminates the need to guess capacity or manually manage instance counts. Autoscaling also maximizes cost savings by not requiring the gateway to constantly run at peak-provisioned capacity for the expected maximum traffic load.
 
-## Autoscaling and High Availability
+## Autoscaling and high availability
 
 Azure Application Gateway for Containers is always deployed in a highly available configuration. The service takes advantage of [availability zones](/azure/reliability/availability-zones-overview) if the region supports availability zones. If the region does not support zones, Application Gateway for Containers leverages availability sets to ensure resiliency. In the event the Application Gateway for Containers service has an underlying problem and becomes degraded, the service is designed to self-recover.
 

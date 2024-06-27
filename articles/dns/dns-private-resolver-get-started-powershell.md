@@ -21,7 +21,7 @@ Azure DNS Private Resolver is a new service that enables you to query Azure DNS 
 
 The following figure summarizes the setup used in this article:
 
-![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 

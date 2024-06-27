@@ -55,15 +55,16 @@ For this exercise, we have two on-premises AD DS domain controllers with two dif
 
 In order to enable clients from **Forest 1** to access Azure Files domain resources in **Forest 2**, we must establish a trust between the two forests. Follow these steps to establish the trust.
 
+> [!NOTE]
+> Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, aren't supported.
+>
+> If you already have a trust set up, you can check its type by logging on to a machine that's domain-joined to Forest 2, opening the **Active Directory Domains and Trusts** console, right-clicking on the local domain **onpremad2.com**, and then selecting the **Trusts** tab. If your existing trust isn't a forest trust, and if a forest trust would meet your environment's requirements, you'll need to remove the existing trust and re-create a forest trust in its place. To do so, follow these instructions.
+
 1. Log on to a machine that's domain-joined to **Forest 2** and open the **Active Directory Domains and Trusts** console.
 1. Right-click on the local domain **onpremad2.com**, and then select the **Trusts** tab.
 1. Select **New Trusts** to launch the **New Trust Wizard**.
 1. Specify the domain name you want to build trust with (in this example, **onpremad1.com**), and then select **Next**.
-1. For **Trust Type**, select **Forest trust**, and then select **Next**.
-   
-   > [!NOTE]
-   > Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, are not supported.
-   
+1. For **Trust Type**, select **Forest trust**, and then select **Next**.   
 1. For **Direction of Trust**, select **Two-way**, and then select **Next**.
 
     :::image type="content" source="media/storage-files-identity-multiple-forests/direction-of-trust.png" alt-text="Screenshot of Active Directory Domains and Trusts console showing how to select a two-way direction for the trust." border="true":::

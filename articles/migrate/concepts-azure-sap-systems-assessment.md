@@ -1,8 +1,8 @@
 ---
 title: SAP systems discovery support in Azure Migrate
 description: Learn about discovery and assessment support for SAP inventory and workloads.
-author: MaryMichael-MS
-ms.author: v-michaelar
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.manager: jsuri
 ms.topic: conceptual
 ms.service: azure-migrate

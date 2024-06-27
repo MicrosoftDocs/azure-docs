@@ -48,7 +48,7 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
-  --ingress 'external' \
+  --ingress external \
   --query properties.configuration.ingress.fqdn
 ```
 

@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for AWS resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Amazon Web Services (AWS) resources.
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 06/09/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -1141,15 +1141,15 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 
 **Severity**: Medium
 
-### [AWS overprovisioned identities should have only the necessary permissions](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/2499299f-7149-4af6-8405-d5492cabaa65)
+### [AWS overprovisioned identities should have only the necessary permissions](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/427f7886-bb3c-42f6-a22c-979780b8e5ef)
 
 **Description**: An over-provisioned active identity is an identity that has access to privileges that they haven't used. Over-provisioned active identities, especially for non-human accounts that have defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise. Remove unneeded permissions and establish review processes to achieve the least privileged permissions.
 
 **Severity**: Medium
 
-### [Unused identities in your AWS environment should be removed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/71016e8c-d079-479d-942b-9c95b463e4a6)
+### [Permissions of inactive identities in your AWS account should be revoked](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/71016e8c-d079-479d-942b-9c95b463e4a6)
 
-**Description**: Inactive identities are human and non-human entities that haven't performed any action on any resource in the last 90 days. Inactive IAM identities with high-risk permissions in your AWS account can be prone to attack if left as is and leave organizations open to credential misuse or exploitation. Proactively detecting and responding to unused identities helps you prevent unauthorized entities from gaining access to your AWS resources.
+**Description**: Microsoft Defender for Cloud discovered an identity that has not performed any action on any resource within your AWS account in the past 45 days. It is recommended to revoke permissions of inactive identities, in order to reduce the attack surface of your cloud environment.
 
 **Severity**: Medium
 
@@ -1453,6 +1453,14 @@ If other relationships are listed, then the control passes.
 **Description**: Security group should restrict all traffic to reduce resource exposure.
 
 **Severity**: Low
+
+## AI recommendations
+
+### [AWS Bedrock should have model invocation logging enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/Recommendation.ReactView/assessedResourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2Fresourcegroups%2Fsoc-asc%2Fproviders%2Fmicrosoft.security%2Fsecurityconnectors%2Fawsdspm%2Fsecurityentitydata%2Faws-account-in-region-323104580785-us-west-2%2Fproviders%2Fmicrosoft.security%2Fassessments%2F1a202dce-e13f-43ba-8a97-2f9235c5c834/recommendationDisplayName/AWS%20Bedrock%20should%20have%20model%20invocation%20logging%20enabled)
+
+**Description:** With invocation logging, you can collect the full request data, response data, and metadata associated with all calls performed in your account. This enables you to recreate activity trails for investigation purposes when a security incident occurs.
+
+**Severity:** Low
 
 ## Related content
 
