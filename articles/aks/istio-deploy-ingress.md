@@ -41,7 +41,8 @@ aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>  
 ```
 
 > [!NOTE]
-> Microsoft doesn't support customizing the IP address for either the internal or external ingress gateways. Any IP customization changes to the Istio service mesh add-on will be reverted.
+> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress are reverted back by the Istio add-on. 
+It's planned to allow these customizations in Gateway API Istio implementation as part of the Istio add-on in future.
 
 Applications aren't accessible from outside the cluster by default after enabling the ingress gateway. To make an application accessible, map the sample deployment's ingress to the Istio ingress gateway using the following manifest:
 
