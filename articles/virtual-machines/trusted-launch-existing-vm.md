@@ -186,7 +186,7 @@ Make sure that you install the latest [Azure PowerShell](/powershell/azure/insta
 
 Follow the steps to enable Trusted Launch on an existing Azure Generation 2 VM by using an ARM template.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 1. Review the template.
 

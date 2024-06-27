@@ -35,7 +35,7 @@ To complete this tutorial, you need:
 
 - An Azure Storage account, which requires that you have an Azure subscription.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ::: zone pivot="create-option-manual-setup" 
 

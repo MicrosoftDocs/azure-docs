@@ -35,7 +35,7 @@ In this article, you will deploy an [AWS EDW workload][eks-edw-overview] to Azur
 
 You use the `deploy.sh` script in the `deployment` directory of the [GitHub repository][github-repo] to deploy the application to Azure.
 
-The script first checks that all of the [prerequisite tools][prerequisites] are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, and then run the script again. You need [Node autoprovisioning (NAP) for AKS] feature flag registered on your Azure subscription. If it isn't already registered, the script executes an Azure CLI command to register the feature flag.
+The script first checks that all of the [prerequisite tools][prerequisites] are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, and then run the script again. The [Node autoprovisioning (NAP) for AKS][nap-aks] feature flag must be registered on your Azure subscription. If it isn't already registered, the script executes an Azure CLI command to register the feature flag.
 
 The script records the state of the deployment in a file called `deploy.state`, which is located in the `deployment` directory. You can use this file to set environment variables when deploying the app.
 
@@ -304,3 +304,4 @@ For more information on developing and running applications in AKS, see the foll
 [helm-aks]: ./kubernetes-helm.md
 [k8s-aks]: ./deploy-marketplace.md
 [openai-aks]: ./open-ai-quickstart.md
+[nap-aks]: ./node-autoprovision.md
