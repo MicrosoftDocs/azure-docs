@@ -96,7 +96,7 @@ The following is an architecture leveraging the cloud native HTAP capabilities i
 
 * [Mirroring Azure Cosmos DB overview](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context)
 
-* [Getting started with mirroring](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* [Getting started with mirroring](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context)
   
 * [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) 
 
