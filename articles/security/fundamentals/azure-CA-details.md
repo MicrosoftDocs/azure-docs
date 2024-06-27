@@ -250,7 +250,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 ### Article change log
 
-- June 27, 2024: Removed the following CAs, which were replaced by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.
+- June 27, 2024: Removed the following CAs, which were superseded by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.
 
     | Certificate Authority | Serial Number<br>Thumbprint |
     |---- |---- |
