@@ -102,7 +102,7 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 Browse to the [Azure Verified Modules Bicep Index](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/)to see the list of modules available, select the highlighted numbers in the following screenshot to be taken directly to that filtered view.
 
-:::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
+:::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="The screenshot of Azure Verified Modules (AVM).":::
 
 The module list shows the latest version. Select the version number to see a list of available versions:
 

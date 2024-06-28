@@ -91,7 +91,7 @@ az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bic
 
 ---
 
-With the with source switch, you see an another layer in the manifest:
+With the with source switch, you see another layer in the manifest:
 
 :::image type="content" source="./media/private-module-registry/bicep-module-with-source-manifest.png" lightbox="./media/private-module-registry/bicep-module-with-source-manifest.png" alt-text="Screenshot of bicep module registry with source.":::
 
