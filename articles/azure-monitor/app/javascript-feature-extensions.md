@@ -490,11 +490,11 @@ export const clickPluginConfigWithUseDefaultContentNameOrId = {
 </div>
 ```
 
-For clicked element `<Button>` the value of `parentId` is `“not_specified”`, because no `parentDataTag` details are defined and no parent element id is provided within the current element.
+For clicked element `<Button>` the value of `parentId` is `“not_specified”`, because no `parentDataTag` details are defined and no parent element ID is provided within the current element.
 
 ### Example 2
 
-In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how parent id details are collected.
+In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how parent ID details are collected.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -515,7 +515,7 @@ export const clickPluginConfigWithParentDataTag = {
 </div>
 ```
 
-For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` is directly defined within the element. Therefore, this value takes precedence over all other parent ids or id details defined in its parent elements.
+For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` is directly defined within the element. Therefore, this value takes precedence over all other parent IDs or ID details defined in its parent elements.
        
 ### Example 3
 
@@ -542,7 +542,7 @@ export const clickPluginConfigWithParentDataTag = {
 </div>
 ```
 
-For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the id of its closest parent will be used when parent id details aren't directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
+For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the ID of its closest parent will be used when parent ID details aren't directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
 
 If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 
