@@ -37,12 +37,12 @@ Audit logs are an attempt by each resource provider to provide the most relevant
 
 Available log categories:
 
-- **Write Success Requests**
-- **Write Failed Requests**
-- **Read Success Requests**
-- **Read Failed Requests**
-- **Persistent Reservation Requests**
-- **SendTargets Requests**
+- Write Success Requests
+- Write Failed Requests
+- Read Success Requests
+- Read Failed Requests
+- Persistent Reservation Requests
+- SendTargets Requests
 
 ## Next steps
 
