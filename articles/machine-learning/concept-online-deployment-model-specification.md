@@ -29,7 +29,7 @@ In Azure Machine Learning, after you create your deployment, the environment var
 
 We use the following local folder structure to illustrate how you can specify models that are available locally on your machine in an online deployment.
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-1.png" alt-text="A screenshot showing a local folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-1.png":::
+:::image type="content" source="media/concept-online-deployment-model-specification/multi-models-1.png" alt-text="A screenshot showing a local folder structure containing multiple models." lightbox="media/concept-online-deployment-model-specification/multi-models-1.png":::
 
 ### Deployment configuration with a single local model
 
@@ -87,7 +87,7 @@ After you create your deployment, the environment variable `AZUREML_MODEL_DIR` p
 
 For this example, the contents of the `AZUREML_MODEL_DIR` folder look like this:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-2.png" alt-text="A screenshot showing the folder structure of the storage location for multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-2.png":::
+:::image type="content" source="media/concept-online-deployment-model-specification/multi-models-2.png" alt-text="A screenshot showing the folder structure of the storage location for multiple models." lightbox="media/concept-online-deployment-model-specification/multi-models-2.png":::
 
 Within your scoring script (`score.py`), you can load your models in the `init()` function. The following code loads the `sample_m1.pkl` model:
 
@@ -123,11 +123,11 @@ instance_count: 1
 
 For this example, consider that `local-multimodel:3` contains the following model artifacts, which can be viewed from the **Models** tab in the Azure Machine Learning studio:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-3.png" alt-text="A screenshot of a folder structure showing the model artifacts of  a registered model." lightbox="media/how-to-deploy-online-endpoints/multi-models-3.png":::
+:::image type="content" source="media/concept-online-deployment-model-specification/multi-models-3.png" alt-text="A screenshot of a folder structure showing the model artifacts of  a registered model." lightbox="media/concept-online-deployment-model-specification/multi-models-3.png":::
 
 After you create your deployment, the environment variable `AZUREML_MODEL_DIR` points to the storage location within Azure where your models are stored. For example, `/var/azureml-app/azureml-models/local-multimodel/3` contains the models and the file structure. `AZUREML_MODEL_DIR` points to the folder containing the root of the model artifacts. Based on this example, the contents of the `AZUREML_MODEL_DIR` folder look like this:
 
-:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-4.png" alt-text="A screenshot of the folder structure showing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-4.png":::
+:::image type="content" source="media/concept-online-deployment-model-specification/multi-models-4.png" alt-text="A screenshot of the folder structure showing multiple models." lightbox="media/concept-online-deployment-model-specification/multi-models-4.png":::
 
 Within your scoring script (`score.py`), you can load your models in the `init()` function. For example, load the `diabetes.sav` model:
 
