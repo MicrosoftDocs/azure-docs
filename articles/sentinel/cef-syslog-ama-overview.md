@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.custom: linux-related-content
-ms.date: 05/13/2024
+ms.date: 06/27/2024
 #Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  
 ---
 
@@ -83,7 +83,11 @@ As part of the setup process, create a data collection rule and install the Azur
 
 After you create the DCR, and AMA is installed, run the "installation" script on the log forwarder. This script configures the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices or appliances as needed.
 
-For more information, see [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md).
+For more information, see the following articles:
+
+- [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 ## Data ingestion duplication avoidance
 
