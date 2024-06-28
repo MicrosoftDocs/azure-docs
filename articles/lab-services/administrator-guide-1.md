@@ -123,7 +123,7 @@ As you get started with Azure Lab Services, we recommend that you establish nami
 | Lab | Contains one or more student VMs. | {class-name}-{time}-{educator} | CS101-Fall2021, CS101-Fall2021-JohnDoe |
 | Shared image gallery | Contains one or more VM image versions | {org-name}-sig, {dept-name}-sig | contoso-sig, mathdept-sig |
 
-In the proceeding table, we used some terms and tokens in the suggested name patterns. Let's go over those terms in a little more detail.
+In the preceding table, we used some terms and tokens in the suggested name patterns. Let's go over those terms in a little more detail.
 
 | Pattern term/token | Definition | Example |
 | ------------ | ---------- | ------- |
