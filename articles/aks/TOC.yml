@@ -92,7 +92,7 @@
 - name: Concepts
   items:
     - name: Core concepts
-      href: concepts-clusters-workloads.md
+      href: core-aks-concepts.md
     - name: Pricing tiers for AKS
       href: free-standard-pricing-tiers.md
     - name: Maintain and upgrade an AKS cluster
@@ -294,6 +294,8 @@
       items:
         - name: Cluster nodes
           items:
+            - name: Resource reservations
+              href: node-resource-reservations.md
             - name: Custom node configuration
               href: custom-node-configuration.md
             - name: Abort long running operations

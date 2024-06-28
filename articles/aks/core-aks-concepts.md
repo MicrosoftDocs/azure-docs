@@ -37,19 +37,19 @@ Each AKS cluster has at least one node, which is an Azure virtual machine (VM) t
 
 ## Node configuration
 
-### VM size
+### VM size and image
 
-The Azure VM size for your nodes defines CPUs, memory, size, and the storage type available, such as high-performance SSD or regular HDD. The VM size you choose depends on the workload requirements and the number of pods you plan to run on each node. For more information, see [Link][add-link].
+The **Azure VM size** for your nodes defines CPUs, memory, size, and the storage type available, such as high-performance SSD or regular HDD. The VM size you choose depends on the workload requirements and the number of pods you plan to run on each node. For more information, see [Link][add-link].
 
-### VM image
+In AKS, the **VM image** for your cluster's nodes is based on Ubuntu Linux, [Azure Linux](use-azure-linux.md), or Windows Server 2022. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts, including [Azure reservations][reservation-discounts], are automatically applied.
 
-In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux, [Azure Linux](use-azure-linux.md), or Windows Server 2022. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts, including [Azure reservations][reservation-discounts], are automatically applied.
+### OS disks
 
-For managed disks, default disk size and performance are assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing][add-link].
+Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks aren't supported and a default OS disk size isn't specified. For more information, see [Default OS disk sizing][default-os-disk] and [Ephemeral OS disks][ephemeral-os-disks].
 
 ### Resource reservations
 
-AKS uses node resources to help the nodes function as part of the cluster. This usage can cause a discrepancy between the node's total resources and the allocatable resources in AKS. To maintain node performance and functionality, AKS reserves two types of resources, **CPU** and **memory**, on each node. For more information, see [Resource reservations in AKS][add-link].
+AKS uses node resources to help the nodes function as part of the cluster. This usage can cause a discrepancy between the node's total resources and the allocatable resources in AKS. To maintain node performance and functionality, AKS reserves two types of resources, **CPU** and **memory**, on each node. For more information, see [Resource reservations in AKS][resource-reservations].
 
 ### OS
 
@@ -96,6 +96,10 @@ In AKS, you can create a cluster in one of the following modes: **Automatic (pre
 
 For more information, see [AKS Automatic and Standard feature comparison][automatic-standard] and [Pricing tiers for AKS cluster management][pricing-tiers].
 
+## Supported Kubernetes versions
+
+For more information, see [Supported Kubernetes versions in AKS][supported-kubernetes-versions].
+
 ## Additional resources
 
 For information on more core concepts for AKS, see the following resources:
@@ -134,3 +138,8 @@ For more information on Kubernetes concepts, see the [Kubernetes documentation][
 [monitoring]: ./monitor-aks.md
 [backup-recovery]: ../backup/azure-kubernetes-service-backup-overview.md
 [kubernetes-docs]: https://kubernetes.io/docs/home/
+[resource-reservations]: ./node-resource-reservations.md
+[reservation-discounts]: ../cost-management-billing/reservations/save-compute-costs-reservations.md
+[supported-kubernetes-versions]: ./supported-kubernetes-versions.md
+[default-os-disk]: ./concepts-storage.md#default-os-disk-sizing
+[ephemeral-os-disks]: ./concepts-storage.md#ephemeral-os-disk
