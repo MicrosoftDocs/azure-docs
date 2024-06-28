@@ -11,7 +11,7 @@ ms.date: 06/18/2024
 
 # Deploy Cloud Services (extended support) by using an ARM template
 
-This article shows you how to use an [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) to create an Azure Cloud Serviced (extended support) deployment.
+This article shows you how to use an [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) to create an Azure Cloud Services (extended support) deployment.
 
 ## Prerequisites
 
