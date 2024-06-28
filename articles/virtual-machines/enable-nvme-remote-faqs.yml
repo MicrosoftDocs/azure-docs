@@ -5,9 +5,9 @@ metadata:
   ms.service: virtual-machines
   ms.topic: faq
   ms.custom: references_regions
-title: NVMe - Remote NVMe Disks FAQ
+title: FAQ for remote NVMe disks
 summary: |
-  This article addresses some common questions about support for remote NVMe disks on virtual machines created in Azure.
+  This article addresses some common questions about support for remote NVM Express (NVMe) disks on virtual machines (VMs) created in Azure.
 
 
 
@@ -17,12 +17,12 @@ sections:
       - question: |
           What are the prerequisites to enable the remote NVMe interface on my VM?
         answer: |
-          You can use `DiskControllerType` during virtual machine (VM) configuration to select your preferred controller type as NVM Express (NVMe) or Small Computer System Interface (SCSI). If you don't specify a `DiskControllerType` value, the platform automatically chooses the default controller based on the VM size configuration. If the VM size is configured for SCSI as the default and supports NVMe, the VM uses SCSI unless you update the `DiskControllerType` value to NVMe.
+          You can use `DiskControllerType` during VM configuration to select your preferred controller type as NVMe or Small Computer System Interface (SCSI). If you don't specify a `DiskControllerType` value, the platform automatically chooses the default controller based on the VM size configuration. If the VM size is configured for SCSI as the default and supports NVMe, the VM uses SCSI unless you update the `DiskControllerType` value to NVMe.
           
           To enable the NVMe interface on your VM, you must meet the following prerequisites:
 
           - Choose a VM family that supports NVMe. Only Ebsv5 and Ebdsv5 VM sizes are equipped with NVMe in the Intel v5 generation VMs.
-          - [Select the operating system image](/azure/virtual-machines/enable-nvme-interface) that's tagged with NVMe support. After you select a supported **VM family and OS image** value, you're prompted to select the NVMe disk controller type.
+          - [Select the operating system (OS) image](/azure/virtual-machines/enable-nvme-interface) that's tagged with NVMe support. After you select a supported **VM family and OS image** value, you're prompted to select the NVMe disk controller type.
 
             :::image type="content" source="./media/enable-nvme/nvme-faq-1.png" alt-text="Screenshot of a prompt to select a disk controller type.":::
 
@@ -72,7 +72,7 @@ sections:
 
           2. [Create an image gallery](https://docs.microsoft.com/azure/virtual-machines/create-gallery) by using Azure PowerShell, the portal, or the Azure CLI.
           
-          3. [Create an image definition](https://docs.microsoft.com/azure/virtual-machines/image-version]). Be sure to include `--feature DiskControllerTypes=SCSI,NVMe`.
+          3. [Create an image definition](https://docs.microsoft.com/azure/virtual-machines/image-version). Be sure to include `--feature DiskControllerTypes=SCSI,NVMe`.
             
              Here's an Azure CLI example:
             

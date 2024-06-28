@@ -5,9 +5,9 @@ metadata:
   ms.service: virtual-machines
   ms.topic: faq
   ms.custom: references_regions
-title: NVMe - Temp NVMe Disks FAQ
+title: FAQ for temp NVMe disks
 summary: |
-  This article addresses some common questions about support for temporary NVMe disks on virtual machines created in Azure.
+  This article addresses some common questions about support for temporary NVM Express (NVMe) disks on virtual machines (VMs) created in Azure.
 
 
 
@@ -17,10 +17,10 @@ sections:
       - question: |
           What are the prerequisites to enable the temp NVMe interface on my VM?
         answer: |
-          To enable the temporary NVM Express (temp NVMe) interface on your virtual machine (VM), you must meet the following prerequisites:
+          To enable the temporary NVMe (temp NVMe) interface on your VM, you must meet the following prerequisites:
           
           - Choose a VM family that supports NVMe (such as v6 VMs). 
-          - Select the operating system image that's tagged with NVMe support.
+          - Select the operating system (OS) image that's tagged with NVMe support.
           - Make sure that you're using a Generation 2 VM, because NVMe supports only Generation 2 images.          
       - question: |
           How are temp NVMe disks in my Dl/D/E_v6 VMs different from remote NVMe disks?
