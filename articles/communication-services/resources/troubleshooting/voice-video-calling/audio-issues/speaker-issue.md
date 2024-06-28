@@ -35,7 +35,7 @@ If the user uses Windows, they should also check the volume mixer settings and a
 
 :::image type="content" source="./media/apps-volume-mixer.png" alt-text="Screenshot of volume mixer.":::
 
-If you are using Web Audio API in your application, you might also check if there's `AudioRenderer error with rendering audio code: 3` in the log.
+If you're using Web Audio API in your application, you might also check if there's `AudioRenderer error with rendering audio code: 3` in the log.
 This error occurs when there are too many AudioContext instances open at the same time, particularly if the application doesn't properly close the AudioContext or 
 if there's an AudioContext creation associated with the UI component refresh logic.
 
