@@ -27,7 +27,7 @@ In this section, you create a virtual network with a resource subnet, an Azure B
     |---|---|
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **load-balancer-rg** from the dropdown or **Create new** if it doesn't exist. </br> Enter **load-balancer-rg** in Name. </br> Select **OK**. |
+    | Resource group | Select **load-balancer-rg** from the dropdown or **Create new** if it doesn't exist.</br> Enter **load-balancer-rg** in Name.</br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter **lb-vnet**. |
     | Region | Select **(US) East US**. |
@@ -42,7 +42,7 @@ In this section, you create a virtual network with a resource subnet, an Azure B
     | **Azure Bastion** |  |
     | Enable Azure Bastion | Select checkbox. |
     | Azure Bastion host name | Enter **lb-bastion**. |
-    | Azure Bastion public IP address | Select **Create new**. </br> Enter **lb-bastion-ip** in Name. </br> Select **OK**. |
+    | Azure Bastion public IP address | Select **Create new**.</br> Enter **lb-bastion-ip** in Name.</br> Select **OK**. |
 
 6. Select the **IP addresses** tab, or **Next** at the bottom of the page.
 7. On **Create virtual network** page, enter or select the following information:
