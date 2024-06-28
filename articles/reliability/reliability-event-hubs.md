@@ -75,23 +75,11 @@ There are two features that provide geo-disaster recovery in Azure Event Hubs.
     The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to temporary outages.  For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
     
     With Geo-Disaster recovery, you can initiate a once-only failover move from the primary to the secondary at any time. The failover move points the chosen alias name for the namespace to the secondary namespace. After the move, the pairing is then removed. The failover is nearly instantaneous once initiated. 
-    
-    > [!IMPORTANT]
-    > - Microsoft Entra role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. You'll need to create role assignments manually in the secondary namespace to secure access to them. 
 
     For detailed information, as well as samples and further documentation, on Geo-Disaster recovery in Event Hubs, see [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
 - **Geo-replication (public preview)**, which provides replication of both metadata and data, replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
-    
-    > [!IMPORTANT]
-    > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
-    > - The following regions are currently supported in the public preview.
-    >
-    > | US               | Europe        |
-    > |------------------|---------------|
-    > | Central US EUAP  | Italy North   |
-    > |                  | Spain Central |
-    > |                  | Norway East   |
+
 
     For detailed information, as well as samples and further documentation, on Geo-replication in Event Hubs, see [Geo-replication ](../event-hubs/geo-replication.md).
 
