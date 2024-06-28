@@ -1,7 +1,7 @@
 ---
-title: How to deploy JAIS models with Azure Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
-description: Learn how to deploy JAIS models with Azure Machine Learning Studio.
+title: How to deploy JAIS models with Azure Machine Learning studio
+titleSuffix: Azure Machine Learning studio
+description: Learn how to deploy JAIS models with Azure Machine Learning studio.
 manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
@@ -12,11 +12,11 @@ author: msakande
 ms.custom: references_regions, build-2024
 ---
 
-# How to deploy JAIS with Azure Machine Learning Studio
+# How to deploy JAIS with Azure Machine Learning studio
 
-In this article, you learn how to use Azure Machine Learning Studio to deploy the JAIS model as a service with pay-as you go billing.
+In this article, you learn how to use Azure Machine Learning studio to deploy the JAIS model as a service with pay-as you go billing.
 
-The JAIS model is available in Azure Machine Learning Studio with pay-as-you-go token based billing with Models as a Service. 
+The JAIS model is available in Azure Machine Learning studio with pay-as-you-go token based billing with Models as a Service. 
 
 You can find the JAIS model in the model catalog by filtering on the JAIS collection.
 
@@ -40,7 +40,7 @@ You can find the JAIS model in the model catalog by filtering on the JAIS collec
 
 ### JAIS 30b Chat
 
-JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is finetuned with both Arabic and English prompt-response pairs. The finetuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
+JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
 
 *Context length:* JAIS 30b Chat supports a context length of 8K.
 
