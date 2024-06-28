@@ -10,24 +10,22 @@ ms.date: 06/28/2024
 ms.author: malev
 ---
 
-# Azure Managed Grafana access control
+# Azure role-based access control within Azure Managed Grafana
 
-# Azure role-based access control
-
-Azure Managed Grafana supports [Azure role-based access control (RBAC)](../../role-based-access-control/index.yml), an authorization system that lets you manage individual access to your Azure resources. 
+Azure Managed Grafana supports [Azure role-based access control (RBAC)](../role-based-access-control/index.yml), an authorization system that lets you manage individual access to your Azure resources. 
 
 Azure RBAC enables you to allocate varying permission levels to users, groups, service principals, or managed identities, for managing your Azure Managed Grafana resources.
 
-# Azure Managed Grafana roles
+## Azure Managed Grafana roles
 
 The following built-in roles are available in Azure Managed Grafana, each providing different levels of access:
 
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
-> | <a name='grafana-admin'></a>[Grafana Admin](./built-in-roles/monitor.md#grafana-admin) | Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
-> | <a name='grafana-editor'></a>[Grafana Editor](./built-in-roles/monitor.md#grafana-editor) | View and edit a Grafana instance, including its dashboards and alerts. | a79a5197-3a5c-4973-a920-486035ffd60f |
-> | <a name='grafana-viewer'></a>[Grafana Viewer](./built-in-roles/monitor.md#grafana-viewer) | View a Grafana instance, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
+> | <a name='grafana-admin'></a>[Grafana Admin](../role-based-access-control/built-in-roles/monitor.md#grafana-admin) | Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
+> | <a name='grafana-editor'></a>[Grafana Editor](../role-based-access-control/built-in-roles/monitor.md#grafana-editor) | View and edit a Grafana instance, including its dashboards and alerts. | a79a5197-3a5c-4973-a920-486035ffd60f |
+> | <a name='grafana-viewer'></a>[Grafana Viewer](../role-based-access-control/built-in-roles/monitor.md#grafana-viewer) | View a Grafana instance, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
 
 To access the Grafana user interface, users must possess one of these roles. 
 
@@ -35,9 +33,9 @@ These permissions are included within the broader roles of resource group Contri
 
 ## Adding a role assignment to an Azure Managed Grafana resource
 
-To add a role assignment to an Azure Managed Grafana instance, in your Azure Managed Grafana workspace, open the **Access control (IAM)** menu and select **Add** > **Add new role assignment**.
+To add a role assignment to an Azure Managed Grafana instance, in your Azure Managed Grafana workspace, open the **Access control (IAM)** menu and select **Add** > **Add role assignment**.
 
-    :::image type="content" source="media/azure-ad-group-sync/add-role-assignment.png" alt-text="Screenshot of the Azure portal. Adding a new role assignment.":::
+:::image type="content" source="media/azure-ad-group-sync/add-role-assignment.png" alt-text="Screenshot of the Azure portal. Adding a new role assignment.":::
 
 Assign a role, such as **Grafana viewer**, to a user, group, service principal or managed identity. For more information about assigning a role, go to [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access).
 
