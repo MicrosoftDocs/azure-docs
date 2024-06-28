@@ -35,7 +35,7 @@ In this example, the avatar will start waving their hand at the left after the w
 
 :::image type="content" source="./media/gesture.png" alt-text="Screenshot of displaying the prebuilt avatar waving their hand at the left." lightbox="./media/gesture.png":::
 
-## Supported pre-built avatar characters, styles, and gestures
+## Supported prebuilt avatar characters, styles, and gestures
 
 The full list of prebuilt avatar supported gestures provided here can also be found in the text to speech avatar portal.
 
