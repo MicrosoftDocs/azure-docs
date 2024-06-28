@@ -47,7 +47,7 @@ For a back end application to send cloud-to-device messages, it must connect to 
 
 To understand cloud-to-device messaging, it's important to understand some fundamentals about how IoT Hub device message queues work.
 
-Cloud-to-device messages sent from a solution backend application to an IoT device are routed through IoT Hub. There is no direct peer-to-peer messaging communication between the solution backend application and the target device. IoT Hub places incoming messages into it's message queue, ready to be downloaded by target IoT devices.
+Cloud-to-device messages sent from a solution backend application to an IoT device are routed through IoT Hub. There's no direct peer-to-peer messaging communication between the solution backend application and the target device. IoT Hub places incoming messages into its message queue, ready to be downloaded by target IoT devices.
 
 To guarantee at-least-once message delivery, IoT hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge completion of a message before IoT Hub removes the message from the queue. This approach guarantees resiliency against connectivity and device failures.
 
