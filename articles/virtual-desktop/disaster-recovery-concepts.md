@@ -9,11 +9,11 @@ ms.date: 06/28/2024
 
 # Azure Virtual Desktop business continuity and disaster recovery concepts
 
-Many users now work remotely, organizations require solutions with high deployment speed and reduced costs. Users also need to have a remote work environment with guaranteed availability and resiliency that lets them access their virtual machines even during disasters.
+Many users now work remotely, so organizations require solutions with high availability, rapid deployment speed, and reduced costs. Users also need to have a remote work environment with guaranteed availability and resiliency that lets them access their resources even during disasters.
 
 To prevent system outages or downtime, every system and component in your Azure Virtual Desktop deployment must be fault-tolerant. Fault tolerance is when you have a duplicate configuration or system in another Azure region that takes over for the main configuration during an outage. This secondary configuration or system reduces the impact of a localized outage. There are many ways you can set up fault tolerance, but this article focuses on the methods currently available in Azure for dealing with business continuity and disaster recovery (BCDR).
 
-Responsibility for components that make up Azure Virtual Desktop are divided between those that are Microsoft-managed, and those that are customer-managed, or partner managed.
+Responsibility for components that make up Azure Virtual Desktop are divided between those components that are Microsoft-managed, and those components that are customer-managed, or partner managed.
 
 The following components are customer-managed or partner-managed:
 
@@ -23,13 +23,13 @@ The following components are customer-managed or partner-managed:
 - User data
 - User identities
 
-To learn about the Microsoft-managed components and how they are designed to be resilient, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+To learn about the Microsoft-managed components and how they're designed to be resilient, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
 ## Business continuity and disaster recovery basics
 
 When you design a disaster recovery plan, you should keep the following three things in mind:
 
-- High availability: distributing infrastructure so smaller, more localized outages don't interrupt your entire deployment. Designing with high availability in mind can minimize outage impact and avoid the need for a full disaster recovery.
+- High availability: distributed infrastructure so smaller, more localized outages don't interrupt your entire deployment. Designing with high availability in mind can minimize outage impact and avoid the need for a full disaster recovery.
 - Business continuity: how an organization can keep operating during outages of any size.
 - Disaster recovery: the process of getting back to operation after a full outage.
 
