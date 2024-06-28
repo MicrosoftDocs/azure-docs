@@ -408,6 +408,10 @@
         href: azure-kubernetes-service-cluster-restore.md
       - name: Manage
         href: azure-kubernetes-service-cluster-manage-backups.md
+      - name: Cross Region Restore for WebLogic Server on AKS
+        href: /azure/developer/java/migration/migrate-weblogic-to-aks-with-ha-geo-redundancy?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Cross Region Restore for Liberty on AKS
+        href: /azure/developer/java/migration/migrate-liberty-to-aks-with-ha-dr?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: With PowerShell
       items:
       - name: Backup
@@ -420,10 +424,6 @@
         href: azure-kubernetes-service-cluster-backup-using-cli.md
       - name: Restore
         href: azure-kubernetes-service-cluster-restore-using-cli.md
-    - name: Cross Region Restore for WebLogic Server on AKS
-      href: /azure/developer/java/migration/migrate-weblogic-to-aks-with-ha-geo-redundancy?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
-    - name: Cross Region Restore for Liberty on AKS
-      href: /azure/developer/java/migration/migrate-liberty-to-aks-with-ha-dr?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Windows backup using MARS agent
     items:
     - name: Install or upgrade
