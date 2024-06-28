@@ -39,7 +39,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) contains the list of libraries shipped in the default Python 3.8 environment in Azure Synapse Spark.
 
 ## Libraries
-To check the libraries included in Azure Synapse Runtime for Apache Spark 3.4 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.2 Release Notes](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.2)
+To check the libraries included in Azure Synapse Runtime for Apache Spark 3.2 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.2 Release Notes](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.2)
 
 ## Next steps
 
