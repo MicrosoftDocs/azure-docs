@@ -1,13 +1,16 @@
 ---
-title: 'Quickstart: Create a flexible server by using the Azure portal'
+title: "Quickstart: Create a flexible server by using the Azure portal"
 description: In this quickstart, learn how to deploy a database in an instance of Azure Database for MySQL - Flexible Server by using the Azure portal.
+author: shreyaaithal
+ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal
-ms.author: shaithal
-ms.custom: mvc, mode-ui
-ms.date: 06/13/2022
+ms.custom:
+  - mvc
+  - mode-ui
 ---
 
 # Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure portal

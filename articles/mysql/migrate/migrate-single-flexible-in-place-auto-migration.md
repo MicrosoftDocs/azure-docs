@@ -3,7 +3,7 @@ title: In-place automigration
 description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for MySQL Single Server instance schedule for in-place automigration to Flexible Server.
 author: adig
 ms.author: adig
-ms.reviewer: maghan
+ms.reviewer: maghan, talawren
 ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: flexible-server
@@ -107,11 +107,11 @@ Here's the info you need to know post in-place migration:
 - For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Note, for certain workloads this could affect performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
 - For Single Server instance with Microsoft Defender for Cloud enabled, the enablement state is migrated. To achieve parity in Flexible Server post automigration for properties you can configure in Single Server, consider the details in the following table:
 
-| Property | Configuration |
+| **Property** | **Configuration** |
 | --- | --- |
-| properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). |
-| properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). |
-| properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal). |
+| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). <br /><br /> Single Server users can use the API property: <br /> `properties.disabledAlerts` |
+| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). <br /><br /> Single Server users can use the API properties: <br /> `properties.emailAccountAdmins`, <br /> `properties.emailAddresses` |
+| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph. <br /> You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md). <br /><br /> Single Server users can use the API properties: <br /> `properties.retentionDays`, <br /> `properties.storageAccountAccessKey`, <br /> `properties.storageEndpoint` |
 
 ## Frequently Asked Questions (FAQs)
 

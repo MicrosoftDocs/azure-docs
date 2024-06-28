@@ -14,6 +14,8 @@
       href: quickstart-bicep.md
     - name: Create resources - Terraform
       href: quickstart-terraform.md
+    - name: Create cross-region replica - Azure portal
+      href: quickstart-cross-region-replica-portal.md
 - name: Tutorials
   items:
     - name: Build web applications
@@ -88,6 +90,8 @@
       href: how-to-private-link.md
     - name: Optimize index creation
       href: how-to-create-indexes.md
+    - name: Create wildcard indexes
+      href: how-to-create-wildcard-indexes.md
 - name: Reference
   items:
     - name: Release notes

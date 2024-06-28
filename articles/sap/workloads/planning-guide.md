@@ -278,8 +278,7 @@ For more information, see [Create a VM that has a static private IP address](/az
 
 Each Azure VM's NIC can have multiple IP addresses assigned to it. A secondary IP can be used for an SAP virtual host name, which is mapped to a DNS A record or DNS PTR record. A secondary IP address must be assigned to the Azure NIC's [IP configuration](../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md). A secondary IP also must be configured within the operating system statically because secondary IPs often aren't assigned through DHCP. Each secondary IP must be from the same subnet that the NIC is bound to. A secondary IP can be added and removed from an Azure NIC without stopping or deallocating the VM. To add or remove the primary IP of a NIC, the VM must be deallocated.
 
-> [!NOTE]
-> On secondary IP configurations, the Azure load balancer's floating IP address is [not supported](../../load-balancer/load-balancer-multivip-overview.md#limitations). The Azure load balancer is used by SAP high-availability architectures with Pacemaker clusters. In this scenario, the load balancer enables the SAP virtual host names. For general guidance about using virtual host names, see SAP Note [962955](https://launchpad.support.sap.com/#/notes/962955).
+The Azure load balancer is used by SAP high-availability architectures with Pacemaker clusters. In this scenario, the load balancer enables the SAP virtual host names. For general guidance about using virtual host names, see SAP Note [962955](https://launchpad.support.sap.com/#/notes/962955).
 
 #### Azure Load Balancer with VMs running SAP
 

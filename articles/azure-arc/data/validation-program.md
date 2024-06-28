@@ -79,10 +79,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### PureStorage
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-| Portworx Enterprise 2.7	1.22.5 | 1.20.7 | 1.1.0_2021-11-02 | 15.0.2148.140 | Not validated |
-| Portworx Enterprise 2.9 | 1.22.5 | 1.1.0_2021-11-02 | 15.0.2195.191 |  12.3 (Ubuntu 12.3-1) |
+|[Portworx Enterprise 3.1](https://www.purestorage.com/products/cloud-native-applications/portworx.html)|1.28.7|1.30.0_2024-06-11|16.0.5349.20214|Not validated|
+|Portworx Enterprise 2.7	1.22.5 |1.20.7 |1.1.0_2021-11-02 |15.0.2148.140 |Not validated |
+|Portworx Enterprise 2.9 |1.22.5 |1.1.0_2021-11-02 |15.0.2195.191 |12.3 (Ubuntu 12.3-1) |
 
 ### Red Hat
 

@@ -612,6 +612,8 @@
           href: how-to-deploy-models-llama.md
     - name: How to deploy JAIS models
       href: deploy-jais-models.md
+    - name: How to deploy Jamba Instruct model
+      href: how-to-deploy-models-jamba.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network

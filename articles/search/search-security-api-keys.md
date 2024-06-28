@@ -10,17 +10,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/28/2024
 ---
 
 # Connect to Azure AI Search using key authentication
 
 Azure AI Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint is accepted if both the request and the API key are valid.
 
-Key-based authentication is the default. You can disable it if you opt in for role-based authentication.
-
-> [!NOTE]
-> A quick note about *key* terminology. An *API key* is a GUID used for authentication. A separate term, *document key* is a unique string in your indexed content that uniquely identifies documents in a search index.
+Key-based authentication is the default. You can disable it if you opt in for [role-based authentication](search-security-enable-roles.md).
 
 ## Types of API keys
 
