@@ -36,7 +36,7 @@ items:
       href: job-definition-create.md
   - name: Manage
     items:
-    - name: Set a bandwidth limiting schedule
+    - name: Configure bandwidth limits
       href: bandwidth-management.md
   - name: Decommission
     items: 

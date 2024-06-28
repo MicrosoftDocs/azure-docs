@@ -30,7 +30,7 @@ This schedule looks a lot like a calendar in outlook, but there are a few import
 
 - The schedule is repeating itself. It has the seven weekdays and at the end of the week, the schedule repeats.
 - An entry in the schedule is a designated limit the agent shall not exceed. Clear time stretches on a day designate no limitation, allowing the agent to use as much bandwidth as needed.
-- You can't schedule a limit for a specific date, but for repeating weekdays. As an example, you can say: *"Limit the agent's bandwidth to no more than x during my cloud backup window on Sundays"*
+- You can't schedule a limit for a specific date, but for repeating weekdays. As an example, you can say: *"Limit the agent's bandwidth to no more than x during my cloud backup window on Sundays."*
 - The schedule doesn't store a timezone. When you set a limit that starts for instance at 9am, then that means agent-local time. You can see what timezone is configured for the agent. Pay close attention, the agent's timezone may be different from the timezone of your site where the agent is deployed.
 
 ## Enabling or changing a bandwidth management schedule
@@ -46,16 +46,16 @@ Using the Azure portal, you can enable a bandwidth schedule on a registered agen
 
 Open the bandwidth scheduling window. ([see previous section](#enabling-or-changing-a-bandwidth-management-schedule)) 
 
-Here you can create a custom schedule for this selected agent, or you [reuse a schedule](#reusing-a-schedule-from-another-agent) that was previously created for another agent.
+Here you can create a custom schedule for this selected agent, or you can [reuse a schedule](#reusing-a-schedule-from-another-agent) that was previously created for another agent.
 
-1. To create a custom schedule, select the "Add limit" command. A dialog opens, allowing you to define a time slice during which you want to set the maximum bandwidth on your WAN link, that the agent is allowed to use.
+* To create a custom schedule, select the "Add limit" command. A dialog opens, allowing you to define a time slice during which you want to set the maximum bandwidth on your WAN link, that the agent is allowed to use.
    :::image type="content" source="media/bandwidth-management/bandwidth-add-limit.png" alt-text="An Azure portal dialog showing the inputs to set a limit for a custom time period.":::
     The dialog requires you to set a start and an end-time during which you want to apply an uplink limit for the agent. You can then pick on which days of the week you like to apply your new limit. Select all weekdays during which you like to apply the same limit. You then need to specify the limit in Mbps (Megabits per second). Overlapping times aren't allowed. Any limit you set, applies at the displayed time in the agent's timezone. You can find the agent's timezone displayed at the top of the bandwidth management window. You may need to offset your schedule or adjust the agent's timezone. 
-1. To "[reuse a schedule from another agent](#reusing-a-schedule-from-another-agent)", follow the link to an upcoming section.
-1. To apply your changes to this agent, select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
+* To "[reuse a schedule from another agent](#reusing-a-schedule-from-another-agent)", follow the link to an upcoming section.
+* To apply your changes to this agent, select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
 
 > [!NOTE]
-> The bandwidth limit you set limits the *migration data stream* the agent will establish to your target storage in Azure. However, in addition to this data stream, there is control plane traffic from the agent to Azure. Control messages, progress telemetry, and copy logs generally require only a small amount of bandwidth. To ensure proper functionality of the agent throughout your migration, the control plane of the agent is not governed by the limit schedule you set. In an extreme case the agent may exceed the limits you defined by a small amount.
+> Only the *migration data stream* an agent establishes to your target storage in Azure is controlled by this schedule. In addition to this data stream, there is control plane traffic from the agent to Azure. Control messages, progress telemetry, and copy logs generally require only a small amount of bandwidth. To ensure proper functionality of the agent throughout your migration, the control plane of the agent is not governed by the schedule you set. In an extreme case the agent may exceed the limits you defined by a small amount.
 
 ## Changing or deleting a bandwidth limit
 
@@ -71,15 +71,15 @@ Don't forget to apply your changes to this agent. Select the "*Save*" button at 
 ## Reusing a schedule from another agent
 You can reuse the bandwidth limit schedule from another agent. 
 
-1. Open the bandwidth management schedule for your selected agent. ([See the previous paragraph.](#enabling-or-changing-a-bandwidth-management-schedule))
-1. Select the command "*Import limits from other agents*" and select the agent you like to copy the schedule from. If there are no agents in the list, then there's no other agent that has a schedule set.
+1. Open the bandwidth management schedule for your selected agent. [See the previous paragraph.](#enabling-or-changing-a-bandwidth-management-schedule)
+1. Select the command "*Import limits from other agents*" and select the agent you like to copy the schedule from. If there are no agents in the list, then there are no other agents with enabled bandwidth limits.
    > [!WARNING]
-   > Using this option will overwrite the currently configured schedule for this agent.
+   > Using this option will overwrite the currently configured schedule for this agent. You cannot restore any unsaved changes you may have made prior to importing a schedule.
 1. Optionally, you can now modify this copied schedule.
 1. To apply your changes to this agent, select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
 
 > [!IMPORTANT]
-> Schedules are stored free of a timezone. That enables them to be reused on other agents. A scheduled limit will be in effect during this time in whatever the agent's timezone is. You need to ensure that you offset your bandwidth management schedule if the agent's timezone is different to the one used in the location you've deployed the agent in. For example, if the agent's timezone is UTC but your agent is actually deployed in the Pacific timezone (PST), you need to offset your schedule by -7 hours or adjust your agent's timezone to the correct one for the location. Alternatively, you can adjust the agent's timezone to the correct one for the location. Doing this removes the need to offset your schedule and also enables your schedule to automatically adjust to Daylight Savings, should your timezone observe that.
+> Schedules are stored free of a timezone. That enables them to be reused on other agents. A scheduled limit will be in effect during this time in whatever the agent's timezone is. You need to ensure that you offset your bandwidth management schedule if the agent's timezone is different to the one used in the location you've deployed the agent in. For example, if the agent's timezone is UTC but your agent is actually deployed in the Pacific timezone (PST), you need to offset your schedule by -7 hours. Alternatively, you can adjust the agent's timezone to the correct one for the location. Doing this removes the need to offset your schedule and also enables your schedule to automatically adjust to Daylight Savings, should your timezone observe that.
 
 ## Use PowerShell to configure a bandwidth limit schedule
 <!-- ########################################################
