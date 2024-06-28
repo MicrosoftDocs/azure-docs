@@ -35,7 +35,7 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 
 ## Configure at the time of lab account creation
 
-During the new [lab account creation](tutorial-setup-lab-account.md), you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list on the **Advanced** tab.  The list only shows virtual networks in the same region as the lab account. The selected virtual network is connected (peered) to labs created under the lab account.  All the virtual machines in labs that are created after the making this change have access to the resources on the peered virtual network.
+When [creating a lab account](how-to-create-lab-accounts.md), you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list on the **Advanced** tab.  The list only shows virtual networks in the same region as the lab account. The selected virtual network is connected (peered) to labs created under the lab account.  All the virtual machines in labs that are created after the making this change have access to the resources on the peered virtual network.
 
 ![Screenshot that shows how to create a lab account in the Azure portal, highlighting the peer virtual network setting.](./media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 

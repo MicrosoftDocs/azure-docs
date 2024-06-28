@@ -38,4 +38,4 @@ Follow these steps to [assign Azure roles using the Azure portal](../role-based-
 
 ## Next steps
 
-In this article, you granted lab creation permissions to another user. To learn about how to create a lab, see [Set up a lab](how-to-manage-classroom-labs).
+In this article, you granted lab creation permissions to another user. To learn about how to create a lab, see [Manage labs in Azure Lab Services when using lab accounts](how-to-manage-classroom-labs.md).

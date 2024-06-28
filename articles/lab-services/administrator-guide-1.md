@@ -214,7 +214,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
 - **Lab Creator**
 
-    To create labs within a lab account, an educator must be a member of the Lab Creator role.  An educator who creates a lab is automatically added as a lab Owner. For more information, see [Add a user to the Lab Creator role](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+    To create labs within a lab account, an educator must be a member of the Lab Creator role.  An educator who creates a lab is automatically added as a lab Owner. For more information, see [Add a user to the Lab Creator role](how-to-add-lab-creator.md).
 
 - Lab **Owner** or **Contributor**
   

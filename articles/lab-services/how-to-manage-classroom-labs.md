@@ -13,7 +13,7 @@ This article describes how to create and delete a lab. It also shows you how to 
 
 ## Prerequisites
 
-To set up a lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+To set up a lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](how-to-add-lab-creator.md).
 
 ## Create a lab
 
