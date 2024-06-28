@@ -264,8 +264,8 @@ Next, use the following sample to configure the provider in the [configuration f
     "identityProviders": {
       "twitter": {
         "registration": {
-          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
-          "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET_APP_SETTING_NAME"
+          "consumerKeySettingName": "X_CONSUMER_KEY",
+          "consumerSecretSettingName": "X_CONSUMER_SECRET_APP_SETTING_NAME"
         }
       }
     }
