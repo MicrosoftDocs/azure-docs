@@ -22,11 +22,9 @@ You can write code to filter, modify, or enrich your telemetry before it's sent 
 > [!NOTE]
 > [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
 
-Before you start:
+## Prerequisites
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non-HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
-
-<a name="filtering"></a>
+Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non-HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
 
 ## Filtering
 
@@ -38,12 +36,10 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 > Filtering the telemetry sent from the SDK by using processors can skew the statistics that you see in the portal and make it difficult to follow related items.
 >
 > Instead, consider using [sampling](./sampling.md).
->
->
-
-### Create a telemetry processor 
 
 ### C#
+
+#### Create a telemetry processor
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
@@ -139,23 +135,23 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     
     To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
     
-    ### Example filters
-    
-    #### Synthetic requests
-    
-    Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic and ingestion size by filtering them at the SDK itself.
-    
-    ```csharp
-    public void Process(ITelemetry item)
-    {
-        if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
-        
-        // Send everything else:
-        this.Next.Process(item);
-    }
-    ```
+#### Example filters
 
-#### Failed authentication
+##### Synthetic requests
+
+Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic and ingestion size by filtering them at the SDK itself.
+
+```csharp
+public void Process(ITelemetry item)
+{
+    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
+    
+    // Send everything else:
+    this.Next.Process(item);
+}
+```
+
+##### Failed authentication
 
 Filter out requests with a "401" response.
 
@@ -176,7 +172,7 @@ public void Process(ITelemetry item)
 }
 ```
 
-#### Filter out fast remote dependency calls
+##### Filter out fast remote dependency calls
 
 If you want to diagnose only calls that are slow, filter out the fast ones.
 
@@ -198,7 +194,7 @@ public void Process(ITelemetry item)
 }
 ```
 
-#### Diagnose dependency issues
+##### Diagnose dependency issues
 
 [This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
 
@@ -237,9 +233,9 @@ For example, Application Insights for a web package collects telemetry about HTT
 
 If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This initializer includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors, so any enrichments done by initializers are visible to processors.
 
-### Define your initializer
+### C#
 
-**C#**
+#### Define your initializer
 
 ```csharp
 using System;
@@ -278,7 +274,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-### Load your initializer
+#### Load your initializer
 
 **ASP.NET apps**
 
