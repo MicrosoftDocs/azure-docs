@@ -264,7 +264,7 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 
 #### Passing in string vs. numerical values
 
-To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (e.g. NAVIGATIONBACK).
+To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (for example, NAVIGATIONBACK).
 
 #### Sample usage with behaviorValidator
 
@@ -541,7 +541,7 @@ export const clickPluginConfigWithParentDataTag = {
 </div>
 ```
 
-For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the id of its closest parent will be used when parent id details are not directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
+For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the id of its closest parent will be used when parent id details aren't directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
 
 If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 

@@ -13,7 +13,7 @@ ms.reviewer: cithomas
 
 You can write code to filter, modify, or enrich your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
 
-* [Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. For example, you could reduce the volume of telemetry by excluding requests from robots. Unlike sampling, You have full control what is sent or discarded, but it will affect any metrics based on aggregated logs. Depending on how you discard items, you might also lose the ability to navigate between related items.
+* [Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. For example, you could reduce the volume of telemetry by excluding requests from robots. Unlike sampling, You have full control over what is sent or discarded, but it affects any metrics based on aggregated logs. Depending on how you discard items, you might also lose the ability to navigate between related items.
 
 * [Add or Modify properties](./api-filtering-sampling.md#add-properties) to any telemetry sent from your app by implementing an `ITelemetryInitializer`. For example, you could add calculated values or version numbers by which to filter the data in the portal.
 
@@ -24,7 +24,7 @@ You can write code to filter, modify, or enrich your telemetry before it's sent 
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non-HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
 
 <a name="filtering"></a>
 
@@ -116,7 +116,7 @@ builder.Use((next) => new AnotherProcessor(next));
 builder.Build();
 ```
 
-Telemetry clients created after this point will use your processors.
+Telemetry clients created after this point use your processors.
 
 ASP.NET **Core/Worker service apps**
 
@@ -510,7 +510,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Control the client IP address used for geolocation mappings
 
-The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
+The following sample initializer sets the client IP, which is used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
 
 ```csharp
 public void Initialize(ITelemetry telemetry)
