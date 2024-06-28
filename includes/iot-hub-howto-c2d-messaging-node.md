@@ -227,7 +227,7 @@ Each message that is to receive message feedback must include a value for the de
 
 * `sent`: receive a feedback message if the message was completed.
 
-* `??`: receive a feedback message if the message expired (or maximum delivery count was reached) without being completed by the device.
+* : receive a feedback message if the message expired (or maximum delivery count was reached) without being completed by the device.
 
 * `full`: feedback for both sent and not sent results.
 
