@@ -30,7 +30,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | **Instance details** |    |
     | NAT gateway name | Enter **lb-nat-gateway**. |
     | Region | Select **East US**. |
-    | Availability zone | Select **None**. |
+    | Availability zone | Select **No zone**. |
     | Idle timeout (minutes) | Enter **15**. |
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-nat-gateway.png" alt-text="Screenshot of Create network address translation gateway window in the Azure portal.":::

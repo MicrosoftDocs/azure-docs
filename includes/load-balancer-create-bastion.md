@@ -27,10 +27,10 @@ In this section, you create a virtual network with a resource subnet, an Azure B
     |---|---|
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **load-balancer-rg** in Name. </br> Select **OK**. |
+    | Resource group | Select **load-balancer-rg** from the dropdown or **Create new** if it doesn't exist. </br> Enter **load-balancer-rg** in Name. </br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter **lb-vnet**. |
-    | Region | Select **East US**. |
+    | Region | Select **(US) East US**. |
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
@@ -52,7 +52,8 @@ In this section, you create a virtual network with a resource subnet, an Azure B
     | **Add IPv4 address space** |  |
     | IPv4 address space | Enter **10.0.0.0/16 (65,356 addresses)**. |
     | **Subnets** | Select the **default** subnet link to edit.  |
-    | Subnet template | Leave the default **Default**. |
+    | **Edit subnet** | |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **backend-subnet**. |
     | Starting address | Enter **10.0.0.0**. |
     | Subnet size | Enter **/24(256 addresses)**. |

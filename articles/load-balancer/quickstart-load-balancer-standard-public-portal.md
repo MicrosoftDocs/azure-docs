@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer using the Azure portal.
+description: Learn how to create a public load balancer using the Azure portal.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 06/06/2023
+ms.date: 06/28/2024 
 ms.author: mbender
 ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
@@ -85,9 +85,9 @@ During the creation of the load balancer, you configure:
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
-1. Select **OK**.
+1. Select **Save**.
 
-1. Select **Add**.
+1. Select **Save**.
 
 1. Select **Next: Backend pools** at the bottom of the page.
 
