@@ -319,13 +319,13 @@ Using the feature troubleshooting guides that is available on the Azure Database
 
 ## Azure Advisor Recommendations
 
-Azure Advisor recommendations are a proactive way of identifying if a server has a high bloat ratio or the server is approaching transaction wraparound scenario. You can also set alerts for the recommendations using the [Create Azure Advisor alerts on new recommendations using the Azure portal](<https://learn.microsoft.com/azure/advisor/advisor-alerts-portal>)
+Azure Advisor recommendations are a proactive way of identifying if a server has a high bloat ratio or the server is approaching transaction wraparound scenario. You can also set alerts for the recommendations using the [Created Azure Advisor alerts on new recommendations using the Azure portal](<https://learn.microsoft.com/azure/advisor/advisor-alerts-portal>)
 
 The recommendations are:
 
-- **High Bloat Ratio**: A high bloat ratio can impact server performance in several ways. One significant issue is that the PostgreSQL Engine Optimizer may struggle to select the best execution plan, leading to degraded query performance. Therefore, a recommendation is triggered when the bloat percentage on a server reaches a certain threshold to avoid such performance issues.
+- **High Bloat Ratio**: A high bloat ratio can affect server performance in several ways. One significant issue is that the PostgreSQL Engine Optimizer might struggle to select the best execution plan, leading to degraded query performance. Therefore, a recommendation is triggered when the bloat percentage on a server reaches a certain threshold to avoid such performance issues.
 
-- **Transaction Wrap around**: This is one of the most serious issues a server can encounter. Once your server is in this state it might stop accepting any more transactions, causing the server to become read-only. Hence, a recommendation is triggered when we see the server has crossed 1 billion transactions threshold.
+- **Transaction Wrap around**: This scenario is one of the most serious issues a server can encounter. Once your server is in this state it might stop accepting any more transactions, causing the server to become read-only. Hence, a recommendation is triggered when we see the server has crossed 1 billion transactions threshold.
 
 ## Related content
 
