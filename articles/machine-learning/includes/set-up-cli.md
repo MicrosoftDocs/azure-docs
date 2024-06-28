@@ -10,7 +10,7 @@ ms.topic: "include"
 ms.date: 06/10/2024
 ---
 
-1. Open a terminal window and sign in to Azure. If you're using an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
+1. Open a terminal window and sign in to Azure. If you're using an [Azure Machine Learning compute instance](../quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity
