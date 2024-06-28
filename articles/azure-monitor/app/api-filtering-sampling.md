@@ -37,9 +37,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 >
 > Instead, consider using [sampling](./sampling.md).
 
-### C#
-
-#### Create a telemetry processor
+### Create a telemetry processor for .NET applications
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
@@ -81,7 +79,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 
 2. Add your processor.
 
-    **ASP.NET apps**
+    #### [ASP.NET](#tab/dotnet)
     
     Insert this snippet in ApplicationInsights.config:
     
@@ -113,8 +111,8 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     ```
     
     Telemetry clients created after this point use your processors.
-    
-    **ASP.NET Core/Worker service apps**
+
+    #### [ASP.NET Core/Worker service](#tab/dotnet)
     
     > [!NOTE]
     > Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
@@ -134,6 +132,8 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     ```
     
     To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
+
+    ---
     
 #### Example filters
 
@@ -276,7 +276,7 @@ namespace MvcWebRole.Telemetry
 
 #### Load your initializer
 
-**ASP.NET apps**
+##### [ASP.NET](#tab/dotnet)
 
 In ApplicationInsights.config:
 
@@ -302,7 +302,7 @@ protected void Application_Start()
 
 See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
-**ASP.NET Core/Worker service apps**
+##### [ASP.NET Core/Worker service](#tab/dotnetcore)
 
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
@@ -317,6 +317,9 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
+
+---
+
 ### JavaScript telemetry initializers
 
 Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the Application Insights JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
