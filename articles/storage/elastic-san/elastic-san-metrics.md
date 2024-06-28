@@ -4,7 +4,7 @@ description: Learn about the available metrics that can let you understand how y
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 06/17/2024
+ms.date: 06/28/2024
 ms.author: rogarana
 ---
 
@@ -30,8 +30,10 @@ All metrics are shown at the elastic SAN level.
 
 You can configure the diagnostic settings of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there are two log configurations:
 
-All - Every resource log offered by the resource.
-Audit - All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
+- All - Every resource log offered by the resource.
+- Audit - All resource logs that record customer interactions with data or the settings of the service. 
+
+Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
 
 Available log categories:
 
