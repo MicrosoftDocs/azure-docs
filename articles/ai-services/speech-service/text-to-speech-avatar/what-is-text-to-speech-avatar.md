@@ -20,9 +20,6 @@ Text to speech avatar converts text into a digital video of a photorealistic hum
 
 With text to speech avatar's advanced neural network models, the feature empowers users to deliver life-like and high-quality synthetic talking avatar videos for various applications while adhering to [responsible AI practices](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context).
 
-> [!NOTE]
-> The text to speech avatar feature is only available in the following service regions: West US 2, West Europe, and Southeast Asia. 
-
 Azure AI text to speech avatar feature capabilities include:
 
 - Converts text into a digital video of a photorealistic human speaking with natural-sounding voices powered by Azure AI text to speech.
