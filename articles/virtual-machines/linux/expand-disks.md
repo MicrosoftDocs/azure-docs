@@ -14,16 +14,16 @@ ms.custom: references_regions, devx-track-azurecli, linux-related-content
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks. You can't expand the size of striped volumes.
+This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for more storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks. You can't expand the size of striped volumes.
 
-An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach data disks and use them for data storage. If you need to store data on the OS disk and require the additional space, convert it to GUID Partition Table (GPT).
+An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, consider attaching data disks for data storage. If you do need to store data on the OS disk and require extra space, convert it to GUID Partition Table (GPT).
 
 > [!WARNING]
 > Always make sure that your filesystem is in a healthy state, your disk partition table type (GPT or MBR) will support the new size, and ensure your data is backed up before you perform disk expansion operations. For more information, see the [Azure Backup quickstart](../../backup/quick-backup-vm-portal.md).
 
 ## <a id="identifyDisk"></a>Identify Azure data disk object within the operating system ##
 
-In the case of expanding a data disk when there are several data disks present on the VM, it may be difficult to relate the Azure LUNs to the Linux devices.  If the OS disk needs expansion, it is clearly labeled in the Azure portal as the OS disk.
+When expanding a data disk, when there are several data disks present on the VM, it may be difficult to relate the Azure LUNs to the Linux devices.  If the OS disk needs expansion, it is clearly labeled in the Azure portal as the OS disk.
 
 Start by identifying the relationship between disk utilization, mount point, and device, with the ```df``` command.
 
@@ -39,7 +39,7 @@ Filesystem                Type      Size  Used Avail Use% Mounted on
 /dev/sde1                 ext4       32G   49M   30G   1% /opt/db/log
 ```
 
-Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and is located on the `/dev/sdd1` partition.  The output of `df` shows the device path regardless of whether the disk is mounted by device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This is important later.
+Here we can see, for example, the `/opt/db/data` filesystem is nearly full, and is located on the `/dev/sdd1` partition.  The output of `df` shows the device path whether the disk is mounted by the device path or the (preferred) UUID in the fstab.  Also take note of the Type column, indicating the format of the filesystem.  This is important later.
 
 Now locate the LUN that correlates to `/dev/sdd` by examining the contents of `/dev/disk/azure/scsi1`.  The output of the following `ls` command shows that the device known as `/dev/sdd` within the Linux OS is located at LUN1 when looking in the Azure portal.
 
@@ -121,7 +121,7 @@ In the following samples, replace example parameter names such as *myResourceGro
 
 ### Detecting a changed disk size
 
-If a data disk was expanded without downtime using the procedure mentioned previously, the disk size won't be changed until the device is rescanned, which normally only happens during the boot process. This rescan can be called on-demand with the following procedure.  In this example we have detected using the methods in this document that the data disk is currently `/dev/sda` and has been resized from 256 GiB to 512 GiB.
+If a data disk was expanded without downtime using the procedure mentioned previously, the disk size won't be changed until the device is rescanned, which normally only happens during the boot process. This rescan can be called on-demand with the following procedure.  In this example, we have found using the methods in this document that the data disk is currently `/dev/sda` and was resized from 256 GiB to 512 GiB.
 
 1. Identify the currently recognized size on the first line of output from `fdisk -l /dev/sda`
 
@@ -142,13 +142,13 @@ If a data disk was expanded without downtime using the procedure mentioned previ
    /dev/sda1        2048 536870878 536868831  256G 83 Linux
    ```
 
-1. Insert a `1` character into the rescan file for this device.  Note the reference to sda, this would change if a different disk device was resized.
+1. Insert a `1` character into the rescan file for this device.  Note the reference to sda in the example.  The disk identifier would change if a different disk device was resized.
 
    ```bash
    echo 1 | sudo tee /sys/class/block/sda/device/rescan
    ```
 
-1. Verify that the new disk size has been recognized
+1. Verify that the new disk size is now recognized
 
    ```bash
    sudo fdisk -l /dev/sda
@@ -180,13 +180,13 @@ The following instructions apply to endorsed Linux distributions.
 
 # [Ubuntu](#tab/ubuntu)
 
-On Ubuntu 16.x and newer, the root partition of the OS disk and filesystems will be automatically expanded to utilize all free contiguous space on the root disk by cloud-init, provided there's a small bit of free space for the resize operation.  For this circumstance the sequence is simply
+On Ubuntu 16.x and newer, the root partition of the OS disk and filesystems are automatically expanded to utilize all free contiguous space on the root disk by cloud-init, provided there's a small bit of free space for the resize operation.  For this circumstance the sequence is simply
 
 1. Increase the size of the OS disk as detailed previously
 1. Restart the VM, and then access the VM using the **root** user account.
 1. Verify that the OS disk now displays an increased file system size.
 
-As shown in the following example, the OS disk has been resized from the portal to 100 GB. The **/dev/sda1** file system mounted on **/** now displays 97 GB.
+As shown in the following example, the OS disk was resized from the portal to 100 GB. The **/dev/sda1** file system mounted on **/** now displays 97 GB.
 
 ```bash
 df -Th
@@ -251,9 +251,9 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    CHANGED: partition=4 start=3151872 old: size=59762655 end=62914527 new: size=97511391 end=100663263
    ```
 
-1. Run the `lsblk` command again to check whether the partition has been increased.
+1. Run the `lsblk` command again to check whether the partition was increased.
 
-   The following output shows that the **/dev/sda4** partition has been resized to 46.5 GB:
+   The following output shows that the **/dev/sda4** partition was resized to 46.5 GB:
 
    ```bash
    lsblk
@@ -339,7 +339,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    tmpfs          tmpfs      92M     0   92M   0% /run/user/490
    ```
 
-   In the preceding example, we can see that the file system size for the OS disk has been increased.
+   In the preceding example, we can see that the file system size for the OS disk was increased.
 
 # [Red Hat with LVM](#tab/rhellvm)
 
