@@ -109,7 +109,8 @@ sections:
       - question: |
           Can I process documents with more than two pages in Document Intelligence Studio?
         answer: |
-          **Yes,**for paid-tier resources. **No**, for free-tier resources.
+          **Yes**, for paid-tier resources.
+          **No**, for free-tier resources.
 
             - For free-tier (F0) resources, **only the first two pages** are analyzed whether you're using Document Intelligence Studio, the REST API, or client libraries.
 
@@ -145,11 +146,11 @@ sections:
         answer: |
           **Yes.**
 
-          "Document Intelligence Studio has separate URL endpoints for sovereign cloud regions:"
+          Document Intelligence Studio has separate URL endpoints for sovereign cloud regions:
 
-          - "URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)."
+          - URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio).
 
-          - "URL Microsoft Azure operated by 21Vianet (Azure China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)."
+          - URL Microsoft Azure operated by 21Vianet (Azure China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio).
 
 
   - name: App development
@@ -159,7 +160,7 @@ sections:
         answer: |
           **Yes.**
 
-          "Document Intelligence offers the latest development options within the following platforms:"
+          Document Intelligence offers the latest development options within the following platforms:
 
           - [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
 
@@ -178,7 +179,7 @@ sections:
         answer:  |
           **Yes.**
 
-          "The following table provides links to detailed instructions for migrating to the newest version of Document Intelligence:"
+          The following table provides links to detailed instructions for migrating to the newest version of Document Intelligence:
 
             | Language/API | Migration guide|
             | ----------- | ----------------  |
@@ -193,7 +194,7 @@ sections:
         answer:  |
             **Yes.**
 
-            "Use the `pages` parameter (supported in v2.1, v3.0, and later versions of the REST API) and specify pages for multiple-page PDF and TIFF documents. Accepted input includes the following ranges:"
+            Use the `pages` parameter (supported in v2.1, v3.0, and later versions of the REST API) and specify pages for multiple-page PDF and TIFF documents. Accepted input includes the following ranges:
 
             - Single pages. For example, if you specify `1, 2`, pages 1 and 2 are processed.
             - Finite ranges. For example, if you specify `2-5`, pages 2 to 5 are processed.
@@ -206,11 +207,13 @@ sections:
             If you don't provide a page range, the entire document is processed.
 
       - question: |
-            Do you recommend using Document Intelligence Studio or the FOTT Sample Labeling tool for my project?
+            Do you recommend using Document Intelligence Studio rather than the FOTT Sample Labeling tool for my project?
         answer:  |
+          **Yes.**
+
           We recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) most of the time because it can reduce your time for configuring Document Intelligence resources and storage services.
 
-           Consider using the Form OCR Testing Tool (FOTT) only for the following scenarios:
+           Only consider using the Form OCR Testing Tool (FOTT) for the following scenarios:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
