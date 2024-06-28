@@ -40,7 +40,7 @@ Choose the tab for the environment you're using for other prerequisites.
 
 * To use the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-  [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
+[!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
 
 # [Azure CLI](#tab/azure-cli)
 
