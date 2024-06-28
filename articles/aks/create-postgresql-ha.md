@@ -31,7 +31,7 @@ export AKS_PRIMARY_MANAGED_RG_NAME="rg-${LOCAL_NAME}-primary-aksmanaged-${SUFFIX
 export AKS_PRIMARY_CLUSTER_FED_CREDENTIAL_NAME="pg-primary-fedcred1-${LOCAL_NAME}-${SUFFIX}"
 export AKS_PRIMARY_CLUSTER_PG_DNSPREFIX=$(echo $(echo "a$(openssl rand -hex 5 | cut -c1-11)"))
 export AKS_UAMI_CLUSTER_IDENTITY_NAME="mi-aks-${LOCAL_NAME}-${SUFFIX}"
-export AKS_CLUSTER_VERSION="1.27"
+export AKS_CLUSTER_VERSION="1.29"
 export PG_NAMESPACE="cnpg-database"
 export PG_SYSTEM_NAMESPACE="cnpg-system"
 export PG_PRIMARY_CLUSTER_NAME="pg-primary-${LOCAL_NAME}-${SUFFIX}"
@@ -227,11 +227,15 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
         --nodepool-name systempool \
         --enable-oidc-issuer \
         --enable-workload-identity \
-        --node-count 2 \
+        --enable-cluster-autoscaler \
+        --min-count 2 \
+        --max-count 3 \
         --node-vm-size $SYSTEM_NODE_POOL_VMSKU \
         --enable-azure-monitor-metrics \
         --azure-monitor-workspace-resource-id $AMW_RESOURCE_ID \
         --grafana-resource-id $GRAFANA_RESOURCE_ID \
+        --api-server-authorized-ip-ranges $MY_PUBLIC_CLIENT_IP \
+        --tier standard \
         --zones 1 2 3
     ```
 
@@ -242,7 +246,9 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
         --resource-group $RESOURCE_GROUP_NAME \
         --cluster-name $AKS_PRIMARY_CLUSTER_NAME \
         --name $USER_NODE_POOL_NAME \
-        --node-count 3 \
+        --enable-cluster-autoscaler \
+        --min-count 3 \
+        --max-count 6 \
         --node-vm-size $USER_NODE_POOL_VMSKU \
         --zones 1 2 3 \
         --labels workload=postgres
