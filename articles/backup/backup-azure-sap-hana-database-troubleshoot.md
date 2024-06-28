@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 07/18/2023
+ms.date: 07/07/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -23,7 +23,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | **Error message**      | `Azure Backup does not have required role  privileges to carry out Backup and Restore operations`    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Possible causes**    | All operations fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn't have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role might have been overwritten.                          |
-| **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance, or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you are using HANA 2.0 SPS04 Rev 46 and later, this error doesn't occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions. |
+| **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance, or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you're using HANA 2.0 SPS04 Rev 46 and later, this error doesn't occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions. |
 
 ### UserErrorInOpeningHanaOdbcConnection
 
@@ -43,8 +43,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | **Error message**      | `Backup log chain is broken`                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
-| **Recommended action** | To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups start working as expected.<br>If you do not see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
+| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog isn't yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
+| **Recommended action** | To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups start working as expected.<br>If you don't see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
 
 ### UserErrorSDCtoMDCUpgradeDetected
 
@@ -65,7 +65,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 |**Error message**  | `The source and target systems for restore are incompatible.`  |
 |---------|---------|
 |**Possible causes**   | The restore flow fails with this error when the source and target HANA databases, and systems are incompatible. |
-|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores:<br> **Case 1:** SYSTEMDB cannot be renamed during restore.<br>**Case 2:** Source — SDC and target — MDC: The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br> **Case 3:** Source — MDC and target — SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target.<br>To learn more, see the note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
+|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores:<br> **Case 1:** SYSTEMDB can't be renamed during restore.<br>**Case 2:** Source — SDC and target — MDC: The source database can't be restored as SYSTEMDB or tenant DB on the target. <br> **Case 3:** Source — MDC and target — SDC: The source database (SYSTEMDB or tenant DB) can't be restored to the target.<br>To learn more, see the note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
 
 ### UserErrorHANAPODoesNotExist
 
@@ -211,6 +211,13 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 --- | ---
 **Possible causes** | - Disk corruption issue. <br> - Memory allocation issues. <br> - Too many databases in use. <br> - Topology update issue.
 **Recommended action** | Work with the SAP HANA team to fix this issue. However, if the issue persists, you can contact Microsoft support for further assistance.
+
+### UserErrorRestoreTargetDirectoriesAbsent
+
+| **Error Message** | `PreRestoreDataParamsPrep: Target directory` does not exist. |
+| --- | --- |
+| **Possible Causes** | Restore as files is failing due to *directory* that is selected for restore doesn't exist on the Target server or isn't accessible.
+| **Recommended action** | Verify the directory that you selected is available on the target server and ensure you have selected the correct target server at the time of restore. |
 
 ## Restore checks
 
