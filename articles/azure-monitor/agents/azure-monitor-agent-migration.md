@@ -22,7 +22,7 @@ Migration is a complex task. Start planning your migration to Azure Monitor Agen
 > - **Data upload:** Cloud ingestion services will gradually reduce support for MMA agents, which may result in decreased support and potential compatibility issues for MMA agents over time.  Ingestion for MMA will be unchanged until Febuary 1 2025.
 > - **Installation:** The ability to install the legacy agents will be removed from the Azure Portal and installation policies for legacy agents will be removed. You can still install the MMA agents extension as well as perfrom offline installations.
 > - **Customer Support:** You will not be able to get support for legacy agent issues.
-> - **OS Support:** Support for new Linux or Windows distros, including service packs won't be added after the deprecation of the legacy agents.
+> - **OS Support:** Support for new Linux or Windows distros, including service packs, won't be added after the deprecation of the legacy agents.
 
 ## Before you begin
 
