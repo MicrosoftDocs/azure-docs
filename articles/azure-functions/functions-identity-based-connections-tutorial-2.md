@@ -3,7 +3,7 @@ title: Use identity-based connections with Azure Functions triggers and bindings
 description: Learn how to use identity-based connections instead of secrets when connecting to a Service Bus queue using Azure Functions.
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 06/18/2024
+ms.date: 06/27/2024
 ms.devlang: csharp
 
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid needing to handle secrets or connection strings in my application settings.
@@ -90,13 +90,13 @@ You've granted your function app access to the Service Bus namespace using manag
 
 1. In your function app, expand **Settings**, and then select **Environment variables**.
 
-1. In the **App settings** tab, select **+ Add** to create a setting. Use the information in the following table:
+1. In the **App settings** tab, select **+ Add** to create a setting. Use the information in the following table to enter the **Name** and **Value** for the new setting:
 
     | Name      | Value  | Description |
     | ------------ | ---------------- | ----------- |
     | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connects your function app to the Service Bus using an identity-based connection instead of secrets. |
 
-1. After you enter the name and value for the new setting, select **Apply**, and then select **Apply** again.
+1. Select **Apply**, and then select **Apply** and **Confirm** to save your changes and restart the app function.
 
 > [!NOTE]
 > When you use [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator, such as `:` or `/`, in place of the `__` to ensure names are resolved correctly.

@@ -3,7 +3,7 @@ title: Create a function app without default storage secrets in its definition
 description: Learn how to remove storage connection strings from your function app definition and use identity-based connections instead.
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 06/18/2024
+ms.date: 06/27/2024
 titleSuffix: Azure Functions
 
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid needing to handle secrets or connection strings in my application settings.
@@ -66,7 +66,7 @@ First you need a key vault to store secrets in. You configure it to use [Azure r
 
     Use the default selections for the "Recovery options" sections.
 
-1. Make a note of the name you used, as you'll need it later.
+1. Make a note of the name you used, for use later.
 
 1. Select **Next: Access Policy** to navigate to the **Access Policy** tab.
 
@@ -93,7 +93,7 @@ In order to use Azure Key Vault, your app needs to have an identity that can be 
 
 1. Select **Review + create**. Review the configuration, and then select **Create**.
 
-1. When the identity is created, navigate to it in the portal. Select **Properties**, and make note of the **Resource ID**, as you'll need it later.
+1. When the identity is created, navigate to it in the portal. Select **Properties**, and make note of the **Resource ID** for use later.
 
 1. Select **Azure Role Assignments**, and select **Add role assignment (Preview)**.
 
@@ -138,7 +138,7 @@ Because the portal experience for creating a function app doesn't interact with 
 
 1. In the template page, select **Deploy**, then in the Custom deployment page, select **Edit template**.
 
-    :::image type="content" source="./media/functions-identity-connections-tutorial/function-app-portal-template-deploy-button.png" alt-text="Screenshot of where to find the deploy button at the top of the template screen.":::
+    :::image type="content" source="./media/functions-identity-connections-tutorial/function-app-portal-template-deploy-button.png" alt-text="Screenshot that shows the Deploy button at the top of the Template page.":::
 
 ### Edit the template
 
@@ -207,7 +207,7 @@ You now edit the template to store the Azure Files connection string in Key Vaul
 
     This `identity` block also sets up a system-assigned identity, which you use later in this tutorial.
 
-1. Add the `keyVaultReferenceIdentity` property to the `properties` object for the function app as in the below example. Substitute "IDENTITY_RESOURCE_ID" for the resource ID of your user-assigned identity.
+1. Add the `keyVaultReferenceIdentity` property to the `properties` object for the function app, as in the following example. Substitute "IDENTITY_RESOURCE_ID" for the resource ID of your user-assigned identity.
 
     ```json
     {
@@ -259,7 +259,7 @@ Whenever your app would need to add a reference to a secret, you would just need
 
 ## Use managed identity for AzureWebJobsStorage
 
-Next you use the system-assigned identity you configured in the previous steps for the `AzureWebJobsStorage` connection. `AzureWebJobsStorage` is used by the Functions runtime and by several triggers and bindings to coordinate between multiple running instances. It's required for your function app to operate, and like Azure Files, is configured with a connection string by default when you create a new function app.
+Next, you use the system-assigned identity you configured in the previous steps for the `AzureWebJobsStorage` connection. `AzureWebJobsStorage` is used by the Functions runtime and by several triggers and bindings to coordinate between multiple running instances. It's required for your function app to operate, and like Azure Files, is configured with a connection string by default when you create a new function app.
 
 ### Grant the system-assigned identity access to the storage account
 
@@ -303,18 +303,18 @@ Next you update your function app to use its system-assigned identity when it us
 
 1. In your function app, expand **Settings**, and then select **Environment variables**.
 
-1. In the **App settings** tab, select the **AzureWebJobsStorage** app setting, and change it based on the following values.
+1. In the **App settings** tab, select the **AzureWebJobsStorage** app setting, and edit it according to the following table:
 
     | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to the exact name `AzureWebJobsStorage__accountName`. This setting tells the host to use the identity instead of looking for a stored secret. The new setting uses a double underscore (`__`), which is a special character in application settings.  |
+    | **Name** |  AzureWebJobsStorage__accountName | Change the name from **AzureWebJobsStorage** to the exact name `AzureWebJobsStorage__accountName`. This setting instructs the host to use the identity instead of searching for a stored secret. The new setting uses a double underscore (`__`), which is a special character in application settings.  |
     | **Value** | Your account name | Update the name from the connection string to just your **StorageAccountName**. |
 
-    This configuration lets the system know that it should use an identity to connect to the resource.
+    This configuration tells the system to use an identity to connect to the resource.
 
-1. Select **Apply**, and then select **Apply** again to save your changes.
+1. Select **Apply**, and then select **Apply** and **Confirm** to save your changes and restart the app function.
 
-You've removed the storage connection string requirement for AzureWebJobsStorage by configuring your app to instead connect to blobs using managed identities.  
+You've now removed the storage connection string requirement for AzureWebJobsStorage by configuring your app to instead connect to blobs using managed identities.  
 
 > [!NOTE]
 > The `__accountName` syntax is unique to the AzureWebJobsStorage connection and cannot be used for other storage connections. To learn to define other connections, check the reference for each trigger and binding your app uses.
