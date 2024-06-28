@@ -455,37 +455,43 @@ from cryptography.hazmat.primitives import hashes
 
 def validate_cert(request):
 
-    cert_value =  request.headers.get('X-ARR-ClientCert')
-    if cert_value is None:
-        return False
+    try:
+        cert_value =  request.headers.get('X-ARR-ClientCert')
+        if cert_value is None:
+            return False
+        
+        cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
+        cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
     
-    cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
-    cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
+        fingerprint = cert.fingerprint(hashes.SHA1())
+        if fingerprint != b'12345678901234567890':
+            return False
+        
+        subject = cert.subject
+        subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if subject_cn != "contoso.com":
+            return False
+        
+        issuer = cert.issuer
+        issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if issuer_cn != "contoso.com":
+            return False
+    
+        current_time = datetime.now(timezone.utc)
+    
+        if current_time < cert.not_valid_before_utc:
+            return False
+        
+        if current_time > cert.not_valid_after_utc:
+            return False
+        
+        return True
 
-    fingerprint = cert.fingerprint(hashes.SHA1())
-    if fingerprint != b'12345678901234567890':
+    except Exception as e:
+        # Handle any errors encountered during validation
+        print(f"Encountered the following error during certificate validation: {e}")
         return False
     
-    subject = cert.subject
-    subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
-    if subject_cn != "contoso.com":
-        return False
-    
-    issuer = cert.issuer
-    issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
-    if issuer_cn != "contosoauthority.com":
-        return False
-
-    current_time = datetime.now(timezone.utc)
-
-    if current_time < cert.not_valid_before_utc:
-        return False
-    
-    if current_time > cert.not_valid_after_utc:
-        return False
-    
-    return True
-
 def authorize_certificate(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -518,36 +524,42 @@ from cryptography.hazmat.primitives import hashes
 
 def validate_cert(request):
 
-    cert_value =  request.headers.get('X-ARR-ClientCert')
-    if cert_value is None:
-        return False
+    try:
+        cert_value =  request.headers.get('X-ARR-ClientCert')
+        if cert_value is None:
+            return False
+        
+        cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
+        cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
     
-    cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
-    cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
+        fingerprint = cert.fingerprint(hashes.SHA1())
+        if fingerprint != b'12345678901234567890':
+            return False
+        
+        subject = cert.subject
+        subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if subject_cn != "contoso.com":
+            return False
+        
+        issuer = cert.issuer
+        issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if issuer_cn != "contoso.com":
+            return False
+    
+        current_time = datetime.now(timezone.utc)
+    
+        if current_time < cert.not_valid_before_utc:
+            return False
+        
+        if current_time > cert.not_valid_after_utc:
+            return False
+        
+        return True
 
-    fingerprint = cert.fingerprint(hashes.SHA1())
-    if fingerprint != b'12345678901234567890':
+    except Exception as e:
+        # Handle any errors encountered during validation
+        print(f"Encountered the following error during certificate validation: {e}")
         return False
-    
-    subject = cert.subject
-    subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
-    if subject_cn != "contoso.com":
-        return False
-    
-    issuer = cert.issuer
-    issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
-    if issuer_cn != "contosoauthority.com":
-        return False
-
-    current_time = datetime.now(timezone.utc)
-
-    if current_time < cert.not_valid_before_utc:
-        return False
-    
-    if current_time > cert.not_valid_after_utc:
-        return False
-    
-    return True
 
 def authorize_certificate(view):
     @wraps(view)
