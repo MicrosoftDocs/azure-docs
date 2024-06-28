@@ -177,9 +177,10 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
             name: nvidia-device-plugin-ds
         spec:
           tolerations:
-          - key: nvidia.com/gpu
-            operator: Exists
-            effect: NoSchedule
+          - key: "sku"
+            operator: "Equal"
+            value: "gpu"
+            effect: "NoSchedule"
           # Mark this pod as a critical add-on; when enabled, the critical add-on
           # scheduler reserves resources for critical add-on pods so that they can
           # be rescheduled after a failure.
