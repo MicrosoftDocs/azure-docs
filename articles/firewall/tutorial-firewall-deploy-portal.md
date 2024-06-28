@@ -94,6 +94,9 @@ This virtual network has two subnets.
 1. Select **Review + create**.
 1. Select **Create**.
 
+> [!NOTE]
+> A public IP on Firewall is selected to provide outbound connectivity until all ports have been used. In scenarios with high traffic volume and throughput, it is recommended to use a NAT Gateway to provide outbound connectivity. SNAT ports are dynamically allocated across all public IPs associated with NAT Gateway. To learn more see [integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway). 
+
 ### Create a virtual machine
 
 Now create the workload virtual machine, and place it in the **Workload-SN** subnet.
