@@ -20,7 +20,7 @@ Unlike standalone large language models (LLMs) or rule-based software/hardware s
 -	[Planning](#reasoning-and-planning). AI agents can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
 -	[Tool usage](#frameworks). Advanced AI agents can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
 -	[Perception](#frameworks). AI agents can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
--	[Memory](#agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
+-	[Memory](#ai-agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
 
 > [!NOTE]
 > The usage of the term "memory" in the context of AI agents should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
@@ -184,7 +184,7 @@ The five available [consistency levels](consistency-levels.md) (from strong to e
 
 This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application.
 
-Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-ai-agents) uses the [vector database](vector-database.md) and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings, ensuring [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system). It operates within a Python FastAPI backend and support user interactions through a React JS user interface.
+Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-agents) uses the [vector database](vector-database.md) and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings, ensuring [speed, scale, and simplicity](#building-a-robust-ai-agent-memory-system). It operates within a Python FastAPI backend and support user interactions through a React JS user interface.
 
 ### Prerequisites
 
