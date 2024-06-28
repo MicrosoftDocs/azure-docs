@@ -420,28 +420,26 @@
       href: index-add-scoring-profiles.md
   - name: Security
     items:
-    - name: Enable role-based access control
+    - name: Configure network access
+      href: service-configure-firewall.md
+    - name: Enable role-based access
       href: search-security-enable-roles.md
-    - name: Configure a managed identity
-      href: search-howto-managed-identities-data-sources.md
+    - name: Assign roles (users and groups)
+      href: search-security-rbac.md
     - name: Inbound connections
       items:
       - name: Connect using API keys
         href: search-security-api-keys.md
-      - name: Connect using Azure roles
-        href: search-security-rbac.md
       - name: Code without keys
-        href: keyless-connections.md       
-      - name: Configure apps for Microsoft Entra ID
-        href: search-howto-aad.md
-      - name: Configure an IP firewall
-        href: service-configure-firewall.md
+        href: keyless-connections.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
       - name: Troubleshoot private connections
         href: troubleshoot-shared-private-link-resources.md
     - name: Outbound connections
       items:
+      - name: Configure a managed identity
+        href: search-howto-managed-identities-data-sources.md
       - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect using a managed identity
