@@ -291,7 +291,6 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
 
 ---
 
-
 ## Next steps
 
 To learn more about Fleet, see the following resources:
