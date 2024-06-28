@@ -319,7 +319,7 @@ Using the feature troubleshooting guides that is available on the Azure Database
 
 ## Azure Advisor Recommendations
 
-Azure Advisor recommendations are a proactive way of identifying if a server has a high bloat ratio or the server is approaching transaction wraparound scenario. You can also set alerts for the recommendations using the [Created Azure Advisor alerts on new recommendations using the Azure portal](<https://learn.microsoft.com/azure/advisor/advisor-alerts-portal>)
+Azure Advisor recommendations are a proactive way of identifying if a server has a high bloat ratio or the server is approaching transaction wraparound scenario. You can also set alerts for the recommendations using the [Create Azure Advisor alerts on new recommendations using the Azure portal](/articles/advisor/advisor-alerts-portal.md)
 
 The recommendations are:
 
