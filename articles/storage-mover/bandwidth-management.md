@@ -44,11 +44,14 @@ Using the Azure portal, you can enable a bandwidth schedule on a registered agen
 
 ## Setting a bandwidth limit
 
-1. Open the bandwidth scheduling window. ([see previous section](#enabling-or-changing-a-bandwidth-management-schedule))
-1. You can create a custom schedule for this selected agent, or you can [reuse a schedule](#reusing-a-schedule-from-another-agent) that was previously created for another agent.
+Open the bandwidth scheduling window. ([see previous section](#enabling-or-changing-a-bandwidth-management-schedule)) 
+
+Here you can create a custom schedule for this selected agent, or you [reuse a schedule](#reusing-a-schedule-from-another-agent) that was previously created for another agent.
+
 1. To create a custom schedule, select the "Add limit" command. A dialog opens, allowing you to define a time slice during which you want to set the maximum bandwidth on your WAN link, that the agent is allowed to use.
    :::image type="content" source="media/bandwidth-management/bandwidth-add-limit.png" alt-text="An Azure portal dialog showing the inputs to set a limit for a custom time period.":::
-1. The dialog requires you to set a start and an end-time during which you want to apply an uplink limit for the agent. You can then pick on which days of the week you like to apply your new limit. Select all weekdays during which you like to apply the same limit. You then need to specify the limit in Mbps (Megabits per second). Overlapping times aren't allowed. Any limit you set, applies at the displayed time in the agent's timezone. You can find the agent's timezone displayed at the top of the bandwidth management window. You may need to offset your schedule or adjust the agent's timezone. Find more details in the paragraph: "[Reusing a schedule from another agent](#reusing-a-schedule-from-another-agent)".
+    The dialog requires you to set a start and an end-time during which you want to apply an uplink limit for the agent. You can then pick on which days of the week you like to apply your new limit. Select all weekdays during which you like to apply the same limit. You then need to specify the limit in Mbps (Megabits per second). Overlapping times aren't allowed. Any limit you set, applies at the displayed time in the agent's timezone. You can find the agent's timezone displayed at the top of the bandwidth management window. You may need to offset your schedule or adjust the agent's timezone. 
+1. To "[reuse a schedule from another agent](#reusing-a-schedule-from-another-agent)", follow the link to an upcoming section.
 1. To apply your changes to this agent, select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
 
 > [!NOTE]
@@ -87,7 +90,7 @@ Add all cmdlets - better to have them in one place.
 
 [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
-You'll need the `Az.StorageMover` module:
+You need the `Az.StorageMover` module:
 
 ```powershell
 ## Ensure you are running the latest version of PowerShell 7
@@ -131,12 +134,12 @@ $timeblock = New-AzStorageMoverUploadLimitWeeklyRecurrenceObject `
     -EndTimeHour 17 `  # Mandatory. 24-hour clock: 17 = 5pm
     -EndTimeMinute 30  # Optional. Time blocks are precise to 30 Minutes. -EndTimeMinute 0 is equivalent to omitting the parameter. The only other acceptable value is the half hour mark: 30. 
 
-TODO:
-I need to see how to add a single new time block to an empty or existing schedule.
-I need to see the best method of editing a schedule.
-I need to see how I can delete a schedule.
-
-I would like to document the JSON schema through an annotated example schedule.
+#TODO:
+#I need to see how to add a single new time block to an empty or existing schedule.
+#I need to see the best method of editing a schedule.
+#I need to see how I can delete a schedule.
+#
+#I would like to document the JSON schema through an annotated example schedule.
 
 ```
 
