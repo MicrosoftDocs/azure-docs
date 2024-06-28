@@ -15,7 +15,7 @@ ms.date: 06/27/2024
 
 # Configure network access and firewall rules for Azure AI Search
 
-By default, Azure AI Search is configured to allow connections over a public endpoint. Access to a search service *through* the public endpoint is protected by authentication and authorization protocols, but the endpoint itself is open to the internet at the network layer.
+By default, Azure AI Search is configured to allow connections over a public endpoint. Access to a search service *through* the public endpoint is protected by authentication and authorization protocols, but the endpoint itself is open to the internet at the network layer for data plane requests.
 
 If you aren't hosting a public web site, you might want to configure network access to automatically refuse requests unless they originate from an approved set of devices and cloud services. There are two mechanisms:
 
