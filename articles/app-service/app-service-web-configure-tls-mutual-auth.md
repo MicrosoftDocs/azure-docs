@@ -6,9 +6,9 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 06/21/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Configure TLS mutual authentication for Azure App Service
 
@@ -36,7 +36,7 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 ```
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe Bicep snippet is provided for you:
+For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -57,7 +57,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ### [ARM](#tab/arm)
 
-For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe ARM template snippet is provided for you:
+For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
 ```ARM
 {
@@ -437,5 +437,148 @@ public class ClientCertValidator {
     }
 }
 ```
+
+## Python sample
+
+The following Flask and Django Python code samples implement a decorator named `authorize_certificate` that can be used on a view function to permit access only to callers that present a valid client certificate. It expects a PEM formatted certificate in the `X-ARR-ClientCert` header and uses the Python [cryptography](https://pypi.org/project/cryptography/) package to validate the certificate based on its fingerprint (thumbprint), subject common name, issuer common name, and beginning and expiration dates. If validation fails, the decorator ensures that an HTTP response with status code 403 (Forbidden) is returned to the client.
+
+### [Flask](#tab/flask)
+
+```python
+from functools import wraps
+from datetime import datetime, timezone
+from flask import abort, request
+from cryptography import x509
+from cryptography.x509.oid import NameOID
+from cryptography.hazmat.primitives import hashes
+
+
+def validate_cert(request):
+
+    try:
+        cert_value =  request.headers.get('X-ARR-ClientCert')
+        if cert_value is None:
+            return False
+        
+        cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
+        cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
+    
+        fingerprint = cert.fingerprint(hashes.SHA1())
+        if fingerprint != b'12345678901234567890':
+            return False
+        
+        subject = cert.subject
+        subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if subject_cn != "contoso.com":
+            return False
+        
+        issuer = cert.issuer
+        issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if issuer_cn != "contoso.com":
+            return False
+    
+        current_time = datetime.now(timezone.utc)
+    
+        if current_time < cert.not_valid_before_utc:
+            return False
+        
+        if current_time > cert.not_valid_after_utc:
+            return False
+        
+        return True
+
+    except Exception as e:
+        # Handle any errors encountered during validation
+        print(f"Encountered the following error during certificate validation: {e}")
+        return False
+    
+def authorize_certificate(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not validate_cert(request):
+            abort(403)
+        return f(*args, **kwargs)
+    return decorated_function
+```
+
+The following code snippet shows how to use the decorator on a Flask view function.
+
+```python
+@app.route('/hellocert')
+@authorize_certificate
+def hellocert():
+   print('Request for hellocert page received')
+   return render_template('index.html')
+```
+
+### [Django](#tab/django)
+
+```python
+from functools import wraps
+from datetime import datetime, timezone
+from django.core.exceptions import PermissionDenied
+from cryptography import x509
+from cryptography.x509.oid import NameOID
+from cryptography.hazmat.primitives import hashes
+
+
+def validate_cert(request):
+
+    try:
+        cert_value =  request.headers.get('X-ARR-ClientCert')
+        if cert_value is None:
+            return False
+        
+        cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
+        cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
+    
+        fingerprint = cert.fingerprint(hashes.SHA1())
+        if fingerprint != b'12345678901234567890':
+            return False
+        
+        subject = cert.subject
+        subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if subject_cn != "contoso.com":
+            return False
+        
+        issuer = cert.issuer
+        issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if issuer_cn != "contoso.com":
+            return False
+    
+        current_time = datetime.now(timezone.utc)
+    
+        if current_time < cert.not_valid_before_utc:
+            return False
+        
+        if current_time > cert.not_valid_after_utc:
+            return False
+        
+        return True
+
+    except Exception as e:
+        # Handle any errors encountered during validation
+        print(f"Encountered the following error during certificate validation: {e}")
+        return False
+
+def authorize_certificate(view):
+    @wraps(view)
+    def _wrapped_view(request, *args, **kwargs):
+        if not validate_cert(request):
+            raise PermissionDenied
+        return view(request, *args, **kwargs)
+    return _wrapped_view
+```
+
+The following code snippet shows how to use the decorator on a Django view function.
+
+```python
+@authorize_certificate
+def hellocert(request):
+    print('Request for hellocert page received')
+    return render(request, 'hello_azure/index.html')
+```
+
+---
 
 [exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png
