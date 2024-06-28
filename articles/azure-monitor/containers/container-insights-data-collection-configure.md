@@ -21,17 +21,19 @@ There are two methods use to configure and filter data being collected in Contai
 ## Tasks
 The following table describes the different configuration tasks you can perform in Container insights and the method available for each. Details for each task are provided in the following sections.
 
-| Task | ConfigMap | DCR | Notes |
+| Task | ConfigMap | DCR | Description |
 |:---|:---:|:---:|:---|
-| Enable V2 schema | ✓ | ✓ |   |
-| Enable metadata | ✓ | - | Adds a column to ContainerLogsV2 table with additional data that helps with troubleshooting with simple log queries and removes the need for joining with other tables. |
-| Log collection<br>- Filter by namespace<br>- Annotation filtering | ✓<br>✓<br>✓ | ✓<br>✓<br>- |  |
-| Inventory collection | - | ✓ | |
-| Performance data | - | ✓ | |
-| Collection frequency  | - | ✓ | |
-| Syslog collection | ✓ | ✓ | |
-| Environment variable collection | ✓ | - | |
-| Enable dashboard | - | - | Installed from Grafana. |
+| Enable V2 schema | ✓ | ✓ | Enables the ContainerLogsV2 schema for older installations of Container insights. Provides more efficient log queries and ability to enable Basic logs.  |
+| Enable metadata | ✓ |  | Adds a column to ContainerLogsV2 table with additional data that helps with troubleshooting with simple log queries and removes the need for joining with other tables. |
+| Log collection | ✓ | ✓ | Enable collection of stdout/stderr logs. |
+| Filter by namespace | ✓ | ✓ | Filter out container logs for particular namespaces. |
+| Annotation filtering | ✓ | | Filter out container logs for certain pods and containers.  |
+| Inventory collection |  | ✓ | Collect inventory data for containers, nodes, and pods. |
+| Performance data |  | ✓ | Collect performance data in a Log Analytics workspace. |
+| Collection frequency  |  | ✓ | Configure how often Container insights samples for log and inventory data. |
+| Syslog collection | ✓ | ✓ | Enable Syslog collection from the cluster. |
+| Environment variable collection | ✓ | - | Collect environment variables from the cluster. |
+| Enable dashboard |  | | Install the Kubernetes Logs Metadata Grafana dashboard displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN and also reports on Log Volume, Log Rate, Log Records, Logs. This installation is performed from Grafana. |
 
 
 
