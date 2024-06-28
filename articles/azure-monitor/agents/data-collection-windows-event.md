@@ -1,6 +1,6 @@
 ---
-title: Collect events and performance counters from virtual machines with Azure Monitor Agent
-description: Describes how to collect events and performance counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
+title: Collect Windows events from virtual machines with Azure Monitor Agent
+description: Describes how to collect Windows events counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 7/19/2023
 author: guywild
