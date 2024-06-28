@@ -21,36 +21,43 @@ In this guide, you learn how to connect an instance of Apache Kafka & Apache Fli
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 * An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal).
-* A [Confluent organization](./create-cli.md) created on Azure Native ISV Services
+* A [Confluent organization](./create.md) created on Azure Native ISV Services
 * The Azure subscription Owner or subscription Contributor role is required. If necessary, contact your subscription administrator to assign you one of these roles.  
-* A [Configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the confluent organization
+* A [Configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the confluent organization. lIf you do not have one already, please go to Confluent to create these constructs.
 
 ## Create a Confluent sink connector for Azure Blob Storage (preview)
 
 Follow these steps to create a sink connector for Azure Blob Storage.
 
-1. Open your Confluent organization and select **Confluent** > **Confluent Connectors** from the left menu.
+1. Open your Confluent organization and select **Confluent** > **Confluent Connectors (Preview)** from the left menu.
+
+   :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot from the Azure portal showing the Confluent Connectors menu.":::
+
 2. Select **Create new connector**. A connector pane opens up on the right hand side. Select or enter the following information under **Create a new connector**.
 
 ### Basics
 
 Set the basic settings below, then select **Next**.
 
-| Setting             | Example value           | Description                                                                                                                        |
-|---------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Connector Type**  | *Sink*                  | A sink connector pulls data from Kafka topics and pushes it into an external database or system for storage or further processing. |
-| **Connector Class** | *Azure Blob Storage*    | Select the Azure service you want to connect. Azure Blob Storage is currently the only available option.                           |
-| **Connector name**  | *blob-source-connector* | Enter a name for your connector.                                                                                                   |
-| **Environment**     | *env1*                  | Select the environment where you would like to create this connector.                                                              |
-| **Cluster**         | *cluster1*              | Select the cluster where you would like to create this connector.                                                                  |
-| **Topics**          | *topic_1*               | Select one or more topic from where the data needs to be pulled.                                                                   |
-| **Subscription**    | *My subscription*       | Select the Azure subscription for the Azure Blob Storage where the data needs to be pushed.                                        |
-| **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pushed. If needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).                                                                     |
-| **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).                                                                           |
+| Setting             | Example value             | Description                                                                                                                                                                                        |
+|---------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Connector Type**  | *Sink*                    | A sink connector pulls data from Kafka topics and pushes it into an external database or system for storage or further processing.                                                                 |
+| **Connector Class** | *Azure Blob Storage Sink* | Select the Azure service you want to connect. Azure Blob Storage is currently the only available option.                                                                                           |
+| **Connector name**  | *blob-source-connector*   | Enter a name for your connector.                                                                                                                                                                   |
+| **Environment**     | *env1*                    | Select the environment where you would like to create this connector.                                                                                                                              |
+| **Cluster**         | *cluster1*                | Select the cluster where you would like to create this connector.                                                                                                                                  |
+| **Topics**          | *topic_1*                 | Select one or more topic from where the data needs to be pulled.                                                                                                                                   |
+| **Subscription**    | *My subscription*         | Select the Azure subscription for the Azure Blob Storage where the data needs to be pushed.                                                                                                        |
+| **Storage Account** | *storageaccount1*         | Select the storage account where the data needs to be pushed. If needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).       |
+| **Container**       | *container1*              | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). |
+
+:::image type="content" source="./media/confluent-connectors/basic-sink.png" alt-text="Screenshot from the Azure portal showing the Basic tab, creating a sink connector.":::
 
 ### Authentication
 
 Configure the authentication of your Kafka cluster via API keys. **Create New** is selected by default, which means that API keys will be automatically generated and configured when the connector is created. Proceed to the next tab.
+
+:::image type="content" source="./media/confluent-connectors/authentication.png" alt-text="Screenshot from the Azure portal showing the Authentication tab.":::
 
 ### Configuration
 
@@ -62,17 +69,22 @@ Configure the authentication of your Kafka cluster via API keys. **Create New** 
 | **Flush size**         | *1000*        | Optionally enter a flush size. Default flush size is 1000.                                                          |
 | **Number of tasks**    | *1*           | Optionally enter the maximum number of tasks you would like your connector to support simultaneously. Default is 1. |
 
-Select **Next** to continue.
+:::image type="content" source="./media/confluent-connectors/configuration.png" alt-text="Screenshot from the Azure portal showing the Configuration tab.":::
+
+Select **Review + create** to continue.
 
 ### Review + Create*
 
 Review the listed settings for your new connector to ensure that the details are good to go. Once done, select **Create** to begin the connector deployment.
 
-A notification is displayed on the top right, calling out the status of the deployment. Once it shows **Completed**, refresh the **Confluent Connectors** page. You can now see the new connector tile on this page.  
+A notification is displayed on the top right, calling out the status of the deployment. Once it shows **created**, refresh the **Confluent Connectors (Preview)** page. You can now see the new connector tile on this page.  
 
 ## Create a Confluent source connector for Azure Blob Storage (preview)
 
-1. Open your Confluent organization and select **Confluent** > **Confluent Connectors** from the left menu.
+1. Open your Confluent organization and select **Confluent** > **Confluent Connectors (Preview)** from the left menu.
+
+   :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot from the Azure portal showing the Confluent Connectors menu.":::
+
 2. Select **Create new connector**. A connector pane opens up on the right hand side. Select or enter the following information under **Create a new connector**.
 
 ### Basics
@@ -90,9 +102,13 @@ Set the basic settings below, then select **Next**.
 | **Storage Account** | *storageaccount1*       | Select the storage account where the data needs to be pulled. If needed, select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab).     |
 | **Container**       | *container1*            | Select the container within the storage account where the data needs to be pushed. If needed, [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). |
 
+:::image type="content" source="./media/confluent-connectors/basic-source.png" alt-text="Screenshot from the Azure portal showing the Basic tab, creating a source connector.":::
+
 ### Authentication
 
 Configure the authentication of your Kafka cluster via API keys. **Create New** is selected by default, which means that API keys will be automatically generated and configured when the connector is created. Proceed to the next tab.
+
+:::image type="content" source="./media/confluent-connectors/authentication.png" alt-text="Screenshot from the Azure portal showing the Authentication tab.":::
 
 ### Configuration
 
@@ -103,7 +119,9 @@ Configure the authentication of your Kafka cluster via API keys. **Create New** 
 | **Topic name and regex** | `my-topic:.*\.json+` | Configure the topic name and the regex pattern of your messages to ensure they are mapped. For example, *my-topic:.*\.json+** moves all the files ending with .json into *my-topic*.   |
 | **Number of tasks**      | *1*                   | Optionally enter the maximum number of tasks you would like your connector to support simultaneously. Default is 1.                                                                            |
 
-Select **Next** to continue.
+:::image type="content" source="./media/confluent-connectors/configuration.png" alt-text="Screenshot from the Azure portal showing the Configuration tab.":::
+
+Select **Review + create** to continue.
 
 ### Review + Create
 
