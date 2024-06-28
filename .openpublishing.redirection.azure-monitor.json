@@ -5510,6 +5510,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/resource-manager-cluster.md",
+            "redirect_url": "/azure/azure-monitor/logs/logs-dedicated-clusters",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/powerbi.md",
             "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
             "redirect_document_id": false
