@@ -34,15 +34,15 @@ It's also important to listen for the [microphonePermissionDenied](../references
 
 ## References
 ### Troubleshooting process
-If a user cannot hear sound during a call, one possibility is that the speaking participant has not granted microphone permission.
+If a user can't hear sound during a call, one possibility is that the speaking participant hasn't granted microphone permission.
 If the speaking participant is using your application, you can follow this flow diagram to troubleshoot the issue.
 
 :::image type="content" source="./media/permission-issue-troubleshooting.svg" alt-text="Diagram of troubleshooting the permission issue.":::
 
-1. Check if there is a `microphonePermissionDenied` Bad UFD event for the speaking participant. This usually indicates that the user has denied the permission or that the permission is not requested.
+1. Check if there's a `microphonePermissionDenied` Bad UFD event for the speaking participant. This usually indicates that the user has denied the permission or that the permission isn't requested.
 2. If a `microphonePermissionDenied` Bad UFD event occurs, verify whether the app has called `askDevicePermission` API.
-3. The app must call `askDevicePermission` if this API has not been invoked before the user joins the call. By determining the current state of permissions, the app can offer a smoother user experience. For instance, it can display a message instructing the user to adjust their permissions if necessary.
+3. The app must call `askDevicePermission` if this API hasn't been invoked before the user joins the call. The app can offer a smoother user experience by determining the current state of permissions. For instance, it can display a message instructing the user to adjust their permissions if necessary.
 4. If the app has called `askDevicePermission` API, but the user still gets a `microphonePermissionDenied` Bad UFD event. The user has to reset or grant the microphone permission in the browser. If they have confirmed that the permission is granted in the browser, they should check if the OS is blocking mic access to the browser.
-5. If there is no `microphonePermissionDenied` Bad UFD, we need to consider other possiblities. For the speaking participant, there might be other potential reasons for issues with outgoing audio, such as network reconnection, or device issues.
-6. If there is a `networkReconnect` Bad UFD, the outgoing audio may be temporarily lost due to a network disconnection. See [There's a network issue in the call](./network-issue.md) for detailed information.
+5. If there's no `microphonePermissionDenied` Bad UFD, we need to consider other possibilities. For the speaking participant, there might be other potential reasons for issues with outgoing audio, such as network reconnection, or device issues.
+6. If there's a `networkReconnect` Bad UFD, the outgoing audio may be temporarily lost due to a network disconnection. See [There's a network issue in the call](./network-issue.md) for detailed information.
 7. If no `networkReconnect` Bad UFD occurs, there might be a problem on the speaking participant's microphone. See [The speaking participant's microphone has a problem](./microphone-issue.md) for detailed information.
