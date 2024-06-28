@@ -16,7 +16,7 @@ ms.date: 06/18/2024
 
 If you want to use Azure role assignments for authorized access to Azure AI Search, this article explains how to enable role-based access for your search service.
 
-Role-based access for data plane operations is optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
+Role-based access for data plane operations is optional, but recommended as the more secure option. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
 Roles for service administration (control plane) are built in and can't be enabled or disabled. 
 
