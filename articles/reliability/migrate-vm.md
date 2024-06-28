@@ -123,9 +123,6 @@ Now that you have migrated your data to ZRS managed disks or zonal managed disks
 This section details how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
 
 
-> [!IMPORTANT]
-> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
-
 ###  Key benefits of regional to zonal move
 
 The benefits of a regional to zonal move are:

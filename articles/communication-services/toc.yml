@@ -434,11 +434,13 @@ items:
           href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Integrate CalllKit
+        - name: Integrate CallKit
           href: how-tos/ui-library-sdk/callkit.md
+        - name: Integrate TelecomManager
+          href: how-tos/ui-library-sdk/telecommanager.md
         - name: Set up localization
           href: how-tos/ui-library-sdk/localization.md
-        - name: Set up up one-to-one calling and push notifications
+        - name: Set up one-to-one calling and push notifications
           href: how-tos/ui-library-sdk/one-to-one-calling.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md

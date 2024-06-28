@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 06/03/2024
 ---
 
 # Storage considerations for Azure Functions
@@ -38,15 +38,13 @@ Storage accounts created as part of the function app create flow in the Azure po
 
 + The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
 
-+ You can't use a storage account already secured by using a firewall or a virtual private network when you create your function app in the Azure portal. However, the portal doesn't currently filter out these secured storage accounts. To learn how to use a secured storage account with your function app, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
-
-+ You can't use secured storage accounts with function apps hosted in the [Consumption plan](consumption-plan.md). 
++ You can't use a network-secured storage account when your function app is hosted in the [Consumption plan](consumption-plan.md).
 
 + When creating your function app in the portal, you're only allowed to choose an existing storage account in the same region as the function app you're creating. This is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
 + When creating your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
-You can create function apps in an Elastic Premium or Dedicated (App Service) plan using deployment automation. However, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more information, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). 
+When using deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more specific ARM and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
 ## Storage account guidance
 
@@ -164,18 +162,27 @@ Creating your function app resources using methods other than the Azure CLI requ
 
 ## Create an app without Azure Files
 
-Azure Files is set up by default for Elastic Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system. This means that you can create your function app without Azure Files. If you create your function app with Azure Files, a writeable file system is still provided. However, this file system might not be available for all function app instances.  
+The Azure Files service provides a shared file system that supports high-scale scenarios. When your function app runs on Windows in an Elastic Premium or Consumption plan, an Azure Files share is created by default in your storage account. That share is used by Functions to enable certain features, like log streaming. It is also used as a shared package deployment location, which guarantees the consistency of your deployed function code across all instances. 
 
-When Azure Files isn't used, you must meet the following requirements:
+By default, function apps hosted in Premium and Consumption plans use [zip deployment](./deployment-zip-push.md), with deployment packages stored in this Azure file share. This section is only relevant to these hosting plans.
 
-* You must deploy from an external package URL.
+Using Azure Files requires the use of a connection string, which is stored in your app settings as [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Azure Files doesn't currently supported identity-based connections. If your scenario requires you to not store any secrets in app settings, you must remove your app's dependency on Azure Files. You can do this by creating your app without the default Azure Files dependency. 
+
+>[!NOTE]
+>You should also consider running in your function app in the Flex Consumption plan, which is currently in preview. The Flex Consumption plan provides greater control over the deployment package, including the ability use managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings) in the Flex Consumption article.
+
+To run your app without the Azure file share, you must meet the following requirements:
+
+* You must [deploy your package to a remote Azure Blob storage container](./run-functions-from-deployment-package.md) and then set the URL that provides access to that package as the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) app setting. This option lets you store your app content in Blob storage instead of Azure Files, which does support [managed identities](./run-functions-from-deployment-package.md#fetch-a-package-from-azure-blob-storage-using-a-managed-identity). 
+
+You are responsible for manually updating the deployment package and maintaining the deployment package URL, which likely contains a shared access signature (SAS).
 * Your app can't rely on a shared writeable file system.
 * The app can't use version 1.x of the Functions runtime.
 * Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
-If the above are properly accounted for, you could create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings. You can avoid these settings by generating an ARM template for a standard deployment, removing the two settings, and then deploying the template. 
+If the above requirements suit your scenario, you can proceed to create a function app without Azure Files. You can do this by creating an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings. To get started, generate an ARM template for a standard deployment, remove the two settings, and then deploy the modified template. 
 
-Because Functions use Azure Files during parts of the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Elastic Premium plans.
+Since Azure Files is used to enable dynamic scale-out for Functions, scaling could be limited when running your app without Azure Files in the Elastic Premium plan and Consumption plans running on Windows. 
 
 ## Mount file shares
 

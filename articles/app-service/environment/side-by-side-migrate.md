@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 6/13/2024
+ms.date: 6/26/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -20,7 +20,9 @@ App Service can automate migration of your App Service Environment v1 and v2 to 
 The side-by-side migration feature automates your migration to App Service Environment v3. The side-by-side migration feature creates a new App Service Environment v3 with all of your apps in a different subnet. Your existing App Service Environment isn't deleted until you initiate its deletion at the end of the migration process. Because of this process, there's a rollback option if you need to cancel your migration. This migration option is best for customers who want to migrate to App Service Environment v3 with zero downtime and can support using a different subnet for their new environment. If you need to use the same subnet and can support about one hour of application downtime, see the [in-place migration feature](migrate.md). For manual migration options that allow you to migrate at your own pace, see [manual migration options](migration-alternatives.md).
 
 > [!IMPORTANT]
-> It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
+> If you fail to complete all steps described in this tutorial, you'll experience downtime. For example, if you don't update all dependent resources with the new IP addresses or you don't allow access to/from your new subnet, such as the case for your custom domain suffix key vault, you'll experience downtime until that's addressed.
+> 
+> It's recommended to use this feature for dev environments first before migrating any production environments to rehearse the process and ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
 >
 
 ## Supported scenarios
@@ -327,7 +329,7 @@ For related commands to check if your subscription or resource group has locks, 
 If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 resource during the migration process](#add-a-custom-domain-suffix-optional). Migration fails if you don't configure a custom domain suffix and are using one currently. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
-> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly with the new subnet.
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly with the new subnet. You experience downtime if you fail to correctly set this access prior to migration.
 >
 
 You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy can be configured by setting the `zoneRedundant` property to `true`. Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time.

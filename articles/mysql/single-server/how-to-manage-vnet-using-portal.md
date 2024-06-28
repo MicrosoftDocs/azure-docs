@@ -3,8 +3,8 @@ title: Manage VNet endpoints - Azure portal - Azure Database for MySQL
 description: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal
 ms.service: mysql
 ms.subservice: single-server
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---

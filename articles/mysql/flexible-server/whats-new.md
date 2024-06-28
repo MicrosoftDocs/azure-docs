@@ -4,7 +4,7 @@ description: Learn about recent updates to Azure Database for MySQL - Flexible S
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: vamehta, maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: overview
