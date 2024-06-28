@@ -431,9 +431,7 @@
       - name: Connect using API keys
         href: search-security-api-keys.md
       - name: Code without keys
-        href: keyless-connections.md       
-      - name: Configure apps for Microsoft Entra ID
-        href: search-howto-aad.md
+        href: keyless-connections.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
       - name: Troubleshoot private connections

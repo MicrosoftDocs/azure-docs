@@ -71,6 +71,8 @@ You can use the [Azure CLI or Azure PowerShell to create an access token](/azure
    az account get-access-token --query accessToken --output tsv
    ```
 
+You should have a tenant ID, subscription ID, and bearer token. You'll paste these values into the `.rest` or `.http` file that you create in the next step.
+
 ## Set up Visual Studio Code
 
 If you're not familiar with the REST client for Visual Studio Code, this section includes setup so that you can complete the tasks in this quickstart.
