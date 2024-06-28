@@ -3,7 +3,7 @@ title: BCP033
 description: Error - Expected a value of type "{expectedType}" but the provided value is of type "{actualType}".
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/30/2024
+ms.date: 06/28/2024
 ---
 
 # Bicep warning and error code - BCP033

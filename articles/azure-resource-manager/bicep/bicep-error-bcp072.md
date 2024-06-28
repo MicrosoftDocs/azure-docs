@@ -3,7 +3,7 @@ title: BCP072
 description: Error - This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/20/2024
+ms.date: 06/28/2024
 ---
 
 # Bicep warning and error code - BCP072

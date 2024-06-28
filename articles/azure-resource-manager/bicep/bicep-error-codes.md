@@ -3,7 +3,7 @@ title: Bicep warnings and error codes
 description: Lists the warnings and error codes.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 ---
 
 # Bicep warning and error codes

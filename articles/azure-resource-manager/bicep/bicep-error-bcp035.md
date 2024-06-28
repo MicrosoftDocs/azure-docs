@@ -3,7 +3,7 @@ title: BCP035
 description: Error - The specified <data-type> declaration is missing the following required properties.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/30/2024
+ms.date: 06/28/2024
 ---
 
 # Bicep warning and error code - BCP035
