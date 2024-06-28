@@ -114,7 +114,7 @@ The following limitations can be overidden by upgrading a paid tier
   - Storage and shard count
   - User accounts
 - HA is not supported on replica clusters.
-- Cross-region replication is not available on clusters with burstable compute.
+- Cross-region replication is not available on clusters with burstable compute or Free tier clusters.
 
 ## Miscellaneous Limits
 
