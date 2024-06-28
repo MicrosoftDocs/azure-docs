@@ -21,6 +21,7 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 ::: zone pivot="azure-portal"  
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* A GitHub account. you can also [get one for free](https://github.com/join).
 * Knowledge of Java with Tomcat development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 

@@ -106,7 +106,7 @@ For ASP.NET, the client certificate is available through the **HttpRequest.Clien
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
 
-## ASP.NET 5+, ASP.NET Core 3.1 sample
+## ASP.NET Core sample
 
 For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
 
