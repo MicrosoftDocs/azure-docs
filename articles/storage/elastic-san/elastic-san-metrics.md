@@ -24,7 +24,7 @@ The following metrics are currently available for your Elastic SAN resource. You
 |**Ingress**|The amount of ingress data. This number includes ingress to the resource from external clients as well as ingress within Azure. |
 |**Egress**|The amount of egress data. This number includes egress from the resource to external clients as well as egress within Azure.  |
 
-All metrics are shown at the elastic SAN level.
+By default, all metrics are shown at the SAN level. To view these metrics at either the volume group or volume level, select a filter on your selected metric to view your data on a specific volume group or volume.
 
 ## Diagnostic logging
 
