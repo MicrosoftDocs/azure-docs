@@ -54,7 +54,7 @@ You receive an Azure invoice when any of the following events occur during your 
 
 Your invoice shows Azure usage charges with costs associated to them first, followed by any marketplace charges. If you have a credit balance, it gets applied to Azure usage and your invoice shows Azure usage and marketplace usage without any cost, last in the list.
 
-If an invoice includes over 1000 line items, it gets split into multiple invoices.
+If an invoice includes over 1,000 line items, it gets split into multiple invoices.
 
 Compare your combined total amount shown in the Azure portal in **Usage & Charges** with your Azure invoice. The amounts in the **Total Charges** don't include tax.
 
