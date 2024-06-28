@@ -21,7 +21,7 @@ This article introduces:
 * How to scope credentials to limit access to specific resources.
 * Custom device authentication mechanisms that use existing device identity registries or authentication schemes.
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 IoT Hub uses *permissions* to grant access to each IoT hub endpoint. Permissions limit access to an IoT hub based on functionality. You must have appropriate permissions to access any of the IoT Hub endpoints. For example, a device must include a token containing security credentials along with every message it sends to IoT Hub. However, the signing keys, like the device symmetric keys, are never sent over the wire.
 

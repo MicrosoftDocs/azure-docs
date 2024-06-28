@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/05/2024
+ms.date: 06/19/2024
 ---
 
 # Configure vector quantization and reduced storage for smaller vectors in Azure AI Search
@@ -25,97 +25,15 @@ We recommend scalar quantization because it compresses vector size in memory and
 
 | Approach | Why use this option |
 |----------|---------------------|
-| Assign smaller primitive data types to vector fields | Narrow data types, such as `Float16`, `Int16`, `Int8`, and `byte` (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
-| Eliminate optional storage of retrievable vectors | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
-| Add scalar quantization | Use built-in scalar quantization to compress native `Float32` embeddings to `Int8`. This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like `Int8` produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in scalar quantization of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
+| [Add scalar quantization](#option-1-configure-scalar-quantization) | Use built-in scalar quantization to compress native `Float32` embeddings to `Int8`. This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like `Int8` produce vector indexes that are less content-rich than those with `Float32` embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in scalar quantization of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
+| [Assign smaller primitive data types to vector fields](#option-2-assign-narrow-data-types-to-vector-fields) | Narrow data types, such as `Float16`, `Int16`, `Int8`, and `byte` (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
+| [Eliminate optional storage of retrievable vectors](#option-3-set-the-stored-property-to-remove-retrievable-storage) | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
 
 All of these options are defined on an empty index. To implement any of them, use the Azure portal, [2024-03-01-preview REST APIs](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package.
 
 After the index is defined, you can load and index documents as a separate step.
 
-## Option 1: Assign narrow data types to vector fields
-
-Vector fields store vector embeddings, which are represented as an array of numbers. When you specify a field type, you specify the underlying primitive data type used to hold each number within these arrays. The data type affects how much space each number takes up.
-
-Using preview APIs, you can assign narrow primitive data types to reduce the storage requirements of vector fields. 
-
-1. Review the [data types for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields):
-
-   + `Collection(Edm.Single)` 32-bit floating point (default)
-   + `Collection(Edm.Half)` 16-bit floating point
-   + `Collection(Edm.Int16)` 16-bit signed integer
-   + `Collection(Edm.SByte)` 8-bit signed integer
-
-   > [!NOTE]
-   > Binary data types aren't currently supported.
-
-1. Choose a data type that's valid for your embedding model's output, or for vectors that undergo custom quantization.
-
-   Most embedding models output 32-bit floating point numbers, but if you apply custom quantization, your output might be `Int16` or `Int8`. You can now define vector fields that accept the smaller format.
-
-   Text embedding models have a native output format of `Float32`, which maps to `Collection(Edm.Single)` in Azure AI Search. You can't map that output to `Int8` because casting from `float` to `int` is prohibited. However, you can cast from `Float32` to `Float16` (or `Collection(Edm.Half)`), and this is an easy way to use narrow data types without extra work.
-
-   The following table provides links to several embedding models that use the narrow data types. 
-
-   | Embedding model        | Native output | Valid types in Azure AI Search |
-   |------------------------|---------------|--------------------------------|
-   | [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
-   | [text-embedding-3-small](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
-   | [text-embedding-3-large](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
-   | [Cohere V3 embedding models with int8 embedding_type](https://docs.cohere.com/reference/embed) | `Int8` | `Collection(Edm.SByte)` |
-
-1. Make sure you understand the tradeoffs of a narrow data type. `Collection(Edm.Half)` has less information, which results in lower resolution. If your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time because there's less detail that can be used to distinguish nearby vectors apart.
-
-1. [Define and build the index](vector-search-how-to-create-index.md). You can use the Azure portal, [2024-03-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package for this step.
-
-1. Check the results. Assuming the vector field is marked as retrievable, use [Search explorer](search-explorer.md) or [REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true) to verify the field content matches the data type. Be sure to use the correct `2024-03-01-preview` API version for the query, otherwise the new properties aren't shown.
-<!-- 
-   Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is a field that's indexed as an array of zeros. If you encounter this problem, start over. -->
-
-   To check vector index size, use the Azure portal or the [2024-03-01-preview](/rest/api/searchservice/indexes/get-statistics?view=rest-searchservice-2024-03-01-preview&preserve-view=true).
-
-> [!NOTE]
-> The field's data type is used to create the physical data structure. If you want to change a data type later, either drop and rebuild the index, or create a second field with the new definition.
-
-## Option 2: Set the `stored` property to remove retrievable storage
-
-The `stored` property is a new boolean on a vector field definition that determines whether storage is allocated for retrievable vector field content. If you don't need vector content in a query response, you can save up to 50 percent storage per field by setting `stored` to false.
-
-Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream processing, such as passing query results to a model or process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing vector size.
-
-The following example shows the fields collection of a search index. Set `stored` to false to permanently remove retrievable storage for the vector field.
-
-   ```http
-   PUT https://[service-name].search.windows.net/indexes/[index-name]?api-version=2024-03-01-preview  
-      Content-Type: application/json  
-      api-key: [admin key]  
-    
-        { 
-          "name": "myindex", 
-          "fields": [ 
-            { 
-              "name": "myvector", 
-              "type": "Collection(Edm.Single)", 
-              "retrievable": false, 
-              "stored": false, 
-              "dimensions": 1536, 
-              "vectorSearchProfile": "vectorProfile" 
-            } 
-          ] 
-        } 
-   ```
-
-**Key points**:
-
-+ Applies to [vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) only.
-
-+ Affects storage on disk, not memory, and it has no effect on queries. Query execution uses a separate vector index that's unaffected by the `stored` property.
-
-+ The `stored` property is set during index creation on vector fields and is irreversible. If you want retrievable content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
-
-+ Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. When `stored` is true, you can toggle `retrievable` between true and false at any time without having to rebuild an index. When `stored` is false, `retrievable` must be false and can't be changed.
-
-## Option 3: Configure scalar quantization
+## Option 1: Configure scalar quantization
 
 Built-in scalar quantization is recommended because it reduces memory and disk storage requirements, and it adds reranking and oversampling to offset the effects of a smaller index. Built-in scalar quantization can be applied to vector fields containing `Float32` or `Float16` data.
 
@@ -196,6 +114,88 @@ Within the profile, you must use the Hierarchical Navigable Small Worlds (HNSW) 
 Scalar quantization reduces the resolution of each number within each vector embedding. Instead of describing each number as a 32-bit floating point number, it uses an 8-bit integer. It identifies a range of numbers (typically 99th percentile minimum and maximum) and divides them into a finite number of levels or bin, assigning each bin an identifier. In 8-bit scalar quantization, there are 2^8, or 256, possible bins.
 
 Each component of the vector is mapped to the closest representative value within this set of quantization levels in a process akin to rounding a real number to the nearest integer. In the quantized 8-bit vector, the identifier number stands in place of the original value. After quantization, each vector is represented by an array of identifiers for the bins to which its components belong. These quantized vectors require much fewer bits to store compared to the original vector, thus reducing storage requirements and memory footprint. 
+
+## Option 2: Assign narrow data types to vector fields
+
+Vector fields store vector embeddings, which are represented as an array of numbers. When you specify a field type, you specify the underlying primitive data type used to hold each number within these arrays. The data type affects how much space each number takes up.
+
+Using preview APIs, you can assign narrow primitive data types to reduce the storage requirements of vector fields. 
+
+1. Review the [data types for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields):
+
+   + `Collection(Edm.Single)` 32-bit floating point (default)
+   + `Collection(Edm.Half)` 16-bit floating point
+   + `Collection(Edm.Int16)` 16-bit signed integer
+   + `Collection(Edm.SByte)` 8-bit signed integer
+
+   > [!NOTE]
+   > Binary data types aren't currently supported.
+
+1. Choose a data type that's valid for your embedding model's output, or for vectors that undergo custom quantization.
+
+   Most embedding models output 32-bit floating point numbers, but if you apply custom quantization, your output might be `Int16` or `Int8`. You can now define vector fields that accept the smaller format.
+
+   Text embedding models have a native output format of `Float32`, which maps to `Collection(Edm.Single)` in Azure AI Search. You can't map that output to `Int8` because casting from `float` to `int` is prohibited. However, you can cast from `Float32` to `Float16` (or `Collection(Edm.Half)`), and this is an easy way to use narrow data types without extra work.
+
+   The following table provides links to several embedding models that use the narrow data types. 
+
+   | Embedding model        | Native output | Valid types in Azure AI Search |
+   |------------------------|---------------|--------------------------------|
+   | [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
+   | [text-embedding-3-small](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
+   | [text-embedding-3-large](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
+   | [Cohere V3 embedding models with int8 embedding_type](https://docs.cohere.com/reference/embed) | `Int8` | `Collection(Edm.SByte)` |
+
+1. Make sure you understand the tradeoffs of a narrow data type. `Collection(Edm.Half)` has less information, which results in lower resolution. If your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time because there's less detail that can be used to distinguish nearby vectors apart.
+
+1. [Define and build the index](vector-search-how-to-create-index.md). You can use the Azure portal, [2024-03-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-03-01-preview&preserve-view=true), or a beta Azure SDK package for this step.
+
+1. Check the results. Assuming the vector field is marked as retrievable, use [Search explorer](search-explorer.md) or [REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true) to verify the field content matches the data type. Be sure to use the correct `2024-03-01-preview` API version for the query, otherwise the new properties aren't shown.
+<!-- 
+   Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is a field that's indexed as an array of zeros. If you encounter this problem, start over. -->
+
+   To check vector index size, use the Azure portal or the [2024-03-01-preview](/rest/api/searchservice/indexes/get-statistics?view=rest-searchservice-2024-03-01-preview&preserve-view=true).
+
+> [!NOTE]
+> The field's data type is used to create the physical data structure. If you want to change a data type later, either drop and rebuild the index, or create a second field with the new definition.
+
+## Option 3: Set the `stored` property to remove retrievable storage
+
+The `stored` property is a new boolean on a vector field definition that determines whether storage is allocated for retrievable vector field content. If you don't need vector content in a query response, you can save up to 50 percent storage per field by setting `stored` to false.
+
+Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream processing, such as passing query results to a model or process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing vector size.
+
+The following example shows the fields collection of a search index. Set `stored` to false to permanently remove retrievable storage for the vector field.
+
+   ```http
+   PUT https://[service-name].search.windows.net/indexes/[index-name]?api-version=2024-03-01-preview  
+      Content-Type: application/json  
+      api-key: [admin key]  
+    
+        { 
+          "name": "myindex", 
+          "fields": [ 
+            { 
+              "name": "myvector", 
+              "type": "Collection(Edm.Single)", 
+              "retrievable": false, 
+              "stored": false, 
+              "dimensions": 1536, 
+              "vectorSearchProfile": "vectorProfile" 
+            } 
+          ] 
+        } 
+   ```
+
+**Key points**:
+
++ Applies to [vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) only.
+
++ Affects storage on disk, not memory, and it has no effect on queries. Query execution uses a separate vector index that's unaffected by the `stored` property.
+
++ The `stored` property is set during index creation on vector fields and is irreversible. If you want retrievable content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
+
++ Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. When `stored` is true, you can toggle `retrievable` between true and false at any time without having to rebuild an index. When `stored` is false, `retrievable` must be false and can't be changed.
 
 ## Example index with vectorCompression, data types, and stored property
 

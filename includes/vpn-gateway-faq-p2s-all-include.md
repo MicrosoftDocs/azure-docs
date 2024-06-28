@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/10/2022
+ ms.date: 06/19/2024
  ms.author: cherylmc
 ---
 ### How many VPN client endpoints can I have in my point-to-site configuration?
@@ -28,7 +28,7 @@ The following client operating systems are supported:
 
 ### Can I traverse proxies and firewalls using point-to-site capability?
 
-Azure supports three types of Point-to-site VPN options:
+Azure supports three types of point-to-site VPN options:
 
 * Secure Socket Tunneling Protocol (SSTP). SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the outbound TCP port that 443 SSL uses.
 
@@ -38,7 +38,7 @@ Azure supports three types of Point-to-site VPN options:
 
 ### If I restart a client computer configured for point-to-site, will the VPN automatically reconnect?
 
-Auto-reconnect is a function of the client being used. Windows supports auto-reconnect by configuring the **Always On VPN** client feature.
+Automatic Reconnection is a function of the client being used. Windows supports Automatic Reconnection by configuring the **Always On VPN** client feature.
 
 ### Does point-to-site support DDNS on the VPN clients?
 
@@ -50,11 +50,11 @@ Yes. For the Resource Manager deployment model, you must have a RouteBased VPN t
 
 ### Can I configure a point-to-site client to connect to multiple virtual network gateways at the same time?
 
-Depending on the VPN Client software used, you may be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to don't have conflicting address spaces between them or the network from with the client is connecting from. While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
+Depending on the VPN Client software used, you might be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to don't have conflicting address spaces between them or the network from with the client is connecting from. While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
 
 ### Can I configure a point-to-site client to connect to multiple virtual networks at the same time?
 
-Yes, point-to-site client connections to a virtual network gateway that is deployed in a VNet that is peered with other VNets may have access to other peered VNets. point-to-site clients will be able to connect to peered VNets as long as the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features. For more information, see [About point-to-site routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
+Yes, point-to-site client connections to a virtual network gateway that is deployed in a VNet that is peered with other VNets might have access to other peered VNets. Point-to-site clients are able to connect to peered VNets as long as the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features. For more information, see [About point-to-site routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
 
 ### How much throughput can I expect through Site-to-Site or point-to-site connections?
 
@@ -62,12 +62,16 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ### Can I use any software VPN client for point-to-site that supports SSTP and/or IKEv2?
 
-No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of [supported client operating systems](#supportedclientos).
+ No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of [supported client operating systems](#supportedclientos).
 
 ### Can I change the authentication type for a point-to-site connection?
 
-Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration** page. For **Authentication type**, select the authentication types that you want to use. Note that after you make a change to an authentication type, current clients may not be able to connect until a new VPN client configuration profile has been generated, downloaded, and applied to each VPN client.
+Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration** page. For **Authentication type**, select the authentication types that you want to use. After you make a change to an authentication type, current clients might not be able to connect until a new VPN client configuration profile has been generated, downloaded, and applied to each VPN client.
 
+### When do I need to generate a new VPN client profile configuration package?
+
+When you make changes to the P2S VPN gateway configuration settings, such as adding a Tunnel Type or changing an Authentication Type, you need to generate a new VPN client profile configuration package. The new package includes the updated settings that VPN clients need in order to properly connect to the P2S gateway. After generating the package, use the settings contained in the files to update the VPN clients.
+ 
 ### Does Azure support IKEv2 VPN with Windows?
 
 IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2 in certain OS versions, you must install updates and set a registry key value locally. OS versions prior to Windows 10 aren't supported and can only use SSTP or **OpenVPN® Protocol**.
@@ -89,19 +93,20 @@ To prepare Windows 10 or Server 2016 for IKEv2:
 2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
 
 ### What is the IKEv2 traffic selector limit for point-to-site connections?
+
 Windows 10 version 2004 (released September 2021) increased the traffic selector limit to 255. Versions of Windows earlier than this have a traffic selector limit of 25.
 
-The traffic selectors limit in Windows determines the maximum number of address spaces in your virtual network and the maximum sum of your local networks, VNet-to-VNet connections, and peered VNets connected to the gateway. Windows based point-to-site clients will fail to connect via IKEv2 if they surpass this limit.
+The traffic selectors limit in Windows determines the maximum number of address spaces in your virtual network and the maximum sum of your local networks, VNet-to-VNet connections, and peered VNets connected to the gateway. Windows-based point-to-site clients will fail to connect via IKEv2 if they surpass this limit.
 
 ### What is the OpenVPN traffic selector limit for point-to-site connections?
 
-The traffic selectors limit for OpenVPN  is 1000 routes. 
+The traffic selectors limit for OpenVPN  is 1000 routes.
 
 ### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
 
 When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN client will always try IKEv2 tunnel first, but will fall back to SSTP if the IKEv2 connection isn't successful. MacOSX will only connect via IKEv2.
 
-When you have both SSTP and IKEv2 enabled on the Gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128 even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the Point to Site address range CIDR, but the two sub-range CIDRs.
+When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool is statically split between the two, so clients using different protocols are IP addresses from either sub-range. The maximum number of SSTP clients is always 128, even if the address range is larger than /24, resulting in a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic Selectors used by the gateway might not include the point-to-site address range CIDR, but the two sub-range CIDRs.
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 

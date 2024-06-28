@@ -358,6 +358,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
                     "type": "CustomScript",
                     "typeHandlerVersion": "2.0",
                     "autoUpgradeMinorVersion": true,
+                    "enableAutomaticUpgrade": true,
                     "settings": {
                       "fileUris": [
                         "[uri(parameters('_artifactsLocation'), concat('installserver.sh', parameters('_artifactsLocationSasToken')))]",

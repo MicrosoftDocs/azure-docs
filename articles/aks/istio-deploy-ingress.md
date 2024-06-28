@@ -239,7 +239,8 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ## Next steps
 
 * [Secure ingress gateway for Istio service mesh add-on][istio-secure-gateway]
+* [Scale ingress gateway HPA][istio-scaling-guide]
 
 [istio-deploy-addon]: istio-deploy-addon.md
 [istio-secure-gateway]: istio-secure-gateway.md
-
+[istio-scaling-guide]: istio-scale.md#scaling

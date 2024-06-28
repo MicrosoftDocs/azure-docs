@@ -7,14 +7,14 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 06/12/2024
+ms.date: 06/20/2024
 ---
 
 # High availability in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-High availability (HA) avoids database downtime by maintaining standby replicas
+In-region high availability (HA) avoids database downtime by maintaining standby replicas
 of every shard in a cluster. If a shard becomes unresponsive for any reason, Azure Cosmos DB for MongoDB vCore
 switches incoming connections from the failed shard to its standby. When failover
 happens promoted shards always have fresh data through synchronous replication.
