@@ -15,10 +15,10 @@ ms.date: 06/27/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Indexes are structures that improve data retrieval speed by providing quick access to rows in a table. They work by creating an ordered set of pointers to data, often based on key columns. MongoDB vcore utilizes indexes in multiple contexts, including query push down, unique constraints and sharding.
+Indexes are structures that improve data retrieval speed by providing quick access to fields in a collection. They work by creating an ordered set of pointers to data, often based on key fields. Azure Cosmos DB for MongoDB vcore utilizes indexes in multiple contexts, including query push down, unique constraints and sharding.
 
 > [!IMPORTANT]
-> The "_id" field is the **only** field indexed by default. It is recommended to add additional indexes based on query filters & predicates to optimize performance.
+> The "_id" field is the **only** field indexed by default & maximum size of the field can be `2 KB`. It is recommended to add additional indexes based on query filters & predicates to optimize performance.
 
 ## Index types
 
@@ -43,9 +43,9 @@ This example application stores articles as documents with the following structu
 
 ## Single field indexes
 
-Single field indexes store information from a single field in a collection. The sort order of the single field index doesn't matter. _id field remains indexed by default.
+Single field indexes store information from a single field in a collection. The sort order of the single field index doesn't matter. `_id` field remains indexed by default.
 
-MongoDB vcore supports creating index at following
+Azure Cosmos DB for MongoDB vcore supports creating index at following
 
 - Top-level document fields.
 - Embedded document.
@@ -65,7 +65,7 @@ db.products.createIndex({"author.firstName": -1})
 One query can use multiple single field indexes where available.
 
 > [!NOTE]
-> Azure Cosmos DB for MongoDB vcore allows creating maximum of 64 indexes on a collection.
+> Azure Cosmos DB for MongoDB vcore allows creating maximum of 64 indexes on a collection. Depending on the tier, we can plan extension up to 300 indexes upon request.
 
 ## Compound indexes
 
@@ -79,7 +79,7 @@ use cosmicworks
 db.products.createIndex({"author":1, "launchDate":-1})
 ```
 
-`Order` of columns affect the selectivity or utilization of index. The `find` query wouldn't utilize the index created.
+`Order` of fields affect the selectivity or utilization of index. The `find` query wouldn't utilize the index created.
 
 ```javascript
 use cosmicworks
@@ -113,10 +113,9 @@ This same compound index doesn't work in this case since there's an array in the
 }
 ```
 
-Compound index provides support for
+**Limitations**
 
-- Maximum of 32 columns within a compound index.
-- Indexing nested properties.
+- Maximum of 32 fields\paths within a compound index.
 
 ## Partial indexes
 
@@ -295,10 +294,11 @@ db.collection.createIndex({a: "2d", b: 1})
                 }
             }
         })
+
     // MongoServerError: $geoWithin currently doesn't support polygons with holes
 ```
-  
-  1. If there's any unfiltered document that has polygon with holes.
+
+ 1. If there's any unfiltered document that has polygon with holes.
   
 ```javascript
    [mongos] test> coll.find()
@@ -314,10 +314,11 @@ db.collection.createIndex({a: "2d", b: 1})
             }
           }
         ]
+
     // MongoServerError: $geoWithin currently doesn't support polygons with holes
 ```
 
-- `key` field is mandatory while using `geoNear`.
+  1. `key` field is mandatory while using `geoNear`.
 
 ```javascript
    [mongos] test> coll.aggregate([{ $geoNear: { near: { "type": "Point", coordinates: [0, 0] } } }])
@@ -327,6 +328,7 @@ db.collection.createIndex({a: "2d", b: 1})
 
 ## Next steps
 
-- Check more on how to work with [text indexing](how-to-create-text-index.md).
-- Check more on how to work with [wildcard indexing](how-to-create-wildcard-indexes.md).
-- Review [Best Practices](how-to-create-indexes.md) for best possible outcome on Azure CosmosDB for MongoDB vcore.
+- Learn about indexing [Best practices](how-to-create-indexes.md) for most efficient outcomes.
+- Learn about [background indexing](background-indexing.md)
+- Learn here to work with [Text indexing](how-to-create-text-index.md).
+- Learn here about [Wildcard indexing](how-to-create-wildcard-indexes.md).

@@ -19,19 +19,19 @@ Background indexing is a technique that enables a database system to perform ind
 
 Background indexing can be enabled using the property `enableIndexBuildBackground` set to `true`. All indexes would be created in background except the unique indexes, post enabling the property.
 
-If working with smaller SKUs or workloads with higher I/O needs, it becomes necessary to predefine indexes on empty collections and avoid relying on background indexing.
+If working with smaller tiers or workloads with higher I/O needs, it's recommended to predefine indexes on empty collections and avoid relying on background indexing.
 
 > [!NOTE]
-> Enabling feature requires raising a support request.
+> Background indexing is a Preview feature. Enabling this feature requires raising a support request.
 
 > [!IMPORTANT]
-> Ensure creating unique indexes on an empty collection as those are created in foreground.
+> It is advised to create `unique` indexes on an empty collection as those are created in foreground, which results in blocking of reads and writes.
 >
-> It is vital to create indexes based on query predicates beforehand, while the collection is still empty. It prevents resource contention if pushed on read-write heavy large collection.
+> It is advised to create indexes based on query predicates beforehand, while the collection is still empty. It prevents resource contention if pushed on read-write heavy large collection.
 
 ## Monitor index build
 
-We can learn about the progress of index build with command `currentOp`.
+We can learn about the progress of index build using command `currentOp()`.
 
 ```javascript
 db.currentOp("db_name":"<db_name>", "collection_name":"<collection_name>")
@@ -91,10 +91,10 @@ inprog: [
 
 ## Limitations
 
-- Unique indexes can't be created in the background, it's best to create them on an empty collection and then load the data.
-- Background indexing is performed sequentially within a single collection. However, background indexing can run concurrently across multiple collections.
+- Unique indexes can't be created in the background. It's best to create them on an empty collection and then load the data.
+- Background indexing is performed sequentially within a single collection. However, the number of simultaneous index builds on different collections is configurable (default: 2).
 
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Best Practices](how-to-create-indexes.md)
+> [Best practices](how-to-create-indexes.md)
