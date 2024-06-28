@@ -250,6 +250,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     az aks nodepool update \
     --cluster-name $CLUSTER_NAME \
     --name $NODE_POOL_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --node-taints "sku=gpu:NoSchedule"
     ```
 
@@ -260,6 +261,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ```azurecli-interactive
     az aks nodepool update \
     --cluster-name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name $NODE_POOL_NAME \
     --node-taints ""
     ```
