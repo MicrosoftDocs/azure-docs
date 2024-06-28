@@ -282,11 +282,11 @@ rules:
 
     This example distributes resources across all clusters labeled with `env: prod`. As the changes are implemented, the corresponding `ClusterResourceOverride` configurations will be applied to the designated clusters, triggered by the selection of matching cluster role resource, `secret-reader`.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/create-resource-propagation-inline.png" lightbox="./media/quickstart-resource-propagation/create-resource-propagation.png" alt-text="The Azure Portal page for creating a resource placement, showing the YAML template with placeholder values.":::
+    :::image type="content" source="./media/quickstart-resource-propagation/create-resource-propagation-inline.png" lightbox="./media/quickstart-resource-propagation/create-resource-propagation.png" alt-text="The Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
 
 1. Verify that the cluster resource placement is created successfully.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/overview-cluster-resource-inline.png" lightbox="./media/quickstart-resource-propagation/overview-cluster-resource.png" alt-text="The Azure Portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+    :::image type="content" source="./media/quickstart-resource-propagation/overview-cluster-resource-inline.png" lightbox="./media/quickstart-resource-propagation/overview-cluster-resource.png" alt-text="The Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
 
 1. Verify the cluster resource placement applied to the selected resources by selecting the resource from the list and checking the status.
 
