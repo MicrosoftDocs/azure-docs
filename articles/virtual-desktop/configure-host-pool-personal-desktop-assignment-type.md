@@ -3,11 +3,11 @@ title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 06/27/2024
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 ---
-# Configure personal desktop assignment
+# Configure personal desktop assignment 
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
@@ -55,7 +55,7 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the `Update-AzWvdSessionHost` command in the following example to assign a user to a session host. For more information about the parameters, see the [Update-AzWvdSessionHost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) reference.
 
    ```powershell
    Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Automatic
@@ -282,6 +282,101 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
    Invoke-AzRestMethod @reassignDesktopParams
    ```
 
+---
+
+## Multi-personal desktop assignment
+
+Multi-personal desktop assignment is a feature that allows you to assign more than one personal desktop to a single user in a single host pool. This feature is only for personal host pools with direct assignment type.
+
+### Enable multi-personal desktop assignment 
+
+Here's how to enable the multi-personal desktop assignment feature on an existing personal host pool.
+
+#### [Azure portal](#tab/azure2)
+
+To enable multi-personal desktop assignment using the Azure portal: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/). 
+
+1. Enter **Azure Virtual Desktop** into the search bar.
+
+1. Under **Services**, select **Azure Virtual Desktop**.
+
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
+1. Select the existing host pool that you’d like to enable multiple personal desktop assignment on. 
+
+1. Under **Settings**, select **Properties** to view the host pool properties. 
+
+1. Check the box for **Assign multiple desktops to a single user** to enable the multi-personal desktop assignment feature. 
+
+>[!NOTE]
+> * If the host pool's assignment type is **Automatic**, you won't be able to check this box. The assignment type must be **Direct**. 
+> * Once a host pool has the multi-personal desktop assignment feature enabled, it cannot be disabled. 
+#### [PowerShell](#tab/powershell2)
+
+To enable multi-personal desktop assignment using PowerShell:
+
+1. [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Use the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) command to update an existing personal host pool that has direct assignment type to have multiple persistent load balancer type. 
+
+```powershell
+$hostPoolParams = @{
+   ResourceGroupName = 'ResourceGroupName'
+   Name = 'HostPoolName'
+   LoadBalancerType = 'MultiplePersistent'
+}
+Update-AzWvdHostPool @hostPoolParams
+```
+
+---
+
+### Assign a user to multiple personal desktops
+
+#### [Azure portal](#tab/azure2)
+
+To assign a user to multiple personal desktops in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/). 
+
+1. Enter **Azure Virtual Desktop** into the search bar.
+
+1. Under **Services**, select **Azure Virtual Desktop**.
+
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
+1. Select the existing host pool that you’d like to enable multiple personal desktop assignment on. 
+
+1. Under **Manage**, select **Session hosts** to view the session hosts in the host pool. 
+
+1. Select the checkbox next to the session host that you’d like to assign the user to. 
+
+1. Select **Assign** in the Assigned User column or select Assignment from the toolbar and **Assign user** from the dropdown menu. 
+
+1. In the assignment context blade that comes up, search for and select the user you'd like to assign. Select **Assign** at the bottom of the blade. 
+
+1. Repeat steps 4-6 for each of session hosts that you’d like to assign the user to. There is no limit to the number of personal desktops that a user can be assigned to in a single host pool. 
+
+#### [PowerShell](#tab/powershell2)
+
+To assign a user to multiple personal desktops using PowerShell:
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Run the `Update-AzWvdSessionHost` command in the following example to assign a user to a personal desktop. For more information about the parameters, see the [Update-AzWvdSessionHost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) reference.
+
+   ```powershell
+   Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $personalDesktopName -ResourceGroupName $resourceGroupName -AssignedUser $userupn
+   ```
+
+3. Run the `Update-AzWvdSessionHost` command again to assign the same user to another personal desktop.
+
+   ```powershell
+   Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $personalDesktopName -ResourceGroupName $resourceGroupName -AssignedUser $userupn
+   ```
+
+4. Continue running the `Update-AzWvdSessionHost` command to assign the user to multiple personal desktops in the same host pool. There is no limit to the number of personal desktops that a user can be assigned to in a single host pool. 
 
 ---
 
