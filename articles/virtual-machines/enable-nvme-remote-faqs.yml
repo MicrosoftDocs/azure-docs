@@ -100,7 +100,7 @@ sections:
       - question: |
           Which Azure disk storage options are compatible with remote NVMe disks?
         answer: |
-          NVMe sizes can be combined with Azure Premium SSD v1, Premium SSD v2, and Ultra Disk Storage. For more information on Azure disk offerings, refer to [Azure managed disk types](/azure/virtual-machines/disks-types).
+          NVMe sizes can be combined with Azure Premium SSD v1, Premium SSD v2, and Ultra Disk Storage. For more information on Azure disk offerings, see [Azure managed disk types](/azure/virtual-machines/disks-types).
       - question: |
           Does Azure support live resizing on disks with NVMe VM sizes?
         answer: |
@@ -135,7 +135,7 @@ sections:
           wmic diskdrive get model,scsilogicalunit
           ```
 
-          :::image type="content" source="./media/enable-nvme/nvme-faq-7.png" alt-text="Screenshot of an example Powershell command to use NVMe on Windows.":::
+          :::image type="content" source="./media/enable-nvme/nvme-faq-7.png" alt-text="Screenshot of an example PowerShell command to use NVMe on Windows.":::
         
           The ASAP attached disks are presented in the guest with the model string `Virtual_Disk NVME Premium`. The SCSI logical unit has the value for the portal-visible LUN ID incremented by 1.
           

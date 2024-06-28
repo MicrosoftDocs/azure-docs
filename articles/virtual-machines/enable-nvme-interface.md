@@ -15,7 +15,7 @@ ms.custom: template-how-to-pattern
 
 The following lists provide up-to-date information on which OS images are tagged as supported for remote NVM Express (NVMe).
 
-For specifics about which VM generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
+For specifics about which virtual machine (VM) generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
 
 For more information about enabling the NVMe interface on virtual machines created in Azure, review the [FAQ for remote NVMe disks](/azure/virtual-machines/enable-nvme-remote-faqs).
 
