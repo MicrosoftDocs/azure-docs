@@ -50,9 +50,13 @@ Management library information:
 
 To connect an application and manage storage account resources, create an [ArmClient](/dotnet/api/azure.resourcemanager.armclient) object. This client object is the entry point for all ARM clients. Since all management APIs go through the same endpoint, you only need to create one top-level `ArmClient` to interact with resources.
 
-You can authorize an `ArmClient` object by using a Microsoft Entra authorization token. In the code example in this article, we use `DefaultAzureCredential` to authorize the client object. The `DefaultAzureCredential` class provides a default `TokenCredential` authentication flow for applications that will be deployed to Azure. To learn more, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+#### Assign management permissions with Azure RBAC
+
+Azure provides built-in roles that grant permissions to call management operations. Azure Storage also provides built-in roles specifically for use with the Azure Storage resource provider. To learn more, see [Built-in roles for management operations](authorization-resource-provider.md).
 
 #### Authorize access using DefaultAzureCredential
+
+You can authorize an `ArmClient` object by using a Microsoft Entra authorization token. In the code example in this article, we use `DefaultAzureCredential` to authorize the client object. The `DefaultAzureCredential` class provides a default `TokenCredential` authentication flow for applications that will be deployed to Azure. To learn more, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 To authorize with Microsoft Entra ID, you need to use a security principal. The type of security principal you need depends on where your application runs. Use the following table as a guide:
 
