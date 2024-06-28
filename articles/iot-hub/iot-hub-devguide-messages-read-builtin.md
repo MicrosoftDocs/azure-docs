@@ -66,7 +66,7 @@ The SDKs you can use to connect to the built-in Event Hub-compatible endpoint th
 | Language | SDK | Example |
 | -------- | --- | ------- |
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [ReadD2cMessages .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/ReadD2cMessages) |
-| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs |  |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [read-d2c-messages Java](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/read-d2c-messages) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 | Python | https://pypi.org/project/azure-eventhub/ | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 
