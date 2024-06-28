@@ -83,7 +83,7 @@ Create a virtual network gateway (VPN gateway) by using the following values:
 
 You can see the deployment status on the **Overview** page for your gateway. A gateway can take up to 45 minutes to fully create and deploy. After the gateway is created, you can view the IP address that was assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
-[!INCLUDE [NSG warning](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="view"></a>View the public IP address
 

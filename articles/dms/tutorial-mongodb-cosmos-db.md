@@ -22,7 +22,7 @@ ms.custom:
 
 This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](../cosmos-db/mongodb-pre-migration.md), migration, and [post-migration](../cosmos-db/mongodb-post-migration.md), as shown below.
 
-![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png)
 
 ## Overview of offline data migration from MongoDB to Azure Cosmos DB using DMS
 
@@ -73,13 +73,13 @@ The Server Side Retry feature of Azure Cosmos DB allows the service to intercept
 
 To use Server Side Retry, in the Azure Cosmos DB portal, select **Features** > **Server Side Retry**.
 
-![Screenshot that shows where to find the Server Side Retry feature.](~/reusable-content/ce-skilling/azure/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+![Screenshot that shows where to find the Server Side Retry feature.](~/reusable-content/ce-skilling/azure/media/dms/mongo-server-side-retry-feature.png)
 
 If the feature is disabled, select **Enable**.
 
-![Screenshot that shows how to enable Server Side Retry.](~/reusable-content/ce-skilling/azure/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
+![Screenshot that shows how to enable Server Side Retry.](~/reusable-content/ce-skilling/azure/media/dms/mongo-server-side-retry-enable.png)
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]  
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]  
 
 ## Create an instance
 

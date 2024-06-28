@@ -1,8 +1,8 @@
 ---
 ms.topic: include
-author: heidilohr
-ms.author: helohr
-ms.date: 05/29/2024
+author: sipastak
+ms.author: sipastak
+ms.date: 06/19/2024
 ---
 
 ## Supported client versions
@@ -11,21 +11,43 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5405 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5453 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5454 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5550 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5453 (Insider)  
-*Date published: June 4, 2024* 
+## Updates for version 1.2.5550 (Insider)
+
+*Date published: June 25, 2024* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 In this release, we made the following changes:
 
+- Fixed an issue where a minimized RemoteApp window will maximize when the lock screen timer runs out for a RemoteApp session.
+- Improved usability of the connection bar by reducing the amount of time it displays on the screen after the mouse moves away.
+
+## Updates for version 1.2.5454
+
+*Date published: June 11, 2024* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when a session is disconnected. 
+
+> [!NOTE]
+> This Insider release was originally version 1.2.5453, but we made a change to fix an issue with the client crashing when a session is disconnected and re-released as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453. 
+
+## Updates for version 1.2.5453  
+
+*Date published: June 4, 2024* 
+
+In this release, we made the following changes:
+
 - Fixed an issue where the client crashed when responding to an incoming Teams call.  
 
->[!NOTE]
->This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
-
+> [!NOTE]
+> This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
 
 ## Updates for version 1.2.5452
 
@@ -47,7 +69,7 @@ In this release, we made the following changes:
 In this release, we made the following changes:
 
 - When subscribing to feeds via URL, all message states for the status message box can be announced by screen readers. 
-- When users are searching for workspaces via url, they will now see the searching status when entering url-formatted input and receive an error if results are not found. 
+- When users search for workspaces via URL, they now see the searching status when entering URL-formatted input and receive an error if results are not found. 
 - Improved error messaging for end users when their saved credentials expire. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
@@ -55,7 +77,7 @@ In this release, we made the following changes:
 
 *Date published: April 17, 2024*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB76), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kGol), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB75)
 
 In this release, we made the following changes:
 

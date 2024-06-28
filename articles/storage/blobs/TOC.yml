@@ -94,6 +94,8 @@ items:
     items:
     - name: Storage migration overview
       href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Tape migration overview
+      href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Compare data transfer solutions
       href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -212,6 +214,11 @@ items:
       items:
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+    - name: Lifecycle management policies
+      href: lifecycle-management-overview.md
+      items:
+      - name: Configure lifecycle management policies
+        href: lifecycle-management-policy-configure.md
     - name: Full text search
       href: ../../search/search-blob-storage-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Static websites
@@ -500,11 +507,6 @@ items:
         href: access-tiers-best-practices.md
       - name: Change a blob's access tier
         href: access-tiers-online-manage.md
-      - name: Lifecycle management policies
-        href: lifecycle-management-overview.md
-        items:
-        - name: Configure lifecycle management policies
-          href: lifecycle-management-policy-configure.md
       - name: Archive and rehydrate
         items:
         - name: Blob rehydration overview
@@ -987,8 +989,14 @@ items:
           href: storage-blobs-list-go.md
         - name: Delete and restore blobs
           href: storage-blob-delete-go.md
+        - name: Find blobs using tags
+          href: storage-blob-tags-go.md
         - name: Manage blob properties and metadata
           href: storage-blob-properties-metadata-go.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-go.md
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
@@ -1028,7 +1036,17 @@ items:
     - name: Other languages
       href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure PowerShell
-      href: storage-samples-blobs-powershell.md
+      items: 
+      - name: Overview
+        href: storage-samples-blobs-powershell.md
+      - name: Calculate the total billing size of a blob container
+        href: ../scripts/storage-blobs-container-calculate-billing-size-powershell.md
+      - name: Calculate the size of blob containers with PowerShell
+        href: ../scripts/storage-blobs-container-calculate-size-powershell.md
+      - name: Delete containers with a specific prefix
+        href: ../scripts/storage-blobs-container-delete-by-prefix-powershell.md
+      - name: Retrieve and rotate the access keys
+        href: ../scripts/storage-common-rotate-account-keys-powershell.md
     - name: Azure CLI
       items:
       - name: Overview
@@ -1394,12 +1412,6 @@ items:
           href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
         - name: Migrate an HDFS store online
           href: migrate-gen2-wandisco-live-data-platform.md
-      - name: Migrate from Data Lake Storage Gen1
-        items:
-        - name: Migrate using the Azure portal
-          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
-        - name: Migration guidelines and patterns
-          href: data-lake-storage-migrate-gen1-to-gen2.md
     - name: Transfer data
       items:
       - name: AzCopy

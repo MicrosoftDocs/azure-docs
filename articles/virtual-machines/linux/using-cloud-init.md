@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
-ms.date: 12/21/2022
+ms.date: 06/03/2024
 ms.author: srijangupta
 ---
 # cloud-init support for virtual machines in Azure
@@ -38,9 +38,9 @@ There are two stages to making cloud-init available to the supported Linux distr
 ### Canonical
 | Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
+|Canonical 24.04 |UbuntuServer |22.04-LTS |latest |yes | yes |
 |Canonical 22.04 |UbuntuServer |22.04-LTS |latest |yes | yes |
 |Canonical 20.04 |UbuntuServer |20.04-LTS |latest |yes | yes |
-|Canonical 18.04 |UbuntuServer |18.04-LTS |latest |yes | yes |
 
 
 ### RHEL
@@ -78,7 +78,6 @@ There are two stages to making cloud-init available to the supported Linux distr
 |SUSE 15 |SLES (SUSE Linux Enterprise Server) |sp1, sp2, sp3 |latest |yes | yes |
 |SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |yes | yes |
 
-* All other SUSE SKUs starting from SLES 15 (sp1) and SLES 12 (sp5) including both Gen1 and Gen2 images are provisioned using cloud-init.
 
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|

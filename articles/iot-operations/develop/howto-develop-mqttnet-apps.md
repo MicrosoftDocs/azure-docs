@@ -3,7 +3,7 @@ title: Use MQTTnet to develop distributed application workloads
 description: Develop distributed applications that talk with Azure IoT MQ using MQTTnet.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023

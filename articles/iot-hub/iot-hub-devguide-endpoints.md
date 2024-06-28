@@ -14,7 +14,7 @@ ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 
 Azure IoT Hub exposes various endpoints to support the devices and services that interact with it.
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## IoT Hub names
 

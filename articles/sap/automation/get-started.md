@@ -8,6 +8,7 @@ ms.date: 1/2/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Get started with SAP Deployment Automation Framework
@@ -22,7 +23,7 @@ To get started with SAP Deployment Automation Framework, you need:
 - An SAP User account with permissions to [download the SAP software](software.md) in your Azure environment. For more information on S-User, see [SAP S-User](https://support.sap.com/en/my-support/users/welcome.html).
 - An [Azure CLI](/cli/azure/install-azure-cli) installation.
 - A user Assigned Identity (MS) or a service principal to use for the control plane deployment.
-- A user Assigned Identity (MS) or a A service principal to use for the workload zone deployment.
+- A user Assigned Identity (MS) or a service principal to use for the workload zone deployment.
 - An ability to create an Azure DevOps project if you want to use Azure DevOps for deployment.
 
 Some of the prerequisites might already be installed in your deployment environment. Both Azure Cloud Shell and the deployer come with Terraform and the Azure CLI installed.

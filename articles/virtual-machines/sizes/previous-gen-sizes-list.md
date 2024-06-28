@@ -49,6 +49,7 @@ For a list of compute optimized sizes listed as "retired" and "announced for ret
 
 |Series name                | Replacement series      |Migration guide |
 |---------------------------|-------------------------|----------------|
+| Ev3 and Esv3-series       | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |
 | Ev4 and Esv4-series       | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |
 | Eav4 and Easv4-series     | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |
 | Edv4 and Edsv4-series     | [Next-gen available](./retirement-overview.md#next-gen-available)  |                |

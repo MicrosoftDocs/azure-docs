@@ -6,7 +6,7 @@ ms.collection: linux
 ms.service: virtual-machines
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 04/06/2023
+ms.date: 06/27/2024
 ms.author: mattmcinnes
 ms.reviewer: jamesser
 ---
@@ -17,7 +17,7 @@ When hosting a Linux virtual machine on Azure, the most common method for access
 This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 ## Prerequisites
 
@@ -153,7 +153,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     If you have never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
 
     ```azurepowershell-interactive
-    Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString
+    Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunShellScript' -ScriptString
     'ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}''
     ```
 

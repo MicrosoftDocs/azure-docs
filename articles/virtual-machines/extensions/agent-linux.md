@@ -82,7 +82,7 @@ Testing has confirmed that the following systems work with the Azure Linux VM Ag
 | Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+, 9.x+ | 8.6+, 9.0+ |
 | Rocky Linux | 9.x+ | 9.x+ |
 | SLES | 12.x+, 15.x+ | 15.x SP4+ |
-| Ubuntu (LTS releases)| 18.04+, 20.04+, 22.04+ | 20.04+, 22.04+ |
+| Ubuntu (LTS releases)| 18.04+, 20.04+, 22.04+, 24.04+ | 20.04+, 22.04+, 24.04+ |
 
 > [!IMPORTANT]
 > RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with Extended Lifecycle Support available. [The extended maintenance ends on June 30, 2024](https://access.redhat.com/support/policy/updates/errata).

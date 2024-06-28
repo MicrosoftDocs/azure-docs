@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 #customer intent: As a developer, I want Artifact cache capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
 ---
 
-# Artifact cache in Azure Container Registry (Preview)
+# Artifact cache in Azure Container Registry
 
 Artifact cache feature allows users to cache container images in a private container registry. Artifact cache is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 
@@ -63,7 +63,6 @@ Artifact cache currently supports the following upstream registries:
 | Microsoft Artifact Registry                  | Supports unauthenticated pulls only.                     | Azure CLI, Azure portal  |
 | AWS Elastic Container Registry (ECR) Public Gallery | Supports unauthenticated pulls only.              | Azure CLI, Azure portal  |
 | GitHub Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
-| Nvidia                                       | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Quay                                         | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
 | registry.k8s.io                              | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Google Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |

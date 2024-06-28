@@ -140,7 +140,7 @@ During the creation of the load balancer, you configure:
 ## Install IIS
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-1. Select **myVM1**.
+1. Select **lb-VM1**.
 1. On the **Overview** page, select **Connect**, then **Bastion**.
 1. Enter the username and password entered during VM creation.
 1. Select **Connect**.
@@ -162,8 +162,8 @@ During the creation of the load balancer, you configure:
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     
     ```
-1. Close the Bastion session with **myVM1**.
-1. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **myVM2**.
+1. Close the Bastion session with **lb-VM1**.
+1. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **lb-VM2**.
 
 ## Test the load balancer
 

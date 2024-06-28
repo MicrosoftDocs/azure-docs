@@ -8,8 +8,7 @@ ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ---
 
 
@@ -77,5 +76,3 @@ To add an Azure Database for PostgreSQL flexible server instance to a virtual ne
 
 * Learn more about [networking in Azure Database for PostgreSQL flexible server with Private Link](./concepts-networking-private-link.md).
 * Understand more about [virtual network integration in Azure Database for PostgreSQL flexible server](./concepts-networking-private.md).
-
-

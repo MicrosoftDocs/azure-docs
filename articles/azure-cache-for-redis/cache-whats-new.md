@@ -7,13 +7,35 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/20/2024
+ms.date: 06/10/2024
 
 ---
 
 # What's New in Azure Cache for Redis
 
 ## June 2024
+
+### Redis 7.2 (preview) on the Enterprise tier
+
+Azure cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
+
+You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md). 
+
+You are able to manually trigger an upgrade to the latest version of Redis software. This provides two benefits above waiting for the automatic upgrade to occur:
+
+1. You can control when the upgrade occurs. 
+1. You can upgrade to preview releases of Redis software.
+
+| **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
+|:--------------------------|:----------------------------------------------:|:----------------------------:|
+| **Lastest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.2 (GA) / Redis 7.2 (Preview)|
+| **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
+
+### Enterprise tier E1 (preview) SKU
+
+The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale E1 out. However, it is still possible to scale up to a larger SKU. The E1 SKU also does not support [active geo-replication](cache-how-to-active-geo-replication.md).
+
+For more information, see 
 
 ### .NET Output cache and HybridCache
 

@@ -430,6 +430,29 @@ Starting from verion 3.3.1, you can capture spans for a method in your applicati
 }
 ```
 
+## Locally disabling ingestion sampling (preview)
+
+By default, when the effective sampling percentage in the Java agent is 100%
+and [ingestion sampling](./sampling-classic-api.md#ingestion-sampling) has been configured on your Application Insights resource,
+then the ingestion sampling percentage will be applied.
+
+Note that this behavior applies to both fixed-rate sampling of 100% and also applies to rate-limited sampling when the
+request rate doesn't exceed the rate limit (effectively capturing 100% during the continuously sliding time window).
+
+Starting from 3.5.3, you can disable this behavior
+(and keep 100% of telemetry in these cases even when ingestion sampling has been configured
+on your Application Insights resource):
+
+```json
+{
+  "preview": {
+    "sampling": {
+      "ingestionSamplingEnabled": false
+    }
+  }
+}
+```
+
 ## Autocollected logging
 
 Log4j, Logback, JBoss Logging, and java.util.logging are autoinstrumented. Logging performed via these logging frameworks is autocollected.

@@ -268,7 +268,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
     cosmosSearch: {
       kind: 'vector-hnsw',
       m: 40,
-      efConstruction: 64
+      efConstruction: 64,
       similarity: 'COS',
       dimensions: 3
     },

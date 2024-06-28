@@ -57,7 +57,7 @@ In the rest of this quickstart, you use IoT Explorer to register a device to you
 
 To add a connection to your IoT hub:
 
-1. Install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases).  This tool is a cross-platform utility to monitor and manage Azure IoT resources.
+1. Install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases). This tool is a cross-platform utility to monitor and manage Azure IoT resources.
 
 1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string for your IoT hub.
 
@@ -78,12 +78,15 @@ If the connection succeeds, IoT Explorer switches to the **Devices** view.
 To add the public model repository:
 
 1. In IoT Explorer, select **Home** to return to the home view.
-1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
-1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
+1. On the left menu, select **IoT Plug and Play Settings**.
+1. Confirm that there's an existing **Public Repository** entry with an endpoint of `https://devicemodels.azure.com`. 
+    > [!NOTE]
+    > If there's not an entry the public repository, select **+Add**, select **Public repository** from the drop-down menu, specify the `https://devicemodels.azure.com` endpoint value, and then select **Save**.
+
+    The completed entry for the public repository looks like the following screenshot: 
 
     :::image type="content" source="media/iot-develop-create-cloud-components/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer.":::
 
-1. Select **Save**.
 
 ### Register a device
 

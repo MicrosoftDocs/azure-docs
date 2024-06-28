@@ -44,7 +44,7 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md) manages the deployment and configuration of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
 
 > [!NOTE]
-> During public preview, there's no support for upgrading an existing Azure IoT Operations deployment to a newer version. Instead, remove Azure IoT Operations from your cluster and then deploy the latest version.
+> During public preview, there's no support for upgrading an existing Azure IoT Operations deployment to a newer version. Instead, remove Azure IoT Operations from your cluster and then deploy the latest version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md#update-azure-iot-operations).
 
 ## Manage devices and assets
 
@@ -73,6 +73,9 @@ A Data Processor pipeline typically:
 1. Subscribes to an MQTT topic to retrieve messages.
 1. Processes the messages by using one or more configurable stages.
 1. Sends the processed messages to a destination such as a Microsoft Fabric data lake for storage and analysis.
+
+> [!NOTE]
+> Data Processor is an optional component of Azure IoT Operations. To use it, you must chose to add it when you deploy Azure IoT Operations.
 
 ## Connect to the cloud
 

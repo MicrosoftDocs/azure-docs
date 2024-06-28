@@ -26,7 +26,7 @@ You can reuse your stored keys in various of applications to fit your organizati
 For more detailed information about creating and using SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 ## Generate new keys
 

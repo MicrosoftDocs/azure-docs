@@ -29,7 +29,7 @@ For additional ways to generate and use SSH keys on a Windows computer, see [How
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 ## Create an SSH key pair
 

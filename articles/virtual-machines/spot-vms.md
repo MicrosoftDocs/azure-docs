@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: spot
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ---
 
@@ -60,7 +60,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
--	Sponsored (0036P and 0136P)
+-	Sponsored (0036P and 0136P) - not available in Fairfax
 - For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 

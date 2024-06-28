@@ -30,9 +30,7 @@ The following section walks through a sample request with cURL. Paste the comman
 1. Replace `<your_subscription_key>` with one of the keys that come with your resource.
 1. Optionally, replace the `"text"` field in the body with your own text you'd like to analyze.
     > [!TIP]
-    > Text size and granularity
-    >
-    > The default maximum length for text submissions is **1K** characters. The minimum length is **111** characters. Protected material detection is meant to be run on LLM completions, not user prompts.
+    > See [Input requirements](./overview.md#input-requirements) for maximum text length limitations. Protected material detection is meant to be run on LLM completions, not user prompts.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:detectProtectedMaterial?api-version=2023-10-15-preview' \

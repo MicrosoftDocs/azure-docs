@@ -885,8 +885,6 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Change data capture 
 
 Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Please refer to [Change Data Capture](concepts-change-data-capture.md) for details.
- 
-. 
 
 ## Related content
 

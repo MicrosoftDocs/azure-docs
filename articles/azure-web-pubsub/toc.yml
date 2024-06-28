@@ -122,12 +122,6 @@
           href: tutorial-serverless-iot.md
         - name: Azure Application Gateway
           href: howto-integrate-app-gateway.md
-    - name: Monitor and manage
-      items:
-        - name: Audit compliance using Azure Policy
-          href: howto-monitor-azure-policy.md
-        - name: Move resource across regions
-          href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
         - name: Debug event handlers

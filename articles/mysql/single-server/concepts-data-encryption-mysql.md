@@ -4,8 +4,8 @@ description: Azure Database for MySQL data encryption with a customer-managed ke
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

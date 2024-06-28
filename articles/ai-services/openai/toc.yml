@@ -66,7 +66,7 @@ items:
       href: ./concepts/prompt-engineering.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
-    - name: Prompt engineering for GPT-4 Turbo with Vision
+    - name: Image prompt engineering techniques
       href: ./concepts/gpt-4-v-prompt-engineering.md
     - name: Model versions
       href: ./concepts/model-versions.md

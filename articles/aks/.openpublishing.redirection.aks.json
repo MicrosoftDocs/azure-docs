@@ -17,11 +17,6 @@
             "redirect_document_id":false
         },
         {
-            "source_path_from_root":"/articles/aks/troubleshoot-udp-packet-drops.md",
-            "redirect_url":"/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
-            "redirect_document_id":false
-        },
-        {
             "source_path_from_root": "/articles/aks/operator-best-practices-multi-region.md",
             "redirect_url": "/azure/aks/ha-dr-overview",
             "redirect_document_id": false

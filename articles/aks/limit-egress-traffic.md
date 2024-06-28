@@ -62,7 +62,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 Provision a virtual network with two separate subnets: one for the cluster and one for the firewall. Optionally, you can create one for internal service ingress.
 
-![Empty network topology](~/reusable-content/ce-skilling/azure/media/limit-egress-traffic/empty-network.png)
+![Empty network topology](~/reusable-content/ce-skilling/azure/media/aks/empty-network.png)
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
@@ -100,7 +100,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 >
 > For more information on how to create an Azure Firewall with multiple IPs, see [Create an Azure Firewall with multiple public IP addresses using Bicep](../firewall/quick-create-multiple-ip-bicep.md).
 
-![Firewall and UDR](~/reusable-content/ce-skilling/azure/media/limit-egress-traffic/firewall-udr.png)
+![Firewall and UDR](~/reusable-content/ce-skilling/azure/media/aks/firewall-udr.png)
 
 1. Create a standard SKU public IP resource using the [`az network public-ip create`][az-network-public-ip-create] command. This resource will be used as the Azure Firewall frontend address.
 
@@ -216,7 +216,7 @@ az network vnet subnet update --resource-group $RG --vnet-name $VNET_NAME --name
 
 Now, you can deploy an AKS cluster into the existing virtual network. You will use the [`userDefinedRouting` outbound type](egress-outboundtype.md), which ensures that any outbound traffic is forced through the firewall and no other egress paths will exist. The [`loadBalancer` outbound type](egress-outboundtype.md#outbound-type-of-loadbalancer) can also be used.
 
-![aks-deploy](~/reusable-content/ce-skilling/azure/media/limit-egress-traffic/aks-udr-fw.png)
+![aks-deploy](~/reusable-content/ce-skilling/azure/media/aks/aks-udr-fw.png)
 
 The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. Set the value for the subnet ID using the following command:
 
@@ -305,7 +305,7 @@ If you don't have user-assigned identities, follow the steps in this section. If
     ```
 
   > [!NOTE]
-  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
 
 #### Create an AKS cluster with your existing identities
 
@@ -354,7 +354,7 @@ If you used authorized IP ranges for your cluster in the previous step, you need
 
 You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you also might want to expose an internal service using an [internal load balancer](internal-lb.md).
 
-![Public Service DNAT](~/reusable-content/ce-skilling/azure/media/limit-egress-traffic/aks-create-svc.png)
+![Public Service DNAT](~/reusable-content/ce-skilling/azure/media/aks/aks-create-svc.png)
 
 1. Review the [AKS Store Demo quickstart](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-quickstart.yaml) manifest to see all the resources that will be created.
 
@@ -442,8 +442,7 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az-network-firewall-nat-rule-create
 [az-group-delete]: /cli/azure/group#az_group_delete
-[add role to identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
+[add role to identity]: use-managed-identity.md#add-a-role-assignment-for-a-system-assigned-managed-identity
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-
