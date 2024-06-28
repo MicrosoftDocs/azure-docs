@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
+title: 'Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 07/26/2023
+ms.date: 06/28/2024
 ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
@@ -37,6 +37,12 @@ git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
 
 ```Console
 git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart
+```
+
+### [FastAPI](#tab/fastapi)
+
+```Console
+git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart.git
 ```
 
 ---
@@ -100,6 +106,36 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 1. Browse to the sample application at `http://localhost:8000` in a web browser.
 
     :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the Django app running locally in a browser":::
+
+Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+
+### [FastAPI](#tab/fastapi)
+
+1. Go to the application folder:
+
+    ```Console
+    cd msdocs-python-fastapi-webapp-quickstart
+    ```
+
+1. Create a virtual environment for the app:
+
+    [!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md)]
+
+1. Install the dependencies:
+
+    ```Console
+    pip install -r requirements.txt
+    ```
+
+1. Run the app:
+
+    ```Console
+    uvicorn main:app --reload
+    ```
+
+1. Browse to the sample application at `http://localhost:8000` in a web browser.
+
+    :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the FastAPI app running locally in a browser":::
 
 Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
