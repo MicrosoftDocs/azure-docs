@@ -106,6 +106,7 @@ An installed version index within the VM image is located at this location: ```/
 MPI libraries and software packages are available as environment modules. To load an MPI library/package, run:
 
 ```
+module load mpi/<mpi-library-name>
 module load <package-name>
 ```
 

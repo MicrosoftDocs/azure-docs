@@ -12,7 +12,7 @@ ms.date: 06/13/2024
 
 # Quickstart: Create an example Consumption logic app workflow using the Azure portal
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example logic app workflow that integrates the following services, an RSS feed for a website and an email account.
 

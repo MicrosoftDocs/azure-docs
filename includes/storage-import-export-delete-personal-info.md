@@ -13,7 +13,7 @@ ms.custom: include file
 
 ## Deleting personal information
 
-[!INCLUDE [gdpr-intro-sentence.md](./gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence.md](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Personal information is relevant to the import/export service (via the portal and API) during import and export operations. Data used during these processes include:
 

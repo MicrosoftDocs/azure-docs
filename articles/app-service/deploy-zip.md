@@ -18,7 +18,7 @@ This article shows you how to deploy your code as a ZIP, WAR, JAR, or EAR packag
 
 To complete the steps in this article, [create an App Service app](./index.yml), or use an app that you created for another tutorial.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
