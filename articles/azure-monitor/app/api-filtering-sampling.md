@@ -85,75 +85,75 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 
 2. Add your processor.
 
-ASP.NET **apps**
-
-Insert this snippet in ApplicationInsights.config:
-
-```xml
-<TelemetryProcessors>
-  <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
-    <!-- Set public property -->
-    <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
-  </Add>
-</TelemetryProcessors>
-```
-
-You can pass string values from the .config file by providing public named properties in your class.
-
-> [!WARNING]
-> Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a nonexistent type or property, the SDK may silently fail to send any telemetry.
->
-
-Alternatively, you can initialize the filter in code. In a suitable initialization class, for example, AppStart in `Global.asax.cs`, insert your processor into the chain:
-
-```csharp
-var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-builder.Use((next) => new SuccessfulDependencyFilter(next));
-
-// If you have more processors:
-builder.Use((next) => new AnotherProcessor(next));
-
-builder.Build();
-```
-
-Telemetry clients created after this point use your processors.
-
-ASP.NET **Core/Worker service apps**
-
-> [!NOTE]
-> Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
-
-For apps written by using [ASP.NET Core](asp-net-core.md#add-telemetry-processors) or [WorkerService](worker-service.md#add-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // ...
-    services.AddApplicationInsightsTelemetry();
-    services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
-
-    // If you have more processors:
-    services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
-}
-```
-
-To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
-
-### Example filters
-
-#### Synthetic requests
-
-Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic and ingestion size by filtering them at the SDK itself.
-
-```csharp
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
+    **ASP.NET apps**
     
-    // Send everything else:
-    this.Next.Process(item);
-}
-```
+    Insert this snippet in ApplicationInsights.config:
+    
+    ```xml
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+        <!-- Set public property -->
+        <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+    ```
+    
+    You can pass string values from the .config file by providing public named properties in your class.
+    
+    > [!WARNING]
+    > Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a nonexistent type or property, the SDK may silently fail to send any telemetry.
+    >
+    
+    Alternatively, you can initialize the filter in code. In a suitable initialization class, for example, AppStart in `Global.asax.cs`, insert your processor into the chain:
+    
+    ```csharp
+    var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
+    
+    // If you have more processors:
+    builder.Use((next) => new AnotherProcessor(next));
+    
+    builder.Build();
+    ```
+    
+    Telemetry clients created after this point use your processors.
+    
+    **ASP.NET Core/Worker service apps**
+    
+    > [!NOTE]
+    > Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
+    
+    For apps written by using [ASP.NET Core](asp-net-core.md#add-telemetry-processors) or [WorkerService](worker-service.md#add-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
+    
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
+    
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
+    }
+    ```
+    
+    To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
+    
+    ### Example filters
+    
+    #### Synthetic requests
+    
+    Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic and ingestion size by filtering them at the SDK itself.
+    
+    ```csharp
+    public void Process(ITelemetry item)
+    {
+        if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
+        
+        // Send everything else:
+        this.Next.Process(item);
+    }
+    ```
 
 #### Failed authentication
 
@@ -233,13 +233,13 @@ To learn more about telemetry processors and their implementation in Java, refer
 
 Use telemetry initializers to enrich telemetry with additional information or to override telemetry properties set by the standard telemetry modules.
 
-For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >=400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
+For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags any request with a response code >=400 as failed. If instead you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
 
-If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This initializer includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
+If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This initializer includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors, so any enrichments done by initializers are visible to processors.
 
-**Define your initializer**
+### Define your initializer
 
-*C#*
+**C#**
 
 ```csharp
 using System;
@@ -278,7 +278,9 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-ASP.NET **apps: Load your initializer**
+### Load your initializer
+
+**ASP.NET apps**
 
 In ApplicationInsights.config:
 
@@ -304,7 +306,7 @@ protected void Application_Start()
 
 See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
-ASP.NET **Core/Worker service apps: Load your initializer**
+**ASP.NET Core/Worker service apps**
 
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
