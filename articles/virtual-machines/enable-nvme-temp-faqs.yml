@@ -20,7 +20,7 @@ sections:
           To enable the temporary NVMe (temp NVMe) interface on your VM, you must meet the following prerequisites:
           
           - Choose a VM family that supports NVMe (such as v6 VMs). 
-          - Select the operating system (OS) image that's tagged with NVMe support.
+          - Select the operating system image that's tagged with NVMe support.
           - Make sure that you're using a Generation 2 VM, because NVMe supports only Generation 2 images.          
       - question: |
           How are temp NVMe disks in my Dl/D/E_v6 VMs different from remote NVMe disks?
@@ -33,11 +33,11 @@ sections:
       - question: |
           What changes should I prepare for when configuring my VMs with temp NVMe disks?
         answer: |
-          - Disks should be initialized and formatted after the VM starts up. After user-initiated stops, deallocatations, or planned maintenance and Azure-initiated automatic recovery events, the VMs start up with only raw temp NVMe disks. No temp NVMe disks are visible to applications until after they're initialized and formatted. 
+          - Disks should be initialized and formatted after the VM starts up. After user-initiated stops, deallocations, or planned maintenance and Azure-initiated automatic recovery events, the VMs start up with only raw temp NVMe disks. No temp NVMe disks are visible to applications until after they're initialized and formatted. 
           - You can span separate NVMe drives into one as needed after the VM starts up.
           - A Windows pagefile is placed on persistent OS disks (unless you're using the ephemeral OS feature), but you can move it to temp NVMe disks as needed after the VM starts up.
           - The ephemeral OS feature, if you use it, converts one or several NVMe disks (depending on the VM and image size) into a slower SCSI/VHD-based disk, similar to how it was on v5 and older VMs. For the larger VM sizes, the remaining drives stay as raw unformatted NVMe.
-          - The [list of resource SKUs in the REST API](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list?tabs=HTTP) exposes several capabilities of virtual machines. The next iteration of VM sizes uses the faster and more efficient NVMe protocol for local storage, instead of the SCSI protocol that earlier virtual machine sizes use.
+          - The [list of resource SKUs in the REST API](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list?tabs=HTTP) exposes several capabilities of virtual machines. The next iteration of VM sizes uses the faster and more efficient NVMe protocol for local storage, instead of the SCSI protocol that earlier VM sizes use.
           
             For Azure virtual machines, SCSI-based local storage is a temporary resource disk, and the `MaxResourceVolumeMB` value specifies the size of this disk. In contrast, the `NVMeDiskSizeInMiB` value specifies the size of NVMe-based local storage. 
       - question: |
@@ -45,7 +45,7 @@ sections:
         answer: |
           Temp NVMe disks support the feature of data encryption at rest. A unique data encryption key (DEK) encrypts the data for each temp NVMe disk assigned to the VM. A key encryption key (KEK) helps protect the DEK. When you delete a VM, the data on its temp NVMe disk is cryptographically erased. 
       - question: |
-          How can I resize a v5 or older VM with temp disk to v6?
+          How can I resize a v5 or older VM with a temp disk to v6?
         answer: |
           See the [FAQ for Azure VM sizes with no local temporary disk](/azure/virtual-machines/azure-vms-no-temp-disk#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---).
       - question: |
@@ -96,9 +96,9 @@ sections:
           
              :::image type="content" source="./media/enable-nvme/nvme-temp-init-7.png" alt-text="Screenshot of completing the New Simple Volume Wizard.":::
           
-          6. Confirm that the formatted and initialized NVMe disks appear in the Windows Disk Management utility, similar to how **New Volume (E:)** appears in this example.
+          6. Confirm that the formatted and initialized NVMe disks appear in the Windows Disk Management tool, similar to how **New Volume (E:)** appears in this example.
           
-             :::image type="content" source="./media/enable-nvme/nvme-temp-init-8.png" alt-text="Screenshot of the Disk Management utility showing a new volume.":::
+             :::image type="content" source="./media/enable-nvme/nvme-temp-init-8.png" alt-text="Screenshot of the Disk Management tool showing a new volume.":::
           
           ### Azure PowerShell script
           
@@ -405,6 +405,6 @@ sections:
         answer: |
           Temp NVMe disks attached to V6 VMs are ephemeral, similar to temp drives on other VM series. This means that you lose all data on the VM after redeployment or during a maintenance event. For more information on maintenance events and downtime, see [Understand VM reboots: Maintenance vs. downtime](https://learn.microsoft.com/en-us/azure/virtual-machines/understand-vm-reboots).
           
-          If the VM moved to new hardware, these drives unmount, and new unmounted disks are presented to the operating system when it comes back up. If the VM didn't change hardware, the temp NVME disks might still be present. The preceding script for mounting the drives checks for unmounted drives before it tries to mount. 
+          If the VM moved to new hardware, these drives unmount, and new unmounted disks are presented to the operating system when it comes back up. If the VM didn't change hardware, the temp NVMe disks might still be present. The preceding script for mounting the drives checks for unmounted drives before it tries to mount. 
           
           It's a best practice to run the mounting script automatically every time the VM starts and delay any other startup scripts that need the drives until after the mounting script finishes running.

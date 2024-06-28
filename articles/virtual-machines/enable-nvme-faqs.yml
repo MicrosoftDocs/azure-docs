@@ -27,7 +27,7 @@ sections:
       - question: |
           How do Azure Boost and NVMe improve the performance of the VMs that Azure offers?
         answer: |
-          Azure Boost is a Microsoft-designed system that offloads server virtualization processes traditionally performed by the hypervisor and host operating system (OS) onto purpose-built software and hardware. Offloading these processes enables faster storage and networking performance for Azure VM customers.
+          Azure Boost is a Microsoft-designed system that offloads server virtualization processes traditionally performed by the hypervisor and host OS onto purpose-built software and hardware. Offloading these processes enables faster storage and networking performance for Azure VM customers.
           
           One of the primary advantages of Azure Boost is its ability to enhance the throughput of Azure managed disks and local storage. This enhancement is enabled by offloading the storage processing tasks to hardware that's dedicated for Azure Boost.
           

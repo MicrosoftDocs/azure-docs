@@ -22,7 +22,7 @@ sections:
           To enable the NVMe interface on your VM, you must meet the following prerequisites:
 
           - Choose a VM family that supports NVMe. Only Ebsv5 and Ebdsv5 VM sizes are equipped with NVMe in the Intel v5 generation VMs.
-          - [Select the operating system (OS) image](/azure/virtual-machines/enable-nvme-interface) that's tagged with NVMe support. After you select a supported **VM family and OS image** value, you're prompted to select the NVMe disk controller type.
+          - [Select the operating system image](/azure/virtual-machines/enable-nvme-interface) that's tagged with NVMe support. After you select a supported **VM family and OS image** value, you're prompted to select the NVMe disk controller type.
 
             :::image type="content" source="./media/enable-nvme/nvme-faq-1.png" alt-text="Screenshot of a prompt to select a disk controller type.":::
 
@@ -49,7 +49,7 @@ sections:
           To resize the VM, use the following command to run an [Azure PowerShell script](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/NVMe-Preflight-Check) that sets the destination `discontrollertype` value of the VM as NVMe: 
                    
           ```PowerShell
-          `azure-nvme-VM-update.ps1 [-subscription_id] <String> [-resource_group_name] <String> [-vm_name] <String> [[-disk_controller_change_to] <String>] [-vm_size_change_to] <String> [[-start_vm_after_update] <Boolean>] [[-write_logfile] <Boolean>]`
+          azure-nvme-VM-update.ps1 [-subscription_id] <String> [-resource_group_name] <String> [-vm_name] <String> [[-disk_controller_change_to] <String>] [-vm_size_change_to] <String> [[-start_vm_after_update] <Boolean>] [[-write_logfile] <Boolean>]
           ```
       - question: |
           How can I check if an image is tagged as NVMe? 
@@ -67,7 +67,7 @@ sections:
           1. Upload an NVMe-supported virtual hard disk (VHD) to your storage account. [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) is a fast way, but you can also use the portal to upload.
             
              ```
-             `azcopy copy <local path to your VHD> <container in your storage account>`
+             azcopy copy <local path to your VHD> <container in your storage account>
              ```
 
           2. [Create an image gallery](https://docs.microsoft.com/azure/virtual-machines/create-gallery) by using Azure PowerShell, the portal, or the Azure CLI.
@@ -77,7 +77,7 @@ sections:
              Here's an Azure CLI example:
             
              ```
-             `az sig image-definition create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --publisher <publisher> --offer <offerName> --sku <skuName> --os-type <osType> --os-state <osState> --feature DiskControllerTypes=SCSI,NVMe`
+             az sig image-definition create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --publisher <publisher> --offer <offerName> --sku <skuName> --os-type <osType> --os-state <osState> --feature DiskControllerTypes=SCSI,NVMe
              ```
 
           4. [Create the image version](https://docs.microsoft.com/azure/virtual-machines/image-version) under the NVMe-tagged gallery with the NVMe-supported VHD.
@@ -85,7 +85,7 @@ sections:
              Here's an Azure CLI example:
             
              ```
-             `az sig image-version create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --gallery-image-version <version> --target-regions <region1> <region2> --replica-count <replicaCount> --os-vhd-uri <NVMe-supported vhd uri> --os-vhd-storage-account <storageAccount>`
+             az sig image-version create --resource-group <resourceGroupName> --gallery-name <galleryName> --gallery-image-definition <imageName> --gallery-image-version <version> --target-regions <region1> <region2> --replica-count <replicaCount> --os-vhd-uri <NVMe-supported vhd uri> --os-vhd-storage-account <storageAccount>
              ```  
       - question: |
           How do I configure an ARM template for VM creation?
@@ -111,12 +111,12 @@ sections:
           1. Get the `nvme-cli` package: 
             
              ```
-             `sudo apt install nvme-cli`
+             sudo apt install nvme-cli
              ```
           2. Run the NVMe `list` command to fetch NVMe disk details:
 
              ```
-             `sudo nvme list`
+             sudo nvme list
              ``` 
                          
              :::image type="content" source="./media/enable-nvme/nvme-faq-4.png" alt-text="Screenshot of instructions to identify NVMe disks on a Linux virtual machine.":::
@@ -129,7 +129,7 @@ sections:
       - question: |
           How can I identify NVMe disks on a Windows VM?  
         answer: |
-          Open PowerShell and use the following command: 
+          Open Azure PowerShell and use the following command: 
           
           ```
           wmic diskdrive get model,scsilogicalunit
