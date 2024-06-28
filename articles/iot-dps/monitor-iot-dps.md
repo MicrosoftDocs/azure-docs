@@ -21,6 +21,8 @@ For more information about the resource types for IoT Hub DPS, see [Azure IoT Hu
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
+### Collection and routing
+
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your DPS instance followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your instance.
@@ -57,31 +59,21 @@ In Azure portal, you can select **Metrics** under **Monitoring** on the left-pan
 
 :::image type="content" source="media/monitor-iot-dps/metrics-portal.png" alt-text="Screenshot showing the metrics explorer page for a DPS instance." border="true":::
 
-For a list of the platform metrics collected for DPS, see [Metrics in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#metrics).
-
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For a list of the platform metrics collected for DPS, see [Metrics in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#metrics). For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for IoT Hub DPS, see [IoT Hub DPS monitoring data reference](monitor-iot-dps-reference.md#resource-logs).
 
-### Using Log Analytics to view and resolve errors
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to your Device Provisioning Service.
-1. Select **Diagnostics settings**.
-1. Select **Add diagnostic setting**.
-1. Configure the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
-1. Select the box **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)) and save.
-1. Go to **Logs** tab in the Azure portal under Device Provisioning Service resource.
-1. Write **AzureDiagnostics** as a query and select **Run** to view recent events.
-1. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 ### Analyzing logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Data storage](#data-storage).
+To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
 
 In Azure portal, you can select **Logs** under **Monitoring** on the left-pane of your DPS instance to perform Log Analytics queries scoped, by default, to the logs and metrics collected in Azure Monitor Logs for your instance.
 
@@ -98,9 +90,17 @@ AzureDiagnostics
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md) The schema for DPS resource logs is found in [Resource logs in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#resource-logs).
 
-[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+### Using Log Analytics to view and resolve errors
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to your Device Provisioning Service.
+1. Select **Diagnostics settings**.
+1. Select **Add diagnostic setting**.
+1. Configure the desired logs to be collected. For supported categories, see [Resource logs](monitor-iot-dps-reference.md#resource-logs).
+1. Select the box **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)) and save.
+1. Go to **Logs** tab in the Azure portal under Device Provisioning Service resource.
+1. Write **AzureDiagnostics** as a query and select **Run** to view recent events.
+1. If there are results, look for `OperationName`, `ResultType`, `ResultSignature`, and `ResultDescription` (error message) to get more detail on the error.
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 

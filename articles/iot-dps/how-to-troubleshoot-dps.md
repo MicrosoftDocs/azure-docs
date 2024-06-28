@@ -12,7 +12,7 @@ ms.date: 06/28/2024
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
-Provisioning issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures, etc. This article provides guidance on how to detect and troubleshoot device provisioning issues via Azure Monitor. To learn more about using Azure Monitor with DPS, see [Monitor Device Provisioning Service](monitor-iot-dps.md).
+Provisioning issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures, etc. To learn more about using Azure Monitor with DPS, see [Monitor Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md).
 
 ## Common error codes
 
