@@ -107,10 +107,7 @@ Install-Module -Name Az.StorageMover -Scope CurrentUser -Repository PSGallery -F
 
 ```
 ### Manage a bandwidth limit schedule
-
-
 ```powershell
-      
 ## Set variables
 $subscriptionID        = "Your subscription ID"
 $resourceGroupName     = "Your resource group name"
@@ -122,27 +119,123 @@ Connect-AzAccount -SubscriptionId $subscriptionID # -DeviceLogin #Leverage Devic
 
 #------------
 # GET the schedule configured on an agent:
-$schedule = (Get-AzStorageMoverAgent -ResourceGroupName $resourceGroupName -StorageMoverName $storageMoverName -AgentName registeredAgentName).UploadLimitScheduleWeeklyRecurrence[0]
+$schedule = @(Get-AzStorageMoverAgent -ResourceGroupName $resourceGroupName -StorageMoverName $storageMoverName -AgentName registeredAgentName).UploadLimitScheduleWeeklyRecurrence
 # $schedule then contains a JSON structure with elements for each configured time windows and the upload limit in Mbps that applies during this window.
 
-#------------
-# SET a new bandwidth limitation window on Monday and Tuesday:
-$timeblock = New-AzStorageMoverUploadLimitWeeklyRecurrenceObject `
+# Output the entire schedule
+$schedule
+
+# Schedule elements can be addressed like an array.
+$schedule[0]
+```
+
+#### Add a new bandwidth limitation
+```powershell
+$newLimit = New-AzStorageMoverUploadLimitWeeklyRecurrenceObject `
     -Day ["Monday", "Tuesday"] ` #Mandatory. An array, limited to the English names of all 7 days, Monday through Sunday in any order.
     -LimitInMbps 900 ` # Mandatory. limit in "Mega bits per second"
     -StartTimeHour 5 ` # Mandatory. 24-hour clock: 5  = 5am
     -EndTimeHour 17 `  # Mandatory. 24-hour clock: 17 = 5pm
     -EndTimeMinute 30  # Optional. Time blocks are precise to 30 Minutes. -EndTimeMinute 0 is equivalent to omitting the parameter. The only other acceptable value is the half hour mark: 30. 
 
-#TODO:
-#I need to see how to add a single new time block to an empty or existing schedule.
-#I need to see the best method of editing a schedule.
-#I need to see how I can delete a schedule.
-#
-#I would like to document the JSON schema through an annotated example schedule.
-
+# Updates the bandwidth limit schedule for the selected agent by adding the defined "time block" to the schedule.
+# Ensure that the new limit does not overlap with an already configured limit in the schedule, otherwise the operation will fail.
+Update-AzStorageMoverAgent `
+    -ResourceGroupName resourceGroupName `
+    -StorageMoverName storageMoverName `
+    -AgentName registeredAgentName `
+    -UploadLimitScheduleWeeklyRecurrence $newLimit 
+    # You can supply a comma-separated list of new limits. This action will add the new limit(s) to the schedule. 
+    # If there already are other limits defined, ensure the new limit's time span is not overlapping any of them. Otherwise, the operation will fail.
 ```
 
+#### Disable bandwidth limitation for an agent
+```powershell
+Update-AzStorageMoverAgent `
+    -ResourceGroupName resourceGroupName `
+    -StorageMoverName storageMoverName `
+    -AgentName registeredAgentName `
+    -UploadLimitScheduleWeeklyRecurrence [] # Supply an empty array to remove all previously configured limits. This operation cannot be undone. You have to build and supply a new schedule if you want to enable bandwidth limitations for this agent again.
+```
+
+#### Change an existing bandwidth limitation
+You can combine the previously described management actions to selectively update an existing bandwidth limitation to a new limit or updated time span.
+
+```powershell
+# Step 1: define the new limit object you want to use to replace an existing limit:
+$limit = New-AzStorageMoverUploadLimitWeeklyRecurrenceObject `
+    -Day ["Monday", "Tuesday"] ` #Mandatory. An array, limited to the English names of all 7 days, Monday through Sunday in any order.
+    -LimitInMbps 900 ` # Mandatory. limit in "Mega bits per second"
+    -StartTimeHour 5 ` # Mandatory. 24-hour clock: 5  = 5am
+    -EndTimeHour 17 `  # Mandatory. 24-hour clock: 17 = 5pm
+    -EndTimeMinute 30  # Optional. Time blocks are precise to 30 Minutes. -EndTimeMinute 0 is equivalent to omitting the parameter. The only other acceptable value is the half hour mark: 30. 
+
+# Step 2: Find the bandwidth limitation window you wan to change:
+$schedule = @(Get-AzStorageMoverAgent -ResourceGroupName $resourceGroupName -StorageMoverName $storageMoverName -AgentName registeredAgentName).UploadLimitScheduleWeeklyRecurrence
+
+$schedule[<n>] = $limit # Replace the limit (start count at zero) with your newly defined limit.
+
+# Step 3: Remove any bandwidth limitations before you apply your updated schedule. 
+#         If you skip this step, step 4 will then try to append the new schedule to the old schedule. This will likely fail as overlapping time periods are specified.
+Update-AzStorageMoverAgent `
+    -ResourceGroupName $resourceGroupName `
+    -StorageMoverName $storageMoverName `
+    -AgentName $registeredAgentName `
+    -UploadLimitScheduleWeeklyRecurrence [] # Supply an empty array to remove all previously configured limits. This operation cannot be undone.
+
+#Step 4: Update the bandwidth limit schedule for the selected agent:
+Update-AzStorageMoverAgent `
+    -ResourceGroupName $resourceGroupName `
+    -StorageMoverName $storageMoverName `
+    -AgentName $registeredAgentName `
+    -UploadLimitScheduleWeeklyRecurrence $schedule # Apply your entire, updated schedule. Performing this step on an agent with other limits already configured will try and append the new schedule. Ensure there are no overlapping time spans, otherwise the operation will fail.
+```
+## Understanding the JSON schema of the bandwidth limit schedule
+The bandwidth limit schedule is stored as a JSON construct in the property `UploadLimitScheduleWeeklyRecurrence` of a registered agent.
+
+The [previous PowerShell section](#use-powershell-to-configure-a-bandwidth-limit-schedule) shows an example of how you can conveniently form and update this agent property by using Az PowerShell.
+You can, however, manually form that JSON and directly supply it as an argument for the property. The following section can help you understand the bandwidth schedule elements of this JSON construct.
+
+> [!IMPORTANT]
+> The schedule consists of one or more time spans during which a bandwidth limit applies that the agent is not to exceed. These time spans must not be overlapping. At any given time, only one limit may apply. A JSON specifying a schedule with overlapping times is considered malformed and cannot be applied to the agent.
+
+The following two representations of a bandwidth limit schedule are equivalent:
+:::image type="content" source="media/bandwidth-management/bandwidth-limit-json-small.png" alt-text="Azure portal dialog showing a calendar, similar to Outlook, with scheduled bandwidth limitation windows." lightbox="media/bandwidth-management/bandwidth-limit-json.png":::
+
+```json
+{
+  {
+    "startTime":
+    {
+      "hour": 7,
+      "minute": 0
+    },
+    "endTime":
+    {
+      "hour": 9,
+      "minute": 0
+    }
+    "days": ["Monday"],
+    "limitInMbps": 500
+  },
+  {
+    "startTime":
+    {
+      "hour": 9,
+      "minute": 0
+    },
+    "endTime":
+    {
+      "hour": 12,
+      "minute": 0
+    }
+    "days": ["Monday", "Tuesday", "Wednesday"],
+    "limitInMbps": 200
+  }
+}
+```
+> [!NOTE]
+> Time spans not covered by an entry in the schedule allow the agent to utilize all available bandwidth. During these times, it is likely that and agent doesn't utilize all available bandwidth. You can find more details about that in the performance article, section: "[Why migration performance varies](performance-targets.md#why-migration-performance-varies)".
 
 ## Next steps
 
