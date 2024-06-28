@@ -77,4 +77,4 @@ When you're finished with your deployment of Microsoft Sentinel, continue to exp
 - [Investigate with UEBA](investigate-with-ueba.md)
 - [Build and monitor Zero Trust](sentinel-solution.md)
 
-Review the regular SOC activities we recommend that you perform daily, weekly, and monthly in the  [Microsoft Sentinel operational guide](ops-guide/ops-guide.md).
+Review the regular SOC activities we recommend that you perform daily, weekly, and monthly in the  [Microsoft Sentinel operational guide](ops-guide.md).

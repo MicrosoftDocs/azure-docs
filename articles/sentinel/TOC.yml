@@ -1330,7 +1330,7 @@
   - name: Compare playbooks, workbooks, and notebooks
     href: resources.md
   - name: Operations guide
-    href: ops-guide\ops-guide.md
+    href: ops-guide.md
 - name: Resources
   items:
   - name: Sample workspace architecture

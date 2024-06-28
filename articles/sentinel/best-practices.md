@@ -61,7 +61,7 @@ The following table provides high-level descriptions for how to use Microsoft Se
 
 ## Related content
 
-- [Microsoft Sentinel operational guide](ops-guide/ops-guide.md)
+- [Microsoft Sentinel operational guide](ops-guide.md)
 - [On-board Microsoft Sentinel](quickstart-onboard.md)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
