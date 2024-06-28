@@ -12,7 +12,6 @@ ms.custom: innovation-engine, aks-related-content
 
 In this article, you create the infrastructure needed to deploy a highly available PostgreSQL database on AKS using the [CloudNativePG (CNPG)](https://cloudnative-pg.io/) operator.
 
-
 * Before you begin, make sure you've met all of the prerequisites and review the deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
 * [Set environment variables](#set-environment-variables) for use throughout this guide.
 * [Install the required extensions](#install-required-extensions).
@@ -21,8 +20,7 @@ In this article, you create the infrastructure needed to deploy a highly availab
 
 Set the following environment variables for use throughout this guide:
 
-```
-azurecli-interactive
+```azurecli-interactive
 export SUFFIX=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
 export LOCAL_NAME="cnpg"
 export TAGS="owner=user"
@@ -33,7 +31,7 @@ export AKS_PRIMARY_MANAGED_RG_NAME="rg-${LOCAL_NAME}-primary-aksmanaged-${SUFFIX
 export AKS_PRIMARY_CLUSTER_FED_CREDENTIAL_NAME="pg-primary-fedcred1-${LOCAL_NAME}-${SUFFIX}"
 export AKS_PRIMARY_CLUSTER_PG_DNSPREFIX=$(echo $(echo "a$(openssl rand -hex 5 | cut -c1-11)"))
 export AKS_UAMI_CLUSTER_IDENTITY_NAME="mi-aks-${LOCAL_NAME}-${SUFFIX}"
-export AKS_CLUSTER_VERSION="1.27"
+export AKS_CLUSTER_VERSION="1.29"
 export PG_NAMESPACE="cnpg-database"
 export PG_SYSTEM_NAMESPACE="cnpg-system"
 export PG_PRIMARY_CLUSTER_NAME="pg-primary-${LOCAL_NAME}-${SUFFIX}"
@@ -58,11 +56,11 @@ Create a resource group for the resources you'll create in this guide using the 
 
 ```azurecli-interactive
 az group create \
---name $RESOURCE_GROUP_NAME \
---location $PRIMARY_CLUSTER_REGION \
---tags $TAGS \
---query 'properties.provisioningState' \
---output tsv
+    --name $RESOURCE_GROUP_NAME \
+    --location $PRIMARY_CLUSTER_REGION \
+    --tags $TAGS \
+    --query 'properties.provisioningState' \
+    --output tsv
 ```
 
 ## Create a user-assigned managed identity
@@ -103,22 +101,22 @@ The CNPG operator automatically generates a service account called *postgres* th
 
     ```azurecli-interactive
     az storage account create \
-      --name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --location $PRIMARY_CLUSTER_REGION \
-      --sku Standard_ZRS \
-      --kind StorageV2 \
-      --query 'provisioningState' \
-      --output tsv
-      ````
+        --name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
+        --sku Standard_ZRS \
+        --kind StorageV2 \
+        --query 'provisioningState' \
+        --output tsv
+      ```
 
 1. Create the storage container to store the Write Ahead Logs (WAL) and regular PostgreSQL on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
 
     ```azurecli-interactive
     az storage container create \
-      --name $PG_STORAGE_BACKUP_CONTAINER_NAME \
-      --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
-      --auth-mode login > /dev/null
+        --name $PG_STORAGE_BACKUP_CONTAINER_NAME \
+        --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
+        --auth-mode login > /dev/null
     ```
 
 ## Assign RBAC to storage accounts
@@ -141,12 +139,12 @@ To enable backups, the PostgreSQL cluster needs to read and write to an object s
 
     ```azurecli-interactive
     az role assignment create \
-      --role "Storage Blob Data Contributor" \
-      --assignee-object-id $AKS_UAMI_WORKLOAD_OBJECTID \
-      --assignee-principal-type ServicePrincipal \
-      --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID \
-      --query "id" \
-      --output tsv
+        --role "Storage Blob Data Contributor" \
+        --assignee-object-id $AKS_UAMI_WORKLOAD_OBJECTID \
+        --assignee-principal-type ServicePrincipal \
+        --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID \
+        --query "id" \
+        --output tsv
     ```
 
 ## Set up monitoring infrastructure
@@ -162,12 +160,12 @@ In this section, you deploy an instance of [Azure Managed Grafana](/azure/manage
     export GRAFANA_PRIMARY="grafana-${LOCAL_NAME}-${SUFFIX}"
 
     export GRAFANA_RESOURCE_ID=$(az grafana create \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $GRAFANA_PRIMARY \
-      --zone-redundancy Enabled \
-      --tags $TAGS \
-      --query "id" \
-      --output tsv)
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $GRAFANA_PRIMARY \
+        --zone-redundancy Enabled \
+        --tags $TAGS \
+        --query "id" \
+        --output tsv)
 
     echo $GRAFANA_RESOURCE_ID
     ```
@@ -178,11 +176,11 @@ In this section, you deploy an instance of [Azure Managed Grafana](/azure/manage
     export AMW_PRIMARY="amw-${LOCAL_NAME}-${SUFFIX}"
 
     export AMW_RESOURCE_ID=$(az monitor account create \
-      --name $AMW_PRIMARY \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --tags $TAGS \
-      --query "id" \
-      --output tsv)
+        --name $AMW_PRIMARY \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --tags $TAGS \
+        --query "id" \
+        --output tsv)
 
     echo $AMW_RESOURCE_ID
     ```
@@ -193,10 +191,10 @@ In this section, you deploy an instance of [Azure Managed Grafana](/azure/manage
     export ALA_PRIMARY="ala-${LOCAL_NAME}-${SUFFIX}"
 
     export ALA_RESOURCE_ID=$(az monitor log-analytics workspace create \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --workspace-name $ALA_PRIMARY \
-      --query "id" \
-      --output tsv)
+        --resource-group $RESOURCE_GROUP_NAME \
+        --workspace-name $ALA_PRIMARY \
+        --query "id" \
+        --output tsv)
 
     echo $ALA_RESOURCE_ID
     ```
@@ -229,11 +227,15 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
         --nodepool-name systempool \
         --enable-oidc-issuer \
         --enable-workload-identity \
-        --node-count 2 \
+        --enable-cluster-autoscaler \
+        --min-count 2 \
+        --max-count 3 \
         --node-vm-size $SYSTEM_NODE_POOL_VMSKU \
         --enable-azure-monitor-metrics \
         --azure-monitor-workspace-resource-id $AMW_RESOURCE_ID \
         --grafana-resource-id $GRAFANA_RESOURCE_ID \
+        --api-server-authorized-ip-ranges $MY_PUBLIC_CLIENT_IP \
+        --tier standard \
         --zones 1 2 3
     ```
 
@@ -244,7 +246,9 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
         --resource-group $RESOURCE_GROUP_NAME \
         --cluster-name $AKS_PRIMARY_CLUSTER_NAME \
         --name $USER_NODE_POOL_NAME \
-        --node-count 3 \
+        --enable-cluster-autoscaler \
+        --min-count 3 \
+        --max-count 6 \
         --node-vm-size $USER_NODE_POOL_VMSKU \
         --zones 1 2 3 \
         --labels workload=postgres
@@ -263,7 +267,7 @@ In this section, you get the AKS cluster credentials, which serve as the keys th
     az aks get-credentials \
         --resource-group $RESOURCE_GROUP_NAME \
         --name $AKS_PRIMARY_CLUSTER_NAME
-     ```      
+     ```
 
 1. Create the namespace for the CNPG controller manager services, the PostgreSQL cluster, and its related services by using the [`kubectl create namespace`][kubectl-create-namespace] command.
 
@@ -332,10 +336,10 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_NODERG_NAME=$(az aks show \
-      --name $AKS_PRIMARY_CLUSTER_NAME \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --query nodeResourceGroup \
-      --output tsv)
+        --name $AKS_PRIMARY_CLUSTER_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --query nodeResourceGroup \
+        --output tsv)
 
     echo $AKS_PRIMARY_CLUSTER_NODERG_NAME
     ```
@@ -402,10 +406,10 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
 
     ```azurecli-interactive
     helm upgrade --install cnpg \
-      --namespace $PG_SYSTEM_NAMESPACE \
-      --create-namespace \
-      --kube-context=$AKS_PRIMARY_CLUSTER_NAME \
-      cnpg/cloudnative-pg
+        --namespace $PG_SYSTEM_NAMESPACE \
+        --create-namespace \
+        --kube-context=$AKS_PRIMARY_CLUSTER_NAME \
+        cnpg/cloudnative-pg
     ```
 
 1. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
@@ -436,12 +440,13 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
     ```
 ---
 
-
 ## Next steps
 
 Now that you've created the require infrastructure, [deploy a highly available PostgreSQL database on the AKS cluster][deploy-postgresql].
 
 <!-- LINKS -->
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-grafana-create]: /cli/azure/grafana#az-grafana-create
 [postgresql-ha-deployment-overview]: ./postgresql-ha-overview.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-group-create]: /cli/azure/group#az_group_create
@@ -467,4 +472,3 @@ Now that you've created the require infrastructure, [deploy a highly available P
 [helm-upgrade]: https://helm.sh/docs/helm/helm_upgrade/
 [kubectl-apply]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/
 [deploy-postgresql]: ./deploy-postgresql-ha.md
-
