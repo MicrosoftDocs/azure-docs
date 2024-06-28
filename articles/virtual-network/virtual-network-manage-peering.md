@@ -252,7 +252,7 @@ deselect the **Allow traffic to remote virtual network** setting if you want to 
 
 1.  In **Delete Peerings**, enter **delete** in the confirmation box, and then select **Delete**.
 
-    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion.png" alt-text="Screenshot of peering delete confirmation.":::
+    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion.png" alt-text="Screenshot of peering delete confirmation entry box.":::
 
     > [!NOTE]
     > When you delete a virtual network peering from a virtual network, the peering from the remote virtual network will also be deleted.
