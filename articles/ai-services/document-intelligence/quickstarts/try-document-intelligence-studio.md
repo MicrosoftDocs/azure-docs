@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 05/23/2024
+ms.date: 06/28/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -52,7 +52,7 @@ To use Document Intelligence Studio, you need the following assets and settings:
 
 * To test any of the document analysis or prebuilt models, select the model and use one of the sample documents or upload your own document to analyze. The analysis result is displayed at the right in the content-result-code window.
 
-* Custom models need to be trained on your documents. See [custom models overview](concept-custom.md) for an overview of custom models.
+* Custom models need to be trained on your documents. See [custom models overview](../concept-custom.md) for an overview of custom models.
 
 ## Authentication
 
@@ -64,7 +64,7 @@ Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.
   * Select an existing resource group within your subscription or create a new one.
   * Select your existing Document Intelligence or Azure AI services resource.
 
-    :::image type="content" source="media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
+    :::image type="content" source="../media/studio/configure-service-resource.png" alt-text="Screenshot of configure service resource form from the Document Intelligence Studio.":::
 
 * **Local authentication: access by API endpoint and key**.
 
@@ -72,9 +72,9 @@ Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.
   * Go to the overview page for your resource and select **Keys and Endpoint** from the left navigation bar.
   * Enter the values in the appropriate fields.
 
-      :::image type="content" source="media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
+      :::image type="content" source="../media/studio/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint page in the Azure portal.":::
 
-* After validating the scenario in the Document Intelligence Studio, use the [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [**Python**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) client libraries or the [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to get started incorporating Document Intelligence models into your own applications.
+* After validating the scenario in the Document Intelligence Studio, use the [**C#**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [**Python**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) client libraries or the [**REST API**](get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) to get started incorporating Document Intelligence models into your own applications.
 
 To learn more about each model, *see* our concept pages.
 

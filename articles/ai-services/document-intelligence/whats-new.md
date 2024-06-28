@@ -29,7 +29,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ## May 2024
 
-The Document Intelligence Studio has added support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](studio-overview.md#authentication).
+The Document Intelligence Studio has added support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](quickstarts/try-document-intelligence-studio.md#authentication).
 
 ## February 2024
 
