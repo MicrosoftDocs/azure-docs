@@ -56,12 +56,12 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Incoming stream
-JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, you must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream.
+JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, the columns in the to  following table will be included in the incoming stream, and you must manually modify the DCR or create it using another method where you can explicitly define the incoming stream.
 
  | Column | Type | Description |
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. |
-| `RawData` | string |  |
+| `RawData` | string | This column will be empty for a JSON log. |
 | `FilePath` | string | If you add this column to he incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
@@ -116,7 +116,7 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 | Setting | Description |
 |:---|:---|
-| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each daya with a new name. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.txt<br>- C:\Logs\MyLog*.txt<br>- C:\App01\AppLog.txt, C:\App02\AppLog.txt<br>- /var/mylog.log<br>- /var/mylog*.log |
+| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each daya with a new name. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.json<br>- C:\Logs\MyLog*.json<br>- C:\App01\AppLog.json, C:\App02\AppLog.json<br>- /var/mylog.json<br>- /var/mylog*.json |
 | Table name | Name of the destination table in your Log Analytics Workspace. |     
 | Record delimiter | Not currently used but reserved for future potential use allowing delimiters other than the currently supported end of line (`/r/n`). | 
 | Transform | [Ingestion-time transformation](../essentials/data-collection-transformations.md) to filter records or to format the incoming data for the destination table. Use `source` to leave the incoming data unchanged. |
@@ -125,25 +125,48 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 ### [Resource Manager template](#tab/arm)
 
+Use the following ARM template to create a DCR for collecting text log files. In addition to the parameter values, you may need to modify the following values in the template:
+
+- `columns`: Modify with the list of columns in the JSON log that you're collecting.
+- `transformKql`: Modify the default transformation if the schema of the incoming stream doesn't match the schema of the target table. The output schema of the transformation must match the schema of the target table.
+
+> [!IMPORTANT]
+> If you create the DCR using an ARM template, you still must associate the DCR with the agents that will use it. You can edit the DCR in the Azure portal and select the agents as described in [Add resources](./azure-monitor-agent-data-collection.md#add-resources)
+
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "dataCollectionRuleName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Unique name for the DCR. "
+            },
         },
         "location": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
         },
         "filePatterns": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
+            },
         },
         "tableName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Name of destination table in your Log Analytics workspace. "
+            },
         },
         "workspaceResourceId": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the Log Analytics workspace with the target table."
+            },
         }
     },
     "variables": {
@@ -226,181 +249,6 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 }
 ```
 
-
-Update the following values in the Resource Manager template:
-
-| Parameter | Description |
-|:---|:---|
-| `workspaceResorceId`:| The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID**. |
-| `dataCollectionRuleName` | The name that you define for the data collection rule. Example "AwesomeDCR" |
-| `location` | The data center that the rule will be located in. Must be the same data center as the Log Analytics Workspace. Example "WestUS2" |
-| `endpointResourceId` | This is the ID of the DCRE. Example "/subscriptions/63b9abf1-7648-4bb2-996b-023d7aa492ce/resourceGroups/Awesome/providers/Microsoft.Insights/dataCollectionEndpoints/AwesomeDCE" |
-| `workspaceName` | This is the name of your workspace. Example `AwesomeWorkspace` |
-| `tableName` | The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table). Example `AwesomeLogFile_CL` |
-| `streamDeclarations` | Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to automatically parse into the table. Both column names and JSON attribute are case sensitive. For example, `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. |
-| `filePatterns` | Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt |
-| `transformKql` | Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or leave as **source** if you don't need to transform the collected data. |
-
-
-
-
-    
-
-When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
-
-:::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot that shows the Overview pane in the portal with data collection rule details.":::
-
-Change the API version to **2022-06-01**.
-
-:::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot that shows JSON view for data collection rule.":::
-
-
----
-
-
-### Sample log queries
-The column names used here are for example only. The column names for your log will most likely be different.
-
-- **Count the number of events by code.**
-    
-    ```kusto
-    MyApp_CL
-    | summarize count() by code
-    ```
-
-### Sample alert rule
-
-- **Create an alert rule on any error event.**
-    
-    ```kusto
-    MyApp_CL
-    | where status == "Error"
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
-    ```
-
-## Transformation
-
-To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)
-
-
-## Troubleshoot
-Use the following steps to troubleshoot collection of logs from text and JSON files. 
-
-### Check if you've ingested data to your custom table
-Start by checking if any records have been ingested into your custom log table by running the following query in Log Analytics: 
-
-``` kusto
-<YourCustomTable>_CL
-| where TimeGenerated > ago(48h)
-| order by TimeGenerated desc
-```
-If records aren't returned, check the other sections for possible causes. This query looks for entries in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data to appear in your table. The Azure Monitor Agent only collects data written to the text or JSON file after you associate the data collection rule with the virtual machine. 
-
-
-### Verify that you created a custom table
-You must [create a custom log table](../logs/create-custom-table.md#create-a-custom-table) in your Log Analytics workspace before you can send data to it.
-
-### Verify that the agent is sending heartbeats successfully
-Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
-
-``` kusto
-Heartbeat
-| where TimeGenerated > ago(24h)
-| where Computer has "<computer name>"
-| project TimeGenerated, Category, Version
-| order by TimeGenerated desc
-```
-
-### Verify that you specified the correct log location in the data collection rule
-The data collection rule will have a section similar to the following. The `filePatterns` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
-
-
-```json
-"dataSources": [{
-            "configuration": {
-                "filePatterns": ["C:\\JavaLogs\\*.log"],
-                "format": "text",
-                "settings": {
-                    "text": {
-                        "recordStartTimestampFormat": "yyyy-MM-ddTHH:mm:ssK"
-                    }
-                }
-            },
-            "id": "myTabularLogDataSource",
-            "kind": "logFile",
-            "streams": [{
-                    "stream": "Custom-TabularData-ABC"
-                }
-            ],
-            "sendToChannels": ["gigl-dce-00000000000000000000000000000000"]
-        }
-    ]
-```
-
-This file pattern should correspond to the logs on the agent machine.
-
-<!-- convertborder later -->
-:::image type="content" source="media/data-collection-text-log/text-log-files.png" lightbox="media/data-collection-text-log/text-log-files.png" alt-text="Screenshot of text log files on agent machine." border="false":::
-
-### Use the Azure Monitor Agent Troubleshooter
-Use the [Azure Monitor Agent Troubleshooter](use-azure-monitor-agent-troubleshooter.md) to look for common issues and share results with Microsoft.
-
-### Verify that logs are being populated
-The agent will only collect new content written to the log file being collected. If you're experimenting with the collection logs from a text or JSON file, you can use the following script to generate sample logs.
-
-```powershell
-# This script writes a new log entry at the specified interval indefinitely.
-# Usage:
-# .\GenerateCustomLogs.ps1 [interval to sleep]
-#
-# Press Ctrl+C to terminate script.
-#
-# Example:
-# .\ GenerateCustomLogs.ps1 5
-
-param (
-    [Parameter(Mandatory=$true)][int]$sleepSeconds
-)
-
-$logFolder = "c:\\JavaLogs"
-if (!(Test-Path -Path $logFolder))
-{
-    mkdir $logFolder
-}
-
-$logFileName = "TestLog-$(Get-Date -format yyyyMMddhhmm).log"
-do
-{
-    $count++
-    $randomContent = New-Guid
-    $logRecord = "$(Get-Date -format s)Z Record number $count with random content $randomContent"
-    $logRecord | Out-File "$logFolder\\$logFileName" -Encoding utf8 -Append
-    Start-Sleep $sleepSeconds
-}
-while ($true)
-
-```
-
-
-## Example
-Consider the following log file used by an application running on a virtual machine. The log files are stored in the `C:\Logs` folder and have a name that starts with `AppLog` followed by the date. For 
-example, `appLog240621.txt`.
-
-:::image type="content" source="media/data-collection-text-log/example-text-logs.png" lightbox="media/data-collection-text-log/example-text-logs.png" alt-text="Screenshot that shows contents of example text log file.":::
-
-The contents of a log file are shown in the following image. Each line is comma-delimited and contains the following fields: `Time`, `Code`, `Severity`,`Module`, and `Message`.
-
-:::image type="content" source="media/data-collection-text-log/example-text-contents.png" lightbox="media/data-collection-text-log/example-text-contents.png" alt-text="Screenshot that shows contents of example text log file.":::
-
-The following sections show different options for collection this log data.
-
-### Simple table with single column
-This strategy uses a table with a single column called `RawData`. No transformation is required since the table corresponds to the default schema of the log file.
-
-
-
-### Parse log data into columns
-This strategy uses a table with a column for each field in the log file. A transformation is used to parse each 
 
 
 

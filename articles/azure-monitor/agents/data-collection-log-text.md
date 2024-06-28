@@ -114,25 +114,48 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 ### [Resource Manager template](#tab/arm)
 
+Use the following ARM template to create or modify a DCR for collecting text log files. In addition to the parameter values, you may need to modify the following values in the template:
+
+- `columns`: Remove the `FilePath` column if you don't want to collect it.
+- `transformKql`: Modify the default transformation if you want to modify or filter the incoming stream, for example to parse the log entry into multiple columns. The output schema of the transformation must match the schema of the target table.
+
+> [!IMPORTANT]
+> If you create the DCR using an ARM template, you still must associate the DCR with the agents that will use it. You can edit the DCR in the Azure portal and select the agents as described in [Add resources](./azure-monitor-agent-data-collection.md#add-resources)
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "dataCollectionRuleName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Unique name for the DCR. "
+            },
         },
         "location": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
+            },
         },
         "filePatterns": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
+            },
         },
         "tableName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Name of destination table in your Log Analytics workspace. "
+            },
         },
         "workspaceResourceId": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the Log Analytics workspace with the target table."
+            },
         }
     },
     "variables": {
@@ -223,11 +246,11 @@ The following transformation parses the data into separate columns. Because `spl
 source | project d = split(RawData,",") | project TimeGenerated=todatetime(d[0]), Code=toint(d[1]), Severity=tostring(d[2]), Module=tostring(d[3]), Message=tostring(d[4])
 ```
 
-:::image type="content" source="media/data-collection-log-text/delimited-results.png" lightbox="media/data-collection-log-text/delimited-results.png" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
+:::image type="content" source="media/data-collection-log-text/delimited-configuration.png" lightbox="media/data-collection-log-text/delimited-configuration.png" alt-text="Screenshot that shows configuration of comma-delimited file collection.":::
 
 Retrieving this data with a log query would return the following results.
 
-:::image type="content" source="media/data-collection-log-text/delimited-results.png" lightbox="media/data-collection-log-text/delimited-resultspng" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
+:::image type="content" source="media/data-collection-log-text/delimited-configuration.png" lightbox="media/data-collection-log-text/delimited-configuration.png" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
 
 
 
