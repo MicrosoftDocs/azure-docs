@@ -74,9 +74,9 @@ The following table provides the list of attributes needed to define a tumbling 
 
 | Property name | Description  | Type | Required |
 |---|---|---|---|
-| type  | All the existing tumbling window triggers are displayed in this dropdown list. Choose the trigger to take dependency on.  | `TumblingWindowTriggerDependencyReference` or `SelfDependencyTumblingWindowTriggerReference` | Yes |
-| offset | Offset of the dependency trigger. Provide a value in the timespan format. Both negative and positive offsets are allowed. This property is mandatory if the trigger is depending on itself. In all other cases, it's optional. Self-dependency should always be a negative offset. If no value is specified, the window is the same as the trigger itself. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
-| size | Size of the dependency tumbling window. Provide a positive timespan value. This property is optional. | Timespan<br/>(hh:mm:ss) | No  |
+| `type`  | All the existing tumbling window triggers are displayed in this dropdown list. Choose the trigger to take dependency on.  | `TumblingWindowTriggerDependencyReference` or `SelfDependencyTumblingWindowTriggerReference` | Yes |
+| `offset` | Offset of the dependency trigger. Provide a value in the timespan format. Both negative and positive offsets are allowed. This property is mandatory if the trigger is depending on itself. In all other cases, it's optional. Self-dependency should always be a negative offset. If no value is specified, the window is the same as the trigger itself. | Timespan<br/>(hh:mm:ss) | Self-Dependency: Yes<br/>Other: No |
+| `size` | Size of the dependency tumbling window. Provide a positive timespan value. This property is optional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
 > A tumbling window trigger can depend on a maximum of five other triggers.
@@ -139,7 +139,7 @@ The following scenarios show the use of tumbling window dependency properties.
 
 ### Dependency on another tumbling window trigger
 
-The following example shows a daily telemetry processing job that depends on another daily job aggregating the last seven days output and generates seven-day rolling window streams.
+The following example shows a daily telemetry processing job that depends on another daily job aggregating the last seven days of output and generates seven-day rolling window streams.
 
 :::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png" alt-text="Diagram that shows a dependency example.":::
 
@@ -147,7 +147,7 @@ The following example shows a daily telemetry processing job that depends on ano
 
 The following example shows a daily job with no gaps in the output streams of the job.
 
-:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png" alt-text="Diagram that shows a self-dependency example.":::
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png" alt-text="Diagram that shows a self-dependency example with no gaps in the output streams.":::
 
 ## Monitor dependencies
 
@@ -180,4 +180,4 @@ To rerun a window in the Gantt chart view, select the solid color box for the wi
 
 ## Related content
 
-[Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md)
+- [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md)
