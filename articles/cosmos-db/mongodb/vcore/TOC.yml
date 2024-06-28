@@ -90,6 +90,8 @@
       href: how-to-private-link.md
     - name: Optimize index creation
       href: how-to-create-indexes.md
+    - name: Create wildcard indexes
+      href: how-to-create-wildcard-indexes.md
 - name: Reference
   items:
     - name: Release notes
