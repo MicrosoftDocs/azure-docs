@@ -1,16 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/storage/common/storage-c-plus-plus-enumeration.md",
-      "redirect_url": "/previous-versions/azure/storage/common/storage-c-plus-plus-enumeration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/queues/queues-v8-samples-java.md",
-      "redirect_url": "/previous-versions/azure/storage/queues/queues-v8-samples-java",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
       "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
       "redirect_document_id": false
