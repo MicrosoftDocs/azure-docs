@@ -46,10 +46,11 @@ The table created in the script has two columns:
 
 - `TimeGenerated` (datetime) [Required]
 - `RawData` (string) [Optional if table schema provided]
-- 'FilePath' (string) [Optional]
+- `FilePath` (string) [Optional]
+- `Computer` (string) [Optional]
 - `YourOptionalColumn` (string) [Optional]
 
-The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
+The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' or 'Computer' to either stream is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
 
 Your column names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
 
@@ -76,7 +77,11 @@ $tableParams = @'
                                 "name": "FilePath",
                                 "type": "String"
                        },
-                      {
+                       {
+                                "name": "Computer",
+                                "type": "String"
+                       },
+                       {
                                 "name": "YourOptionalColumn",
                                 "type": "String"
                      }
