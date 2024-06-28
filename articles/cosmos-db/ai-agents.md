@@ -20,7 +20,7 @@ Unlike standalone large language models (LLMs) or rule-based software/hardware s
 -	[Planning](#reasoning-and-planning). AI agents can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
 -	[Tool usage](#frameworks). Advanced AI agents can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
 -	[Perception](#frameworks). AI agents can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
--	[Memory](#agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
+-	[Memory](#ai-agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
 
 > [!NOTE]
 > The usage of the term "memory" in the context of AI agents should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
@@ -90,17 +90,20 @@ For advanced and autonomous planning and execution workflows, [AutoGen](https://
 > [!TIP]
 > See the implementation sample section at the end of this article for tutorial on building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
 
-### Agent memory system
+### AI agent memory system
 
 The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a [pure vector database](vector-database.md#integrated-vector-database-vs-pure-vector-database) for embedding management.
 
 However, this practice of using a complex web of standalone databases can hurt AI agent's performance. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, many of the frequently used database services are not optimal for the speed and scalability that AI agent systems need. These databases' individual weaknesses are exacerbated in multi-agent systems:
 
-**In-memory databases** are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
+#### In-memory databases
+In-memory databases are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
 
-**Relational databases** are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
+#### Relational databases
+Relational databases are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
 
-**Pure vector databases** tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector databases nowadays typically offer
+#### Pure vector databases
+Pure vector databases tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector databases nowadays typically offer
 - no guarantee on reads & writes
 - limited ingestion throughput
 - low availability (below 99.9%, or annualized outage of almost 9 hours or more)
@@ -111,7 +114,7 @@ However, this practice of using a complex web of standalone databases can hurt A
 
 The next section dives deeper into what makes a robust AI agent memory system.
 
-## Memory can make or break AI agents
+## Memory can make or break agents
 
 Just as efficient database management systems are critical to software applications' performances, it is critical to provide LLM-powered agents with relevant and useful information to guide their inference. Robust memory systems enable organizing and storing different kinds of information that the agents can retrieve at inference time.
 
@@ -119,7 +122,7 @@ Currently, LLM-powered applications often use [retrieval-augmented generation](v
 
 For example, if the task is to write code, vector search may not be able to retrieve the syntax tree, file system layout, code summaries, or API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, vector search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
-Weaving together [a web of standalone in-memory, relational, and vector databases](#agent-memory-system) is not an optimal solution for the varied data types, either. This approach may work for prototypical agent systems; however, it adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+Weaving together [a web of standalone in-memory, relational, and vector databases](#ai-agent-memory-system) is not an optimal solution for the varied data types, either. This approach may work for prototypical agent systems; however, it adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 Therefore, a robust memory system should have the following characteristics:
 
@@ -139,9 +142,9 @@ At the macro level, memory systems should enable multiple AI agents to collabora
 
 Not only are memory systems critical to AI agents; they are also important for the humans who develop, maintain, and use these agents. For example, humans may need to supervise agents' planning and execution workflows in near real-time. While supervising, humans may interject with guidance or make in-line edits of agents' dialogues or monologues. Humans may also need to audit the reasoning and actions of agents to verify the validity of the final output. Human-agent interactions are likely in natural or programming languages, while agents "think," "learn," and "remember" through embeddings. This data modal difference poses another requirement on memory systems' consistency across data modalities.
 
-## Infastructure for a robust memory system
+## Building a robust AI agent memory system
 
-The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases](#agent-memory-system) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases](#ai-agent-memory-system) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 In place of all the standalone databases, Azure Cosmos DB can serve as a unified solution for AI agent memory systems. Its robustness successfully [enabled OpenAI's ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world's first globally distributed [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service that offers a serverless mode. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
@@ -181,7 +184,7 @@ The five available [consistency levels](consistency-levels.md) (from strong to e
 
 This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application.
 
-Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-ai-agents) uses the [vector database](vector-database.md) and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings, ensuring [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system). It operates within a Python FastAPI backend and support user interactions through a React JS user interface.
+Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-agents) uses the [vector database](vector-database.md) and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings, ensuring [speed, scale, and simplicity](#building-a-robust-ai-agent-memory-system). It operates within a Python FastAPI backend and support user interactions through a React JS user interface.
 
 ### Prerequisites
 
