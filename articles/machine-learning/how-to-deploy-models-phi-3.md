@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 07/01/2024
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: mopeakande
