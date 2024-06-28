@@ -357,7 +357,7 @@ You can use managed identities in your scale rules to authenticate with Azure se
 > [!NOTE]
 > Managed identity authentication in scale rules is in public preview. It's available in API version `2024-02-02-preview`.
 
-The following ARM template example shows how to use a managed identities with an Azure Queue Storage scale rule:
+The following ARM template example shows how to use a managed identity with an Azure Queue Storage scale rule:
 
 The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
 
@@ -384,7 +384,7 @@ Container Apps allows you to specify [init containers](containers.md#init-contai
 
 Starting in API version `2024-02-02-preview`, you can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
 
-- `Init`: Available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
+- `Init`: Available only to init containers. Use this when you want to perform some initialization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
 - `Main`: Available only to main containers. Use this if your init container does not need managed identity.
 - `All`: Available to all containers. This value is the default setting.
 - `None`: Not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
