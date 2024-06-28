@@ -54,7 +54,7 @@ In this section, you create two virtual machines to host the IIS websites.
 
 3. In **Create virtual machine**, enter or select the following information:
 
-    | Setting | Value                                          |
+    | Setting | Value |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
@@ -85,7 +85,7 @@ In this section, you create two virtual machines to host the IIS websites.
     | Subnet | Select **backend-subnet(10.1.0.0/24)** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In **Create network security group**, enter **myNSG** in **Name**. </br> In **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> In **Priority**, enter **100**. </br> In **Name**, enter **myNSGrule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**.</br> In **Create network security group**, enter **myNSG** in **Name**.</br> In **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**.</br> In **Priority**, enter **100**. </br> In **Name**, enter **myNSGrule** </br> Select **Add** </br> Select **OK** |
    
 6. Select **Review + create**. 
   
