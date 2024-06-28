@@ -12,7 +12,6 @@ ms.custom: innovation-engine, aks-related-content
 
 In this article, you deploy a highly available PostgreSQL database on AKS.
 
-* Review the prerequisites and deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview] if you haven't already.
 * If you haven't already created the required infrastructure for this deployment, follow the steps in [Create infrastructure for deploying a highly available PostgreSQL database on AKS][create-infrastructure] to get set up, and then you can return to this article.
 
 
@@ -307,30 +306,30 @@ kubectl get nodes \
 domain.beta.kubernetes.io/zone"}'
 ```
 
-    Your output should resemble the following example output with the availability zone shown for each node:
+Your output should resemble the following example output with the availability zone shown for each node:
 
-    ```output
-    {
-        "node": "aks-postgres-15810965-vmss000000",
-        "zone": "eastus-1"
-    }
-    {
-        "node": "aks-postgres-15810965-vmss000001",
-        "zone": "eastus-2"
-    }
-    {
-        "node": "aks-postgres-15810965-vmss000002",
-        "zone": "eastus-3"
-    }
-    {
-        "node": "aks-systempool-26112968-vmss000000",
-        "zone": "eastus-1"
-    }
-    {
-        "node": "aks-systempool-26112968-vmss000001",
-        "zone": "eastus-2"
-    }
-    ```
+```output
+{
+    "node": "aks-postgres-15810965-vmss000000",
+    "zone": "eastus-1"
+}
+{
+    "node": "aks-postgres-15810965-vmss000001",
+    "zone": "eastus-2"
+}
+{
+    "node": "aks-postgres-15810965-vmss000002",
+    "zone": "eastus-3"
+}
+{
+    "node": "aks-systempool-26112968-vmss000000",
+    "zone": "eastus-1"
+}
+{
+    "node": "aks-systempool-26112968-vmss000001",
+    "zone": "eastus-2"
+}
+```
 
 ## Connect to PostgreSQL and create a sample dataset
 
