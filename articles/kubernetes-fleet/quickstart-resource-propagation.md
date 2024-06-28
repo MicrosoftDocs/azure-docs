@@ -208,9 +208,19 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
 
 1. Replace the placeholder values with your own, and select **Add**.
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="./media/quickstart-resource-propagation/create-resource-propagation-inline.png" lightbox="./media/quickstart-resource-propagation/create-resource-propagation.png" alt-text="The Azure Portal page for creating a resource placement, showing the YAML template with placeholder values.":::
 
 1. Verify that the cluster resource placement is created successfully.
+
+:::image type="content" source="./media/quickstart-resource-propagation/overview-cluster-resource-inline.png" lightbox="./media/quickstart-resource-propagation/overview-cluster-resource.png" alt-text="The Azure Portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+
+1. To see more details on an individual cluster resource placement, select it from the list.
+
+:::image type="content" source="./media/quickstart-resource-propagation/overview-cluster-placement-details-inline.png" lightbox="./media/quickstart-resource-propagation/overview-cluster-placement-details.png" alt-text="The Azure Portal overview page for an individual cluster resource placement, showing events and details.":::
+
+1. You can view additional details on the cluster resource placement's snapshots, bindings, works, and scheduling policy snapshots using the individual tabs. For example, select the **Cluster Resources Snapshots** tab.
+
+:::image type="content" source="./media/quickstart-resource-propagation/cluster-resource-snapshots-inline.png" lightbox="./media/quickstart-resource-propagation/cluster-resource-snapshots.png" alt-text="The Azure Portal overview page for an individual cluster resource placement, showing events and details.":::
 
 ---
 
@@ -225,6 +235,8 @@ kubectl delete clusterresourceplacement crp
 ```
 
 # [Portal](#tab/azure-portal)
+
+If you no longer wish to use your cluster resource placement, you can delete it from the Azure portal:
 
 1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
 

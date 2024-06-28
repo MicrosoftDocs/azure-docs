@@ -225,14 +225,27 @@ spec:
 
 In this example, a cluster would only receive extra weight if it has the label `env=prod`. If it satisfies that label based constraint, then the cluster is given proportional weight based on the amount of total CPU in that member cluster.
 
-
 ## Clean up resources
 
-If you no longer wish to use the `ClusterResourcePlacement` objects created in this article, you can delete them using the `kubectl delete` command. For example:
+# [Azure CLI](#tab/azure-cli)
+
+If you no longer wish to use the `ClusterResourcePlacement` object, you can delete it using the `kubectl delete` command. The following example deletes the `ClusterResourcePlacement` object named `crp`:
 
 ```bash
-kubectl delete clusterresourceplacement <name-of-the-crp-resource>
+kubectl delete clusterresourceplacement crp
 ```
+
+# [Portal](#tab/azure-portal)
+
+If you no longer wish to use your cluster resource placement, you can delete it from the Azure portal:
+
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
+
+1. Select the cluster resource placement objects you want to delete, then select **Delete**.
+
+1. In the **Delete** tab, verify the correct objects are chosen. Once you're ready, select **Confirm delete** and **Delete**.
+
+---
 
 ## Next steps
 
