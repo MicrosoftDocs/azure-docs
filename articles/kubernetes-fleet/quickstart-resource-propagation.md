@@ -220,7 +220,7 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
 
 1. You can view additional details on the cluster resource placement's snapshots, bindings, works, and scheduling policy snapshots using the individual tabs. For example, select the **Cluster Resources Snapshots** tab.
 
-:::image type="content" source="./media/quickstart-resource-propagation/cluster-resource-snapshots-inline.png" lightbox="./media/quickstart-resource-propagation/cluster-resource-snapshots.png" alt-text="The Azure Portal overview page for an individual cluster resource placement, showing events and details.":::
+:::image type="content" source="./media/quickstart-resource-propagation/cluster-resource-snapshots-inline.png" lightbox="./media/quickstart-resource-propagation/cluster-resource-snapshots.png" alt-text="The Azure Portal page for an a cluster resource placement, with the cluster resources snapshots tab selected.":::
 
 ---
 
