@@ -4,7 +4,7 @@ description: Learn how to create, change, or delete a virtual network peering. W
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 06/27/2024
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
