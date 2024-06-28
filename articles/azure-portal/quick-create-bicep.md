@@ -10,7 +10,7 @@ ms.date: 12/11/2023
 
 A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and organized view of your cloud resources. This quickstart shows how to deploy a Bicep file to create a dashboard. The example dashboard shows the performance of a virtual machine (VM), along with some static information and links.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
