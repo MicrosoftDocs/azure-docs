@@ -12,9 +12,6 @@ ms.custom: references_regions, devx-track-azurecli, linux-related-content
 
 # Expand virtual hard disks on a Linux VM
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks. You can't expand the size of striped volumes.
@@ -172,7 +169,7 @@ If a data disk was expanded without downtime using the procedure mentioned previ
 
 The remainder of this article uses the OS disk for the examples of the procedure for increasing the size of a volume at the OS level.  If the expanded disk is a data disk, use the [previous guidance for identifying the data disk device](#identifyDisk), and follow these instructions as a guideline, substituting the data disk device (for example `/dev/sda`), partition numbers, volume names, mount points, and filesystem formats, as necessary.
 
-All Linux OS guidance should be viewed as generic and may apply on any distribution, but generally matches the conventions of the named marketplace publisher.  Reference the Red Hat documents for the package requirements on any distribution claiming Red Hat compatibility, such as CentOS and Oracle.
+All Linux OS guidance should be viewed as generic and may apply on any distribution, but generally matches the conventions of the named marketplace publisher.  Reference the Red Hat documents for the package requirements on any distribution based on Red Hat or claiming Red Hat compatibility.
 
 ### Increase the size of the OS disk
 
@@ -344,7 +341,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 
    In the preceding example, we can see that the file system size for the OS disk has been increased.
 
-# [Red Hat/CentOS with LVM](#tab/rhellvm)
+# [Red Hat with LVM](#tab/rhellvm)
 
 1. Follow the procedure above to expand the disk in the Azure infrastructure.
 
@@ -410,10 +407,10 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts  This package is preinstalled on most marketplace images
 
    ```bash
-   yum install cloud-utils-growpart gdisk
+   dnf install cloud-utils-growpart gdisk
    ```
 
-   In RHEL/CentOS 8.x VMs you can use `dnf` command instead of `yum`.
+   In Red Hat versions 7 and below you can use `yum` command instead of `dnf`.
 
 1. Determine which disk and partition holds the LVM physical volume (PV) or volumes in the volume group named **rootvg** by using the **pvscan** command. Note the size and free space listed between the brackets (**[** and **]**).
 
@@ -529,7 +526,7 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
 > [!NOTE]
 > To use the same procedure to resize any other logical volume, change the **lv** name in step **12**.
 
-# [Red Hat/CentOS without LVM](#tab/rhelraw)
+# [Red Hat without LVM](#tab/rhelraw)
 
 1. Follow the procedure above to expand the disk in the Azure infrastructure.
 
@@ -544,11 +541,11 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk and the gdisk handler for GPT disk layouts. This package is preinstalled on most marketplace images
 
    ```bash
-   yum install cloud-utils-growpart gdisk
+   dnf install cloud-utils-growpart gdisk
    ```
 
-   In RHEL/CentOS 8.x VMs you can use `dnf` command instead of `yum`.
-
+   In Red Hat versions 7 and below you can use `yum` command instead of `dnf`.
+   
 1. Use the **lsblk -f** command to verify the partition and filesystem type holding the root (**/**) partition
 
    ```bash
