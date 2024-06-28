@@ -1223,8 +1223,6 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
-  - name: Compare playbooks, workbooks, and notebooks
-    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1281,6 +1279,10 @@
           href: normalization-schema-web.md
         - name: Legacy network normalization schema
           href: normalization-schema-v1.md
+  - name: Automation and response references
+    items:
+    - name: SOAR content catalog
+      href: sentinel-soar-content.md
   - name: Data collection references
     items:
     - name: Data source schema reference
@@ -1325,12 +1327,10 @@
         href: data-connector-ui-definitions-reference.md
       - name: Data connectors API reference
         href: data-connector-connection-rules-reference.md
-    - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender
-      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules
-  - name: Automation and response references
-    items:
-    - name: SOAR content catalog
-      href: sentinel-soar-content.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
+  - name: Operations guide
+    href: ops-guide.md
 - name: Resources
   items:
   - name: Sample workspace architecture
