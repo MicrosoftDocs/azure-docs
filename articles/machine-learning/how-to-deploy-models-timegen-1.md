@@ -250,3 +250,4 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
+- [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
