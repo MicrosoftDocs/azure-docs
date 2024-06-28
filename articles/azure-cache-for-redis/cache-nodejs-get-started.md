@@ -30,9 +30,9 @@ The [node-redis](https://github.com/redis/node-redis) library is the primary Nod
 npm install redis
 ```
 
-## [Microsoft EntraID Authentication (recommended)](#tab/entraid)
+## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
-## Enable Microsoft EntraID and add a User or Service Principal
+## Enable Microsoft Entra ID and add a User or Service Principal
 <--Fran, we probably need an include file on enabling EntraID-->
 Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication)
 
@@ -45,10 +45,17 @@ npm install @azure/identity
 
 ## Create a new Node.js app
 
+1.Add environment variables for your **Host name** and **Service Principal ID**, which is the object ID your Entra ID service principal or user. In the Azure Portal, this is shown as the _Username_. 
+
+```cmd
+set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
+set REDIS_SERVICE_PRINCIPAL_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+ 
 1. Create a new script file named *redistest.js*.
 1. Add the following example JavaScript to the file.
    
-```node
+```javascript
 const { createClient } = require("redis");
 const { DefaultAzureCredential } = require("@azure/identity");
 
@@ -63,9 +70,9 @@ async function main() {
 
   // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
   const cacheConnection = createClient({
-    username: process.env.REDIS_SERVICE_PRINCIPAL_NAME,
+    username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
     password: accessToken.token,
-    url: `redis://${process.env.REDIS_HOSTNAME}:6380`,
+    url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
     pingInterval: 100000,
     socket: { 
       tls: true,
@@ -129,6 +136,113 @@ This code shows you how to connect to an Azure Cache for Redis instance using th
     
     Done
     ```
+
+## Create a sample javascript app with reauthentication
+Microsoft EntraID access tokens have limited lifespans, [averaging 75 minutes](../../entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Javascript. 
+
+1. Create a new script file named *redistestreauth.js*.
+1. Add the following example JavaScript to the file.
+
+```javascript
+const { createClient } = require("redis");
+const { DefaultAzureCredential } = require("@azure/identity");
+
+async function returnPassword(credential) {
+    const redisScope = "https://redis.azure.com/.default";
+
+    // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
+    return credential.getToken(redisScope);
+}
+
+async function main() {
+  // Construct a Token Credential from Identity library, e.g. ClientSecretCredential / ClientCertificateCredential / ManagedIdentityCredential, etc.
+  const credential = new DefaultAzureCredential();
+  let accessToken = await returnPassword(credential);
+
+  // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
+  let cacheConnection = createClient({
+    username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
+    password: accessToken.token,
+    url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
+    pingInterval: 100000,
+    socket: { 
+      tls: true,
+      keepAlive: 0 
+    },
+  });
+
+  cacheConnection.on("error", (err) => console.log("Redis Client Error", err));
+  await cacheConnection.connect();
+
+  for (let i = 0; i < 3; i++) {
+    try {
+        // PING command
+        console.log("\nCache command: PING");
+        console.log("Cache response : " + await cacheConnection.ping());
+
+        // SET
+        console.log("\nCache command: SET Message");
+        console.log("Cache response : " + await cacheConnection.set("Message",
+            "Hello! The cache is working from Node.js!"));
+
+        // GET
+        console.log("\nCache command: GET Message");
+        console.log("Cache response : " + await cacheConnection.get("Message"));
+
+        // Client list, useful to see if connection list is growing...
+        console.log("\nCache command: CLIENT LIST");
+        console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+      break;
+    } catch (e) {
+      console.log("error during redis get", e.toString());
+      if ((accessToken.expiresOnTimestamp <= Date.now())|| (redis.status === "end" || "close") ) {
+        await redis.disconnect();
+        accessToken = await returnPassword(credential);
+        cacheConnection = createClient({
+          username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
+          password: accessToken.token,
+          url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
+          pingInterval: 100000,
+          socket: {
+            tls: true,
+            keepAlive: 0
+          },
+        });
+      }
+    }
+  }
+}
+
+main().then((result) => console.log(result)).catch(ex => console.log(ex));
+```
+1. Run the script with Node.js.
+
+    ```bash
+    node redistestreauth.js
+    ```
+
+1. Example the output.
+
+    ```console
+    Cache command: PING
+    Cache response : PONG
+    
+    Cache command: GET Message
+    Cache response : Hello! The cache is working from Node.js!
+    
+    Cache command: SET Message
+    Cache response : OK
+    
+    Cache command: GET Message
+    Cache response : Hello! The cache is working from Node.js!
+    
+    Cache command: CLIENT LIST
+    Cache response : id=10017364 addr=76.22.73.183:59380 fd=221 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=26 qbuf-free=32742 argv-mem=10 obl=0 oll=0 omem=0 tot-mem=61466 ow=0 owmem=0 events=r cmd=client user=default numops=6
+   ```
+>[!NOTE]
+>For additional examples of using Microsoft Entra ID to authenticate to Redis using the node-redis library, please see [this GitHub repo](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureCacheForRedis/node-redis.md)
+>
+
 
 ## [Access Key Authentication](#tab/accesskey)
 
