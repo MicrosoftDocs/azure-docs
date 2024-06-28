@@ -3,8 +3,8 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
+ms.date: 06/27/2024
 ms.custom: linux-related-content
-ms.date: 05/30/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -18,7 +18,7 @@ This article lists all supported, out-of-the-box data connectors and links to ea
 
 > [!IMPORTANT]
 > - Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+> - For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the the Azure Monitor Agent (AMA). For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 > - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 Data connectors are available as part of the following offerings:
@@ -37,7 +37,12 @@ Data connectors are available as part of the following offerings:
 
 ## Syslog and Common Event Format (CEF) connectors
 
-Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the setup by configuring the appropriate devices or appliances. For more information, see the solution provider's installation instructions or contact the solution provider.
+Log collection from many security appliances and devices are supported by the data connectors **Syslog via AMA** or **Common Event Format (CEF) via AMA** in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing the Microsoft Sentinel solution for a security appliance or device from the **Content hub** in Microsoft Sentinel. Then, configure the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector that's appropriate for the Microsoft Sentinel solution you installed. Complete the setup by configuring the security device or appliance. Find instructions to configure your security device or appliance in one of the following articles:
+
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+
+Contact the solution provider for more information or where information is unavailable for the appliance or device.
 
 [comment]: <> (DataConnector includes start)
 

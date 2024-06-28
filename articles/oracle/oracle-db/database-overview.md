@@ -40,10 +40,10 @@ Oracle Database@Azure is available in the following locations. Oracle Database@A
 |Azure region|Oracle Exadata Database@Azure|Oracle Autonomous Database@Azure|
 |-------------------------|:-------------:|:--------------:|
 |East US (Virginia)|&check; | &check;|
-|Germany West Central (Frankfurt)| &check;| |
+|Germany West Central (Frankfurt)| &check;|&check; |
 |France Central (Paris)|&check; | |
-|UK South (London)|&check; | |
-|Australia East (Sydney)| &check;| |
+|UK South (London)|&check; |&check; |
+
 
 
 ## Azure Support scope and contact information

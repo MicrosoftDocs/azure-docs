@@ -12,10 +12,6 @@ The following table lists the limits associated with the different service tiers
 | Messages/day |400,000 |6,000,000 |300,000,000 |8,000 |
 | Maximum units |200 |200 |10 |1 |
 
-> [!NOTE]
-> If you anticipate using more than 200 units with an S1 or S2 tier hub or 10 units with an S3 tier hub, contact Microsoft Support.
->
-
 The following table lists the limits that apply to IoT Hub resources.
 
 | Resource | Limit |
@@ -47,10 +43,7 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum device stream data transfer | 300 MB per day (for S1, S2, S3, and F1 only) |
 
 > [!NOTE]
-> If you need more than 50 paid IoT hubs in an Azure subscription, contact Microsoft Support.
-
-> [!NOTE]
-> Currently, the total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000.
 
 IoT Hub throttles requests when the following quotas are exceeded.
 

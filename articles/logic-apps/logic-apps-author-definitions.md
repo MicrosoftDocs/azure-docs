@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Create, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 When you create enterprise integration solutions with automated workflows in
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), the underlying workflow definitions use simple and declarative JavaScript Object Notation (JSON) along with the [Workflow Definition Language (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md) for their description and validation. These formats make workflow definitions easier to read and understand without knowing much about code.
