@@ -252,7 +252,11 @@ rules:
 
 # [Portal](#tabs/azure-portal)
 
-1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource.
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
+
+1. Select **Create**.
+
+1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource. When you're ready, select **Add**.
 
     ```yaml
     apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -277,12 +281,6 @@ rules:
     ```
 
     This example distributes resources across all clusters labeled with `env: prod`. As the changes are implemented, the corresponding `ClusterResourceOverride` configurations will be applied to the designated clusters, triggered by the selection of matching cluster role resource, `secret-reader`.
-
-1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
-
-1. Select **Create**.
-
-1. Replace the placeholder values with your own, and select **Add**.
 
     :::image type="content" source="./media/quickstart-resource-propagation/create-resource-propagation-inline.png" lightbox="./media/quickstart-resource-propagation/create-resource-propagation.png" alt-text="The Azure Portal page for creating a resource placement, showing the YAML template with placeholder values.":::
 
