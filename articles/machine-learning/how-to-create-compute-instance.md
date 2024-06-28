@@ -126,7 +126,6 @@ Where the file *create-instance.yml* is:
         * If you're using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network. You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
 
         * If you're using an Azure Machine Learning __managed virtual network__, the compute instance is created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md).
-    * Allow root access. (preview) $$$ DON'T SEE THIS ANYMORE?
 
 1. Select **Applications** if you want to add custom applications to use on your compute instance, such as RStudio or Posit Workbench.  See [Add custom applications such as RStudio or Posit Workbench](#add-custom-applications-such-as-rstudio-or-posit-workbench).
 1. Select **Tags** if you want to add additional information to categorize the compute instance.
@@ -440,14 +439,12 @@ You can assign a system- or user-assigned [managed identity](../active-directory
 
 Use SDK V2 to create a compute instance with assign system-assigned managed identity:
 
-$$$ WHAT IS THIS??? IS THIS THE RIGHT CODE?
 ```python
 from azure.ai.ml import MLClient
 from azure.identity import ManagedIdentityCredential
 client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
 credential = ManagedIdentityCredential(client_id=client_id)
 ml_client = MLClient(credential, subscription_id, resource_group, workspace)
-data = ml_client.data.get(name=data_name, version="1")
 ```
 
 You can also use SDK V1:
