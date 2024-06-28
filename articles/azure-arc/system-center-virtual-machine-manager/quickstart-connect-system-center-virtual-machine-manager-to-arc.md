@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 06/26/2024
+ms.date: 06/28/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -35,7 +35,7 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 ## Prepare SCVMM management server
 
--	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 16 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
+-	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 32 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
 -	Ensure that SCVMM administrator account has the appropriate permissions.
 
 ## Download the onboarding script
@@ -60,7 +60,7 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
 1. Select **Next: Tags >**.
-1. Assign Azure tags to your resources in **Value** under **Physical location tags**. You can add additional tags to help you organize your resources to facilitate administrative tasks under **Custom tags**.
+1. Assign Azure tags to your resources in **Value** under **Physical location tags**. You can add additional tags to help you organize your resources to facilitate administrative tasks using custom tags.
 1. Select **Next: Download and run script >**.
 1. If your subscription isn't registered with all the required resource providers, select **Register** to proceed to next step.
 1. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the workstation.
