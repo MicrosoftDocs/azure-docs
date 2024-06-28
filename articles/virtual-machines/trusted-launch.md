@@ -78,12 +78,11 @@ Trusted Launch doesn't increase existing VM pricing costs.
 
 ## Unsupported features
 
-> [!NOTE]
-> Currently, the following VM features aren't supported with Trusted Launch:
->
->- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (currently in preview).
->- [Managed Image](capture-image-resource.yml) (customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images)).
->- Nested virtualization (v5 VM size families supported).
+Currently, the following VM features aren't supported with Trusted Launch:
+
+- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (currently in preview).
+- [Managed Image](capture-image-resource.yml) (customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images)).
+- Nested virtualization (v5 VM size families supported).
 
 ## Secure Boot
 
