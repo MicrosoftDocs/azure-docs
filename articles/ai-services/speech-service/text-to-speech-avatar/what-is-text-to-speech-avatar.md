@@ -76,7 +76,7 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 
 ## Available locations
 
-The text to speech avatar feature is only available in the following service regions: Southeast Asia, North Europe, West Europe, Sweden Central, 	South Central US, and West US 2. 
+The text to speech avatar feature is only available in the following service regions: Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2. 
 
 ### Responsible AI 
 
