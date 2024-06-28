@@ -37,9 +37,9 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 >
 > Instead, consider using [sampling](./sampling.md).
 
-### Create a telemetry processor for .NET applications
+### .NET applications
 
-1. To create a filter, implement `ITelemetryProcessor`.
+1. Implement `ITelemetryProcessor`.
 
     Telemetry processors construct a chain of processing. When you instantiate a telemetry processor, you're given a reference to the next processor in the chain. When a telemetry data point is passed to the process method, it does its work and then calls (or doesn't call) the next telemetry processor in the chain.
 
@@ -112,7 +112,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     
     Telemetry clients created after this point use your processors.
 
-    #### [ASP.NET Core/Worker service](#tab/dotnet)
+    #### [ASP.NET Core/Worker service](#tab/dotnetcore)
     
     > [!NOTE]
     > Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
@@ -135,9 +135,9 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 
     ---
     
-#### Example filters
+### Example filters
 
-##### Synthetic requests
+#### Synthetic requests
 
 Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic and ingestion size by filtering them at the SDK itself.
 
@@ -151,7 +151,7 @@ public void Process(ITelemetry item)
 }
 ```
 
-##### Failed authentication
+#### Failed authentication
 
 Filter out requests with a "401" response.
 
@@ -172,7 +172,7 @@ public void Process(ITelemetry item)
 }
 ```
 
-##### Filter out fast remote dependency calls
+#### Filter out fast remote dependency calls
 
 If you want to diagnose only calls that are slow, filter out the fast ones.
 
@@ -194,19 +194,19 @@ public void Process(ITelemetry item)
 }
 ```
 
-##### Diagnose dependency issues
+#### Diagnose dependency issues
 
 [This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
 
 <a name="add-properties"></a>
 
-### Java
+### Java applications
 
 To learn more about telemetry processors and their implementation in Java, reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
 
 ### JavaScript web applications
 
-**Filter by using ITelemetryInitializer**
+You can filter telemetry from JavaScript web applications by using ITelemetryInitializer.
 
 1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that's being processed. Returning `false` from this callback results in the telemetry item to be filtered out.
 
@@ -233,92 +233,92 @@ For example, Application Insights for a web package collects telemetry about HTT
 
 If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This initializer includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors, so any enrichments done by initializers are visible to processors.
 
-### C#
+### .NET applications
 
-#### Define your initializer
+1. Define your initializer
 
-```csharp
-using System;
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
-
-namespace MvcWebRole.Telemetry
-{
-  /*
-   * Custom TelemetryInitializer that overrides the default SDK
-   * behavior of treating response codes >= 400 as failed requests
-   *
-   */
-    public class MyTelemetryInitializer : ITelemetryInitializer
+    ```csharp
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+    
+    namespace MvcWebRole.Telemetry
     {
-        public void Initialize(ITelemetry telemetry)
+      /*
+       * Custom TelemetryInitializer that overrides the default SDK
+       * behavior of treating response codes >= 400 as failed requests
+       *
+       */
+        public class MyTelemetryInitializer : ITelemetryInitializer
         {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
+            public void Initialize(ITelemetry telemetry)
             {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-        
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Properties["Overridden400s"] = "true";
+                var requestTelemetry = telemetry as RequestTelemetry;
+                // Is this a TrackRequest() ?
+                if (requestTelemetry == null) return;
+                int code;
+                bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+                if (!parsed) return;
+                if (code >= 400 && code < 500)
+                {
+                    // If we set the Success property, the SDK won't change it:
+                    requestTelemetry.Success = true;
+            
+                    // Allow us to filter these requests in the portal:
+                    requestTelemetry.Properties["Overridden400s"] = "true";
+                }
+                // else leave the SDK to set the Success property
             }
-            // else leave the SDK to set the Success property
         }
     }
-}
-```
+    ```
 
-#### Load your initializer
+2. Load your initializer
 
-##### [ASP.NET](#tab/dotnet)
-
-In ApplicationInsights.config:
-
-```xml
-<ApplicationInsights>
-  <TelemetryInitializers>
-    <!-- Fully qualified type name, assembly name: -->
-    <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
-    ...
-  </TelemetryInitializers>
-</ApplicationInsights>
-```
-
-Alternatively, you can instantiate the initializer in code, for example, in Global.aspx.cs:
-
-```csharp
-protected void Application_Start()
-{
-    // ...
-    TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
-}
-```
-
-See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
-
-##### [ASP.NET Core/Worker service](#tab/dotnetcore)
-
-> [!NOTE]
-> Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
-
-For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) or [WorkerService](worker-service.md#add-telemetry-initializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. Accomplish this step in the `Startup.ConfigureServices` method.
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility;
-using CustomInitializer.Telemetry;
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
-}
-```
-
----
+    #### [ASP.NET](#tab/dotnet)
+    
+    In ApplicationInsights.config:
+    
+    ```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+    ```
+    
+    Alternatively, you can instantiate the initializer in code, for example, in Global.aspx.cs:
+    
+    ```csharp
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+    ```
+    
+    See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+    
+    #### [ASP.NET Core/Worker service](#tab/dotnetcore)
+    
+    > [!NOTE]
+    > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
+    
+    For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) or [WorkerService](worker-service.md#add-telemetry-initializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. Accomplish this step in the `Startup.ConfigureServices` method.
+    
+    ```csharp
+    using Microsoft.ApplicationInsights.Extensibility;
+    using CustomInitializer.Telemetry;
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+    }
+    ```
+    
+    ---
 
 ### JavaScript telemetry initializers
 
