@@ -300,10 +300,9 @@ Validate that PostgreSQL is spread across multiple availability zones by retriev
 
 ```azurecli-interactive
 kubectl get nodes \
- --context $AKS_PRIMARY_CLUSTER_NAME \
---namespace $PG_NAMESPACE \
---output json | jq '.items[] | {node: .metadata.name, zone: .metadata.labels."failure- 
-domain.beta.kubernetes.io/zone"}'
+    --context $AKS_PRIMARY_CLUSTER_NAME \
+    --namespace $PG_NAMESPACE \
+    --output json | jq '.items[] | {node: .metadata.name, zone: .metadata.labels."failure-domain.beta.kubernetes.io/zone"}'
 ```
 
 Your output should resemble the following example output with the availability zone shown for each node:
@@ -506,7 +505,7 @@ You also create a second federated credential to map the new recovery cluster se
         --issuer "${AKS_PRIMARY_CLUSTER_OIDC_ISSUER}" \
         --subject system:serviceaccount:"${PG_NAMESPACE}":"${PG_PRIMARY_CLUSTER_NAME_RECOVERED}" \
         --audience api://AzureADTokenExchange
-      ```
+    ```
 
 1. Restore the on-demand backup using the Cluster CRD with the [`kubectl apply`][kubectl-apply] command.
 
@@ -636,18 +635,18 @@ You also retrieve the following endpoints from the Cluster IP service:
 
     ```azurecli-interactive
     export PG_PRIMARY_CLUSTER_RW_SERVICE=$(kubectl get services \
-      --namespace $PG_NAMESPACE \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      -l "cnpg.io/cluster" \
-      --output json | jq -r '.items[] | select(.metadata.name | endswith("-rw")) | .metadata.name')
+        --namespace $PG_NAMESPACE \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        -l "cnpg.io/cluster" \
+        --output json | jq -r '.items[] | select(.metadata.name | endswith("-rw")) | .metadata.name')
 
     echo $PG_PRIMARY_CLUSTER_RW_SERVICE
 
     export PG_PRIMARY_CLUSTER_RO_SERVICE=$(kubectl get services \
-      --namespace $PG_NAMESPACE \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      -l "cnpg.io/cluster" \
-      --output json | jq -r '.items[] | select(.metadata.name | endswith("-ro")) | .metadata.name')
+        --namespace $PG_NAMESPACE \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        -l "cnpg.io/cluster" \
+        --output json | jq -r '.items[] | select(.metadata.name | endswith("-ro")) | .metadata.name')
 
     echo $PG_PRIMARY_CLUSTER_RO_SERVICE
     ```
@@ -706,12 +705,12 @@ You also retrieve the following endpoints from the Cluster IP service:
 
     ```azurecli-interactive
     kubectl describe service cnpg-cluster-load-balancer-rw \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      --namespace $PG_NAMESPACE
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
 
     kubectl describe service cnpg-cluster-load-balancer-ro \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      --namespace $PG_NAMESPACE
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
 
     export AKS_PRIMARY_CLUSTER_ALB_DNSNAME="${AKS_PRIMARY_CLUSTER_PG_DNSPREFIX}.${PRIMARY_CLUSTER_REGION}.cloudapp.azure.com"
 
