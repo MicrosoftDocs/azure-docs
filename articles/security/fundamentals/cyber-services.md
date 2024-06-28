@@ -21,4 +21,4 @@ Microsoft services can create solutions that integrate, and enhance the latest s
 
 Our team of technical professionals consists of highly trained experts who offer a wealth of security and identity experience.
 
-[Learn more](https://aka.ms/cyberserv) about Microsoft Services Security consulting services.
+[Learn more](https://www.microsoft.com/security) about Microsoft Services Security consulting services.
