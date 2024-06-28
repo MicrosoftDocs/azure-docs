@@ -48,4 +48,4 @@ Schedule the following activities monthly.
 
 ## Related content
 
-- [Deployment guide for Microsoft Sentinel](../deploy-overview.md)
+- [Deployment guide for Microsoft Sentinel](deploy-overview.md)
