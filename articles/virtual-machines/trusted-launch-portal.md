@@ -50,7 +50,7 @@ Create a VM with Trusted Launch enabled. Choose one of the following options.
 
 1. Under **Image**, select an image from **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [Trusted Launch](trusted-launch.md#virtual-machines-sizes).
    > [!TIP]
-   > If you don't see the Gen 2 version of the image that you want in the dropdown list, select **See all images**. Then change the **Security type** filter to **Trusted Launch**.
+   > If you don't see the Gen2 version of the image that you want in the dropdown list, select **See all images**. Then change the **Security type** filter to **Trusted Launch**.
 1.	Select a VM size that supports Trusted Launch. For more information, see the list of [supported sizes](trusted-launch.md#virtual-machines-sizes).
 1.	Fill in the **Administrator account** information and then **Inbound port rules**.
 1.	At the bottom of the page, select **Review + Create**.
@@ -195,9 +195,9 @@ These images can be shared by using [Azure Compute Gallery - Direct Shared Galle
     1. Select the Azure region.
     1. Enter an image version number.
     1. For **Source**, select either **Storage Blobs (VHD)** or **Managed Image** or another **VM Image Version**.
-    1. If you selected **Storage Blobs (VHD)**, enter an OS disk VHD (without the VM Guest state). Make sure to use a Gen 2 VHD.
-    1. If you selected **Managed Image**, select an existing managed image of a Gen 2 VM.
-    1. If you selected **VM Image Version**, select an existing Gallery Image version of a Gen 2 VM.
+    1. If you selected **Storage Blobs (VHD)**, enter an OS disk VHD (without the VM Guest state). Make sure to use a Gen2 VHD.
+    1. If you selected **Managed Image**, select an existing managed image of a Gen2 VM.
+    1. If you selected **VM Image Version**, select an existing Gallery Image version of a Gen2 VM.
     1. For **Target Azure compute gallery**, select or create a gallery to share the image.
     1. For **Operating system state**, select either **Generalized** or **Specialized** depending on your use case. If you're using a managed image as the source, always select **Generalized**. If you're using a storage blob (VHD) and want to select **Generalized**, follow the steps to [generalize a Linux VHD](../virtual-machines/linux/create-upload-generic.md) or [generalize a Windows VHD](../virtual-machines/windows/upload-generalized-managed.md) before you continue. If you're using an existing VM image version, select either **Generalized** or **Specialized** based on what's used in the source VM image definition.
     1. For **Target VM Image Definition**, select **Create new**.
@@ -555,7 +555,7 @@ To help users adopt Trusted Launch, Azure policies are available to help resourc
 
 The **Virtual machine should have Trusted launch enabled** single policy checks if the VM is currently enabled with Trusted Launch security configurations. The **Disks and OS supported for Trusted launch** policy checks if previously created VMs have the [capable Generation 2 OS and VM size](trusted-launch.md#virtual-machines-sizes) to deploy a Trusted Launch VM.
 
-These two policies come together to make the Trusted Launch policy initative. This initiative enables you to group several related policy definitions to simplify assignments and management resources to include Trusted Launch configuration.
+These two policies come together to make the Trusted Launch policy initiative. This initiative enables you to group several related policy definitions to simplify assignments and management resources to include Trusted Launch configuration.
 
 To learn more and start deploying, see [Trusted Launch built-in policies](../governance/policy/samples/built-in-policies.md#trusted-launch).
 
