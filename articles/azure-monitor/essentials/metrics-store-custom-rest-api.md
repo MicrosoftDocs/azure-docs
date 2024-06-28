@@ -119,7 +119,7 @@ Although dimensions are optional, if a metric post defines dimension keys, corre
 
 Azure Monitor stores all metrics at 1-minute granularity intervals. During a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or a metric might need to be measured for many discrete events, such as sign-in transaction latencies.
 
-To limit the number of raw values that you have to emit and pay for in Azure Monitor, locally pre-aggregate and emit the aggregated values:
+To limit the number of raw values that you have to emit and pay for in Azure Monitor, locally preaggregate and emit the aggregated values:
 
 * **Min**: The minimum observed value from all the samples and measurements during the minute.
 * **Max**: The maximum observed value from all the samples and measurements during the minute.
@@ -144,7 +144,7 @@ Then the resulting metric publication to Azure Monitor would be:
 * Sum: 40
 * Count: 4
 
-If your application can't pre-aggregate locally and needs to emit each discrete sample or event immediately upon collection, you can emit the raw measure values. For example, each time a sign-in transaction occurs on your app, you publish a metric to Azure Monitor with only a single measurement. So, for a sign-in transaction that took 12 milliseconds, the metric publication would be:
+If your application can't preaggregate locally and needs to emit each discrete sample or event immediately upon collection, you can emit the raw measure values. For example, each time a sign-in transaction occurs on your app, you publish a metric to Azure Monitor with only a single measurement. So, for a sign-in transaction that took 12 milliseconds, the metric publication would be:
 
 * Min: 12
 * Max: 12

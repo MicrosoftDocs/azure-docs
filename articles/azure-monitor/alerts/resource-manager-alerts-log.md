@@ -467,7 +467,7 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "80"
+      "value": 80
     },
     "timeAggregation": {
       "value": "Average"

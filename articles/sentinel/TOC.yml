@@ -842,6 +842,10 @@
         href: cef-syslog-ama-overview.md  
       - name: CEF and Syslog via AMA
         href: connect-cef-syslog-ama.md
+      - name: CEF - configure security device       
+        href: unified-connector-cef-device.md 
+      - name: Syslog - configure security device       
+        href: unified-connector-syslog-device.md    
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)
@@ -1147,6 +1151,8 @@
     href: soc-optimization/soc-optimization-access.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md
+  - name: Use SOC optimizations programmatically
+    href: soc-optimization/soc-optimization-api.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing
@@ -1217,8 +1223,6 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
-  - name: Compare playbooks, workbooks, and notebooks
-    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1275,6 +1279,10 @@
           href: normalization-schema-web.md
         - name: Legacy network normalization schema
           href: normalization-schema-v1.md
+  - name: Automation and response references
+    items:
+    - name: SOAR content catalog
+      href: sentinel-soar-content.md
   - name: Data collection references
     items:
     - name: Data source schema reference
@@ -1319,12 +1327,10 @@
         href: data-connector-ui-definitions-reference.md
       - name: Data connectors API reference
         href: data-connector-connection-rules-reference.md
-    - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender
-      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules
-  - name: Automation and response references
-    items:
-    - name: SOAR content catalog
-      href: sentinel-soar-content.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
+  - name: Operations guide
+    href: ops-guide.md
 - name: Resources
   items:
   - name: Sample workspace architecture
