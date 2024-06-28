@@ -7,7 +7,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
-ms.date: 8/31/2023
+ms.date: 06/28/2024
 
 ---
 
