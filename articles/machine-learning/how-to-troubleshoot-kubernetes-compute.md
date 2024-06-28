@@ -173,12 +173,12 @@ The error message is as follows:
 AzureML extension service not found in cluster.
 ````
 
-This error should occur when the extension owned ingress service does not have enough backend pod.
+This error should occur when the extension-owned ingress service doesn't have enough backend pods.
 
 You can:
 
-* Access the cluster and check the status of service `azureml-ingress-nginx-controller` and its backend pod under `azureml` namespace.
-* If cluster does not have any running backend pod, check the reason by describe the pod. For example, if the pod does not have enough resources to run, you can delete some pods to free enough resources for the ingress pod.
+* Access the cluster and check the status of the service `azureml-ingress-nginx-controller` and its backend pod under the `azureml` namespace.
+* If the cluster doesn't have any running backend pods, check the reason by describing the pod. For example, if the pod doesn't have enough resources to run, you can delete some pods to free enough resources for the ingress pod.
 
 #### ERROR: ClusterUnauthorized
 
@@ -188,7 +188,7 @@ The error message is as follows:
 Request to Kubernetes cluster unauthorized.
 ````
 
-This error should only occur in TA-enabled cluster, means the access token has expired during the deployment.
+This error should only occur in the TA-enabled cluster, which means the access token expired during the deployment.
 
 You can try again after several minutes.
 

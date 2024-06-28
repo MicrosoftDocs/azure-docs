@@ -51,7 +51,7 @@ Otherwise, if a [user-assigned managed identity is specified in Azure Machine Le
 |--|--|--|
 |Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
 |Kubernetes - Azure Arc or Azure Kubernetes Service|Reader <br> Kubernetes Extension Contributor <br> Azure Kubernetes Service Cluster Admin |Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
-|Azure Kubernetes Service|Contributor|For cluster in the region enabled Trusted Access cluster and workspace uses user assigned managed identity. You can check [this doc](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md) for details.|
+|Azure Kubernetes Service|Contributor|Required only for AKS clusters that use the Trusted Access feature. The workspace uses user-assigned managed identity. See [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md) for details.|
 
 
 > [!TIP]
