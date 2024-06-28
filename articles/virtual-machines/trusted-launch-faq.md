@@ -423,11 +423,11 @@ To verify which boot components are responsible for Secure Boot failures within 
 
 1. Turn off Secure Boot.
 1. Connect to your Azure Linux Trusted Launch VM.
-1. Install the SBInfo tool for the distro your VM is running. It resides within the Linux Security Package.
+1. Install the SBInfo tool for the distribution your VM is running. It resides within the Linux Security Package.
 
-#### [Debian-based distros](#tab/debianbased)
+#### [Debian-based distributions](#tab/debianbased)
 
-These commands apply to Ubuntu, Debian, and other Debian-based distros.
+These commands apply to Ubuntu, Debian, and other Debian-based distributions.
 
 ```bash
 echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ trusty main" | sudo tee -a /etc/apt/sources.list.d/azure.list
@@ -446,9 +446,9 @@ sudo apt update && sudo apt install azure-security
 
 ```
 
-#### [Red Hat-based distros](#tab/rhelbased)
+#### [Red Hat-based distributions](#tab/rhelbased)
 
-These commands apply to RHEL, CentOS, and other Red Hat-based distros.
+These commands apply to RHEL, CentOS, and other Red Hat-based distributions.
 
 ```bash
 echo "[packages-microsoft-com-azurecore]" | sudo tee -a /etc/yum.repos.d/azurecore.repo
@@ -464,9 +464,9 @@ echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/azurecore.repo
 sudo yum install azure-security
 ```
 
-#### [SUSE-based distros](#tab/susebased)
+#### [SUSE-based distributions](#tab/susebased)
 
-These commands apply to SLES, openSUSE, and other SUSE-based distros.
+These commands apply to SLES, openSUSE, and other SUSE-based distributions.
 
 ```bash
 sudo zypper ar -t rpm-md -n "packages-microsoft-com-azurecore" --no-gpgcheck https://packages.microsoft.com/yumrepos/azurecore/ azurecore
@@ -476,7 +476,7 @@ sudo zypper install azure-security
 
 ---
 
-After you install the Linux Security Package for your distro, run the `sbinfo` command to verify which boot components are responsible for Secure Boot failures by displaying all unsigned modules, kernels, and bootloaders.
+After you install the Linux Security Package for your distribution, run the `sbinfo` command to verify which boot components are responsible for Secure Boot failures by displaying all unsigned modules, kernels, and bootloaders.
 
 ```bash
 sudo sbinfo -u -m -k -b 
@@ -486,7 +486,7 @@ To learn more about the SBInfo diagnostic tool, you can run `sudo sbinfo -help`.
 
 ### Why am I getting a boot integrity monitoring fault?
 
-Trusted Launch for Azure VMs is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Microsoft Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
+Trusted Launch for Azure VMs is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [enhanced security features in Microsoft Defender for Cloud](../security-center/enable-enhanced-security.md) are enabled.
 
 Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium-severity alert is triggered. Trusted Launch attestation can fail for the following reasons:
 
@@ -504,7 +504,7 @@ The virtual TPM AK public certificate provides you with visibility for informati
 
 #### Download instructions
 
-Package certificates, composed of. p7b (Full Certificate Authority) and .cer (Intermediate CA), reveal the signing and certificate authority. Copy the relevant content and use certificate tooling to inspect and assess details of certificates.
+Package certificates, composed of .p7b (Full Certificate Authority) and .cer (Intermediate CA), reveal the signing and certificate authority. Copy the relevant content and use certificate tooling to inspect and assess details of certificates.
 
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/tpm-root-certificate-authority.md)]
 
