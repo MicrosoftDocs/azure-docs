@@ -17,13 +17,120 @@ In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis), which you can install with the command `npm install redis`.
-
-For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](https://redis.io/docs/connect/clients/nodejs/).
+- Node.js installed, if you haven't done so already. See [Install Node.js on Windows](../../windows/dev-environment/javascript/nodejs-on-windows) for instructions on how to install Node and NPM on a Windows machine.
 
 ## Create a cache
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+
+## Install the node-redis client lbirary
+The [node-redis](https://github.com/redis/node-redis) library is the primary Node.js client for Redis. You can install the client with [npm](https://docs.npmjs.com/about-npm) by using the following command:
+
+```bash
+npm install redis
+```
+
+## [Microsoft EntraID Authentication (recommended)](#tab/entraid)
+
+## Enable Microsoft EntraID and add a User or Service Principal
+<--Fran, we probably need an include file on enabling EntraID-->
+Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication)
+
+## Install the JavaScript Azure Identity client library
+The [Microsoft Authentication Library (MSAL)](../../entra/identity-platform/msal-overview) allows you to acquire security tokens from Microsoft identity to authenticate users. There's a [Javascript Azure identity client library](../../javascript/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `npm`:
+
+```bash
+npm install @azure/identity
+```
+
+## Create a new Node.js app
+
+1. Create a new script file named *redistest.js*.
+1. Add the following example JavaScript to the file.
+   
+```node
+const { createClient } = require("redis");
+const { DefaultAzureCredential } = require("@azure/identity");
+
+async function main() {
+  // Construct a Token Credential from Identity library, e.g. ClientSecretCredential / ClientCertificateCredential / ManagedIdentityCredential, etc.
+  const credential = new DefaultAzureCredential();
+  const redisScope = "https://redis.azure.com/.default";
+
+  // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
+  let accessToken = await credential.getToken(redisScope);
+  console.log("access Token", accessToken);
+
+  // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
+  const cacheConnection = createClient({
+    username: process.env.REDIS_SERVICE_PRINCIPAL_NAME,
+    password: accessToken.token,
+    url: `redis://${process.env.REDIS_HOSTNAME}:6380`,
+    pingInterval: 100000,
+    socket: { 
+      tls: true,
+      keepAlive: 0 
+    },
+  });
+
+  cacheConnection.on("error", (err) => console.log("Redis Client Error", err));
+  await cacheConnection.connect();
+
+  // PING command
+  console.log("\nCache command: PING");
+  console.log("Cache response : " + await cacheConnection.ping());
+
+  // SET
+  console.log("\nCache command: SET Message");
+  console.log("Cache response : " + await cacheConnection.set("Message",
+      "Hello! The cache is working from Node.js!"));
+
+  // GET
+  console.log("\nCache command: GET Message");
+  console.log("Cache response : " + await cacheConnection.get("Message"));
+
+  // Client list, useful to see if connection list is growing...
+  console.log("\nCache command: CLIENT LIST");
+  console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+
+  cacheConnection.disconnect();
+
+  return "Done"
+}
+
+main().then((result) => console.log(result)).catch(ex => console.log(ex));
+```
+
+This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node-redis](https://github.com/redis/node-redis) client, see [https://redis.js.org/](https://redis.js.org/).
+
+1. Run the script with Node.js.
+
+    ```bash
+    node redistest.js
+    ```
+
+1. Example the output.
+
+    ```console
+    Cache command: PING
+    Cache response : PONG
+    
+    Cache command: GET Message
+    Cache response : Hello! The cache is working from Node.js!
+    
+    Cache command: SET Message
+    Cache response : OK
+    
+    Cache command: GET Message
+    Cache response : Hello! The cache is working from Node.js!
+    
+    Cache command: CLIENT LIST
+    Cache response : id=10017364 addr=76.22.73.183:59380 fd=221 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=26 qbuf-free=32742 argv-mem=10 obl=0 oll=0 omem=0 tot-mem=61466 ow=0 owmem=0 events=r cmd=client user=default numops=6
+    
+    Done
+    ```
+
+## [Access Key Authentication](#tab/accesskey)
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
@@ -36,17 +143,13 @@ set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## Connect to the cache
 
-The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support several connection options. Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible.
+>[!NOTE]
+> Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible.
+>
 
 ## Create a new Node.js app
 
 1. Create a new script file named *redistest.js*.
-1. Use the command to install a redis package.
-
-    ```bash
-    `npm install redis`
-    ```
-
 1. Add the following example JavaScript to the file.
 
     ```javascript
@@ -101,7 +204,7 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     testCache().then((result) => console.log(result)).catch(ex => console.log(ex));
     ```
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/redis/node-redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
 1. Run the script with Node.js.
 
@@ -129,6 +232,7 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
     Done
     ```
+---
 
 ## Clean up resources
 
