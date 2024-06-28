@@ -30,7 +30,7 @@ The `ClusterResourcePlacement` API object is used to propagate resources from a 
 
 For more information, see [Kubernetes resource propagation from hub cluster to member clusters (Preview)](./concepts-resource-propagation.md) and the [upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md).
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 1. Create a namespace to place onto the member clusters using the `kubectl create namespace` command. The following example creates a namespace named `my-namespace`:
 
@@ -198,7 +198,7 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
       Normal  PlacementRolloutCompleted  103s  cluster-resource-placement-controller  Resources have been applied to the selected clusters
     ````
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal.
 
@@ -226,7 +226,7 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
 
 ## Clean up resources
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 If you no longer wish to use the `ClusterResourcePlacement` object, you can delete it using the `kubectl delete` command. The following example deletes the `ClusterResourcePlacement` object named `crp`:
 
@@ -234,7 +234,7 @@ If you no longer wish to use the `ClusterResourcePlacement` object, you can dele
 kubectl delete clusterresourceplacement crp
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 If you no longer wish to use your cluster resource placement, you can delete it from the Azure portal:
 

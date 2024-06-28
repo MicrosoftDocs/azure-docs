@@ -180,7 +180,7 @@ rules:
 
 ## Apply the cluster resource override
 
-# [Azure CLI](#tabs/azure-cli)
+### [Azure CLI](#tabs/azure-cli)
 
 1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource.
 
@@ -250,7 +250,7 @@ rules:
     
     The `ClusterResourcePlacementOverridden` condition indicates whether the resource override was successfully applied to the selected resources in the clusters. Each cluster maintains its own `Applicable Cluster Resource Overrides` list, which contains the cluster resource override snapshot if relevant. Individual status messages for each cluster indicate whether the override rules were successfully applied.
 
-# [Portal](#tabs/azure-portal)
+### [Portal](#tabs/azure-portal)
 
 1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
 

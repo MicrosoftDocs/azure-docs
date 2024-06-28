@@ -227,7 +227,7 @@ In this example, a cluster would only receive extra weight if it has the label `
 
 ## Clean up resources
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 If you no longer wish to use the `ClusterResourcePlacement` object, you can delete it using the `kubectl delete` command. The following example deletes the `ClusterResourcePlacement` object named `crp`:
 
@@ -235,7 +235,7 @@ If you no longer wish to use the `ClusterResourcePlacement` object, you can dele
 kubectl delete clusterresourceplacement crp
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 If you no longer wish to use your cluster resource placement, you can delete it from the Azure portal:
 

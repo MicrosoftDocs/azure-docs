@@ -170,7 +170,7 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
 
 ## Apply the resource override
 
-# [Azure CLI](#tabs/azure-cli)
+### [Azure CLI](#tabs/azure-cli)
 
 1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate namespaces.
 
@@ -244,7 +244,7 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
 
     The `ClusterResourcePlacementOverridden` condition indicates whether the resource override was successfully applied to the selected resources. Each cluster maintains its own `Applicable Resource Overrides` list, which contains the resource override snapshot if relevant. Individual status messages for each cluster indicate whether the override rules were successfully applied.
 
-# [Portal](#tabs/azure-portal)
+### [Portal](#tabs/azure-portal)
 
 1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
 
