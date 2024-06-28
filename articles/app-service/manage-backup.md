@@ -46,7 +46,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 ## Restore a backup
 
 > [!NOTE]
-> App Service stops the target app or target slot while restoring a backup. To minimize downtime for the production app, restore the backup to a [deployment slot](deploy-staging-slots.md) first, then [swap](deploy-staging-slots.md#swap-two-slots) into production.
+> [Swapping](deploy-staging-slots.md#swap-two-slots) is faster than backup because you firstly you need to configure backup settings of the app then you can restore to previous state. Also, App Service stops the target app or target slot while restoring a backup. To minimize downtime for the production app, restore the backup to a [deployment slot](deploy-staging-slots.md) first, then [swap](deploy-staging-slots.md#swap-two-slots) into production.
 
 # [Azure portal](#tab/portal)
 
