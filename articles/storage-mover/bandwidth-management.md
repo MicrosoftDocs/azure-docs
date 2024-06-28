@@ -88,7 +88,7 @@ Add all cmdlets - better to have them in one place.
 
 ### Prepare your Azure PowerShell environment 
 
-[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 You need the `Az.StorageMover` module:
 
