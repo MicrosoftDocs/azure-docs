@@ -4,7 +4,7 @@ description: Add APIs to your Azure API center inventory from your API Managemen
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 06/28/2024
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to add APIs that are managed in my Azure API Management instance to my API center.
@@ -50,7 +50,7 @@ First, export an API from your API Management instance to an API definition usin
 
 ### Export API to a local API definition file
 
-The following example command exports the API with identifier *my-api* in the *myAPIManagement* instance of API. The API is exported in OpenApiJson format to a local OpenAPI definition file named *specificationFile.json*. 
+The following example command exports the API with identifier *my-api* in the *myAPIManagement* instance of API. The API is exported in OpenApiJson format to a local OpenAPI definition file at the path you specify. 
 
 ```azurecli
 #! /bin/bash
@@ -90,7 +90,7 @@ You can register a new API in your API center from the exported definition by us
 The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *definitionFile.json*.
 
 ```azurecli
-az apic api register --resource-group myResourceGroup --service myAPICenter --api-location "/path/to/definitionFile.json"
+az apic api register --resource-group myResourceGroup --service-name myAPICenter --api-location "/path/to/definitionFile.json"
 ```
 
 ### Import API definition to an existing API in your API center
@@ -102,7 +102,7 @@ This example assumes you have an API named *my-api* and an associated API versio
 ```azurecli
 #! /bin/bash
 az apic api definition import-specification \
-    --resource-group myResourceGroup --service myAPICenter \
+    --resource-group myResourceGroup --service-name myAPICenter \
     --api-id my-api --version-id v1-0-0 \
     --definition-id openapi --format "link" --value '$link' \
     --specification '{"name":"openapi","version":"3.0.2"}'
@@ -111,7 +111,7 @@ az apic api definition import-specification \
 ```azurecli
 # PowerShell syntax
 az apic api definition import-specification `
-    --resource-group myResourceGroup --service myAPICenter `
+    --resource-group myResourceGroup --service-name myAPICenter `
     --api-id my-api --version-id v1-0-0 `
     --definition-id openapi --format "link" --value '$link' `
     --specification '{"name":"openapi","version":"3.0.2"}'
