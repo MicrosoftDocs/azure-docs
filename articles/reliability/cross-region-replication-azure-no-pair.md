@@ -90,11 +90,6 @@ For geo-replication of Event Grid topics in non-paired regions, you can implemen
 For geo-replication in non-paired regions, use the [concierge pattern](/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha) for routing to a secondary IoT Hub. 
 
 
-## Azure Virtual Desktop (AVD)
-
-[AVD](/azure/virtual-desktop/overview) provides an efficient scale-out model for compute (Host Pools) in any region, but may be constrained by the underlying storage type used (Azure Files, Azure NetApp Files, blobs, file servers). From a DR perspective, FSLogix Cloud Cache provides an efficient and well-known replication mechanism. FSLogix mechanism isn't tied to any GRS pair and is independent from the underlying storage used. As a result, the replication mechanism is able to provide [multiple solutions and high flexibility](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr). 
-
-
 ## Azure Log Analytics Workspace
 
 With Log Analytics Workspace, the only possible solution is to have all the "sources" and "agents" replicate to multiple workspaces in different regions, which is something complex and expensive to implement. Deployment of other solutions like Azure Sentinel may add complexity to Business Continuity and Disaster recovery (BCDR). 
