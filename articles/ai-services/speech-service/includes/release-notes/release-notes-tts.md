@@ -15,12 +15,12 @@ ms.custom: references_regions
   
   | Locale | Language    | Text to speech voices  |
   |--------|-----------------|-------------------------|
-  | or-IN  | Oriya (India)   | or-IN-SubhasiniNeural (Female) |
-  | or-IN  | Oriya (India)   | or-IN-SukantNeural (Male)      | 
-  | pa-IN  | Punjabi (India) | pa-IN-VaaniNeural (Female)     |
-  | pa-IN  | Punjabi (India) | pa-IN-OjasNeural (Male)        | 
-  | as-IN  | Assamese (India)| as-IN-YashicaNeural (Female)   | 
-  | as-IN  | Assamese (India)| as-IN-PriyomNeural (Male)      |
+  | `or-IN`  | Oriya (India)   | `or-IN-SubhasiniNeural` (Female) |
+  | `or-IN`  | Oriya (India)   | `or-IN-SukantNeural` (Male)      | 
+  | `pa-IN`  | Punjabi (India) | `pa-IN-VaaniNeural` (Female)     |
+  | `pa-IN`  | Punjabi (India) | `pa-IN-OjasNeural` (Male)        | 
+  | `as-IN`  | Assamese (India)| `as-IN-YashicaNeural` (Female)   | 
+  | `as-IN`  | Assamese (India)| `as-IN-PriyomNeural` (Male)      |
 
   See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
   
