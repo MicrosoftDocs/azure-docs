@@ -12,7 +12,6 @@ ms.custom: innovation-engine, aks-related-content
 
 In this article, you deploy a highly available PostgreSQL database on AKS.
 
-* Review the prerequisites and deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview] if you haven't already.
 * If you haven't already created the required infrastructure for this deployment, follow the steps in [Create infrastructure for deploying a highly available PostgreSQL database on AKS][create-infrastructure] to get set up, and then you can return to this article.
 
 
@@ -59,26 +58,26 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
 
     ```azurecli-interactive
     helm repo add prometheus-community \
-      https://prometheus-community.github.io/helm-charts
+        https://prometheus-community.github.io/helm-charts
     ```
 
 1. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
     ```azurecli-interactive
     helm upgrade --install \
-      -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/kube-stack-config.yaml \
-      prometheus-community \
-      prometheus-community/kube-prometheus-stack \
-      --kube-context=$AKS_PRIMARY_CLUSTER_NAME
+        -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/kube-stack-config.yaml \
+        prometheus-community \
+        prometheus-community/kube-prometheus-stack \
+        --kube-context=$AKS_PRIMARY_CLUSTER_NAME
     ```
 
 Verify that the pod monitor is created.
 
-```bash
+```azurecli-interactive
 kubectl -n $PG_NAMESPACE \
-    --context $AKS_PRIMARY_CLUSTER_NAME  
-    get podmonitors.monitoring.coreos.com  
-    $PG_PRIMARY_CLUSTER_NAME  
+    --context $AKS_PRIMARY_CLUSTER_NAME \
+    get podmonitors.monitoring.coreos.com \
+    $PG_PRIMARY_CLUSTER_NAME \
     -o yaml
 ```  
 
@@ -105,8 +104,6 @@ In this section, you create a federated identity credential for PostgreSQL backu
         --resource-group $RESOURCE_GROUP_NAME --issuer "${AKS_PRIMARY_CLUSTER_OIDC_ISSUER}" \
         --subject system:serviceaccount:"${PG_NAMESPACE}":"${PG_PRIMARY_CLUSTER_NAME}" \
         --audience api://AzureADTokenExchange
-
-    #"subject": "system:serviceaccount:cnpg-database:<clustername>"
     ```
 
 ## Deploy a highly available PostgreSQL cluster
@@ -265,7 +262,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
 
 If you are using [Azure Monitor for Managed Prometheus](/azure-monitor/essentials/prometheus-metrics-overview.md), you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
 
-```bash
+```azurecli-interactive
 cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f apply -f -
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
@@ -286,7 +283,7 @@ spec:
 
 Verify that the pod monitor is created (note the difference in the group name).
 
-```bash
+```azurecli-interactive
 kubectl -n $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.azmonitoring.coreos.com \
@@ -303,36 +300,35 @@ Validate that PostgreSQL is spread across multiple availability zones by retriev
 
 ```azurecli-interactive
 kubectl get nodes \
- --context $AKS_PRIMARY_CLUSTER_NAME \
---namespace $PG_NAMESPACE \
---output json | jq '.items[] | {node: .metadata.name, zone: .metadata.labels."failure- 
-domain.beta.kubernetes.io/zone"}'
+    --context $AKS_PRIMARY_CLUSTER_NAME \
+    --namespace $PG_NAMESPACE \
+    --output json | jq '.items[] | {node: .metadata.name, zone: .metadata.labels."failure-domain.beta.kubernetes.io/zone"}'
 ```
 
-    Your output should resemble the following example output with the availability zone shown for each node:
+Your output should resemble the following example output with the availability zone shown for each node:
 
-    ```output
-    {
-        "node": "aks-postgres-15810965-vmss000000",
-        "zone": "eastus-1"
-    }
-    {
-        "node": "aks-postgres-15810965-vmss000001",
-        "zone": "eastus-2"
-    }
-    {
-        "node": "aks-postgres-15810965-vmss000002",
-        "zone": "eastus-3"
-    }
-    {
-        "node": "aks-systempool-26112968-vmss000000",
-        "zone": "eastus-1"
-    }
-    {
-        "node": "aks-systempool-26112968-vmss000001",
-        "zone": "eastus-2"
-    }
-    ```
+```output
+{
+    "node": "aks-postgres-15810965-vmss000000",
+    "zone": "eastus-1"
+}
+{
+    "node": "aks-postgres-15810965-vmss000001",
+    "zone": "eastus-2"
+}
+{
+    "node": "aks-postgres-15810965-vmss000002",
+    "zone": "eastus-3"
+}
+{
+    "node": "aks-systempool-26112968-vmss000000",
+    "zone": "eastus-1"
+}
+{
+    "node": "aks-systempool-26112968-vmss000001",
+    "zone": "eastus-2"
+}
+```
 
 ## Connect to PostgreSQL and create a sample dataset
 
@@ -509,7 +505,7 @@ You also create a second federated credential to map the new recovery cluster se
         --issuer "${AKS_PRIMARY_CLUSTER_OIDC_ISSUER}" \
         --subject system:serviceaccount:"${PG_NAMESPACE}":"${PG_PRIMARY_CLUSTER_NAME_RECOVERED}" \
         --audience api://AzureADTokenExchange
-      ```
+    ```
 
 1. Restore the on-demand backup using the Cluster CRD with the [`kubectl apply`][kubectl-apply] command.
 
@@ -639,18 +635,18 @@ You also retrieve the following endpoints from the Cluster IP service:
 
     ```azurecli-interactive
     export PG_PRIMARY_CLUSTER_RW_SERVICE=$(kubectl get services \
-      --namespace $PG_NAMESPACE \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      -l "cnpg.io/cluster" \
-      --output json | jq -r '.items[] | select(.metadata.name | endswith("-rw")) | .metadata.name')
+        --namespace $PG_NAMESPACE \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        -l "cnpg.io/cluster" \
+        --output json | jq -r '.items[] | select(.metadata.name | endswith("-rw")) | .metadata.name')
 
     echo $PG_PRIMARY_CLUSTER_RW_SERVICE
 
     export PG_PRIMARY_CLUSTER_RO_SERVICE=$(kubectl get services \
-      --namespace $PG_NAMESPACE \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      -l "cnpg.io/cluster" \
-      --output json | jq -r '.items[] | select(.metadata.name | endswith("-ro")) | .metadata.name')
+        --namespace $PG_NAMESPACE \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        -l "cnpg.io/cluster" \
+        --output json | jq -r '.items[] | select(.metadata.name | endswith("-ro")) | .metadata.name')
 
     echo $PG_PRIMARY_CLUSTER_RO_SERVICE
     ```
@@ -709,12 +705,12 @@ You also retrieve the following endpoints from the Cluster IP service:
 
     ```azurecli-interactive
     kubectl describe service cnpg-cluster-load-balancer-rw \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      --namespace $PG_NAMESPACE
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
 
     kubectl describe service cnpg-cluster-load-balancer-ro \
-      --context $AKS_PRIMARY_CLUSTER_NAME \
-      --namespace $PG_NAMESPACE
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
 
     export AKS_PRIMARY_CLUSTER_ALB_DNSNAME="${AKS_PRIMARY_CLUSTER_PG_DNSPREFIX}.${PRIMARY_CLUSTER_REGION}.cloudapp.azure.com"
 
@@ -843,6 +839,7 @@ In this how-to guide, you learned how to:
 To learn more about how you can leverage AKS for your workloads, see [What is Azure Kubernetes Service (AKS)?][what-is-aks]
 
 <!-- LINKS -->
+[helm-upgrade]: https://helm.sh/docs/helm/helm_upgrade/
 [create-infrastructure]: ./create-postgresql-ha.md
 [kubectl-create-secret]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret/
 [kubectl-get]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/
@@ -857,4 +854,3 @@ To learn more about how you can leverage AKS for your workloads, see [What is Az
 [kubectl-delete]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_delete/
 [az-group-delete]: /cli/azure/group#az_group_delete
 [what-is-aks]: ./what-is-aks.md
-
