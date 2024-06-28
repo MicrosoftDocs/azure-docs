@@ -202,7 +202,7 @@ If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscript
 
 - You follow the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md).
 - After you created the GPU VM, register and subscribe the VM with the Red Hat Customer portal. If your VM isn't properly registered, installation doesn't proceed as the VM isn't entitled. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows the installation script to download relevant packages for the GPU driver.
-- You install the `vulkan-filesystem` package as the installation script looks for a `vulkan-filesystem` package.
+- You install the `vulkan-filesystem` package, as the installation script looks for a `vulkan-filesystem` package.
 
 ---
 
