@@ -321,7 +321,7 @@ First, you define the type and metadata of the scale rule.
 
 Container Apps scale rules support secrets-based authentication. Scale rules for Azure resources, including Azure Queue Storage, Azure Service Bus, and Azure Event Hubs, also support managed identity. Where possible, use managed identity authentication to avoid storing secrets within the app.
 
-#### Using secrets
+#### Use secrets
 
 To use secrets for authentication, you need to create a secret in the container app's `secrets` array. The secret value is used in the `auth` array of the scale rule.
 
