@@ -116,7 +116,14 @@ Forced Tunnel mode can't be configured at run time. You can either redeploy the 
 
 ## Outbound SNAT support
 
-All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
+All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. When Azure Firewall has multiple public IPs configured for providing outbound connectivity, it will use IPs as needed based on available ports. It will only use the next available public IP once the connections cannot be made from the current public IP.
+
+In scenarios where you have high throughput or dynamic traffic patterns, it is recommended to us an [Azure NAT Gateway](/azure/nat-gateway/nat-overview). Azure NAT Gateway dynamically selects SNAT ports for providing outbound connectivity, 
+so all the SNAT ports provided by its associated IP addresses is available on demand. To learn more about how to integrate NAT Gateway with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway).
+
+Azure NAT Gateway can be used with Azure Firewall by associating NAT Gateway to the Azure Firewall subnet. See the [Integrate NAT gateway with Azure Firewall](/azure/nat-gateway/tutorial-hub-spoke-nat-firewall) tutorial for guidance on this configuration. 
+
+Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
