@@ -59,26 +59,26 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
 
     ```azurecli-interactive
     helm repo add prometheus-community \
-      https://prometheus-community.github.io/helm-charts
+        https://prometheus-community.github.io/helm-charts
     ```
 
 1. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
     ```azurecli-interactive
     helm upgrade --install \
-      -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/kube-stack-config.yaml \
-      prometheus-community \
-      prometheus-community/kube-prometheus-stack \
-      --kube-context=$AKS_PRIMARY_CLUSTER_NAME
+        -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/kube-stack-config.yaml \
+        prometheus-community \
+        prometheus-community/kube-prometheus-stack \
+        --kube-context=$AKS_PRIMARY_CLUSTER_NAME
     ```
 
 Verify that the pod monitor is created.
 
-```bash
+```azurecli-interactive
 kubectl -n $PG_NAMESPACE \
-    --context $AKS_PRIMARY_CLUSTER_NAME  
-    get podmonitors.monitoring.coreos.com  
-    $PG_PRIMARY_CLUSTER_NAME  
+    --context $AKS_PRIMARY_CLUSTER_NAME \
+    get podmonitors.monitoring.coreos.com \
+    $PG_PRIMARY_CLUSTER_NAME \
     -o yaml
 ```  
 
@@ -105,8 +105,6 @@ In this section, you create a federated identity credential for PostgreSQL backu
         --resource-group $RESOURCE_GROUP_NAME --issuer "${AKS_PRIMARY_CLUSTER_OIDC_ISSUER}" \
         --subject system:serviceaccount:"${PG_NAMESPACE}":"${PG_PRIMARY_CLUSTER_NAME}" \
         --audience api://AzureADTokenExchange
-
-    #"subject": "system:serviceaccount:cnpg-database:<clustername>"
     ```
 
 ## Deploy a highly available PostgreSQL cluster
@@ -265,7 +263,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
 
 If you are using [Azure Monitor for Managed Prometheus](/azure-monitor/essentials/prometheus-metrics-overview.md), you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
 
-```bash
+```azurecli-interactive
 cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f apply -f -
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
@@ -286,7 +284,7 @@ spec:
 
 Verify that the pod monitor is created (note the difference in the group name).
 
-```bash
+```azurecli-interactive
 kubectl -n $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.azmonitoring.coreos.com \
@@ -843,6 +841,7 @@ In this how-to guide, you learned how to:
 To learn more about how you can leverage AKS for your workloads, see [What is Azure Kubernetes Service (AKS)?][what-is-aks]
 
 <!-- LINKS -->
+[helm-upgrade]: https://helm.sh/docs/helm/helm_upgrade/
 [create-infrastructure]: ./create-postgresql-ha.md
 [kubectl-create-secret]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret/
 [kubectl-get]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/
@@ -857,4 +856,3 @@ To learn more about how you can leverage AKS for your workloads, see [What is Az
 [kubectl-delete]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_delete/
 [az-group-delete]: /cli/azure/group#az_group_delete
 [what-is-aks]: ./what-is-aks.md
-
