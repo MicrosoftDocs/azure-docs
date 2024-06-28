@@ -2,7 +2,7 @@
 title: Use certificates and securely access Azure Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 06/13/2024
 ms.custom: devx-track-azurepowershell
 ---
 

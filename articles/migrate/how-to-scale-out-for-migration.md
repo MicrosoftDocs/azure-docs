@@ -6,7 +6,7 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 06/20/2024
 ms.custom: engagement-fy24
 ---
 
@@ -141,25 +141,28 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-         #### Import appliance configuration from primary appliance
+#### Import appliance configuration from primary appliance
 
-         To complete the registration of the scale-out appliance, click **import** to get the necessary configuration files from the primary appliance.
+To complete the registration of the scale-out appliance, click **import** to get the necessary configuration files from the primary appliance.
 
-         1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
+1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
 
-            :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Screenshot of the Import Configuration files modal.":::
+    :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Screenshot of the Import Configuration files modal.":::
 
-         1. Login (remote desktop) to the primary appliance and execute the following PowerShell commands:
+1. Login (remote desktop) to the primary appliance and execute the following PowerShell commands:
 
-            `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
+    `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
-            `PS .\ExportConfigFiles.ps1 `
+    `PS .\ExportConfigFiles.ps1 `
 
-         1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
+    > [!Note] 
+    > Install PowerShell 7.x in the appliance and execute the script ExportConfigFiles.ps1. The script execution is only supported with PowerShell 7.x. 
 
-         1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
+1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
 
-         Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
+1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
+
+    Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
 1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.

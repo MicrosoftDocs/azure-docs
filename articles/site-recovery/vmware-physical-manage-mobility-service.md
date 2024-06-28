@@ -20,7 +20,7 @@ You set up mobility agent on your server when you use Azure Site Recovery for di
 >[!TIP]
 >To download installer for a specific OS/Linux distro, refer to the guidance [here](vmware-physical-mobility-service-overview.md#locate-installer-files). To automatically update from portal, you do not need to download the installer. [ASR automatically fetches the installer from configuration server and updates the agent](#update-mobility-service-from-azure-portal).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Update mobility service from Azure portal
 

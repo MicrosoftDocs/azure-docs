@@ -14,11 +14,14 @@ You can use the call composite in Communication Services to create these use cas
 
 | Area                                                                                            | Use cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Call types                                                                                | Join a Microsoft Teams meeting                                     |
-|                                                                                           | Join a Microsoft Teams meeting using Meeting ID and Passcode                                      |
-|                                                                                                 | Join a call by using a group ID   |
+| Call types                                                                                      | Join a Microsoft Teams meeting                                     |
+|                                                                                                 | Join a Microsoft Teams meeting using Meeting ID and Passcode      |
+|                                                                                                 | Join a call by using a group ID                                  |
+|                                                                                                 | Join a call by using a room  ID                                  |
+|                                                                                                 | Make and Receive 1:1 Calls                      |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
+|                                                                                                 | Admit/Reject lobby participants                                 |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
 |                                                                                                 | Make default avatars available when video is off            |
@@ -30,10 +33,12 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
 |                                                                                                 | Make local preview available for a user to check video       |
 |                                                                                                 | Enable end call confirmation dialogue                 |
+|                                                                                                 | Skip setup screen                 |
 | Call controls                                                                            | Mute and unmute a call                                       |
 |                                                                                                 | Turn video on or off during a call                                   |
 |                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
+|                                                                                                 | CallKit and TelecomManager Support                 |
 
 ### Teams interoperability
 
@@ -98,6 +103,10 @@ UI Library supports picture in picture mode for call screen. While being in the 
 ### CallKit support
 
 UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit.](../../../how-tos/ui-library-sdk/callkit.md)
+
+### TelecomManager support
+
+The UI Library now supports integration with the TelecomManager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecommanager.md)
 
 ### One-to-one call and PUSH notification support
 

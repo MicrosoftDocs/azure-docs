@@ -25,7 +25,7 @@ highlightedContent:
       url: /training/modules/network-security/
     - title: What's new in Azure Networking and Security? 
       itemType: whats-new 
-      url: https://azure.microsoft.com/en-us/updates/?category=networking&query=security
+      url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/bg-p/AzureNetworkSecurityBlog
     - title: Azure Well-Architected Framework review - Azure Firewall
       itemType: architecture
       url: /azure/well-architected/services/networking/azure-firewall

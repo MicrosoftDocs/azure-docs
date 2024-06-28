@@ -842,6 +842,10 @@
         href: cef-syslog-ama-overview.md  
       - name: CEF and Syslog via AMA
         href: connect-cef-syslog-ama.md
+      - name: CEF - configure security device       
+        href: unified-connector-cef-device.md 
+      - name: Syslog - configure security device       
+        href: unified-connector-syslog-device.md    
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)
@@ -1147,6 +1151,8 @@
     href: soc-optimization/soc-optimization-access.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md
+  - name: Use SOC optimizations programmatically
+    href: soc-optimization/soc-optimization-api.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing

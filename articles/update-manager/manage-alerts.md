@@ -4,7 +4,7 @@ description: This article describes on how to enable alerts (preview) with Azure
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/12/2024
+ms.date: 06/21/2024
 ms.topic: how-to
 ---
 
