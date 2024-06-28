@@ -82,7 +82,7 @@ Classic resource:
 :::image type="content" source="media/convert-classic-resource/classic-portal-overview.png" alt-text="A screenshot of the classic Application Insights portal overview page." lightbox="media/convert-classic-resource/classic-portal-overview.png":::
 
 Workspace-based resource:
-:::image type="content" source="media/convert-classic-resource/workspace-portal-overview.png" alt-text="A screenshot of the workspace-based Application Insights portal overview page.":::
+:::image type="content" source="media/convert-classic-resource/workspace-portal-overview.png" alt-text="A screenshot of the workspace-based Application Insights portal overview page." lightbox="media/convert-classic-resource/workspace-portal-overview.png":::
 
 #### Azure Resource Graph
 
