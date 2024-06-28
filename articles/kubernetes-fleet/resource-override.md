@@ -287,8 +287,6 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
 
 1. Verify the cluster resource placement applied to the selected resources by selecting the resource from the list and checking the status.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/overview-cluster-placement-details-inline.png" lightbox="./media/quickstart-resource-propagation/overview-cluster-placement-details.png" alt-text="The Azure Portal overview page for an individual cluster resource placement, showing events and details.":::
-
 ---
 
 ## Next steps
