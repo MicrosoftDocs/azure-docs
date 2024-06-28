@@ -221,11 +221,11 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 4 (Option 1: with GitHub Copilot):**  
-        1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
+        1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database and the cache?*". Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
-        1. Ask, "In production mode, I want the app to use the connectiong string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
+        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
         1. Open *Program.cs* in the explorer and add the code suggestion.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-dotnetcore-sqldb-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-dotnetcore-sqldb-app/github-copilot-1.png":::
@@ -246,10 +246,10 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 5 (Option 1: with GitHub Copilot):**
         1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
-        1. Highlight the `dotnet publish` step and click :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+        1. Highlight the `dotnet publish` step and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
         1. Ask Copilot, "*Install dotnet ef, then create a migrations bundle in the same output folder.*"
         1. If the suggestion is acceptable, select **Accept**.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/github-copilot-2.png" alt-text="A screenshot showing the use of GitHub Copilot in a GitHub workflow file." lightbox="./media/tutorial-dotnetcore-sqldb-app/github-copilot-2.png":::
@@ -272,7 +272,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 6:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, click :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
@@ -316,7 +316,7 @@ With the SQL Database protected by the virtual network, the easiest way to run [
     :::column span="2":::
         **Step 2:** In the SSH terminal:
         1. Run `cd /home/site/wwwroot`. Here are all your deployed files.
-        1. Run the migration bundle that's generated by the GitHub workflow with `./migrationsbundle -- --environment Production`. If it succeeds, App Service is connecting successfully to the SQL Database.
+        1. Run the migration bundle that the GitHub workflow generated, with the command `./migrationsbundle -- --environment Production`. If it succeeds, App Service is connecting successfully to the SQL Database.
         Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
     :::column-end:::
     :::column:::
@@ -481,15 +481,15 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [With GitHub Copilot](#tab/copilot)
 
-1. Back in the GitHub codespace of your sample fork, start a new chat session by clicking the **Chat** view, then clicking **+**. 
+1. Back in the GitHub codespace of your sample fork, start a new chat session by selecting the **Chat** view, then selecting **+**. 
 
 1. Ask, "*@workspace How does the app connect to the database and the cache?*". Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
 
-1. Ask, "In production mode, I want the app to use the connectiong string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file.
+1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file.
 
 1. Open *Program.cs* in the explorer and add the code suggestion.
 
-    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 1. Back in the codespace terminal, run `azd deploy`.
  
@@ -644,7 +644,7 @@ This is usually a transient error when the app is first started. Wait a few minu
 
 ### How much does this setup cost?
 
-Pricing for the create resources is as follows:
+Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The Azure SQL Database is created in general-purpose, serverless tier on Standard-series hardware with the minimum cores. There's a small cost and can be distributed to other regions. You can minimize cost even more by reducing its maximum size, or you can scale it up by adjusting the serving tier, compute tier, hardware configuration, number of cores, database size, and zone redundancy. See [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
