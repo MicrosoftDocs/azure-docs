@@ -284,9 +284,19 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
 
 ---
 
-## Multi-personal desktop assignment
+## Assign a personal desktop to multiple users (preview)
 
-Multi-personal desktop assignment is a feature that allows you to assign more than one personal desktop to a single user in a single host pool. This feature is only for personal host pools with direct assignment type.
+Multi-personal desktop assignment is a feature that allows you to assign more than one personal desktop to a single user in a single host pool. This feature is particularly useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments. Previously, users were restricted to one personal desktop per host pool, necessitating the creation of multiple host pools for additional desktops. This feature streamlines the process, eliminating the need for numerous host pools and simplifying user assignment management.  
+
+>[!IMPORTANT]
+>- This preview feature is only for personal host pools with direct assignment type. Pooled host pools are not supported and personal host pools with automatic assignment type are not supported.  
+>
+>- If you are using FSLogix and have a single FSLogix profile for a single host pool, be sure to allow concurrent connections to FSLogix profiles to avoid errors.  
+>
+>- You should set the friendly name so that your users can distinguish between the multiple personal desktops you've assigned to them. 
+>
+>- Once a host pool has the multiple personal desktop assignment feature enabled, it cannot be disabled. 
+
 
 ### Enable multi-personal desktop assignment 
 
@@ -296,7 +306,7 @@ Here's how to enable the multi-personal desktop assignment feature on an existin
 
 To enable multi-personal desktop assignment using the Azure portal: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal]( https://aka.ms/MultiPDPortal). 
 
 1. Enter **Azure Virtual Desktop** into the search bar.
 
@@ -310,9 +320,7 @@ To enable multi-personal desktop assignment using the Azure portal:
 
 1. Check the box for **Assign multiple desktops to a single user** to enable the multi-personal desktop assignment feature. 
 
->[!NOTE]
-> * If the host pool's assignment type is **Automatic**, you won't be able to check this box. The assignment type must be **Direct**. 
-> * Once a host pool has the multi-personal desktop assignment feature enabled, it cannot be disabled. 
+
 #### [PowerShell](#tab/powershell2)
 
 To enable multi-personal desktop assignment using PowerShell:
