@@ -422,26 +422,18 @@
     items:
     - name: Configure network access
       href: service-configure-firewall.md
+    - name: Authenticate with keys
+      href: search-security-api-keys.md
     - name: Enable role-based access
       href: search-security-enable-roles.md
-    - name: Assign roles (users and groups)
+    - name: Assign roles (users)
       href: search-security-rbac.md
-    - name: Inbound connections
-      items:
-      - name: Connect using API keys
-        href: search-security-api-keys.md
-      - name: Code without keys
-        href: keyless-connections.md
-      - name: Create a private endpoint
-        href: service-create-private-endpoint.md
-      - name: Troubleshoot private connections
-        href: troubleshoot-shared-private-link-resources.md
+    - name: Assign roles (apps)
+      href: keyless-connections.md
     - name: Outbound connections
       items:
       - name: Configure a managed identity
         href: search-howto-managed-identities-data-sources.md
-      - name: Connect as a trusted service
-        href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect using a managed identity
         items:
         - name: Azure Storage
@@ -454,18 +446,26 @@
           href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
+      - name: Connect as a trusted service
+        href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect through a shared private link
         href: search-indexer-howto-access-private.md
       - name: Connect to a SQL managed instance private endpoint
         href: search-indexer-how-to-access-private-sql.md
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Find encrypted objects
-        href: search-security-get-encryption-keys.md
     - name: Document-level security
       href: search-security-trimming-for-azure-search.md
+    - name: Advanced options
+      items:
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
+      - name: Data encryption
+        items:
+        - name: Customer-managed keys
+          href: search-security-manage-encryption-keys.md
+        - name: Find encrypted objects
+          href: search-security-get-encryption-keys.md
   - name: Development
     items:
     - name: API versions
