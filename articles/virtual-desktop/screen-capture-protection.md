@@ -109,6 +109,8 @@ To configure screen capture protection using Group Policy:
 
 1. Ensure the policy is applied to the computers providing a remote session, then restart them for the settings to take effect.
 
+---
+
 ## Verify screen capture protection
 
 To verify screen capture protection is working:
@@ -117,7 +119,6 @@ To verify screen capture protection is working:
 
 1. Take a screenshot or share your screen in a Teams call or meeting. The content should be blocked or hidden. Any existing sessions need to sign out and back in again for the change to take effect.
 
----
 
 ## Related content
 
