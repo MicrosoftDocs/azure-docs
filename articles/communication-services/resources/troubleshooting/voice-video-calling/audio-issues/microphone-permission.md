@@ -30,7 +30,7 @@ Your application should always call the [askDevicePermission](/javascript/api/az
 This way gives the user a chance to grant the device permission if they didn't do so before or if the permission state is `prompt`.
 The application can also show a warning message if the user denies the permission, so the user can fix it before joining a call.
 
-It's also important to listen for the [microphonePermissionDenied](../references/ufd/microphone-permission-denied) UFD event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
+It's also important to listen for the [microphonePermissionDenied](../references/ufd/microphone-permission-denied.md) UFD event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
 
 ## References
 ### Troubleshooting process

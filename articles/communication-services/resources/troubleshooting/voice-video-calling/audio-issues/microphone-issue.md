@@ -53,14 +53,14 @@ If the speaking participant is using your application, you can follow this flow 
 1. First, check if a microphone is available. The application can obtain this information by invoking `DeviceManager.getMicrophone` API or by detecting a `noMicrophoneDevicesEnumerated` UFD Bad event.
 2. If no microphone device is available, prompt the user to plug in a microphone.
 3. If a microphone is available but there is no outgoing audio, consider other possibilities such as permission issues, device issues, or network problems.
-4. If permission is denied, refer to [The speaking participant doesn't grant the microphone permission](./microphone-permission) for more information.
+4. If permission is denied, refer to [The speaking participant doesn't grant the microphone permission](./microphone-permission.md) for more information.
 5. If permission is granted, consider the whether the issue is due to a external problem, such as `microphoneMuteUnexpectedly` UFD.
 6. The `microphoneMuteUnexpectedly` UFD Bad event is triggered when the browser mutes the audio input track. The application can monitor this UFD but is not able to detect the reason at JavaScript layer. You can still provide instructions in the app and ask if the user is using hardware mute button on their headset.
 7. If the user releases the hardware mute and the `microphoneMuteUnexpectedly` UFD recovers, the issue is resolved.
 8. If the user is not using the hardware mute, ask the user to unplug and replug the microphone, or to select another microphone. Ensure the user has not muted the microphone at the system level.
 9. No outgoing audio issue can also happen when there is a `microphoneNotFunctioning` UFD Bad event.
 10. If there is no `microphoneNotFunctioning` UFD Bad event, consider other possiblities, such as network issues.
-11. If there is a `networkReconnect` Bad UFD, outgoing audio may be temporarily lost due to a network disconnection. Refer to [There's a network issue in the call](./network-issue) for detailed information.
-12. If there are no microphone-related events and no network-related events, create a support ticket for ACS team to investigate the issue. Refer to [Reporting an issue](../general-troubleshooting-strategies/report-issue).
+11. If there is a `networkReconnect` Bad UFD, outgoing audio may be temporarily lost due to a network disconnection. Refer to [There's a network issue in the call](./network-issue.md) for detailed information.
+12. If there are no microphone-related events and no network-related events, create a support ticket for ACS team to investigate the issue. Refer to [Reporting an issue](../general-troubleshooting-strategies/report-issue.md).
 13. If a `microphoneNotFunctioning` UFD Bad event occurs, and the user has no outgoing audio, they can try to recover the stream by using ACS [mute](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js#@azure-communication-calling-call-mute) and [unmute](https://learn.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js#@azure-communication-calling-call-unmute).
 14. If the `microphoneNotFunctioning` UFD doesn't recover after the user performs ACS mute and unmute, there might be an issue with the microphone device. Ask the user to unplug and replug the microhpone or select another microphone.

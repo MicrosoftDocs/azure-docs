@@ -43,5 +43,5 @@ Below is a flow diagram of the troubleshooting process for this issue.
 1. First, check if there is a `networkReconnect` UFD. The user may experience audio loss during the network reconnection.
 2. The UFD can happen on either the sender's end or the receiver's end. In both cases, packets don't flow, so the user cannot hear the audio.
 3. If there is no `networkReconnect` UFD, consider other potential causes, such as permission issues or device problems.
-4. If the permission is denied, refer to [The speaking participant doesn't grant the microphone permission](./microphone-permission) for more information.
-5. The issue could also be due to device problems, refer to [The speaking participant's microphone has a problem](./microphone-issue).
+4. If the permission is denied, refer to [The speaking participant doesn't grant the microphone permission](./microphone-permission.md) for more information.
+5. The issue could also be due to device problems, refer to [The speaking participant's microphone has a problem](./microphone-issue.md).
