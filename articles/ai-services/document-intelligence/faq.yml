@@ -22,7 +22,7 @@ sections:
       - question: |
          Are Azure AI Document Intelligence and Azure AI Form Recognizer the same service?
         answer: |
-          Yes.
+          **Yes.**
 
           Azure AI Document Intelligence and Azure AI Form Recognizer are the same service. The service was renamed from Azure AI Form Recognizer to Azure AI Document Intelligence in July 2023. The service provides the same capabilities and features as before the renaming.
 
@@ -33,26 +33,24 @@ sections:
       - question: |
          Does Document Intelligence integrate with other Microsoft services?
         answer: |
+          **Yes.**
 
-            Yes.
+          Document Intelligence integrates with the following services:
 
-            "Document Intelligence integrates with the following services:"
+          - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
 
-            - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
+          - [Azure AI Search](../../search/cognitive-search-custom-skill-form.md)
 
-            - [Azure AI Search](../../search/cognitive-search-custom-skill-form.md)
+          - [Azure Functions](tutorial-azure-function.md)
 
-            - [Azure Functions](tutorial-azure-function.md)
-
-            - [Azure Logic Apps](tutorial-logic-apps.md)
+          - [Azure Logic Apps](tutorial-logic-apps.md)
 
   - name: AI capabilities
     questions:
       - question: |
           Can I use Document Intelligence with generative AI for document processing?
         answer: |
-
-          Yes.
+          **Yes.**
 
           You can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data.
 
@@ -63,8 +61,7 @@ sections:
       - question: |
           Does Document Intelligence offer a semantic chunking solution for retrieval-augmented generation?
         answer: |
-
-          Yes.
+          **Yes.**
 
           Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval.
 
@@ -79,8 +76,8 @@ sections:
       - question: |
           Do I need specific permissions to access Document Intelligence Studio?
         answer: |
+          **Yes.**
 
-          Yes.
           You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a Reader role to access Document Intelligence Studio.
 
           For document analysis and prebuilt models, here are the role requirements for user scenarios:
@@ -112,7 +109,7 @@ sections:
       - question: |
           Can I process documents with more than two pages in Document Intelligence Studio?
         answer: |
-          Yes for paid-tier resources; no for free-tier resources.
+          **Yes,**for paid-tier resources. **No**, for free-tier resources.
 
             - For free-tier (F0) resources, **only the first two pages** are analyzed whether you're using Document Intelligence Studio, the REST API, or client libraries.
 
@@ -122,8 +119,7 @@ sections:
       - question: |
           Can I change directories or subscriptions in Document Intelligence Studio?
         answer: |
-
-          Yes.
+          **Yes.**
 
           - To change a directory in Document Intelligence Studio, select the **Settings** (gear) button. Under **Directory**, select the directory from the list, and then select **Switch Directory**. You're prompted to sign in again after you switch the directory.
 
@@ -133,25 +129,22 @@ sections:
          Can I use Document Intelligence Studio with a resource that is configured with a firewall or virtual network?
 
         answer: |
-
-         Yes.
+         **Yes.**
 
          If your Document Intelligence resource is configured with a firewall or virtual network,you need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
 
       - question: |
           Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
         answer: |
-
-          Yes.
+          **Yes.**
 
           The labeling experience from Document Intelligence Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit).
 
       - question: |
          Are there separate URL endpoints for Document Intelligence sovereign cloud regions?
         answer: |
+          **Yes.**
 
-          Yes. 
-          
           "Document Intelligence Studio has separate URL endpoints for sovereign cloud regions:"
 
           - "URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)."
@@ -164,8 +157,7 @@ sections:
       - question: |
           Can I develop applications using Azure AI Document Intelligence using the latest development options?
         answer: |
-
-          Yes.
+          **Yes.**
 
           "Document Intelligence offers the latest development options within the following platforms:"
 
@@ -184,8 +176,7 @@ sections:
       - question: |
            Can I migrate my application to the latest version of Document Intelligence?
         answer:  |
-
-          Yes.
+          **Yes.**
 
           "The following table provides links to detailed instructions for migrating to the newest version of Document Intelligence:"
 
@@ -200,8 +191,7 @@ sections:
       - question: |
             Can I specify a range of pages to be analyzed in a document?
         answer:  |
-
-            Yes.
+            **Yes.**
 
             "Use the `pages` parameter (supported in v2.1, v3.0, and later versions of the REST API) and specify pages for multiple-page PDF and TIFF documents. Accepted input includes the following ranges:"
 
@@ -218,9 +208,9 @@ sections:
       - question: |
             Do you recommend using Document Intelligence Studio or the FOTT Sample Labeling tool for my project?
         answer:  |
-           Most of the time, we recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) because it can reduce your time for configuring Document Intelligence resources and storage services.
+          We recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) most of the time because it can reduce your time for configuring Document Intelligence resources and storage services.
 
-           Consider using the Form OCR Testing Tool (FOTT) for the following scenarios:
+           Consider using the Form OCR Testing Tool (FOTT) only for the following scenarios:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
@@ -230,7 +220,7 @@ sections:
          Are there best practices to mitigate throttling?
 
         answer: |
-          Yes.
+          **Yes.**
 
           Document Intelligence uses autoscaling to provide the required computational resources on demand, while keeping customer costs low. To mitigate throttling during autoscaling, we recommend the following approach:
 
@@ -249,7 +239,7 @@ sections:
     - question: |
         Can I improve an estimated accuracy score for a custom model?
       answer: |
-        Yes.
+        **Yes.**
 
         Variances in the visual structure of your documents can influence the accuracy of a model. Here are some tips:
 
@@ -266,7 +256,7 @@ sections:
     - question: |
         Can I retrain a custom model?
       answer: |
-        No.
+        **No.**
 
         * Document Intelligence doesn't have an explicit retrain operation. Each train operation generates a new model.
 
@@ -287,7 +277,7 @@ sections:
     - question: |
         Can I move my trained models from one environment (like beta) to another (like production)?
       answer: |
-        Yes.
+        **Yes.**
 
         You can use the [Copy API](disaster-recovery.md#copy-api-overview) to copy custom models from one Document Intelligence account into others that exist in any supported geographical region. For detailed instructions, see [Disaster recovery](disaster-recovery.md).
 
@@ -298,8 +288,7 @@ sections:
       - question: |
          Is there an expiry time for the shared access signature (SAS) token that I for my storage account authentication?
         answer:  |
-
-          Yes.
+          **Yes.**
 
           When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you need to create a new token.
 
@@ -308,7 +297,9 @@ sections:
       - question: |
           Can Document Intelligence access data in my storage account if it is behind a virtual network or firewall?
         answer: |
-          No, not directly. Document Intelligence can't access your storage account if it's protected by a virtual network or firewall.
+          **No**, not directly.
+
+          Document Intelligence can't access your storage account if it's protected by a virtual network or firewall.
 
           However, private Azure storage account access and authentication support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). When you use a managed identity, the Document Intelligence service can access your storage account by using an assigned credential.
 
@@ -322,18 +313,19 @@ sections:
       - question: |
          Is there a difference between disconnected and connected containers?
         answer: |
-          Yes. Although the model capabilities are the same, the billing and connectivity methods differ:
+          **Yes.**
+
+          Although the model capabilities are the same for connected and disconneted containers, the billing and connectivity methods differ:
 
           - Connected containers send billing information to Azure by using a Document Intelligence resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/install-run.md?tabs=layout#billing) to Azure. Document Intelligence connected containers send billing information to Azure by using a Document Intelligence resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. For an example of the information that connected containers send to Microsoft for billing, see the [Azure AI container FAQ](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work).
 
           - [Disconnected containers](../../ai-services/containers/disconnected-containers.md) enable you to use APIs that are disconnected from the internet. [Billing information](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet. Instead, you're charged based on a purchased commitment tier. Currently, disconnected container usage is available for Document Intelligence custom and invoice models.
-        
+
 
       - question: |
           Can I use local storage for the Document Intelligence Sample Labeling Tool (FOTT) container?
         answer: |
-
-          Yes.
+          **Yes.**
 
           FOTT has a version that uses local storage. The version needs to be installed on a Windows machine. You can install it from [this location](https://github.com/microsoft/OCR-Form-Tools/releases/download/v2.1-ga/oflt-2.1.3-win32.exe).
 
@@ -342,8 +334,7 @@ sections:
       - question: |
           Is there a best practice for scaling up?
         answer: |
-
-          Yes.
+          **Yes.**
 
           For asynchronous calls, you can run multiple containers with shared storage. The container that's processing the `POST` analyze call stores the output in the storage. Then, any other container can fetch the results from the storage and serve the `GET` calls. The request ID isn't tied to a container.
 
@@ -352,17 +343,17 @@ sections:
       - question: |
           Can I set up containers with shared storage?
         answer: |
-          Yes.
+          **Yes.**
 
           The containers use the `Mounts:Shared` property while starting up for specifying the shared storage to store the processing files. To see the use of this property, refer to the [containers documentation](containers/install-run.md?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers).
 
   - name: Security and privacy
     questions:
-      
+
       - question: |
           Does Document Intelligence store my data?
         answer: |
-          Yes, briefly.
+          **Yes,** briefly.
 
           For all features, Document Intelligence temporarily stores data and results in Azure Storage in the same region as the request. Your data is then deleted within 24 hours from the time that you submit an analyze request.
 
@@ -375,12 +366,13 @@ sections:
       - question: |
             Are there other resources available to provide solutions to Azure AI Document Intelligence questions?
         answer: |
-            Yes.
-             
+            **Yes.**
+
             [Microsoft Q & A](/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries that are specific to Document Intelligence.
 
       - question: |
             Can I provide direct feedback if the service doesn't recognize specific text, or recognizes it incorrectly, when I'm labeling documents?
         answer: |
-            Yes.
+            **Yes.**
+
             We continually update and improve the Document Intelligence OCR model. You can [email the Document Intelligence team](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.

@@ -8,7 +8,7 @@
         {
             "source_path_from_root": "/articles/ai-services/document-intelligence/concept-document-intelligence-studio.md",
             "redirect_url": "/articles/ai-services/document-intelligence/studio-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
 
 
