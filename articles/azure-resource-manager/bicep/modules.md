@@ -98,7 +98,7 @@ For example, to deploy a file that is up one level in the directory from your ma
 > [!NOTE]
 > Non-AVM (Azure Verified Modules) modules are retired from the public module registry.
 
-[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created by Microsoft or trusted partners, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations.
+[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created and owned by Microsoft employees, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations whilst also aligning to best practices; such as the Well-Architected Framework.
 
 Browse to the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) site.  To see the list of modules, select the highlighted numbers in the following screenshot.
 
