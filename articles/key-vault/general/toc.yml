@@ -124,7 +124,7 @@
       href: /visualstudio/azure/vs-key-vault-add-connected-service?context=/azure/key-vault/general/context/context
   - name: Monitor and govern
     items:
-    - name: Monitoring Key Vault
+    - name: Monitor Key Vault
       href: monitor-key-vault.md
     - name: Event Grid Notifications
       items:
@@ -134,8 +134,6 @@
         href: event-grid-tutorial.md
     - name: Enable logging
       href: howto-logging.md
-    - name: Monitoring Azure Key Vault
-      href: monitor-key-vault.md
     - name: Configure alerts for Azure Key Vault
       href: alert.md
     - name: Recovery management with soft-delete and purge protection
