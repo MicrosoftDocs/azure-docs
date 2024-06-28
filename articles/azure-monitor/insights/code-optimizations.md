@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: optimization-insights
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 03/08/2024
+ms.date: 06/25/2024
 ms.reviewer: ryankahng
 ---
 
@@ -73,4 +73,4 @@ Get started with Code Optimizations by enabling the following features on your a
 - [Application Insights](../app/create-workspace-resource.md)
 - [Application Insights Profiler](../profiler/profiler-overview.md)
 
-Running into issues? Check the [Troubleshooting guide](/troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting)
+Running into issues? Check the [Troubleshooting guide](./code-optimizations-troubleshoot.md)
