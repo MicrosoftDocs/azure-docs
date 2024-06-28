@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Create a shared query with ARM template'
+title: "Quickstart: Create Resource Graph shared query using ARM template"
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query that counts virtual machines by OS.
-ms.date: 06/21/2024
+ms.date: 06/26/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create a shared query by using an ARM template
+# Quickstart: Create Resource Graph shared query using ARM template
 
-Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is saved to the individuals portal profile and isn't visible to others. A shared query is a Resource Manager object that can be shared with others through permissions and role-based access. A shared query provides common and consistent execution of resource discovery. This quickstart uses an Azure Resource Manager template (ARM template) to create a shared query.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query. Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is saved to the individuals portal profile and isn't visible to others. A shared query is a Resource Manager object that can be shared with others through permissions and role-based access. A shared query provides common and consistent execution of resource discovery.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
@@ -91,9 +91,7 @@ To remove the shared query created, follow these steps:
 
 ## Next steps
 
-In this quickstart, you created a Resource Graph shared query.
-
-To learn more about shared queries, continue to the tutorial for:
+In this quickstart, you created a Resource Graph shared query. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
-> [Manage queries in Azure portal](./tutorials/create-share-query.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

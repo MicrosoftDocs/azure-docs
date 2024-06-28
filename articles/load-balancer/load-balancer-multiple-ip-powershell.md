@@ -22,7 +22,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 ## Steps to load balance on multiple IP configurations
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Follow the steps below to achieve the scenario outlined in this article:
 

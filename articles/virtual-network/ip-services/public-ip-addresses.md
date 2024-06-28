@@ -177,7 +177,7 @@ There are other attributes that can be used for a public IP address.
 > At this time, both the **Tier** and **Routing Preference** feature are available for standard SKU IPv4 addresses only. They can't be utilized on the same IP address concurrently.
 >
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Limits 
 

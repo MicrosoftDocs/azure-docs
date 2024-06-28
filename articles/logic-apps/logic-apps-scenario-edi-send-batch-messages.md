@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # Exchange EDI messages as batches or groups between trading partners in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 In business to business (B2B) scenarios, 
 partners often exchange messages in groups or *batches*. 

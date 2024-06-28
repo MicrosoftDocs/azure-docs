@@ -17,7 +17,7 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 
 ### Circuits
 
-FastPath is available on all ExpressRoute circuits. Support for virtual network peering and UDR over FastPath is now generally available. Limited general availability (GA) support for Private Endpoint/Private Link connectivity is only available for connections associated to ExpressRoute Direct circuits. 
+FastPath is available on all ExpressRoute circuits. Support for virtual network peering and UDR over FastPath is now generally available and only for connections associated to ExpressRoute Direct circuits. Limited general availability (GA) support for Private Endpoint/Private Link connectivity is only available for connections associated to ExpressRoute Direct circuits. 
 
 ### Gateways
 

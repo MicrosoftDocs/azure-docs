@@ -2,7 +2,7 @@
 title: Authenticate Azure Batch services with Microsoft Entra ID
 description: Learn how to authenticate Azure Batch service applications with Microsoft Entra ID by using integrated authentication or a service principal.
 ms.topic: how-to
-ms.date: 04/03/2023
+ms.date: 06/25/2024
 ms.custom: has-adal-ref, subject-rbac-steps
 ---
 
@@ -12,7 +12,7 @@ Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-dire
 
 This article describes two ways to use Microsoft Entra authentication with Azure Batch:
 
-- **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authorize access to Batch resources.
+- **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authenticate access to Batch resources.
 
 - A **service principal** authenticates an unattended application. The service principal defines the policy and permissions for the application and represents the application to access Batch resources at runtime.
 
