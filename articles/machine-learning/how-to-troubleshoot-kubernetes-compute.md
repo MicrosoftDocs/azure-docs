@@ -111,7 +111,7 @@ Below is a list of error types in **cluster scope** that you might encounter whe
 * [ERROR: ClusterNotReachable](#error-clusternotreachable)
 * [ERROR: ClusterNotFound](#error-clusternotfound)
 * [ERROR: ClusterServiceNotFound](#error-clusterservicenotfound)
-* [ERROR: ClusterUnaithorized](#error-clusterunauthorized)
+* [ERROR: ClusterUnauthorized](#error-clusterunauthorized)
 
 #### ERROR: GenericClusterError
 
