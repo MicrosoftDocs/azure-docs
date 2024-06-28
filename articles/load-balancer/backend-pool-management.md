@@ -6,14 +6,14 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 06/26/2024
 ms.author: mbender 
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
 # Backend pool management
 
-The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
+The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that serve traffic for a given load-balancing rule.
 
 There are two ways of configuring a backend pool:
 
@@ -21,7 +21,7 @@ There are two ways of configuring a backend pool:
 
 * IP address
 
-To preallocate a backend pool with an IP address range that later will contain virtual machines and Virtual Machine Scale Sets, configure the pool by IP address and virtual network ID.
+To preallocate a backend pool with an IP address range that will contain virtual machines and Virtual Machine Scale Sets, configure the pool by IP address and virtual network ID.
 This article focuses on configuration of backend pools by IP addresses.
 
 ## Configure backend pool by IP address and virtual network
@@ -218,7 +218,7 @@ az vm create \
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
   * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in an IP based backend pool
-  * ACI containers aren't currently supported by IP based LBs
+  * IP-based load balancers don't support ACI containers
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.

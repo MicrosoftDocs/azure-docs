@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
@@ -73,7 +73,7 @@ To ensure that you can access your files, be sure that the target path of your g
                       "uid=0",
                       "gid=0"
                    ],
-                   "readOnly": false 
+                   "readOnly": false
                 }
           },
           {

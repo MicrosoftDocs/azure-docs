@@ -169,6 +169,28 @@ Not supported currently.
 To delete one or more existing UAIs, you can put the UAI IDs which needs to be preserved under the section user_assigned_identities, the rest UAI IDs would be deleted.<br>
 To update identity type from SAI to UAI|SAI, you can change type from "user_assigned" to "system_assigned, user_assigned".
 
+### Add a user-assigned managed identity to a workspace in addition to a system-assigned identity
+
+In some scenarios, you may need to use a user-assigned managed identity in addition to the default system-assigned workspace identity. To add a user-assigned managed identity, without changing the existing workspace identity, use the following steps:
+
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). Save the ID for the managed identity that you create.
+1. To attach the managed identity to your workspace, you need a YAML file that specifies the identity. The following is an example of the YAML file contents. Replace the `<TENANT_ID>`, `<RESOURCE_GROUP>`, and `<USER_MANAGED_ID>` with your values.
+   
+    ```yml
+    identity:
+        type: system_assigned,user_assigned
+        tenant_id: <TENANT_ID>
+        user_assigned_identities:
+            '/subscriptions/<SUBSCRIPTION_ID/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_MANAGED_ID>':
+            {}
+    ```
+ 
+1. Use the Azure CLI `az ml workspace update` command to update your workspace. Specify the YAML file from the previous step using the `--file` parameter. The following example shows what this command looks like:
+ 
+    ```azurecli
+    az ml workspace update --resource-group <RESOURCE_GROUP> --name <WORKSPACE_NAME> --file <YAML_FILE_NAME>.yaml
+    ```
+
 ### Compute cluster
 
 > [!NOTE]

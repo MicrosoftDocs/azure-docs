@@ -47,7 +47,7 @@ If this is your first time using the Azure Database for MySQL service, you must 
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
 ```
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription ID using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
