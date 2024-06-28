@@ -2,7 +2,7 @@
 title: How to use a secured storage account with Azure Functions
 description: Article that shows you how to use a secured storage account in a virtual network as the default storage account for a function app in Azure Functions.
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 06/03/2024
 ms.custom: template-how-to, build-2024
 ---
 
@@ -12,11 +12,11 @@ This article shows you how to connect your function app to a secured storage acc
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you either create a new storage account or link to an existing one. Currently, only [ARM template and Bicep deployments](functions-infrastructure-as-code.md#secured-deployments) support function app creation with an existing secured storage account. 
+When you create a function app, you either create a new storage account or link to an existing one. Currently, only the Azure portal, [ARM template deployments](functions-infrastructure-as-code.md?tabs=json&pivots=premium-plan#secured-deployments), and [Bicep deployments](functions-infrastructure-as-code.md?tabs=bicep&pivots=premium-plan#secured-deployments) support function app creation with an existing secured storage account. 
 
 > [!NOTE]  
 > Securing your storage account is supported for all tiers of the [Dedicated (App Service) plan](./dedicated-plan.md) and the [Elastic Premium plan](./functions-premium-plan.md), as well as in the [Flex Consumption plan](./flex-consumption-plan.md).  
-> Consumption plans don't support virtual networks.
+> The [Consumption plan](consumption-plan.md) doesn't support virtual networks.
 
 For a list of all restrictions on storage accounts, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
@@ -24,11 +24,14 @@ For a list of all restrictions on storage accounts, see [Storage account require
 
 ## Secure storage during function app creation 
 
-You can create a function app along with a new storage account secured behind a virtual network that is accessible via private endpoints. The following links show you how to create these resources by using either the Azure portal or by using deployment templates:  
+You can create a function app along with a new storage account that is secured behind a virtual network. The following links show you how to create these resources by using either the Azure portal or by using deployment templates:  
 
 ### [Azure portal](#tab/portal)
 
-Complete the following tutorial to create a new function app a secured storage account: [Use private endpoints to integrate Azure Functions with a virtual network](functions-create-vnet.md).
+Complete the steps in [Create a function app in a Premium plan](functions-create-vnet.md#create-a-function-app-in-a-premium-plan). This section of the virtual networking tutorial shows you how to create a function app that connects to storage over private endpoints.
+
+> [!NOTE] 
+> When you create your function app in the Azure portal, you can also choose an existing secured storage account in the **Storage** tab. However, you must configure the appropriate networking on the function app so that it can connect through the virtual network used to secure the storage account. If you don't have permissions to configure networking or you haven't fully prepared your network, select **Configure networking after creation** in the **Networking** tab. You can configure networking for your new function app in the portal under **Settings** > **Networking**.
 
 ### [Deployment templates](#tab/templates)
 
@@ -38,7 +41,9 @@ Use Bicep files or Azure Resource Manager (ARM) templates to create a secured fu
 
 ## Secure storage for an existing function app
 
-When you have an existing function app, you can't directly secure the storage account currently being used by the app. You must instead swap-out the existing storage account for a new, secured storage account.
+When you have an existing function app, you can directly configure networking on the storage account being used by the app. This process results in your app being down while you configure networking and while your app restarts.
+
+To minimize downtime, you can instead swap-out an existing storage account for a new, secured storage account.
 
 ### 1. Enable virtual network integration
 
@@ -69,6 +74,10 @@ Set up a secured storage account for your function app:
 Now you're ready to configure your function app to communicate with the newly secured storage account.
 
 ### 3. Enable application and configuration routing
+
+> [!NOTE]
+> These configuration steps are only required for the [Elastic Premium](./functions-premium-plan.md) and [Dedicated (App Service)](./dedicated-plan.md) hosting plans.
+> The [Flex Consumption plan](./flex-consumption-plan.md) doesn't require site settings to configure networking.
 
 You should now route your function app's traffic to go through the virtual network.
 

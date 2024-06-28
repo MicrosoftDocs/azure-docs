@@ -17,7 +17,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 In this quickstart, you learn to create a Synapse workspace by using the Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

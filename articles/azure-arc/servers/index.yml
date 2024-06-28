@@ -21,6 +21,8 @@ landingContent:
             url: agent-overview.md
           - text: VMware FAQ
             url: vmware-faq.md
+          - text: Security overview
+            url: security-overview.md
 
       - linkListType: architecture
         links:

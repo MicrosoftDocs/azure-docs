@@ -4,7 +4,7 @@ description: Learn about recent updates to Azure Database for MySQL - Flexible S
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: vamehta, maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: overview
@@ -710,7 +710,7 @@ This release of Azure Database for MySQL flexible server includes the following 
 
   Azure Database for MySQL flexible server now supports asynchronous data replication from one Azure Database for MySQL flexible server instance (the 'source') to up to 10 Azure Database for MySQL flexible server instances (the 'replicas') in the same region. This functionality enables read-heavy workloads to scale out and be balanced across replica servers according to a user's preferences. [Read replicas in Azure Database for MySQL - Flexible Server](concepts-read-replicas.md).
 
-## Contacts
+## Feedback and support
 
 If you have questions about or suggestions for working with Azure Database for MySQL flexible server, consider the following points of contact as appropriate:
 

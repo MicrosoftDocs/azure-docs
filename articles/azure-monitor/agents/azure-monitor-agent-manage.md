@@ -62,7 +62,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
   - `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)  
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-dce)).
 > [!NOTE]
-> When using AMA with AMPLS, all of your Data Collection Rules much use Data Collection Endpoints. Those DCE's must be added to the AMPLS configuration using [private link](../logs/private-link-configure.md#connect-azure-monitor-resources)
+> When using AMA with AMPLS, all of your Data Collection Rules must use Data Collection Endpoints. Those DCE's must be added to the AMPLS configuration using [private link](../logs/private-link-configure.md#connect-azure-monitor-resources)
 
 - **Disk Space**: Required disk space can vary greatly depending upon how an agent is utilized or if the agent is unable to communicate with the destinations where it is instructed to send monitoring data. By default the agent requires 10Gb of disk space to run. The following provides guidance for capacity planning:
 
@@ -78,6 +78,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
 | Agent Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName} | 10.5 GB |
 | Agent Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName} | 10.5 GB |
 | Event Cache | Linux | /var/opt/microsoft/azuremonitoragent/events | 10 GB |
+| Event Cache | Linux | /var/lib/rsyslog | 1 GB |
 
 > [!NOTE]
 > This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *Azure Monitor Agents can't function without being associated with data collection rules.*

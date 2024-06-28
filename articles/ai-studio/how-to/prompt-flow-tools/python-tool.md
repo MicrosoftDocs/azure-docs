@@ -14,7 +14,7 @@ author: lgayhardt
 
 # Python tool for flows in Azure AI Studio
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The prompt flow Python tool offers customized code snippets as self-contained executable nodes. You can quickly create Python tools, edit code, and verify results.
 
@@ -110,19 +110,11 @@ If you're developing a Python tool that requires calling external services with 
 
 Create a custom connection that stores all your large language model API key or other required credentials.
 
-1. Go to **Project settings**. Then select **New Connection**.
+1. Go to the **Settings** page for your project. Then select **+ New Connection**.
 1. Select **Custom** service. You can define your connection name. You can add multiple key-value pairs to store your credentials and keys by selecting **Add key-value pairs**.
 
     > [!NOTE]
     > Make sure at least one key-value pair is set as secret. Otherwise, the connection won't be created successfully. To set one key-value pair as secret, select **is secret** to encrypt and store your key value.
-
-    :::image type="content" source="../../media/prompt-flow/create-connection.png" alt-text="Screenshot that shows creating a connection in AI Studio." lightbox = "../../media/prompt-flow/create-connection.png":::
-
-1. Add the following custom keys to the connection:
-    - `azureml.flow.connection_type`: `Custom`
-    - `azureml.flow.module`: `promptflow.connections`
-    
-    :::image type="content" source="../../media/prompt-flow/custom-connection-keys.png" alt-text="Screenshot that shows adding extra information to a custom connection in AI Studio." lightbox = "../../media/prompt-flow/custom-connection-keys.png":::
 
 ### Consume a custom connection in Python
 

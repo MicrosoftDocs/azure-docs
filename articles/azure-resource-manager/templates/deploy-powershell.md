@@ -1,8 +1,8 @@
 ---
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
-ms.topic: conceptual
-ms.date: 03/20/2024
+ms.topic: how-to
+ms.date: 06/14/2024
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
@@ -193,6 +193,19 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile <path-to-template> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
+```
+
+You can use the `TemplateParameterObject` parameter to pass through a hashtable that contains the parameters for the template.
+
+```powershell
+$params = @{
+  exampleString = "inline string"
+  exampleArray = "value1", "value2"
+}
+
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile <path-to-bicep> `
+  -TemplateParameterObject $params
 ```
 
 You can also get the contents of file and provide that content as an inline parameter.

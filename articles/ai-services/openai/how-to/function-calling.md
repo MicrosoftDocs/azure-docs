@@ -5,6 +5,7 @@ description: Learn how to use function calling with the GPT-35-Turbo and GPT-4 m
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 12/04/2023
 manager: nitinme

@@ -8,12 +8,12 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 06/20/2024
 ---
 
 # Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 Azure Cosmos DB for MongoDB vCore provides seamless scalability and high availability. This document serves as a quick guide for developers who want to learn how to scale and configure their clusters. When changes are made, they're performed live to the cluster without downtime.
 
@@ -66,7 +66,7 @@ You can increase the storage size to give your database more room to grow. For e
 
 ## Enable or disable high availability
 
-You can enable or disable high availability (HA) to suit your needs. HA avoids database downtime by maintaining replica shards of every primary shard in a cluster. If a primary shard goes down, incoming connections are automatically redirected to its replica shard, ensuring that there's minimal downtime.
+You can enable or disable [high availability (HA)](./high-availability.md) to suit your needs. HA avoids database downtime by maintaining replica shards of every primary shard in a cluster. If a primary shard goes down, incoming connections are automatically redirected to its replica shard, ensuring that there's minimal downtime.
 
 1. To enable or disable HA, toggle the checkbox option.
 

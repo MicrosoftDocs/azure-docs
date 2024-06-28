@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 06/11/2024
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 ---
 
@@ -113,16 +113,6 @@ You can get the value of these service-defined variables to make adjustments tha
 | Variable | Description |
 | --- | --- |
 | $CPUPercent |The average percentage of CPU usage. |
-| $WallClockSeconds |The number of seconds consumed. Retiring after 2024-Mar-31. |
-| $MemoryBytes |The average number of megabytes used. Retiring after 2024-Mar-31. |
-| $DiskBytes |The average number of gigabytes used on the local disks. Retiring after 2024-Mar-31. |
-| $DiskReadBytes |The number of bytes read. Retiring after 2024-Mar-31. |
-| $DiskWriteBytes |The number of bytes written. Retiring after 2024-Mar-31. |
-| $DiskReadOps |The count of read disk operations performed. Retiring after 2024-Mar-31. |
-| $DiskWriteOps |The count of write disk operations performed. Retiring after 2024-Mar-31. |
-| $NetworkInBytes |The number of inbound bytes. Retiring after 2024-Mar-31. |
-| $NetworkOutBytes |The number of outbound bytes. Retiring after 2024-Mar-31. |
-| $SampleNodeCount |The count of compute nodes. Retiring after 2024-Mar-31. |
 | $ActiveTasks |The number of tasks that are ready to execute but aren't yet executing. This includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies haven't been satisfied are excluded from the `$ActiveTasks` count. For a multi-instance task, `$ActiveTasks` includes the number of instances set on the task.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of `$ActiveTasks` and `$RunningTasks`. |
@@ -239,7 +229,7 @@ You can use both resource and task metrics when you define a formula. You adjust
 
 | Metric   | Description  |
 |----------|--------------|
-| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $UsableNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent <br>- $WallClockSeconds <br>- $MemoryBytes <br>- $DiskBytes <br>- $DiskReadBytes <br>- $DiskWriteBytes <br>- $DiskReadOps <br>- $DiskWriteOps <br>- $NetworkInBytes <br>- $NetworkOutBytes |
+| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $UsableNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent |
 | Task     | Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics: <br>- $ActiveTasks <br>- $RunningTasks <br>- $PendingTasks <br>- $SucceededTasks <br>- $FailedTasks |
 
 ## Obtain sample data

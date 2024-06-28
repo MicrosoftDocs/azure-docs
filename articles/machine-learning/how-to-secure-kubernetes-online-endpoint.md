@@ -16,7 +16,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, devx-track-azurecli
 
 This article shows you how to secure a Kubernetes online endpoint that's created through Azure Machine Learning.
 
-You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to online endpoints and help secure the data that clients submit. HTTPS encrypts communications between a client and an online endpoint by using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still called *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to online endpoints and help secure the data that clients submit. HTTPS encrypts communications between a client and an online endpoint by using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still called *Secure Sockets Layer (SSL)*, which was the predecessor of TLS.
 
 > [!TIP]
 > * Specifically, Kubernetes online endpoints support TLS version 1.2 for Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.

@@ -36,7 +36,7 @@ This tutorial uses the Azure portal. You can also complete it using the [Azure C
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 ## Enable a service endpoint
 
@@ -155,7 +155,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 The steps required to restrict network access to resources created through Azure services, which are enabled for service endpoints vary across services. See the documentation for individual services for specific steps for each service. The rest of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
 
-[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
+[!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
 
 ### Create a file share in the storage account
 
@@ -216,7 +216,7 @@ To restrict network access to a subnet:
 
 To test network access to a storage account, deploy a virtual machine to each subnet.
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+[!INCLUDE [create-test-virtual-machine.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine.md)]
 
 ### Create the second virtual machine
 
@@ -360,7 +360,7 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 >[!NOTE] 
 > The access is denied because your computer isn't in the **subnet-private** subnet of the **vnet-1** virtual network.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

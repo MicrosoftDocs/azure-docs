@@ -42,7 +42,7 @@ Bing Maps for Enterprise only supports API key authentication. Azure Maps suppor
 
 The following table lists the Bing Maps _Get Imagery Metadata_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter  | Bing Maps Request Parameter Alias  | Azure Maps Request Parameter  | Required in Azure Maps  | Azure Maps Data Type  | Description|
+| Bing Maps request parameter  | Bing Maps request parameter alias  | Azure Maps request parameter  | Required in Azure Maps  | Azure Maps data type  | Description|
 |------------------------------|------------------------------------|-------------------------------|-------------------------|-----------------------|------------|
 | imagerySet   | None   | tilesetId  | True   | TilesetID      | Azure Maps has some map styles that Bing Maps Get Imagery Metadata API doesn’t have. Bing Maps Get Imagery Metadata API has some map styles that Azure Maps doesn’t have. For more information on the map styles offered by Azure Maps, see [TilesetID].|
 | centerPoint  | None   | x<br>y    | True   | integer int32  | For more information on X, Y coordinates, see [Zoom levels and tile grid]. |
@@ -73,7 +73,7 @@ https://atlas.microsoft.com/map/tile?api-version=2022-08-01&tilesetId=microsoft.
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps *Get Imagery Metadata* API and the Azure Maps equivalent:
 
-| Bing Maps Response Field                | Azure Maps Response Field       | Description |
+| Bing Maps response field                | Azure Maps response field       | Description |
 |-----------------------------------------|---------------------------------|-------------|
 | imageHeight (Json)<BR>ImageWidth (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
 | imageUrl (Json)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as oppsed to an image URL. |

@@ -3,6 +3,7 @@ title: Enable native sidecar mode for Istio-based service mesh add-on in Azure K
 description: Enable native sidecar mode for Istio-based service mesh add-on in Azure Kubernetes Service (AKS) (preview).
 ms.topic: article
 ms.service: azure-kubernetes-service
+ms.custom: devx-track-azurecli
 ms.date: 05/07/2024
 ms.author: fuyuanbie
 author: biefy
@@ -119,12 +120,13 @@ When creating a new AKS cluster with [az aks create][az-aks-create] command, cho
 
 ```bash
 az aks create \
-  --resource-group $RESOURCE_GROUP \
-  --name $CLUSTER \
-  --enable-asm \
-  --kubernetes-version 1.29 \
-  --revision asm-1-20
-  ...
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER \
+    --enable-asm \
+    --kubernetes-version 1.29 \
+    --revision asm-1-20 \
+    --generate-ssh-keys    
+    ...
 ```
 
 ## Next steps

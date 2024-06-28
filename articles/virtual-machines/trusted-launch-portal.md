@@ -550,9 +550,9 @@ New-AzVM `
 ---
 ## Trusted Launch Built-In Policies
 
-To help end-users adopt Trusted Launch, there is Azure policies available to help resource owners adopt Trusted Launch. The main objbective being to help convert Generation 1 and 2 Virtual Machines that are Trusted Launch capable. **Virtual Machine should have Trusted Launch enabled** single policy checks if the virtual machine, currently enabled with Trusted Launch security configurations. **Disks and OS Supported for Trusted Launch** checks if previously created virtual machines has the [capable Generation 2 operating system and virtual machine size](trusted-launch.md#virtual-machines-sizes) to deploy a Trusted Launch virtual machines. These two policies come together to make the Trusted Launch policy initative, enabling you to group several related policy definitions to simplify assignments and management resources to include Trusted Launch configuration.  
+To help end-users adopt Trusted Launch, there is Azure policies available to help resource owners adopt Trusted Launch. The main objective being to help convert Generation 1 and 2 Virtual Machines that are Trusted Launch capable. **Virtual Machine should have Trusted Launch enabled** single policy checks if the virtual machine, currently enabled with Trusted Launch security configurations. **Disks and OS Supported for Trusted Launch** checks if previously created virtual machines has the [capable Generation 2 operating system and virtual machine size](trusted-launch.md#virtual-machines-sizes) to deploy a Trusted Launch virtual machines. These two policies come together to make the Trusted Launch policy initative, enabling you to group several related policy definitions to simplify assignments and management resources to include Trusted Launch configuration.  
 
-To learn more, and start deploying the [Trusted Launch built-in policies](../governance/policy/samples/built-in-policies.md#trusted-launch). 
+To learn more and start deploying, see [Trusted Launch built-in policies](../governance/policy/samples/built-in-policies.md#trusted-launch). 
 
 ---
 ## Verify or update your settings

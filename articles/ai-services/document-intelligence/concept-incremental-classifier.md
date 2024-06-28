@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/17/2024
+ms.date: 05/23/2024
 ms.author: vikurpad
 ms.custom:
 monikerRange: '>=doc-intel-4.0.0'
@@ -44,7 +44,7 @@ Incremental training is useful when you want to improve the quality of a custom 
 
 ### Create an incremental classifier build request
 
-The incremental classifier build request is similar to the [classify document build request](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2024-02-29-preview/operations/ClassifyDocument) but includes the new `baseClassifierId` property. The `baseClassifierId` is set to the existing classifier that you want to extend. You also need to provide the `docTypes` for the different document types in the sample set. By providing a `docType` that exists in the baseClassifier, the samples provided in the request are added to the samples provided when the base classifier was trained. New `docType` values added in the incremental training are only added to the new classifier. The process to specify the samples remains unchanged. For more information, *see* [training a classifier model](concept-custom-classifier.md#training-a-model).
+The incremental classifier build request is similar to the [classify document build request](/rest/api/aiservices/document-classifiers?view=rest-aiservices-v4.0%20(2024-02-29-preview)&preserve-view=true) but includes the new `baseClassifierId` property. The `baseClassifierId` is set to the existing classifier that you want to extend. You also need to provide the `docTypes` for the different document types in the sample set. By providing a `docType` that exists in the baseClassifier, the samples provided in the request are added to the samples provided when the base classifier was trained. New `docType` values added in the incremental training are only added to the new classifier. The process to specify the samples remains unchanged. For more information, *see* [training a classifier model](concept-custom-classifier.md#training-a-model).
 
 ### Sample POST request
 

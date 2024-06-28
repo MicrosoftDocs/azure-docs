@@ -4,7 +4,7 @@ description: Learn about backends in Azure API Management. Backend entities enca
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: concept article
+ms.topic: concept-article
 ms.date: 05/13/2024
 ms.author: danlep
 ms.custom:
@@ -267,4 +267,5 @@ For **Developer** and **Premium** tiers, an API Management instance deployed in 
 
 ## Related content
 
+* Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.

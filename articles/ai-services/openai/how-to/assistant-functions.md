@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 05/14/2024
+ms.date: 05/22/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -37,6 +37,7 @@ To use all features of function calling including parallel functions, you need t
 > [!NOTE]
 > * We've added support for the `tool_choice` parameter which can be used to force the use of a specific tool (like `file_search`, `code_interpreter`, or a `function`) in a particular run. 
 > * Runs expire ten minutes after creation. Be sure to submit your tool outputs before this expiration.
+> * You can also perform function calling [with Azure Logic apps](./assistants-logic-apps.md)
 
 # [Python 1.x](#tab/python)
 

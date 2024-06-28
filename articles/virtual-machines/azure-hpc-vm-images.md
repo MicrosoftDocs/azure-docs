@@ -29,7 +29,7 @@ You may use the HPC images when creating a VM from either Azure Marketplace or A
 
 ### Azure Marketplace
 
-Search for "Ubuntu HPC" by the publisher "Microsoft-DSVM", or "AlmaLinux HPC" by the publisher "AlmaLinux".
+Search for `Ubuntu HPC` by the publisher `Microsoft-DSVM`, or `AlmaLinux HPC` by the publisher `AlmaLinux`.
 
 ### Azure CLI
 
@@ -106,6 +106,7 @@ An installed version index within the VM image is located at this location: ```/
 MPI libraries and software packages are available as environment modules. To load an MPI library/package, run:
 
 ```
+module load mpi/<mpi-library-name>
 module load <package-name>
 ```
 

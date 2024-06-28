@@ -1,7 +1,7 @@
 ---
 title: Linter rule - adminPassword should be assigned a secure value
 description: Linter rule - adminPassword should be assigned a secure value.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 05/06/2024
 ---

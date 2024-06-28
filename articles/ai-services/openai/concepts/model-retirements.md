@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 05/01/2024
+ms.date: 06/19/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -60,15 +60,15 @@ These models are currently available for use in Azure OpenAI Service.
 
 | Model | Version | Retirement date |
 | ---- | ---- | ---- |
-| `gpt-35-turbo` | 0301 | No earlier than August 1, 2024 |
-| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | No earlier than August 1, 2024 |
+| `gpt-35-turbo` | 0301 | No earlier than October 1, 2024 |
+| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | October 1, 2024 |
 | `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 |
 | `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 |
-| `gpt-4`<br>`gpt-4-32k` | 0314 | No earlier than July 13, 2024 |
+| `gpt-4`<br>`gpt-4-32k` | 0314 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 |
 | `gpt-4`<br>`gpt-4-32k` | 0613 | No earlier than Sep 30, 2024 |
-| `gpt-4` | 1106-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on June 10, 2024, or later **<sup>1</sup>** |
-| `gpt-4` | 0125-preview |To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on June 10, 2024, or later  **<sup>1</sup>**  |
-| `gpt-4` | vision-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on June 10, 2024, or later  **<sup>1</sup>** |
+| `gpt-4` | 1106-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on July 15, 2024, or later **<sup>1</sup>** |
+| `gpt-4` | 0125-preview |To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on July 15, 2024, or later  **<sup>1</sup>**  |
+| `gpt-4` | vision-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on July 15, 2024, or later  **<sup>1</sup>** |
 | `gpt-3.5-turbo-instruct` | 0914 | No earlier than Sep 14, 2025 |
 | `text-embedding-ada-002` | 2 | No earlier than April 3, 2025 |
 | `text-embedding-ada-002` | 1 | No earlier than April 3, 2025 |
@@ -80,41 +80,51 @@ These models are currently available for use in Azure OpenAI Service.
 
 ## Deprecated models
 
-These models were deprecated on July 6, 2023 and will be retired on July 5, 2024. These models are no longer available for new deployments. Deployments created before July 6, 2023 remain available to customers until July 5, 2024. We recommend customers migrate their applications to deployments of replacement models before the July 5, 2024 retirement.
+These models were deprecated on July 6, 2023 and will be retired on June 14, 2024. These models are no longer available for new deployments. Deployments created before July 6, 2023 remain available to customers until June 14, 2024. We recommend customers migrate their applications to deployments of replacement models before the June 14, 2024 retirement.
 
 If you're an existing customer looking for information about these models, see [Legacy models](./legacy-models.md).
 
 | Model | Deprecation date | Retirement date | Suggested replacement |
 | --------- | --------------------- | ------------------- | -------------------- | 
-| ada | July 6, 2023 | July 5, 2024 | babbage-002 |
-| babbage | July 6, 2023 | July 5, 2024 | babbage-002 |
-| curie | July 6, 2023 | July 5, 2024 | davinci-002 |
-| davinci | July 6, 2023 | July 5, 2024 | davinci-002 |
-| text-ada-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-babbage-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-curie-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-davinci-002 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-davinci-003 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| code-cushman-001 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| code-davinci-002 | July 6, 2023 | July 5, 2024 | gpt-35-turbo-instruct |
-| text-similarity-ada-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-babbage-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-curie-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-similarity-davinci-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-ada-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-ada-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-babbage-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-babbage-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-curie-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-curie-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-davinci-doc-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| text-search-davinci-query-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-ada-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-ada-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-babbage-code-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
-| code-search-babbage-text-001 | July 6, 2023 | July 5, 2024 | text-embedding-3-small |
+| ada | July 6, 2023 | June 14, 2024 | babbage-002 |
+| babbage | July 6, 2023 | June 14, 2024 | babbage-002 |
+| curie | July 6, 2023 | June 14, 2024 | davinci-002 |
+| davinci | July 6, 2023 | June 14, 2024 | davinci-002 |
+| text-ada-001 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-babbage-001 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-curie-001 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-davinci-002 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-davinci-003 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| code-cushman-001 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| code-davinci-002 | July 6, 2023 | June 14, 2024 | gpt-35-turbo-instruct |
+| text-similarity-ada-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-similarity-babbage-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-similarity-curie-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-similarity-davinci-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-ada-doc-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-ada-query-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-babbage-doc-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-babbage-query-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-curie-doc-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-curie-query-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-davinci-doc-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| text-search-davinci-query-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-ada-code-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-ada-text-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-babbage-code-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
+| code-search-babbage-text-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
 
 ## Retirement and deprecation history
+
+## June 19, 2024
+
+* Updated `gpt-35-turbo` 0301 retirement date to no earlier than October 1, 2024.
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k`0613 retirement date to October 1, 2024.
+* Updated `gpt-4` & `gpt-4-32k` 0314 deprecation date to October 1, 2024, and retirement date to June 6, 2025.  
+
+### June 4, 2024
+
+Retirement date for legacy models updated by one month.
 
 ### April 24, 2024
 
