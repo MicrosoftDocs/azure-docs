@@ -32,7 +32,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 |Category |Limit    |
 |---------|---------|
-|Maximum requests per IP per Azure AD B2C tenant       |6,000/5min          |
+|Maximum requests per IP per Azure AD tenant       |6,000/5min          |
 |Maximum requests per Azure AD B2C tenant     |200/sec          |
 
 ## Endpoint request usage
