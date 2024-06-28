@@ -36,7 +36,7 @@ This schedule looks a lot like a calendar in outlook, but there are a few import
 ## Enabling or changing a bandwidth management schedule
 
 Using the Azure portal, you can enable a bandwidth schedule on a registered agent resource. 
-   1. With the portal showing your Storage Mover resource, select the "*Registered agents*" in the menu on the left.
+   1. With the portal showing your Storage Mover resource, select "*Registered agents*" in the menu on the left.
    1. You now have two options to set or view a schedule. You can find the column "*Bandwidth management*" and click on the link for your selected agent. Or, you can select the checkbox in front of your agent. That enables and a command button above the list of agents, labeled "*Manage bandwidth limit*". 
       :::image type="content" source="media/bandwidth-management/bandwidth-registered-agents-command-small.png" alt-text="Azure portal, registered agents blade, showing to select and agent and then select the Bandwidth Management command." lightbox="media/bandwidth-management/bandwidth-registered-agents-command.png":::
    1. The bandwidth management window opens and displays the schedule currently in effect for the agent. When an empty schedule is shown, there are no bandwidth limitations defined for this agent.
@@ -200,7 +200,7 @@ You can, however, manually form that JSON and directly supply it as an argument 
 > The schedule consists of one or more time spans during which a bandwidth limit applies that the agent is not to exceed. These time spans must not be overlapping. At any given time, only one limit may apply. A JSON specifying a schedule with overlapping times is considered malformed and cannot be applied to the agent.
 
 The following two representations of a bandwidth limit schedule are equivalent:
-:::image type="content" source="media/bandwidth-management/bandwidth-limit-json-small.png" alt-text="Azure portal dialog showing a calendar, similar to Outlook, with scheduled bandwidth limitation windows." lightbox="media/bandwidth-management/bandwidth-limit-json.png":::
+:::image type="content" source="media/bandwidth-management/bandwidth-limit-json-small.png" alt-text="Azure portal dialog showing a calendar with scheduled bandwidth limitations." lightbox="media/bandwidth-management/bandwidth-limit-json.png":::
 
 ```json
 {
@@ -235,7 +235,7 @@ The following two representations of a bandwidth limit schedule are equivalent:
 }
 ```
 > [!NOTE]
-> Time spans not covered by an entry in the schedule allow the agent to utilize all available bandwidth. During these times, it is likely that and agent doesn't utilize all available bandwidth. You can find more details about that in the performance article, section: "[Why migration performance varies](performance-targets.md#why-migration-performance-varies)".
+> Time spans not covered by an entry in the schedule allow the agent to utilize all available bandwidth. During these times, it is likely that an agent doesn't utilize all available bandwidth. You can find more details about that in the performance article, section: "[Why migration performance varies](performance-targets.md#why-migration-performance-varies)".
 
 ## Next steps
 
