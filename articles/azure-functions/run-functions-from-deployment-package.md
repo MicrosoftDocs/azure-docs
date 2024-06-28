@@ -1,9 +1,9 @@
 ---
 title: Run your functions from a package file in Azure 
-description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project files.
+description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project.
 mw-service: azure-functions
 ms.topic: conceptual
-ms.date: 06/21/2024
+ms.date: 06/28/2024
 
 # Customer intent: As a function developer, I want to understand how to run my function app from a deployment package file, so I can make my function app run faster and easier to update.
 ---
@@ -22,7 +22,7 @@ There are several benefits to running functions from a package file:
 + Can be deployed to a production app (with restart).
 + Verifies the files that are running in your app.
 + Improves the performance of [Azure Resource Manager deployments](functions-infrastructure-as-code.md).
-+ Can reduce cold-start times, particularly for JavaScript functions with large npm package trees.
++ Reduces cold-start times, particularly for JavaScript functions with large npm package trees.
 
 For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
 
@@ -66,6 +66,8 @@ This section provides information about how to run your function app from a loca
 
 ### Considerations for deploying from an on-site package
 
+<a name="troubleshooting"></a>
+
 + Using an on-site package is the recommended option for running from the deployment package, except when running on Linux hosted in a Consumption plan.
 + [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site.
 + When not using zip deployment, make sure the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running.
@@ -91,10 +93,10 @@ This section provides information about how to run your function app from a pack
 + Don't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [shared access signature (SAS)](../storage/common/storage-sas-overview.md) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
 + You must maintain any SAS URLs used for deployment. When an SAS expires, the package can no longer be deployed. In this case, you must generate a new SAS and update the setting in your function app. You can eliminate this management burden by [using a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity).
 + When running on a Premium plan, make sure to [eliminate cold starts](functions-premium-plan.md#eliminate-cold-starts).
-+ When your running on a Dedicated plan, ensure you  enable [Always On](dedicated-plan.md#always-on).
++ When you're running on a Dedicated plan, ensure you enable [Always On](dedicated-plan.md#always-on).
 + You can use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
-### Manually uploading a package to Blob Storage
+### Manually upload a package to Blob Storage
 
 To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. The following procedure deploys to a container in Blob Storage:
 
@@ -118,15 +120,11 @@ To deploy a zipped package when using the URL option, you must create a .zip com
 
 1. In the **App settings** tab, select **+ Add**.
 
-1. Enter the value `WEBSITE_RUN_FROM_PACKAGE` for the **Name**, and paste the URL of your package in Blob Storage as the **Value**.
+1. Enter the value `WEBSITE_RUN_FROM_PACKAGE` for the **Name**, and paste the URL of your package in Blob Storage for the **Value**.
 
-1. Select **Apply**. Select **Apply** again, and then select **Confirm** to save the setting and restart the app.
+1. Select **Apply**, and then select **Apply** and **Confirm** to save the setting and restart the function app.
 
 Now you can run your function in Azure to verify that deployment of the deployment package .zip file was successful.
-
-The following screenshot shows a function app configured to run from a .zip file hosted in Azure Blob storage:
-
-![Screenshot that shows the WEBSITE_RUN_FROM_ZIP app setting.](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 
 ### Fetch a package from Azure Blob Storage using a managed identity
 
