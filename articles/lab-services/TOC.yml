@@ -264,7 +264,9 @@
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
-      - name: Create and manage lab accounts
+      - name: Create lab accounts
+        href: how-to-create-lab-accounts.md
+      - name: Manage lab accounts
         href: how-to-manage-lab-accounts.md
       - name: Configure auto-shutdown of VMs for a lab account
         href: how-to-configure-lab-accounts.md

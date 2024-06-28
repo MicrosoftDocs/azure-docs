@@ -101,8 +101,7 @@ Ensure you provide the remote user the VMware VRM administrator and VMware SRM a
 
 
 > [!NOTE]
-> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
-
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.7.0.3.
 1. From the **Disaster Recovery Solution** drop-down, select **VMware Site Recovery Manager (SRM) – vSphere Replication**. 
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with VMware Site Recovery Manager (SRM) - vSphere replication selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::

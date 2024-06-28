@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 05/07/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -287,7 +287,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ## <a name="UrlRedirect"></a> URL redirect
 
-Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door.
+Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door. Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variables](rule-set-server-variables.md).
 
 ### Properties
 
@@ -344,7 +344,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ## <a name="UrlRewrite"></a> URL rewrite
 
-Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin.
+Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin. Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variables](rule-set-server-variables.md).
 
 ### Properties
 

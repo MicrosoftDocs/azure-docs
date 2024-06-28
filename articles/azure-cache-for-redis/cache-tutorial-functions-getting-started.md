@@ -101,7 +101,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
 
-1. Select **Access keys** from the resource menu, and then write down or copy the contents of the **Primary connection string** box. This string is used to connect to the cache.
+1. Locate **Access keys** on the Resource menu, and then write down or copy the contents of the **Primary connection string** box. This string is used to connect to the cache.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot that shows the primary connection string for an access key.":::
 

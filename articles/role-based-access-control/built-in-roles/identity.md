@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -298,6 +298,10 @@ Create, Read, Update, and Delete User Assigned Identity
 > | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/read | Gets an existing user assigned identity |
 > | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/write | Creates a new user assigned identity or updates the tags associated with an existing user assigned identity |
 > | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/delete | Deletes an existing user assigned identity |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/read | Get or list Federated Identity Credentials |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/write | Add or update a Federated Identity Credential |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/delete | Delete a Federated Identity Credential |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/revokeTokens/action | Revoked all the existing tokens on a user assigned identity |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -324,6 +328,10 @@ Create, Read, Update, and Delete User Assigned Identity
         "Microsoft.ManagedIdentity/userAssignedIdentities/read",
         "Microsoft.ManagedIdentity/userAssignedIdentities/write",
         "Microsoft.ManagedIdentity/userAssignedIdentities/delete",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/read",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/write",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/delete",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/revokeTokens/action",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",

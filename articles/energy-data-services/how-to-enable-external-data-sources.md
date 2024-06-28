@@ -13,7 +13,7 @@ ms.date: 03/14/2024
 
 # How to enable External Data Sources (EDS) Preview?
 
-External Data Sources (EDS) is a capability in [OSDU&trade;](https://osduforum.org/) that allows data from an [OSDU&trade;](https://osduforum.org/) compliant external data source to be shared with an Azure Data Manager for Energy resource. EDS is designed to pull specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
+External Data Sources (EDS) is a capability in [OSDU&reg;](https://osduforum.org/) that allows data from an [OSDU&reg;](https://osduforum.org/) compliant external data source to be shared with an Azure Data Manager for Energy resource. EDS is designed to pull specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
 
 For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2022 Newsletter - EDS](https://osduforum.org/wp-content/uploads/2022/06/The-OSDU-Forum-2Q-2022-Newsletter.pdf).  
 
@@ -27,7 +27,7 @@ For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2
 
 ## Prerequisites
 
-1. Create a new or use an existing key vault to store secrets managed by [OSDU&trade;](https://osduforum.org/) secret service. To learn how to create a key vault with the Azure portal, see  [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+1. Create a new or use an existing key vault to store secrets managed by [OSDU&reg;](https://osduforum.org/) secret service. To learn how to create a key vault with the Azure portal, see  [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
   
     > [!IMPORTANT]
     > Your key vault must exist in the same tenant and subscription as your Azure Data Manager for Energy resource. 
@@ -58,7 +58,7 @@ To enable External Data Sources Preview on your Azure Data Manager for Energy, c
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
 ## Known issues
-- Below issues are specific to [OSDU&trade;](https://osduforum.org/) M18 release: 
+- Below issues are specific to [OSDU&reg;](https://osduforum.org/) M18 release: 
     - EDS ingest DAG results in failures when the data supplier’s wrapper Search service is unavailable. 
     - EDS Dataset service response provides an empty response when data supplier’s Dataset wrapper service is unavailable. 
     - Secret service responds with 5xx HTTP response code instead of 4xx in some cases. For example, 
@@ -66,7 +66,7 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&trade;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features are available once we upgrade to subsequent [OSDU&trade;](https://osduforum.org/) milestone release.
+Some EDS capabilities like **Naturalization, Reverse Naturalization, Reference data mapping** are unavailable in the M18 [OSDU&reg;](https://osduforum.org/) release (available in later releases), and hence unavailable in Azure Data Manager for Energy M18 release. These features are available once we upgrade to subsequent [OSDU&reg;](https://osduforum.org/) milestone release.
 
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)

@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 02/29/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -27,9 +27,13 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > [!IMPORTANT]
 > Preview API versions are retired once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version 2023-07-31 (GA).
 
+## May 2024
+
+The Document Intelligence Studio has added support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](studio-overview.md#authentication).
+
 ## February 2024
 
-The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
+The Document Intelligence [**2024-02-29-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-02-29-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
 
 * Public preview version [**2024-02-29-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) is currently available only in the following Azure regions:
 
@@ -94,7 +98,7 @@ The [Document Intelligence client libraries](sdk-overview-v4-0.md) targeting RES
 
 ## November 2023
 
-The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
+The Document Intelligence [**2023-10-31-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-02-29-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
 
 * Public preview version [**2023-10-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) is currently only available in the following Azure regions:
 
@@ -224,7 +228,7 @@ The v3.1 API introduces new and updated capabilities:
 
 **Announcing the latest Document Intelligence client-library public preview release**
 
-* Document Intelligence REST API Version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) supports the public preview release client libraries. This release includes the following new features and capabilities available for .NET/C# (4.1.0-beta-1), Java (4.1.0-beta-1), JavaScript (4.1.0-beta-1), and Python (3.3.0b.1) client libraries:
+* Document Intelligence REST API Version **2023-02-28-preview** supports the public preview release client libraries. This release includes the following new features and capabilities available for .NET/C# (4.1.0-beta-1), Java (4.1.0-beta-1), JavaScript (4.1.0-beta-1), and Python (3.3.0b.1) client libraries:
 
   * [**Custom classification model**](concept-custom-classifier.md)
 
@@ -237,13 +241,13 @@ The v3.1 API introduces new and updated capabilities:
 ## March 2023
 
 > [!IMPORTANT]
-> [**`2023-02-28-preview`**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) capabilities are currently only available in the following regions:
+> **`2023-02-28-preview`** capabilities are currently only available in the following regions:
 >
 > * West Europe
 > * West US2
 > * East US
 
-* [**Custom classification model**](concept-custom-classifier.md) is a new capability within Document Intelligence starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
+* [**Custom classification model**](concept-custom-classifier.md) is a new capability within Document Intelligence starting with the ```2023-02-28-preview``` API.
 * [**Query fields**](concept-query-fields.md) capabilities added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
 * [**Add-on capabilities**](concept-add-on-capabilities.md):
   * [**Font extraction**](concept-add-on-capabilities.md#font-property-extraction) is now recognized with the ```2023-02-28-preview``` API.
@@ -702,7 +706,7 @@ The v3.1 API introduces new and updated capabilities:
   * [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Document Intelligence Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
-* Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
+* Get started with the new v3.0 preview API.
 
 * Document Intelligence model data extraction:
 
@@ -1111,7 +1115,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * **Document Intelligence `v2.1-preview.1` includes the following features:
 
-  * **REST API reference is available** - View the [`v2.1-preview.1 reference`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync).
+  * **REST API reference is available** - View the [`v2.1-preview.1 reference`](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true).
   * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
   * **Checkbox / Selection Mark detection** – Document Intelligence supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
   * **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.

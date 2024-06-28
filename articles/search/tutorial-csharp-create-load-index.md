@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 04/25/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-azurecli
@@ -17,7 +17,7 @@ ms.custom:
 ms.devlang: csharp
 ---
 
-# 2 - Create and load Search Index with .NET
+# Step 2 - Create and load Search Index with .NET
 
 Continue to build your search-enabled website by following these steps:
 * Create a search resource

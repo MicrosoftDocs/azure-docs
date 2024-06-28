@@ -28,7 +28,7 @@ landingContent:
             url: overview.md
           - text: What products are available?
             url: overview-azure-products.md
-          - text: Choose your confidential computing offering
+          - text: What can I use this for?
             url: use-cases-scenarios.md 
       - linkListType: quickstart
         links:

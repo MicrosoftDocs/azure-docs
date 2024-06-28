@@ -26,7 +26,7 @@ This article describes how to manually increase or decrease the number of nodes 
 ## Scale the cluster nodes
 
 > [!IMPORTANT]
-> Removing nodes from a node pool using the kubectl command is not supported. Doing so can create scaling issues with your AKS cluster.
+> Removing nodes from a node pool using the kubectl command isn't supported. Doing so can create scaling issues with your AKS cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -138,6 +138,9 @@ This article describes how to manually increase or decrease the number of nodes 
 ## Scale `User` node pools to 0
 
 Unlike `System` node pools that always require running nodes, `User` node pools allow you to scale to 0. To learn more on the differences between system and user node pools, see [System and user node pools](use-system-pools.md).
+
+> [!IMPORTANT]
+> You can't scale a user node pool with the cluster autoscaler enabled to 0 nodes. To scale a user node pool to 0 nodes, you must disable the cluster autoscaler first. For more information, see [Disable the cluster autoscaler on a node pool](./cluster-autoscaler.md#disable-the-cluster-autoscaler-on-a-node-pool).
 
 ### [Azure CLI](#tab/azure-cli)
 

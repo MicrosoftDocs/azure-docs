@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -201,6 +201,7 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/webhooks/listEvents/action | Lists recent events for the specified webhook. |
 > | Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read | Gets a webhook async operation status |
 > | **DataAction** | **Description** |
+> | Microsoft.ContainerRegistry/registries/catalog/read | List repositories in a container registry. |
 > | Microsoft.ContainerRegistry/registries/quarantinedArtifacts/read | Allows pull or get of the quarantined artifacts from container registry. This is similar to Microsoft.ContainerRegistry/registries/quarantine/read except that it is a data action |
 > | Microsoft.ContainerRegistry/registries/quarantinedArtifacts/write | Allows write or update of the quarantine state of quarantined artifacts. This is similar to Microsoft.ContainerRegistry/registries/quarantine/write action except that it is a data action |
 > | Microsoft.ContainerRegistry/registries/repositories/content/read | Pull or Get images from a container registry. |
@@ -808,8 +809,8 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/livez/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
 > | Microsoft.ContainerService/managedClusters/logs/read | Reads logs |
 > | Microsoft.ContainerService/managedClusters/metrics/read | Reads metrics |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes metrics |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods metrics |
 > | Microsoft.ContainerService/managedClusters/namespaces/read | Reads namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/write | Writes namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/delete | Deletes namespaces |

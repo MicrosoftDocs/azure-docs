@@ -13,14 +13,16 @@ ms.date: 11/14/2023
 
 # About Azure confidential VMs 
 
-Azure confidential computing offers confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
+Azure confidential VMs offer strong security and confidentiality for tenants. They create a hardware-enforced boundary between your application and the virtualization stack. You can use them for cloud migrations without modifying your code, and the platform ensures your VM’s state remains protected.
 
 > [!IMPORTANT]
 > Protection levels differ based on your configuration and preferences. For example, Microsoft can own or manage encryption keys for increased convenience at no additional cost.
 
-## Benefits
+## Microsoft Mechanics
 
-Some of the benefits of confidential VMs include:
+> [!VIDEO https://www.youtube.com/embed/mkCSGGNtwmc]
+
+## Confidential VMs Benefits
 
 - Robust hardware-based isolation between virtual machines, hypervisor, and host management code.
 - Customizable attestation policies to ensure the host's compliance before deployment.

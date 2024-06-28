@@ -58,12 +58,16 @@ You can use the following services as resource services:
 
 To use `appcat`, you must download the ZIP file described in the next section, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
 
-### Download
+### Download latest release
 
 The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
 > [!div class="nextstepaction"]
-> [Download Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+> [Download Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+
+#### Previous release
+
+ - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip)
 
 ### Run appcat
 

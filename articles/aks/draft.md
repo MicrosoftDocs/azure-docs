@@ -30,7 +30,7 @@ Draft has the following commands to help ease your development on Kubernetes:
 
 ### Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2024
+ms.date: 06/04/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -161,7 +161,7 @@ When you create an export programmatically, you must manually register the `Micr
 
 Start by preparing your environment for Azure PowerShell:
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
   > While the **Az.CostManagement** PowerShell module is in preview, you must install it separately
@@ -375,7 +375,7 @@ Select an export to view the run history.
 There are two runs per day for the first five days of each month after you create a daily export. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month is closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
 
 >[!NOTE]
-  > Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
+> Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
 
 ## Access exported data from other systems
 
@@ -414,14 +414,28 @@ For older versions of MS Excel:
 
 ### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
 
-You might have discrepancies between the aggregated cost from the exported file and the cost displayed in Cost Analysis. Determine if the tool you use to read and aggregate the total cost is truncating decimal values. This issue can happen in tools like Power BI and Microsoft Excel. Determine if decimal places are getting dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
+You might notice discrepancies between the aggregated cost from an exported file and the cost displayed in Cost Analysis. These differences can occur if the tool you use to read and aggregate the total cost truncates decimal values. This issue is common in tools like Power BI and Microsoft Excel.
+
+#### Using Power BI
+
+Check if decimal places are being dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
 
 To manually transform a column to a decimal number in Power BI, follow these steps:
 
-1. Go to the Table view.
+1. Go to the **Table** view.
 1. Select **Transform data**.
 1. Right-click the required column.
-1. Change the type to a decimal number.
+1. Change the type to **Decimal Number**.
+
+#### Using Microsoft Excel
+
+When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://insider.microsoft365.com/blog/control-data-conversions-in-excel-for-windows-and-mac).
+
+:::image type="content" source="./media/tutorial-export-acm-data/excel-convert-dialog.png" border="true" alt-text="Screenshot showing the Convert dialog.":::
+
+If the correct conversion isn't used, you get a green triangle with a `Number Stored as Text` error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
+
+:::image type="content" source="./media/tutorial-export-acm-data/number-stored-as-text-error.png" border="true" alt-text="Screenshot showing the Number stored as text error.":::
 
 ## Next steps
 

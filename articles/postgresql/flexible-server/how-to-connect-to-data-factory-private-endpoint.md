@@ -4,7 +4,7 @@ description: This article describes how to connect Azure Database for PostgreSQL
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Connect to an Azure Data Factory privately networked pipeline with Azure Database for PostgreSQL - Flexible Server by using Azure Private Link
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you connect Azure Database for PostgreSQL flexible server to an Azure Data Factory pipeline via Azure Private Link.
 

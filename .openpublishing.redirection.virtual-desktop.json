@@ -409,6 +409,36 @@
             "source_path_from_root": "/articles/virtual-desktop/autoscale-scaling-plan.md",
             "redirect_url": "/azure/virtual-desktop/autoscale-create-assign-scaling-plan",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/getting-started-feature.md",
+            "redirect_url": "/azure/virtual-desktop/quickstart",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-getting-started.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-quickstart",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/fslogix-containers-azure-files.md",
+            "redirect_url": "/azure/virtual-desktop/fslogix-profile-containers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/host-pool-load-balancing.md",
+            "redirect_url": "/azure/virtual-desktop/configure-host-pool-load-balancing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/configure-rdp-shortpath-limit-ports-public-networks.md",
+            "redirect_url": "/azure/virtual-desktop/configure-rdp-shortpath",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/disaster-recovery.md",
+            "redirect_url": "/azure/virtual-desktop/disaster-recovery-concepts",
+            "redirect_document_id": true
         }
     ]
 }

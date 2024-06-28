@@ -3,7 +3,7 @@ title: How to use Apache Flink® on HDInsight on AKS with Flink/Delta connector
 description: Learn how to use Flink/Delta Connector.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 04/25/2024
 ---
 
 # How to use Flink/Delta Connector
@@ -326,7 +326,8 @@ public class DeltaSourceExample {
 
     :::image type="content" source="./media/use-flink-delta-connector/cluster-configuration.png" alt-text="Screenshot showing cluster configuration." lightbox="./media/use-flink-delta-connector/cluster-configuration.png":::
 
-1. Enable `hadoop.classpath.enable`.
+    > [!NOTE]
+    > Always enable `hadoop.classpath.enable` while reading/writing to ADLS.
 
 1. Submit the cluster, you should be able to see the job in Flink UI.
 

@@ -29,9 +29,9 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single capacity pool    |  1000 TiB   |   Yes   |
 |  Minimum size of a single regular volume    |    100 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
-|  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) |     102,401 GiB |     No |
+|  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB |     No |
 | Large volume size increase | 30% of lowest provisioned size | Yes |
-|  Maximum size of a single large volume     |    500 TiB    |    No    |
+|  Maximum size of a single [large volume](large-volumes-requirements-considerations.md)    |    500 TiB    |    No    |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
@@ -45,7 +45,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
 |  Maximum size of protected volume  |  100 TiB  |  No  |
 |  Maximum number of volumes that can be backed up per subscription   |  20  |  Yes  |
-|  Maximum number of manual backups per volume per day |  5  |  No  |
+|  Maximum number of manual backups per volume per day |  5  |  Yes  |
 |  Maximum number of volumes supported for cool access per subscription per region |  10  |  Yes  |
 
 

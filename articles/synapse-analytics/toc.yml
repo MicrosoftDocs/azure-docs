@@ -694,8 +694,6 @@ items:
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create a Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
-    - name: Create a GPU-accelerated Apache Spark pool
-      href: quickstart-create-apache-gpu-pool-portal.md
   - name: Tutorials
     items:
     - name: Data visualization with Synapse Studio notebooks
@@ -740,9 +738,9 @@ items:
           href: ./spark/apache-spark-33-runtime.md
         - name: Azure Synapse Apache Spark 3.2 runtime (EOSA)
           href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime (unsupported)
+        - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (unsupported)
+        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -1523,12 +1521,12 @@ items:
       - name: With Apache Spark MLlib
         displayName: train model
         href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-      - name: With automated machine learning
+      - name: With automated machine learning (deprecated)
         items:
-        - name: Code-free
+        - name: Code-free (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./machine-learning/tutorial-automl.md
-        - name: In Python
+        - name: In Python (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       - name: With Horovod and Petastorm 

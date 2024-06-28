@@ -14,7 +14,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 06/24/2024
 ---
 
 # API versions in Azure AI Search
@@ -27,13 +27,15 @@ See [Azure SDK lifecycle and support policy](https://azure.github.io/azure-sdk/p
 
 ## Deprecated versions
 
-**2023-07-01-preview** was deprecated on April 8, 2024 and will be retired on July 8, 2024. This was the first REST API that offered vector search support. Newer API versions have a different vector configuration. We recommend [migrating to a newer version](search-api-migration.md) as soon as possible.
+**2023-07-01-preview** was deprecated on April 8, 2024 and won't be supported after July 8, 2024.
+
+This was the first REST API that offered vector search support. Newer API versions have a different vector configuration. You should [migrate to a newer version](search-api-migration.md) as soon as possible.
 
 <a name="unsupported-versions"></a>
 
-## Unsupported versions
+## Discontinued versions
 
-Some API versions are discontinued and will be rejected by a search service:
+Some API versions are discontinued and are rejected by a search service:
 
 + **2015-02-28**
 + **2015-02-28-Preview**
@@ -85,4 +87,4 @@ The following  table provides links to more recent SDK versions.
 
 ## All Azure SDKs
 
-If you are looking for beta client libraries and documentation, [this page](https://azure.github.io/azure-sdk/releases/latest/index.html) contains links to all of the Azure SDK library packages, code, and docs. 
+If you're looking for beta client libraries and documentation, [this page](https://azure.github.io/azure-sdk/releases/latest/index.html) contains links to all of the Azure SDK library packages, code, and docs. 

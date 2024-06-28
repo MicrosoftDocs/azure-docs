@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-document-intelligence
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed, devx-track-python
 ---
@@ -165,7 +165,7 @@ Next, you'll add your own code to the Python script to call the Document Intelli
           f"Blob Size: {myblob.length} bytes")
       ```
 
-1. The following code block calls the Document Intelligence [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values.
+1. The following code block calls the Document Intelligence [Analyze Layout](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API on the uploaded document. Fill in your endpoint and key values.
 
     ```Python
     # This is the call to the Document Intelligence endpoint

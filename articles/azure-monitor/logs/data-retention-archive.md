@@ -14,6 +14,8 @@ Azure Monitor Logs retains data in two states:
 * **Interactive retention**: Lets you retain Analytics logs for [interactive queries](../logs/get-started-queries.md) of up to 2 years.
 * **Archive**: Lets you keep older, less used data in your workspace at a reduced cost. You can access data in the archived state by using [search jobs](../logs/search-jobs.md) and [restore](../logs/restore.md). You can keep data in archived state for up to 12 years. 
 
+The default free-tier retention period is "interactive retention" for 30 days. 
+
 This article describes how to configure data retention and archiving.
 
 ## How retention and archiving work

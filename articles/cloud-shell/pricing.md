@@ -2,7 +2,7 @@
 description: Overview of pricing of Azure Cloud Shell
 ms.contributor: jahelmic
 ms.date: 04/22/2024
-ms.topic: article
+ms.topic: conceptual
 tags: azure-resource-manager
 title: Azure Cloud Shell pricing
 ---
@@ -12,8 +12,8 @@ Cloud Shell is a free service. You only pay for the underlying Azure resources t
 
 ## Compute cost
 
-Azure Cloud Shell runs on a machine provided for free by Azure, but requires an Azure file share to
-use.
+Azure Cloud Shell runs on a machine provided for free by Azure. If you need file persistence,
+Cloud Shell requires a Microsoft Azure Files share.
 
 ## Storage cost
 

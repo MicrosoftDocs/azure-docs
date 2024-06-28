@@ -36,9 +36,9 @@ This article covers important considerations to keep in mind when using Windows 
 | [AKS Image Cleaner][aks-image-cleaner] | Not supported. |
 | [BYOCNI][byo-cni] | Not supported. |
 | [Open Service Mesh][open-service-mesh] | Not supported. |
-| [GPU][gpu] | Not supported. |
+| [GPU][windows-gpu] | Supported in preview. |
 | [Multi-instance GPU][multi-instance-gpu] | Not supported. |
-| [Generation 2 VMs (preview)][gen-2-vms] | Supported in preview. |
+| [Generation 2 VMs (preview)][gen-2-vms] | Supported but not by default. |
 | [Custom node config][custom-node-config] | • Custom node config has two configurations:<br/> • [kubelet][custom-kubelet-parameters]: Supported in preview.<br/> • OS config: Not supported. |
 
 ## Next steps
@@ -60,9 +60,9 @@ For more information on Windows containers, see the [Windows Server containers F
 [node-image-upgrade]: node-image-upgrade.md
 [byo-cni]: use-byo-cni.md
 [open-service-mesh]: open-service-mesh-about.md
-[gpu]: gpu-cluster.md
+[windows-gpu]: use-windows-gpu.md
 [multi-instance-gpu]: gpu-multi-instance.md
-[gen-2-vms]: cluster-configuration.md#generation-2-virtual-machines
+[gen-2-vms]: generation-2-vm.md
 [custom-node-config]: custom-node-configuration.md
 [custom-kubelet-parameters]: custom-node-configuration.md#kubelet-custom-configuration
 

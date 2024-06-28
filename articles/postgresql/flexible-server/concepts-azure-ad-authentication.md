@@ -4,7 +4,7 @@ description: Learn about the concepts of Microsoft Entra ID for authentication w
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 03/06/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Microsoft Entra authentication is a mechanism of connecting to Azure Database for PostgreSQL flexible server by using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 

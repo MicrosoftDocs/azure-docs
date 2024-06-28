@@ -23,14 +23,14 @@ Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft
 To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 - A deployed instance of Data Processor.
-- A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
+- A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial).
 - A [lakehouse in Microsoft Fabric](/fabric/data-engineering/create-lakehouse).
 
 ## Set up Microsoft Fabric
 
 Before you can write to Microsoft Fabric from a data pipeline, you need to grant access to the lakehouse from the pipeline. You can use either a service principal or a managed identity to authenticate the pipeline. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
 
-Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/onelake-security#authentication).
+Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/security/get-started-security#authentication).
 
 # [Service principal](#tab/serviceprincipal)
 
@@ -250,7 +250,6 @@ The following example shows a sample input message to the Microsoft Fabric lakeh
 ## Related content
 
 - [Send data to Azure Data Explorer](howto-configure-destination-data-explorer.md)
-- [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
 - [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
 - [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)

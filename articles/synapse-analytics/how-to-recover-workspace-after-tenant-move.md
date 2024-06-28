@@ -149,6 +149,8 @@ $subscriptionId="Provide the subscription ID (GUID) of the subscription containi
 $resourceGroupName="Provide the name of the resource group containing your workspace"
 $workspaceName="Provide the name of your workspace"
 
+$contentType = 'application/json'
+
 $token = (Get-AzAccessToken -ResourceUrl "https://management.azure.com/").Token
 $header = @{Authorization="Bearer $token"}
 

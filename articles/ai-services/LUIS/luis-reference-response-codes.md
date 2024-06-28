@@ -1,7 +1,7 @@
 ---
 title: API HTTP response codes - LUIS
 titleSuffix: Azure AI services
-description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
+description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs.
 #services: cognitive-services
 author: aahill
 ms.author: aahi
@@ -29,7 +29,7 @@ The following table lists some of the most common HTTP response status codes for
 |401|Authoring|used endpoint key, instead of authoring key|
 |401|Authoring, Endpoint|invalid, malformed, or empty key|
 |401|Authoring, Endpoint| key doesn't match region|
-|401|Authoring|you are not the owner or collaborator|
+|401|Authoring|you aren't the owner or collaborator|
 |401|Authoring|invalid order of API calls|
 |403|Authoring, Endpoint|total monthly key quota limit exceeded|
 |409|Endpoint|application is still loading|
@@ -39,4 +39,4 @@ The following table lists some of the most common HTTP response status codes for
 
 ## Next steps
 
-* REST API [authoring](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) and [endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) documentation
+* REST API [authoring](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true) and [endpoint](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-runtime-v3.0&preserve-view=true) documentation

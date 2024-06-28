@@ -3,7 +3,7 @@ title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 01/31/2024
+ms.date: 05/13/2024
 author: snehasudhirG
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -165,7 +165,7 @@ Azure Update Manager honors machine settings and installs updates accordingly.
 
 ### Does Azure Update Manager store customer data? 
 
-No, Azure Update Manager doesn't store any customer identifiable data outside of the Azure Resource Graph for the subscription. 
+Azure Update manager doesn't move or store customer data out of the region it's deployed in. 
 
 ## Next steps
 

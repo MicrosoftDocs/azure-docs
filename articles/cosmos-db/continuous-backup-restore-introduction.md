@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/15/2023
+ms.date: 04/15/2024
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video, build-2023
@@ -30,16 +30,19 @@ Diagram illustrating how a container with a write region in West US and read reg
 
 The time window available for restore (also known as retention period) is the lower value of the following two options: 30-day &amp; 7-day.
 
-The selected option depends on the chosen tier of continuous backup. The point in time for restore can be any timestamp within the retention period no further back than the point when the resource was created. In strong consistency mode, backups taken in the write region are more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get the latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in a specific region. Getting the latest timestamp ensures that the resource has taken backups up to the given timestamp, and can restore in that region.
+The selected option depends on the chosen tier of continuous backup. The point in time for restore can be any timestamp within the retention period no further back than the point when the resource was created. In strong consistency mode, backups taken in the write region are more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get the latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in a specific region. Referring to latest restorable timestamp helps to confirm resource backups are up to the given timestamp, and can restore in that region.
 
 Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB, API for Table, API for Gremlin) contents at a specific point in time to another account. You can perform this restore operation via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). 
+
+
 
 ## Backup storage redundancy
 
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
 ## Different ways to restore
-Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two depends on the scenarios and impact. In most cases it is preferred to restore deleted containers and databases into an existing account to prevent the cost of data transfer which is required in the case they are restored to a new account. For scenarios where you have modified the data accidentally restore into new account could be the preferred option. 
+Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two modes depends on the scenarios. In most cases, it is preferred to restore deleted containers and databases into an existing account. This avoids the cost of data transfer that is required in the case they are restored to a new account. For scenario where accidental data modification was done, restore into new account could be the preferred option. 
+
 
 ## What is restored into a new account?
 
@@ -54,11 +57,11 @@ You can choose to restore any combination of provisioned throughput containers, 
 
 The following configurations aren't restored after the point-in-time recovery:
 
-* A subset of containers under a shared throughput database cannot be restored. The entire database can be restored as a whole.
-* Firewall, VNET, Data plane RBAC or private endpoint settings. 
+* A subset of containers under a shared throughput database can't be restored. The entire database can be restored as a whole.
+* Firewall, Virtual Network [VNET](how-to-configure-vnet-service-endpoint.md), Data plane Role based access control [RBAC](role-based-access-control.md),  or private endpoint settings. 
 * All the Regions from the source account.
 * Stored procedures, triggers, UDFs.
-* Role-based access control assignments. These will need to be re-assigned.
+* Role-based access control assignments. 
 
 You can add these configurations to the restored account after the restore is completed.
 
@@ -68,7 +71,7 @@ To restore Azure Cosmos DB live accounts that aren't deleted, it's a best practi
 
 ## Restore scenarios
 
-The following are some of the key scenarios that are addressed by the point-in-time-restore feature. Scenarios [1] through [3] demonstrate how to trigger a restore if the restore timestamp is known beforehand.
+Point-in-time-restore feature supports following scenarios. Scenarios [1] through [3] demonstrate how to trigger a restore if the restore timestamp is known beforehand.
 However, there could be scenarios where you don't know the exact time of accidental deletion or corruption. Scenarios [4] and [5] demonstrate how to *discover* the restore timestamp using the new event feed APIs on the restorable database or containers.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Life-cycle events with timestamps for a restorable account." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
@@ -91,7 +94,7 @@ Azure Cosmos DB allows you to isolate and restrict the restore permissions for c
 
 ## <a id="continuous-backup-pricing"></a>Pricing
 
-Azure Cosmos DB accounts that have continuous 30-day backup enabled will incur an extra monthly charge to *store the backup*. Both the 30-day and 7-day tier of continuous back incur charges to *restore your data*. The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
+Azure Cosmos DB account with continuous 30-day backup has an extra monthly charge to *store the backup*. Both the 30-day and 7-day tier of continuous back incur charges to *restore your data*. The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
 
 The following example is based on the price for an Azure Cosmos DB account deployed in West US. The pricing and calculation can vary depending on the region you're using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
@@ -99,7 +102,7 @@ The following example is based on the price for an Azure Cosmos DB account deplo
 
   $0.20/GB \* Data size in GB in account \* Number of regions
 
-* Every restore API invocation incurs a one time charge. The charge is a function of the amount of data restore and it's calculated as follows:
+* Every restore API invocation incurs a one time charge. The charge is a function of the amount of data restored :
 
   $0.15/GB \* Data size in GB.
 
@@ -115,7 +118,7 @@ For example, if you have 1 TB of data in two regions then:
 ## Continuous 30-day tier vs Continuous 7-day tier
 
 * Retention period for one tier is 30-day vs 7-day for another tier.
-* 30-day retention tier is charged for backup storage, 7-day retention tier isn't charged.
+* 30-day retention tier is charged for backup storage. 7-day retention tier isn't charged.
 * Restore is always charged in either tier
 
 ## Customer-managed keys
@@ -129,29 +132,27 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 
 Currently the point in time restore functionality has the following limitations:
 
-* Azure Cosmos DB APIs for SQL, MongoDB, Gremlin and Table supported for continuous backup. API for Cassandra isn't supported now.
+* Azure Cosmos DB APIs for SQL, MongoDB, Gremlin, and Table supported for continuous backup. API for Cassandra isn't supported now.
 
-* Multi-regions write accounts aren't supported.
+* `Multi region write` accounts aren't supported. 
 
-* Currently Azure Synapse Link can be enabled in continuous backup database accounts. But the opposite situation isn't supported yet, it is not possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
+* Synapse Link for database accounts using continuous backup mode is GA. The opposiste situation, continuous backup mode for Synapse Link enabled accounts, is in public preview. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
 * The restore window is only 30 days for continuous 30-day tier and seven days for continuous 7-day tier. These tiers can be switched, but the actual quantities (``7`` or ``30``) can't be changed. Furthermore, if you switch from 30-day tier to 7-day tier, there's the potential for data loss on days beyond the seventh.
 
-* The backups aren't automatically geo-disaster resistant. You've to explicitly add another region to have resiliency for the account and the backup.
+* The backups aren't automatically geo-disaster resistant. Another region should be explicitly added for resiliency of the account and the backup.
 
 * While a restore is in progress, don't modify or delete the Identity and Access Management (IAM) policies. These policies grant the permissions for the account to change any VNET, firewall configuration.
 
-* Azure Cosmos DB for MongoDB accounts with continuous backup do not support creating a unique index for an existing collection. For such an account, unique indexes must be created along with their collection; this is done using the create collection [extension commands](mongodb/custom-commands.md).
-
-* The point-in-time restore functionality always restores to a new Azure Cosmos DB account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
+* Azure Cosmos DB for MongoDB accounts with continuous backup don't support creating a unique index for an existing collection. For such an account, unique indexes must be created along with their collection; it can be done using the create collection [extension commands](mongodb/custom-commands.md).
 
 * After restoring, it's possible that for certain collections the consistent index may be rebuilding. You can check the status of the rebuild operation via the [IndexTransformationProgress](how-to-manage-indexing-policy.md) property.
 
-* The restore process restores all the properties of a container including its TTL configuration. As a result, it's possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
+* The restore process restores all the properties of a container including its TTL configuration by default, you can pass parameter to disable TTL while doing the restore. As a result, it's possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
-* Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
+* Unique indexes in API for MongoDB can't be added, updated, or dropped when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
 
 * Continuous mode restore may not restore throughput setting valid as of restore point.
 

@@ -3,14 +3,18 @@
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
+ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: jboback
 ---
 
-# [Document summarization](#tab/document-summarization)
+# [Text summarization](#tab/text-summarization)
 
 # [Conversation summarization](#tab/conversation-summarization)
+
+# [Document summarization](#tab/document-summarization)
 
 ---
 
@@ -36,18 +40,18 @@ Use this quickstart to send text summarization requests using the REST API. In t
 ## Example request
 
 > [!NOTE]
-> * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
+> * The following BASH exaples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
 To call the API, you need the following information:
 
 Choose the type of summarization you would like to perform, and select one of the tabs below to see an example API call:
 
-|Feature  |Description  |
-|---------|---------|
-|Document summarization     | Use extractive text summarization to produce a summary of important or relevant information within a document.        |
+| Feature | Description |
+|---------|-------------|
+|Text summarization     | Use extractive text summarization to produce a summary of important or relevant information within a document.        |
 |Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |
 
-# [Document summarization](#tab/document-summarization)
+# [Text summarization](#tab/text-summarization)
 
 |parameter  |Description  |
 |---------|---------|
@@ -58,11 +62,11 @@ Choose the type of summarization you would like to perform, and select one of th
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own JSON values.
 
-## Document summarization
+## Text summarization
 
-### Document extractive summarization example
+### Text extractive summarization example
 
-The following example will get you started with document extractive summarization:
+The following example will get you started with text extractive summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
@@ -73,7 +77,7 @@ curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2023-0
 -d \
 ' 
 {
-  "displayName": "Document ext Summarization Task Example",
+  "displayName": "Text ext Summarization Task Example",
   "analysisInput": {
     "documents": [
       {
@@ -86,7 +90,7 @@ curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2023-0
   "tasks": [
     {
       "kind": "ExtractiveSummarization",
-      "taskName": "Document Extractive Summarization Task 1",
+      "taskName": "Text Extractive Summarization Task 1",
       "parameters": {
         "sentenceCount": 6
       }
@@ -114,7 +118,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-### Document extractive summarization example JSON response
+### Text extractive summarization example JSON response
 
 ```json
 {
@@ -124,7 +128,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
     "expirationDateTime": "2022-09-29T19:33:42Z",
     "status": "succeeded",
     "errors": [],
-    "displayName": "Document ext Summarization Task Example",
+    "displayName": "Text ext Summarization Task Example",
     "tasks": {
         "completed": 1,
         "failed": 0,
@@ -133,7 +137,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
         "items": [
             {
                 "kind": "ExtractiveSummarizationLROResults",
-                "taskName": "Document Extractive Summarization Task 1",
+                "taskName": "Text Extractive Summarization Task 1",
                 "lastUpdateDateTime": "2022-09-28T19:33:43.6712507Z",
                 "status": "succeeded",
                 "results": {
@@ -358,6 +362,155 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?a
           ],
           "errors": [],
           "modelVersion": "latest"
+        }
+      }
+    ]
+  }
+}
+```
+
+# [Document summarization](#tab/document-summarization)
+
+### Summarization sample document
+
+For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.pdf) for this quickstart. The source language is English.
+
+### Build the POST request
+
+1. Using your preferred editor or IDE, create a new directory for your app named `native-document`.
+1. Create a new json file called **document-summarization.json** in your **native-document** directory.
+
+1. Copy and paste the Document Summarization **request sample** into your `document-summarization.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
+
+  ***Request sample***
+
+  ```json
+  {
+   "kind": "ExtractiveSummarization",
+   "parameters": {
+        "sentenceCount": 6
+    },
+   "analysisInput":{
+        "documents":[
+            {
+          "source":{
+            "location":"{your-source-blob-SAS-URL}"
+          },
+          "targets":
+            {
+              "location":"{your-target-container-SAS-URL}",
+            }
+            }
+        ]
+    }
+  }
+  ```
+
+### Run the POST request
+
+Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the endpoint value from your Azure portal Language resource instance.
+
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
+
+  ***PowerShell***
+
+  ```powershell
+   cmd /c curl "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+  ```
+
+  ***command prompt / terminal***
+
+  ```bash
+  curl -v -X POST "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+  ```
+
+Here's a sample response:
+
+   ```http
+   HTTP/1.1 202 Accepted
+   Content-Length: 0
+   operation-location: https://{your-language-resource-endpoint}/language/analyze-documents/jobs/f1cc29ff-9738-42ea-afa5-98d2d3cabf94?api-version=2023-11-15-preview
+   apim-request-id: e7d6fa0c-0efd-416a-8b1e-1cd9287f5f81
+   x-ms-region: West US 2
+   Date: Thu, 25 Jan 2024 15:12:32 GMT
+   ```
+
+### POST response (jobId)
+
+You receive a 202 (Success) response that includes a read-only Operation-Location header. The value of this header contains a jobId that can be queried to get the status of the asynchronous operation and retrieve the results using a GET request:
+
+  :::image type="content" source="../../../native-document-support/media/operation-location-result-id.png" alt-text="Screenshot showing the operation-location value in the POST response.":::
+
+### Get analyze results (GET request)
+
+1. After your successful **POST** request, poll the operation-location header returned in the POST request to view the processed data.
+
+1. Here's the structure of the **GET** request:
+
+   ```http
+   GET {cognitive-service-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
+   ```
+
+1. Before you run the command, make these changes:
+
+    * Replace {**jobId**} with the Operation-Location header from the POST response.
+
+    * Replace {**your-language-resource-endpoint**} and {**your-key**} with the values from your Language service instance in the Azure portal.
+
+### Get request
+
+```powershell
+    cmd /c curl "{your-language-resource-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview" -i -X GET --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}"
+```
+
+```bash
+    curl -v -X GET "{your-language-resource-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}"
+```
+
+#### Examine the response
+
+You receive a 200 (Success) response with JSON output. The **status** field indicates the result of the operation. If the operation isn't complete, the value of **status** is "running" or "notStarted", and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+
+#### Sample response
+
+```json
+{
+  "jobId": "f1cc29ff-9738-42ea-afa5-98d2d3cabf94",
+  "lastUpdatedDateTime": "2024-01-24T13:17:58Z",
+  "createdDateTime": "2024-01-24T13:17:47Z",
+  "expirationDateTime": "2024-01-25T13:17:47Z",
+  "status": "succeeded",
+  "errors": [],
+  "tasks": {
+    "completed": 1,
+    "failed": 0,
+    "inProgress": 0,
+    "total": 1,
+    "items": [
+      {
+        "kind": "ExtractiveSummarizationLROResults",
+        "lastUpdateDateTime": "2024-01-24T13:17:58.33934Z",
+        "status": "succeeded",
+        "results": {
+          "documents": [
+            {
+              "id": "doc_0",
+              "source": {
+                "kind": "AzureBlob",
+                "location": "https://myaccount.blob.core.windows.net/sample-input/input.pdf"
+              },
+              "targets": [
+                {
+                  "kind": "AzureBlob",
+                  "location": "https://myaccount.blob.core.windows.net/sample-output/df6611a3-fe74-44f8-b8d4-58ac7491cb13/ExtractiveSummarization-0001/input.result.json"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "modelVersion": "2023-02-01-preview"
         }
       }
     ]

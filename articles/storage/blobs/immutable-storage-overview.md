@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 05/01/2024
 ms.author: normesta
 ---
 
@@ -161,6 +161,10 @@ For more information about blob inventory, see [Azure Storage blob inventory](bl
 
 > [!NOTE]
 > You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
+
+## Configuring policies at scale
+
+You can use a _storage task_ to configure a immutability policies at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 ## Pricing
 

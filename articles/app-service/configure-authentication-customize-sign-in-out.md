@@ -127,7 +127,7 @@ In App Service authentication, you can preserve URL fragments across the OAuth s
 az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
-## Limit the domain of sign-in accounts
+## Setting the sign-in accounts domain hint
 
 Both Microsoft Account and Microsoft Entra ID lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Microsoft Entra ID allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Microsoft Entra sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
 

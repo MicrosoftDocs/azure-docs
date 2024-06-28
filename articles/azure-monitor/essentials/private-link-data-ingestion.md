@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: tbd
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 06/08/2024
 ---
 
 # Private Link for data ingestion for Managed Prometheus and Azure Monitor workspace
@@ -28,6 +28,8 @@ The page displays all of the DCEs that are associated with the Azure Monitor wor
 
 Once this is done, navigate to the DCR resource which was created during managed prometheus enablement from the Azure portal and choose 'Resources' under Configuration menu.
 In the Data collection endpoint dropdown, pick a DCE in the same region as the AKS cluster. If the Azure Monitor Workspace is in the same region as the AKS cluster, you can reuse the DCE created during managed prometheus enablement. If not, create a DCE in the same region as the AKS cluster and pick that in the dropdown. 
+
+:::image type="content" source="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-rule.png" alt-text="A screenshot show the data collection rules page for an Azure Monitor workspace." lightbox="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-rule.png" :::
 
 > [!NOTE]
 > Please refer to [Connect to a data source privately](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link for querying data from your Azure Monitor workspace using Grafana.

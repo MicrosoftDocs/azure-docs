@@ -11,6 +11,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/mariadb/concept-reserved-pricing.md",
+        "redirect_url": "/azure/cost-management-billing/reservations",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
         "redirect_url": "/azure/security-center/defender-for-databases-usage",
         "redirect_document_id": false

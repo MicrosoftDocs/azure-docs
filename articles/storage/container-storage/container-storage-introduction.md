@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 03/21/2024
+ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -26,10 +26,10 @@ We'd like input on how you plan to use Azure Container Storage. Please complete 
 
 :::row:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/I_2nCQ1FKTU]
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1lDGj]
     :::column-end:::
     :::column:::
-        This video provides an introduction to Azure Container Storage, an end-to-end storage management and orchestration service for stateful applications. See how simple it is to create and manage volumes for production-scale stateful container applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective container-native experience.
+        This video provides an introduction to Azure Container Storage, an end-to-end storage management and orchestration service for stateful applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective, container-native experience.
    :::column-end:::
 :::row-end:::
 
@@ -51,7 +51,7 @@ Feature support depends on which backing storage option you select. The followin
 
 | **Feature** | **Local NVMe** | **Local SSD** | **Azure Disks** | **Azure Elastic SAN** |
 |-------------|----------------|---------------|-----------------|-------------------------------|
-| Storage pool expansion/resize | Supported | Supported | Not supported | Not supported |
+| Storage pool expansion/resize | Supported | Supported | Supported | Not supported |
 | Replication | Supported | Not supported | Natively supported | Natively supported |
 | Resource consumption | Supported | Supported | Supported | Preview |
 | SSE/CMK | Not supported | Not supported | Supported | Preview |
@@ -73,11 +73,11 @@ Feature support depends on which backing storage option you select. The followin
 Based on feedback from customers, we've included the following capabilities with the latest preview update:
 
 - Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md).
-- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#enable-server-side-encryption-with-customer-managed-keys) (Azure Disks only).
+- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) (Azure Disks only).
 - Scale up by dynamically expanding [volumes](resize-volume.md) and storage pools backed by Azure Disks and Ephemeral Disk without downtime.
 - [Clone persistent volumes](clone-volume.md) within a storage pool.
 - Optimize applications with Azure Linux Container Host.
-- Increase resiliency for applications using [local NVMe volumes with replication](use-container-storage-with-local-disk.md#optional-create-storage-pool-with-volume-replication-nvme-only).
+- Increase resiliency for applications using [local NVMe volumes with replication](use-container-storage-with-local-nvme-replication.md).
 
 For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
 

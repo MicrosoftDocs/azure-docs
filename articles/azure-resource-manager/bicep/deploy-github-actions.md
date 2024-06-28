@@ -1,7 +1,7 @@
 ---
 title: Deploy Bicep files by using GitHub Actions
 description: In this quickstart, you learn how to deploy Bicep files by using GitHub Actions.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/19/2024
 ms.custom: github-actions-azure, devx-track-bicep
 ---
