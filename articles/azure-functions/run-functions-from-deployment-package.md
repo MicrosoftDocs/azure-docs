@@ -1,7 +1,7 @@
 ---
 title: Run your functions from a package file in Azure 
 description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project.
-mw-service: azure-functions
+ms-service: azure-functions
 ms.topic: conceptual
 ms.date: 06/28/2024
 
@@ -96,7 +96,7 @@ This section provides information about how to run your function app from a pack
 + When you're running on a Dedicated plan, ensure you enable [Always On](dedicated-plan.md#always-on).
 + You can use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
-### Manually upload a package to Blob Storage
+### Manually uploading a package to Blob Storage
 
 To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. The following procedure deploys to a container in Blob Storage:
 
