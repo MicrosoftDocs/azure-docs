@@ -1,0 +1,76 @@
+# Analytics and BI on your Azure Cosmos DB data
+
+Azure Cosmos DB offers various options to enable large-scale analytics and BI reporting on your operational data. 
+
+## Near real-time analytics on Azure Cosmos DB
+ Azure Cosmos DB offers no-ETL, near real-time analytics on your data without impact on the performance of your transactional workloads or request units (RUs). This removes the need for complex ETL pipelines, making your Azure Cosmos DB data seamlessly available to analytics engines. Enabling near real-time analytics on your operational data could help unlock new business scenarios. You can provide enhanced customer experience and react more quickly to changes in market conditions or business environment. Here are some sample [scenarios](synapse-link-usecases.md) you can achieve with quick insights into your data. 
+ 
+ You can enable near real-time analytics and BI reporting on Azure Cosmos DB using the following options:
+
+* Mirroring your data into Microsoft Fabric
+* Enabling Azure Synapse Link to access data from Azure Synapse Analytics
+
+### Option 1: Mirroring your Azure Cosmos data into Microsoft Fabric
+
+Mirroring enables you to bring your Azure Cosmos DB databases into Microsoft Fabric, for rich business insights using Fabric’s built-in advanced analytics and AI capabilities.
+
+Your Cosmos DB operational data is seamlessly and incrementally replicated into Fabric OneLake in near real-time. Data in OneLake is stored in open-source Delta Parquet format and made available to all analytical engines in Fabric. With open access, you can also use it with various solutions within and outside of Microsoft. This data format helps make it easier to build a single data estate for your analytical needs.
+
+You can use T-SQL to run complex aggregate queries and Spark for data exploration. You can seamlessly access the data in notebooks, use data science to build machine learning models, and build Power BI reports using Direct Lake powered by rich Copilot integration.
+
+:::image type="content" source="./media/analytics-overview/mirroring-overview.png" alt-text="Azure Cosmos DB mirroring in Microsoft Fabric" border="false":::
+
+With Mirroring in Fabric, you don't need to piece together different services from multiple vendors. Instead, you can enjoy a highly integrated, end-to-end, and easy-to-use product that is designed to simplify your analytics needs and built for openness.
+
+If you're looking for analytics on your operational data in Azure Cosmos DB, mirroring provides:
+* No-ETL, cost-effective near real-time analytics on Azure Cosmos DB data without impacting your request unit (RU) consumption
+* Ease of bringing data across various sources into Fabric OneLake. You can easily join the data across various mirrored sources such as multiple Azure Cosmos DB databases, Azure SQL DB, Snowflake or Lakehouse and shortcuts such as Amazon S3, Google Cloud Storage etc. 
+* Improved query performance of SQL engine handling delta tables, with V-order optimizations
+* Improved cold start time for Spark engine with deep integration with ML/notebooks
+*  One-click integration with Power BI with Direct Lake and Copilot
+* Richer app integration to access queries and views with GraphQL
+* Open access to and from other services such as Azure Databricks
+
+To get started with mirroring, please visit our [tutorial](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context).  
+
+### Option 2: Azure Synapse Link to access data from Azure Synapse Analytics
+Azure Synapse Link for Azure Cosmos DB creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics, enabling no-ETL, near real-time analytics on your operational data. 
+Transactional data is seamlessly synced to Analytical store, which stores the data in columnar format optimized for analytics. 
+
+Azure Synapse Analytics can access this data without further movement, using Azure Synapse Link. Business analysts, data engineers, and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real time business intelligence, analytics, and machine learning pipelines. 
+
+The following image shows the Azure Synapse Link integration with Azure Cosmos DB and Azure Synapse Analytics:
+:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Azure Cosmos DB Synapse Link" border="false":::
+
+ > [!IMPORTANT]
+ > Mirroring in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
+
+To get started with Azure Synapse Link, please visit [“Getting started with Azure Synapse Link”](synapse-link-overview.md)
+
+
+## Real-time analytics and BI on Azure Cosmos DB: Other options 
+There are a few other options to enable real-time analytics on Azure Cosmos DB data: 
+* Using [changefeed](nosql/changefeed-ecommerce-solution.md)
+* Using [Spark connector directly on Azure Cosmos DB](nosql/tutorial-spark-connector)
+* Using Power BI connector directly on Azure Cosmos DB
+
+While these options are included for completeness and work well with single partition queries in real-time, these methods have the following challenges for analytical queries:
+* Performance impact on your workload:
+
+   Analytical queries tend to be complex and consume significant compute capacity. When these queries are run against your Azure Cosmos DB data directly, you may experience performance degradation on your transactional queries. 
+* Cost impact: 
+ 
+  When analytical queries are run directly against your database or collections, they increase the need for request units allocated, as analytical queries tend to be complex and need more computation power. This will likely lead to significant cost impact over time, if you run aggregate queries. 
+
+Instead of these options, we recommend that you use Mirroring in Microsoft Fabric or Azure Synapse Link, which provide near real-time analytics, without impacting transactional workload performance or request units.
+
+## Related Content
+* [Mirroring Azure Cosmos DB overview](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context)
+
+* [Getting started with mirroring](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context)
+
+* [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) 
+
+* [Working with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
+
+
