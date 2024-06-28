@@ -286,6 +286,9 @@ sections:
           1. Wait for 10 minutes.
           
           1. Retrieve the `RefreshToken` again.
+
+          > [!TIP]
+          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can reduce the above mentioned skew time of 5 minutes (300000 milliseconds)  by adjusting the value for InputParameter "TreatAsEqualIfWithinMillseconds" under claim transformation Id "AssertRefreshTokenIssuedLaterThanValidFromDate". This claim transformation can be found in the TrustFrameworkBase.xml file under latest custom policy [stater-pack](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#get-the-starter-pack). 
           
       - question: |
          I use multiple tabs in a web browser to sign in to multiple applications that I registered in the same Azure AD B2C tenant. When I try to perform a single sign-out, not all of the applications are signed out. Why does this happen? 
