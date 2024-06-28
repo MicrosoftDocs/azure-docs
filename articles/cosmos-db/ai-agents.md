@@ -396,7 +396,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from service import TravelAgentTools as agent_tools
 
-load_dotenv(override=True)
+load_dotenv(override=False)
 
 
 chat : ChatOpenAI | None=None
@@ -438,7 +438,7 @@ def LLM_init():
 LLM_init()
 ```
 
-The **init.py** file commences by initiating the loading of environment variables from a **.env** file utilizing the ```load_dotenv(override=True)``` method. Then, a global variable named ```agent_with_chat_history``` is instantiated for the agent, intended for use by our **TravelAgent.py**. The ```LLM_init()``` method is invoked during module initialization to configure our AI agent for conversation via the API web layer. The OpenAI Chat object is instantiated using the GPT-3.5 model, incorporating specific parameters such as model name and temperature. The chat object, tools list, and prompt template are combined to generate an ```AgentExecutor```, which operates as our AI Travel Agent. Lastly, the agent with history, ```agent_with_chat_history```, is established using ```RunnableWithMessageHistory``` with chat history (MongoDBChatMessageHistory), enabling it to maintain a complete conversation history via Azure Cosmos DB.
+The **init.py** file commences by initiating the loading of environment variables from a **.env** file utilizing the ```load_dotenv(override=False)``` method. Then, a global variable named ```agent_with_chat_history``` is instantiated for the agent, intended for use by our **TravelAgent.py**. The ```LLM_init()``` method is invoked during module initialization to configure our AI agent for conversation via the API web layer. The OpenAI Chat object is instantiated using the GPT-3.5 model, incorporating specific parameters such as model name and temperature. The chat object, tools list, and prompt template are combined to generate an ```AgentExecutor```, which operates as our AI Travel Agent. Lastly, the agent with history, ```agent_with_chat_history```, is established using ```RunnableWithMessageHistory``` with chat history (MongoDBChatMessageHistory), enabling it to maintain a complete conversation history via Azure Cosmos DB.
 
 #### Prompt
 
@@ -507,7 +507,7 @@ from model.prompt import PromptResponse
 import time
 from dotenv import load_dotenv
 
-load_dotenv(override=True)
+load_dotenv(override=False)
 
 
 def agent_chat(input:str, session_id:str)->str:
