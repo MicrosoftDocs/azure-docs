@@ -88,6 +88,7 @@ You might want to create your images in your physical environment and then impor
 If you decide to use the Shared Image Gallery service, you'll need to create or attach a shared image gallery to your lab account. You can postpone this decision for now, because a shared image gallery can be attached to a lab account at any time.  
 
 For more information, see:
+
 - The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#shared-image-gallery)
 - The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#pricing)
 
