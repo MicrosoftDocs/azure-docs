@@ -3,7 +3,7 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/11/2024
+ms.date: 06/28/2024
 ---
 
 # Bicep modules
@@ -98,9 +98,9 @@ For example, to deploy a file that is up one level in the directory from your ma
 > [!NOTE]
 > Non-AVM (Azure Verified Modules) modules are retired from the public module registry.
 
-[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created by Microsoft or trusted partners, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations.
+[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created and owned by Microsoft employees, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations whilst also aligning to best practices; such as the Well-Architected Framework.
 
-Browse to the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) site.  To see the list of modules, select the highlighted numbers in the following screenshot.
+Browse to the [Azure Verified Modules Bicep Index](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/)to see the list of modules available, select the highlighted numbers in the following screenshot to be taken directly to that filtered view.
 
 :::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
 

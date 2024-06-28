@@ -9,7 +9,7 @@ ms.custom: mode-api, devx-track-bicep
 
 # Quickstart: Publish Bicep modules to private module registry
 
-Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). 
+Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization. To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). 
 
 ## Prerequisites
 
