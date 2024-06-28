@@ -438,7 +438,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/disaster-recovery.md",
             "redirect_url": "/azure/virtual-desktop/disaster-recovery-concepts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
