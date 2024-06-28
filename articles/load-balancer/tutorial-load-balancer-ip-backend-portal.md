@@ -25,6 +25,11 @@ In this tutorial, you learn how to:
 > * Create an IP based backend pool
 > * Create two virtual machines
 > * Test the load balancer
+
+> [!NOTE]  
+> Virtual machines with and without an associated public IP address can be attached to backend pool of a public load balancer.
+
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
