@@ -561,7 +561,7 @@ With the SQL Database protected by the virtual network, the easiest way to run d
     ./migrationsbundle -- --environment Production
     ```
 
-    If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+    If it succeeds, App Service is connecting successfully to the database.
 
 ## 6. Browse to the app
 
