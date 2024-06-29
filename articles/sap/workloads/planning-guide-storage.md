@@ -243,7 +243,7 @@ The capability matrix for SAP workload looks like:
 | Azure Write Accelerator support | No | - |
 | Disk bursting | Yes | - |
 | Disk snapshots possible | Yes<sup>1</sup> | - |
-| Azure Backup VM snapshots possible | No | - |
+| Azure Backup VM snapshots possible | Yes | - |
 | Costs | Higher than Premium storage | - |
 
 <sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
