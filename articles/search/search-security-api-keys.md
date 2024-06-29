@@ -17,7 +17,7 @@ ms.date: 06/28/2024
 
 Azure AI Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint is accepted if both the request and the API key are valid.
 
-Key-based authentication is the default. You can disable it if you opt in for [role-based authentication](search-security-enable-roles.md).
+Key-based authentication is the default. You can replace it with [role-based access](search-security-enable-roles.md), which eliminates the need for hardcoded keys in your code.
 
 ## Types of API keys
 
