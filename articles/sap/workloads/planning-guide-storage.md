@@ -273,7 +273,7 @@ Azure NetApp Files is currently supported for several SAP workload scenarios:
 	- [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md)
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md)
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
-- SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - IBM Db2 in Suse or Red Hat Linux guest OS
 - Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - SAP ASE in Suse or Red Hat Linux guest OS
@@ -328,7 +328,7 @@ Other built-in functionality of Azure NetApp Files storage:
 > Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than 1 millisecond for HANA redo log writes of smaller sizes. To get to such latencies, see the possibilities below.
 
 > [!IMPORTANT]
-> Even for non-DBMS usage, you should use the preview functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM(s) that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). The motivation to have this type of Availability Zone alignment is the reduction of risk surface by having the NFS shares yet in another AvZone where you don't run VMs in. 
+> Even for non-DBMS usage, you should use the functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM(s) that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). The motivation to have this type of Availability Zone alignment is the reduction of risk surface by having the NFS shares yet in another AvZone where you don't run VMs in. 
 
 
 - You go for the closest proximity between VM and NFS share that can be arranged by using [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Groups, besides allocating best proximity and with that creating lowest latency, is that your different NFS shares for SAP HANA deployments are distributed across different controllers in the Azure NetApp Files backend clusters. Disadvantage of this method is that you need to go through a pinning process again. A process that will end restricting your VM deployment to a single datacenter. Instead of an Availability Zones as the first method introduced. This means less flexibility in changing VM sizes and VM families of the VMs that have the NFS volumes mounted.
@@ -467,7 +467,7 @@ Creating a stripe set out of multiple Azure disks into one larger volume allows 
 
 Some rules need to be followed on striping:
 
-- No in-VM configured storage should be used since Azure storage keeps the data redundant already
+- No in-VM configured storage redundancy should be used since Azure storage keeps the data disk redundant already at the Azure storage backend
 - The disks the stripe set is applied to, need to be of the same size
 - With Premium SSD v2 and Ultra disk, the capacity, provisioned IOPS and provisioned throughput needs to be the same
 
