@@ -22,7 +22,7 @@ This article shows two options for using the Azure CLI to add APIs to your API c
     * Run [az apic api register](/cli/azure/apic/api#az-apic-api-register) to register a new API in your API center.
     * Run [az apic api definition import-specification](/cli/azure/apic/api/definition#az-apic-api-definition-import-specification) to import the API definition to an existing API.
 
-* **Option 2** - Import APIs directly from API Management to your API center using the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command.
+* **Option 2** - Import APIs directly from API Management to your API center using the [az apic service import-from-apim](/cli/azure/apic/az-apic-import-from-apim) command.
     
 After importing API definitions or APIs from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
@@ -230,24 +230,10 @@ Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-servi
 
 #### Import all APIs from an API Management instance
 
-Use a wildcard (`*`) to specify all APIs from the API Management instance. 
-
-1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
+In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Use `*` to specify all APIs from the API Management instance.
 
     ```azurecli
-    #! /bin/bash
-    apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
-    ```
-
-    ```azurecli
-    # PowerShell syntax
-    $apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
-    ```
-    
-1. Use the `az apic service import-from-apim` command to import the APIs. Substitute the names of your API center and resource group, and use `*` to specify all APIs from the API Management instance.
-
-    ```azurecli
-    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apimID/apis/*  
+    az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> -- apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> --apim-apis *  
     ```
 
     > [!NOTE]
@@ -257,22 +243,10 @@ Use a wildcard (`*`) to specify all APIs from the API Management instance.
 
 Specify an API to import using its name from the API Management instance. 
 
-1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
+In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Specify an API name from the API Management instance.
 
     ```azurecli
-    #! /bin/bash
-    apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
-    ```
-
-    ```azurecli
-    # PowerShell syntax
-    $apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
-    ```
-    
-1. Use the `az apic service import-from-apim` command to import the API. Substitute the names of your API center and resource group, and specify an API name from the API Management instance.
-
-    ```azurecli
-    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apimID/apis/<api-name>    
+    import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> -- apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> --apim-apis <api-name>    
     ```
     
     > [!NOTE]
