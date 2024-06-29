@@ -119,7 +119,7 @@ az apic api definition import-specification `
 
 ## Option 2: Import APIs directly from your API Management instance
 
-The following are steps to import APIs from your API Management instance to your API center using the [az apic import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command. This command is useful when you want to import multiple APIs from API Management to your API center, but you can also use it to import a single API.
+The following are steps to import APIs from your API Management instance to your API center using the [az apic import-from-apim](/cli/azure/apic#az-apic-service-import-from-apim) command. This command is useful when you want to import multiple APIs from API Management to your API center, but you can also use it to import a single API.
 
 When you add APIs from an API Management instance to your API center using `az apic import-from-apim`, the following happens automatically:
     
@@ -143,7 +143,7 @@ The following examples show how to configure a system-assigned managed identity 
 
 #### [Azure CLI](#tab/cli)
 
-Set the system-assigned identity in your API center using the following [az apic update](/cli/azure/apic/service#az-apic-update) command. Substitute the names of your API center and resource group:
+Set the system-assigned identity in your API center using the following [az apic update](/cli/azure/apic#az-apic-update) command. Substitute the names of your API center and resource group:
 
 ```azurecli 
 az apic update --name <api-center-name> --resource-group <resource-group-name> --identity '{"type": "SystemAssigned"}'
@@ -221,7 +221,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
 
 ### Import APIs from API Management
 
-Use the [az apic import-from-apim](/cli/azure/apic/service#az-apic-import-from-apim) command to import one or more APIs from your API Management instance to your API center. 
+Use the [az apic import-from-apim](/cli/azure/apic#az-apic-import-from-apim) command to import one or more APIs from your API Management instance to your API center. 
 
 > [!NOTE]
 > * This command depends on a managed identity configured in your API center that has read permissions to the API Management instance. If you haven't added or configured a managed identity, see [Add a managed identity in your API center](#add-a-managed-identity-in-your-api-center) earlier in this article.
