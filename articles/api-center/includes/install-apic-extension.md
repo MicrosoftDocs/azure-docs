@@ -13,3 +13,5 @@ ms.custom: Include file
 
 > [!NOTE]
 > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension can be installed dynamically when you run your first `az apic` command, or you can install the extension manually. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+>
+> Learn about [updates and breaking changes](https://github.com/Azure/azure-cli-extensions/tree/main/src/apic-extension) in the latest version of the `apic-extension`.
