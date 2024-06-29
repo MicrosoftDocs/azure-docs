@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 ms.custom: engagement-fy24
 ---
 
-# Auto-Enable Backup on VM Creation using Azure Policy
+# Auto-enable backup on VM creation using Azure Policy
 
 One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
 
