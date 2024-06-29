@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1
 #customer intent: As a developer, I want to train a regression model with Automated ML, so I can use the Azure Machine Learning Python SDK.
 ---
 
-# Train a regression model with Automated ML and Python (SDK v1)
+# Train regression model with Automated ML and Python (SDK v1)
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -170,7 +170,7 @@ ws = Workspace.from_config()
 
 The `ws` object is used throughout the rest of the code in this tutorial.
 
-## Split the data into train and test sets
+## Split data into train and test sets
 
 Split the data into training and test sets by using the `train_test_split` function in the _scikit-learn_ library. This function segregates the data into the x (**features**) data set for model training and the y (**values to predict**) data set for testing.
 
@@ -186,7 +186,7 @@ x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 
 The purpose of this step is to prepare data points to test the finished model that aren't used to train the model. These points are used to measure true accuracy. A well-trained model is one that can make accurate predictions from unseen data. You now have data prepared for autotraining a machine learning model.
 
-## Automatically train a model
+## Automatically train model
 
 To automatically train a model, take the following steps:
 
@@ -239,7 +239,7 @@ automl_config = AutoMLConfig(task='regression',
 > [!NOTE]
 > Automated ML pre-processing steps (feature normalization, handling missing data, converting text to numeric, and so on) become part of the underlying model. When you use the model for predictions, the same pre-processing steps applied during training are applied to your input data automatically.
 
-### Train the automatic regression model
+### Train automatic regression model
 
 Create an experiment object in your workspace. An experiment acts as a container for your individual jobs. Pass the defined `automl_config` object to the experiment, and set the output to _True_ to view progress during the job.
 
@@ -294,7 +294,7 @@ BEST: The best observed score thus far.
       19   StackEnsemble                          0:00:27      0.9463   0.9471
 ```
 
-## Explore the results
+## Explore results
 
 Explore the results of automatic training with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). The widget allows you to see a graph and table of all individual job iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
 
@@ -313,7 +313,7 @@ The plot chart for the Jupyter widget:
 
 :::image type="content" source="./media/how-to-auto-train-models/automl-chart-output.png" alt-text="Screenshot that shows the Jupyter widget plot diagram in Azure Machine Learning studio." lightbox="./media/how-to-auto-train-models/automl-chart-output.png":::
 
-### Retrieve the best model
+### Retrieve best model
 
 The following code lets you select the best model from your iterations. The `get_output` function returns the best run and the fitted model for the last fit invocation. By using the overloads on the `get_output` function, you can retrieve the best run and fitted model for any logged metric or a particular iteration.
 
@@ -323,7 +323,7 @@ print(best_run)
 print(fitted_model)
 ```
 
-### Test the best model accuracy
+### Test best model accuracy
 
 Use the best model to run predictions on the test data set to predict taxi fares. The `predict` function uses the best model and predicts the values of y, **trip cost**, from the `x_test` data set. 
 
