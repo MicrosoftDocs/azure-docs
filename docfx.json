@@ -834,7 +834,7 @@
         "articles/machine-learning/data-science-virtual-machine/**/*": "https://learn.microsoft.com/answers/tags/201/azure-data-science-vm/",
         "articles/managed-ccf/nomatch/**/*": "",
         "articles/managed-grafana/**/*": "https://learn.microsoft.com/answers/tags/249/azure-managed-grafana/",
-        "articles/managed-instance-apache-cassandra/nomatch/**/*": "",
+        "articles/managed-instance-apache-cassandra/**/*":  "https://learn.microsoft.com/answers/tags/187/azure-cosmos-db/",
         "articles/mariadb/**/*": "https://learn.microsoft.com/answers/tags/56/azure-database-mariadb/",
         "articles/media/**/*": "https://learn.microsoft.com/answers/tags/101/azure-media-services/",
         "articles/messaging-services/**/*": "https://learn.microsoft.com/answers/tags/73/azure-service-bus/",
