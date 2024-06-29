@@ -40,7 +40,7 @@ Ultimately, the Framework is aimed at reducing and better managing cybersecurity
 
 Based on our experience with ransomware attacks, we find that prioritization should focus on: 1) prepare, 2) limit, 3) prevent. This may seem counterintuitive, since most people want to prevent an attack and move on. Unfortunately, we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after.
 
-While these priorities should govern what to do first, we encourage organizations to run as many steps in parallel as possible (including pulling quick wins forward from step 1 whenever you can).
+While these priorities should govern what to do first, we encourage organizations to run steps in parallel where possible, including pulling quick wins forward from step 1 when you can.
 
 ## Make it harder to get in
 
