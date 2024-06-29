@@ -232,25 +232,25 @@ Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-servi
 
 In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Use `*` to specify all APIs from the API Management instance.
 
-    ```azurecli
-    az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> -- apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> --apim-apis *  
-    ```
+```azurecli
+az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> -- apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> --apim-apis *  
+```
 
-    > [!NOTE]
-    > If your API Management instance has a large number of APIs, import to your API center might take some time.
+> [!NOTE]
+> If your API Management instance has a large number of APIs, import to your API center might take some time.
     
 #### Import a specific API from an API Management instance
 
 Specify an API to import using its name from the API Management instance. 
 
-In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Specify an API name from the API Management instance.
+In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. In `<api-name>`, specify an API name from the API Management instance.
 
-    ```azurecli
-    import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> -- apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> --apim-apis <api-name>    
-    ```
-    
-    > [!NOTE]
-    > Specify `<api-name>` using the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
+```azurecli
+import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> -- apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> --apim-apis <api-name>    
+```
+
+> [!NOTE]
+> Specify an API name using the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
     
 After importing APIs from API Management, you can view and manage the imported APIs in your API center.
 
