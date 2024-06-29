@@ -44,7 +44,7 @@ While these priorities should govern what to do first, we encourage organization
 
 ## Make it harder to get in
 
-Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This will cause attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it is a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multi-cloud estate with distributed IT responsibilities).
+Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This will cause attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it's a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multicloud estate with distributed IT responsibilities).
 
 To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy [here](https://aka.ms/zerotrust). Specifically, against Ransomware, organizations should prioritize:
 - Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
@@ -52,7 +52,7 @@ To achieve this, organizations should identify and execute quick wins to strengt
 
 ## Limit scope of damage
 
-Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they are successful at attacking you and demanding payment / profiting.
+Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they're successful at attacking you and demanding payment / profiting.
 
 Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's Security rapid modernization plan, which covers:
 - End to End Session Security (including multifactor authentication (MFA) for admins)
@@ -65,7 +65,7 @@ Organizations should have elevated security for privileged accounts (tightly pro
 Plan for the worst-case scenario and expect that it will happen (at all levels of the organization). This will both help your organization and others in the world you depend on:
 
 - Limits damage for the worst-case scenario – While restoring all systems from backups is highly disruptive to business, this is more effective and efficient than trying to recovery using (low quality) attacker-provided decryption tools after paying to get the key. Note: Paying is an uncertain path – You have no formal or legal guarantee that the key works on all files, the tools work will work effectively, or that the attacker (who may be an amateur affiliate using a professional's toolkit) will act in good faith.
-- Limit the financial return for attackers – If an organization can restore business operations without paying the attackers, the attack has effectively failed and resulted in zero return on investment (ROI) for the attackers. This makes it less likely that they will target the organization in the future (and deprives them of additional funding to attack others). 
+- Limit the financial return for attackers – If an organization can restore business operations without paying the attackers, the attack has effectively failed and resulted in zero return on investment (ROI) for the attackers. This makes it less likely that they'll target the organization in the future (and deprives them of additional funding to attack others). 
 
 The attackers may still attempt to extort the organization through data disclosure or abusing/selling the stolen data, but this gives them less leverage than if they have the only access path to your data and systems.
 
@@ -74,10 +74,10 @@ To realize this, organizations should ensure they:
 - Define and Backup Critical Business Assets – Define systems required for critical business operations and automatically back them up on a regular schedule (including correct backup of critical dependencies like Active Directory)
 Protect backups against deliberate erasure and encryption with offline storage, immutable storage, and/or out of band steps (MFA or PIN) before modifying/erasing online backups.
 - Test 'Recover from Zero' Scenario – test to ensure your business continuity / disaster recovery (BC/DR) can rapidly bring critical business operations online from zero functionality (all systems down). Conduct practice exercise(s) to validate cross-team processes and technical procedures, including out-of-band employee and customer communications (assume all email/chat/etc. is down).  
-  It is critical to protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
+  It's critical to protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
 - Reduce on-premises exposure – by moving data to cloud services with automatic backup & self-service rollback.
 
-## Promote awareness and ensure there is no knowledge gap
+## Promote awareness and ensure there's no knowledge gap
 
 There are a number of activities that may be undertaken to prepare for potential ransomware incidents.
 
@@ -135,7 +135,7 @@ Ensure your organization undertakes a number of activities roughly following the
 
 1. **Preparation**:  This stage describes the various measures that should be put into place prior to an incident.  This may include both technical preparations (such as the implementation of suitable security controls and other technologies) and non-technical preparations (such as the preparation of processes and procedures).
 1. **Triggers / Detection**:  This stage describes how this type of incident may be detected and what triggers may be available that should be used to initiate either further investigation or the declaration of an incident.  These are generally separated into high-confidence and low-confidence triggers.
-1. **Investigation / Analysis**:  This stage describes the activities that should be undertaken to investigate and analyze available data when it isn’t clear that an incident has occurred, with the goal of either confirming that an incident should be declared or concluded that an incident hasn't occurred.
+1. **Investigation / Analysis**:  This stage describes the activities that should be undertaken to investigate and analyze available data when it isn't clear that an incident has occurred, with the goal of either confirming that an incident should be declared or concluded that an incident hasn't occurred.
 1. **Incident Declaration**:  This stage covers the steps that must be taken to declare an incident, typically with the raising of a ticket within the enterprise incident management (ticketing) system and directing the ticket to the appropriate personnel for further evaluation and action.
 1. **Containment / Mitigation**:  This stage covers the steps that may be taken either by the Security Operations Center (SOC), or by others, to contain or mitigate (stop) the incident from continuing to occur or limiting the effect of the incident using available tools, techniques, and procedures.
 1. **Remediation / Recovery**:  This stage covers the steps that may be taken to remediate or recover from damage that was caused by the incident before it was contained and mitigated.
@@ -145,7 +145,7 @@ Ensure your organization undertakes a number of activities roughly following the
 
 ## Prepare for a quick recovery
 
-Ensure that you have appropriate processes and procedures in place. Almost all ransomware incidents result in the need to restore compromised systems. So appropriate and tested backup and restore processes and procedures should be in place for most systems.  There should also be suitable containment strategies in place with suitable procedures to stop ransomware from spreading and recovery from ransomware attacks. 
+Ensure that you have appropriate processes and procedures in place. Almost all ransomware incidents result in the need to restore compromised systems. So appropriate and tested backup and restore processes and procedures should be in place for most systems.  There should also be suitable containment strategies in place with suitable procedures to stop ransomware from spreading and recovery from ransomware attacks.
 
 Ensure that you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider.  These contacts may be useful if the ransomware variant may have known weaknesses or decryption tools may be available.
 
@@ -155,7 +155,7 @@ Isolated backups with [Azure Backup](../../backup/backup-azure-security-feature.
 - Azure Virtual Machines
 - Databases in Azure VMs: SQL, SAP HANA
 - Azure Database for PostgreSQL
-- On-prem Windows Servers (back up to cloud using MARS agent)
+- On-premises Windows Servers (back up to cloud using MARS agent)
 
 Local (operational) backups with Azure Backup
 - Azure Files
