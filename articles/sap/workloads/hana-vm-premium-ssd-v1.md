@@ -20,7 +20,7 @@ This document is about HANA storage configurations for Azure premium storage or 
 
 
 > [!IMPORTANT]
-> The suggestions for the storage configurations in this document are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you aren't utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
+> The suggestions for the storage configurations in this document are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you aren't utilizing all the storage bandwidth or IOPS (I/O operations per second) provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
 
 ## Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines
 Azure Write Accelerator is a functionality that is available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure premium storage. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
@@ -50,7 +50,7 @@ For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst f
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
 - Low to moderate read workload since data ideally is cached in memory, or like with SAP HANA should be completely in memory
-- Bursts of write triggered by database checkpoints or savepoints that are issued on a regular basis
+- Bursts of write triggered by database checkpoints or savepoints that are issued regularly
 - Backup workload that reads in a continuous stream in cases where backups aren't executed via storage snapshots
 - For SAP HANA, load of the data into memory after an instance restart
 
@@ -104,7 +104,7 @@ Configuration for SAP **/hana/data** volume:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more premium storage v1 capacity. 
 
@@ -134,7 +134,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 
 For the other volumes, the configuration would look like:
@@ -163,7 +163,7 @@ For the other volumes, the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team  
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team  
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system) 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure premium storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
