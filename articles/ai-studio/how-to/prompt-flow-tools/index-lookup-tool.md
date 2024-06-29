@@ -22,7 +22,7 @@ The prompt flow Index Lookup tool enables the use of common vector indices (such
 ## Build with the Index Lookup tool
 
 1. If you have a flow that contains one of the deprecated legacy index tools ( the Vector Index Lookup tool, Vector DB Lookup tool, and Faiss Index Lookup tool) you will first need to [upgrade your flow](#upgrade-your-tools).
-2. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Index Lookup** to add the Index Lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/configure-index-lookup-tool.png" alt-text="Screenshot that shows the Index Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/configure-index-lookup-tool.png":::
@@ -178,7 +178,6 @@ If you have a flow that contains one of these tools, follow the next steps to up
 
 1. Edit downstream components to consume the output of your newly added node, instead of the output of the legacy Vector Index Lookup node.
 1. Delete the Vector Index Lookup node and its parent embedding node.
-
 
 ## Next steps
 
