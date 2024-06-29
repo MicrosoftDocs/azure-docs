@@ -7,7 +7,7 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 07/13/2023
+ms.date: 06/26/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -63,11 +63,11 @@ Before going into the details, we're presenting the summary and recommendations 
 | OS disk | Not suitable |  Restricted suitable (non-prod) | Recommended | Not possible | Not possible | Not possible | Not possible |
 | Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
 | /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
-| DBMS Data volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
-| DBMS log volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended<sup>1</sup> | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
-| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
-| DBMS log volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Not supported | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
-| HANA shared volume | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Recommended<sup>3</sup> |
+| DBMS Data volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Not supported |
+| DBMS log volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended<sup>1</sup> | Recommended | Recommended | Recommended | Not supported |
+| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Not supported |
+| DBMS log volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Not supported | Recommended | Recommended | Recommended | Not supported |
+| HANA shared volume | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Recommended |
 | DBMS Data volume non-HANA | Not supported | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
 | DBMS log volume non-HANA M/Mv2 VM families | Not supported | Restricted suitable (non-prod) | Recommended<sup>1</sup> | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
 | DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
@@ -75,9 +75,6 @@ Before going into the details, we're presenting the summary and recommendations 
 
 <sup>1</sup>  With usage of [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
 
-<sup>2</sup>  Using Azure NetApp Files requires /hana/data and /hana/log to be on Azure NetApp Files
-
-<sup>3</sup>  So far tested on SLES only
 
 Characteristics you can expect from the different storage types list like:
 
@@ -87,7 +84,7 @@ Characteristics you can expect from the different storage types list like:
 | Latency Reads | High | Medium to high | Low | submillisecond | submillisecond | submillisecond | low |
 | Latency Writes | High | Medium to high  | Low (submillisecond<sup>1</sup>) | submillisecond | submillisecond | submillisecond | low |
 | HANA supported | No | No | yes<sup>1</sup> | Yes | Yes | Yes | No |
-| Disk snapshots possible | Yes | Yes | Yes | No | No | Yes | No |
+| Disk snapshots possible | Yes | Yes | Yes | Yes<sup>3</sup> | No<sup>2</sup> | Yes | No |
 | Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> | No |
 | Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | In public preview | No |
 | Synchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
@@ -97,9 +94,9 @@ Characteristics you can expect from the different storage types list like:
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
 
-<sup>2</sup> Costs depend on provisioned IOPS and throughput
+<sup>2</sup> Creation of different Azure NetApp Files capacity pools doesn't guarantee deployment of capacity pools onto different storage units
 
-<sup>3</sup>  Creation of different Azure NetApp Files capacity pools doesn't guarantee deployment of capacity pools onto different storage units
+<sup>3</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
 
 
 > [!IMPORTANT]
@@ -202,9 +199,11 @@ The capability matrix for SAP workload looks like:
 | HANA certified | Yes | - |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | No | - |
-| Disk snapshots possible | No | - |
-| Azure Backup VM snapshots possible | No | -  |
+| Disk snapshots possible | Yes<sup>1</sup> | - |
+| Azure Backup VM snapshots possible | Yes | -  |
 | Costs | Medium | - |
+
+<sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
 
 In opposite to Azure premium storage, Azure Premium SSD v2 fulfills SAP HANA storage latency KPIs. As a result, you **DON'T need to use Azure Write Accelerator caching** as described in the article [Enable Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md). 
 
@@ -242,13 +241,14 @@ The capability matrix for SAP workload looks like:
 | Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | - |
 | Azure Write Accelerator support | No | - |
-| Disk bursting | No | - |
-| Disk snapshots possible | No | - |
+| Disk bursting | Yes | - |
+| Disk snapshots possible | Yes<sup>1</sup> | - |
 | Azure Backup VM snapshots possible | No | - |
 | Costs | Higher than Premium storage | - |
 
+<sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
 
-**Summary:** Azure ultra disks are a suitable storage with low submillisecond latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). Ultra disk isn't supporting storage snapshots. In opposite to all other storage, Ultra disk can't be used for the base VHD disk. Ultra disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
+**Summary:** Azure ultra disks are a suitable storage with low submillisecond latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). In opposite to all other storage, Ultra disk can't be used for the base VHD disk. Ultra disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
 
 ## Azure NetApp Files
 
@@ -374,7 +374,7 @@ The capability matrix for SAP workload looks like:
 | Throughput SLA | Yes | - |
 | Throughput linear to capacity | strictly linear | - |
 | HANA certified | No| - |
-| Disk snapshots possible | No | - |
+| Disk snapshots possible | Yes | - |
 | Azure Backup VM snapshots possible | No | - |
 | Costs | low | - |
 
