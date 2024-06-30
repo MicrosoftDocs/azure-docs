@@ -24,7 +24,35 @@ This What's new article provides you with up-to-date information about new featu
 
 |Date | Update |
 |--|--|
+| June 27 | [Checkov IaC Scanning in Defender for Cloud (GA)](#checkov-iac-scanning-in-defender-for-cloud-ga) |
+| June 24 | [Checkov IaC Scanning in Defender for Cloud (GA)](#checkov-iac-scanning-in-defender-for-cloud-ga) |
+| June 24 | [Change in pricing for Defender for Containers (multicloud)](#change-in-pricing-for-defender-for-containers-multicloud) |
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+
+### Checkov IaC Scanning in Defender for Cloud (GA)
+
+June 27, 2024
+
+We are announcing the general availability of the Checkov integration for Infrasturcture-as-Code (IaC) scanning through [MSDO](azure-devops-extension.yml). As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
+
+Security findings from Checkov will be represented as recommendations for both Azure DevOps and GitHub repositories under the assessments "Azure DevOps repositories should have infrastructure as code findings resolved" and "GitHub repositories should have infrastructure as code findings resolved". 
+
+To learn more about DevOps security in Defender for Cloud, see the [DevOps Security Overview](defender-for-devops-introduction.md). To learn how to configure the MSDO CLI, see the [Azure DevOps](azure-devops-extension.yml) or [GitHub](github-action.md) documentation.
+
+### Change in pricing for Defender for Containers in multicloud
+
+June 24, 2024
+
+Since Defender for Containers in multicloud is now generally available, it's no longer free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+### Copilot for Security in Defender for Cloud (Preview)
+
+June 10, 2024
+
+We're announcing the integration of Microsoft Copilot for Security into Defender for Cloud in public preview. Copilot's embedded experience in Defender for Cloud provides users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the effect of implementing a recommendation, the steps needed to take to implement a recommendation, assist with the delegation of recommendations, and assist with the remediation of misconfigurations in code.
+
+Learn more about [Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md).
 
 ### Copilot for Security in Defender for Cloud (Preview)
 
@@ -281,9 +309,6 @@ During public preview this capability isn't automatically enabled. If you're usi
 - [Learn more on agentless scanning for VMs](concept-agentless-data-collection.md)
 - [Learn more on agentless scanning permissions](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-)
 
-<<<<<<< HEAD
-
-=======
 ### New endpoint detection and response recommendations
 
 March 18, 2024
@@ -313,7 +338,6 @@ These public preview recommendations will be deprecated at the end March.
 The current generally available recommendations are still supported and will be until August 2024.
 
 Learn how to [prepare for the new endpoint detection recommendation experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
->>>>>>> 256b73bc103f6acb7e25794072fd71a81c58cdde
 
 ### Custom recommendations based on KQL for Azure is now public preview
 

@@ -1,28 +1,28 @@
 ---
-title: Reference table for all security recommendations for DevOps in Microsoft Defender for Cloud
+title: Reference table for all security recommendations for DevOps
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your DevOps resources.
 author: dcurwin
 ms.service: defender-for-cloud
-ms.topic: concepts
+ms.topic: reference
 ms.date: 09/27/2023
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
 ---
 
-# DevOps security recommendations
+# Security recommendations for DevOps resources
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud if you connect an [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), or [GitLab](quickstart-onboard-gitlab.md) environment by using the **Environment settings** page. 
+This article lists the recommendations you might see in Microsoft Defender for Cloud if you connect an [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), or [GitLab](quickstart-onboard-gitlab.md) environment by using the **Environment settings** page. The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
-The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
+To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
-- To learn about actions that you can take in response to these recommendations, see [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
-- Learn more about [DevOps security](defender-for-devops-introduction.md) benefits and features.
-- DevOps recommendations don't affect your [secure score](secure-score-security-controls.md).
-- To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
+Learn more about [DevOps security](defender-for-devops-introduction.md) benefits and features.
 
+DevOps recommendations don't affect your [secure score](secure-score-security-controls.md). To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
 
-## Azure DevOps recommendations
+## DevOps recommendations
+
+### Azure DevOps recommendations
 
 ### [Azure DevOps repositories should have GitHub Advanced Security for Azure DevOps (GHAzDO) enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c7a934bf-7be6-407a-84d9-4f20e6e49592/showSecurityCenterCommandBar~/false)
 
@@ -90,7 +90,19 @@ The recommendations that appear in your environment are based on the resources t
 
 **Severity**: Medium
 
-## GitHub recommendations
+### [(Preview) Azure DevOps repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/470742ea-324a-406c-b91f-fc1da6a27c0c) 
+
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
+
+**Severity**: High
+
+### [(Preview) Azure DevOps repositories should not allow requestors to approve their own Pull Requests](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98b5895a-0ad8-4ed9-8c9d-d654f5bda816)
+
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend prohibiting pull request creators from approving their own submissions to ensure that every change undergoes objective review by someone other than the author. By doing this, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
+
+**Severity**: High
+
+### GitHub recommendations
 
 ### [GitHub repositories should have secret scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b6ad173c-0cc6-4d44-b954-8217c8837a8e/showSecurityCenterCommandBar~/false)
 
@@ -181,6 +193,12 @@ The recommendations that appear in your environment are based on the resources t
 **Description**: API security vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
 
 **Severity**: Medium
+
+### [(Preview) GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
+
+**Description**: For secrets used in GitHub Action workflows that are stored at the GitHub organization-level, you can use access policies to control which repositories can use organization secrets. Organization-level secrets let you share secrets between multiple repositories, which reduces the need for creating duplicate secrets. However, once a secret is made accessible to a repository, anyone with write access on repository can access the secret from any branch in a workflow. To reduce the attack surface, ensure that the secret is accessible from selected repositories only.
+
+**Severity**: High
 
 ### GitLab recommendations
 
