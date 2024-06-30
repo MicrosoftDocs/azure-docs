@@ -45,11 +45,11 @@ import (
 )
 
 func main() {
-	azureOpenAIKey := os.Getenv("AOAI_CHAT_COMPLETIONS_API_KEY")
-	modelDeploymentID := os.Getenv("AOAI_CHAT_COMPLETIONS_MODEL")
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
+	modelDeploymentID := os.Getenv("YOUR_MODEL_DEPLOYMENT_NAME")
 
 	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
-	azureOpenAIEndpoint := os.Getenv("AOAI_CHAT_COMPLETIONS_ENDPOINT")
+	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
 
 	if azureOpenAIKey == "" || modelDeploymentID == "" || azureOpenAIEndpoint == "" {
 		fmt.Fprintf(os.Stderr, "Skipping example, environment variables missing\n")
@@ -72,13 +72,13 @@ func main() {
 	// NOTE: all messages, regardless of role, count against token usage for this API.
 	messages := []azopenai.ChatRequestMessageClassification{
 		// You set the tone and rules of the conversation with a prompt as the system role.
-		&azopenai.ChatRequestSystemMessage{Content: to.Ptr("You are a helpful assistant. You will talk like a pirate.")},
+		&azopenai.ChatRequestSystemMessage{Content: to.Ptr("You are a helpful assistant.")},
 
 		// The user asks a question
-		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("Can you help me?")},
+		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("Does Azure OpenAI support customer managed keys?")},
 
-		// The reply would come back from the ChatGPT. You'd add it to the conversation so we can maintain context.
-		&azopenai.ChatRequestAssistantMessage{Content: to.Ptr("Arrrr! Of course, me hearty! What can I do for ye?")},
+		// The reply would come back from the model. You'd add it to the conversation so we can maintain context.
+		&azopenai.ChatRequestAssistantMessage{Content: to.Ptr("Yes, customer managed keys are supported by Azure OpenAI")},
 
 		// The user answers the question based on the latest reply.
 		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What's the best way to train a parrot?")},
