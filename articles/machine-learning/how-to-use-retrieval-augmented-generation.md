@@ -8,7 +8,7 @@ author: balapv
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/30/2023
+ms.date: 06/26/2024
 ms.topic: how-to
 ms.custom: prompt
 ---
@@ -35,11 +35,9 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 1.  Select **Prompt flow** on the left menu.
 
-:::image type="content" source="./media/how-to-use-retrieval-augmented-generation/prompt.png" alt-text="Screenshot showing prompt flow location.":::
-
 2.  Select **Create**.
 
-3. In the **Create from gallery** section, select **View Detail** on the Bring your own data Q&A sample.
+3. In the **Explore gallery** menu, select **View Detail** on the _Q&A on Your Data_ sample.
 
 :::image type="content" source="./media/how-to-use-retrieval-augmented-generation/view-detail.png" alt-text="Screenshot showing view details button on the prompt flow sample.":::
 

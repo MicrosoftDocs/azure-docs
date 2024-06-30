@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: compute
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: jesscioffi
-ms.author: jcioffi
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.date: 05/03/2024
 ---

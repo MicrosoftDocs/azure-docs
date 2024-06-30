@@ -7,7 +7,8 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
+
 ms.author: gasinh
 ms.subservice: B2C
 
@@ -340,7 +341,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 Add the policy files to Azure AD B2C. For the following instructions, use the directory with the Azure AD B2C tenant. 
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the Global Administrator of the Azure AD B2C tenant.
+1. Sign in to the [**Azure portal**](https://portal.azure.com/) as at least B2C IEF Policy Administrator of the Azure AD B2C tenant.
 1. In the portal toolbar, select **Directories + subscriptions**.
 1. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, locate the Azure AD B2C directory.
 2. Select **Switch**.

@@ -3,8 +3,8 @@ title: Deny Public Network Access - Azure portal - Azure Database for MySQL
 description: Learn how to configure Deny Public Network Access using Azure portal for your Azure Database for MySQL 
 ms.service: mysql
 ms.subservice: single-server
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---

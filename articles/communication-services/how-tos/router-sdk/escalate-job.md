@@ -2,8 +2,8 @@
 title: Escalate a Job in Job Router
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to escalate a Job
-author: jasonshave
-ms.author: jassha
+author: sroons
+ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021

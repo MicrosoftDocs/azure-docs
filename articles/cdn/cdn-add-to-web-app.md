@@ -33,7 +33,7 @@ To complete this tutorial:
 - [Install Git](https://git-scm.com/)
 - [Install the Azure CLI](/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create the web app
 
