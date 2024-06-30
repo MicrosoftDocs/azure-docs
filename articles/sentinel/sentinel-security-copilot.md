@@ -107,7 +107,7 @@ For more prompt guidance and samples, see the following resources:
 - [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot)
 - [Rod Trent's Copilot for Security Prompt Library](https://github.com/rod-trent/Copilot-for-Security/tree/main/Prompts)
 
-## Related articles
+### Related articles
 
 - [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 - [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
