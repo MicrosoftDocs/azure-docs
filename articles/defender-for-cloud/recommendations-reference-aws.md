@@ -13,8 +13,6 @@ This article lists all the recommendations you might see in Microsoft Defender f
 
 
 
-<<<<<<< HEAD
-=======
 ## AWS Compute recommendations
 
 ### [Amazon EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/5b3c2887-d7b7-4887-b074-4e6057027709)
@@ -1453,7 +1451,6 @@ If other relationships are listed, then the control passes.
 **Description**: Security group should restrict all traffic to reduce resource exposure.
 
 **Severity**: Low
->>>>>>> 256b73bc103f6acb7e25794072fd71a81c58cdde
 
 ## AI recommendations
 
