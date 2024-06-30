@@ -1,14 +1,14 @@
 ---
-title: Azure Web Application Firewall on Azure Front Door Sensitive Data Protection (preview)
+title: Azure Web Application Firewall on Azure Front Door Sensitive Data Protection
 description: Learn about Azure Web Application Firewall Azure Front Door Sensitive Data Protection.
 author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 06/24/2024
 ---
 
-# What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection (preview)?
+# What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?
 
 The Web Application Firewall's (WAF) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive information. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
 

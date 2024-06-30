@@ -234,35 +234,6 @@ This recommendation is already being covered by another networking recommendatio
 
 See the [list of security recommendations](recommendations-reference.md).
 
-### Containers multicloud recommendations (GA)
-
-April 2, 2024
-
-As part of Defender for Containers multicloud general availability, the following recommendations are announced GA as well:
-
-- For Azure
-
-| **Recommendation** | **Description** | **Assessment Key** |
-| ------------------ | --------------- | ------------------ |
-| Azure registry container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5  |
-| Azure running container images should have vulnerabilities resolved| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
-
-- For GCP
-
-| **Recommendation** | **Description** | **Assessment Key** |
-| ------------------ | --------------- | ------------------ |
-| GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure  | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.   | c27441ae-775c-45be-8ffa-655de37362ce  |
-| GCP running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) - Microsoft Azure   | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Google Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 5cc3a2c1-8397-456f-8792-fe9d0d4c9145   |
-
-- For AWS
-
-| **Recommendation** | **Description** | **Assessment Key** |
-| ------------------ | --------------- | ------------------ |
-| AWS registry container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Scans your GCP registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. Scans your AWS registries container images for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.  | c27441ae-775c-45be-8ffa-655de37362ce  |
-| AWS running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Elastic Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.   | 682b2595-d045-4cff-b5aa-46624eb2dd8f   |
-
-The recommendations affect the secure score calculation.
-
 ## March 2024
 
 |Date | Update |

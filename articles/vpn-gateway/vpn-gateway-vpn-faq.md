@@ -51,6 +51,16 @@ For more information about VPN Gateway connections, see [About VPN Gateway](vpn-
 
 You can configure your virtual network to use both site-to-site and point-to-site concurrently, as long as you create your site-to-site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
+### Does a misconfiguration of custom DNS break the normal operation of Azure VPN Gateway?
+
+For normal functioning, the Azure VPN Gateway must establish a secure, mandatory connection with the Azure control plane, facilitated through Public IPs. This connection relies on resolving communication endpoints via public URLs. By default, Azure Virtual Networks (VNets) utilize the built-in Azure DNS (168.63.129.16) to resolve these public URLs, ensuring seamless communication between the Azure VPN Gateway and the Azure control plane.
+
+In implementation of a custom DNS within the VNet, it is crucial to configure a DNS forwarder that points to the Azure native DNS (168.63.129.16), to maintain uninterrupted communication between the VPN Gateway and control plane. Failure to set up a DNS forwarder to the native Azure DNS can prevent Microsoft from performing operations and maintenance on the Azure VPN Gateway, posing a security risk.
+
+To proper functionalities and healthy state to your VPN Gateway, consider one of the following configurations DNS configurations in VNet:
+1. Revert to the default native Azure DNS by removing the custom DNS within the VNet settings (recommended configuration).
+2. Add in your custom DNS configuration a DNS forwarder pointing to the native Azure DNS (IP address: 168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup may not resolve and fix the issue as expected.
+
 ## <a name="privacy"></a>Privacy
 
 ### Does the VPN service store or process customer data?

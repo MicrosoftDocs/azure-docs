@@ -50,10 +50,12 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one. The serverless API model deployment offering for Phi-3 is only available with workspaces created in these regions:
 
-    > [!IMPORTANT]
-    > For Phi-3 family models, the serverless API model deployment offering is only available with workspaces created in **East US 2** and **Sweden Central** regions.
+     * East US 2
+     * Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -99,3 +101,4 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
+- [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)

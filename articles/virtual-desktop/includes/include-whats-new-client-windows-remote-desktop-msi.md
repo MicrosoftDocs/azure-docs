@@ -12,7 +12,18 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5454 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5454 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.5550 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.5550 (Insider)
+
+*Date published: June 25, 2024* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+
+In this release, we made the following changes:
+
+- Fixed an issue where a minimized RemoteApp window will maximize when the lock screen timer runs out for a RemoteApp session.
+- Improved usability of the connection bar by reducing the amount of time it displays on the screen after the mouse moves away.
 
 ## Updates for version 1.2.5454
 
@@ -58,7 +69,7 @@ In this release, we made the following changes:
 In this release, we made the following changes:
 
 - When subscribing to feeds via URL, all message states for the status message box can be announced by screen readers. 
-- When users are searching for workspaces via url, they will now see the searching status when entering url-formatted input and receive an error if results are not found. 
+- When users search for workspaces via URL, they now see the searching status when entering URL-formatted input and receive an error if results are not found. 
 - Improved error messaging for end users when their saved credentials expire. 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
