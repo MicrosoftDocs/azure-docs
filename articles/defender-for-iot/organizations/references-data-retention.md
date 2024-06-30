@@ -7,7 +7,7 @@ ms.date: 06/30/2024
 
 # Data retention, privacy, and sharing across Microsoft Defender for IoT
 
-Microsoft Defender for IoT stores data in the MIcrosoft Azure portal, in OT network sensors, and in on-premises management consoles.
+Microsoft Defender for IoT stores data in the Microsoft Azure portal, in OT network sensors, and in on-premises management consoles.
 
 Each storage type has varying storage capacity options and retention times. This article describes the data retention policy for the amount of data and length of time it's stored in each storage type before being deleted or overwritten.
 
