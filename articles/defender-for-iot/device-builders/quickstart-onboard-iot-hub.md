@@ -131,7 +131,7 @@ To allow access to the IoT Hub:
 
 1. In the **Select members** page, in the **Select** field, type *Azure security*, select **Azure Security for IoT**, and select **Select** at the bottom.
 
-1. Back in the **Members** tab, select **Review + assign** at the bottom of the tab, in in the **Review and assign tab**, select **Review + assign** at the bottom again.
+1. Back in the **Members** tab, select **Review + assign** at the bottom of the tab, in the **Review and assign tab**, select **Review + assign** at the bottom again.
 
 ### Allow access to a Log Analytics workspace
 
@@ -161,7 +161,7 @@ To connect to a Log Analytics workspace:
 
 1. In the **Select members** page, in the **Select** field, type *Azure security*, select **Azure Security for IoT**, and select **Select** at the bottom.
 
-1. Back in the **Members** tab, select **Review + assign** at the bottom of the tab, in in the **Review and assign tab**, select **Review + assign** at the bottom again.
+1. Back in the **Members** tab, select **Review + assign** at the bottom of the tab, in the **Review and assign tab**, select **Review + assign** at the bottom again.
 
 #### Enable Defender for IoT
 
