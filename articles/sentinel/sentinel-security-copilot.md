@@ -1,7 +1,7 @@
 ---
 title: Microsoft Copilot in Microsoft Sentinel (Preview)
-description: Learn about Microsoft Sentinel capabilities in Copilot for Security. Understand the best prompts to use and how to get timely, accurate results for NL2KQL.
-keywords: security copilot, Microsoft Defender XDR, embedded experience, incident summary, query assistant, incident report, incident response automated, automatic incident response, summarize incidents, summarize incident report, plugins, Microsoft plugins, preinstalled plugins, Microsoft Copilot for Security, Copilot for Security, Microsoft Defender, Copilot in Sentinel, natural language to KQL, generate queries
+description: Learn about Microsoft Sentinel capabilities in Copilot for Security. Understand the best prompts to use and how to get timely, accurate results for natural language to KQL.
+keywords: security copilot, Microsoft Defender XDR, embedded experience, incident summary, query assistant, incident report, incident response automated, automatic incident response, summarize incidents, summarize incident report, plugins, Microsoft plugins, preinstalled plugins, Microsoft Copilot for Security, Copilot for Security, Microsoft Defender, Copilot in Sentinel, NL2KQL, natural language to KQL, generate queries
 ms.service: microsoft-sentinel
 ms.collection: usx-security
 ms.pagetype: security
@@ -14,6 +14,7 @@ appliesto:
     - Microsoft Sentinel
     - Copilot for Security
 ms.date: 06/26/2024
+#Customer intent: As a SOC administer or analyst, understand how to use Microsoft Sentinel data with Copilot for Security.
 ---
 
 # Investigate Microsoft Sentinel incidents in Copilot for Security
