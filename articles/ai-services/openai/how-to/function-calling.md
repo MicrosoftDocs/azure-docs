@@ -441,6 +441,9 @@ Here's the current information for the three cities:
 Is there anything else you need?
 ```
 
+> [!IMPORTANT]
+> The JSON response might not always be valid so you need to add additional logic to your code to be able to handle errors. For some use cases you may find you need to use fine-tuning to improve [function calling performance](./fine-tuning-functions.md).
+
 ## Prompt engineering with functions
 
 When you define a function as part of your request, the details are injected into the system message using specific syntax that the model has been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model uses the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.

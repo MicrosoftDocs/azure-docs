@@ -90,5 +90,6 @@ As with the example before, this example is artificially expanded for readabilit
 
 ## Next steps
 
+- [Function calling fine-tuning scenarios](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/fine-tuning-with-function-calling-on-azure-openai-service/ba-p/4065968#:~:text=Fine%20tuning%20lets%20you%20shorten%20your%20function%20calls,the%20entire%20function%20object%20from%20the%20functions%20array.)
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
 - Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)
