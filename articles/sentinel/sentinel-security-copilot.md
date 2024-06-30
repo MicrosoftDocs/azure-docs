@@ -45,18 +45,22 @@ For more information, see [Microsoft Sentinel in the Microsoft Defender portal](
 
 Example: (to be added)
 
-## System capabilities of Copilot in Microsoft Sentinel
+## Microsoft Sentinel plugins
 
 Copilot in Microsoft Sentinel has the following capabilities in the standalone experience.
 
+From the **Microsoft Sentinel (Preview)** plugin:
 - Get Microsoft Sentinel incidents
 - List Microsoft Sentinel workspaces
 
-The Microsoft Sentinel plugin for KQL support generates and runs KQL hunting queries using Microsoft Sentinel data for most tables with good confidence.
+The **Natural language to KQL for Microsoft Sentinel (Preview)** plugin generates and runs KQL hunting queries using Microsoft Sentinel data.
 
-- Natural language to KQL (NL2KQL) for Microsoft Sentinel
+>[!NOTE]
+> In the [unified Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender), you can prompt Copilot for Security to generate advanced hunting queries for both Defender XDR and Microsoft Sentinel tables. Not all Microsoft Sentinel tables are currently supported, but support for these tables can be expected in the future.
 
-To view these capabilities in Copilot, select the **Prompts** :::image type="icon" source="media/sentinel-security-copilot/prompts.png"::: icon in the prompt bar and select **See all system capabilities**. Scroll down to section for Microsoft Sentinel and Natural language to KQL.
+To view these capabilities in Copilot, select the **Prompts** :::image type="icon" source="media/sentinel-security-copilot/prompts.png"::: icon in the prompt bar and select **See all system capabilities**. Scroll down to the section for Microsoft Sentinel and Natural language to KQL.
+
+For more information, see [Copilot for Security in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).
 
 ### Enable the Microsoft Sentinel plugins in Copilot
 
@@ -108,7 +112,7 @@ A useful way to summarize the prompts and responses so far.<br>
 
 For more information on sample prompts, see [Rod Trent's Copilot for Security GitHub](https://github.com/rod-trent/Copilot-for-Security/blob/main/Prompts/Plugins/Sentinel.md).
 
-### Related articles
+## Related articles
 
 - [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 - [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
