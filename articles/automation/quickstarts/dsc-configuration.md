@@ -24,7 +24,7 @@ By enabling Azure Automation State Configuration, you can manage and monitor the
 To complete this quickstart, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* An Azure Resource Manager virtual machine running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
+* An Azure Resource Manager virtual machine running Red Hat Enterprise Linux, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
 
 ## Sign in to Azure
 Sign in to the [Azure portal](https://portal.azure.com).
