@@ -25,9 +25,12 @@ This What's new article provides you with up-to-date information about new featu
 |Date | Update |
 |--|--|
 | June 27 | [Checkov IaC Scanning in Defender for Cloud (GA)](#checkov-iac-scanning-in-defender-for-cloud-ga) |
-| June 24 | [Checkov IaC Scanning in Defender for Cloud (GA)](#checkov-iac-scanning-in-defender-for-cloud-ga) |
-| June 24 | [Change in pricing for Defender for Containers (multicloud)](#change-in-pricing-for-defender-for-containers-multicloud) |
+| June 24 | [Change in pricing for Defender for Containers (multicloud)](#change-in-pricing-for-defender-for-containers-multicloud) | Estimated deprecation date: August 2024
+| June 20 | [Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation](#reminder-of-the-deprecation-scope-of-adaptive-recommendations-as-of-mma-deprecation)<br/><br/> Estimated deprecation: August 2024 
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+| June 10 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers)<br/><br/> Estimated deprecation: July 10, 2024 |
+| June 3 | [Changes to identity recommendations](#changes-to-identity-recommendations)<br/><br/> Estimated deprecation: July 10 2024 |
+
 
 
 ### Checkov IaC Scanning in Defender for Cloud (GA)
@@ -72,6 +75,9 @@ Learn more about [Copilot for Security in Defender for Cloud](copilot-security-i
 | May 6 | [AI multicloud security posture management is available for Azure and AWS (Preview)](#ai-multicloud-security-posture-management-is-available-for-azure-and-aws-preview) |
 | May 2 | [Updated security policy management (GA)](#updated-security-policy-management-is-now-generally-available) |
 | May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+| May 1 | [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint)<br/><br/> Estimated deprecation: August 2024 |
+| May 1 | [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations)<br/><br/> Estimated deprecation: July 2024 |
+| May 1 | [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations)<br/><br/> Estimated deprecation: July 2024 |
 
 ### Agentless malware detection in Defender for Servers Plan 2 (GA)
 
@@ -147,9 +153,13 @@ Learn more about [Defender for open-source databases](defender-for-databases-int
 
 |Date | Update |
 |--|--|
+| April 18 | [Deprecation of fileless attack alerts](#deprecation-of-fileless-attack-alerts)<br/><br/> Estimated deprecation: May 2024 |
+| April 16 | [Change in CIEM assessment IDs](#change-in-ciem-assessment-ids)<br/><br/> Estimated deprecation: May 2024 |
 | April 15 | [Defender for Containers is now generally available (GA) for AWS and GCP](#defender-for-containers-is-now-generally-available-ga-for-aws-and-gcp) |
 | April 3 | [Risk prioritization is now the default experience in Defender for Cloud](#risk-prioritization-is-now-the-default-experience-in-defender-for-cloud) |
 | April 3 | [Defender for open-source relational databases updates](#defender-for-open-source-relational-databases-updates) |
+| April 3 | [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation)<br/><br/> Estimated deprecation: May 2024 |
+|April 2 | [Deprecating of virtual machine recommendation](#deprecating-of-virtual-machine-recommendation)<br/><br/> Estimated deprecation: July, 2024 |
 
 ### Defender for Containers for AWS and GCP (GA)
 
@@ -239,9 +249,9 @@ See the [list of security recommendations](recommendations-reference.md).
 |Date | Update |
 |--|--|
 | March 31 | [Windows container images scanning is now generally available (GA)](#windows-container-images-scanning-is-now-generally-available-ga) |
+| March 28 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations)<br/><br/> Estimated deprecation: April 30, 2024 |
 | March 25 | [Continuous export now includes attack path data](#continuous-export-now-includes-attack-path-data) |
 | March 21 | [Agentless scanning supports CMK encrypted VMs in Azure (preview)](#agentless-scanning-supports-cmk-encrypted-vms-in-azure) |
-
 
 | March 13 | [ServiceNow integration is now generally available (GA)](#servicenow-integration-is-now-generally-available-ga) |
 | March 13 | [Critical assets protection in Microsoft Defender for Cloud (Preview)](#critical-assets-protection-in-microsoft-defender-for-cloud-preview) |
@@ -250,6 +260,7 @@ See the [list of security recommendations](recommendations-reference.md).
 | March 6 | **Upcoming**: [Defender for open-source relational databases updates](#upcoming:-defender-for-open-source-relational-databases-updates)<br/><br/> **Expected**: April, 2024 |
 | March 3 | **Upcoming**: [Changes in where you access Compliance offerings and Microsoft Actions](#upcoming:-changes-in-where-you-access-compliance-offerings-and-microsoft-actions)<br/><br/> **Expected**: September 2025 |
 | March 3 | [Defender for Cloud Containers Vulnerability Assessment powered by Qualys retirement](#defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys-retirement) |
+| March 3 | [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions)<br/><br/> Estimated deprecation: September 30, 2025 |
 
 ### Windows container images scanning is now generally available (GA)
 
@@ -412,6 +423,7 @@ The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is 
 | February 12 | [New version of Defender sensor for Defender for Containers](#new-version-of-defender-sensor-for-defender-for-containers) |
 | February 12 | **Upcoming**: [Deprecation of data recommendation](#upcoming:-deprecation-of-data-recommendation)br/><br/> **Expected**: March 14, 2024 |
 | February 5 | **Upcoming**: [Decommissioning of Microsoft.SecurityDevOps resource provider](#upcoming:-decommissioning-of-microsoftsecuritydevops-resource-provider)br/><br/> **Expected**: March 6, 2024 |
+| February 5 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider)<br/><br/> Estimated deprecation: March 6, 2024 |
 
 
 
