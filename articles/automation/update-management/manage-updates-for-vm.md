@@ -5,7 +5,7 @@ services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 06/30/2024
 ---
 
 # Manage updates and patches for your VMs

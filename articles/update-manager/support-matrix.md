@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/24/2024
+ms.date: 06/30/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -297,7 +297,6 @@ We support VMs created from customized images (including images uploaded to [Azu
 
    |**Linux operating system**|
    |---|
-   |CentOS 7 |
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
    |SUSE Linux Enterprise Server 12.x, 15.0-15.4|
@@ -313,7 +312,6 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Amazon Linux 2023 |
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
-   | CentOS Linux 7 and 8 (x64) |
    | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
    | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
    | Amazon Linux 2 (x64)   |
