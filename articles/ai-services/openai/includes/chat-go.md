@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/30/2023
+ms.date: 06/30/2024
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)| [Samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)
@@ -47,6 +47,8 @@ import (
 func main() {
 	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
 	modelDeploymentID := os.Getenv("YOUR_MODEL_DEPLOYMENT_NAME")
+    maxTokens:= int32(400)
+
 
 	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
@@ -81,7 +83,7 @@ func main() {
 		&azopenai.ChatRequestAssistantMessage{Content: to.Ptr("Yes, customer managed keys are supported by Azure OpenAI")},
 
 		// The user answers the question based on the latest reply.
-		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What's the best way to train a parrot?")},
+		&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What other Azure Services support customer managed keys?")},
 
 		// from here you'd keep iterating, sending responses back from ChatGPT
 	}
@@ -93,6 +95,7 @@ func main() {
 		// NOTE: all messages count against token usage for this API.
 		Messages:       messages,
 		DeploymentName: &modelDeploymentID,
+		MaxTokens: &maxTokens,
 	}, nil)
 
 	if err != nil {
@@ -128,7 +131,7 @@ func main() {
 	}
 
 	if gotReply {
-		fmt.Fprintf(os.Stderr, "Got chat completions reply\n")
+		fmt.Fprintf(os.Stderr, "Received chat completions reply\n")
 	}
 
 }
@@ -154,7 +157,21 @@ go run chat_completions.go
 ## Output
 
 ```output
-Content[0]: Yes, many Azure AI services also support customer managed keys. These services enable you to bring your own encryption keys for data at rest, which provides you with more control over the security of your data.
+Content filter results
+  Hate: sev: safe, filtered: false
+  SelfHarm: sev: safe, filtered: false
+  Sexual: sev: safe, filtered: false
+  Violence: sev: safe, filtered: false
+Content[0]: As of my last update in early 2023, in Azure, several AI services support the use of customer-managed keys (CMKs) through Azure Key Vault. This allows customers to have control over the encryption keys used to secure their data at rest. The services that support this feature typically fall under Azure's range of cognitive services and might include:
+
+1. Azure Cognitive Search: It supports using customer-managed keys to encrypt the index data.
+2. Azure Form Recognizer: For data at rest, you can use customer-managed keys for added security.
+3. Azure Text Analytics: CMKs can be used for encrypting your data at rest.
+4. Azure Blob Storage: While not exclusively an AI service, it's often used in conjunction with AI services to store data, and it supports customer-managed keys for encrypting blob data.
+
+Note that the support for CMKs can vary by service and sometimes even by the specific feature within the service. Additionally, the landscape of cloud services is fast evolving, and new features, including security capabilities, are frequently added. Therefore, it's recommended to check the latest Azure documentation or contact Azure support for the most current information about CMK support for any specific Azure AI service.
+Finish reason[0]: stop
+Received chat completions reply
 ```
 
 ## Clean up resources
