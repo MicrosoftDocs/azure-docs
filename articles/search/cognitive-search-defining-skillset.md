@@ -17,7 +17,7 @@ ms.date: 01/10/2024
 
 A skillset defines operations that generate textual content and structure from documents that contain images or unstructured text. Examples are OCR for images, entity recognition for undifferentiated text, and text translation. A skillset executes after text and images are extracted from an external data source, and after [field mappings](search-indexer-field-mappings.md) are processed.
 
-This article explains how to create a skillset using [REST APIs](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
+This article explains how to create a skillset using [REST APIs](/rest/api/searchservice/skillsets/create), but the same concepts and steps apply to other programming languages. 
 
 Rules for skillset definition include:
 
@@ -33,7 +33,7 @@ Indexers drive skillset execution. You need an [indexer](search-howto-create-ind
 
 ## Add a skillset definition
 
-Start with the basic structure. In the [Create Skillset REST API](/rest/api/searchservice/create-skillset), the body of the request is authored in JSON and has the following sections:
+Start with the basic structure. In the [Create Skillset REST API](/rest/api/searchservice/skillsets/create), the body of the request is authored in JSON and has the following sections:
 
 ```json
 {

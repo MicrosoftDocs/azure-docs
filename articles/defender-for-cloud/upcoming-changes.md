@@ -29,9 +29,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation](#reminder-of-the-deprecation-scope-of-adaptive-recommendations-as-of-mma-deprecation) | June 20, 2024 | August 2024 |
 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
 | [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
-| [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
-| [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
-| [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | May 2024 |
+| [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | August 2024 |
+| [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | July 2024 |
+| [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | July 2024 |
 | [Deprecation of fileless attack alerts](#deprecation-of-fileless-attack-alerts) | April 18, 2024 | May 2024 |
 | [Change in CIEM assessment IDs](#change-in-ciem-assessment-ids) | April 16.2024 | May 2024 |
 | [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation) | April 3, 2024 | May 2024 |

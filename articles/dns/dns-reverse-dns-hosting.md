@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Host reverse DNS lookup zones in Azure DNS
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This article explains how to host reverse DNS lookup zones for your assigned IP ranges with Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP.
 

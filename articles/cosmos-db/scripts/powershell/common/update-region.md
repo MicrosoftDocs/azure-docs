@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 This PowerShell script updates the Azure regions that an Azure Cosmos DB account uses. You can use this script to add an Azure region or change region failover order.
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
