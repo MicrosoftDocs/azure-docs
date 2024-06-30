@@ -34,10 +34,10 @@ If the application produces bursts of messages, illustrated here with a plain lo
 With an assumed 70-millisecond Transmission Control Protocol (TCP) roundtrip latency distance from an on-premises site to Service Bus and giving just 10 ms for Service Bus to accept and store each message, the following loop takes up at least 8 seconds, not counting payload transfer time or potential route congestion effects:
 
 ```csharp
-for (int i = 0; i < 100; i++)
+for (int i = 0; i < 10; i++)
 {
-  // creating the message omitted for brevity
-  await client.SendAsync(…);
+    // creating the message omitted for brevity
+    await sender.SendMessageAsync(message);
 }
 ```
 
@@ -47,9 +47,9 @@ With the same assumptions as for the prior loop, the total overlapped execution 
 
 ```csharp
 var tasks = new List<Task>();
-for (int i = 0; i < 100; i++)
+for (int i = 0; i < 10; i++)
 {
-  tasks.Add(client.SendAsync(…));
+    tasks.Add(sender.SendMessageAsync(message));
 }
 await Task.WhenAll(tasks);
 ```
@@ -62,11 +62,11 @@ Semaphores, as shown in the following code snippet in C#, are synchronization ob
 var semaphore = new SemaphoreSlim(10);
 
 var tasks = new List<Task>();
-for (int i = 0; i < 100; i++)
+for (int i = 0; i < 10; i++)
 {
-  await semaphore.WaitAsync();
+    await semaphore.WaitAsync();
 
-  tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
+    tasks.Add(sender.SendMessageAsync(message).ContinueWith((t)=>semaphore.Release()));
 }
 await Task.WhenAll(tasks);
 ```
@@ -74,14 +74,13 @@ await Task.WhenAll(tasks);
 Applications should **never** initiate an asynchronous send operation in a "fire and forget" manner without retrieving the outcome of the operation. Doing so can load the internal and invisible task queue up to memory exhaustion, and prevent the application from detecting send errors:
 
 ```csharp
-for (int i = 0; i < 100; i++)
+for (int i = 0; i < 10; i++)
 {
-
-  client.SendAsync(message); // DON’T DO THIS
+    sender.SendMessageAsync(message); // DON’T DO THIS
 }
 ```
 
-With a low-level AMQP client, Service Bus also accepts "pre-settled" transfers. A pre-settled transfer is a fire-and-forget operation for which the outcome, either way, isn't reported back to the client and the message is considered settled when sent. The lack of feedback to the client also means that there's no actionable data available for diagnostics, which means that this mode doesn't qualify for help via Azure support.
+With a low-level AMQP client, Service Bus also accepts "presettled" transfers. A presettled transfer is a fire-and-forget operation for which the outcome, either way, isn't reported back to the client and the message is considered settled when sent. The lack of feedback to the client also means that there's no actionable data available for diagnostics, which means that this mode doesn't qualify for help via Azure support.
 
 ## Settling receive operations
 
@@ -106,6 +105,9 @@ The receiving client initiates settlement of a received message with a positive 
 When the receiving client fails to process a message but wants the message to be redelivered, it can explicitly ask for the message to be released and unlocked instantly by calling the [Abandon](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.abandonmessageasync) API for the message or it can do nothing and let the lock elapse.
 
 If a receiving client fails to process a message and knows that redelivering the message and retrying the operation won't help, it can reject the message, which moves it into the dead-letter queue by calling the [DeadLetter](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deadlettermessageasync) API on the message, which also allows setting a custom property including a reason code that can be retrieved with the message from the dead-letter queue.
+
+> [!NOTE]
+> A dead-letter subqueue exists for a queue or a topic subscription only when you have the [dead-letter feature](service-bus-dead-letter-queues.md) enabled for the queue or subscription. 
 
 A special case of settlement is deferral, which is discussed in a [separate article](message-deferral.md).
 

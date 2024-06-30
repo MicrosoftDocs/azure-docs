@@ -12,6 +12,8 @@ ms.author: duau
 
 # Add a custom domain to Azure Front Door
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 This article shows how to add a custom domain to your Front Door. When you use Azure Front Door for application delivery, a custom domain is necessary if you want your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
 After you create a Front Door profile, the default frontend host is a subdomain of `azurefd.net`. This name is included in the URL for delivering Front Door content to your backend by default. For example, `https://contoso-frontend.azurefd.net`. For your convenience, Azure Front Door provides the option to associate a custom domain to the endpoint. With this capability, you can deliver your content with your URL instead of the Front Door default domain name such as, `https://www.contoso.com/photo.png`. 

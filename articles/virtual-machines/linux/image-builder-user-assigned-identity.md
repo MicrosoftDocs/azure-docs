@@ -8,7 +8,7 @@ ms.date: 11/28/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Create an image and use a user-assigned managed identity to access files in an Azure storage account 

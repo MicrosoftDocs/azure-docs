@@ -13,9 +13,9 @@ ms.author: danlep
 
 # Configure a custom domain name for a self-hosted gateway
 
-When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md), it is not assigned a host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) to a self-hosted gateway.
-
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
+When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md), it is not assigned a host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) to a self-hosted gateway.
 
 ## Prerequisites
 

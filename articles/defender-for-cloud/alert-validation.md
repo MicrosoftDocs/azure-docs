@@ -2,6 +2,7 @@
 title: Alert validation
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin
@@ -14,7 +15,7 @@ This document helps you learn how to verify if your system is properly configure
 
 Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Defender for Cloud also provides recommendations for how you can remediate an attack.
 
-For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.md).
+For more information, see [Security alerts in Defender for Cloud](alerts-overview.md) and [Managing and responding to security alerts](managing-and-responding-alerts.yml).
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ To receive all the alerts, your machines and the connected Log Analytics workspa
 
 ## Generate sample security alerts
 
-If you're using the new preview alerts experience as described in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md), you can create sample alerts from the security alerts page in the Azure portal.
+If you're using the new preview alerts experience as described in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml), you can create sample alerts from the security alerts page in the Azure portal.
 
 Use sample alerts to:
 
@@ -69,7 +70,7 @@ After the Microsoft Defender for Endpoint agent is installed on your machine, as
 
     :::image type="content" source="media/alert-validation/powershell-no-exit.png" alt-text="Screenshot showing PowerShell message line." lightbox="media/alert-validation/powershell-no-exit.png":::
 
-Alternately, you can also use the [EICAR](https://www.eicar.org/download-anti-malware-testfile/) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.  
+Alternately, you can also use the [EICAR](https://www.eicar.org/download-anti-malware-testfile/) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.
 
 > [!NOTE]
 > When reviewing test alerts for Windows, make sure that you have Defender for Endpoint running with Real-Time protection enabled. Learn how to [validate this configuration](/microsoft-365/security/defender-endpoint/configure-real-time-protection-microsoft-defender-antivirus).
@@ -221,5 +222,5 @@ You can simulate alerts for resources running on [App Service](../app-service/ov
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, explore the following articles:
 
 - [Validating Azure Key Vault threat detection in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/validating-azure-key-vault-threat-detection-in-microsoft/ba-p/1220336)
-- [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
+- [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml) - Learn how to manage alerts, and respond to security incidents in Defender for Cloud.
 - [Understanding security alerts in Microsoft Defender for Cloud](./alerts-overview.md)

@@ -19,7 +19,7 @@ This article describes the different methods for creating and editing a DCR. For
 
 | Built-in role | Scopes | Reason |
 |:---|:---|:---|
-| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations). |
+| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations. |
 | [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Azure Arc-enabled servers</li></ul> | Deploy agent extensions on the VM. |
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Deploy Azure Resource Manager templates. |
 
@@ -32,7 +32,6 @@ The following table lists methods to create data collection scenarios using the 
 | | [Enable VM insights overview](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, the Azure Monitor agent is installed, and a DCR is created that collects a predefined set of performance counters. You shouldn't modify this DCR. |
 | Container insights | [Enable Container insights](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) | When you enable Container insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
 | Text or JSON logs | [Collect logs from a text or JSON file with Azure Monitor Agent](../agents/data-collection-text-log.md?tabs=portal) | Use the Azure portal to create a DCR to collect entries from a text log on a machine with Azure Monitor Agent.  |
-| Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
 
 ## Manually create a DCR
@@ -40,14 +39,14 @@ To manually create a DCR, create a JSON file using the appropriate configuration
 
 Once you have the JSON file created, you can use any of the following methods to create the DCR:
 
-## [CLI](#tab/CLI)
+### [CLI](#tab/CLI)
 Use the [az monitor data-collection rule create](/cli/azure/monitor/data-collection/rule) command to create a DCR from your JSON file using the Azure CLI as shown in the following example.
 
 ```azurecli
 az monitor data-collection rule create --location 'eastus' --resource-group 'my-resource-group' --name 'myDCRName' --rule-file 'C:\MyNewDCR.json' --description 'This is my new DCR'
 ```
 
-## [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) cmdlet to create the DCR from your JSON file using PowerShell as shown in the following example.
 
 ```powershell
@@ -55,7 +54,7 @@ New-AzDataCollectionRule -Location 'east-us' -ResourceGroupName 'my-resource-gro
 ```
 
 
-## [API](#tab/api)
+### [API](#tab/api)
 Use the [DCR create API](/rest/api/monitor/data-collection-rules/create) to create the DCR from your JSON file. You can use any method to call a REST API as shown in the following examples.
 
 
@@ -74,10 +73,13 @@ az rest --method put --url $ResourceId"?api-version=2022-06-01" --body @$FilePat
 ```
 
 
-## [ARM](#tab/arm)
-Using an ARM template, you can define parameters so you can provide particular values at the time you install the DCR. This allows you to use a single template for multiple installations. Use the following template, copying in the JSON for your DCR and adding any other parameters you want to use. 
+### [ARM](#tab/arm)
 
-See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for different methods to deploy ARM templates.
+See the following references for defining DCRs and associations in a template.
+- [Data collection rules](/azure/templates/microsoft.insights/datacollectionrules)
+- [Data collection rule associations](/azure/templates/microsoft.insights/datacollectionruleassociations)
+
+Use the following template to create a DCR using information from [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) and [Sample data collection rules (DCRs) in Azure Monitor](./data-collection-rule-samples.md) to define the `dcr-properties`.
 
 ```json
 {
@@ -111,12 +113,187 @@ See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-samp
 }
 
 ```
+
+#### DCR Association -Azure VM
+The following sample creates an association between an Azure virtual machine and a data collection rule.
+
+**Bicep template file**
+
+```bicep
+@description('The name of the virtual machine.')
+param vmName string
+
+@description('The name of the association.')
+param associationName string
+
+@description('The resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this virtual machine.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
+```
+
+**ARM template file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-azure-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
+### DCR Association -Arc-enabled server
+The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
+
+**Bicep template file**
+
+```bicep
+@description('The name of the virtual machine.')
+param vmName string
+
+@description('The name of the association.')
+param associationName string
+
+@description('The resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.HybridCompute/machines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this Arc server.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
+```
+
+**ARM template file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.HybridCompute/machines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-hybrid-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
 ---
 
-The following tutorials include examples of manually creating DCRs.
-
-- [Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md)
-- [Add transformation in workspace data collection rule to Azure Monitor using Resource Manager templates](../logs/tutorial-workspace-transformations-api.md)
 
 ## Edit a DCR
 To edit a DCR, you can use any of the methods described in the previous section to create a DCR using a modified version of the JSON.

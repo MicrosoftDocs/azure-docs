@@ -24,7 +24,7 @@ For more information, see [Azure Virtual Network overview](../../../../virtual-n
 
  To set up a Translator resource for VNet service endpoint scenarios, you need the resources:
 
-* [A regional Translator resource (global isn't supported)](../../create-translator-resource.md).
+* [A regional Translator resource (global isn't supported)](../../create-translator-resource.yml).
 * [VNet and networking settings for the Translator resource](#configure-virtual-networks-resource-networking-settings).
 
 ## Configure virtual networks resource networking settings

@@ -5,15 +5,13 @@ description: Learn about tips and best practices for maximizing performance on a
 author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 06/06/2024
 ---
 
 # Tips for better performance in Azure AI Search
 
-This article is a collection of tips and best practices for boosting query and indexing performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
+This article is a collection of tips and best practices for boosting query and indexing performance for keyword search. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
 + Query design
@@ -95,13 +93,17 @@ When query performance is slowing down in general, adding more replicas frequent
 
 One positive side-effect of adding partitions is that slower queries sometimes perform faster due to parallel computing. We've noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
 
-To add partitions, use [Azure portal](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
+To add partitions, use [Azure portal](search-capacity-planning.md#adjust-capacity), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
 
 ## Service capacity
 
 A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem by upgrading the service or by adding capacity.
 
 The tier of your search service and the number of replicas/partitions also have a large impact on performance. Each progressively higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
+
+### Tip: Create a new high capacity search service
+
+Basic and standard services created [in supported regions]([supported regions](search-limits-quotas-capacity.md#supported-regions-with-higher-storage-limits) after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
 
 ### Tip: Upgrade to a Standard S2 tier
 

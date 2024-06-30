@@ -1,13 +1,13 @@
 ---
 title: 'How to create Assistants with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to create helpful AI Assistants with tools like Code Interpreter
+description: Learn how to create helpful AI Assistants with tools like Code Interpreter.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: references_regions
 ms.topic: how-to
-ms.date: 02/01/2024
+ms.date: 05/20/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -16,17 +16,20 @@ recommendations: false
 
 # Getting started with Azure OpenAI Assistants (Preview)
 
-Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article we'll provide an in-depth walkthrough of getting started with the Assistants API.
+Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article, we provide an in-depth walkthrough of getting started with the Assistants API.
+
+[!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
 
 ## Assistants support
 
 ### Region and model support
 
-The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are currently supported.
+Code interpreter is available in all regions supported by Azure OpenAI Assistants. The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are currently supported.
 
-### API Version
+### API Versions
 
 - `2024-02-15-preview`
+- `2024-05-01-preview`
 
 ### Supported file types
 
@@ -62,7 +65,10 @@ The [models page](../concepts/models.md#assistants-preview) contains the most up
 
 ### Tools
 
-An individual assistant can access up to 128 tools including `code interpreter`, but you can also define your own custom tools via [functions](./assistant-functions.md).
+> [!TIP]
+> We've added support for the `tool_choice` parameter which can be used to force the use of a specific tool (like `file_search`, `code_interpreter`, or a `function`) in a particular run. 
+
+An individual assistant can access up to 128 tools including [code interpreter](./code-interpreter.md) and [file search](./file-search.md), but you can also define your own custom tools via [functions](./assistant-functions.md).
 
 ### Files
 
@@ -95,7 +101,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -118,9 +124,9 @@ assistant = client.beta.assistants.create(
 
 There are a few details you should note from the configuration above:
 
-- We enable this assistant to access code interpreter with the line ` tools=[{"type": "code_interpreter"}],`. This gives the model access to a sand-boxed python environment to run and execute code to help formulating responses to a user's question.
-- In the instructions we remind the model that it can execute code. Sometimes the model needs help guiding it towards the right tool to solve a given query. If you know, you want to use a particular library to generate a certain response that you know is part of code interpreter it can help to provide guidance by saying something like "Use Matplotlib to do x."
-- Since this is Azure OpenAI the value you enter for `model=` **must match the deployment name**. By convention our docs will often use a deployment name that happens to match the model name to indicate which model was used when testing a given example, but in your environment the deployment names can be different and that is the name that you should enter in the code.
+- We enable this assistant to access code interpreter with the line `tools=[{"type": "code_interpreter"}],`. This gives the model access to a sand-boxed python environment to run and execute code to help formulating responses to a user's question.
+- In the instructions we remind the model that it can execute code. Sometimes the model needs help guiding it towards the right tool to solve a given query. If you know you want to use a particular library to generate a certain response that you know is part of code interpreter, it can help to provide guidance by saying something like "Use Matplotlib to do x."
+- Since this is Azure OpenAI the value you enter for `model=` **must match the deployment name**.
 
 Next we're going to print the contents of assistant that we just created to confirm that creation was successful:
 
@@ -149,7 +155,7 @@ print(assistant.model_dump_json(indent=2))
 
 ### Create a thread
 
-Now let's create a thread
+Now let's create a thread.
 
 ```python
 # Create a thread
@@ -161,9 +167,9 @@ print(thread)
 Thread(id='thread_6bunpoBRZwNhovwzYo7fhNVd', created_at=1705972465, metadata={}, object='thread')
 ```
 
-A thread is essentially the record of the conversation session between the assistant and the user. It's similar to the messages array/list in a typical chat completions API call. One of the key differences, is unlike a chat completions messages array, you don't need to track tokens with each call to make sure that you're remaining below the context length of the model. Threads abstract away this management detail and will compress the thread history as needed in order to allow the conversation to continue. The ability for threads to accomplish this with larger conversations is enhanced when using the latest models, which have larger context lengths as well as support for the latest features.
+A thread is essentially the record of the conversation session between the assistant and the user. It's similar to the messages array/list in a typical chat completions API call. One of the key differences, is unlike a chat completions messages array, you don't need to track tokens with each call to make sure that you're remaining below the context length of the model. Threads abstract away this management detail and will compress the thread history as needed in order to allow the conversation to continue. The ability for threads to accomplish this with larger conversations is enhanced when using the latest models, which have larger context lengths and support for the latest features.
 
-Next create the first user question to add to the thread
+Next create the first user question to add to the thread.
 
 ```python
 # Add a user question to the thread
@@ -388,7 +394,7 @@ image = Image.open("sinewave.png")
 image.show()
 ```
 
-:::image type="content" source="../media/how-to/assistants/sine-wave.png" alt-text="Screenshot of code interpreter generated sinewave." lightbox="../media/how-to/assistants/sine-wave.png":::
+:::image type="content" source="../media/how-to/assistants/sine-wave.png" alt-text="Screenshot of code interpreter generated sine wave." lightbox="../media/how-to/assistants/sine-wave.png":::
 
 ### Ask a follow-up question on the thread
 
@@ -840,7 +846,7 @@ image = Image.open("dark_sine.png")
 image.show()
 ```
 
-:::image type="content" source="../media/how-to/assistants/dark-mode.png" alt-text="Screenshot of code interpreter generated sinewave in darkmode." lightbox="../media/how-to/assistants/dark-mode.png":::
+:::image type="content" source="../media/how-to/assistants/dark-mode.png" alt-text="Screenshot of code interpreter generated sine wave in dark mode." lightbox="../media/how-to/assistants/dark-mode.png":::
 
 ## Additional reference
 
@@ -869,7 +875,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 

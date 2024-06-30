@@ -37,6 +37,12 @@ This content applies to the flexible orchestration mode. For uniform orchestrati
 
 **Option 2: Add to the first Virtual Machine deployed** - If the Scale Set omits a VM profile, then you must add the Capacity Reservation group to the first Virtual Machine deployed using the Scale Set. Follow the same process used to associate a VM. For sample code, see [Associate a virtual machine to a Capacity Reservation group](capacity-reservation-associate-vm.md). 
 
+## Associate an existing virtual machine scale set to a Capacity Reservation group
+
+**Step 1: Add to the Virtual Machine Scale Set** - For sample code, see [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md). 
+
+**Step 2: Add to the Virtual Machines deployed** - You must add the Capacity Reservation group to the Virtual Machines deployed using the Scale Set. Follow the same process used to associate a VM. For sample code, see [Associate a virtual machine to a Capacity Reservation group](capacity-reservation-associate-vm.md). 
+
 ## Next steps
 
 > [!div class="nextstepaction"]

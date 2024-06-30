@@ -10,6 +10,8 @@ ms.author: danlep
 ---
 # Export API definition to Postman for API testing and monitoring
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API definition from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, monitor, and collaborate on APIs. 
 
 ## Prerequisites

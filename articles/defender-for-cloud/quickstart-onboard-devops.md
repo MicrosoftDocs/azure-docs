@@ -58,10 +58,6 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
 
     The subscription is the location where Microsoft Defender for Cloud creates and stores the Azure DevOps connection.
 
-1. Select **Next: select plans**. Configure the Defender CSPM plan status for your Azure DevOps connector. Learn more about [Defender CSPM](concept-cloud-security-posture-management.md) and see [Support and prerequisites](devops-support.md) for premium DevOps security features.
-
-    :::image type="content" source="media/quickstart-onboard-ado/select-plans.png" alt-text="Screenshot that shows plan selection for DevOps connectors." lightbox="media/quickstart-onboard-ado/select-plans.png":::
-
 1. Select **Next: Configure access**.
 
 1. Select **Authorize**. Ensure you're authorizing the correct Azure Tenant using the drop-down menu in [Azure DevOps](https://aex.dev.azure.com/me?mkt) and by verifying you're in the correct Azure Tenant in Defender for Cloud.
@@ -87,10 +83,10 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
 > [!NOTE]
 > To ensure proper functionality of advanced DevOps posture capabilities in Defender for Cloud, only one instance of an Azure DevOps organization can be onboarded to the Azure Tenant you're creating a connector in.
 
-The **DevOps security** blade shows your onboarded repositories grouped by Organization. The **Recommendations** blade shows all security assessments related to Azure DevOps repositories.
+Upon successful onboarding, DevOps resources (e.g., repositories, builds) will be present within the Inventory and DevOps security pages. It might take up to 8 hours for resources to appear. Security scanning recommendations might require [an additional step to configure your pipelines](azure-devops-extension.yml). Refresh intervals for security findings vary by recommendation and details can be found on the Recommendations page.
 
 ## Next steps
 
 - Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
-- Configure the [Microsoft Security DevOps task in your Azure Pipelines](azure-devops-extension.md).
+- Configure the [Microsoft Security DevOps task in your Azure Pipelines](azure-devops-extension.yml).
 - [Troubleshoot your Azure DevOps connector](troubleshooting-guide.md#troubleshoot-connector-problems-for-the-azure-devops-organization)

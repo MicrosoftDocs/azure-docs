@@ -29,7 +29,7 @@ For production deployments, a [hub and spoke model](/azure/architecture/referenc
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+:::image type="content" source="media/tutorial-firewall-deploy-portal/tutorial-network.png" alt-text="Diagram of Firewall network infrastructure." lightbox="media/tutorial-firewall-deploy-portal/tutorial-network.png":::
 
 In this article, you learn how to:
 

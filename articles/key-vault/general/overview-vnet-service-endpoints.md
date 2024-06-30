@@ -53,10 +53,11 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Backup|Allow backup and restore of relevant keys and secrets during Azure Virtual Machines backup, by using [Azure Backup](../../backup/backup-overview.md).|
 | Azure Batch | [Configure customer-managed keys for Batch accounts](../../batch/batch-customer-managed-key.md) and [Key Vault for User Subscription Batch accounts](../../batch/batch-account-create-portal.md) |
 | Azure Bot Service | [Azure AI Bot Service encryption for data at rest](/azure/bot-service/bot-service-encryption#grant-azure-bot-service-access-to-a-key-vault) |
-| Azure CDN | [Configure HTTPS on an Azure CDN custom domain: Grant Azure CDN access to your key vault](../../cdn/cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#grant-azure-cdn-access-to-your-key-vault)|
+| Azure CDN | [Configure HTTPS on an Azure CDN custom domain: Grant Azure CDN access to your key vault](../../cdn/cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#set-up-managed-identity-for-azure-cdn)|
 | Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/tutorial-enable-customer-managed-keys.md)
 | Azure Data Factory|[Fetch data store credentials in Key Vault from Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 | Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
+| Azure Data Manager for Agriculture | [Store and use your own license keys](../../data-manager-for-agri/concepts-byol-and-credentials.md) 
 | Azure Database for MySQL Single server| [Data encryption for Azure Database for MySQL Single server](../../mysql/howto-data-encryption-cli.md) |
 | Azure Database for MySQL Flexible server | [Data encryption for Azure Database for MySQL Flexible server](../../mysql/flexible-server/concepts-customer-managed-key.md) |
 | Azure Database for PostgreSQL Single server | [Data encryption for Azure Database for PostgreSQL Single server](../../postgresql/howto-data-encryption-cli.md) |
@@ -72,6 +73,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)
 | Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 | Azure Machine Learning|[Secure Azure Machine Learning in a virtual network](../../machine-learning/how-to-secure-workspace-vnet.md)|
+| Azure NetApp Files | [Allow access customer-managed keys in Azure Key Vault](../../azure-netapp-files/configure-customer-managed-keys.md) |
 | Azure Policy Scan| Control plane policies for secrets, keys stored in data plane |
 | Azure Resource Manager template deployment service|[Pass secure values during deployment](../../azure-resource-manager/templates/key-vault-parameter.md).|
 | Azure Service Bus|[Allow access to a key vault for customer-managed keys scenario](../../service-bus-messaging/configure-customer-managed-key.md)|

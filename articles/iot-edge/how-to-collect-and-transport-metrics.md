@@ -1,11 +1,11 @@
 ---
 title: Collect and transport Azure IoT Edge metrics
-description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics
+description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics. Learn how to add and configure the metrics-collector module to send metrics to Azure Monitor.
 author: PatAltimore
 
-ms.author: veyalla
-ms.date: 06/07/2023
-ms.topic: conceptual
+ms.author: patricka
+ms.date: 06/10/2024
+ms.topic: concept-article
 ms.reviewer: veyalla
 ms.service: iot-edge 
 services: iot-edge
@@ -33,7 +33,7 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 |-|-|
 |  1 | All modules must emit metrics using the [Prometheus data model](https://prometheus.io/docs/concepts/data_model/). While [built-in metrics](how-to-access-built-in-metrics.md) enable broad workload visibility by default, custom modules can also be used to emit scenario-specific metrics to enhance the monitoring solution. Learn how to instrument custom modules using open-source libraries in the [Add custom metrics](how-to-add-custom-metrics.md) article. |
 |  2️ | The [metrics-collector module](https://aka.ms/edgemon-metrics-collector) is a Microsoft-supplied IoT Edge module that collects workload module metrics and transports them off-device. Metrics collection uses a *pull* model. Collection frequency, endpoints, and filters can be configured to control the data egressed from the module. For more information, see [metrics collector configuration section](#metrics-collector-configuration) later in this article. |
-|  3️ | You have two options for sending metrics from the metrics-collector module to the cloud. *Option 1* sends the metrics to Log Analytics.<sup>1</sup> The collected metrics are ingested into the specified Log Analytics workspace using a fixed, native table called `InsightsMetrics`. This table's schema is compatible with the Prometheus metrics data model.<br><br> This option requires access to the workspace on outbound port 443. The Log Analytics workspace ID and key must be specified as part  of the module configuration. To enable in restricted networks, see [Enable in restricted network access scenarios](#enable-in-restricted-network-access-scenarios) later in this article.
+|  3️ | You have two options for sending metrics from the metrics-collector module to the cloud. *Option 1* sends the metrics to Log Analytics.<sup>1</sup> The collected metrics are ingested into the specified Log Analytics workspace using a fixed, native table called `InsightsMetrics`. This table's schema is compatible with the Prometheus metrics data model.<br><br> This option requires access to the workspace on outbound port 443. The Log Analytics workspace ID and key must be specified as part  of the module configuration. To enable in restricted networks, see [Enable in restricted network access scenarios](#enable-in-restricted-network-access-scenarios) later in this article. |
 |  4️ | Each metric entry contains the `ResourceId` that was specified as part of [module configuration](#metrics-collector-configuration). This association automatically  links the metric with the specified resource (for example, IoT Hub). As a result, the [curated IoT Edge workbook templates](how-to-explore-curated-visualizations.md) can retrieve metrics by issuing queries against the resource. <br><br> This approach also allows multiple IoT hubs to safely share a single Log Analytics workspace as a metrics database. |
 |  5️ | *Option 2* sends the metrics to IoT Hub.<sup>1</sup> The collector module can be configured to send the collected metrics as UTF-8 encoded JSON [device-to-cloud messages](../iot-hub/iot-hub-devguide-messages-d2c.md) via the `edgeHub` module. This option unlocks monitoring of locked-down IoT Edge devices that are allowed external access to only the  IoT Hub endpoint. It also enables monitoring of child IoT Edge devices in a nested configuration where child devices can only access their parent device. |
 |  6️ | When metrics are routed via IoT Hub, a (one-time) cloud workflow needs to be set up. The workflow processes messages arriving from the metrics-collector module and sends them to the Log Analytics workspace. The workflow enables the [curated visualizations](how-to-explore-curated-visualizations.md) and [alerts](how-to-create-alerts.md) functionality even for metrics arriving via this optional path. See the [Route metrics through IoT Hub](#route-metrics) section for details on how to set up this cloud workflow. |
@@ -48,7 +48,7 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 |-|-|
 |  1 | All modules must emit metrics using the [Prometheus data model](https://prometheus.io/docs/concepts/data_model/). While [built-in metrics](how-to-access-built-in-metrics.md) enable broad workload visibility by default, custom modules can also be used to emit scenario-specific metrics to enhance the monitoring solution. Learn how to instrument custom modules using open-source libraries in the [Add custom metrics](how-to-add-custom-metrics.md) article. |
 |  2️ | The [metrics-collector module](https://aka.ms/edgemon-metrics-collector) is a Microsoft-supplied IoT Edge module that collects workload module metrics and transports them off-device. Metrics collection uses a *pull* model. Collection frequency, endpoints, and filters can be configured to control the data egressed from the module. For more information, see [metrics collector configuration section](#metrics-collector-configuration) later in this article. |
-|  3️ | You have two options for sending metrics from the metrics-collector module to the cloud. *Option 1* sends the metrics to Log Analytics. The collected metrics are ingested into the specified Log Analytics workspace using a fixed, native table called `InsightsMetrics`. This table's schema is compatible with the Prometheus metrics data model.<br><br> This option requires access to the workspace on outbound port 443. The Log Analytics workspace ID and key must be specified as part  of the module configuration. To enable in restricted networks, see [Enable in restricted network access scenarios](#enable-in-restricted-network-access-scenarios) later in this article.
+|  3️ | You have two options for sending metrics from the metrics-collector module to the cloud. *Option 1* sends the metrics to Log Analytics. The collected metrics are ingested into the specified Log Analytics workspace using a fixed, native table called `InsightsMetrics`. This table's schema is compatible with the Prometheus metrics data model.<br><br> This option requires access to the workspace on outbound port 443. The Log Analytics workspace ID and key must be specified as part  of the module configuration. To enable in restricted networks, see [Enable in restricted network access scenarios](#enable-in-restricted-network-access-scenarios) later in this article. |
 |  4️ | Each metric entry contains the `ResourceId` that was specified as part of [module configuration](#metrics-collector-configuration). This association automatically  links the metric with the specified resource (for example, IoT Central). As a result, the [curated IoT Edge workbook templates](how-to-explore-curated-visualizations.md) can retrieve metrics by issuing queries against the resource. <br><br> This approach also allows multiple IoT Central applications to safely share a single Log Analytics workspace as a metrics database. |
 |  5️ | *Option 2* sends the metrics to IoT Central. This option lets an operator view the metrics and device telemetry in a single location. The collector module can be configured to send the collected metrics as UTF-8 encoded JSON [device-to-cloud messages](../iot-hub/iot-hub-devguide-messages-d2c.md) via the `edgeHub` module. This option unlocks monitoring of locked-down IoT Edge devices that are allowed external access to only the IoT Central endpoint. It also enables monitoring of child IoT Edge devices in a nested configuration where child devices can only access their parent device. |
 
@@ -56,11 +56,9 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 
 ## Metrics collector module
 
-A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/metrics-collector).
+A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/main/edge-modules/metrics-collector).
 
-The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
-
-It also available in the [IoT Edge Module Marketplace](https://aka.ms/edgemon-module-marketplace).
+The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at [`mcr.microsoft.com/azureiotedge-metrics-collector`](https://mcr.microsoft.com/product/azureiotedge-metrics-collector/tags).
 
 ## Metrics collector configuration
 

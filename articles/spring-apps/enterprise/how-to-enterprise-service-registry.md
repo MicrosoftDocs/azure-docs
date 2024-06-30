@@ -62,7 +62,7 @@ https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId
 
 The following screenshot shows Spring Initializr with the required settings.
 
-:::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Screenshot of Spring Initializr.":::
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-initializr-with-config-dump.png" alt-text="Screenshot of the Spring Initializr page that shows the required settings.":::
 
 Next, select **GENERATE** to get a sample project for Spring Boot with the following directory structure.
 

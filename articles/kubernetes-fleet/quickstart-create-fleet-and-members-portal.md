@@ -16,6 +16,8 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure porta
 
 ## Prerequisites
 
+[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An identity (user or service principal) with the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
@@ -60,6 +62,4 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure porta
 
 ## Next steps
 
-* [Orchestrate updates across multiple member clusters](./update-orchestration.md).
-* [Set up Kubernetes resource propagation from hub cluster to member clusters](./resource-propagation.md).
-* [Set up multi-cluster layer-4 load balancing](./l4-load-balancing.md).
+* [Access the Kubernetes API of the Fleet resource](./quickstart-access-fleet-kubernetes-api.md).

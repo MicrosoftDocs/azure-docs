@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 02/23/2024
+ms.date: 05/09/2024
 recommendations: false
 ---
 
@@ -21,8 +21,8 @@ Along with Azure OpenAI Studio, APIs and SDKs, you can also use the available st
 ## Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
+- gpt-4 vision-preview models are not supported.
 - By default, the app will be deployed with the Microsoft identity provider already configured, restricting access to the app to members of your Azure tenant. To add or modify authentication:
-
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
     
         :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the authentication page in the Azure portal." lightbox="../media/quickstarts/web-app-authentication.png":::
@@ -45,18 +45,39 @@ When customizing the app, we recommend:
 
 Sample source code for the web app is available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT). Source code is provided "as is" and as a sample only. Customers are responsible for all customization and implementation of their web apps. 
 
-### Updating the web app
-
-We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements.
+## Updating the web app
 
 > [!NOTE]
 > After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
+
+We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is [retired](../api-version-deprecation.md#retiring-soon). 
+
+Consider either clicking the **watch** or **star** buttons on the web app's [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT) repo to be notified about changes and updates to the source code.
+
+**If you haven't customized the app:**
+* You can follow the synchronization steps below
+
+**If you've customized or changed the app's source code:**
+* You will need to update your app's source code manually and redeploy it.
+    * If your app is hosted on GitHub, push your code changes to your repo, and use the synchronization steps below.
+    * If you're redeploying the app manually (for example Azure CLI), follow the steps for your deployment strategy.
+
+
+### Synchronize the web app
+
+1. If you've customized your app, update the app's source code.
+1. Navigate to your web app in the [Azure portal](https://portal.azure.com/).
+1. Select **Deployment center** in the navigation menu, under **Deployment**.
+1. Select **Sync** at the top of the screen, and confirm that the app will be redeployed. 
+
+    :::image type="content" source="../media/use-your-data/sync-app.png" alt-text="A screenshot of web app synchronization button on the Azure portal." lightbox="../media/use-your-data/sync-app.png":::
+
 
 ## Chat history
 
 You can enable chat history for your users of the web app. When you enable the feature, your users will have access to their individual previous queries and responses. 
 
-To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
+To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal).
 
 :::image type="content" source="../media/use-your-data/enable-chat-history.png" alt-text="A screenshot of the chat history enablement button on Azure OpenAI studio." lightbox="../media/use-your-data/enable-chat-history.png":::
 
@@ -73,4 +94,4 @@ Deleting your web app does not delete your Cosmos DB instance automatically. To 
 
 ## Next steps
 * [Prompt engineering](../concepts/prompt-engineering.md)
-* [Azure openAI on your data](../concepts/use-your-data.md)
+* [Azure OpenAI on your data](../concepts/use-your-data.md)

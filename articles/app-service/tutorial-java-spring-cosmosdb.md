@@ -6,13 +6,13 @@ ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
+ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity, linux-related-content
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 > [!NOTE]
-> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination.
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. See [Java Workload Destination Guidance](https://aka.ms/javadestinations) for advice.
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://spring.io/projects/spring-boot) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
@@ -91,8 +91,7 @@ cd initial/spring-todo-app
 cp set-env-variables-template.sh .scripts/set-env-variables.sh
 ```
  
-Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure 
-Azure Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Azure Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
+Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Azure Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
 
 ```bash
 export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
@@ -309,8 +308,7 @@ az group delete --name <your-azure-group-name> --yes
 [Azure for Java Developers](/java/azure/)
 [Spring Boot](https://spring.io/projects/spring-boot), 
 [Spring Data for Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), 
-[Azure Cosmos DB](../cosmos-db/introduction.md)
-and
+[Azure Cosmos DB](../cosmos-db/introduction.md) and
 [App Service Linux](overview.md).
 
 Learn more about running Java apps on App Service on Linux in the developer guide.

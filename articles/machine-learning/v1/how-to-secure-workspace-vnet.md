@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 09/29/2023
 ms.topic: how-to
 ms.custom: UpdateFrequency5, tracking-python, security, cliv1, sdkv1, build-2023

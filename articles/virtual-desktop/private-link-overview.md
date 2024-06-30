@@ -25,23 +25,25 @@ The following high-level diagram shows how Private Link securely connects a loca
 
 :::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
 
-The following table summarizes the private endpoints required:
-
-| Purpose | Resource type | Target sub-resource | Quantity |
-|--|--|--|--|
-| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | One for all your Azure Virtual Desktop deployments |
-| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
-| Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
-
-You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
-
 ## Supported scenarios
 
-When adding Private Link with Azure Virtual Desktop, you have the following options to connect to Azure Virtual Desktop. Each can be enabled or disabled depending on your requirements.
+When adding Private Link with Azure Virtual Desktop, you have the following supported scenarios to connect to Azure Virtual Desktop. Each can be enabled or disabled depending on your requirements. You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
 
-- Both clients and session host VMs use private routes.
-- Clients use public routes while session host VMs use private routes.
-- Both clients and session host VMs use public routes. Private Link isn't used.
+1. Both clients and session host VMs use private routes. You need the following private endpoints:
+   
+   | Purpose | Resource type | Target sub-resource | Endpoint quantity |
+   |--|--|--|--|
+   | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
+   | Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
+   | Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** |
+
+1. Clients use public routes while session host VMs use private routes. You need the following private endpoints. Endpoints to workspaces aren't required.
+
+   | Purpose | Resource type | Target sub-resource | Endpoint quantity |
+   |--|--|--|--|
+   | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
+
+1. Both clients and session host VMs use public routes. Private Link isn't used in this scenario.
 
 For connections to a workspace, except the workspace used for initial feed discovery (global sub-resource), the following table details the outcome of each scenario:
 
@@ -75,11 +77,13 @@ When a user connects to Azure Virtual Desktop over Private Link, and Azure Virtu
 
 1. For each workspace in the feed, a DNS query is made for the address `<workspaceId>.privatelink.wvd.microsoft.com`.
 
-1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the workspace feed download.
+1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the workspace feed download, and downloads the feed using TCP port 443.
 
-1. When connecting a remote session, the `.rdp` file that comes from the workspace feed download contains the Remote Desktop gateway address. A DNS query is made for the address `<hostpooId>.afdfp-rdgateway.wvd.microsoft.com`.
+1. When connecting to a remote session, the `.rdp` file that comes from the workspace feed download contains the address for the Azure Virtual Desktop gateway service with the lowest latency for the user's device. A DNS query is made to an address in the format `<hostpooId>.afdfp-rdgateway.wvd.microsoft.com`.
 
-1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the Remote Desktop gateway to use for the host pool providing the remote session.
+1. Your private DNS zone for **privatelink.wvd.microsoft.com** returns the private IP address for the Azure Virtual Desktop gateway service to use for the host pool providing the remote session. Orchestration through the virtual network and the private endpoint uses TCP port 443. 
+
+1. Following orchestration, the network traffic between the client, Azure Virtual Desktop gateway service, and session host is transferred over to a port in the TCP dynamic port range of 1 - 65535. The entire port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. Azure private networking internally maps these ports to the appropriate gateway that was selected during client orchestration.
 
 ## Known issues and limitations
 

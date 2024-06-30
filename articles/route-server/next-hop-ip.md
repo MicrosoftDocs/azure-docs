@@ -17,6 +17,9 @@ With the support for Next hop IP in Azure Route Server, you can peer with networ
 
 :::image type="content" source="./media/next-hop-ip/route-server-next-hop.png" alt-text="Diagram of a Route Server peered with two NVAs behind an internal load balancer.":::
 
+> [!NOTE] 
+> The load balancer must be in the same region as the Route Server. If the load balancer is in a different region than the Route Server, then connectivity to these NVAs will not be functional.  
+
 ## Active-passive NVA connectivity
 
 You can deploy a set of active-passive NVAs behind an internal load balancer to ensure symmetrical routing to and from the NVA. With the support for Next hop IP, you can define the next hop for both the active and passive NVAs as the IP address of the internal load balancer and set up the load balancer to direct traffic towards the Active NVA instance. 

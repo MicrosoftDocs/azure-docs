@@ -202,7 +202,7 @@ Submit the following HTTP POST request by using the following variables:
 + `accessToken`: The authorization token acquired from the *Get an authorization token* step.
     
     ```console
-    curl -X POST 'https://<location>/.monitoring.azure.com<resourceId>/metrics' \
+    curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <accessToken>' \
     -d @custommetric.json 

@@ -19,15 +19,16 @@ ms.date: 04/27/2023
 - [12:56](/shows/mdc-in-the-field/defender-sql-enhancements#time=12m56s) - Demonstration
 
 ## Recommended resources
-  - [Learn more](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-express-configuration-for-vulnerability-assessment-in/ba-p/3695390) about Defender for SQL Vulnerability Assessment (VA).
-  - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
-  - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
-  - For more about [Microsoft Security](https://msft.it/6002T9HQY)
+
+- [Learn more](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-express-configuration-for-vulnerability-assessment-in/ba-p/3695390) about Defender for SQL Vulnerability Assessment (VA).
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+- For more about [Microsoft Security](https://msft.it/6002T9HQY)
 
 - Follow us on social media:
 
-     - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
-     - [Twitter](https://twitter.com/msftsecurity)
+  - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
+  - [Twitter](https://twitter.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

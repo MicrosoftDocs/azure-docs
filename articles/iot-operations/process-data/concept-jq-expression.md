@@ -77,7 +77,7 @@ While this expression appears to change the input object, in jq it's producing a
 ```json
 {
   "temperature": 21,
-  "humidity": 65
+  "humidity": 63
 }
 ```
 

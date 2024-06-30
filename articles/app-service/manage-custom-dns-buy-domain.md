@@ -50,7 +50,11 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     
 1. Select **Next: Contact information** and supply your information as required by [ICANN](https://lookup.icann.org/) for the domain registration. 
 
-    It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+   It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+
+    > [!NOTE]
+    > Make sure you have access to the email address on your contact information. GoDaddy will send emails directly to your contact information from a "@secureserver.net" email; these will only be important transactional emails.
+    >
 
 1. Select **Next: Hostname assignment** and verify the default hostnames to map to your app:
 
@@ -136,7 +140,7 @@ If launched from an app's **Custom domains** page, the App Service domain wizard
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, which will charge your payment method when your domain renews the following year. You can also manually renew your domain name up to 90 days ahead of domain expiration.
+The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, or you can also manually renew your domain name up to 90 days ahead of domain expiration. Upon successful auto or manual renewal, you will be billed for the cost of the domain and your domain expiration will be extended for another year.
 
 > [!NOTE]
 > For .nl domains, you can only manually renew the domain starting 90 days ahead of domain expiration and up to the 20th of the month before the expiration date. You will not be able to renew the domain after this period even if the domain has not yet expired.

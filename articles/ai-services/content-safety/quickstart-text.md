@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Analyze image and text content"
+title: "Quickstart: Analyze text content"
 titleSuffix: Azure AI services
-description: Get started using Azure AI Content Safety to analyze image and text content for objectionable material.
+description: Get started using Azure AI Content Safety to analyze text content for objectionable material.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 zone_pivot_groups: programming-languages-content-safety
 ---

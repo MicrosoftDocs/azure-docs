@@ -52,8 +52,8 @@ landingContent:
             url: how-to-investigate-cis-benchmark.md
           - text: Create custom alerts
             url: quickstart-create-custom-alerts.md
-          - text: Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)
-            url: how-to-azure-rtos-security-module.md
+          - text: Configure and customize Defender-IoT-micro-agent for Eclipse ThreadX (preview)
+            url: how-to-threadx-security-module.md
   - title: New in docs
     linkLists:
       - linkListType: whats-new

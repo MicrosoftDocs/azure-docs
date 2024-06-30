@@ -4,6 +4,9 @@ description: Learn how to create a WebAssembly System Interface (WASI) node pool
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 05/17/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
@@ -19,7 +22,7 @@ You must have the latest version of Azure CLI installed.
 
 ## Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -246,3 +249,4 @@ az aks nodepool delete --name mywasipool -g myresourcegroup --cluster-name myaks
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [use-system-pool]: use-system-pools.md
+

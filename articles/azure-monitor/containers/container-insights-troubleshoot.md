@@ -32,7 +32,7 @@ When you enable Container insights or update a cluster to support collecting met
 
 During the onboarding or update process, granting the **Monitoring Metrics Publisher** role assignment is attempted on the cluster resource. The user initiating the process to enable Container insights or the update to support the collection of metrics must have access to the **Microsoft.Authorization/roleAssignments/write** permission on the AKS cluster resource scope. Only members of the Owner and User Access Administrator built-in roles are granted access to this permission. If your security policies require you to assign granular-level permissions, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and assign permission to the users who require it.
 
-You can also manually grant this role from the Azure portal: Assign the **Publisher** role to the **Monitoring Metrics** scope. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You can also manually grant this role from the Azure portal: Assign the **Publisher** role to the **Monitoring Metrics** scope. For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Container insights is enabled but not reporting any information
 To diagnose the problem if you can't view status information or no results are returned from a log query:
@@ -89,6 +89,8 @@ To diagnose the problem if you can't view status information or no results are r
     ```
 
 1. If the pods are in a running state, but there is no data in Log Analytics or data appears to only send during a certain part of the day, it might be an indication that the daily cap has been met. When this limit is met each day, data stops ingesting into the Log Analytics Workspace and resets at the reset time. For more information, see [Log Analytics Daily Cap](../../azure-monitor/logs/daily-cap.md#determine-your-daily-cap).
+
+1. If Containter insights is enabled using Terraform and `msi_auth_for_monitoring_enabled` is set to `true`, ensure that DCR and DCRA resources are also deployed to enable log collection. For detailed steps, see [enable Container insights](./kubernetes-monitoring-enable.md?tabs=terraform#enable-container-insights).
 
 ## Container insights agent ReplicaSet Pods aren't scheduled on a non-AKS cluster
 

@@ -11,4 +11,4 @@ ms.custom: include file
 ---
 
 > [!NOTE]
-> This service supports [Azure Lighthouse](../articles/lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated.
+> This service supports [Azure Lighthouse](/azure/lighthouse/overview), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated.

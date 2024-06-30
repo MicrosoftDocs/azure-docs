@@ -4,7 +4,7 @@ description: Learn how to provision the Azure-SSIS integration runtime in Azure 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---

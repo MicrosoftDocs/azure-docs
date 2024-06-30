@@ -1,8 +1,8 @@
 ---
 title: Zero trust infrastructure and integrations
 description: Independent software vendors (ISVs) can integrate their solutions with Microsoft Defender for Cloud to help customers adopt a Zero Trust model and keep their organizations secure.
-ms.date: 02/26/2023
-ms.topic: conceptual
+ms.date: 05/30/2024
+ms.topic: concept-article
 ms.collection:
   -       zerotrust-services
 ---
@@ -27,9 +27,9 @@ The guidance includes integrations with the most popular Security Information an
 
 Our [Zero Trust infrastructure deployment guidance](/security/zero-trust/deploy/infrastructure) provides key stages of the Zero Trust strategy for infrastructure. Which are:
 
-1. [Assess compliance with chosen standards and policies](update-regulatory-compliance-packages.md)
+1. [Assess compliance with chosen standards and policies](update-regulatory-compliance-packages.yml)
 1. [Harden configuration](recommendations-reference.md) wherever gaps are found
-1. Employ other hardening tools such as [just-in-time (JIT)](just-in-time-access-usage.md) VM access
+1. Employ other hardening tools such as [just-in-time (JIT)](just-in-time-access-usage.yml) VM access
 1. Set up [threat detection and protections](/azure/azure-sql/database/threat-detection-configure)
 1. Automatically block and flag risky behavior and take protective actions
 
@@ -37,7 +37,7 @@ There's a clear mapping from the goals we've described in the [infrastructure de
 
 |Zero Trust goal  | Defender for Cloud feature  |
 |---------|---------|
-|Assess compliance | In Defender for Cloud, every subscription automatically has the [Microsoft cloud security benchmark (MCSB) security initiative assigned](security-policy-concept.md).<br>Using the [secure score tools](secure-score-security-controls.md) and the [regulatory compliance dashboard](update-regulatory-compliance-packages.md) you can get a deep understanding of your customer's security posture. |
+|Assess compliance | In Defender for Cloud, every subscription automatically has the [Microsoft cloud security benchmark (MCSB) security initiative assigned](security-policy-concept.md).<br>Using the [secure score tools](secure-score-security-controls.md) and the [regulatory compliance dashboard](update-regulatory-compliance-packages.yml) you can get a deep understanding of your customer's security posture. |
 | Harden configuration | [Review your security recommendations](review-security-recommendations.md) and [track your secure score improvement overtime](secure-score-access-and-track.md). You can also prioritize which recommendations to remediate based on potential attack paths, by leveraging the [attack path](how-to-manage-attack-path.md) feature. |
 |Employ hardening mechanisms | Least privilege access is one of the three principles of Zero Trust. Defender for Cloud can assist you to harden VMs and network using this principle by leveraging features such as:<br>[Just-in-time (JIT) virtual machine (VM) access](just-in-time-access-overview.md)<br>[Adaptive network hardening](adaptive-network-hardening.md)<br>[Adaptive application controls](adaptive-application-controls.md). |
 |Set up threat detection  | Defender for Cloud offers an integrated cloud workload protection platform (CWPP), Microsoft Defender for Cloud.<br>Microsoft Defender for Cloud provides advanced, intelligent, protection of Azure and hybrid resources and workloads.<br>One of the Microsoft Defender plans, Microsoft Defender for servers, includes a native integration with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/).<br>Learn more in [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md). |
@@ -52,7 +52,7 @@ With Defender for Cloud enabled on your subscription, and Microsoft Defender for
 
 Use [Azure Logic Apps](../logic-apps/index.yml) to build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
 
-Defender for Cloud's [workflow automation](workflow-automation.md) feature lets you automate responses to Defender for Cloud triggers.
+Defender for Cloud's [workflow automation](workflow-automation.yml) feature lets you automate responses to Defender for Cloud triggers.
 
 This is great way to define and respond in an automated, consistent manner when threats are discovered. For example, to notify relevant stakeholders, launch a change management process, and apply specific remediation steps when a threat is detected.
 
@@ -110,7 +110,7 @@ Use Defender for Cloud's [continuous export](continuous-export.md) feature to co
 
 Learn more in [Stream alerts to monitoring solutions](export-to-siem.md).
 
-This can also be done at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md#configure-continuous-export-from-the-defender-for-cloud-pages-in-azure-portal).
+This can also be done at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md).
 
 > [!TIP]
 > To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).

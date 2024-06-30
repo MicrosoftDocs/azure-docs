@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/20/2024
+ms.date: 04/24/2024
 ms.author: junbchen
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -20,6 +20,16 @@ A ConfigMap can be consumed as environment variables or a mounted file. In this 
 
 > [!TIP]
 > See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
+>
+
+> [!NOTE]
+> This quickstart will walk you through setting up the Azure App Configuration Kubernetes Provider. Optionally, you can use the following [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) commands with the `azure-appconfig-aks` template to provision Azure resources and deploy the sample application used by this quickstart. For more information about this template, visit the [azure-appconfig-aks](https://github.com/Azure-Samples/azure-appconfig-aks) repo on GitHub.
+> 
+>  ``` azd
+>  azd init -t azure-appconfig-aks
+>  azd up
+>  ```
+>
 
 ## Prerequisites
 
@@ -31,10 +41,6 @@ A ConfigMap can be consumed as environment variables or a mounted file. In this 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [helm](https://helm.sh/docs/intro/install/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
-
-> [!TIP]
-> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
->
 
 ## Create an application running in AKS
 
@@ -306,7 +312,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
 
     ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
-### Troubleshooting
+## Troubleshooting
 
 If you don't see your application picking up the data from your App Configuration store, run the following command to validate that the ConfigMap is created properly.
 
@@ -352,6 +358,10 @@ helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-
 ```
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+> [!NOTE]
+> If you use the Azure Developer CLI to set up the resources, you can run the `azd down` command to delete all resources created by the `azure-appconfig-aks` template.
+> 
 
 ## Next steps
 

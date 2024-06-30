@@ -146,7 +146,7 @@ Here's a screenshot showing search results in [Search Explorer](search-explorer.
 
 ## Physical structure and size
 
-In Azure AI Search, the physical structure of an index is largely an internal implementation. You can access its schema, load and query its content, monitor its size, and manage capacity, but the clusters themselves (inverted and vector indexes, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
+In Azure AI Search, the physical structure of an index is largely an internal implementation. You can access its schema, load and query its content, monitor its size, and manage capacity, but the clusters themselves (inverted and vector indexes), and other files and folders) are managed internally by Microsoft.
 
 The size and substance of an index is determined by:
 
@@ -162,9 +162,9 @@ The following screenshot shows an S1 service configured with one partition and o
 
 Vector index limits and estimations are covered in [another article](vector-search-index-size.md), but two points to emphasize up front is that maximum storage varies by service tier, and also by when the search service was created. Newer same-tier services have significantly more capacity for vector indexes. For these reasons, take the following actions:
 
-+ [Check the deployment date of your search service](vector-search-index-size.md#how-to-determine-service-creation-date). If it was created before July 1, 2023, consider creating a new search service for greater capacity.
++ [Check the deployment date of your search service](vector-search-index-size.md#how-to-check-service-creation-date). If it was created before April 3, 2024, consider creating a new search service for greater capacity.
 
-+ [Choose a scalable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition. Consider Standard 1 (S1) and above for more flexibility and faster performance.
++ [Choose a scalable tier](search-sku-tier.md) if you anticipate fluctuations in vector storage requirements. The Basic tier is fixed at one partition on older search services. Consider Standard 1 (S1) and above for more flexibility and faster performance, or create a new search service that uses higher limits and more partitions at every nillable tier.
 
 ## Basic operations and interaction
 
@@ -175,7 +175,7 @@ This section introduces vector run time operations, including connecting to and 
 
 ### Continuously available
 
-An index is immediately available for queries as soon as the first document is indexed, but won't be fully operational until all documents are indexed. Internally, an index is [distributed across partitions and executes on replicas](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). The physical index is managed internally. The logical index is managed by you.
+An index is immediately available for queries as soon as the first document is indexed, but won't be fully operational until all documents are indexed. Internally, an index is [distributed across partitions and executes on replicas](search-capacity-planning.md#concepts-search-units-replicas-partitions). The physical index is managed internally. The logical index is managed by you.
 
 An index is continuously available, with no ability to pause or take it offline. Because it's designed for continuous operation, any updates to its content, or additions to the index itself, happen in real time. As a result, queries might temporarily return incomplete results if a request coincides with a document update.
 
@@ -219,4 +219,4 @@ Azure provides a [monitoring platform](monitor-azure-cognitive-search.md) that i
 
 + [Create a vector store using REST APIs (Quickstart)](search-get-started-vector.md)
 + [Create a vector store](vector-search-how-to-create-index.md)
-+ [Query a vector store](vector-search-how-to-query.md)
++ [Query a vector index](vector-search-how-to-query.md)

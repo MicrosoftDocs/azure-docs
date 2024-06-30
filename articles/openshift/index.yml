@@ -26,14 +26,14 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
           - text: Create an Azure Red Hat OpenShift cluster
-            url: tutorial-create-cluster.md
+            url: create-cluster.md
           - text: Connect to an Azure Red Hat OpenShift cluster
-            url: tutorial-connect-cluster.md
+            url: connect-cluster.md
           - text: Delete an Azure Red Hat OpenShift cluster
-            url: tutorial-delete-cluster.md
+            url: delete-cluster.md
 
   # Card
   - title: Set up

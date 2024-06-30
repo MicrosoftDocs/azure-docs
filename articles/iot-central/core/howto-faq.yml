@@ -65,7 +65,7 @@ sections:
           Azure IoT Central uses DPS to enable devices to connect to your application. To learn more about the role DPS plays in connecting devices to IoT Central, see [How devices connect](overview-iot-central-developer.md#how-devices-connect). To learn more about DPS, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md).
 
   - name: Pricing
-    questions:          
+    questions:
       - question: |
           How do I change my application pricing plan
         answer: |

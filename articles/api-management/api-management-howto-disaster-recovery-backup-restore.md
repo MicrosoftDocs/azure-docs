@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 By publishing and managing your APIs via Azure API Management, you're taking advantage of fault tolerance and infrastructure capabilities that you'd otherwise design, implement, and manage manually. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
 
 To recover from availability problems that affect your API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The API management backup and restore capabilities provide the necessary building blocks for implementing disaster recovery strategy.
@@ -31,8 +33,6 @@ This article shows how to automate backup and restore operations of your API Man
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 

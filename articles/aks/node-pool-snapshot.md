@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/29/2024
 ms.author: allensu
 author: asudbring
+ms.subservice: aks-nodes
 ---
 
 # Azure Kubernetes Service (AKS) node pool snapshot
@@ -92,7 +93,11 @@ SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group m
 Now, we can use this command to create this cluster off of the snapshot configuration.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
+az aks create \
+    --name myAKSCluster2 \
+    --resource-group myResourceGroup \
+    --snapshot-id $SNAPSHOT_ID \
+    --generate-ssh-keys
 ```
 
 ## Next steps
@@ -117,3 +122,4 @@ az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-i
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-provider-register]: /cli/azure/provider#az_provider_register
+

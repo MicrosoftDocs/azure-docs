@@ -306,7 +306,7 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: High
 
-### [Microsoft Defender for servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a6e81f-7413-4f72-9a1b-aaeeaa87c872)
+### [Microsoft Defender for Servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a6e81f-7413-4f72-9a1b-aaeeaa87c872)
 
 **Description**: Microsoft Defender for servers provides real-time threat protection for your server workloads and generates hardening recommendations as well as alerts about suspicious activities.
 You can use this information to quickly remediate security issues and improve the security of your servers.
@@ -318,7 +318,7 @@ Learn more in [Introduction to Microsoft Defender for servers](defender-for-serv
 
 **Severity**: High
 
-### [Microsoft Defender for servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2)
+### [Microsoft Defender for Servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2)
 
 **Description**: Microsoft Defender for servers brings threat detection and advanced defenses for your Windows and Linux machines.
 With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for servers but missing out on some of the benefits.
@@ -414,11 +414,13 @@ Available resources and information about this tool & migration:
 
 ### [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7)
 
-**Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys;
- temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources.
- For a comparison of different disk encryption technologies in Azure, see <https://aka.ms/diskencryptioncomparison>.
- Use Azure Disk Encryption to encrypt all this data.
- Disregard this recommendation if:
+**Description**: 
+
+By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys;
+temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources.
+For a comparison of different disk encryption technologies in Azure, see <https://aka.ms/diskencryptioncomparison>.
+Use Azure Disk Encryption to encrypt all this data.
+Disregard this recommendation if:
 
  1. You're using the encryption-at-host feature, or 2. Server-side encryption on Managed Disks meets your security requirements.
 Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disksse).
@@ -466,14 +468,13 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: High
 
-### [[Preview]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a40cc620-e72c-fdf4-c554-c6ca2cd705c0)
+### [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a40cc620-e72c-fdf4-c554-c6ca2cd705c0)
 
 **Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources. Use Azure Disk Encryption or EncryptionAtHost to encrypt all this data. Visit [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) to compare encryption offerings. This policy requires two prerequisites to be deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol).
 (Related policy: [[Preview]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)).
 
 **Severity**: High
-
-### [[Preview]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0cb5f317-a94b-6b80-7212-13a9cc8826af)
+### [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0cb5f317-a94b-6b80-7212-13a9cc8826af)
 
 **Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources. Use Azure Disk Encryption or EncryptionAtHost to encrypt all this data. Visit [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) to compare encryption offerings. This policy requires two prerequisites to be deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol).
 (Related policy: [[Preview]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)).

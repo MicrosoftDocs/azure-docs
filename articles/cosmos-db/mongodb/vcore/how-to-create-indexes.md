@@ -13,7 +13,7 @@ ms.date: 1/24/2024
 
 # Optimize index creation in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has an option to optimize index creation, especially beneficial for scenarios involving empty collections. This document outlines the usage and expected behavior of this new option.
 

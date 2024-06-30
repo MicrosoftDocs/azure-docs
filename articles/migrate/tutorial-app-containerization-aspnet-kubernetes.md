@@ -4,10 +4,10 @@ description: Tutorial - Containerize & migrate ASP.NET applications to Azure Kub
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, engagement-fy24
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 03/06/2024
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
@@ -80,7 +80,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assigning Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assigning Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | **Setting** | **Value** |
     | --- | --- |

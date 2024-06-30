@@ -4,6 +4,9 @@ description: Use Azure Event Grid to subscribe to Azure Kubernetes Service event
 ms.topic: article
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 06/22/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid
@@ -18,7 +21,7 @@ In this quickstart, you create an AKS cluster and subscribe to AKS events.
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
 
 > [!NOTE]
-> In case there are issues specifically with EventGrid notifications, as can be seen here [Service Outages](https://azure.status.microsoft/status), please note that AKS operations wont be impacted and they are independent of Event Grid outages. 
+> In case there are issues specifically with EventGrid notifications, as can be seen here [Service Outages](https://azure.status.microsoft/status), please note that AKS operations won't be impacted and they are independent of Event Grid outages. 
 
 ## Create an AKS cluster
 
@@ -28,7 +31,7 @@ Create an AKS cluster using the [az aks create][az-aks-create] command. The foll
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus  --node-count 1 --generate-ssh-keys
+az aks create --resource-group yResourceGroup --name MyAKS --location eastus  --node-count 1 --generate-ssh-keys
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -49,8 +52,8 @@ New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus
 Create a namespace and event hub using [az eventhubs namespace create][az-eventhubs-namespace-create] and [az eventhubs eventhub create][az-eventhubs-eventhub-create]. The following example creates a namespace *MyNamespace* and an event hub *MyEventGridHub* in *MyNamespace*, both in the *MyResourceGroup* resource group.
 
 ```azurecli-interactive
-az eventhubs namespace create --location eastus --name MyNamespace -g MyResourceGroup
-az eventhubs eventhub create --name MyEventGridHub --namespace-name MyNamespace -g MyResourceGroup
+az eventhubs namespace create --location eastus --name MyNamespace --resource-group MyResourceGroup
+az eventhubs eventhub create --name MyEventGridHub --namespace-name MyNamespace --resource-group MyResourceGroup
 ```
 
 > [!NOTE]
@@ -59,8 +62,8 @@ az eventhubs eventhub create --name MyEventGridHub --namespace-name MyNamespace 
 Subscribe to the AKS events using [az eventgrid event-subscription create][az-eventgrid-event-subscription-create]:
 
 ```azurecli-interactive
-SOURCE_RESOURCE_ID=$(az aks show -g MyResourceGroup -n MyAKS --query id --output tsv)
-ENDPOINT=$(az eventhubs eventhub show -g MyResourceGroup -n MyEventGridHub --namespace-name MyNamespace --query id --output tsv)
+SOURCE_RESOURCE_ID=$(az aks show --resource-group MyResourceGroup --name MyAKS --query id --output tsv)
+ENDPOINT=$(az eventhubs eventhub show --resource-group MyResourceGroup --name MyEventGridHub --namespace-name MyNamespace --query id --output tsv)
 az eventgrid event-subscription create --name MyEventGridSubscription \
 --source-resource-id $SOURCE_RESOURCE_ID \
 --endpoint-type eventhub \
@@ -218,3 +221,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-delete]: /cli/azure/group#az_group_delete
 [sp-delete]: kubernetes-service-principal.md#other-considerations
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
+

@@ -3,6 +3,7 @@ title: Manage change tracking and inventory in Azure Automation using Azure Moni
 description: This article tells how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent
 services: automation
 ms.subservice: change-inventory-management
+ms.custom: linux-related-content
 ms.date: 07/17/2023
 ms.topic: conceptual
 ---

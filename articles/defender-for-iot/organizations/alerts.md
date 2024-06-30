@@ -64,10 +64,10 @@ However, to maintain triggering of alerts that indicate critical scenarios:
 
 Users working in hybrid environments might be managing OT alerts in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, the OT sensor, and an on-premises management console.
 
-Alert statuses are fully synchronized between the Azure portal and the OT sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert in Defender for IoT, the alert is updated in other locations as well.
-
 > [!NOTE]
 > While the sensor console displays an alert's **Last detection** field in real-time, Defender for IoT in the Azure portal may take up to one hour to display the updated time. This explains a scenario where the last detection time in the sensor console isn't the same as the last detection time in the Azure portal. 
+
+Alert statuses are otherwise fully synchronized between the Azure portal and the OT sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert in Defender for IoT, the alert is updated in other locations as well.
 
 Setting an alert status to **Closed** or **Muted** on a sensor or on-premises management console updates the alert status to **Closed** on the Azure portal. On the on-premises management console, the **Closed** alert status is called **Acknowledged**.
 

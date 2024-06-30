@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/28/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, linux-related-content
 ---
 
 # Deploy container networking for a stand-alone Linux Docker host

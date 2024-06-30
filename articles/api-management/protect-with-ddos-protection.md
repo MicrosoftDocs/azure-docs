@@ -11,11 +11,11 @@ ms.author: danlep
 ---
 # Defend your Azure API Management instance against DDoS attacks
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
+
 This article shows how to defend your Azure API Management instance against distributed denial of service (DDoS) attacks by enabling [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md). Azure DDoS Protection provides enhanced DDoS mitigation features to defend against volumetric and protocol DDoS attacks.​
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
-
-[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Supported configurations
 

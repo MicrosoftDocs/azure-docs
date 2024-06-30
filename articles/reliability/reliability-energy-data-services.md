@@ -24,9 +24,9 @@ Azure Data Manager for Energy supports zone-redundant instances by default and t
 
 The Azure Data Manager for Energy supports availability zones in the following regions:
 
-| Americas             | Europe               | Asia Pacific   |
-|----------------------|----------------------|----------------
-| South Central US     | North Europe         | Australia East |
+| Americas             | Europe               | Asia Pacific   |     Middle East / Africa  
+|----------------------|----------------------|----------------|-----------------------
+| South Central US     | North Europe         | Australia East | Qatar Central
 | East US              | West Europe          |                | 
 | Brazil South         |                      |                |           
 
@@ -53,7 +53,8 @@ Below is the list of primary and secondary regions for regions where disaster re
 |Americas          | Brazil South*        |                  |
 |Europe            | North Europe         | West Europe      |
 |Europe            | West Europe          | North Europe     |
-|Asia Pacific           | Australia East         | Australia     |
+|Asia Pacific      | Australia East       | Australia        |
+|Middle East / Africa | Qatar Central*    |                  |
 
 (*) These regions are restricted in supporting customer scenarios for disaster recovery. For more information please contact your Microsoft sales or customer representatives.
 
@@ -62,6 +63,7 @@ Azure Data Manager for Energy uses Azure Storage, Azure Cosmos DB and Elasticsea
 > [!IMPORTANT]
 > In the following regions, disaster recovery is not available. For more information please contact your Microsoft sales or customer representative.
 > 1. Brazil South
+> 2. Qatar Central
 
 #### Set up disaster recovery and outage detection
 

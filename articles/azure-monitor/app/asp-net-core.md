@@ -799,7 +799,9 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ## Troubleshooting
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 

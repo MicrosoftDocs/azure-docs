@@ -30,7 +30,9 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probes](./load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
-| **Availability Zones** | Zone-redundant and zonal frontends for inbound and outbound traffic | Not available |
+| **Availability Zones** | Zone-redundant, zonal, or non-zonal frontend IP configurations can be used for inbound and outbound traffic | Not available |
+| **Type** | Internal, Public | Internal, Public | 
+| **Frontend IP configuration** | When using a Public Standard Load Balancer, the SKU of the public IP must be Standard. Basic Public IPs are not supported on Standard LB | When using a Public Basic Load Balancer, the SKU of the public IP must be Basic. Standard Public IPs are not supported on Basic LB | 
 | **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | Not supported |
 | **HA Ports** | [Available for Internal Load Balancer](./load-balancer-ha-ports-overview.md) | Not available |
 | **Secure by default** | Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed. | Open by default. Network security group optional. |

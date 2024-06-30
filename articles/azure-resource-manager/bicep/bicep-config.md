@@ -3,7 +3,7 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/02/2024
+ms.date: 06/03/2024
 ---
 
 # Configure your Bicep environment
@@ -140,8 +140,8 @@ Here's an example of enabling features 'compileTimeImports' and 'userDefinedFunc
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "compileTimeImports": true,
-    "userDefinedFunctions": true
+    "assertions": true,
+    "testFramework": true
   }
 }
 ```

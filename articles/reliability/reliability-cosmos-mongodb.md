@@ -6,7 +6,7 @@ ms.author: gahllevy
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 03/11/2024
 ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Azure Cosmos DB for MongoDB vCore
@@ -14,7 +14,7 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance reliabili
 
 # Reliability in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../cosmos-db/includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 This article contains detailed information on regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity) for Azure Cosmos DB for MongoDB vCore.
 

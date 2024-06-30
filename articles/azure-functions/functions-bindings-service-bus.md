@@ -4,7 +4,7 @@ description: Learn to send Azure Service Bus triggers and bindings in Azure Func
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -30,6 +30,8 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.servicebus).
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
 

@@ -58,6 +58,14 @@ Excessive use of mute/unmute is blocked in Azure Communication Services infrastr
 **Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=247897).<br>
 **Recommended workaround:** Currently, no workaround is available. Users need to manually mute their microphone when activating Siri during a call.<br>
 
+### Overlapping audio in ACS WebJS call and FaceTime calls on macOS
+**Operating system:** macOS.<br>
+**Browsers:** All browsers and versions.<br>
+**Azure Communication Services calling SDK version:** All.<br>
+**Description:** When a macOS user engaged in a ACS WebJS call call receives a FaceTime call and accepts it, audio from both the ACS WebJS call and FaceTime calls is transmitted and received simultaneously. This results in overlapping audio streams where the user can hear and be heard on both calls at the same time.<br>
+**Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=255986).<br>
+**Recommended workaround:** Currently, no workaround is available. Users can proactively mute their microphone in the WebRTC call or exit the WebRTC call before taking the FaceTime call.<br>
+
 
 
 ## All mobile browsers

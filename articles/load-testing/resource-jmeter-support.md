@@ -18,7 +18,7 @@ See the Azure Load Testing overview to learn [how Azure Load Testing works](./ov
 
 ## Supported Apache JMeter version
 
-Azure Load Testing uses Apache JMeter version 5.5 for running load tests.
+Azure Load Testing uses Apache JMeter version 5.6.3 for running load tests.
 
 ## Apache JMeter support details
 

@@ -14,8 +14,10 @@ ms.custom: has-adal-ref, devx-track-python
 # Azure Synapse Runtime for Apache Spark 3.3 (GA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
-## Component versions
+> [!TIP]
+> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which currently is [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md). 
 
+## Component versions
 |  Component   | Version      |  
 | ----- |--------------|
 | Apache Spark | 3.3.1        |
@@ -587,4 +589,4 @@ The following sections present the libraries included in Azure Synapse Runtime f
 
 ## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md#migration-between-apache-spark-versions---support).

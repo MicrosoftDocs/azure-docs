@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/06/2024
+ms.date: 05/22/2024
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -18,7 +18,7 @@ ms.date: 02/06/2024
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!IMPORTANT]
->The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, supported as-is for backward compatibility only, refer to [Snowflake connector (legacy)](connector-snowflake-legacy.md) article.
+>The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, please [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -170,6 +170,8 @@ To use **Basic** authentication, in addition to the generic properties that are 
     }
 }
 ```
+> [!NOTE]
+> Mapping Data Flows only supports Basic authentication.
 
 ### Key pair authentication
 
@@ -633,7 +635,18 @@ For more information about the properties, see [Lookup activity](control-flow-lo
 
 ## Upgrade the Snowflake linked service
 
-To upgrade the Snowflake linked service, create a new Snowflake linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+To upgrade the Snowflake linked service, create a new Snowflake linked service and configure it by referring to [Linked service properties](#linked-service-properties). 
+
+## Differences between Snowflake and Snowflake (legacy)
+
+The Snowflake connector offers new functionalities and is compatible with most features of Snowflake (legacy) connector. The table below shows the feature differences between Snowflake and Snowflake (legacy).  
+
+| Snowflake  | Snowflake (legacy) | 
+| :----------- | :------- |
+| Support Basic and Key pair authentication. | Support Basic authentication. | 
+| Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
+| Multiple SQL statements execution in Script activity is not supported currently. To execute multiple SQL statements, divide the query into several script blocks. | Support multiple SQL statements execution in Script activity. | 
+| Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
 
 ## Related content
 

@@ -1,7 +1,7 @@
 ---
 title: Create UI definition functions
 description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/13/2020
 ---
 

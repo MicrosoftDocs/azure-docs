@@ -26,7 +26,11 @@ This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
+[!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
+
+## Give your user account permissions to manage secrets in Key Vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac-cli.md)]
 
 ## Add a secret to Key Vault
 

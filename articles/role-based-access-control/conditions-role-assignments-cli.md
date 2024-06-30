@@ -104,13 +104,13 @@ The following shows an example of the output:
 
 ## List a condition
 
-To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.md).
+To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml).
 
 ## Delete a condition
 
 To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `condition-version` properties to either an empty string (`""`) or `null`.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ## Next steps
 

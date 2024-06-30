@@ -12,6 +12,8 @@ ms.custom: engagement-fy23
 ---
 # Subscriptions in Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 
 > [!NOTE]

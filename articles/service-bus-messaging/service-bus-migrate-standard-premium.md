@@ -2,7 +2,7 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
-ms.date: 08/17/2023
+ms.date: 06/19/2024
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
@@ -12,7 +12,7 @@ Previously, Azure Service Bus offered namespaces only on the standard tier. Name
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
 >[!WARNING]
-> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading.
+> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading. During migration from the standard to the premium level, a DNS pointer will be created that can be used to access the standard service bus. Please note that during migration an alternateName will be created that represents the pointer to the DNS namespace of the old service bus and the operation cannot be undone. Any sort of testing should be done in a testing environment.
 
 Some of the points to note:
 
@@ -165,7 +165,7 @@ The downtime that is experienced by the application is limited to the time it ta
 
 ### Do I have to make any configuration changes while doing the migration?
 
-No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
+No, there are no code or configuration changes needed to do the migration. The DNS name of your standard namespace will point to your premium namespace. The connection string that your sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
 ### How do I abort the migration? 
 

@@ -35,8 +35,8 @@ This article contains a reference and a detailed description of the quotas and l
 | **Pricing tier** | **Limit value** |
 | --- | --- |
 |Free (F0)| 1 resource|
-| Standard (S0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar.</li><li>10 resources in other regions.</li></ul> |
-| Enterprise (E0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar.</li><li>15 resources in other regions.</li></ul> |
+| Standard (S0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar Central.</li><li>10 resources in other regions.</li></ul> |
+| Enterprise (E0) | <ul><li>5 resources in UAE North, Brazil South, and Qatar Central.</li><li>10 resources in other regions.</li></ul> |
 
 
 ### How to request an increase to the default limits 
@@ -55,6 +55,12 @@ To increase rate limits and resource limits, you can submit a support request. H
 - For resource limits: 
     - How much resources limit do you want to increase? 
     - How many Face resources do you currently have? Did you attempt to integrate your application with fewer Face resources? 
+
+We evaluate TPS increase requests on a case-by-case basis, and our decision is based on the following criteria:
+- Region capacity/availability.
+- Certain scenarios require approval through the gating process.
+- You must currently be receiving `429` errors often.
+
 
 ## Other limits
 

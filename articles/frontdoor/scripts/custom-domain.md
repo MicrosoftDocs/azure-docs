@@ -6,12 +6,14 @@ ms.service: frontdoor
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: DanielLarsenNZ
-ms.author: dalars
+author: duongau
+ms.author: duau
 ms.date: 04/27/2022
 ---
 
 # Azure Front Door: Deploy custom domain
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../../includes/front-door-classic-retirement.md)]
 
 This Azure CLI script example deploys a custom domain name and TLS certificate on an Azure Front Door front-end. This script demonstrates fully automated provisioning of Azure Front Door with a custom domain name (hosted by Azure DNS) and TLS cert.
 

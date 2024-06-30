@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 04/01/2024
 ---
 
 # Index large data sets in Azure AI Search
@@ -20,6 +20,8 @@ If your search solution requirements include indexing big data or complex data, 
 This article assumes familiarity with the [two basic approaches for importing data](search-what-is-data-import.md): pushing data into an index, or pulling in data from a supported data source using a [search indexer](search-indexer-overview.md). If your scenario involves computationally intensive [AI enrichment](cognitive-search-concept-intro.md), then indexers are required, given the skillset dependency on indexers.
 
 This article complements [Tips for better performance](search-performance-tips.md), which offers best practices on index and query design. A well-designed index that includes only the fields and attributes you need is an important prerequisite for large-scale indexing.
+
+We recommend using a newer search service, created after April 3, 2024, for [higher storage per partition](search-limits-quotas-capacity.md#service-limits).
 
 > [!NOTE]
 > The strategies described in this article assume a single large data source. If your solution requires indexing from multiple data sources, see [Index multiple data sources in Azure AI Search](/samples/azure-samples/azure-search-dotnet-scale/multiple-data-sources/) for a recommended approach.

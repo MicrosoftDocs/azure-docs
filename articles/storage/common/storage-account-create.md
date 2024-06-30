@@ -7,13 +7,13 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 05/15/2024
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli
 ---
 
-# Create a storage account
+# Create an Azure storage account
 
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md).
 
@@ -195,7 +195,6 @@ The following table describes the fields on the **Advanced** tab.
 | Blob storage | Enable network file system (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md). |
 | Blob storage | Allow cross-tenant replication | Required | By default, users with appropriate permissions can configure object replication across Microsoft Entra tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Microsoft Entra tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). |
-| Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
 
 The following image shows a standard configuration of the advanced properties for a new storage account.
 
@@ -582,7 +581,7 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 
 [!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
 
-General purpose v1 (GPv1) storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, follow the steps in section [Create a storage account](#create-a-storage-account-1) for PowerShell, the Azure CLI, Bicep, or Azure Templates. For the `kind` parameter, specify `Storage`, and choose a `sku` or `SkuName` from the [table of supported values](#storage-account-type-parameters).
+General purpose v1 (GPv1) storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, follow the steps in section [Create a storage account](#create-a-storage-account) for PowerShell, the Azure CLI, Bicep, or Azure Templates. For the `kind` parameter, specify `Storage`, and choose a `sku` or `SkuName` from the [table of supported values](#storage-account-type-parameters).
 
 ## Next steps
 

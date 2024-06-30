@@ -1,11 +1,11 @@
 ---
 title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Queue Storage by adding an output binding to your Visual Studio Code project.
-ms.date: 03/04/2024
+ms.date: 04/25/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
@@ -20,7 +20,7 @@ Most bindings require a stored connection string that Functions uses to access t
 
 ::: zone pivot="programming-language-javascript"  
 >[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
+>This article currently supports [Node.js v4 for Functions](./functions-reference-node.md?pivots=nodejs-model-v4).  
 ::: zone-end  
 
 ## Configure your local environment
@@ -72,13 +72,25 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 Because you're using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
+::: zone pivot="programming-language-python,programming-language-powershell,programming-language-java"
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/host.json":::
+
+Now, you can add the storage output binding to your project.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
+
+Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
+
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/host.json":::
 
 Now, you can add the storage output binding to your project.
 
@@ -92,8 +104,49 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
+::: zone pivot="programming-language-javascript"
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell"
+To write to an Azure Storage queue:
+
+* Add an `extraOutputs` property to the binding configuration
+
+    ```javascript
+    {
+        methods: ['GET', 'POST'],
+        extraOutputs: [sendToQueue], // add output binding to HTTP trigger
+        authLevel: 'anonymous',
+        handler: () => {}
+    }
+    ```
+
+* Add a `output.storageQueue` function above the `app.http` call
+
+    :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-6":::
+::: zone-end
+
+
+::: zone pivot="programming-language-typescript"
+
+To write to an Azure Storage queue:
+
+* Add an `extraOutputs` property to the binding configuration
+
+    ```typescript
+    {
+        methods: ['GET', 'POST'],
+        extraOutputs: [sendToQueue], // add output binding to HTTP trigger
+        authLevel: 'anonymous',
+        handler: () => {}
+    }
+    ```
+
+* Add a `output.storageQueue` function above the `app.http` call
+
+    :::code language="typescript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model-ts/src/functions/httpTrigger1.ts" range="10-13":::
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
 
 In Functions, each type of binding requires a `direction`, `type`, and unique `name`. The way you define these attributes depends on the language of your function app.
 
@@ -116,11 +169,11 @@ In Functions, each type of binding requires a `direction`, `type`, and unique `n
 After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
 ::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
-[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"

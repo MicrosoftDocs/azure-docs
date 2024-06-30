@@ -64,4 +64,4 @@ You can modify the subnet and IP address for a replicated item's network interfa
 6. Select **Save** to save all changes.
 
 ## Next steps
-  [Learn more](../virtual-network/virtual-network-network-interface-vm.md) about network interfaces for Azure virtual machines.
+  [Learn more](../virtual-network/virtual-network-network-interface-vm.yml) about network interfaces for Azure virtual machines.

@@ -122,9 +122,9 @@ To monitor your existing storage accounts and gather this data, you can make use
 
 In order to estimate the data access costs for Blob storage accounts, you need to break down the transactions into two groups.
 
-- The amount of data retrieved from the storage account can be estimated by looking at the sum of the *'Ingress'* metric for primarily the *'GetBlob'* and *'CopyBlob'* operations.
+- The amount of data retrieved from the storage account can be estimated by looking at the sum of the *'Egress'* metric for primarily the *'GetBlob'* and *'CopyBlob'* operations.
 
-- The amount of data written to the storage account can be estimated by looking at the sum of *'Egress'* metrics for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+- The amount of data written to the storage account can be estimated by looking at the sum of *'Ingress'* metrics for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
 
 To determine the price of each operation against the blob storage service, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 

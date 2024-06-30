@@ -16,6 +16,7 @@ Microsoft Security DevOps uses the following Open Source tools:
 | [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [Checkov](https://github.com/bridgecrewio/checkov) | Terraform, Terraform plan, CloudFormation, AWS SAM, Kubernetes, Helm charts, Kustomize, Dockerfile, Serverless, Bicep, OpenAPI, ARM | [Apache License 2.0](https://github.com/bridgecrewio/checkov/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
 | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM Template, Bicep | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, CloudFormation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
@@ -58,15 +59,15 @@ Microsoft Security DevOps uses the following Open Source tools:
 1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow.yml) into the Edit new file tab.
 
     ```yml
-    name: MSDO windows-latest
+    name: MSDO
     on:
       push:
         branches:
-          - main
+          - master
 
     jobs:
       sample:
-        name: Microsoft Security DevOps Analysis
+        name: Microsoft Security DevOps
 
         # MSDO runs on windows-latest.
         # ubuntu-latest also supported
@@ -75,6 +76,7 @@ Microsoft Security DevOps uses the following Open Source tools:
         permissions:
           contents: read
           id-token: write
+          actions: read
           security-events: write
     
         steps:
@@ -86,12 +88,12 @@ Microsoft Security DevOps uses the following Open Source tools:
         - name: Run Microsoft Security DevOps Analysis
           uses: microsoft/security-devops-action@latest
           id: msdo
-          with:
+        # with:
           # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
           # policy: 'GitHub' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: GitHub.
           # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'code', 'artifacts', 'IaC', 'containers'. Example: 'IaC, containers'. Defaults to all.
           # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
-          # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
+          # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'checkov', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
 
           # Upload alerts to the Security tab
         - name: Upload alerts to Security tab
@@ -108,7 +110,7 @@ Microsoft Security DevOps uses the following Open Source tools:
     ```
 
     > [!NOTE]
-    >  For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
+    >  **For additional tool configuration options and instructions, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)**
 
 1. Select **Start commit**
 

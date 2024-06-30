@@ -16,7 +16,7 @@ In this quickstart, you use a Bicep file to create a policy assignment that vali
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Bicep](../../azure-resource-manager/bicep/install.md).
-- [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
 - A resource group with at least one virtual machine that doesn't use managed disks.

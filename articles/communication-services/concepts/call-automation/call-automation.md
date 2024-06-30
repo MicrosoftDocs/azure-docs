@@ -185,6 +185,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples and sequence diagrams for various call control flows. 
 
+When acknowledging callback events, it's best practice to respond with standard HTTP status codes like 200 OK. Detailed information is unnecessary and is more suitable for your debugging processes.
+
 To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
 
 ### Operation Callback Uri

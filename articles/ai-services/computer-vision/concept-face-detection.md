@@ -11,7 +11,7 @@ ms.subservice: azure-ai-face
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
 ---
 
@@ -24,7 +24,7 @@ ms.author: pafarley
 
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
-You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-library.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detect-faces.md).
+You use the [Detect] API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-library.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detect-faces.md).
 
 ## Face rectangle
 
@@ -36,7 +36,7 @@ Try out the capabilities of face detection quickly and easily using Vision Studi
 
 ## Face ID
 
-The face ID is a unique identifier string for each detected face in an image. Face ID requires limited access approval, which you can apply for by filling out the [intake form](https://aka.ms/facerecognition). For more information, see the Face [limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext). You can request a face ID in your [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API call.
+The face ID is a unique identifier string for each detected face in an image. Face ID requires limited access approval, which you can apply for by filling out the [intake form](https://aka.ms/facerecognition). For more information, see the Face [limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext). You can request a face ID in your [Detect] API call.
 
 ## Face landmarks
 
@@ -52,7 +52,7 @@ The Detection_03 model currently has the most accurate landmark detection. The e
 
 [!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 
-Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
+Attributes are a set of features that can optionally be detected by the [Detect] API. The following attributes can be detected:
 
 * **Accessories**. Indicates whether the given face has accessories. This attribute returns possible accessories including headwear, glasses, and mask, with confidence score between zero and one for each accessory.
 * **Blur**. The blurriness of the face in the image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
@@ -101,3 +101,5 @@ If you're detecting faces from a video feed, you may be able to improve performa
 Now that you're familiar with face detection concepts, learn how to write a script that detects faces in a given image.
 
 * [Call the detect API](./how-to/identity-detect-faces.md)
+
+[Detect]: /rest/api/face/face-detection-operations/detect

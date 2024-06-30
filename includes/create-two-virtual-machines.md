@@ -56,7 +56,7 @@ The following procedure creates two VMs named **vm-1** and **vm-2** in the virtu
 
 1. Review the settings and select **Create**.
 
-1. Repeat the previous steps to create a second virtual machine with the following settings:
+1. Wait for the first virtual machine to deploy then repeat the previous steps to create a second virtual machine with the following settings:
 
     | Setting | Value |
     |---|---|

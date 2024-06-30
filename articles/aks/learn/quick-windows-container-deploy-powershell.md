@@ -3,6 +3,9 @@ title: Deploy a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: article
 ms.date: 01/11/2024
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -24,7 +27,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
     If you want to use PowerShell locally, then install the [Az PowerShell](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. Make sure that you run the commands with administrative privileges. For more information, see [Install Azure PowerShell][install-azure-powershell].
 
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-- If you have more than one Azure subscription, set the subscription that you wish to use for the quickstart by calling the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+- If you have more than one Azure subscription, set the subscription that you wish to use for the quickstart by calling the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet. For more information, see [Manage Azure subscriptions with Azure PowerShell](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 ## Create a resource group
 
@@ -50,7 +53,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 In this section, we create an AKS cluster with the following configuration:
 
-- The cluster is configured with two nodes to ensure it operates reliably. A [node](../concepts-clusters-workloads.md#nodes-and-node-pools) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime.
+- The cluster is configured with two nodes to ensure it operates reliably. A [node](../concepts-clusters-workloads.md#nodes) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime.
 - The `-WindowsProfileAdminUserName` and `-WindowsProfileAdminUserPassword` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet the [Windows Server password complexity requirements][windows-server-password].
 - The node pool uses `VirtualMachineScaleSets`.
 
@@ -63,7 +66,7 @@ To create the AKS cluster with Azure PowerShell, follow these steps:
         -Message 'Please create the administrator credentials for your Windows Server containers'
     ```
 
-1. Create your cluster using the [New-AzAksCluster][new-azakscluster] cmdlet and specify the `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword` parameters.
+2. Create your cluster using the [New-AzAksCluster][new-azakscluster] cmdlet and specify the `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword` parameters.
 
     ```azurepowershell
     New-AzAksCluster -ResourceGroupName myResourceGroup `
@@ -315,10 +318,11 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
+[kubernetes-service]: ../concepts-network-services.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [new-azaksnodepool]: /powershell/module/az.aks/new-azaksnodepool
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
+

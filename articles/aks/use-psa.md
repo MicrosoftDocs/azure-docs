@@ -4,6 +4,9 @@ description: Learn how to enable and use Pod Security Admission with Azure Kuber
 ms.custom: azure-kubernetes-service
 ms.topic: article
 ms.date: 09/12/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Pod Security Admission in Azure Kubernetes Service (AKS)
@@ -126,3 +129,4 @@ In this article, you learned how to enable Pod Security Admission an AKS cluster
 <!-- LINKS - Internal -->
 [kubernetes-psa]: https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/
 [kubernetes-pss]: https://kubernetes.io/docs/concepts/security/pod-security-standards/
+

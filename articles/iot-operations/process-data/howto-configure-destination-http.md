@@ -22,7 +22,7 @@ When you send data to an HTTP endpoint from a destination stage, any response is
 
 To configure and use this destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor (preview).
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - An HTTP server that's accessible from the Data Processor instance.
 
 ## Configure the destination stage
@@ -96,6 +96,5 @@ The following JSON shows an example definition for an HTTP destination stage:
 
 - [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
 - [Send data to Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
-- [Send data to Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md)
 - [Publish data to an MQTT broker](howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](howto-configure-destination-reference-store.md)

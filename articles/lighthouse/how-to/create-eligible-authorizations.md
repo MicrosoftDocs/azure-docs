@@ -1,14 +1,14 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 01/05/2024
+ms.date: 06/03/2024
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---
 
 # Create eligible authorizations
 
-When onboarding customers to Azure Lighthouse, you create authorizations to grant specified Azure built-in roles to users in your managing tenant. You can also create eligible authorizations that use [Microsoft Entra Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) to let users in your managing tenant temporarily elevate their role. This lets you grant additional permissions on a just-in-time basis so that users only have those permissions for a set duration.
+When onboarding customers to Azure Lighthouse, you create authorizations to grant specified Azure built-in roles to users in your managing tenant. You can also create eligible authorizations that use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) to let users in your managing tenant temporarily elevate their role. This lets you grant additional permissions on a just-in-time basis so that users only have those permissions for a set duration.
 
 Creating eligible authorizations lets you minimize the number of permanent assignments of users to privileged roles, helping to reduce security risks related to privileged access by users in your tenant.
 
@@ -61,8 +61,6 @@ The role can be any Azure built-in role that is [supported for Azure delegated r
 ### Access policy
 
 The access policy defines the multifactor authentication requirements, the length of time a user will be activated in the role before it expires, and whether approvers are required.
-
-<a name='multi-factor-authentication'></a>
 
 #### Multifactor authentication
 
@@ -261,8 +259,6 @@ For more information about these elements, see the [Eligible authorization eleme
 After you onboard a customer to Azure Lighthouse, any eligible roles you included will be available to the specified user (or to users in any specified groups).
 
 Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting **Manage eligible roles**. After that, they can follow the [steps to activate the role](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles) in Microsoft Entra Privileged Identity Management.
-
-:::image type="content" source="../media/manage-eligible-roles.png" alt-text="Screenshot showing the Manage eligible roles button in the Azure portal.":::
 
 If approvers have been specified, the user won't have access to the role until approval is granted by a designated [approver from the managing tenant](#approvers). All of the approvers will be notified when approval is requested, and the user won't be able to use the eligible role until approval is granted. Approvers will also be notified when that happens. For more information about the approval process, see [Approve or deny requests for Azure resource roles in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-approval-workflow).
 

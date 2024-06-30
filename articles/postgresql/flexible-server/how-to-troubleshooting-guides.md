@@ -1,17 +1,18 @@
 ---
 title: Troubleshooting guides - Azure portal
 description: Learn how to use troubleshooting guides for Azure Database for PostgreSQL - Flexible Server from the Azure portal.
+author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: alkuchar
-author: AwdotiaRomanowna
-ms.date: 01/16/2024
 ---
 
 # Use the troubleshooting guides for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you learn how to use troubleshooting guides for Azure Database for PostgreSQL flexible server from the Azure portal. To learn more about troubleshooting guides, see the [overview](concepts-troubleshooting-guides.md).
 

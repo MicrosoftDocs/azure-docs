@@ -165,7 +165,7 @@ After you've imported your certificate to a key vault, create an Azure Front Doo
 
 Then, configure your domain to use the Azure Front Door secret for its TLS certificate.
 
-For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#using-your-own-certificate).
+For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#use-your-own-certificate).
 
 ### Switch between certificate types
 

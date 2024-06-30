@@ -85,12 +85,12 @@ Users with this role have the highest level of access to the Enrollment. They ca
 - Manage other enterprise administrators.
 - Manage department administrators.
 - Manage notification contacts.
-- Purchase Azure services, including reservations.
+- Purchase Azure services, including reservations/savings plans.
 - View usage across all accounts.
 - View unbilled charges across all accounts.
 - Create new subscriptions under active enrollment accounts.
-- View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
-  - Enterprise administrator (read-only) can view reservation orders and reservations. They can't manage them.
+- View and manage all reservation/savings plan orders and reservations/savings plans that apply to the Enterprise Agreement.
+  - Enterprise administrator (read-only) can view reservation/savings plan orders and reservations/savings plans. They can't manage them.
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators.
 
@@ -102,10 +102,10 @@ The enterprise administrator role can be assigned to multiple accounts.
 
 Users with this role have permissions to purchase Azure services, but aren't allowed to manage accounts. They can:
 
-- Purchase Azure services, including reservations.
+- Purchase Azure services, including reservations/savings plans.
 - View usage across all accounts.
 - View unbilled charges across all accounts.
-- View and manage all reservation orders and reservations that apply to the Enterprise Agreement.
+- View and manage all reservation/savings plan orders and reservations/savings plans that apply to the Enterprise Agreement.
 
 The EA purchaser role is currently enabled only for SPN-based access. To learn how to assign the role to a service principal name, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md).
 
@@ -172,12 +172,12 @@ The following sections describe the limitations and capabilities of each role.
 |Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
 |View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
-|Purchase reservations|✔|✘⁶|✔|✘|✘|✘|✘|
+|Purchase reservations/savings plans|✔|✘⁶|✔|✘|✘|✘|✘|
 |Create and manage subscriptions and subscription permissions|✔|✘|✘|✘|✘|✔|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
-- ⁶ A subscription owner or reservation purchaser can purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation purchase enabled flag. Enterprise administrators can purchase and manage reservations and savings plans across the billing account. Enterprise administrators (read-only) can view all purchased reservations and savings plans. The reservation purchase enabled flag doesn't affect the EA administrator roles. The Enterprise Admin (read-only) role holder isn't permitted to make purchases. However, if a user with that role also holds either a subscription owner or reservation purchaser permission, the user can purchase reservations and savings plans, regardless of the flag.
+- ⁶ A subscription owner, reservation purchaser or savings plan purchaser can purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation/savings plan purchase-enabled flags. Enterprise administrators can purchase and manage reservations and savings plans across the billing account. Enterprise administrators (read-only) can view all purchased reservations and savings plans. The reservation/savings plan purchase-enabled flags don't affect the EA administrator roles. The Enterprise Admin (read-only) role holder isn't permitted to make purchases. However, if a user with that role also holds either a subscription owner, reservation purchaser or savings plan purchaser permission, the user can purchase reservations and/or savings plans, regardless of the flags.
 
 ## Add a new enterprise administrator
 
@@ -239,10 +239,10 @@ The Enterprise Administrator always sees usage details based on the organization
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|No pricing|
 
-You set the Enterprise admin role and view charges policies in the Azure portal. The Azure role-based-access-control (RBAC) role can be updated with information at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You set the Enterprise admin role and view charges policies in the Azure portal. The Azure role-based-access-control (RBAC) role can be updated with information at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-## Next steps
+## Related content
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 - Assign [Azure built-in roles](../../role-based-access-control/built-in-roles.md)

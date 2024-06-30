@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Dynamics 365 connector for Microsoft Sentinel

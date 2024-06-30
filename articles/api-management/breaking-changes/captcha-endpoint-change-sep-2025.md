@@ -11,6 +11,8 @@ ms.author: mibudz
 
 # CAPTCHA endpoint update (September 2025)
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 On 30 September, 2025 as part of our continuing work to increase the resiliency of API Management services, we're permanently changing the CAPTCHA endpoint used by the developer portal. 
 
 This change will have no effect on the availability of your API Management service. However, you may have to take steps described below to continue using the developer portal beyond 30 September, 2025.

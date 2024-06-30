@@ -88,7 +88,7 @@ First, enable Microsoft Entra authentication to SQL Database by assigning a Micr
 1. Restrict the database server authentication to Active Directory authentication. This step effectively disables SQL authentication.
 
     ```azurecli-interactive
-    az sql server ad-only-auth enable --resource-group <group-name> --server-name <server-name>
+    az sql server ad-only-auth enable --resource-group <group-name> --name <server-name>
     ```
 
 For more information on adding an Active Directory admin, see [Provision Microsoft Entra admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
@@ -130,7 +130,7 @@ Currently, your Azure app connects to SQL Database uses SQL authentication (user
 
 The app registration in Microsoft Entra ID now has the required permissions to connect to SQL Database by impersonating the signed-in user. Next, you configure your App Service app to give you a usable access token.
 
-In the Cloud Shell, run the following commands on the app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`.
+In the Cloud Shell, run the following commands on the app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. It uses [jq] for JSON processing, which is installed already in the Cloud Shell.
 
 ```azurecli-interactive
 authSettings=$(az webapp auth show --resource-group <group-name> --name <app-name>)

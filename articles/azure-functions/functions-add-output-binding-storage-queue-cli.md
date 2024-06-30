@@ -1,22 +1,17 @@
 ---
 title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
-ms.date: 03/04/2024
+ms.date: 04/25/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Connect Azure Functions to Azure Storage using command line tools
 
 In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
-
-::: zone pivot="programming-language-javascript"  
->[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).  
-::: zone-end   
 
 ## Configure your local environment
 
@@ -66,12 +61,13 @@ With the queue binding defined, you can now update your function to receive the 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone pivot="programming-language-javascript" 
+
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
-[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  

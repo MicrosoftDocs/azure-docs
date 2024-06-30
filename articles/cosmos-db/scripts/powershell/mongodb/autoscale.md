@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Create a database and collection with autoscale for Azure Cosmos DB - API for MongoDB
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

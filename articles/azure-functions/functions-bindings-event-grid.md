@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 
 ms.topic: reference
 ms.date: 03/04/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -32,6 +32,8 @@ The extension NuGet package you install depends on the C# mode you're using in y
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

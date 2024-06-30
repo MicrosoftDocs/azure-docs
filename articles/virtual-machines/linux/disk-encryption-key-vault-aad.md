@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref, linux-related-content
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release) for Linux VMs
 

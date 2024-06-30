@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse Analytics output from Azure Stream Analytics
 description: This article describes Azure Synapse Analytics as output for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020

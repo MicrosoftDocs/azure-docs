@@ -78,7 +78,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
    The user-assigned identity that you selected is now listed under the selected role.
 
-   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 
 1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** tab of the cluster creation menu, select the following options:
 

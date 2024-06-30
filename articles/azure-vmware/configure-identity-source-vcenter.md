@@ -3,13 +3,17 @@ title: Set an external identity source for vCenter Server
 description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 3/29/2024
 ms.custom: engagement-fy23
 ---
 
 # Set an external identity source for vCenter Server
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
+
+You can set up vCenter Server to use an external Lightweight Directory Access Protocol (LDAP) directory service to authenticate users. A user can sign in by using their Windows Server Active Directory account credentials or credentials from a third-party LDAP server. Then, the account can be assigned a vCenter Server role, like in an on-premises environment, to provide role-based access for vCenter Server users.
+
+:::image type="content" source="media/nsxt/azure-vmware-solution-to-ldap-server.png" alt-text="Screenshot that shows vCenter Server connectivity to the LDAP Windows Server Active Directory server." lightbox="media/nsxt/azure-vmware-solution-to-ldap-server.png":::
 
 In this article, you learn how to:
 

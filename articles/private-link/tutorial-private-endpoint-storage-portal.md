@@ -14,7 +14,7 @@ ms.custom: template-tutorial
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Storage.
 
-:::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial.":::
+:::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial." lightbox="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png":::
 
 In this tutorial, you learn how to:
 

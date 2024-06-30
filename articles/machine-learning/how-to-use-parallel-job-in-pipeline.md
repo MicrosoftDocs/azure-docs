@@ -10,7 +10,7 @@ author: alainli
 ms.author: alainli
 ms.reviewer: lagayhar
 ms.date: 03/13/2023
-ms.custom: devx-track-python, sdkv2, cliv2, update-code
+ms.custom: devx-track-python, sdkv2, cliv2, update-code1
 ---
 
 # How to use parallel job in pipeline (V2)

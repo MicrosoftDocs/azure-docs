@@ -4,7 +4,7 @@ description: In this quickstart, you use the Azure portal to create an HDInsight
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: hdinsightactive, mvc, mode-ui
+ms.custom: hdinsightactive, mvc, mode-ui, linux-related-content
 ms.date: 11/29/2023
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---

@@ -4,6 +4,7 @@ description: Learn how to deploy and use OpenFaaS on an Azure Kubernetes Service
 author: justindavies
 ms.topic: conceptual
 ms.date: 08/29/2023
+ms.subservice: aks-developer
 ms.author: juda
 ms.custom: mvc, devx-track-azurecli
 ---
@@ -235,3 +236,4 @@ Continue to learn with the [OpenFaaS workshop][openfaas-workshop], which include
 [az-group-create]: /cli/azure/group#az_group_create
 [az-cosmosdb-create]: /cli/azure/cosmosdb#az_cosmosdb_create
 [az-cosmosdb-list]: /cli/azure/cosmosdb#az_cosmosdb_list
+

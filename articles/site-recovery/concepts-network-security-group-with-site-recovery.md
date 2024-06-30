@@ -67,6 +67,7 @@ Considering the [example scenario](concepts-network-security-group-with-site-rec
 Once the NSGs are created and configured, we recommend running a [test failover](azure-to-azure-tutorial-dr-drill.md) to verify scripted NSG associations and post-failover VM connectivity.
 
 ## Next steps
+
 -    Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md#network-security-groups).
 -    Learn more about NSG [security rules](../virtual-network/network-security-groups-overview.md#security-rules).
 -    Learn more about [effective security rules](../virtual-network/diagnose-network-traffic-filter-problem.md) for an NSG.

@@ -3,7 +3,7 @@ metadata:
   title: Common questions - permissions
   description: This FAQ answers questions about permissions in Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats.
   services: defender-for-cloud
-  author: elkrieger
+  author: dcurwin
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
@@ -16,7 +16,7 @@ sections:
     questions:
       - question: How do permissions work in Microsoft Defender for Cloud?
         answer: |
-          Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+          Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
           
           Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you're assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
           

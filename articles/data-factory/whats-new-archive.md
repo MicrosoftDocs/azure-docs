@@ -23,6 +23,25 @@ This archive page retains updates from older months.
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly updates.
 
+## July 2023
+
+### Change Data Capture
+
+Top-level CDC resource now supports schema evolution. [Learn more](how-to-change-data-capture-resource-with-schema-evolution.md)
+
+### Data flow
+
+Merge schema option in delta sink now supports schema evolution in Mapping Data Flows. [Learn more](format-delta.md#delta-sink-optimization-options)
+
+### Data movement
+
+- Comment Out Part of Pipeline with Deactivation. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/comment-out-part-of-pipeline/ba-p/3868069)
+- Pipeline return value is now generally available. [Learn more](tutorial-pipeline-return-value.md)
+
+### Developer productivity
+
+Documentation search now included in the Azure Data Factory search toolbar. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/documentation-search-now-embedded-in-azure-data-factory/ba-p/3873890)
+
 ## June 2023
 
 ### Continuous integration and continuous deployment

@@ -2,9 +2,9 @@
 title: Configure a webhook to get activity log alerts
 description: Learn about the schema of the JSON that's posted to a webhook URL when an activity log alert activates.
 ms.author: abbyweisberg
-ms.reviewer: nolavime
+ms.reviewer: yagil
 ms.topic: conceptual
-ms.date: 03/31/2017
+ms.date: 04/01/2024
 ---
 
 # Configure a webhook to get activity log alerts

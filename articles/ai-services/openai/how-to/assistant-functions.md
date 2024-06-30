@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 02/01/2024
+ms.date: 05/22/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -17,19 +17,27 @@ recommendations: false
 
 The Assistants API supports function calling, which allows you to describe the structure of functions to an Assistant and then return the functions that need to be called along with their arguments.
 
+[!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
+
 ## Function calling support
 
 ### Supported models
 
 The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are supported.
 
-To use all features of function calling including parallel functions, you need to use the latest models.
+To use all features of function calling including parallel functions, you need to use a model that was released after November 6th 2023.
 
-### API Version
+### API Versions
 
 - `2024-02-15-preview`
+- `2024-05-01-preview`
 
 ## Example function definition
+
+> [!NOTE]
+> * We've added support for the `tool_choice` parameter which can be used to force the use of a specific tool (like `file_search`, `code_interpreter`, or a `function`) in a particular run. 
+> * Runs expire ten minutes after creation. Be sure to submit your tool outputs before this expiration.
+> * You can also perform function calling [with Azure Logic apps](./assistants-logic-apps.md)
 
 # [Python 1.x](#tab/python)
 

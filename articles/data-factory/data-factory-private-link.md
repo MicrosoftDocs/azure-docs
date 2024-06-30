@@ -94,6 +94,9 @@ If you don't allow the preceding outbound traffic in the firewall and NSG, self-
 > [!NOTE]
 > If one data factory (shared) has a self-hosted IR and the self-hosted IR is shared with other data factories (linked), you only need to create a private endpoint for the shared data factory. Other linked data factories can leverage this private link for the communications between self-hosted IR and Data Factory.
 
+> [!NOTE]
+> We do not currently support establishing a private link between a self-hosted integration runtime and a Synapse Analytics workspace. And the self-hosted integration runtime can still communicate with Synapse even when data exfiltration protection is enabled on the Synapse workspace.
+
 ## DNS changes for private endpoints
 
 When you create a private endpoint, the DNS CNAME resource record for the data factory is updated to an alias in a subdomain with the prefix *privatelink*. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the *privatelink* subdomain, with the DNS A resource records for the private endpoints.

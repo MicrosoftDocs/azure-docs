@@ -33,7 +33,7 @@ When you enable distributed tracing for IoT Hub, you can:
   - Southeast Asia
   - West US 2
 
-- A device registered to your IoT hub. If you don't have one, follow the steps in [Register a new device in the IoT hub](./iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub) and save the device connection string to use in this article.
+- A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device) and save the device connection string to use in this article.
 
 - This article assumes that you're familiar with sending telemetry messages to your IoT hub.
 
@@ -45,7 +45,7 @@ Consider the following limitations to determine if this preview feature is right
 
 - The proposal for the W3C Trace Context standard is currently a working draft.
 - The only development language that the client SDK currently supports is C, in the [public preview branch of the Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/readme.md)
-- Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md#basic-and-standard-tiers). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
+- Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
 - To ensure efficient operation, IoT Hub imposes a throttle on the rate of logging that can occur as part of distributed tracing.
 - The distributed tracing feature is supported only for IoT hubs created in the following regions:
 
@@ -266,7 +266,7 @@ In this section, you edit the [iothub_ll_telemetry_sample.c](https://github.com/
 
    :::code language="c" source="~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" range="56-60" highlight="2":::
 
-   Replace the value of the `connectionString` constant with the device connection string that you saved in the [Register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json#register-a-device) section of the quickstart for sending telemetry.
+   Replace the value of the `connectionString` constant with the device connection string that you saved in the [Register a device](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json#register-a-device) section of the quickstart for sending telemetry.
 
 1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function before the send message loop. Add code under that line to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` and enable distributed tracing for the device:
 

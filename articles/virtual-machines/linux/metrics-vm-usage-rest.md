@@ -4,7 +4,7 @@ description: Use the Azure REST APIs to collect utilization metrics for a Virtua
 author: rloutlaw
 ms.service: virtual-machines
 ms.subservice: monitoring
-ms.custom: REST
+ms.custom: REST, linux-related-content
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.author: routlaw
@@ -21,7 +21,7 @@ Complete reference documentation and samples for the REST API are available in t
 
 ## Build the request
 
-Use the following GET request to collect the [Percentage CPU metric](../../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) from a Virtual Machine
+Use the following GET request to collect the [Percentage CPU metric](../monitor-vm-reference.md#supported-metrics-for-microsoftcomputevirtualmachines) from a virtual machine.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z

@@ -65,6 +65,7 @@ Find the latest preview version of each supported SDK:
 | .NET SDK v3 | >= 3.33.0 | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0/> |
 | Java SDK v4 | >= 4.42.0 | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4420-2023-03-17/> |
 | JavaScript SDK v4 | 4.0.0 | <https://www.npmjs.com/package/@azure/cosmos/> |
+| Python SDK | >= 4.6.0 | <https://pypi.org/project/azure-cosmos/4.6.0/> |
 
 ## Create a container by using hierarchical partition keys
 
@@ -172,6 +173,14 @@ console.log(container.id);
 
 ```
 
+#### [Python SDK](#tab/python)
+
+```python
+container = database.create_container(
+        id=container_name, partition_key=PartitionKey(path=["/tenantId", "/userId", "/sessionId"], kind="MultiHash")
+    )
+```
+
 ---
 
 ### Azure Resource Manager templates
@@ -195,8 +204,8 @@ For example, assume that you have a hierarchical partition key that's composed o
 ```bicep
 partitionKey: {
   paths: [
-    '/TenantId',
-    '/UserId',
+    '/TenantId'
+    '/UserId'
     '/SessionId'
   ]
   kind: 'MultiHash'
@@ -301,6 +310,18 @@ const item: UserSession = {
 const { resource: document } = await = container.items.create(item);
 
 ```
+
+#### [Python SDK](#tab/python)
+
+```python
+# specify values for all fields on partition key path
+item_definition = {'id': 'f7da01b0-090b-41d2-8416-dacae09fbb4a',
+                        'tenantId': 'Microsoft',
+                        'userId': '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b',
+                        'sessionId': '0000-11-0000-1111'}
+
+item = container.create_item(body=item_definition)
+```
 ---
 
 #### Manually specify the path
@@ -374,6 +395,20 @@ const partitionKey: PartitionKey = new PartitionKeyBuilder()
 // Create the item in the container
 const { resource: document } = await container.items.create(item, partitionKey);
 ```
+
+#### [Python SDK](#tab/python)
+
+For python, just make sure that values for all the fields in the partition key path are specified in the item definition.
+
+```python
+# specify values for all fields on partition key path
+item_definition = {'id': 'f7da01b0-090b-41d2-8416-dacae09fbb4a',
+                        'tenantId': 'Microsoft',
+                        'userId': '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b',
+                        'sessionId': '0000-11-0000-1111'}
+
+item = container.create_item(body=item_definition)
+```
 ---
 
 ### Perform a key/value lookup (point read) of an item
@@ -431,6 +466,14 @@ const partitionKey: PartitionKey = new PartitionKeyBuilder()
 
 // Perform a point read
 const { resource: document } = await container.item(id, partitionKey).read();
+```
+
+#### [Python SDK](#tab/python)
+
+```python
+item_id = "f7da01b0-090b-41d2-8416-dacae09fbb4a"
+pk = ["Microsoft", "8411f20f-be3e-416a-a3e7-dcd5a3c1f28b", "0000-11-0000-1111"]
+container.read_item(item=item_id, partition_key=pk)
 ```
 ---
 
@@ -514,6 +557,20 @@ while (queryIterator.hasMoreResults()) {
 }
 ```
 
+#### [Python SDK](#tab/python)
+
+```python
+pk = ["Microsoft", "8411f20f-be3e-416a-a3e7-dcd5a3c1f28b", "0000-11-0000-1111"]
+items = list(container.query_items(
+    query="SELECT * FROM r WHERE r.tenantId=@tenant_id and r.userId=@user_id and r.sessionId=@session_id",
+    parameters=[
+        {"name": "@tenant_id", "value": pk[0]},
+        {"name": "@user_id", "value": pk[1]},
+        {"name": "@session_id", "value": pk[2]}
+    ]
+))
+```
+
 ---
 
 #### Targeted multi-partition query on a subpartitioned container
@@ -575,6 +632,22 @@ while (queryIterator.hasMoreResults()) {
     const { resources: results } = await queryIterator.fetchNext();
     // Process result
 }
+```
+
+#### [Python SDK](#tab/python)
+
+```python
+pk = ["Microsoft", "8411f20f-be3e-416a-a3e7-dcd5a3c1f28b", "0000-11-0000-1111"]
+# enable_cross_partition_query should be set to True as the container is partitioned
+items = list(container.query_items(
+    query="SELECT * FROM r WHERE r.tenantId=@tenant_id and r.userId=@user_id",
+    parameters=[
+        {"name": "@tenant_id", "value": pk[0]},
+        {"name": "@user_id", "value": pk[1]}
+    ],
+    enable_cross_partition_query=True
+))
+
 ```
 ---
 

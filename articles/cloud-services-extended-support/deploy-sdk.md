@@ -295,7 +295,7 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
                     {
                         Publisher = "Microsoft.Windows.Azure.Extensions",
                         Type = "RDP",
-                        TypeHandlerVersion = "1.2.1",,
+                        TypeHandlerVersion = "1.2.1",
                         AutoUpgradeMinorVersion = true,
                         Settings = rdpExtensionPublicConfig,
                         ProtectedSettings = rdpExtensionPrivateConfig,

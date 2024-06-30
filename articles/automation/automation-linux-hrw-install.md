@@ -4,7 +4,7 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 09/17/2023
+ms.date: 04/21/2024
 ms.topic: conceptual
 ---
 
@@ -58,8 +58,13 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
   16.04 LTS | Xenial Xerus
   14.04 LTS | Trusty Tahr
 
+> [!NOTE]
+> Hybrid Worker would follow support timelines of the OS vendor.
+
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
+
+
 
 ### Minimum requirements
 
@@ -224,15 +229,13 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 ## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
-Run the following commands as root on the agent-based Linux Hybrid Worker:
+1. Run the following commands as root on the agent-based Linux Hybrid Worker:
 
-1. ```bash
-      sudo bash
+   ```bash
+   sudo bash
+   rm -r /home/nxautomation
    ```
 
-1. ```bash
-      rm -r /home/nxautomation
-   ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.

@@ -5,6 +5,9 @@ ms.topic: article
 ms.custom:
 ms.subservice: aks-storage
 ms.date: 01/11/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)

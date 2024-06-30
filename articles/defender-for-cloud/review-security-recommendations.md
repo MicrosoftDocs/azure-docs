@@ -1,47 +1,25 @@
 ---
-title: Review security recommendations in Microsoft Defender for Cloud
-description: Learn how to review security recommendations in Microsoft Defender for Cloud
+title: Review security recommendations
+description: Learn how to review security recommendations in Microsoft Defender for Cloud and improve the security posture of your environments.
 ms.topic: how-to
-ms.date: 11/21/2023
+author: dcurwin
+ms.author: dacurwin
+ms.date: 03/07/2024
+#customer intent: As a security analyst, I want to learn how to review security recommendations in Microsoft Defender for Cloud so that I can improve the security posture of my environments.
 ---
 
 # Review security recommendations
 
 In Microsoft Defender for Cloud, resources and workloads are assessed against built-in and custom security standards enabled in your Azure subscriptions, AWS accounts, and GCP projects. Based on those assessments, security recommendations provide practical steps to remediate security issues, and improve security posture.
 
-This article describes how to review security recommendations in your Defender for Cloud deployment using the latest version of the portal experience.
+Defender for Cloud proactively utilizes a dynamic engine which assesses the risks in your environment while taking into account the potential for the exploitation and the potential business impact to your organization. The engine [prioritizes security recommendations based on the risk factors](risk-prioritization.md) of each resource, which are determined by the context of the environment, including the resource's configuration, network connections, and security posture.
 
-## Get an overview
+## Prerequisites
 
-In Defender for Cloud, navigate to the **Overview** dashboard to get a holistic look at your environments, including:
+- You must [enable Defender CSPM](enable-enhanced-security.md) on your environment.
 
-- **Active recommendations**:  Recommendations that are active in your environment.
-- **Unassigned recommendations**: See which recommendations don't have owners assigned to them.
-- **Overdue recommendations**: Recommendations that have an expired due date.
-- **Attack paths**: See the number of attack paths.
-
-## Review recommendations
-
-> [!IMPORTANT]
-> This page discusses how to use the new recommendations experience where you have the ability to prioritize your recommendations by their effective risk level. To view this experience, you must select **Try it now**.
->
-> :::image type="content" source="media/review-security-recommendations/try-it-now.png" alt-text="Screenshot that shows where the try it now button is located on the recommendation page." lightbox="media/review-security-recommendations/try-it-now.png":::
-
-**To review recommendations**:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Defender for Cloud** > **Recommendations**.
-
-1. For each recommendation, review:
-
-    - **Risk level** - Specifies whether the recommendation risk is Critical, High, Medium or Low.
-    - **Affected resource** - Indicated affected resources.
-    - **Risk factors** - Environmental factors of the resource affected by the recommendation, which influences the exploitability and the business effect of the underlying security issue. For example, Internet exposure, sensitive data, lateral movement potential and more.
-    - **Attack Paths** - The number of attack paths.
-    - **Owner** - The person assigned to this recommendation.
-    - **Due date** - Indicates the due date for fixing the recommendation.
-    - **Recommendation status** indicates whether the recommendation is assigned, and the status of the due date for fixing the recommendation.
+> [!NOTE]
+> Recommendations are included by default with Defender for Cloud, but you will not be able to see risk prioritization without Defender CSPM enabled on your environment.
 
 ## Review recommendation details
 
@@ -56,17 +34,19 @@ It's important to review all of the details related to a recommendation before t
 1. Select a recommendation.
 
 1. In the recommendation page, review the details:
+    - **Risk level** - The exploitability and the business impact of the underlying security issue, taking into account environmental resource context such as: Internet exposure, sensitive data, lateral movement, and more.
+    - **Risk factors** - Environmental factors of the resource affected by the recommendation, which influence the exploitability and the business impact of the underlying security issue. Examples for risk factors include internet exposure, sensitive data, lateral movement potential.
+    - **Resource** - The name of the affected resource.
+    - **Status** - The status of the recommendation. For example, unassigned, on time, overdue.
     - **Description** - A short description of the security issue.
     - **Attack Paths** - The number of attack paths.
     - **Scope** - The affected subscription or resource.
     - **Freshness** - The freshness interval for the recommendation.
     - **Last change date** - The date this recommendation last had a change
+    - **Severity** - The severity of the recommendation (High, Medium, or Low). More details below.
     - **Owner** - The person assigned to this recommendation.
     - **Due date** - The assigned date the recommendation must be resolved by.
-    - **Severity** - The severity of the recommendation (High, Medium, or Low). More details below.
     - **Tactics & techniques** - The tactics and techniques mapped to MITRE ATT&CK.
-
-        :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page with labels for each element." lightbox="./media/security-policy-concept/recommendation-details-page.png":::
 
 ## Explore a recommendation
 
@@ -86,10 +66,6 @@ You can perform many actions to interact with recommendations. If an option isn'
 
     - Select **View policy definition** to view the Azure Policy entry for the underlying recommendation (if relevant).
 
-1. In **Findings**, you can review affiliated findings by severity.
-
-     :::image type="content" source="media/review-security-recommendations/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-findings.png":::
-
 1. In **Take action**:
     - **Remediate**: A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select **View remediation logic** before applying the suggested fix to your resources.
 
@@ -101,21 +77,41 @@ You can perform many actions to interact with recommendations. If an option isn'
 
     :::image type="content" source="media/review-security-recommendations/recommendation-take-action.png" alt-text="Screenshot that shows what you can see in the recommendation when you select the take action tab." lightbox="media/review-security-recommendations/recommendation-take-action.png":::
 
+1. In **Findings**, you can review affiliated findings by severity.
+
+     :::image type="content" source="media/review-security-recommendations/recommendation-findings.png" alt-text="Screenshot of the findings tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-findings.png":::
+
 1. In **Graph**, you can view and investigate all context that is used for risk prioritization, including [attack paths](how-to-manage-attack-path.md). You can select a node in an attack path to view the details of the selected node.
 
      :::image type="content" source="media/review-security-recommendations/recommendation-graph.png" alt-text="Screenshot of the graph tab in a recommendation that shows all of the attack paths for that recommendation." lightbox="media/review-security-recommendations/recommendation-graph.png":::
 
-## How are recommendations classified?
+1. Select a node to view additional details.
 
-Every security recommendation from Defender for Cloud is assigned one of three severity ratings:
+    :::image type="content" source="media/review-security-recommendations/select-node.png" alt-text="Screenshot of a node located in the graph tab that is selected and showing the additional details." lightbox="media/review-security-recommendations/select-node.png":::
 
-- **High severity**: These recommendations should be addressed immediately, as they indicate a critical security vulnerability that could be exploited by an attacker to gain unauthorized access to your systems or data. Examples of high severity recommendations are when we’ve discovered unprotected secrets on a machine, overly-permissive inbound NSG rules, clusters allowing images to be deployed from untrusted registries, and unrestricted public access to storage accounts or databases.
+1. Select **Insights**.
 
-- **Medium severity**: These recommendations indicate a potential security risk that should be addressed in a timely manner, but may not require immediate attention. Examples of medium severity recommendations might include containers sharing sensitive host namespaces, web apps not using managed identities, Linux machines not requiring SSH keys during authentication, and unused credentials being left in the system after 90 days of inactivity.
+1. In the vulnerability dropdown menu, select a vulnerability to view the details.
 
-- **Low severity**: These recommendations indicate a relatively minor security issue that can be addressed at your convenience. Examples of low severity recommendations might include the need to disable local authentication in favor of Microsoft Entra ID, health issues with your endpoint protection solution, best practices not being followed with network security groups, or misconfigured logging settings that could make it harder to detect and respond to security incidents.
+    :::image type="content" source="media/review-security-recommendations/insights.png" alt-text="Screenshot of the insights tab for a specific node." lightbox="media/review-security-recommendations/insights.png":::
 
-Of course, the internal views of an organization might differ with Microsoft’s classification of a specific recommendation. So, it's always a good idea to review each recommendation carefully and consider its potential impact on your security posture before deciding how to address it.
+1. (Optional) Select **Open the vulnerability page** to view the associated recommendation page.
+
+1. [Remediate the recommendation](implement-security-recommendations.md).
+
+## Group recommendations by title
+
+Defender for Cloud's recommendation page allows you to group recommendations by title. This feature is useful when you want to remediate a recommendation that is affecting multiple resources caused by a specific security issue.
+
+**To group recommendations by title**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Defender for Cloud** > **Recommendations**.
+
+1. Select **Group by title**.
+
+    :::image type="content" source="media/review-security-recommendations/group-by-title.png" alt-text="Screenshot of the recommendations page that shows where the group by title toggle is located on the screen." lightbox="media/review-security-recommendations/group-by-title.png":::
 
 ## Manage recommendations assigned to you
 
@@ -181,6 +177,24 @@ You can use [Azure Resource Graph](../governance/resource-graph/index.yml) to wr
 
 1. Review the results.
 
+
+## How are recommendations classified?
+
+Every security recommendation from Defender for Cloud is assigned one of three severity ratings:
+
+- **High severity**: These recommendations should be addressed immediately, as they indicate a critical security vulnerability that could be exploited by an attacker to gain unauthorized access to your systems or data. Examples of high severity recommendations are when we’ve discovered unprotected secrets on a machine, overly-permissive inbound NSG rules, clusters allowing images to be deployed from untrusted registries, and unrestricted public access to storage accounts or databases.
+
+- **Medium severity**: These recommendations indicate a potential security risk that should be addressed in a timely manner, but may not require immediate attention. Examples of medium severity recommendations might include containers sharing sensitive host namespaces, web apps not using managed identities, Linux machines not requiring SSH keys during authentication, and unused credentials being left in the system after 90 days of inactivity.
+
+- **Low severity**: These recommendations indicate a relatively minor security issue that can be addressed at your convenience. Examples of low severity recommendations might include the need to disable local authentication in favor of Microsoft Entra ID, health issues with your endpoint protection solution, best practices not being followed with network security groups, or misconfigured logging settings that could make it harder to detect and respond to security incidents.
+
+Of course, the internal views of an organization might differ with Microsoft’s classification of a specific recommendation. So, it's always a good idea to review each recommendation carefully and consider its potential impact on your security posture before deciding how to address it.
+
+> [!NOTE]
+> Defender CSPM customers have access to a richer classification system where recommendations are shown a more dynamic **Risk level** that utilizes the *context* of the resource and all related resources. Learn more about [risk prioritization](risk-prioritization.md).
+
+
+
 ### Example
 
 In this example, this recommendation details page shows 15 affected resources:
@@ -189,6 +203,7 @@ In this example, this recommendation details page shows 15 affected resources:
 
 When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same affected resources for this recommendation.
 
-## Next steps
+## Next step
 
-[Remediate security recommendations](implement-security-recommendations.md)
+> [!div class="nextstepaction"]
+> [Remediate security recommendations](implement-security-recommendations.md)

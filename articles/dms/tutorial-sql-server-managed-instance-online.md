@@ -14,7 +14,7 @@ ms.custom:
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS (classic)
 
-[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
 
 > [!NOTE]
 > This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-online-ads.md).
@@ -48,7 +48,7 @@ You learn how to:
 > [!IMPORTANT]
 > Reduce the duration of the online migration process as much as possible to minimize the risk of interruption caused by instance reconfiguration or planned maintenance. In case of such an event, migration process will start from the beginning. In case of planned maintenance, there is a grace period of 36 hours before migration process is restarted.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article describes an online migration from SQL Server to a SQL Managed Instance. For an offline migration, see [Migrate SQL Server to a SQL Managed Instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
 
@@ -101,9 +101,9 @@ To complete this tutorial, you need to:
   > [!NOTE]
   > When you migrate a database that's protected by [Transparent Data Encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance by using online migration, the corresponding certificate from the on-premises or Azure VM SQL Server instance must be migrated before the database restore. For detailed steps, see [Migrate a TDE cert to a managed instance](/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]
 
 > [!NOTE] 
 > For additional detail, see the article [Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service](./resource-network-topologies.md).

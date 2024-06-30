@@ -4,6 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services, and about options for best performance.
 services: lab-services
 ms.service: lab-services
+ms.custom: linux-related-content
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to

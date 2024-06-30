@@ -1,7 +1,7 @@
 ---
 title: ArmApiControl UI element
 description: Describes the Microsoft.Solutions.ArmApiControl UI element for Azure portal that's used to call API operations.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/23/2022
 ---
 

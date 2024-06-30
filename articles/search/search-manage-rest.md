@@ -184,7 +184,7 @@ In this step, configure your search service to recognize an **authorization** he
 
 To use role-based access control for data plane operations, set `authOptions` to `aadOrApiKey` and then send the request.
 
-To use role-based access control exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting `disableLocalAuth` to true.
+To use role-based access control exclusively, [turn off API key authentication](search-security-enable-roles.md#disable-api-key-authentication) by following up with a second request, this time setting `disableLocalAuth` to true.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01 HTTP/1.1

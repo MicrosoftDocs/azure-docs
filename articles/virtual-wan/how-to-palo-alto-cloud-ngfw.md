@@ -79,7 +79,7 @@ To create a new virtual WAN, use the steps in the following article:
 
 ## Known limitations
 
-* Check [Palo Alto Networks documentation]() for the list of regions where Palo Alto Networks Cloud NGFW is available. 
+* Check [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/getting-started-with-cngfw-for-azure/supported-regions-and-zones) for the list of regions where Palo Alto Networks Cloud NGFW is available. 
 * Palo Alto Networks Cloud NGFW can't be deployed with Network Virtual Appliances in the Virtual WAN hub.
 * All other limitations in the [Routing Intent and Routing policies documentation limitations section](how-to-routing-policies.md) apply to Palo Alto Networks Cloud NGFW deployments in Virtual WAN.
 

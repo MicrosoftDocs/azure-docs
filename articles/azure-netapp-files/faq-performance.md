@@ -21,6 +21,10 @@ You can take the following actions per the performance requirements:
 
 There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
 
+## How do I monitor Azure NetApp Files volume performance 
+
+Azure NetApp Files volumes performance can be monitored through [available metrics](azure-netapp-files-metrics.md). 
+
 ## How do I convert throughput-based service levels of Azure NetApp Files to IOPS?
 
 You can convert MB/s to IOPS by using the following formula:  
@@ -49,11 +53,11 @@ No, Azure NetApp Files does not support SMB Direct.
 
 ## Is NIC Teaming supported in Azure?
 
-NIC Teaming is not supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance.  Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
+NIC Teaming isn't supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance. Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
 
 ## Are jumbo frames supported?
 
-Jumbo frames are not supported with Azure virtual machines.
+Jumbo frames aren't supported with Azure virtual machines.
 
 ## Next steps  
 

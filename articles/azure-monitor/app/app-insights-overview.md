@@ -215,6 +215,24 @@ Application Insights doesn't handle sensitive data by default, as long as you do
 
 For archived information on this topic, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
+### What is the Application Insights pricing model?
+
+Application Insights is billed through the Log Analytics workspace into which its log data ingested. 
+The default Pay-as-you-go Log Analytics pricing tier includes 5 GB per month of free data allowance per billing account. 
+Learn more about [Azure Monitor logs pricing options](https://azure.microsoft.com/pricing/details/monitor/).
+          
+### Are there data transfer charges between an Azure web app and Application Insights?
+
+* If your Azure web app is hosted in a datacenter where there's an Application Insights collection endpoint, there's no charge.
+* If there's no collection endpoint in your host datacenter, your app's telemetry incurs [Azure outgoing charges](https://azure.microsoft.com/pricing/details/bandwidth/).
+          
+This answer depends on the distribution of our endpoints, *not* on where your Application Insights resource is hosted.
+
+### Do I incur network costs if my Application Insights resource is monitoring an Azure resource (that is, telemetry producer) in a different region?
+
+Yes, you may incur more network costs, which vary depending on the region the telemetry is coming from and where it's going. 
+Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
+
 ## Help and support
 
 ### Azure technical support

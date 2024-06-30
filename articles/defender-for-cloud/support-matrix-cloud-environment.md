@@ -1,8 +1,10 @@
 ---
 title: Support across Azure clouds
-description: Review Defender for Cloud features and plans supported across different clouds.
+author: Elazark
+ms.author: elkrieger
+description: This article provides an overview of the supported features and plans for Defender for Cloud in Azure commercial cloud and government clouds.
 ms.topic: limits-and-quotas
-ms.date: 03/10/2024
+ms.date: 05/29/2024
 ---
 
 # Defender for Cloud support for Azure commercial/other clouds
@@ -17,13 +19,14 @@ In the support table, **NA** indicates that the feature isn't available.
 |--- | --- | --- | --- |
 |**GENERAL FEATURES** | | ||
 |[Continuous data export](continuous-export.md) | GA | GA | GA|
-|[Response automation with Azure Logic Apps](./workflow-automation.md) | GA | GA | GA|
+|[Response automation with Azure Logic Apps](./workflow-automation.yml) | GA | GA | GA|
 |[Security alerts](alerts-overview.md)<br/> Generated when one or more Defender for Cloud plans is enabled. | GA | GA | GA|
 |[Alert email notifications](configure-email-notifications.md) | GA | GA | GA|
 |[Alert suppression rules](alerts-suppression-rules.md) | GA | GA | GA|
-|[Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | Preview | NA | NA|
+|[Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | GA | GA | NA|
 |[Azure Workbooks integration for reporting](custom-dashboards-azure-workbooks.md) | GA | GA | GA|
 |[Automatic component/agent/extension provisioning](monitoring-components.md) | GA | GA | GA|
+|[Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md) | Preview | NA | NA |
 |**FOUNDATIONAL CSPM FEATURES (FREE)** | | ||
 |[Asset inventory](asset-inventory.md) | GA | GA | GA|
 |[Security recommendations](security-policy-concept.md) based on the [Microsoft Cloud Security Benchmark](concept-regulatory-compliance.md)  | GA | GA | GA|
@@ -32,6 +35,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |[DevOps security posture](concept-devops-environment-posture-management-overview.md) | Preview | NA | NA|
 | **DEFENDER CSPM FEATURES** | | | |
 | [Data security dashboard](data-aware-security-dashboard-overview.md) | GA | NA | NA |
+| [Attack path](concept-attack-path.md) | GA | NA | NA |
 |**DEFENDER FOR CLOUD PLANS** | | ||
 |[Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA|
 |[Defender for APIs](defender-for-apis-introduction.md).  | GA | NA | NA|

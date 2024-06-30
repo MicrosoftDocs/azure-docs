@@ -197,7 +197,7 @@ the token count is more than the prompt limit for the model.
 $openai = @{
     api_key     = $Env:AZURE_OPENAI_API_KEY 
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like 'https://<YOUR_RESOURCE_NAME>.openai.azure.com/'
-    api_version = '2023-05-15' # may change in the future
+    api_version = '2024-02-01' # may change in the future
     name        = $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT # custom name you chose for your deployment
 }
 

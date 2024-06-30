@@ -7,13 +7,21 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
   ms.topic: faq
-  ms.date: 02/01/2024
+  ms.date: 04/17/2024
   ms.author: banders
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
 sections:
   - name: General questions
     questions:
+      - question: Why is there a 22% tax rate on my invoice now from Microsoft Srl Italy compared to previous month's invoice from Microsoft Ireland?
+        answer: |
+          The tax rate change results from the Billing entity change from Microsoft Ireland to Microsoft Srl.
+
+          Before the change, purchases were considered cross-border and the presence of a VAT ID resulted in Reverse Charge (0% tax). With local invoicing, transactions are no longer cross-border, so the tax rate of 22% applies.
+
+          Partners in Italy were invoiced from Microsoft Srl Italy on September 1, 2023. Customers migrated to Microsoft Srl Italy on March 1, 2024.
+
       - question: Can I sign the Microsoft Customer Agreement today?
         answer: |
           - **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Belgium, Canada, Chile, Denmark, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.

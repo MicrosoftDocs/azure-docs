@@ -3,7 +3,7 @@ title: Set up a Linux shell scripting lab with Azure Lab Services | Microsoft Do
 description: Learn how to set up a lab to teach shell scripting on Linux. 
 ms.topic: how-to
 ms.date: 03/10/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, linux-related-content
 ---
 
 # Set up a lab to teach shell scripting on Linux

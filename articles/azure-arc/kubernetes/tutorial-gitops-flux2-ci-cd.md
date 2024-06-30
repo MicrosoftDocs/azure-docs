@@ -627,4 +627,5 @@ In this tutorial, you have set up a full CI/CD workflow that implements DevOps f
 Advance to our conceptual article to learn more about GitOps and configurations with Azure Arc-enabled Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Conceptual CI/CD Workflow using GitOps](./conceptual-gitops-flux2-ci-cd.md)
+> [Concept: CD process with GitOps](https://github.com/microsoft/kalypso/blob/main/docs/cd-concept.md)
+> [Sample implementation: Explore CI/CD flow with GitOps](https://github.com/microsoft/kalypso/blob/main/cicd/tutorial/cicd-tutorial.md)

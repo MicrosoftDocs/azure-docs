@@ -21,7 +21,7 @@ By default, your subscription uses Microsoft-managed encryption keys. There is a
 
 Custom question answering uses CMK support from Azure search, and associates the provided CMK to encrypt the data stored in Azure search index. Please follow the steps listed in [this article](../../../../search/search-security-manage-encryption-keys.md) to configure Key Vault access for the Azure search service.
 
-> [NOTE]
+> [!NOTE]
 > Whenever the CMK is being rotated, make sure there is a period of overlap between the old and new versions of the key where both are enabled and not expired.
 
 > [!IMPORTANT]

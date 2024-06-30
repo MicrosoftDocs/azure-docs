@@ -15,6 +15,12 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Assign an Azure role for access to blob data
 
+<!-- replaycheck-task id="cb105ef6" -->
+<!-- replaycheck-task id="e3ce9356" -->
+<!-- replaycheck-task id="2de8753c" -->
+<!-- replaycheck-task id="542306be" -->
+<!-- replaycheck-task id="57011072" -->
+<!-- replaycheck-task id="c0f2f9d5" -->
 Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob data.
 
 When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. A Microsoft Entra security principal can be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -35,7 +41,7 @@ To access blob data in the Azure portal with Microsoft Entra credentials, a user
 - A data access role, such as **Storage Blob Data Reader** or **Storage Blob Data Contributor**
 - The Azure Resource Manager **Reader** role, at a minimum
 
-To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
@@ -96,6 +102,7 @@ To assign a role scoped to a storage account, specify a string containing the sc
 
 The following example assigns the **Storage Blob Data Contributor** role to a user. The role assignment is scoped to level of the container. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values:
 
+<!-- replaycheck-task id="fee1778" -->
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
     -RoleDefinitionName "Storage Blob Data Contributor" `
@@ -104,6 +111,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 The following example assigns the **Storage Blob Data Reader** role to a user by specifying the object ID. The role assignment is scoped to the level of the storage account. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values: 
 
+<!-- replaycheck-task id="3361d580" -->
 ```powershell
 New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
     -RoleDefinitionName "Storage Blob Data Reader" `
@@ -138,6 +146,7 @@ To assign a role scoped to a container, specify a string containing the scope of
 
 The following example assigns the **Storage Blob Data Contributor** role to a user. The role assignment is scoped to the level of the container. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values:
 
+<!-- replaycheck-task id="60f1639b" -->
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Contributor" \
@@ -147,7 +156,7 @@ az role assignment create \
 
 The following example assigns the **Storage Blob Data Reader** role to a user by specifying the object ID. To learn more about the `--assignee-object-id` and `--assignee-principal-type` parameters, see [az role assignment](/cli/azure/role/assignment). In this example, the role assignment is scoped to the level of the storage account. Make sure to replace the sample values and the placeholder values in brackets (`<>`) with your own values: 
 
-<!-- replaycheck-task id="66526dae" -->
+<!-- replaycheck-task id="8cdad632" -->
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \

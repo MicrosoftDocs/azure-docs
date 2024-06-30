@@ -134,6 +134,7 @@ dotnet run
 | [`RouterWorkerOfferRevoked`](#microsoftcommunicationrouterworkerofferrevoked)  | `Worker` | An offer to a worker was revoked |
 | [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | An offer to a worker has expired |
 | [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered (status changed from inactive/draining to active) |
+| [`RouterWorkerUpdated`](#microsoftcommunicationrouterworkerupdated)  | `Worker` | One of the following worker properties has been updated: `AvailableForOffers`, `TotalCapacity`, `QueueAssignments`, `ChannelConfigurations`, `Labels`, `Tags` |
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered (status changed from active to inactive/draining) |
 
 ### Microsoft.Communication.RouterJobReceived
@@ -1080,6 +1081,74 @@ dotnet run
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
+### Microsoft.Communication.RouterWorkerUpdated
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "worker/{worker-id}",
+  "data": {
+    "workerId": "worker3",
+    "availableForOffers": true,
+    "totalCapacity": 100,
+    "queueAssignments": [
+      {
+        "id": "MyQueueId2",
+        "name": "Queue 3",
+        "labels": {
+          "Language": "en",
+          "Product": "Office",
+          "Geo": "NA"
+        }
+      }
+    ],
+    "labels": {
+      "x": "111",
+      "y": "111"
+    },
+    "channelConfigurations": [
+      {
+        "channelId": "FooVoiceChannelId",
+        "capacityCostPerJob": 10,
+        "maxNumberOfJobs": 5
+      }
+    ],
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "updatedWorkerProperties": [
+      "TotalCapacity",
+      "Labels",
+      "Tags",
+      "ChannelConfigurations",
+      "AvailableForOffers",
+      "QueueAssignments"
+    ]
+  },
+  "eventType": "Microsoft.Communication.RouterWorkerUpdated",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+#### Attribute list
+
+| Attribute | Type | Nullable | Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| workerId | `string` | ❌ |
+| totalCapacity | `int` | ❌ |
+| queueAssignments | `List<QueueDetails>` | ❌ |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| channelConfigurations| `List<ChannelConfiguration>` | ❌ |
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| updatedWorkerProperties | `List<UpdateWorkerProperty>` | ❌ | Worker Properties updated including AvailableForOffers, QueueAssignments, ChannelConfigurations, TotalCapacity, Labels, and Tags
+
 ### Microsoft.Communication.RouterWorkerDeregistered
 
 [Back to Event Catalog](#events-catalog)
@@ -1139,6 +1208,20 @@ public class ChannelConfiguration
     public string ChannelId { get; set; }
     public int CapacityCostPerJob { get; set; }
     public int? MaxNumberOfJobs { get; set; }
+}
+```
+
+### UpdatedWorkerProperty
+
+```csharp
+public enum UpdatedWorkerProperty
+{
+    AvailableForOffers,
+    Capacity,
+    QueueAssignments,
+    Labels,
+    Tags,
+    ChannelConfigurations
 }
 ```
 

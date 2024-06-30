@@ -17,7 +17,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 ## How to use the redis-benchmark utility
 
-1. Install open source Redis server to a client VM you can use for testing. The redis-benchmark utility is built into the open source Redis distribution. Follow the [Redis documentation](https://redis.io/docs/getting-started/#install-redis) for instructions on how to install the open source image.
+1. Install open source Redis server to a client VM you can use for testing. The redis-benchmark utility is built into the open source Redis distribution. Follow the [Redis documentation](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/) for instructions on how to install the open source image.
 
 1. The client VM used for testing should be _in the same region_ as your Azure Cache for Redis instance.
 

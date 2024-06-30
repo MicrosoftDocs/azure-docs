@@ -7,14 +7,14 @@ ms.author: allensu
 ms.service: nat-gateway
 ms.topic: quickstart 
 ms.date: 06/20/2023
-ms.custom: template-quickstart, FY23 content-maintenance
+ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 ---
 
 # Quickstart: Create a NAT gateway using the Azure portal
 
 In this quickstart, learn how to create a NAT gateway by using the Azure portal. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
 
-:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
 ## Prerequisites
 

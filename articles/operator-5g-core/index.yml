@@ -67,10 +67,6 @@ landingContent:
   # Card
   - title: Deploy Azure Kubernetes Service
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Complete the prerequisite tasks for Azure Kubernetes Services deployment
-            url: quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md
       - linkListType: concept
         links:
           - text: Deployment order for clusters, network functions, and observability components
@@ -88,6 +84,6 @@ landingContent:
         links:
           - text: Monitor the deployment status
             url:  quickstart-monitor-deployment-status.md
-          - text: Perform health and configuration checks post-deployment
+          - text: Configure the Azure Operator 5G Core extension for status monitoring
             url: quickstart-perform-checks-post-deployment.md
          

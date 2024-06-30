@@ -19,7 +19,7 @@ In this quickstart, create a private endpoint for an Azure App Services web app 
 
 You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
-:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources.png":::
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | ------- | ----- |
     | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true" lightbox="./media/create-private-endpoint-portal/dynamic-ip-address.png":::
 
     # [**Static IP**](#tab/static-ip)
 
@@ -99,7 +99,7 @@ Next, you create a private endpoint for the web app that you created in the **Pr
     | Name | Enter **ipconfig-1**. |
     | Private IP | Enter **10.0.0.10**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true" lightbox="./media/create-private-endpoint-portal/static-ip-address.png":::
 
     ---
 
@@ -149,7 +149,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
    If your web app hasn't been deployed, you get the following default web app page:
 
-    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true" lightbox="./media/create-private-endpoint-portal/web-app-default-page.png":::
 
 1. Close the connection to **vm-1**.
 

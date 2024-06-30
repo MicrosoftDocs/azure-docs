@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 06/19/2024
 ---
 
 # Plan and manage costs of an Azure AI Search service
@@ -20,6 +20,9 @@ This article explains the billing model and billable events of Azure AI Search, 
 As a first step, estimate your baseline costs by using the Azure pricing calculator. Alternatively, estimated costs and tier comparisons can also be found in the [Select a pricing tier](search-create-service-portal.md#choose-a-tier) page when creating a service.
 
 Azure provides built-in cost management that cuts across service boundaries to provide inclusive cost monitoring and the ability to set budgets and define alerts. The costs of running a search service will vary depending on capacity and which features you use. After you create your search service, optimize capacity so that you pay only for what you need. 
+
+> [!NOTE]
+> Higher capacity partitions are available at the same billing rate on newer services created after April and May 2024. For more information, see [Service limits](search-limits-quotas-capacity.md#service-limits) for partition size upgrades.
 
 <a name="billable-events"></a>
 
@@ -69,7 +72,7 @@ Cost management is built into the Azure infrastructure. Review [Billing and cost
 
 Follow these guidelines to minimize costs of an Azure AI Search solution.
 
-1. If possible, create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
+1. If possible, create a search service [in a region that has more storage per partition]([supported regions](search-limits-quotas-capacity.md#supported-regions-with-higher-storage-limits). If you're using multiple Azure resources in your solution, create them in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
 1. [Scale up](search-capacity-planning.md) for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. If there are predictable patterns to your workloads, you might be able to synchronize scale up to coincide with the expected volume (you would need to write code to automate this).
 

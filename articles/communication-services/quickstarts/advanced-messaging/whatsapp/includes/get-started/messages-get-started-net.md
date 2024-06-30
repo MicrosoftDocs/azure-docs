@@ -290,6 +290,15 @@ First, create a MessageTemplate using the values for a template.
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
 If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../../../../concepts/advanced-messaging/whatsapp/template-messages.md) to understand how to send a different template with Option 1.
+
+Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- Template details
+    - Name like 'sample_template'
+    - Language like 'en_us'
+    - Parameters if any
+    
 ```csharp
 // Assemble the template content
 string templateName = "sample_template";
@@ -330,16 +339,21 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 ### Send a text message to a WhatsApp user
 
+Messages SDK allows Contoso to send text WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- Message body/text to be sent
+
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In the text message, provide text to send to the recipient. In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.".
+In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK".
 
 Assemble then send the text message:
 ```csharp
 // Assemble text message
 var textContent = 
-    new TextNotificationContent(channelRegistrationId, recipientList, "Thanks for your feedback.");
+    new TextNotificationContent(channelRegistrationId, recipientList, "Thanks for your feedback.\n From Notification Messaging SDK");
 
 // Send text message
 Response<SendMessageResult> sendTextMessageResult = 
@@ -348,10 +362,14 @@ Response<SendMessageResult> sendTextMessageResult =
 
 ### Send a media message to a WhatsApp user
 
+Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- MediaUri of the Image
+
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-To send a media message, provide a URI to an image.
 As an example, create a URI:
 ```csharp
 var uri = new Uri("https://aka.ms/acsicon1");
@@ -373,7 +391,7 @@ Response<SendMessageResult> sendMediaMessageResult =
 Build and run your program.  
 
 To send a text or media message to a WhatsApp user, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user.  
-If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#sample-code) prompts for manual user input before sending the next message.
+If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference, the full example at [Sample code](#full-sample-code) prompts for manual user input before sending the next message.
   
 If successful, you receive three messages on the user's WhatsApp account.
 
@@ -400,6 +418,6 @@ dotnet run
 
 ---
 
-## Sample code
+## Full sample code
 
 [!INCLUDE [Full code example with .NET](./messages-get-started-full-example-net.md)]

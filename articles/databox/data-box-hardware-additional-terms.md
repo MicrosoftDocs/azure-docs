@@ -29,15 +29,15 @@ All right, title and interest in each Data Box Device is and shall remain the pr
 
 ### Fees
 
-Microsoft may charge Customer specified fees in connection with its use of the Data Box Device as part of the Service, as described at https://go.microsoft.com/fwlink/?linkid=2052173. For clarity, Azure Storage and Azure IoT Hub are separate Azure Services, and if used (even in connection with its use of the Service), separate Azure metered fees will apply. Additional Azure services Customer uses after completing a transfer of data using the Azure Data Box Service are also subject to separate usage fees.  For Data Box Devices, Microsoft may charge Customer a lost device fee, as provided in Table 1 below, if (i) the Data Box Device is lost or materially damaged while it is in Customer’s care; and/or (ii) Customer does not provide the Data Box Device to the Microsoft-designated carrier for return within the time period after the date it was delivered to Customer as provided in Table 1 below.  Microsoft reserves the right to change the fees charged for Data Box Device types, including charging different amounts for different device form factors.
+Microsoft may charge Customer specified fees in connection with its use of the Data Box Device as part of the Service, as described at https://go.microsoft.com/fwlink/?linkid=2052173. For clarity, Azure Storage and Azure IoT Hub are separate Azure Services, and if used (even in connection with its use of the Service), separate Azure metered fees will apply. Additional Azure services Customer uses after completing a transfer of data using the Azure Data Box Service are also subject to separate usage fees.  For Data Box Devices, Microsoft may charge Customer a lost device fee, as provided in Table 1 below, if the Data Box Device is lost or materially damaged while it is in Customer’s care. Microsoft reserves the right to change the fees charged for Data Box Device types, including charging different amounts for different device form factors.
 
 Table 1:
 
 |Data Box Device type | Lost or Materially Damaged Time Period and Amounts|
 |---------|---------|
-|Data Box           |   Period: After 90 days<br> Amount: $40,000.00 USD  |
-|Data Box Disk      |   Period: After 90 days<br> Amount: $2,500.00 USD      |
-|Data Box Heavy     |   Period: After 90 days<br> Amount: $250,000.00 USD      |
+|Data Box           |   Amount: $40,000.00 USD  |
+|Data Box Disk      |   Amount: $2,500.00 USD      |
+|Data Box Heavy     |   Amount: $250,000.00 USD      |
 |Data Box Gateway   |   N/A     |
 
 ### Shipment and Return of Data Box Device

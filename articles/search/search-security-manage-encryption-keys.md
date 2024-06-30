@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/20/2024
+ms.date: 04/03/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -22,7 +22,7 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption is enacted on individual objects. If you require CMK across your search service, [set an enforcement policy](#encryption-enforcement-policy).
 
-+ CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
++ CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys. Azure Key Vault must be in the same subscription and tenant as Azure AI Search. Azure AI Search retrieves your managed key by connecting through a system or user-managed identity. This behavior requires both services to share the same tenant.
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
 

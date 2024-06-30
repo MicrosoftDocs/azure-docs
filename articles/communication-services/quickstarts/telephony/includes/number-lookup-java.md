@@ -1,7 +1,7 @@
-Get started with the Phone Numbers client library for Java to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number.  Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for Java to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ mvn archetype:generate -DgroupId=com.communication.lookup.quickstart -DartifactI
 The 'generate' task creates a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
 
 ### Connect to dev package feed
-The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections
+The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections that you can add if they don't already exist.
 
 ```xml
 <repository>
@@ -44,7 +44,7 @@ The public preview version of the SDK is published to a dev package feed. To con
 </repository>
 ```
 
-Add or edit the `settings.xml` file in `${user.home}/.m2`
+You may need to add or edit the `settings.xml` file in `${user.home}/.m2`
 
 ```xml
 <server>
@@ -54,7 +54,7 @@ Add or edit the `settings.xml` file in `${user.home}/.m2`
 </server>
 ```
 
-Finally, generate a [Personal Access Token](https://dev.azure.com/azure-sdk/_details/security/tokens) with _Packaging_ read & write scopes and paste it into the `<password>` tag.
+You can generate a [Personal Access Token](https://dev.azure.com/azure-sdk/_details/security/tokens) with _Packaging_ read & write scopes and paste it into the `<password>` tag.
 
 More detailed information and other options for connecting to the dev feed can be found [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/connect).
 
@@ -72,7 +72,7 @@ Add the following dependency elements to the group of dependencies in the **pom.
   <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.2.0-beta.1</version>
+    <version>1.2.0-beta.3</version>
   </dependency>
 
   <dependency>
@@ -87,6 +87,16 @@ Add the following dependency elements to the group of dependencies in the **pom.
     <version>1.41.0</version>
   </dependency>
 </dependencies>
+```
+
+Check the `properties` section to ensure your project is targeting Maven version 1.8 or above.
+
+```xml
+<properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
 ```
 
 ## Code examples
@@ -125,9 +135,18 @@ public class App
 
 ### Authenticate the client
 
-## Authenticate the Phone Numbers Client
+The client can be authenticated using a connection string acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). Using a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable is recommended to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
+```java
+// This code retrieves your connection string from an environment variable
+String connectionString = System.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
-The `PhoneNumberClientBuilder` is enabled to use Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID.  You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
+PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
+    .connectionString(connectionString)
+    .buildClient();
+```
+
+Alternatively, you can authenticate using Microsoft Entra authentication. Using the `DefaultAzureCredentialBuilder` is the easiest way to get started with Microsoft Entra ID. You can acquire your resource name from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
 ```java
 // You can find your resource name from your resource in the Azure portal
@@ -139,25 +158,17 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .buildClient();
 ```
 
-Alternatively, the client can be authenticated using a connection string, also acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
-<!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
-```java
-// This code retrieves your connection string from an environment variable
-String connectionString = System.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING");
+### Look up phone number formatting
 
-PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
-    .connectionString(connectionString)
-    .buildClient();
-```
-
-### Look up operator information for a number
-
-To search for a phone number's operator information, call `searchOperatorInformation` from the `PhoneNumbersClient`.
+To look up the national and international formatting for a number, call `searchOperatorInformation` from the `PhoneNumbersClient`.
 
 ```java
 ArrayList<String> phoneNumbers = new ArrayList<String>();
 phoneNumbers.add("<target-phone-number>");
-OperatorInformationResult result = phoneNumberClient.searchOperatorInformation(phoneNumbers);
+
+// Use the free number lookup functionality to get number formatting information
+OperatorInformationResult formattingResult = phoneNumberClient.searchOperatorInformation(phoneNumbers);
+OperatorInformation formattingInfo = formattingResult.getValues().get(0);
 ```
 
 Replace `<target-phone-number>` with the phone number you're looking up, usually a number you'd like to send a message to.
@@ -165,23 +176,46 @@ Replace `<target-phone-number>` with the phone number you're looking up, usually
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123.
 
-### Use operator information
+### Look up operator information for a number
 
-You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
+To search for a phone number's operator information, call `searchOperatorInformationWithResponse` from the `PhoneNumbersClient`, passing `true` for the `IncludeAdditionalOperatorDetails` option.
 
 ```java
-OperatorInformation operatorInfo = result.getValues().get(0);
+OperatorInformationOptions options = new OperatorInformationOptions();
+options.setIncludeAdditionalOperatorDetails(true);
+Response<OperatorInformationResult> result = phoneNumberClient.searchOperatorInformationWithResponse(phoneNumbers, options, Context.NONE);
+OperatorInformation operatorInfo = result.getValue().getValues().get(0);
+```
 
+> [!WARNING]
+> Using this functionality will incur a charge to your account.
+
+### Use operator information
+
+You can now use the operator information. For this quickstart guide, we can print some of the details to the console.
+
+First, we can print details about the number format.
+
+```java
+System.out.println(formattingInfo.getPhoneNumber() + " is formatted "
+    + formattingInfo.getInternationalFormat() + " internationally, and "
+    + formattingInfo.getNationalFormat() + " nationally");
+```
+
+Next, we can print details about the phone number and operator.
+
+```java
 String numberType = operatorInfo.getNumberType() == null ? "unknown" : operatorInfo.getNumberType().toString();
 String operatorName = "an unknown operator";
 if (operatorInfo.getOperatorDetails()!= null && operatorInfo.getOperatorDetails().getName() != null)
 {
     operatorName = operatorInfo.getOperatorDetails().getName();
 }
-System.out.println(operatorInfo.getPhoneNumber() + " is a " + numberType + " number, operated by " + operatorName);
+System.out.println(operatorInfo.getPhoneNumber() + " is a " + numberType + " number, operated in "
+    + operatorInfo.getIsoCountryCode() + " by " + operatorName);
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
 
 ## Run the code
 
@@ -198,12 +232,12 @@ Then, build the package.
 mvn package
 ```
 
-Run the following `mvn` command to execute the app.
+To execute the app, use the `mvn` command.
 
 ```console
-mvn exec:java -Dexec.mainClass="com.communication.lookup.quickstart.App" -Dexec.cleanupDaemonThreads=false
+mvn exec:java -D"exec.mainClass"="com.communication.lookup.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
 ```
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure/communication-preview/tree/master/samples/NumberLookup).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/LookupNumber).

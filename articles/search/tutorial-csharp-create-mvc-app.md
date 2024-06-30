@@ -11,11 +11,12 @@ ms.devlang: csharp
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 03/09/2023
+ms.date: 04/22/2024
 ---
+
 # Create a search app in ASP.NET Core
 
-In this tutorial, create a basic ASP.NET Core (Model-View-Controller) app that runs in localhost and connects to the hotels-sample-index on your search service. In this tutorial, you'll learn to:
+In this tutorial, create a basic ASP.NET Core (Model-View-Controller) app that runs in localhost and connects to the hotels-sample-index on your search service. In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > + Create a basic search page
@@ -30,12 +31,10 @@ Sample code for this tutorial can be found in the [azure-search-dotnet-samples](
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Azure AI Search](search-create-service-portal.md) <sup>1</sup> 
-+ [Hotel samples index](search-get-started-portal.md) <sup>2</sup>
++ [Azure AI Search](search-create-service-portal.md), any tier, but it must have public network access. 
++ [Hotel samples index](search-get-started-portal.md)
 
-<sup>1</sup> The search service can be any tier, but it must have public network access for this tutorial. 
-
-<sup>2</sup> To complete this tutorial, you need to create the hotels-sample-index on your search service. Make sure the search index name is`hotels-sample-index`, or change the index name in the `HomeController.cs` file.
+[Step through the Import data wizard](search-get-started-portal.md) to create the hotels-sample-index on your search service. Or, change the index name in the `HomeController.cs` file.
 
 ## Create the project
 
@@ -45,7 +44,7 @@ Sample code for this tutorial can be found in the [azure-search-dotnet-samples](
 
 1. Provide a project name, and then select **Next**.
 
-1. On the next page, select **.NET 6.0** or **.NET 7.0**.
+1. On the next page, select **.NET 6.0** or **.NET 7.0** or **.NET 8.0**.
 
 1. Verify that **Do not use top-level statements** is unchecked.
 
@@ -57,7 +56,7 @@ Sample code for this tutorial can be found in the [azure-search-dotnet-samples](
 
 1. Browse for `Azure.Search.Documents` and install the latest stable version.
 
-1. Browse for and install the `Microsoft.Spatial` package. The sample index includes a GeographyPoint data type. Installing this package avoids run time errors. Alternatively, remove the "Location" field from the Hotels class if you don't want to install the package. It's not used in this tutorial.
+1. Browse for and install the `Microsoft.Spatial` package. The sample index includes a GeographyPoint data type. Installing this package avoids run time errors. Alternatively, remove the "Location" field from the Hotels class if you don't want to install the package. That field isn't used in this tutorial.
 
 ### Add service information
 
@@ -334,7 +333,6 @@ For this tutorial, modify the default `HomeController` to contain methods that e
     }
     
     <div>
-        <img src="~/images/azure-logo.png" width="80" />
         <h2>Search for Hotels</h2>
     
         <p>Use this demo app to test server-side sorting and filtering. Modify the RunQueryAsync method to change the operation. The app uses the default search configuration (simple search syntax, with searchMode=Any).</p>
@@ -404,7 +402,7 @@ In the next several sections, modify the **RunQueryAsync** method in the `HomeCo
 
 ## Filter results
 
-Index field attributes determine which fields are searchable, filterable, sortable, facetable, and retrievable. In the hotels-sample-index, filterable fields include "Category", "Address/City", and "Address/StateProvince". This example adds a [$Filter](search-query-odata-filter.md) expression on "Category".
+Index field attributes determine which fields are searchable, filterable, sortable, facetable, and retrievable. In the hotels-sample-index, filterable fields include Category, Address/City, and Address/StateProvince. This example adds a [$Filter](search-query-odata-filter.md) expression on Category.
 
 A filter always executes first, followed by a query assuming one is specified.
 
@@ -437,13 +435,13 @@ A filter always executes first, followed by a query assuming one is specified.
 
 1. Run the application.
 
-1. Select **Search** to run an empty query. The filter criteria returns 18 documents instead of the original 50.
+1. Select **Search** to run an empty query. The filter returns 18 documents instead of the original 50.
 
 For more information about filter expressions, see [Filters in Azure AI Search](search-filters.md) and [OData $filter syntax in Azure AI Search](search-query-odata-filter.md).
 
 ## Sort results
 
-In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated". This example adds an [$OrderBy](/dotnet/api/azure.search.documents.searchoptions.orderby) expression to the "Rating" field.
+In the hotels-sample-index, sortable fields include Rating and LastRenovated. This example adds an [$OrderBy](/dotnet/api/azure.search.documents.searchoptions.orderby) expression to the Rating field.
 
 1. Open the `HomeController` and replace **RunQueryAsync** method with the following version:
 
@@ -473,15 +471,9 @@ In the hotels-sample-index, sortable fields include "Rating" and "LastRenovated"
     }
    ```
 
-1. Run the application. Results are sorted by "Rating" in descending order.
+1. Run the application. Results are sorted by Rating in descending order.
 
 For more information about sorting, see [OData $orderby syntax in Azure AI Search](search-query-odata-orderby.md).
-
-<!-- ## Relevance tuning
-
-Relevance tuning is a server-side operation. To boost the relevance of a document based on a match found in a specific field, such as "Tags" or location, [add a scoring profile](index-add-scoring-profiles.md) to the index, and then rerun your queries.
-
-Use the Azure portal to add a scoring profile to the existing hotels-sample-index. -->
 
 ## Next steps
 

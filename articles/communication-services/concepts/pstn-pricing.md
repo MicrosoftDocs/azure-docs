@@ -13,11 +13,13 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
+[!INCLUDE [Azure Prepayment](../includes/azure-prepayment.md)]
+
 Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country/region) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the type of number and location in which a call is terminated (destination), with few scenarios having rates based on origination location.
 
 In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer are able to buy the Number. See here for details on [in-country/region and cross-country/region purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 
-All prices shown below are in USD.
+Pricing for all countries/regions is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees. All prices shown below are in USD.
 
 ## United States telephony offers
 
@@ -571,11 +573,8 @@ All prices shown below are in USD.
 |-------------|---------------|-----------------|
 |Toll-free    |N/A            |USD 0.2161/min   |
 
-***
 
-Note: Pricing for all countries/regions is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
 
-***
 ## Direct routing pricing
 For Azure Communication Services direct routing, there is a flat rate regardless of the geography:
 

@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud security recomm
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 06/13/2024
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -13,9 +13,9 @@ ai-usage: ai-assisted
 # Security recommendations
 
 
-Microsoft Defender for Cloud provides security recommendations that help to improve your cloud posture.
+Microsoft Defender for Cloud provides security policies that help you to improve organizational security posture. Security policies include Microsoft Security Benchmark and other compliance standards. Defender for Cloud assesses resources and settings against defined standards, and makes [security recommendations](security-policy-concept.md) that are issued based on an assessment of resourcs against defined standards.
 
-Defender for Cloud assesses resources and settings against security standards, and make security recommendations based on those assessments. 
+
 
 You can review reference lists of the security recommendations across Azure, AWS, and GCP. 
 
@@ -30,6 +30,8 @@ You can review reference lists of the security recommendations across Azure, AWS
 - [AI recommendations](recommendations-reference-ai.md)
 
 You can also review [deprecated recommendations](recommendations-reference-deprecated.md).
+
+
 
 ## Related content
 

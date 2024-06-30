@@ -1,7 +1,7 @@
 ---
 title: Create UI definition collection functions
 description: Describes the functions to use when working with collections, like arrays and objects.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/13/2020
 ---
 

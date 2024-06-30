@@ -67,7 +67,7 @@ To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpa
 1. Depending on whether you want to configure Group Policy centrally from your AD domain, or locally for each session host:
 
    1. **AD Domain**: Copy and paste the **terminalserver-avd.admx** file to the Central Store for your domain, for example `\\contoso.com\SYSVOL\contoso.com\policies\PolicyDefinitions`, where *contoso.com* is your domain name. Then copy the **en-us\terminalserver-avd.adml** file to the `en-us` subfolder.
-   1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   1. Open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
    
    1. **Locally**: Copy and paste the **terminalserver-avd.admx** file to `%windir%\PolicyDefinitions`. Then copy the **en-us\terminalserver-avd.adml** file to the `en-us` subfolder.
    1. Open the **Local Group Policy Editor** on the session host.
@@ -107,7 +107,7 @@ If you need to configure session hosts and clients to enable RDP Shortpath for p
 
 1. Depending on whether you want to configure Group Policy centrally from your AD domain, or locally for each session host:
 
-   1. **AD Domain**: Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   1. **AD Domain**: Open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
    
    1. **Locally**: Open the **Local Group Policy Editor** on the session host.
 
@@ -132,7 +132,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 1. Depending on whether you want to configure managed or unmanaged clients:
 
-    1. For managed clients, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your clients.
+    1. For managed clients, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your clients.
 
     1. For unmanaged clients, open the **Local Group Policy Editor** on the client.
 
@@ -269,7 +269,7 @@ Alternatively, you can block port **3390** (default) to your session hosts on a 
 
 1. Depending on whether you want to configure Group Policy centrally from your domain, or locally for each session host:
 
-   1. **AD Domain**: Open the **Group Policy Management Console** (GPMC) and edit the existing policy that targets your session hosts.
+   1. **AD Domain**: Open the **Group Policy Management Console (GPMC)** and edit the existing policy that targets your session hosts.
 
    1. **Locally**: Open the **Local Group Policy Editor** on the session host.
 
@@ -290,7 +290,7 @@ Alternatively, if you want to disable RDP Shortpath for public networks only, yo
 
 1. Depending on whether you want to configure Group Policy centrally from your domain, or locally for each session host:
 
-   1. **AD Domain**: Open the **Group Policy Management Console** (GPMC) and edit the existing policy that targets your session hosts.
+   1. **AD Domain**: Open the **Group Policy Management Console (GPMC)** and edit the existing policy that targets your session hosts.
 
    1. **Locally**: Open the **Local Group Policy Editor** on the session host.
 
@@ -315,7 +315,7 @@ To configure managed and unmanaged Windows clients using Group Policy:
 
 1. Depending on whether you want to configure managed or unmanaged clients:
 
-    1. For managed clients, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your clients.
+    1. For managed clients, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your clients.
 
     1. For unmanaged clients, open the **Local Group Policy Editor** on the client.
 

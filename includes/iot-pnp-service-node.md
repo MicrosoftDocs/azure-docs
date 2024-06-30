@@ -54,7 +54,7 @@ In this tutorial, you use a sample thermostat device that's written in Node.js a
 
 ## Run the sample solution
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.

@@ -40,7 +40,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range="doc-intel-4.0.0"
  > [!IMPORTANT]
-> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business cards, use the following:
+> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business cards, use earlier models.
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|

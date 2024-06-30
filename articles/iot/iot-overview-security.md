@@ -101,7 +101,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
   - [Export IoT Central data](../iot-central/core/howto-export-to-blob-storage.md)
   - [Export IoT Central data to a secure destination on an Azure Virtual Network](../iot-central/core/howto-connect-secure-vnet.md)
 
-- **Monitor your IoT solution from the cloud**: Monitor the overall health of your IoT solution using the [IoT Hub metrics in Azure Monitor](../iot-hub/monitor-iot-hub.md) or [Monitor IoT Central application health](../iot-central/core/howto-manage-iot-central-from-portal.md#monitor-application-health).
+- **Monitor your IoT solution from the cloud**: Monitor the overall health of your IoT solution using the [IoT Hub metrics in Azure Monitor](../iot-hub/monitor-iot-hub.md) or [Monitor IoT Central application health](../iot-central/core/howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 - **Set up diagnostics**: Monitor your operations by logging events in your solution, and then sending the diagnostic logs to Azure Monitor. To learn more, see [Monitor and diagnose problems in your IoT hub](../iot-hub/monitor-iot-hub.md).
 

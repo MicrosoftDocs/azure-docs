@@ -6,7 +6,7 @@ ms.date: 02/06/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: azure-disk-storage
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, linux-related-content
 ---
 
 # Use the Azure CLI to enable double encryption at rest for managed disks

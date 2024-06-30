@@ -155,4 +155,4 @@ For instructions, see [Create a log analytics workspace](upload-logs.md#create-a
 
 ## Create Azure Arc data services
 
-After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](create-data-controller-direct-azure-portal.md).
+After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode - Azure Portal](create-data-controller-direct-azure-portal.md) or [using the Azure CLI](create-data-controller-direct-cli.md).

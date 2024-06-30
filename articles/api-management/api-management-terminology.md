@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Azure API Management terminology
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article gives definitions for the terms that are specific to Azure API Management.
 
 ## Term definitions

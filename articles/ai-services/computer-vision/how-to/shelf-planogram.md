@@ -250,7 +250,7 @@ This is the text you'll use in your API request body.
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/planogramcompliance:match?api-version=2023-04-01-preview" -d "<body>"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/planogramcompliance:match?api-version=2023-04-01-preview" -d "<body>"
     ```
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your Vision resource key.
@@ -300,4 +300,4 @@ Paired planogram position ID and corresponding detected object from product unde
 ## Next steps
 
 * [Image Analysis overview](../overview-image-analysis.md)
-* [API reference](https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/644aba14fb42681ae06f1b0a)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.date: 03/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate Log Analytics workspace to another region.
@@ -21,6 +21,17 @@ Log Analytics workspace doesn't natively support migrating workspace data from o
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
 
 :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics workspace relocation pattern.":::
+
+
+## Relocation to availability zone support
+
+[!INCLUDE [availability zone overview](../reliability/includes/reliability-availability-zone-description-include.md)]
+
+If you want to relocate your Log Analytics workspace to a region that supports availability zones:
+
+- Read [Azure availability zone migration baseline](../reliability/availability-zones-baseline.md) to assess the availability-zone readiness of your workload or application.
+- Follow the guidance in [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md).
+
 
 ## Prerequisites
 
@@ -65,6 +76,10 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 - Verify that your Azure subscription allows you to create Log Analytics workspaces in the target region.
 
 
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 ## Prepare
 
@@ -336,9 +351,6 @@ If you no longer need access to older data in the original workspace:
 
 ## Related content
 
-To learn more about moving resources between regions and disaster recovery in Azure, refer to:
-
-- [Migrate Log Analytics to availability zone support](../reliability/migrate-monitor-log-analytics.md)
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
