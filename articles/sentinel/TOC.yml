@@ -442,8 +442,6 @@
       href: data-connectors/cisco-secure-endpoint-amp.md
     - name: Cisco Software Defined WAN
       href: data-connectors/cisco-software-defined-wan.md
-    - name: Cisco Stealthwatch
-      href: data-connectors/cisco-stealthwatch.md
     - name: Cisco UCS
       href: data-connectors/cisco-ucs.md
     - name: Cisco Umbrella (using Azure Functions)
@@ -554,8 +552,6 @@
       href: data-connectors/hackerview-intergration.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data.md
-    - name: HYAS Protect (using Azure Functions)
-      href: data-connectors/hyas-protect.md
     - name: Imperva Cloud WAF (using Azure Functions)
       href: data-connectors/imperva-cloud-waf.md
     - name: Infoblox NIOS

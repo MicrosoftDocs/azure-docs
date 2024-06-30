@@ -1,5 +1,5 @@
 ---
-title: AI agents
+title: AI agent
 description: AI agent key concepts and implementation of AI agent memory system.
 author: wmwxwa
 ms.author: wangwilliam
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 06/26/2024
 ---
 
-# AI agents
+# AI agent
 
 AI agents are designed to perform specific tasks, answer questions, and automate processes for users. These agents vary widely in complexity, ranging from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can execute complex workflows autonomously. This article provides conceptual overviews and detailed implementation samples on AI agents.
 
 ## What are AI Agents?
 
-Unlike standalone large language models (LLMs) or rule-based software/hardware systems, AI agents possess the follow common features:
+Unlike standalone large language models (LLMs) or rule-based software/hardware systems, AI agent possesses the follow common features:
 
--	[Planning](#reasoning-and-planning). AI agents can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
--	[Tool usage](#frameworks). Advanced AI agents can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
--	[Perception](#frameworks). AI agents can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
--	[Memory](#ai-agent-memory-system). AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
+-	[Planning](#reasoning-and-planning). AI agent can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
+-	[Tool usage](#frameworks). Advanced AI agent can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
+-	[Perception](#frameworks). AI agent can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
+-	[Memory](#ai-agent-memory-system). AI agent possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). It stores these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
 
 > [!NOTE]
-> The usage of the term "memory" in the context of AI agents should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
+> The usage of the term "memory" in the context of AI agent should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
 
 ### Copilots
 
@@ -61,7 +61,7 @@ A multi-agent system provides the following advantages over a copilot or a singl
 -	Sophisticated abilities: Multi-agent systems can handle complex or large-scale problems by conducting thorough decision-making processes and distributing tasks among multiple agents.
 -	Enhanced memory: Multi-agent systems with memory can overcome large language models' context windows, enabling better understanding and information retention.
 
-## Implement AI agents
+## Implement AI agent
 
 ### Reasoning and planning
 
@@ -81,7 +81,7 @@ Reflexion agents verbally reflect on task feedback signals, then maintain their 
 
 ### Frameworks
 
-Various frameworks and tools can facilitate the development and deployment of AI agents.
+Various frameworks and tools can facilitate the development and deployment of AI agent.
 
 For tool usage and perception that do not require sophisticated planning and memory, some popular LLM orchestrator frameworks are LangChain, LlamaIndex, Prompt Flow, and Semantic Kernel.
 
@@ -94,10 +94,10 @@ For advanced and autonomous planning and execution workflows, [AutoGen](https://
 
 The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a [pure vector database](vector-database.md#integrated-vector-database-vs-pure-vector-database) for embedding management.
 
-However, this practice of using a complex web of standalone databases can hurt AI agent's performance. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, many of the frequently used database services are not optimal for the speed and scalability that AI agent systems need. These databases' individual weaknesses are exacerbated in multi-agent systems:
+However, this practice of using a complex web of standalone databases can hurt AI agent's performance. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agent is a significant challenge in and of itself. Moreover, many of the frequently used database services are not optimal for the speed and scalability that AI agent systems need. These databases' individual weaknesses are exacerbated in multi-agent systems:
 
 #### In-memory databases
-In-memory databases are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
+In-memory databases are excellent for speed but may struggle with the large-scale data persistence that AI agent requires.
 
 #### Relational databases
 Relational databases are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
