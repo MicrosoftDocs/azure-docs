@@ -31,11 +31,19 @@ For more information on Copilot for Security, see the following articles:
 - [Get started with Microsoft Copilot for Security](/security-copilot/get-started-security-copilot)
 - [Understand authentication in Microsoft Copilot for Security](/security-copilot/authentication)
 
-## Microsoft Copilot in Microsoft Sentinel (Preview)
+## Microsoft Sentinel integration with Copilot for Security
 
-Copilot for Security doesn't have an embedded experience in the Microsoft Sentinel Azure portal. However, because Microsoft Sentinel features are available in the Microsoft Defender portal as part of the unified security operations platform, [Copilot in Microsoft Defender XDR](/defender-xdr/security-copilot-in-microsoft-365-defender) provides some access to Microsoft Sentinel data with its integration experience.
+Microsoft Sentinel integrates with Copilot for Security in the following ways:
+- There are two Copilot for Security plugins, **Microsoft Sentinel (Preview)** and **Natural language to KQL for Microsoft Sentinel (Preview)**.
+- Part of the embedded experience of Copilot in Microsoft Defender includes Microsoft Sentinel unified data.
+
+These integration features combined are called, **Copilot in Microsoft Sentinel**.
+
+Copilot for Security doesn't have an embedded experience in the Microsoft Sentinel Azure portal or the Microsoft Sentinel section in the Microsoft Defender portal. However, Microsoft Sentinel features are available in the Microsoft Defender portal with the unified security operations platform. So, [Copilot in Microsoft Defender XDR](/defender-xdr/security-copilot-in-microsoft-365-defender) provides some access to Microsoft Sentinel data with its integration experience.
 
 For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md#new-and-improved-capabilities).
+
+Example: (to be added)
 
 ## System capabilities of Copilot in Microsoft Sentinel
 
