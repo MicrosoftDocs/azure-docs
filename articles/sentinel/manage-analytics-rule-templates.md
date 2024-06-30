@@ -27,15 +27,15 @@ This article shows you how to manage these tasks, and what to keep in mind. The 
 
 ## Discover your rule's template version number
 
-With the implementation of template version control, you can see and track the versions of your rule templates and the rules created from them. Rules with updated templates display an "*Update available*" badge next to the rule name.
+With the implementation of template version control, you can see and track the versions of your rule templates and the rules created from them. Rules with updated templates display an "*Update*" badge next to the rule name.
 
 1. On the **Analytics** page, select the **Active rules** tab.
 
 1. Select any rule of type **Scheduled**.  
 
-    - If the rule displays the "*Update available*" badge, its details pane will have a **Review and update** button next to the **Edit** button (see image 1 in the next step).
+    - If the rule displays the "*Update*" badge, its details pane will have a **Review and update** button next to the **Edit** button (see image 1 in the next step).
 
-    - If the rule was created from a template but doesn't have the "*Update available*" badge, its details pane will have a **Compare with template** button next to the **Edit** button (see images 2 and 3 in the next step).
+    - If the rule was created from a template but doesn't have the "*Update*" badge, its details pane will have a **Compare with template** button next to the **Edit** button (see images 2 and 3 in the next step).
 
     - If there's only an **Edit** button, the rule was created from scratch, not from a template.
 

@@ -62,7 +62,7 @@ This section describes how to create a rule using the Azure or Defender portals.
 
 1. In the action bar at the top, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-    :::image type="content" source="media/detect-threats-custom/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal." lightbox="media/detect-threats-custom/create-scheduled-query.png":::
+    :::image type="content" source="media/create-analytics-rules/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal." lightbox="media/create-analytics-rules/create-scheduled-query.png":::
 
 # [Defender portal](#tab/defender-portal)
 
@@ -70,7 +70,7 @@ This section describes how to create a rule using the Azure or Defender portals.
 
 1. In the action bar at the top of the grid, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-    :::image type="content" source="media/detect-threats-custom/defender-create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Defender portal." lightbox="media/detect-threats-custom/defender-create-scheduled-query.png":::
+    :::image type="content" source="media/create-analytics-rules/defender-create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Defender portal." lightbox="media/create-analytics-rules/defender-create-scheduled-query.png":::
 
 ---
 
@@ -89,29 +89,24 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
     | **Medium** | The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity. |
     | **High** | The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment. |
 
-    Severity level defaults are not a guarantee of current or environmental impact level. [Customize alert details](customize-alert-details.md) to customize the severity, tactics, and other properties of a given instance of an alert with the values of any relevant fields from a query output.
-
-    Severity definitions for Microsoft Sentinel analytics rule templates are relevant only for alerts created by analytics rules. For alerts ingested from other services, the severity is defined by the source security service.
-
-1. In the **Tactics and techniques** field, you can choose from among categories of threat activities by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
-
-    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
+1. Choose from among the **MITRE ATT&CK** tactics and techniques those threat activities which apply to your rule.
 
     For more information on maximizing your coverage of the MITRE ATT&CK threat landscape, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md)
 
-1. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+1. Leave the **Status** set to **Enabled** if you want it to run immediately after you finish creating it. If you don’t, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
    > [!NOTE]
    > There's another way, currently in preview, to create a rule without it running immediately. You can schedule the rule to first run at a specific date and time. See [Schedule and scope the query](#schedule-and-scope-the-query) below.
+
 1. Select **Next: Set rule logic**.
 
    # [Azure portal](#tab/azure-portal)
 
-   :::image type="content" source="media/detect-threats-custom/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
+   :::image type="content" source="media/create-analytics-rules/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
 
    # [Defender portal](#tab/defender-portal)
 
-   :::image type="content" source="media/detect-threats-custom/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
+   :::image type="content" source="media/create-analytics-rules/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
 
    ---
 
@@ -123,19 +118,19 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
 1. **Map entities.**
 
-   Entities are essential for detecting and investigating threats. Map the entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the discovered entities into the [*Entities* field in your alert schema](security-alert-schema.md).
+   Define up to 10 entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the identified entities into the [*Entities* field in your alert schema](security-alert-schema.md).
 
    For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
 
 1. **Surface custom details in your alerts.**
 
-   By default, only the alert entities and metadata are visible in incidents without drilling down into the raw events in the query results. This step takes other fields in your query results and integrates them into the [*ExtendedProperties* field in your alerts](security-alert-schema.md), causing them to be displayed up front in your alerts, and in any incidents created from those alerts.
+   Define any fields in your query results you wish to be surfaced in your alerts as custom details. These fields appear in any incidents that result as well.
 
    For complete instructions on surfacing custom details, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
 
 1. **Customize alert details.**
 
-   This setting allows you to customize otherwise-standard alert properties according to the content of various fields in each individual alert. These customizations are integrated into the [*ExtendedProperties* field in your alerts](security-alert-schema.md). For example, you can customize the alert name or description to include a username or IP address featured in the alert.
+   Customize otherwise-standard alert properties according to the content of various fields in each individual alert. For example, customize the alert name or description to include a username or IP address featured in the alert.
 
    For complete instructions on customizing alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
@@ -163,15 +158,15 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
         - The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
 
-            :::image type="content" source="media/detect-threats-custom/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
+            :::image type="content" source="media/create-analytics-rules/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
 
        # [Azure portal](#tab/azure-portal)
 
-       :::image type="content" source="media/detect-threats-custom/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
+       :::image type="content" source="media/create-analytics-rules/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
 
        # [Defender portal](#tab/defender-portal)
 
-       :::image type="content" source="media/detect-threats-custom/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
+       :::image type="content" source="media/create-analytics-rules/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
 
        ---
 
@@ -209,7 +204,7 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
    Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
 
-   :::image type="content" source="media/detect-threats-custom/results-simulation.png" alt-text="Results simulation screenshots":::
+   :::image type="content" source="media/create-analytics-rules/results-simulation.png" alt-text="Results simulation screenshots":::
 
    If you see that your query would trigger too many or too frequent alerts, you can experiment with the settings in the [**Query scheduling**](#schedule-and-scope-the-query) and [**Alert threshold**](#alert-threshold) sections and select **Test with current data** again.
 
@@ -255,11 +250,11 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
     # [Azure portal](#tab/azure-portal)
 
-    :::image type="content" source="media/detect-threats-custom/incident-settings-tab.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Azure portal.":::
+    :::image type="content" source="media/create-analytics-rules/incident-settings-tab.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Azure portal.":::
 
     # [Defender portal](#tab/defender-portal)
 
-    :::image type="content" source="media/detect-threats-custom/defender-incident-settings.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Defender portal.":::
+    :::image type="content" source="media/create-analytics-rules/defender-incident-settings.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Defender portal.":::
 
     ---
 
@@ -282,11 +277,11 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 
 # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/detect-threats-custom/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
+:::image type="content" source="media/create-analytics-rules/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
 
 # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/detect-threats-custom/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
+:::image type="content" source="media/create-analytics-rules/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
 
 ---
 
@@ -299,11 +294,11 @@ Select **Next: Review and create** to review all the settings for your new analy
 
 # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/detect-threats-custom/review-and-create-tab.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Azure portal.":::
+:::image type="content" source="media/create-analytics-rules/review-and-create-tab.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Azure portal.":::
 
 # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/detect-threats-custom/defender-review-and-create.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Defender portal.":::
+:::image type="content" source="media/create-analytics-rules/defender-review-and-create.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Defender portal.":::
 
 ---
 
