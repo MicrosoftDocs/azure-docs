@@ -3,7 +3,7 @@ title: Reference table for all security recommendations for DevOps in Microsoft 
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your DevOps resources.
 author: dcurwin
 ms.service: defender-for-cloud
-ms.topic: reference
+ms.topic: concepts
 ms.date: 09/27/2023
 ms.author: dacurwin
 ms.custom: generated
