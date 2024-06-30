@@ -88,29 +88,24 @@ If you have access to multiple Microsoft Sentinel workspaces, increase your prom
 
    Example prompt:
 
-   `*What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?*`
+   `What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?`
 
-### Sample prompts
+### Improve your Microsoft Sentinel prompts
 
 Consider the **Microsoft Sentinel incident investigation** promptbook as a starting point for creating effective prompts. This promptbook delivers a report about a specific incident, along with related alerts, reputation scores, users, and devices.
 
-For more information, see [Using promptbooks](/copilot/security/using-promptbooks).
+| Prompt guidance | prompt |
+|---|---|
+|Nudge Copilot to provide human readable information instead of responding with object IDs. | `Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.`|
+| Copilot knows who you are. Use the "me" pronoun to find incidents related to you. The following prompt targets incidents assigned to you. | `What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.` |
+| When you narrow a prompt response down to a single incident, Copilot knows the context.| `Tell me about the entities associated with that incident.`|
+| Copilot is good at summarizing. A useful way to summarize the prompts and responses so far for a specific audience. | `Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`|
 
-For general guidance on writing effective prompts, see [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot). Here are some examples that incorporate that guidance:
+For more prompt guidance and samples, see the following resources:
 
-The second part of the following prompt nudges Copilot to provide human readable information instead of responding with object IDs.<br>
-`Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.`
-
-Copilot knows who you are.<br>
-`What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.`
-
-When you narrow a prompt response down to a single incident, Copilot knows the context.<br>
-`Tell me about the entities associated with that incident.`
-
-A useful way to summarize the prompts and responses so far.<br>
-`Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`
-
-For more information on sample prompts, see [Rod Trent's Copilot for Security GitHub](https://github.com/rod-trent/Copilot-for-Security/blob/main/Prompts/Plugins/Sentinel.md).
+- [Using promptbooks](/copilot/security/using-promptbooks)
+- [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot)
+- [Rod Trent's Copilot for Security Prompt Library](https://github.com/rod-trent/Copilot-for-Security/tree/main/Prompts)
 
 ## Related articles
 
