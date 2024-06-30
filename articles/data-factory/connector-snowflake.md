@@ -282,9 +282,11 @@ If your sink data store and format meet the criteria described in this section, 
 
 - When you specify `storageIntegration` in the source:
 
-  The **sink linked service** is [**Azure Blob Storage**](connector-azure-blob-storage.md). If you want to directly copy data to Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob Storage linked service against your Azure Data Lake Storage Gen2 account, to avoid using [staged copy from Snowflake](#staged-copy-from-snowflake). 
+  The sink data store is the Azure Blob Storage that you referred in the external stage in Snowflake. You need to complete the following steps before copying data:
 
-  You need to grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the sink Azure Blob Storage or Azure Data Lake Storage Gen2 **Access Control (IAM)**.
+    1. Create an [**Azure Blob Storage**](connector-azure-blob-storage.md) linked service for the sink Azure Blob Storage with any supported authentication types.
+    
+    2. Grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the sink Azure Blob Storage **Access Control (IAM)**.
 
 - When you don't specify `storageIntegration` in the source:
   
@@ -354,11 +356,9 @@ When your sink data store or format isn't natively compatible with the Snowflake
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-> [!NOTE]
-> When you specify `storageIntegration` in the source, ensure that you grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+- When you specify `storageIntegration` in the source, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Contributor** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
-> [!NOTE]
-> When you don't specify `storageIntegration` in the source, the staging Azure Blob Storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob Storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
+- When you don't specify `storageIntegration` in the source, the staging Azure Blob Storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob Storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
 
 **Example:**
 
@@ -438,9 +438,11 @@ If your source data store and format meet the criteria described in this section
 
 - When you specify `storageIntegration` in the sink:
 
-  The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md). If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob Storage linked service against your Azure Data Lake Storage Gen2 account, to avoid using  [staged copy to Snowflake](#staged-copy-to-snowflake). 
+  The source data store is the Azure Blob Storage that you referred in the external stage in Snowflake. You need to complete the following steps before copying data:
 
-  You need to grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the source Azure Blob Storage or Azure Data Lake Storage Gen2 **Access Control (IAM)**.
+    1. Create an [**Azure Blob Storage**](connector-azure-blob-storage.md) linked service for the source Azure Blob Storage with any supported authentication types. 
+
+    2. Grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the source Azure Blob Storage **Access Control (IAM)**.
 
 - When you don't specify `storageIntegration` in the sink: 
 
@@ -514,11 +516,9 @@ When your source data store or format isn't natively compatible with the Snowfla
 
 To use this feature, create an [Azure Blob storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account as the interim staging. Then specify the `enableStaging` and `stagingSettings` properties in the Copy activity.
 
-> [!NOTE]
-> When you specify `storageIntegration` in the sink, ensure that you grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
+- When you specify `storageIntegration` in the sink, the interim staging Azure Blob Storage should be the one that you referred in the external stage in Snowflake. Ensure that you create an [Azure Blob Storage](connector-azure-blob-storage.md) linked service for it with any supported authentication, and grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
-> [!NOTE]
-> When you don't specify `storageIntegration` in the sink, the staging Azure Blob Storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
+- When you don't specify `storageIntegration` in the sink, the staging Azure Blob Storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
 
 **Example:**
 
