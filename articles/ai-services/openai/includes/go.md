@@ -41,6 +41,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 )
 
 func main() {
@@ -54,7 +55,7 @@ func main() {
 		return
 	}
 
-	keyCredential, err := azopenai.NewKeyCredential(azureOpenAIKey)
+	keyCredential := azcore.NewKeyCredential(azureOpenAIKey)
 
 	if err != nil {
 		// TODO: handle error
