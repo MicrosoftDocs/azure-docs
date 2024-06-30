@@ -1,23 +1,21 @@
 ---
 title: Data retention and sharing across Microsoft Defender for IoT
-description: Learn about the data retention periods and capacities for Microsoft Defender for IoT data stored in Azure, the OT sensor, and on-premises management console.
+description: Learn about the data retention periods and capacities for Microsoft Defender for IoT data stored in Microsoft Azure, the OT sensor, and on-premises management console.
 ms.topic: conceptual
 ms.date: 01/22/2023
 ---
 
 # Data retention, privacy, and sharing across Microsoft Defender for IoT
 
-Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
+Microsoft Defender for IoT stores data in the MIcrosoft Azure portal, in OT network sensors, and in on-premises management consoles.
 
-Each storage type has various storage capacity options and retention times. This article describes the data retention policy as well as the amount of data and length of time it's stored in each storage type before being deleted or overwritten.
+Each storage type has varying storage capacity options and retention times. This article describes the data retention policy for the amount of data and length of time it's stored in each storage type before being deleted or overwritten.
 
 ## What are we collecting? 
 
 Defender for IoT collects information from your configured devices and stores it in a service specific, customer-dedicated and segregated tenant. The stored data is for administration, tracking, and reporting purposes.
 
-Information collected includes network connection data (IPs and ports), and device details (device identifiers, names, operating system versions, firmware versions). 
-
-Microsoft stores this data securely in Microsoft Azure portal and maintains it in accordance with Microsoft privacy practices and [Microsoft Trust Center policies](https://azure.microsoft.com/explore/trusted-cloud/).
+Information collected includes network connection data (IPs and ports), and device details (device identifiers, names, operating system versions, firmware versions). Defender for IoT stores this data securely in accordance with Microsoft privacy practices and [Microsoft Trust Center policies](https://azure.microsoft.com/explore/trusted-cloud/).
 
 This data enables Defender for IoT to: 
 
@@ -32,7 +30,7 @@ Microsoft doesn't use your data for advertising.
 Defender for IoT uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in one of two geo-locations:
 
 - The geo-location of the tenant as identified during provisioning. 
-- The geo-location as defined by the data storage rules of an online service if this online service is used by Defender for IoT to process such data. 
+- The geo-location as defined by the data storage rules of an online service if it's used by Defender for IoT to process such data. 
 
 ## Data retention 
 
@@ -113,17 +111,14 @@ For more information, see:
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
 - [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
 
-## On-premises backup file capacity
+## Backup file capacity
 
-Both the OT network sensor and the on-premises management console have automated backups running daily.
-
-On both the OT sensor and the on-premises management console, older backup files are overridden when the configured storage capacity reaches its maximum.
+Both the OT network sensor and the on-premises management console have automated backups running daily, and older backup files are overwritten when the configured storage capacity reaches its limit.
 
 For more information, see:
 
 - [Set up backup and restore files on an OT sensor](back-up-restore-sensor.md#set-up-backup-and-restore-files)
 - [Configure OT sensor backup settings on an on premises management console](legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
-- [Configure OT sensor backup settings for an on-premises management console](legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
 
 ### Backups on the OT network sensor
 
@@ -131,11 +126,11 @@ The retention of backup files depends on the sensor's architecture, as each hard
 
 | Hardware profile  | Allocated hard disk space  |
 |---------|---------|
-| **L100**     |  Backups aren't supported       |
-| **L500**     |  20 GB   |
+| **L100**  |  Backups aren't supported |
+| **L500**  |   20 GB  |
 | **E1000** |   60 GB  |
-| **E1800**       |   100 GB |
-| **C5600**       |   100 GB |
+| **E1800** |   100 GB |
+| **C5600** |   100 GB |
 
 If the device can't allocate enough hard disk space, then only the last backup is saved on the on-premises management console.
 
