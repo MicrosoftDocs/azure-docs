@@ -17,32 +17,32 @@ Defender for IoT collects information from your configured devices and stores it
 
 Information collected includes network connection data (IPs and ports), and device details (device identifiers, names, operating system versions, firmware versions). 
 
-Microsoft stores this data securely in Microsoft Azure portal and maintains it in accordance with Microsoft privacy practices and [Microsoft Trust Center policies](https://azure.microsoft.com/en-us/explore/trusted-cloud/). <!-- check the link works from within azure like this: /explore/trusted-cloud/ -->
+Microsoft stores this data securely in Microsoft Azure portal and maintains it in accordance with Microsoft privacy practices and [Microsoft Trust Center policies](https://azure.microsoft.com/explore/trusted-cloud/).
 
 This data enables Defender for IoT to: 
 
 - Proactively identify indicators of attack (IOAs) in your organization.
 - Generate alerts if a possible attack is detected.
-- Provide your security team a view into devices and addresses related to threat signals from your network, enabling you to investigate and explore possible network security threats.<!-- try to rewrite -->
+- Provide your security team a view into devices and addresses related to threat signals from your network, enabling you to investigate and explore possible network security threats.
 
 Microsoft doesn't use your data for advertising. 
 <!-- the new doc writes about storage on Azure, but doesnt mention on prem or sensor storage, should those sections later be removed or is this just about adding to what was on the doc? -->
-## Data Location 
+## Data location 
 
-Defender for Iot uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in:  
+Defender for IoT uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in one of two geo-locations:
 
-- the geo-location of the tenant as identified during provisioning, or <!-- remove? how do i find this in the style guide. --> 
-- the geo-location as defined by the data storage rules of an online service if this online service is used by Defender for Endpoint to process such data. 
+- The geo-location of the tenant as identified during provisioning. 
+- The geo-location as defined by the data storage rules of an online service if this online service is used by Defender for IoT to process such data. 
 
-## Data Retention 
+## Data retention 
 
 Data from Defender for IoT is retained for as long as a customer is active or for 90 days after contract termination or expiration<!-- the end of your contract-->. During this period the data is visible across your other services on the portal. <!-- is this correct? i think across other services is what is meant --> 
 
-Your data is kept and is available while your license is under a grace period or suspended mode. Ninety days after the end of this period, the <!-- your - which is better? --> data will be erased from Microsoft's systems to make it unrecoverable.
+Your data is kept and is available while your license is under a grace period or suspended mode. Ninety days after the end of this period, the <!-- your - which is better? --> data will be erased from Microsoft's systems making it unrecoverable.
 
 ## Device data retention periods
 
-The following table lists how long device data is stored in each Defender for IoT location.<!-- storage type?-->
+The following table lists how long device data is stored in each Defender for IoT storage type.
 
 | Storage type | Details |
 |---------|---------|
@@ -52,7 +52,7 @@ The following table lists how long device data is stored in each Defender for Io
 
 ## Alert data retention
 
-The following table lists how long alert data is stored in each Defender for IoT location<!-- storage type?-->. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
+The following table lists how long alert data is stored in each Defender for IoT storage type. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
 
 | Storage type | Details |
 |---------|---------|
@@ -62,7 +62,7 @@ The following table lists how long alert data is stored in each Defender for IoT
 
 ### OT alert PCAP data retention
 
-The following table lists how long PCAP data is stored in each Defender for IoT location.<!-- storage type?-->
+The following table lists how long PCAP data is stored in each Defender for IoT storage type.
 
 | Storage type | Details |
 |---------|---------|
@@ -113,12 +113,6 @@ For more information, see:
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
 - [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
 
-## Data sharing
-<!-- should this be added to the list here - ## Data sharing for Microsoft Defender for IoT or should this be removed now, as it wasnt in the doc list below. -->
-Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
-
-- Microsoft Security Exposure Management
-
 ## On-premises backup file capacity
 
 Both the OT network sensor and the on-premises management console have automated backups running daily.
@@ -155,15 +149,19 @@ If you're using an on-premises management console, each connected OT sensor also
 - Total hard disk space allocated to sensor backup from all sensors on the on-premises management console is 100 GB.
 
 ## Data sharing for Microsoft Defender for IoT 
-<!-- This could be placed nearer the beginning but I think generally these lists are kept for end of documents. -->
+
 Microsoft Defender for IoT shares data, including customer data, among the following Microsoft products, also licensed by the customer. 
 <!-- should we add links to each of these going to their main page? -->
 - Microsoft Defender XDR 
 - Microsoft Sentinel 
-- Microsoft Threat Intelligence <!-- MSTIC - what is this is there a full name for it? is this correct? --> 
+- Microsoft Threat Intelligence Center 
 - Microsoft Defender for Cloud 
 - Microsoft Defender for Endpoint 
+## Data sharing
+<!-- should this be added to the list here - ## Data sharing for Microsoft Defender for IoT or should this be removed now, as it wasnt in the doc list below. -->
+Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
 
+- Microsoft Security Exposure Management
 ## Next steps
 
 For more information, see:
