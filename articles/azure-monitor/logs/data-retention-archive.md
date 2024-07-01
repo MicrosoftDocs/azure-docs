@@ -3,7 +3,7 @@ title: Manage data retention in a Log Analytics workspace
 description: Configure retention settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 6/28/2023
+ms.date: 7/01/2024
 # Customer intent: As an Azure account administrator, I want to manage data retention for each table in my Log Analytics workspace based on my account's data usage and retention needs.
 ---
 
@@ -180,7 +180,7 @@ To modify the retention setting for a table in the Azure portal:
 
 1. Configure the interactive retention and total retention settings in the **Data retention settings** section of the table configuration screen.
 
-    :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" alt-text="Screenshot that shows the data retention settings on the table configuration screen.":::
+    :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-auxiliary.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-auxiliary.png" alt-text="Screenshot that shows the data retention settings on the table configuration screen.":::
 
 # [API](#tab/api-1)
 
@@ -289,7 +289,7 @@ To view a table's retention settings in the Azure portal, from the **Log Analyti
 
 The **Tables** screen shows the interactive retention and total retention periods for all the tables in the workspace.
 
-:::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
+:::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-auxiliary.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-auxiliary.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
 
 
 
