@@ -78,7 +78,7 @@ If you navigated away from the **Deployment is in progress** page, the following
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png" alt-text="Screenshot of the Azure portal that shows the resource group deployments list." lightbox="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows useful output values from the deployment.
-1. The **sshCommand** value is the fully qualified, SSH command to connect the VM that runs WebLogic Server. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
+1. The **sshCommand** value is the fully qualified SSH command to connect the VM that runs WebLogic Server. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **adminConsoleURL** value is the fully qualified, public internet visible link to the WebLogic Server admin console. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 
 ## Deploy a Java EE application from Administration Console portal
