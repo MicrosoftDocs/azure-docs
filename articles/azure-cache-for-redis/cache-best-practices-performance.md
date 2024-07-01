@@ -49,6 +49,8 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 - On the Premium tier, scaling out, clustering, is typically recommended before scaling up. Clustering allows Redis server to use more vCPUs by sharding data. Throughput should increase roughly linearly when adding shards in this case.
 
+- On _C0_ and _C1_ caches, you might see short spikes in server load not caused by an increase in requests a couple times a day while internal defender scanning is running on the VMs. You see higher latency for requests while internal defender scans happen on these tiers. Caches on the  _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal defender scanning and Redis requests. You can reduce the effect by scaling to a higher tier offering  with multiple CPU cores, such as _C2_.
+
 ## Redis-benchmark examples
 
 **Pre-test setup**:
