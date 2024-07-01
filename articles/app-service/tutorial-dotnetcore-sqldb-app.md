@@ -306,7 +306,7 @@ With the SQL Database protected by the virtual network, the easiest way to run [
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **Development Tools** > **SSH**. 
+        **Step 1:** Back in the App Service page, in the left menu, select **Development Tools** > **SSH**, then select **Go**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png":::
