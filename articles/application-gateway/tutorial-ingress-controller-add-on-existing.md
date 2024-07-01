@@ -80,7 +80,7 @@ az aks enable-addons --name myCluster --resource-group myResourceGroup --addon i
 ```
 ## Enable the AGIC add-on in existing AKS cluster through Azure portal 
 
-If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the portal link. From there, go to the Networking tab within your AKS cluster. You'll see an application gateway ingress controller section, which allows you to enable/disable the ingress controller add-on using the Azure portal. Select the box next to **Enable ingress controller**, and then select the application gateway you created, **myApplicationGateway** from the dropdown menu. Select **Save**.
+If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the portal link. From there, go to the Virtual network integration tab within your AKS cluster. You'll see an **Application gateway ingress controller** section, which allows you to enable and disable the ingress controller add-on. Select the Manage buttin, then the checkbox next to **Enable ingress controller**. Select the application gateway you created, **myApplicationGateway** and then select **Save**.
 
 > [!IMPORTANT]
 > When you use an application gateway in a different resource group than the AKS cluster resource group, the managed identity **_ingressapplicationgateway-{AKSNAME}_** that is created must have **Network Contributor** and **Reader** roles set in the application gateway resource group.
