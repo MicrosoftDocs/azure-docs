@@ -38,7 +38,7 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
   "text": "I hate you",
   "categories": [
    "Hate","Sexual","SelfHarm","Violence"
-  ]
+  ],
    "blocklistNames": [
       "string"
     ],

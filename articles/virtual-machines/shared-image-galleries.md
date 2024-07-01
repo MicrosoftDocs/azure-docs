@@ -108,6 +108,9 @@ Specialized VMs haven't been through a process to remove machine specific inform
 - VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
 - The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
 
+> [!NOTE]  
+> Generalized and specialized VM images contain an operating system disk and all the attached disks, if there any. 
+
 
 ## Updating resources
 

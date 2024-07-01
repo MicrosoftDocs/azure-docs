@@ -1,14 +1,10 @@
 ---
 title: SOC optimization reference
-description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
-ms.service: defender-xdr
-ms.pagetype: security
+description: Learn about the Microsoft Sentinel SOC optimization recommendations available to help you optimize your security operations.
 ms.author: bagol
 author: batamig
 manager: raynew
 ms.collection:
-  - m365-security
-  - tier1
   - usx-security
 ms.topic: reference
 ms.date: 06/09/2024
@@ -65,6 +61,11 @@ The following table lists the available threat-based SOC optimization recommenda
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
 
+
+## Related content
+
+- [Using SOC optimizations programmatically (Preview)](soc-optimization-api.md)
+- [Blog: SOC optimization: unlock the power of precision-driven security management](https://aka.ms/SOC_Optimization)
 
 ## Next step
 

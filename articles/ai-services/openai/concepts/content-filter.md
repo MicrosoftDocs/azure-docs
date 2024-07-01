@@ -6,7 +6,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 11/06/2023
+ms.date: 06/25/2023
 ms.custom: template-concept, devx-track-python
 manager: nitinme
 ---
@@ -70,10 +70,14 @@ The default content filtering configuration for the GPT model series is set to f
 
 <sup>1</sup> For Azure OpenAI models, only customers who have been approved for modified content filtering have full content filtering control and can turn content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters](https://ncv.microsoft.com/uEfCgnITdR) For Azure Government customers, please apply for modified content filters via this form: [Azure Government - Request Modified Content Filtering for Azure OpenAI Service](https://aka.ms/AOAIGovModifyContentFilter).
 
-This preview feature is available for the following Azure OpenAI models:
-* GPT model series (text) 
-* GPT-4 Turbo Vision 2024-04-09 (multi-modal text/image)
-* DALL-E 2 and 3 (image)
+Configurable content filters for inputs (prompts) and outputs (completions) are available for the following Azure OpenAI models:
+
+* GPT model series
+* GPT-4 Turbo Vision GA<sup>*</sup> (turbo-2024-04-09)
+* GPT-4o 
+* DALL-E 2 and 3
+
+<sup>*</sup>Only available for GPT-4 Turbo Vision GA, does not apply to GPT-4 Turbo Vision preview 
 
 Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
 
@@ -847,7 +851,7 @@ To enable Asynchronous Filter in Azure OpenAI Studio, follow the [Content filter
 |Status |GA |Public Preview |
 | Eligibility |All customers |Customers approved for modified content filtering |
 | How to enable | Enabled by default, no action needed |Customers approved for modified content filtering can configure it directly in Azure OpenAI Studio (as part of a content filtering configuration, applied at the deployment level) |
-|Modality and availability |Text; all GPT models |Text; all GPT models except gpt-4-vision |
+|Modality and availability |Text; all GPT models |Text; all GPT models |
 |Streaming experience |Content is buffered and returned in chunks |Zero latency (no buffering, filters run asynchronously) |
 |Content filtering signal |Immediate filtering signal |Delayed filtering signal (in up to ~1,000-character increments) |
 |Content filtering configurations |Supports default and any customer-defined filter setting (including optional models) |Supports default and any customer-defined filter setting (including optional models) |

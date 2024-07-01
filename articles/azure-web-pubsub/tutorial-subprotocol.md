@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Generate the full URL to establish the WebSocket connection
 > * Publish messages between WebSocket clients using subprotocol
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
