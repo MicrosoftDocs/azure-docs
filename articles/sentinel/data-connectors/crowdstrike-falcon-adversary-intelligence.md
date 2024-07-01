@@ -3,7 +3,7 @@ title: "CrowdStrike Falcon Adversary Intelligence (using Azure Functions) connec
 description: "Learn how to install the connector CrowdStrike Falcon Adversary Intelligence (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 0/01/2024
+ms.date: 07/01/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector

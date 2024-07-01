@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 06/28/2024
+ms.date: 07/01/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
