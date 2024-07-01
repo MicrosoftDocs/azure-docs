@@ -19,7 +19,7 @@ This article shares some information on HPC VM images to be used to launch Infin
 
 The Azure HPC team is pleased to announce the availability of optimized and pre-configured Linux VM images for HPC and AI workloads. These VM images are:
 
-- Based on the vanilla Ubuntu and AlmaLinux marketplace VM images.
+- Based on upstream Ubuntu and AlmaLinux marketplace VM images.
 - Pre-configured with NVIDIA Mellanox OFED driver for InfiniBand, NVIDIA GPU drivers, popular MPI libraries, vendor tuned HPC libraries, and recommended performance optimizations.
 - Including optimizations and recommended configurations to deliver optimal performance, consistency, and reliability. 
 
