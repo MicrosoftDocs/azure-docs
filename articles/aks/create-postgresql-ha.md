@@ -137,7 +137,7 @@ To enable backups, the PostgreSQL cluster needs to read and write to an object s
     echo $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID
     ````
 
-1. Assign the Azure built-in role "Storage Blob Data Contributor" to the object ID, using the storage account resource ID scope for the UAMI associated with the managed identity for each AKS cluster, by using the [`az role assignment create`][az-role-assignment-create] command.
+1. Assign the "Storage Blob Data Contributor" Azure built-in role to the object ID with the storage account resource ID scope for the UAMI associated with the managed identity for each AKS cluster using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create \
