@@ -57,7 +57,6 @@ Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing ano
 > The CNPG operator supports only *one database per cluster*. Plan accordingly for applications that require data separation at the database level.
 
 
-
 ## Next steps
 
 Now that you have the required tooling installed,  [create the infrastructure to deploy a highly available PostgreSQL database on AKS using the CNPG operator][create-infrastructure].
