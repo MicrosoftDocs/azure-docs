@@ -117,6 +117,8 @@
       href: how-to-define-network-group-membership-azure-policy.md
     - name: Common issues
       href: common-issues.md
+    - name: Verify resource reachability
+      href: how-to-verify-reachability-with-virtual-network-verifier.md
   - name: User-defined routes (UDRs) management
     items:
     - name: Create user-defined routes (UDRs)
