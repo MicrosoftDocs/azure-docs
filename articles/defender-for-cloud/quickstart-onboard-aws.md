@@ -316,6 +316,7 @@ There's no need to clean up any resources for this article.
 
 Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud:
 
+- [Assign access to workload owners](assign-access-to-workload.md).
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
