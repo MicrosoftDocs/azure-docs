@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 04/22/2024
+ms.date: 07/01/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -114,20 +114,6 @@ metadata:
   name: broker
   namespace: azure-iot-operations
 spec:
-  authImage:
-    pullPolicy: Always
-    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
-    tag: 0.4.0-preview
-  brokerImage:
-    pullPolicy: Always
-    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
-    tag: 0.4.0-preview
-  healthManagerImage:
-    pullPolicy: Always
-    repository: mcr.microsoft.com/azureiotoperations/dmqtt-operator
-    tag: 0.4.0-preview
-  diagnostics:
-    probeImage: mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview
   memoryProfile: medium
   mode: distributed
   cardinality:
