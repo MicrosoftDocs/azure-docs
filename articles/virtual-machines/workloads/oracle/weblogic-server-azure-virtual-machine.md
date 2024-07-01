@@ -11,14 +11,10 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Quickstart: Deploy WebLogic Server on Azure Virtual Machines (VMs)
 
-This article shows you how to quickly deploy WebLogic Server (WLS) on Azure Virtual Machine (VM) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS cluster on VM securely visible on the public internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+This article shows you how to quickly deploy WebLogic Server (WLS) on an Azure Virtual Machine (VM) with the simplest possible set of configuration choices using the Azure portal. In this quickstart, you will learn how to:
 
-In this quickstart, you will learn how to:
-
-- Deploy WebLogic Server with Administration Server on a VM using the Azure portal.
-- Deploy a Java EE sample application with WebLogic Server Administration Console portal.
-
-This quickstart assumes a basic understanding of WebLogic Server concepts. For more information, see [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/).
+- Deploy WebLogic Server with Administration Server enabled on a VM using the Azure portal.
+- Deploy a sample Java application with the WebLogic Server Administration Console.
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
