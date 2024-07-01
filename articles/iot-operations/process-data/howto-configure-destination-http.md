@@ -3,7 +3,7 @@ title: Send data to an HTTP endpoint from a pipeline
 description: Configure a pipeline destination stage to send the pipeline output to an HTTP endpoint for further processing.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.topic: how-to
 ms.date: 02/16/2024
 

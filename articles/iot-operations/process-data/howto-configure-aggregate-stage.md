@@ -3,7 +3,7 @@ title: Aggregate data in a pipeline
 description: Configure an aggregate pipeline stage to aggregate data in an Azure IoT Data Processor pipeline to enable batching and down-sampling scenarios.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

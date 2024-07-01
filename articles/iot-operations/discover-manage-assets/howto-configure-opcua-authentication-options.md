@@ -3,7 +3,7 @@ title: Configure OPC UA user authentication options
 description: How to configure OPC UA Broker user authentication options for it to use when it connects to an OPC UA server.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: opcua-broker
+ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.custom: ignite-2023
 ms.date: 05/16/2024

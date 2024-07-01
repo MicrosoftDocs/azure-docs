@@ -3,7 +3,7 @@ title: Azure IoT Akri architecture
 description: Understand the key components in the Azure IoT Akri architecture and how they relate to each other. Includes some information about the CNCF version of Akri
 author: dominicbetts
 ms.author: dobett
-ms.subservice: akri
+ms.subservice: azure-akri
 ms.topic: conceptual
 ms.custom:
   - ignite-2023

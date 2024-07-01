@@ -3,7 +3,7 @@ title: OPC UA certificates infrastructure overview
 description: Describe the security concepts of OPC UA and how they can be managed in the Azure IoT OPC UA Broker context.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: opcua-broker
+ms.subservice: azure-opcua-connector
 ms.topic: concept-article
 ms.date: 05/15/2024
 

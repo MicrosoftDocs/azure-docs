@@ -3,7 +3,7 @@ title: Connect industrial assets using Azure IoT OPC UA Broker
 description: Use the Azure IoT OPC UA Broker to connect to OPC UA servers and exchange telemetry with a Kubernetes cluster.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: opcua-broker
+ms.subservice: azure-opcua-connector
 ms.topic: overview
 ms.date: 05/14/2024
 

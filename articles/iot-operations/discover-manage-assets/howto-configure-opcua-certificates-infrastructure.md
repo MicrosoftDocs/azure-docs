@@ -3,7 +3,7 @@ title: Configure OPC UA certificates
 description:  How to configure and manage the OPC UA certificates trust relationship in the context of OPC UA Broker
 author: dominicbetts
 ms.author: dobett
-ms.subservice: opcua-broker
+ms.subservice: azure-opcua-connector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/15/2024
