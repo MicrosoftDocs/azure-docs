@@ -17,10 +17,10 @@ AI agents are designed to perform specific tasks, answer questions, and automate
 
 Unlike standalone large language models (LLMs) or rule-based software/hardware systems, AI agent possesses the follow common features:
 
--	[Planning](#reasoning-and-planning). AI agent can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
--	[Tool usage](#frameworks). Advanced AI agent can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
--	[Perception](#frameworks). AI agent can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
--	[Memory](#ai-agent-memory-system). AI agent possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). It stores these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
+-	Planning. AI agent can plan and sequence actions to achieve specific goals. The integration of LLMs has revolutionized their planning capabilities.
+-	Tool usage. Advanced AI agent can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
+-	Perception. AI agent can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
+-	Memory. AI agent possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). It stores these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
 
 > [!NOTE]
 > The usage of the term "memory" in the context of AI agent should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
@@ -150,7 +150,7 @@ In place of all the standalone databases, Azure Cosmos DB can serve as a unified
 
 #### Speed
 
-Azure Cosmos DB provides single-digit millisecond latency, making it highly suitable for processes requiring rapid data access and management, including caching (traditional and semantic), transactions, and operational workloads. This low latency is crucial for AI agents that need to perform complex reasoning, make real-time decisions, and provide immediate responses. Moreover, its [use of state-of-the-art DiskANN algorithm](nosql/vector-search.md#enroll-in-the-vector-search-preview-feature) provides accurate and fast vector search with 95% less memory consumption.
+Azure Cosmos DB provides single-digit millisecond latency, making it highly suitable for processes requiring rapid data access and management, including caching (both traditional and [semantic caching](https://techcommunity.microsoft.com/t5/azure-architecture-blog/optimize-azure-openai-applications-with-semantic-caching/ba-p/4106867), transactions, and operational workloads. This low latency is crucial for AI agents that need to perform complex reasoning, make real-time decisions, and provide immediate responses. Moreover, its [use of state-of-the-art DiskANN algorithm](nosql/vector-search.md#enroll-in-the-vector-search-preview-feature) provides accurate and fast vector search with 95% less memory consumption.
 
 #### Scale
 
