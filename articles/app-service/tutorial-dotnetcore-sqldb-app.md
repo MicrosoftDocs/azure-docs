@@ -584,7 +584,7 @@ Azure App Service can capture console logs to help you diagnose issues with your
 
 The sample application includes standard logging statements to demonstrate this capability, as shown in the following snippet:
 
-:::code language="csharp" source="~/msdocs-app-service-sqldb-dotnetcore/blob/8.0/Controllers/TodosController.cs" range="28-45" highlight="6,12":::
+:::code language="csharp" source="~/msdocs-app-service-sqldb-dotnetcore/Controllers/TodosController.cs" range="28-45" highlight="6,12":::
 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
