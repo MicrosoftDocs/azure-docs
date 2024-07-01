@@ -67,23 +67,6 @@ db.collection.find({ field: "value" }).maxTimeMS(5000)
 - Indexing applies to only one vector per path.
 - Only one index can be created per vector path.
 
-## Storage and Connection Limits
-
-### Disk IOPS
-| Disk Size (GiB) | IOPS per Disk |
-|-----------------|---------------|
-| 32              | 120           |
-| 64              | 240           |
-| 128             | 500           |
-| 256             | 1,100         |
-| 512             | 2,300         |
-| 1 TB            | 5,000         |
-| 2 TB            | 7,500         |
-| 4 TB            | 7,500         |
-| 8 TB            | 16,000        |
-| 16 TB           | 18,000        |
-| 32 TB           | 20,000        |
-
 ## Cluster and Shard Limits
 
 ### Cluster Tier
@@ -107,7 +90,7 @@ The following limitations can be overidden by upgrading a paid tier
 
 ## Replication and HA Limits
 
-### Cross-Region Replication
+### Cross-Region Replication (Preview)
 - Supported only on single shard (node) vCore clusters.
 - The following configurations are the same on both primary and replica clusters and cannot be changed on the replica cluster:
   - Compute configuration
