@@ -42,7 +42,7 @@ There are a few drawbacks to locking down the public endpoint.
 
 + It takes time to fully identify IP ranges and set up firewalls, and if you're in early stages of proof-of-concept testing and investigation and using sample data, you might want to defer network access controls until you actually need them.
 
-+ Some workflows require access to a public endpoint. Specifically, the import wizards in the Azure portal, such as the [Import data wizard](search-get-started-portal.md) and [Import and vectorize data wizard](search-get-started-portal-import-vectors.md), connect to built-in (hosted) sample data and embedding models over the public endpoint. You can switch to code or script to complete the same tasks with firewall rules in place, but if you want to run the wizards, the public endpoint must be available.
++ Some workflows require access to a public endpoint. Specifically, the import wizards in the Azure portal, such as the [Import data wizard](search-get-started-portal.md) and [Import and vectorize data wizard](search-get-started-portal-import-vectors.md), connect to built-in (hosted) sample data and embedding models over the public endpoint. You can switch to code or script to complete the same tasks with firewall rules in place, but if you want to run the wizards, the public endpoint must be available. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 <a id="configure-ip-policy"></a> 
 
