@@ -4,7 +4,7 @@ description: This article describes the supported Windows and Linux operating sy
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 08/01/2023
+ms.date: 06/30/2024
 ms.topic: conceptual
 ---
 
@@ -40,7 +40,6 @@ All operating systems are assumed to be x64. x86 is not supported for any operat
 
 |Operating system  |Notes  |
 |---------|---------|
-|CentOS 6, 7, and 8       | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
 |Oracle Linux 6.x, 7.x, 8x | Linux agents require access to an update repository.        |
 |Red Hat Enterprise 6, 7, and 8      | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 12, 15, and 15.1      | Linux agents require access to an update repository.     |

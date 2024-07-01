@@ -40,6 +40,8 @@
       href: prerequisites.md
     - name: Network requirements
       href: network-requirements.md
+    - name: Simplify network configuration requirements
+      href: arc-gateway.md
     - name: Private Link networking
       href: private-link-security.md
     - name: Deployment options
