@@ -26,7 +26,7 @@ The following table lists the metrics available for the Microsoft.Devices/IoTHub
 
 ### Supported aggregations
 
-The **Aggregation Type** column in each table corresponds to the default aggregation that is used when the metric is selected for a chart or alert.
+The **Aggregation Type** column in the table corresponds to the default aggregation that is used when the metric is selected for a chart or alert.
 
 :::image type="content" source="./media/monitor-iot-hub-reference/aggregation-type.png" alt-text="Screenshot showing aggregation for metrics.":::
 
@@ -56,7 +56,7 @@ The following tables provide more information about the metrics described in the
 
 Cloud to device command metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | C2D Messages Expired | C2DMessagesExpired | Count | Number of expired cloud-to-device messages |
 | C2D message deliveries completed | c2d.commands.egress.complete.success | Count | Number of cloud-to-device message deliveries completed successfully by the device |
@@ -67,7 +67,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Cloud to device direct methods metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Failed direct method invocations | c2d.methods.failure | Count | The count of all failed direct method calls. |
 | Request size of direct method invocations | c2d.methods.requestSize | Bytes | The count of all successful direct method requests. |
@@ -78,7 +78,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 
 Cloud to device twin operations metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Failed twin reads from back end | c2d.twin.read.failure | Count | The count of all failed back-end-initiated twin reads. |
 | Failed twin updates from back end | c2d.twin.update.failure | Count | The count of all failed back-end-initiated twin updates. |
@@ -91,7 +91,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Configurations metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Configuration Metrics | configurations | Count | Number of total CRUD operations performed for device configuration and IoT Edge deployment, on a set of target devices. Included are the number of operations that modify the device twin or module twin because of these configurations. |
 
@@ -99,7 +99,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Daily quota metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Total device data usage | deviceDataUsage | Bytes | Bytes transferred to and from any devices connected to IotHub |
 | Total device data usage (preview) | deviceDataUsageV2 | Total|Bytes transferred to and from any devices connected to IotHub |
@@ -109,7 +109,7 @@ For *Total number of messages used*, only minimum, maximum, and average aggregat
 
 Device metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Total devices (deprecated) | devices.totalDevices | Count | Number of devices registered to your IoT hub |
 | Connected devices (deprecated) | devices.connectedDevices.allProtocol | Count | Number of devices connected to your IoT hub |
@@ -124,7 +124,7 @@ For *Total devices* and *Connected devices*, only minimum, maximum, and average 
 
 Device telemetry metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Number of throttling errors | d2c.telemetry.ingress.sendThrottle | Count | Number of throttling errors due to device throughput throttles |
 | Telemetry 'message send' attempts | d2c.telemetry.ingress.allProtocol | Count | Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub |
@@ -134,7 +134,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Device to cloud twin operations metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Failed twin reads from devices | d2c.twin.read.failure | Count |The count of all failed device-initiated twin reads. |
 | Failed twin updates from devices | d2c.twin.update.failure|Count | The count of all failed device-initiated twin updates. |
@@ -147,7 +147,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Event Grid metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Event Grid deliveries | EventGridDeliveries | Count | The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid). |
 | Event Grid latency | EventGridLatency | Milliseconds | The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event. |
@@ -156,7 +156,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Jobs metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Completed jobs | jobs.completed | Count | The count of all completed jobs. |
 | Failed calls to list jobs | jobs.listJobs.failure | Count | The count of all failed calls to list jobs. |
@@ -175,7 +175,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Routing metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Routing Deliveries (preview) | RoutingDeliveries | Count | The routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source. |
 | Routing Delivery Message Size In Bytes (preview) | RoutingDataSizeInBytesDelivered | Bytes | The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source. |
@@ -202,7 +202,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 Twin query metrics:
 
-| Metric Display Name | Metric | Unit | Description |
+| Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Failed twin queries | twinQueries.failure | Count | The count of all failed twin queries. |
 | Successful twin queries | twinQueries.success | Count | The count of all successful twin queries. |
