@@ -4,7 +4,7 @@ description: Learn how to assign access to a workload owner of an Amazon Web Ser
 ms.author: elkrieger
 author: Elazark
 ms.topic: how-to
-ms.date: 03/17/2024
+ms.date: 07/01/2024
 #customer intent: As a workload owner, I want to learn how to assign access to my AWS or GCP connector so that I can view the suggested recommendations provided by Defender for Cloud.
 ---
 
@@ -27,7 +27,7 @@ Permissions for security connectors are managed through Azure role-based access 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
 
 1. Locate the relevant AWS or GCP connector.
 

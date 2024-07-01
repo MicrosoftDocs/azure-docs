@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.date: 04/08/2024
+ms.date: 07/01/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -307,6 +307,7 @@ There's no need to clean up any resources for this article.
 
 Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud:
 
+- [Assign access to workload owners](assign-access-to-workload.md).
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
