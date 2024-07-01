@@ -47,7 +47,7 @@ procedureSection:
 
         :::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="Screenshot of the Peerings page where you resync a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
       - |
-        Select the name of the other peered virtual network under **Peer**.
+        Select the peer to resync. Select the directory to authenticate if needed in **Virtual network peering sync**.
       - |
         Under **Settings** for the peered virtual network, select **Address space** and verify that the address space listed has been updated.
 
