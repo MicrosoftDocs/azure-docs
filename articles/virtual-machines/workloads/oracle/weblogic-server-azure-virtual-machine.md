@@ -83,7 +83,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 ## Deploy a Java application from Administration Console
 
-Use the following steps to run a sample application in the WebLogic Server:
+Use the following steps to run a sample application on the WebLogic Server:
 
 1. Download a sample application as a *.war* or *.ear* file. The sample app should be self contained and not have any database, messaging, or other external connection requirements. The sample app from the WebLogic Kubernetes Operator documentation is a good choice. You can download it from [Oracle](https://aka.ms/wls-aks-testwebapp). Save the file to your local filesystem.
 
