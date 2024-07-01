@@ -14,7 +14,7 @@ ms.date: 06/18/2024
 
 # Enable or disable role-based access control in Azure AI Search
 
-If you want to use Azure role assignments for authorized access to Azure AI Search, this article explains how to enable role-based access for your search service.
+If you want to use roles for authorized access to Azure AI Search, this article explains how to enable role-based access control for your search service.
 
 Role-based access for data plane operations is optional, but recommended as the more secure option. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
