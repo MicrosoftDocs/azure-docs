@@ -4,7 +4,7 @@ description: Shows how to quickly stand up WebLogic Server on Azure Virtual Mach
 author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
-ms.date: 05/29/2024
+ms.date: 07/01/2024
 ms.service: oracle-on-azure
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, devx-track-extended-java
 ---
