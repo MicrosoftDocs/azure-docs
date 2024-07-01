@@ -20,7 +20,7 @@ sections:
           NVMe stands for nonvolatile memory express, a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems. With NVMe, data can be transferred at the highest throughput and with the fastest response times.
           NVMe offers higher IOPS (Input/Output Operations Per Second) and throughput (MB/s), which can significantly improve the performance of both temp (local) and remote  NVMe disk storage with [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Higher performance is especially beneficial for IO-intensive workloads that require fast data transfer to the Azure managed disks.
       - question: |
-          Which types of storage interfaces are supported in Azure’s virtual machhine (VM) families?
+          Which types of storage interfaces are supported in Azure’s virtual machine (VM) families?
         answer: |
           In Azure, there are two types of storage interfaces that we support, SCSI (Small Computer System Interface) and NVMe (Non-Volatile Memory express). The SCSI interface is a legacy standard that provides physical connectivity and data transfer between computers and peripheral devices. NVMe is similar to SCSI in that it provides connectivity and data transfer, but NVMe is a faster and more efficient interface for data transfer between servers and storage systems.
       - question: |
