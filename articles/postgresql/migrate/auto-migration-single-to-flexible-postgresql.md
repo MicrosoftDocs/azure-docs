@@ -99,8 +99,8 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 Here's the info you need to know post automigration:
 
 1) The server parameters in Flexible server are tuned to the community standards. If you want to retain the same server parameter values as your Single server, you can log in via Powershell and run this [script](https://github.com/hariramt/automigration/blob/main/copy-server-parameters.ps1) to copy the parameter values.
-2) To enable [query perf insights](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-performance-insight), you need to enable query store on the Flexible server which isn't enabled by default
-3) If [High Availability](https://learn.microsoft.com/azure/reliability/reliability-postgresql-flexible-server) is needed, you can enable it with zero downtime.
+2) To enable [query perf insights](../flexible-server/concepts-query-performance-insight), you need to enable query store on the Flexible server which isn't enabled by default
+3) If [High Availability](../../reliability/reliability-postgresql-flexible-server) is needed, you can enable it with zero downtime.
 
 ## Frequently Asked Questions (FAQs)
 
