@@ -89,7 +89,7 @@ db.products.find({"launchDate": {$gt: ISODate("2024-06-01T00:00:00.000Z")}})
 
 Compounded indexes on nested fields aren't supported by default due to limitations with arrays. If your nested field doesn't contain an array, the index works as intended. If your nested field contains an array (anywhere on the path), that value is ignored in the index.
 
-As an example, a compound index containing `people.dylan.age` works in this case since there's no array on the path:
+As an example, a compound index containing `author.lastName` works in this case since there's no array on the path:
 
 ```json
 {
@@ -155,14 +155,14 @@ Text indexes in Azure Cosmos DB for MongoDB vcore come with several options to c
 
 - Create an index to support search on both the `title` and `content` fields with English language support. Also, assign higher weights to the `title` field to prioritize it in search results.
 
-```javascript
-use cosmicworks
+    ```javascript
+    use cosmicworks
 
-db.products.createIndex(
-    { title: "text", content: "text" },
-    { default_language: "english", weights: { title: 10, content: 5 }, caseSensitive: false }
-)
-```
+    db.products.createIndex(
+        { title: "text", content: "text" },
+        { default_language: "english", weights: { title: 10, content: 5 }, caseSensitive: false }
+    )
+    ```
 
 > [!NOTE]
 > When a client performs a text search query with the term "Cosmos DB," the score for each document in the collection will be calculated based on the presence and frequency of the term in both the "title" and "content" fields, with higher importance given to the "title" field due to its higher weight.
@@ -275,7 +275,7 @@ db.places.createIndex({ "location": "2dsphere"});
 - Polygons with holes don't work. Inserting a Polygon with hole isn't restricted though `$geoWithin` query fails for scenarios:
   1. If the query itself has polygon with holes.
 
-    ```javascript
+      ```javascript
       coll.find(
         {
             "b": {
@@ -295,13 +295,13 @@ db.places.createIndex({ "location": "2dsphere"});
             }
         })
 
-    // MongoServerError: $geoWithin currently doesn't support polygons with holes
-    ```
+      // MongoServerError: $geoWithin currently doesn't support polygons with holes
+      ```
 
   2. If there's any unfiltered document that has polygon with holes.
   
-    ```javascript
-     [mongos] test> coll.find()
+      ```javascript
+      [mongos] test> coll.find()
         [
           {
             _id: ObjectId("667bf7560b4f1a5a5d71effa"),
@@ -314,17 +314,16 @@ db.places.createIndex({ "location": "2dsphere"});
             }
           }
         ]
-
-     // MongoServerError: $geoWithin currently doesn't support polygons with holes
-    ```
+      // MongoServerError: $geoWithin currently doesn't support polygons with holes
+      ```
 
   3. `key` field is mandatory while using `geoNear`.
 
-    ```javascript
+      ```javascript
        [mongos] test> coll.aggregate([{ $geoNear: { $near: { "type": "Point", coordinates: [0, 0] } } }])
 
        // MongoServerError: $geoNear requires a 'key' option as a String
-    ```
+      ```
 
 ## Next steps
 
