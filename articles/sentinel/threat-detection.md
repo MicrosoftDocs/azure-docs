@@ -18,7 +18,7 @@ After [setting up Microsoft Sentinel to collect data from all over your organiza
 
 These rules generate ***alerts*** when they find what they’re looking for. Alerts contain information about the events detected, such as the [entities](entities.md) (users, devices, addresses, and other items) involved. Alerts are aggregated and correlated into ***incidents***&mdash;case files&mdash;that you can [assign and investigate](incident-investigation.md) to learn the full extent of the detected threat and respond accordingly. You can also build predetermined, automated responses into the rules' own configuration.
 
-You can create these rules from scratch, using the [built-in analytics rule wizard](create-analytics-rules.md). However, Microsoft strongly encourages you to make use of the vast array of [**analytics rule templates**](create-analytics-rule-from-template.md) available to you through the many [solutions for Microsoft Sentinel](sentinel-solutions.md) provided in the content hub. These templates are pre-built rule prototypes, designed by teams of security experts and analysts based on their knowledge of known threats, common attack vectors, and suspicious activity escalation chains. You activate rules from these templates to automatically search across your environment for any activity that looks suspicious. Many of the templates can be customized to search for specific types of events, or filter them out, according to your needs.
+You can create these rules from scratch, using the [built-in analytics rule wizard](scheduled-rules-overview.md). However, Microsoft strongly encourages you to make use of the vast array of [**analytics rule templates**](create-analytics-rule-from-template.md) available to you through the many [solutions for Microsoft Sentinel](sentinel-solutions.md) provided in the content hub. These templates are pre-built rule prototypes, designed by teams of security experts and analysts based on their knowledge of known threats, common attack vectors, and suspicious activity escalation chains. You activate rules from these templates to automatically search across your environment for any activity that looks suspicious. Many of the templates can be customized to search for specific types of events, or filter them out, according to your needs.
 
 This article helps you understand how Microsoft Sentinel detects threats, and what happens next.
 
@@ -49,9 +49,9 @@ By far the most common type of analytics rule, **Scheduled** rules are based on 
 
 The queries in [scheduled rule templates](create-analytics-rule-from-template.md) were written by security and data science experts, either from Microsoft or from the vendor of the solution providing the template. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events.
 
-The query logic is displayed in the rule configuration. You can use the query logic and the scheduling and lookback settings as defined in the template, or customize them to create new rules.
+The query logic is displayed in the rule configuration. You can use the query logic and the scheduling and lookback settings as defined in the template, or customize them to create new rules. Alternatively, you can create [entirely new rules from scratch](create-analytics-rules.md).
 
-Learn more about [Scheduled analytics rules in Microsoft Sentinel](create-analytics-rules.md).
+Learn more about [Scheduled analytics rules in Microsoft Sentinel](scheduled-rules-overview.md).
 
 <a name="nrt"></a> 
 
