@@ -303,7 +303,7 @@ When deleting a cluster, it will delete the resources in Azure and the cluster t
 >[!NOTE]
 >If there are any tenant resources that exist in the cluster, it will not be deleted until those resources are deleted.
 
-:::image type="content" source="./media/nexus-delete_failure.png" lightbox="./media/nexus-delete_failure.png" alt-text="Screenshot of the portal showing the failure to delete because of tenant resources":::
+:::image type="content" source="./media/nexus-delete-failure.png" lightbox="./media/nexus-delete-failure.png" alt-text="Screenshot of the portal showing the failure to delete because of tenant resources.":::
 
 ```azurecli
 az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER_RG"
