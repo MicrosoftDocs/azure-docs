@@ -71,9 +71,9 @@ Provide the Entra App principal with 'Microsoft Sentinel Contributor' role assig
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the CrowdStrike Falcon Adversary Intelligence connector connector using an ARM Tempate.
+Use this method for automated deployment of the CrowdStrike Falcon Adversary Intelligence connector using an ARM template.
 
-1. Click the **Deploy to Azure** button below. 
+1. Select the following **Deploy to Azure** button. 
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-CrowdStrikeFalconAdversaryIntelligence-azuredeploy)
 2. Provide the following parameters: CrowdStrikeClientId, CrowdStrikeClientSecret, CrowdStrikeBaseUrl, WorkspaceId, TenantId, Indicators, AadClientId, AadClientSecret, LookBackDays
@@ -85,7 +85,7 @@ Use the following step-by-step instructions to deploy the CrowdStrike Falcon Adv
 
 **1. Deploy a Function App**
 
-You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+You need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-CrowdStrikeFalconAdversaryIntelligence-Functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -108,7 +108,7 @@ If you're already signed in, go to the next step.
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 
 6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
-7. Go to Azure Portal for the Function App configuration.
+7. Go to Azure portal for the Function App configuration.
 
 
 **2. Configure the Function App**
@@ -127,7 +127,7 @@ If you're already signed in, go to the next step.
    - AAD_CLIENT_SECRET
    - LOOK_BACK_DAYS
    - WORKSPACE_ID  
-4. Once all application settings have been entered, click **Save**.
+4. Once all application settings are entered, select **Save**.
 
 
 
