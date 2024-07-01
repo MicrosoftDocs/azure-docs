@@ -17,22 +17,22 @@ You can use one Log Analytics workspace to store any type of log required for an
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated data trends for **advanced analytics and machine learning** 
 
-Data plans let you manage data ingestion and retention costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each data plan offers, which use cases it's optimal for, and how to configure the log plan of a table in your Log Analytics workspace.
+Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to configure the plan of a table in your Log Analytics workspace.
 
 ## Select a table plan based on usage needs
 
-The diagram and table below compare the Analytics, Basic, and Auxiliary log data plans.
+The diagram and table below compare the Analytics, Basic, and Auxiliary table plans.
 
-:::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary log data plans.":::
+:::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
 
 |                                                        | Analytics                                                    | Basic                                                        | Auxiliary (Preview)                                          |
 | ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Best for                                               | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch data needed for troubleshooting and incident response. | Low-touch data, such as verbose logs, and data required for auditing and compliance. |
-| Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-data-plan) and DCR-based custom tables | DCR-based custom tables                                      |
-| Log queries                                            | Full query capabilities.                                     | Full Kusto Query Language (KQL) on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
+| Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-table-plan) and DCR-based custom tables | DCR-based custom tables                                      |
+| Log queries                                            | Full query capabilities.                                     | Optimized queries on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
 | Query performance                                      | Fast                                                         | Fast                                                         | Slower                                                       |
 | Alerts                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
-| Dashboards                                             | ✅                                                            | ❌                                                            | ✅                                                            |
+| Dashboards                                             | ✅                                                            |     ✅                                                        |                                              ❌               |
 | [Search jobs](../logs/search-jobs.md)                  | ✅                                                            | ✅                                                            | ✅                                                            |
 | [Summary rules](../logs/summary-rules.md)              | ✅                                                            | ✅ KQL limited to a single table                              | ✅ KQL limited to a single table                              |
 | [Restore](../logs/restore.md)                          | ✅                                                            | ✅                                                            | ❌                                                            |
@@ -41,14 +41,14 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary log data
 | Total retention                                        | Up to 12 years                                               | Up to 12 years                                               | Up to 12 years                                               |
 
 > [!NOTE]
-> The Basic and Auxiliary log data plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Permissions required
 
 | Action | Permissions required |
 |:-------|:---------------------|
-| View log plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
-| Set log plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| View table plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
+| Set table plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
   
 ## Configure the table plan
 
@@ -56,7 +56,7 @@ When you switch between the Analytics and Basic plans, the change takes effect o
 
 When you change a table's plan from Analytics to Basic, Azure monitor automatically converts any data that's older than 30 days to auxiliary retention based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the auxiliary retention period](../logs/data-retention-archive.md). 
 
-The portal sets the data plan of all new tables to Analytics by default, but you can switch between the Analytics and Basic plans, as described in this section. To create a new custom table with an Auxiliary plan, see [Create a custom table](create-custom-table.md#create-a-custom-table).
+The portal sets the plan of all new tables to Analytics by default, but you can switch between the Analytics and Basic plans, as described in this section. To create a new custom table with an Auxiliary plan, see [Create a custom table](create-custom-table.md#create-a-custom-table).
 
 
 > [!NOTE]
@@ -171,7 +171,7 @@ For example:
 
 # [PowerShell](#tab/azure-powershell)
 
-To configure a table's log data plan, use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet:
+To configure a table's plan, use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet:
 
 ```powershell
 Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WORKSPACE-NAME -Plan Basic|Analytics
@@ -179,7 +179,7 @@ Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WOR
 
 ---
 
-## Azure tables that support the Basic data plan
+## Azure tables that support the Basic table plan
 
 All custom tables created with or migrated to the [Logs ingestion API](logs-ingestion-api-overview.md), and the Azure tables listed below support Basic logs.
 

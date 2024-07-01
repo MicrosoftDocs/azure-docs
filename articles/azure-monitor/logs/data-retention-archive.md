@@ -9,10 +9,10 @@ ms.date: 7/01/2024
 
 # Manage data retention in a Log Analytics workspace
 
-A Log Analytics workspace retains data in two tiers:
+A Log Analytics workspace retains data in two states:
 
-* **Interactive retention**: In this tier, data is available for monitoring, troubleshooting, and near-real-time analytics.
-* **Auxiliary retention**: A cheap tier in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
+* **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics.
+* **Auxiliary retention**: A cheap state in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
 
 By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this default from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
 
@@ -41,16 +41,6 @@ When you change the auxiliary retention settings of a table with existing data, 
 - You change the interactive retention to 90 days without changing the total retention period of 180 days. 
 - Azure Monitor automatically converts the remaining 90 days of total retention to auxiliary retention, so that data that's 90-180 days old isn't lost.
 
-## What happens to data when you delete a table in a Log Analytics workspace?
-
-A Log Analytics workspace can contain several [types of tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
-
-|Table type|Data retention|Recommendations|
-|-|-|-|
-|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and can't be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table. |To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you stop streaming logs to the table.|
-|[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.||
-|[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
-|[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you delete the table.|
 
 ## Permissions required
 
@@ -330,6 +320,18 @@ Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Conto
 ``` 
 
 ---
+
+
+## What happens to data when you delete a table in a Log Analytics workspace?
+
+A Log Analytics workspace can contain several [types of tables](../logs/manage-logs-tables.md#table-type-and-schema). What happens when you delete the table is different for each:
+
+|Table type|Data retention|Recommendations|
+|-|-|-|
+|Azure table |An Azure table holds logs from an Azure resource or data required by an Azure service or solution and can't be deleted. When you stop streaming data from the resource, service, or solution, data remains in the workspace until the end of the retention period defined for the table. |To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you stop streaming logs to the table.|
+|[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.||
+|[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
+|[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you delete the table.|
 
 ## Tables with unique retention periods
 
