@@ -61,12 +61,12 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 
 ## Configure the default interactive retention period of Analytics tables
 
-By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days. 
-
-To change the default interactive retention period of Analytics tables within a Log Analytics workspace from 30 days to up to two years:
+By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 30 days. 
 
 > [!IMPORTANT]
 > Workspaces with a 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, configure the default workspace retention to 30 days using the API and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
+
+To change the default interactive retention period of Analytics tables within a Log Analytics workspace from 30 days to up to two years:
 
 # [Portal](#tab/portal-3)
 
@@ -287,7 +287,7 @@ Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName Co
 
 To view a table's retention settings in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables**.
 
-The **Tables** screen shows the interactive retention and auxiliary retention periods for all the tables in the workspace.
+The **Tables** screen shows the interactive retention and total retention periods for all the tables in the workspace.
 
 :::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
 
