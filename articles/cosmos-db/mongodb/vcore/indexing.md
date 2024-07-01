@@ -8,7 +8,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 07/01/2024
 ---
 
 # Manage indexing in Azure Cosmos DB for MongoDB vcore
@@ -69,7 +69,7 @@ One query can use multiple single field indexes where available.
 
 ## Compound indexes
 
-Compound indexes are required if your query needs the ability to **query or sort** data from two or more fields in each document in a collection.
+Compound indexes improve database performance by allowing efficient **querying and sorting** based on multiple fields within documents. This optimization reduces the need to scan entire collections, speeding up data retrieval and organization.
 
 The following command creates a compound index on the fields `author` and `launchDate` in opposite sort order.
 
