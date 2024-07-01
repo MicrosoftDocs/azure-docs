@@ -55,7 +55,7 @@ Point-in-time restore requires that the following Azure Storage features be enab
 To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 > [!CAUTION]
-> After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
+> After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md). Please note, setting up lower retention for versions might affect the PITR process.
 
 ### Retention period for point-in-time restore
 
