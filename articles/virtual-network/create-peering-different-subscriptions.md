@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 07/01/2024
 ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -662,26 +662,24 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
 
     | Setting | Value |
     | ------- | ----- |
-    | **This virtual network** |  |
-    | Peering link name | Enter **vnet-1-to-vnet-2**. |
-    | Allow 'vnet-1' to access 'vnet-2' | Leave the default of selected.  |
-    | Allow 'vnet-1' to receive forwarded traffic from 'vnet-2' | Select the checkbox. |
-    | Allow gateway in 'vnet-1' to forward traffic to 'vnet-2' | Leave the default of cleared. |
-    | Enable 'vnet-1' to use 'vnet-2' remote gateway | Leave the default of cleared. |
-    | Use remote virtual network gateway or route server | Leave the default of cleared. |
-    | **Remote virtual network** |  |
-    | Peering link name | Leave blank. |
-    | Virtual network deployment model | Select **Resource manager**. |
-    | Select the box for **I know my resource ID**. |   |
-    | Resource ID | Enter or paste the **Resource ID** for **vnet-2**. |
-
-1. In the pull-down box, select the **Directory** that corresponds with **vnet-2** and **user-2**.
-
-1. Select **Authenticate**.
-
-    :::image type="content" source="./media/create-peering-different-subscriptions/vnet-1-to-vnet-2-peering.png" alt-text="Screenshot of peering from vnet-1 to vnet-2.":::
+    | **Remote virtual network summary** |   |
+    | Peering link name | **vnet-2-to-vnet-1** |
+    | Virtual network deployment model | **Resource Manager** |
+    | I know my resource ID | **Select the box** |
+    | Resource ID | **Enter the Resource ID for vnet-2** |
+    | Directory | Select the Entra ID directory that corresponds with **vnet-2** and **user-2** |
+    | **Remote virtual network peering settings** |   |
+    | Allow 'the peered virtual network' to access 'vnet-1' | Leave the default of **Enabled** |
+    | Allow 'the peered virtual network' to receive forwarded traffic from 'vnet-1' | **Select the box** |
+    | **Local virtual network summary** |   |
+    | Peering link name | **vnet-1-to-vnet-2** |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-1' to access 'the peered virtual network' | Leave the default of **Enabled** |
+    | Allow 'vnet-1' to receive forwarded traffic from 'the peered virtual network' | **Select the box** |
 
 1. Select **Add**.
+   
+    :::image type="content" source="./media/create-peering-different-subscriptions/vnet-1-to-vnet-2-peering.png" alt-text="Screenshot of peering from vnet-1 to vnet-2.":::
 
 1. Sign out of the portal as **user-1**.
 
@@ -840,17 +838,23 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
 
     | Setting | Value |
     | ------- | ----- |
-    | **This virtual network** |  |
-    | Peering link name | Enter **vnet-2-to-vnet-1**. |
-    | Allow 'vnet-2' to access 'vnet-1' | Leave the default of selected.  |
-    | Allow 'vnet-2' to receive forwarded traffic from 'vnet-1' | Select the checkbox. |
-    | Allow gateway in 'vnet-2' to forward traffic to 'vnet-1' | Leave the default of cleared. |
-    | Enable 'vnet-2' to use 'vnet-1's' remote gateway | Leave the default of cleared. |
-    | **Remote virtual network** |  |
-    | Peering link name | Leave blank. |
-    | Virtual network deployment model | Select **Resource manager**. |
-    | Select the box for **I know my resource ID**. |   |
-    | Resource ID | Enter or paste the **Resource ID** for **vnet-1**. |
+    | **Remote virtual network summary** |   |
+    | Peering link name | **vnet-1-to-vnet-2** |
+    | Virtual network deployment model | **Resource Manager** |
+    | I know my resource ID | **Select the box** |
+    | Resource ID | **Enter the Resource ID for vnet-2** |
+    | Directory | Select the Entra ID directory that corresponds with **vnet-1** and **user-1** |
+    | **Remote virtual network peering settings** |   |
+    | Allow 'the peered virtual network' to access 'vnet-1' | Leave the default of **Enabled** |
+    | Allow 'the peered virtual network' to receive forwarded traffic from 'vnet-1' | **Select the box** |
+    | **Local virtual network summary** |   |
+    | Peering link name | **vnet-1-to-vnet-2** |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-1' to access 'the peered virtual network' | Leave the default of **Enabled** |
+    | Allow 'vnet-1' to receive forwarded traffic from 'the peered virtual network' | **Select the box** |
+
+1. Select **Add**.
+   
 
 1. In the pull-down box, select the **Directory** that corresponds with **vnet-1** and **user-1**.
 
@@ -993,6 +997,9 @@ az network vnet peering list \
 ---
 
 The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using subnet-1 Azure name resolution for the virtual networks, the resources in the virtual networks aren't able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server or use Azure DNS.
+
+> [!IMPORTANT]
+> If you update the address space in one of the members of the peer, you must resync the connection to reflect the address space changes. For more information, see [Update the address space for a peered virtual network using the Azure portal](/azure/virtual-network/update-virtual-network-peering-address-space#modify-the-address-range-prefix-of-an-existing-address-range)
 
 For more information about using your own DNS for name resolution, see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
