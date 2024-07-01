@@ -20,10 +20,9 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Microsoft Entra ID. One approach to authenticating the client application is to create a Microsoft Entra service principal and retrieve an authentication token. You can create a Microsoft Entra service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md).
 
 ### Retrieve a token
-Once you've created a service principal, retrieve an access token. specify resource=https://management.azure.com in the request to get a token.
+Once you've created a service principal, retrieve an access token. Specify `resource=https://management.azure.com` in the token request.
 
 [!INCLUDE [Get a token](../includes/get-a-token.md)]
-
 
 
 After authenticating and retrieving a token, use the access token in your Azure Monitor API requests by including the header  `'Authorization: Bearer <access token>'`
