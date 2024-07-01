@@ -12,7 +12,11 @@ ms.author:
 
 # Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps (Preview)
 
-This tutorial will guide you through the process of integrating a managed Admin for Spring with a Eureka Server for Spring within Azure Container Apps. By following this guide, you'll set up a Eureka Server for service discovery and then create an Admin for Spring to manage and monitor your Spring applications registered with the Eureka Server. This setup ensures that other applications only need to bind to the Eureka Server, simplifying the management of your microservices.
+This tutorial will guide you through the process of integrating a managed Admin for Spring with a Eureka Server for Spring within Azure Container Apps.
+
+This article contains some content similar to the "Connect to a managed Admin for Spring in Azure Container Apps" tutorial, but with Eureka Server for Spring, you can bind Admin for Spring to Eureka Server for Spring, so that it can get application information through Eureka, instead of having to bind individual applications to Admin for Spring.
+
+By following this guide, you'll set up a Eureka Server for service discovery and then create an Admin for Spring to manage and monitor your Spring applications registered with the Eureka Server. This setup ensures that other applications only need to bind to the Eureka Server, simplifying the management of your microservices.
 
 In this tutorial, you will learn to:
 

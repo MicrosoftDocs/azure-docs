@@ -23,6 +23,9 @@ In this tutorial, you learn to:
 > * Bind your container app to Admin for Spring Java component
 
 > [!IMPORTANT]
+> If you want to integrate Admin for Spring with Eureka Server for Spring, please go to this tutorial instead [Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps](java-admin-eureka-integration.md).
+
+> [!IMPORTANT]
 > This tutorial uses services that can affect your Azure bill. If you decide to follow along step-by-step, make sure you delete the resources featured in this article to avoid unexpected billing.
 
 ## Prerequisites
@@ -184,10 +187,6 @@ Now that you have an existing environment, you can create your container app and
     You should be able to access the Admin for Spring dashboard using the URL provided. And the container app should be visible in the dashboard like the screenshot below:
 
     :::image type="content" source="media/java-components/sba-alone.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba-alone.png":::
-
-## Optional: Integrate the Eureka Server for Spring and Admin for Spring Java components
-
-If you want to integrate the Eureka Server for Spring and the Admin for Spring Java components, you can follow the steps in the [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md).
 
 ## Clean up resources
 
