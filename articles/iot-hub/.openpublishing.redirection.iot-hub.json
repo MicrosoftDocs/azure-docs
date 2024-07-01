@@ -678,12 +678,12 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-c-c-module-twin-getstarted.md",
       "redirect_url": "https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/module-twins-c.md",
       "redirect_url": "https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-module-twin-getstarted.md",
