@@ -6,27 +6,28 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 07/01/2024
 ms.author: cshoe
 ---
 
 # Java on Azure Container Apps overview
 
-Azure Container Apps can run any containerized Java application in the cloud while giving flexible options for how your deploy your applications.
+Azure Container Apps can run any containerized Java application in the cloud while giving flexible options for how you deploy your applications.
 
 When you use Container Apps for your containerized Java applications, you get:
 
 - **Cost effective scaling**: When you use the [Consumption plan](plans.md#consumption), your Java apps can scale to zero. Scaling in when there's little demand for your app automatically drives costs down for your projects.
 
 - **Deployment options**: Azure Container Apps integrates with [Buildpacks](https://buildpacks.io), which allows you to deploy directly from a Maven build, via artifact files, or with your own Dockerfile.
+    - **JAR deployment**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
+
+    - **WAR deployment**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
+
+    - **IDE support**: You can deploy your container app directly from [IntelliJ](/azure/developer/java/toolkit-for-intellij/create-container-apps-intellij#deploy-the-container-app).
 
 - **Automatic memory fitting**: Container Apps optimizes how the Java Virtual Machine (JVM) [manages memory](java-memory-fit.md), making the most possible memory available to your Java applications.
 
 - **Build environment variables**: You can configure [custom key-value pairs](java-build-environment-variables.md) to control the Java image build from source code.
-
-- **JAR deployment**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
-
-- **WAR deployment**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
 
 This article details the information you need to know as you build Java applications on Azure Container Apps.
 
@@ -84,9 +85,17 @@ All the [standard observability tools](observability.md) work with your Java app
 
 - **Performance monitoring configuration**: Deploy performance monitoring services as a separate container in your Container Apps environment so it can directly access your application.
 
+## Diagnostics
+
+Azure Container Apps platform offers built-in diagnostics tools exclusively for Java developers, streamlining the debugging and troubleshooting of Java applications running on Azure Container Apps for enhanced efficiency and ease.
+
+- **Dynamic logger level**: Allows you to access and check different level of log details without code modifications or forcing you to restart your app. You can view a [Set dynamic logger level](java-dynamic-log-level.md) for reference.
+
+
 ## Scaling
 
 If you need to make sure requests from your front-end applications reach the same server, or your front-end app is split between multiple containers, make sure to enable [sticky sessions](sticky-sessions.md).
+
 
 ## Security
 
