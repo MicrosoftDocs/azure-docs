@@ -1,7 +1,7 @@
 ---
 title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
 description: This article helps you create a virtual machine using Azure portal. 
-ms.date: 06/28/2024
+ms.date: 07/01/2024
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -41,7 +41,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
    - **Template** - Choose the VM template for deployment.
    - **Override template defaults** - Select the checkbox to override the default CPU cores and memory on the VM templates.
    - Specify computer name for the VM if the VM template has computer name associated with it.
-1. Keep the **Enable Guest Management** checkbox selected to automatically install Azure connected machine agent immediately after the creation of the VM. Azure connected machine agent is required if you're planning to use Azure management services to govern, patch, monitor, and secure your VM through Azure.
+1. Keep the **Enable Guest Management** checkbox selected to automatically install Azure connected machine agent immediately after the creation of the VM. [Azure connected machine agent (Arc agent)](../servers/agent-overview.md) is required if you're planning to use Azure management services to govern, patch, monitor, and secure your VM through Azure.
 1. Under **Administrator account**, provide the following details and select **Next : Disks >**.
    - Username
    - Password
