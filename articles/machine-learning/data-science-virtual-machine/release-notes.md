@@ -22,7 +22,65 @@ Azure portal users can find the latest image available for provisioning the Data
 
 Visit the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## June 28, 2024
+
+Image Version: 24.06.10
+
+SDK Version: 1.56.0
+
+Issue fixed: Compute Instance 20.04 image build with SDK 1.56.0
+
+Major: Image Version: 24.06.10
+
+- SDK（azureml-core):1.56.0
+- Python:3.9
+- CUDA: 12.2
+- CUDnn==9.1.1
+- Nvidia Driver: 535.171.04
+- PyTorch: 1.13.1
+- TensorFlow: 2.15.0
+- autokeras==1.0.16
+- keras=2.15.0
+- ray==2.2.0
+- docker version==24.0.9-1
+
+## June 17, 2024
+
+[Data Science Virtual Machine - Windows 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview)
+
+Version  `24.05.20`
+
+- SDK `1.56.0`
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version  `24.05.20`
+
+- SDK `1.56.0`
+
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version  `24.05.24`
+
+- SDK `1.56.0`
+
+## May 4, 2024
+
+[Data Science Virtual Machine - Windows 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview)
+
+Version `24.05.03`
+
+- SDK `1.55`
+- `azureml-dataset-runtime` version `1.55.0`
+- `azureml-train-automl-client`
+- `azureml-dataset-runtime [fuse,pandas]` version `1.55.0`
+- `GitPython` version `3.1.41`
+- `pyarrow` version `14.0.2`
+
+Resolved issue: Office365ProPlus installation
+
 ## December 20, 2023
+
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
 Version `23.12.18`

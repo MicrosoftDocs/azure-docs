@@ -39,7 +39,7 @@ For more information about HTTP bindings, see the [overview](./functions-binding
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 

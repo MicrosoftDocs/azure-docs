@@ -39,29 +39,13 @@ az extension add --name aosm
 
 ## Requirements for Containerized Network Function (CNF)
 
+### Install required local tools
+
 For those utilizing Containerized Network Functions, it's essential to ensure that the following packages are installed on the machine from which you're executing the CLI:
 
 - **Install docker**, refer to [Install the Docker Engine](https://docs.docker.com/engine/install/).
 - **Install Helm**, refer to [Install Helm CLI](https://helm.sh/docs/intro/install/). You must use Helm v3.8.0 or later.
 
-
-### Configure Containerized Network Function (CNF) deployment
-
-For deployments of Containerized Network Functions (CNFs), it's crucial to have the following stored on the machine from which you're executing the CLI:
-
-- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `cnf-input.jsonc` configuration file. When following this quickstart, you download the required helm package.
-- **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `cnf-input.jsonc` file that you need to populate with your specific configuration.
-
-  ```azurecli
-  az aosm nfd generate-config --definition-type cnf
-  ```
-
-- Your container images must be present in either:
-  - A reference to existing Azure Container Registries that contain the images for your CNF.
-  - A reference to other Container Registries that contain the images for your CNF.
-
-> [!IMPORTANT]
-> Use the `docker login` command to sign in to a non-Azure container registry hosting your container images before you run any `az aosm` commands.
 
 ### Download sample Helm chart
 

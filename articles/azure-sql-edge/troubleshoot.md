@@ -20,7 +20,7 @@ This article provides information about possible errors seen when deploying and 
 
 Azure SQL Edge supports two deployment models:
 
-- Connected deployment through Azure IoT Edge: Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
+- Connected deployment through Azure IoT Edge: Azure SQL Edge can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
 
 - Disconnected deployment: Azure SQL Edge container images can be pulled from Docker hub and deployed either as a standalone container or on a Kubernetes cluster. For more information, see [Deploy Azure SQL Edge with Docker](disconnected-deployment.md) and [Deploy an Azure SQL Edge container in Kubernetes](deploy-kubernetes.md).
 

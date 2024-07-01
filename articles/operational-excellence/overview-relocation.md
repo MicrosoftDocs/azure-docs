@@ -32,7 +32,7 @@ Each service specific guide can contain service-specific information on topics s
 
 ## Service categories across region types
 
-[!INCLUDE [Service categories across region types](~/reusable-content/ce-skilling/azure/includes/service-categories/service-category-definitions.md)]
+[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
 
 ## Azure services relocation guides
 
@@ -45,7 +45,7 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Event Hubs](relocation-event-hub.md)| ✅   | ❌| ❌ |
 [Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ✅ | ❌  | ❌ |
 [Azure Key Vault](./relocation-key-vault.md)| ✅ | ✅| ❌ |
-[Azure Site Recovery (Recovery Services vaults)](../site-recovery/move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+[Azure Site Recovery (Recovery Services vaults)](relocation-site-recovery.md)| ✅ | ✅|  ❌  |
 [Azure Virtual Network](./relocation-virtual-network.md)|  ✅| ❌  | ✅ |
 [Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)|✅  |❌   | ✅ |
 
