@@ -6,8 +6,7 @@ ms.author: peterwhiting
 ms.date: 03/21/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
-
+ms.custom:
 ---
 # Use Helm option parameters to prevent deletion on install failure
 

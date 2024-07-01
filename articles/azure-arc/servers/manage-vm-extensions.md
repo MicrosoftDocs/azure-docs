@@ -96,6 +96,16 @@ If they aren't already registered, follow the steps under [Register Azure resour
 
 Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
 
+### Required Permissions
+
+To deploy an extension to Arc-enabled servers, a user requires the following permissions.
+
+- `microsoft.hybridcompute/machines/read`
+- `microsoft.hybridcompute/machines/extensions/read`
+- `microsoft.hybridcompute/machines/extensions/write`
+
+The role **Azure Connected Machine Resource Administrator** includes the permissions required to deploy extensions, however it also includes permission to delete Arc-enabled server resources.
+
 ### Log Analytics VM extension
 
 The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.

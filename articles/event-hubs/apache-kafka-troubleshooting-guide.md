@@ -25,9 +25,9 @@ You may see consumers not getting any records and constantly rebalancing. In thi
 - If your configuration matches those recommended values, and you're still seeing constant rebalancing, feel free to open up an issue (make sure to include your entire configuration in the issue so that we can help debug)!
 
 ## Compression/Message format version issue
-Kafka supports compression, and Event Hubs for Kafka currently doesn't. Errors that mention a message-format version (for example, `The message format version on the broker does not support the request.`) are caused when a client tries to send compressed Kafka messages to our brokers.
+Event Hubs for Kafka currently supports only `gzip` compression algorithm. If any other algorithm is used, client applications will see a message-format version error (for example, `The message format version on the broker does not support the request.`).
 
-If compressed data is necessary, compressing your data before sending it to the brokers and decompressing after receiving is a valid workaround. The message body is just a byte array to the service, so client-side compression/decompression won't cause any issues.
+If an unsupported compression algorithm needs to be used, compressing your data with that specific algorithm before sending it to the brokers and decompressing after receiving is a valid workaround. The message body is just a byte array to the service, so client-side compression/decompression won't cause any issues.
 
 ## UnknownServerException
 You may receive an UnknownServerException from Kafka client libraries similar to the following example: 

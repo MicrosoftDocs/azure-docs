@@ -81,7 +81,7 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Set environment variables
 

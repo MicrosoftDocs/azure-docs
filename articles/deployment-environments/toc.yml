@@ -23,8 +23,6 @@ items:
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
-    - name: Usage scenarios
-      href: concept-environments-scenarios.md
     - name: Parameters and data types in environment.yaml
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs

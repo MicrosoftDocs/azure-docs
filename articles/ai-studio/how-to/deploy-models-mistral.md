@@ -15,7 +15,7 @@ ms.custom: references_regions, build-2024
 
 # How to deploy Mistral models with Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
 Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):

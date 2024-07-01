@@ -28,7 +28,7 @@ The standard storage with cool access feature provides options for the “coolne
     * Sequential reads from Azure NetApp Files backup, cross-zone replication, and cross-zone replication do not impact the temperature of the data.
     * If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
-* You can't use large volumes with Standard storage with cool access.
+* You can't use [large volume](large-volumes-requirements-considerations.md) with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR) and [cross-zone replication](cross-zone-replication-introduction.md): 
     * If the volume is in a CRR relationship as a source volume, you can enable cool access on it only if the [mirror state](cross-region-replication-display-health-status.md#display-replication-status) is `Mirrored`. Enabling cool access on the source volume automatically enables cool access on the destination volume.

@@ -30,7 +30,7 @@ Vector search in Azure Cosmos DB for NoSQL is currently a preview feature. You'r
 - An existing Azure Cosmos DB for NoSQL account.
   - If you don't have an Azure subscription, [Try Azure Cosmos DB for NoSQL free](https://cosmos.azure.com/try/).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for NoSQL account](how-to-create-account.md).
-- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK.
+- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK preview (3.41.0-preview.0)
 
 ## Registering for the preview
 Vector search for Azure Cosmos DB for NoSQL requires preview feature registration. Follow the below steps to register: 
@@ -142,9 +142,9 @@ ORDER BY VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10])  
 This query retrieves the book titles along with similarity scores with respect to your query. Here's an example in .NET:
 
 ```csharp 
-  float[] embedding = float[] {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f}
+  float[] embedding = {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f};
   var queryDef = new QueryDefinition(
-      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM cVectorDistance(c.contentVector,@embedding)"
+      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore FROM c ORDER BY VectorDistance(c.contentVector,@embedding)"
       ).WithParameter("@embedding", embedding);
   using FeedIterator<Object> feed = container.GetItemQueryIterator<Object>(
       queryDefinition: queryDef

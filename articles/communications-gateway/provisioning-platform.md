@@ -4,7 +4,7 @@ description: Learn about customer and number configuration with the Provisioning
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
-ms.topic: concept
+ms.topic: concept-article
 
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---

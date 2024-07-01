@@ -24,7 +24,7 @@ In this article, you learn how to collect data from models deployed to web servi
 * Dependency rates, response times, and failure rates
 * Exceptions
 
-The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article.
+The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) notebook demonstrates concepts in this article.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 

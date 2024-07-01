@@ -66,7 +66,7 @@ Ensure that both the licensing package and servicing stack update (SSU) are down
 If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following methods.
 
 > [!IMPORTANT]
-> If you're running the [latest version of the Azure Connected machine agent](agent-release-notes.md), it's not necessary to install the intermediate CA certificates or allow access to the PKI URL.
+> If you're running the [latest version of the Azure Connected machine agent](agent-release-notes.md), it's not necessary to install the intermediate CA certificates or allow access to the PKI URL. However, if a license was already assigned before the agent was upgraded, it can take up to 15 days for the older license to be replaced. During this time, the intermediate cert will still be required. After upgrading the agent, you can delete the license file `%ProgramData%\AzureConnectedMachineAgent\certs\license.json` to force it to be refreshed.
 
 #### Option 1: Allow access to the PKI URL
 

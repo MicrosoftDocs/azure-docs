@@ -1,7 +1,7 @@
 ---
 title: Azure mobile app Home
 description: Azure mobile app Home surfaces the most essential information and the resources you use most often.
-ms.date: 05/21/2024
+ms.date: 05/29/2024
 ms.topic: conceptual
 ---
 

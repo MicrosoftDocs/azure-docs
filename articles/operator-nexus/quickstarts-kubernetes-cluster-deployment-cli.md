@@ -61,6 +61,8 @@ CLUSTER_NAME="myNexusK8sCluster"
 K8S_VERSION="v1.24.9"
 ADMIN_USERNAME="azureuser"
 SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
+CONTROL_PLANE_SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
+AGENT_POOL_SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
 CONTROL_PLANE_COUNT="1"
 CONTROL_PLANE_VM_SIZE="NC_G6_28_v1"
 INITIAL_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-1"
@@ -90,7 +92,8 @@ az networkcloud kubernetescluster create \
   --control-plane-node-configuration \
     count="${CONTROL_PLANE_COUNT}" \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
-  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
+    ssh-key-values='["${CONTROL_PLANE_SSH_PUBLIC_KEY}"]' \
+  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE},ssh-key-values:['${AGENT_POOL_SSH_PUBLIC_KEY}']}]" \
   --network-configuration \
     cloud-services-network-id="${CSN_ARM_ID}" \
     cni-network-id="${CNI_ARM_ID}" \

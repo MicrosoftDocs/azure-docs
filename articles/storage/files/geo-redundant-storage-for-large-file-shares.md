@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares significantly impr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 05/29/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -84,10 +84,10 @@ Perform the following steps to configure 100TiB shares and geo-redundancy for ne
 
 ### Create a new storage account and file share
 
-Perform the following steps to configure geo-redundancy for a new Azure file share.
+Perform the following steps to configure geo-redundancy for a new storage account and Azure file share.
 
 1. [Create a standard storage account](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) and select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
-2. [Create an SMB Azure file share](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share).
+2. [Create an SMB Azure file share](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share). New file shares that are created default to 100 TiB.
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 

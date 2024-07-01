@@ -42,9 +42,10 @@ This article shows you how to install the Open Service Mesh (OSM) add-on on an A
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --enable-addons open-service-mesh
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --enable-addons open-service-mesh \
+        --generate-ssh-keys        
     ```
 
 > [!IMPORTANT]

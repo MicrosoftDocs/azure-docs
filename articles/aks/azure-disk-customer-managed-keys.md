@@ -64,7 +64,7 @@ keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName --name myKeyName --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
-az disk-encryption-set create --name myDiskEncryptionSetName -location myAzureRegionName -resource-group myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl
+az disk-encryption-set create --name myDiskEncryptionSetName --location myAzureRegionName --resource-group myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl
 ```
 
 > [!IMPORTANT]

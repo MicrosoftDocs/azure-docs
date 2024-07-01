@@ -24,6 +24,7 @@ The following scenarios are **not** supported:
 * Different proxy configurations per node pool
 * User/Password authentication
 * Custom certificate authorities (CAs) for API server communication
+* Configuring existing AKS clusters with an HTTP proxy is not supported; the HTTP proxy feature must be enabled at cluster creation time.
 * Windows-based clusters
 * Node pools using Virtual Machine Availability Sets (VMAS)
 * Using * as wildcard attached to a domain suffix for noProxy
@@ -92,7 +93,11 @@ Example input:
 Create a file and provide values for `httpProxy`, `httpsProxy`, and `noProxy`. If your environment requires it, provide a value for `trustedCa`. Next, you can deploy the cluster using the [`az aks create`][az-aks-create] command with the `--http-proxy-config` parameter set to the file you created. Your cluster should initialize with the HTTP proxy configured on the nodes.
 
 ```azurecli-interactive
-az aks create --name $clusterName --resource-group $resourceGroup --http-proxy-config aks-proxy-config.json
+az aks create \
+    --name $clusterName \
+    --resource-group $resourceGroup \
+    --http-proxy-config aks-proxy-config.json \
+    --generate-ssh-keys
 ```
 
 ## Configure an HTTP proxy using an Azure Resource Manager (ARM) template

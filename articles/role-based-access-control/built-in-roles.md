@@ -221,6 +221,9 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-ai-developer'></a>[Azure AI Developer](./built-in-roles/ai-machine-learning.md#azure-ai-developer) | Can perform all actions within an Azure AI resource besides managing the resource itself. | 64702f94-c441-49e6-a78b-ef80e0188fee |
+> | <a name='azure-ai-enterprise-network-connection-approver'></a>[Azure AI Enterprise Network Connection Approver](./built-in-roles/ai-machine-learning.md#azure-ai-enterprise-network-connection-approver) | Can approve private endpoint connections to Azure AI common dependency resources | b556d68e-0be0-4f35-a333-ad7ee1ce17ea |
+> | <a name='azure-ai-inference-deployment-operator'></a>[Azure AI Inference Deployment Operator](./built-in-roles/ai-machine-learning.md#azure-ai-inference-deployment-operator) | Can perform all actions required to create a resource deployment within a resource group. | 3afb7f49-54cb-416e-8c09-6dc049efa503 |
 > | <a name='azureml-compute-operator'></a>[AzureML Compute Operator](./built-in-roles/ai-machine-learning.md#azureml-compute-operator) | Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). | e503ece1-11d0-4e8e-8e2c-7a6c3bf38815 |
 > | <a name='azureml-data-scientist'></a>[AzureML Data Scientist](./built-in-roles/ai-machine-learning.md#azureml-data-scientist) | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | <a name='cognitive-services-contributor'></a>[Cognitive Services Contributor](./built-in-roles/ai-machine-learning.md#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |

@@ -441,7 +441,7 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
 Customers who require longer names for their node type for more verbose description benefits from computer name prefix. 
 
 > [!NOTE]
-> Comptuer name prefix only works for Service Fabric API version `2024-04-01 preview or later`.
+> Comptuer name prefix only works for Service Fabric API version `2024-04-01 or later`.
 
 Implement the following ARM template changes to set the computer name prefix: 
 

@@ -96,7 +96,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
    
-   - To configure it from an AD Domain, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   - To configure it from an AD Domain, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
    
    - To configure it locally, open the **Local Group Policy Editor** on the session host.
 
@@ -128,7 +128,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
    
-   - To configure it from an AD Domain, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   - To configure it from an AD Domain, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
    
    - To configure it locally, open the **Local Group Policy Editor** on the session host.
 

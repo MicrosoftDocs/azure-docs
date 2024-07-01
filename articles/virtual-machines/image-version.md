@@ -322,7 +322,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 In the subscription where the source image exists, grant reader permissions to the user. Once the user has reader permission to the source image, login to both accounts (source and target).
 
-You will need the `tenantID` of the source image, the `subscriptionID` for the subscription where the new image will be stored (target), and the `resourceID` of the source image.
+You will need the `tenantID` of the source image, the `subscriptionID` for the subscription where the new image will be stored (target), and the `resourceID` of the source image. Additionally, you need to ensure that the source image's region or replica and target region are the same.
 
 ### [CLI](#tab/cli2)
 
@@ -349,6 +349,7 @@ az sig image-version create `
    --gallery-name myGallery `
    --resource-group myResourceGroup `
    --image-version $sourceImageID
+   --location myLocation
 ```
 
 
