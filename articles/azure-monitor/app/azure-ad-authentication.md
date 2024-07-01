@@ -296,7 +296,7 @@ In the client credentials flow, the token is used with the Application Insights 
 
 Use  `resource=https://api.applicationinsights.io`.
 
-[!INCLUDE [Get a token](../../includes/get-a-token.md)]
+[!INCLUDE [Get a token](../includes/get-a-token.md)]
 
 Use the token in requests to the Application Insights endpoint:
 
