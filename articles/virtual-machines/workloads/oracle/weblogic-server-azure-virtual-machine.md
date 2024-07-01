@@ -103,7 +103,8 @@ Use the following steps to run a sample application on the WebLogic Server:
 
    1. Under **Locate deployment to install and prepare for deployment**, select **Upload your file(s)**.
    1. Under **Upload a deployment to the Administration Server**, select **Choose File** and upload your sample application. Select **Next**.
-   1. Select **Finish**.
+   1. Accept the defaults in the next few screens and select **Finish**.
+   1. On the application configuration screen, select **Save**.
 
 1. Under **Change Center** on the top left corner, select **Activate Changes**. You can see the message **All changes have been activated. No restarts are necessary**.
 
