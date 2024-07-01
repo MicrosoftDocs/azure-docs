@@ -316,7 +316,7 @@ Next you will update your function app to use its system-assigned identity when 
 You've removed the storage connection string requirement for AzureWebJobsStorage by configuring your app to instead connect to blobs using managed identities.  
 
 > [!NOTE]
-> The `__accountName` syntax is unique to the AzureWebJobsStorage connection and cannot be used for other storage connections. To learn to define other connections, check the reference for each trigger and binding your app uses.
+> The `__accountName` syntax is unique to the AzureWebJobsStorage connection and cannot be used for other storage connections. To learn to define other connections, check the reference for each trigger and binding your app uses.Also this is only applicable for functionapps which are provisioned in dedicated appservice plan not for consumption and elastic premium as they have additional storage setting WEBSITE_CONTENTAZUREFILECONNECTIONSTRING.
 
 ## Next steps 
 
