@@ -138,7 +138,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
 + **Authorization**: EasyAuth is currently not supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
 + **CORS**: CORS settings are currently not supported. Exceptions might occur if CORS is configured for Flex Consumption apps.
-+ **Managed dependencies**: Managed dependencies in PowerShell are not supported in Flex Consumption.
++ **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
  
 ## Related articles 
 
