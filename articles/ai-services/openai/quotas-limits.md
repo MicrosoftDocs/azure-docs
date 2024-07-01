@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 06/21/2024
+ms.date: 07/01/2024
 ms.author: mbullwin
 ---
 
@@ -59,9 +59,6 @@ The following sections provide you with a quick guide to the default quotas and 
 `gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
 
 ### gpt-4o global standard
-
-> [!NOTE]
-> The [global standard model deployment type](./how-to/deployment-types.md#deployment-types) is currently in public preview.
 
 |Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|:---:|:---:|

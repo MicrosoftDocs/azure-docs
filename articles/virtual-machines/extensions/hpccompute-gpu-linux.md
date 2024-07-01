@@ -39,7 +39,6 @@ This extension supports the following OS distros, depending on driver support fo
 |---|---|
 | Linux: Ubuntu | 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.9 |
-| Linux: CentOS | 7 |
 
 > [!NOTE]
 > The latest supported CUDA drivers for NC-series VMs are currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end of support for NC, install CUDA drivers manually for K80 cards on the NC-series.
