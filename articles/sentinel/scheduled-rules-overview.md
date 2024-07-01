@@ -167,6 +167,14 @@ The **Start running** setting, now in PREVIEW, allows you to create a rule with 
 
     :::image type="content" source="media/create-analytics-rules/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
 
+> [!NOTE]
+>
+> **Ingestion delay**
+>
+> To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
+>
+> For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
+
 #### Alert threshold
 
 Many types of security events are normal or even expected in small numbers, but are a sign of a threat in larger numbers. Different scales of large numbers can mean different kinds of threats. For example, two or three failed sign-in attempts in the space of a minute is a sign of a user not remembering a password, but fifty in a minute could be a sign of a human attack, and a thousand is probably an automated attack.
@@ -177,7 +185,29 @@ The threshold can also be set to a maximum number of results, or an exact number
 
 #### Event grouping
 
+There are two ways to handle the grouping of **events** into **alerts**:
 
+- **Group all events into a single alert:** This is the default. The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** explained in the previous section. This single alert summarizes all the events returned in the query results.
+
+- **Trigger an alert for each event:** The rule generates a unique alert for each event (result) returned by the query. This mode is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. |
+
+Analytics rules can generate up to 150 alerts. If **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns *more than 150 events*, the first 149 events will each generate a unique alert (for 149 alerts), and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated if **Event grouping** had been set to **Group all events into a single alert**.
+
+The **Trigger an alert for each event** setting might cause an issue where query results appear to be missing or different than expected. For more information on this scenario, see [Troubleshooting analytics rules in Microsoft Sentinel | Issue: No events appear in query results](troubleshoot-analytics-rules.md#issue-no-events-appear-in-query-results).
+
+#### Suppression
+
+If you want this rule to stop working for a period of time after it generates an alert, turn the **Stop running query after alert is generated** setting **On**. Then, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
+
+#### Results simulation
+
+The analytics rule wizard allows you to test its efficacy by running it on the current data set. When you run the test, the **Results simulation** window shows you a graph of the results the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, you can run the test again to update the graph. The graph shows the number of results over the defined time period, which is determined by the query schedule you defined.
+
+Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
+
+:::image type="content" source="media/create-analytics-rules/results-simulation.png" alt-text="Results simulation screenshots":::
+
+If you see that your query would trigger too many or too-frequent alerts, you can experiment with the scheduling and threshold settings and run the simulation again.
 
 ### Incident creation and alert grouping
 
