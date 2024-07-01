@@ -180,9 +180,11 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### Assign roles for read-only queries
 
-Use the Search Index Data Reader role for apps and processes that only need read-access to an index. This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions.
+Use the Search Index Data Reader role for apps and processes that only need read-access to an index. 
 
-It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
+This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions. It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
+
+This section provides basic steps for setting up the role assignment and is here for completeness, but we recommend [Use Azure AI Search without keys ](keyless-connections.md) for comprehensive instructions on configuring your app for role-based access.
 
 #### [**Azure portal**](#tab/roles-portal-query)
 
@@ -238,7 +240,7 @@ When [using PowerShell to assign roles](../role-based-access-control/role-assign
 
 Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group level can't be deleted or denied at the resource (search service) level. 
 
-Make sure that you [register your client application with Microsoft Entra ID](search-howto-aad.md) and have role assignments in place before testing access. 
+[Configure your application for keyless connections](keyless-connections.md) and have role assignments in place before testing. 
 
 ### [**Azure portal**](#tab/test-portal)
 

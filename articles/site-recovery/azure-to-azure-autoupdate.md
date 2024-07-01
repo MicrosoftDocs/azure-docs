@@ -16,7 +16,7 @@ Azure Site Recovery uses a monthly release cadence to fix any issues and enhance
 
 As mentioned in [Azure-to-Azure disaster recovery architecture](azure-to-azure-architecture.md), the Mobility service is installed on all Azure virtual machines (VMs) that have replication enabled from one Azure region to another. When you use automatic updates, each new release updates the Mobility service extension.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## How automatic updates work
 
