@@ -45,8 +45,8 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td><code>mapReduce</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 
 <tr><td rowspan="3">Authentication Commands</td><td><code>authenticate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>getnonce</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>logout</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>getnonce</code></td><td colspan="3">Deprecated in MongoDB 4.0</td></tr>
+<tr><td><code>logout</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 
 <tr><td rowspan="1">Geospatial Commands</td><td><code>geoSearch</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 
