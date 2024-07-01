@@ -43,7 +43,7 @@ The script records the state of the deployment in a file called `deploy.state`, 
 
 As the script executes the commands to configure the infrastructure for the workflow, it checks that each command executes successfully. If any issues occur, an error message is displayed, and the execution stops.
 
-The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following command:
+The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following commands:
 
 ```bash
 mkdir ./logs
