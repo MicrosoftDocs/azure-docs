@@ -59,7 +59,19 @@ Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing ano
 
 ## Next steps
 
-Now that you have the required tooling installed,  [create the infrastructure to deploy a highly available PostgreSQL database on AKS using the CNPG operator][create-infrastructure].
+> [!div class="nextstepaction"]
+> [Create the infrastructure to deploy a highly available PostgreSQL database on AKS using the CNPG operator][create-infrastructure]
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+* Ken Kilty | Principal TPM
+* Russell de Pina | Principal TPM
+* Adrian Joian | Senior Customer Engineer
+* Jenny Hayes | Senior Content Developer
+* Carol Smith | Senior Content Developer
+* Erin Schaffer | Content Developer 2
 
 <!-- LINKS -->
 [what-is-aks]: ./what-is-aks.md
