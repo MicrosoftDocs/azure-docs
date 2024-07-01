@@ -25,7 +25,7 @@ There are also caching providers in .NET core. To quickly start using Redis with
 
 Clone the [https://github.com/Azure-Samples/azure-cache-redis-samples](https://github.com/Azure-Samples/azure-cache-redis-samples) GitHub repo and navigate to the `quickstart/aspnet-core` directory to view the completed source code for the steps ahead.
 
-The `quickstart/aspnet-core` directory is also configured as an [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview) template. `azd` is an open-source tool that streamlines the provisioning and deployment process from a local environment to Azure. Optionally, you can run the `azd up` command to automatically provision an Azure Cache for Redis instance and configure the local sample app to connect to it:
+The `quickstart/aspnet-core` directory is also configured as an [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview) template. Use the open-source `azd` tool to streamline the provisioning and deployment from a local environment to Azure. Optionally, run the `azd up` command to automatically provision an Azure Cache for Redis instance, and to configure the local sample app to connect to it:
 
 ```azdeveloper
 azd up
