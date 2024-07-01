@@ -2,7 +2,7 @@
 title: Special cases to move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 10/30/2023 
+ms.date: 06/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 

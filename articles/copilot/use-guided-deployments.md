@@ -4,8 +4,7 @@ description: Learn how Microsoft Copilot in Azure (preview) can provide one-clic
 ms.date: 05/28/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
-ms.custom:
-  - build-2024
+ms.custom: build-2024, linux-related-content
 ms.author: jenhayes
 author: JnHs
 ---

@@ -28,7 +28,7 @@ The following section walks through a sample request with cURL. Paste the comman
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **10K** characters. 
+    > See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-10-01' \
@@ -38,7 +38,7 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
   "text": "I hate you",
   "categories": [
    "Hate","Sexual","SelfHarm","Violence"
-  ]
+  ],
    "blocklistNames": [
       "string"
     ],
@@ -79,10 +79,10 @@ See the following sample request body:
 }
 ```
 
-Open a command prompt window and run the cURL command.
+Open a command prompt window, paste in the edited cURL command, and run it.
 
 
-### Interpret the API response
+## Output
 
 You should see the text moderation results displayed as JSON data in the console output. For example:
 

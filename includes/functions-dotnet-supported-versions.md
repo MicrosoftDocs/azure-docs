@@ -15,11 +15,11 @@ Versions of the Functions runtime support specific versions of .NET. To learn mo
 >[!NOTE]
 >To learn how to change the Functions runtime version used by your function app, see [view and update the current runtime version](../articles/azure-functions/set-runtime-version.md#view-the-current-runtime-version).
 
-The following table shows the highest level of .NET or .NET Framework that can be used with a specific version of Functions. 
+The following table shows the highest level of .NET or .NET Framework that can be used with a specific version of Functions.
 
 | Functions runtime version | [Isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md) | [In-process model](../articles/azure-functions/functions-dotnet-class-library.md)<sup>5</sup> |
 | ---- | --- | ---- |
-| Functions 4.x<sup>1</sup> | .NET 8.0<br/>.NET 6.0<sup>2</sup><br/>.NET Framework 4.8<sup>3</sup> | .NET 6.0<sup>2</sup>  |
+| Functions 4.x<sup>1</sup> | .NET 8.0<br/>.NET 6.0<sup>2</sup><br/>.NET Framework 4.8<sup>3</sup> | .NET 8.0<br/>.NET 6.0<sup>2</sup>  |
 | Functions 1.x<sup>4</sup> | n/a | .NET Framework 4.8 |
 
 <sup>1</sup> .NET 7 was previously supported on the isolated worker model but reached the [end of official support] on May 14, 2024.

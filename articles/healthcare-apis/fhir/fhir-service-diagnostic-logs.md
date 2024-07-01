@@ -13,7 +13,7 @@ ms.author: kesheth
 
 Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA) is a must. In this article, you'll learn how to choose settings for diagnostic logs in the FHIR service within Azure Health Data Services. You'll also review some sample queries for these logs.
 
-## Steps to enable diagnostic logs
+## Steps to enable logs
 
 1. Select your FHIR service in the Azure portal.
 
@@ -94,8 +94,7 @@ You can use these basic Log Analytics queries to explore your log data:
   | where ResultType == "Failed"`	
 
 ## Conclusion
-
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. In this article, you learned how to enable these logs for the FHIR service. 
+In this article, you learned how to enable these logs for the FHIR service. Having access to logs is essential for monitoring a service and providing compliance reports. 
 
 
 ## Next steps

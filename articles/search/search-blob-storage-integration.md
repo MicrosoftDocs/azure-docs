@@ -84,7 +84,7 @@ Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include h
 
 By running a blob indexer over a container, you can extract text and metadata from the following content types with a single query:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 <a name="PartsOfBlobToIndex"></a> 
 

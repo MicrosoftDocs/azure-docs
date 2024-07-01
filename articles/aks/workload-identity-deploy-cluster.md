@@ -24,7 +24,7 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 ## Prerequisites
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * Make sure that the identity that you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set][az-account-set] command.
@@ -44,7 +44,7 @@ az account set --subscription <subscription-id>
 
 To help simplify steps to configure the identities required, the steps below define environment variables that are referenced in the examples in this article. Remember to replace the values shown with your own values:
 
-  ```bash
+  ```azurecli-interactive
   export RESOURCE_GROUP="myResourceGroup"
   export LOCATION="eastus"
   export CLUSTER_NAME="myAKSCluster"
@@ -117,7 +117,7 @@ az aks update \
 
 To get the OIDC issuer URL and save it to an environmental variable, run the following command:
 
-```bash
+```azurecli-interactive
 export AKS_OIDC_ISSUER="$(az aks show --name "${CLUSTER_NAME}" \
     --resource-group "${RESOURCE_GROUP}" \
     --query "oidcIssuerProfile.issuerUrl" \
@@ -146,7 +146,7 @@ az identity create \
 
 Next, create a variable for the managed identity's client ID.
 
-```bash
+```azurecli-interactive
 export USER_ASSIGNED_CLIENT_ID="$(az identity show \
     --resource-group "${RESOURCE_GROUP}" \
     --name "${USER_ASSIGNED_IDENTITY_NAME}" \
@@ -164,7 +164,7 @@ az aks get-credentials --name "${CLUSTER_NAME}" --resource-group "${RESOURCE_GRO
 
 Copy and paste the following multi-line input in the Azure CLI.
 
-```bash
+```azurecli-interactive
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: ServiceAccount
@@ -321,8 +321,8 @@ The following example shows how to use the Azure role-based access control (Azur
 
 To check whether all properties are injected properly by the webhook, use the [kubectl describe][kubectl-describe] command:
 
-```bash
-kubectl describe pod quick-start | grep "SECRET_NAME:"
+```azurecli-interactive
+kubectl describe pod sample-workload-identity-key-vault | grep "SECRET_NAME:"
 ```
 
 If successful, the output should be similar to the following:
@@ -333,8 +333,8 @@ If successful, the output should be similar to the following:
 
 To verify that pod is able to get a token and access the resource, use the kubectl logs command:
 
-```bash
-kubectl logs quick-start
+```azurecli-interactive
+kubectl logs sample-workload-identity-key-vault
 ```
 
 If successful, the output should be similar to the following:
@@ -360,6 +360,8 @@ az aks update \
 ## Next steps
 
 In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. Now you're ready to deploy your application and configure it to use the workload identity with the latest version of the [Azure Identity][azure-identity-libraries] client library. If you can't rewrite your application to use the latest client library version, you can [set up your application pod][workload-identity-migration] to authenticate using managed identity with workload identity as a short-term migration solution.
+
+The [Service Connector](../service-connector/overview.md) integration helps simplify the connection configuration for AKS workloads and Azure backing services. It securely handles authentication and network configurations and follows best practices for connecting to Azure services. For more information, see [Connect to Azure OpenAI Service in AKS using Workload Identity](../service-connector/tutorial-python-aks-openai-workload-identity.md) and the [Service Connector introduction](https://azure.github.io/AKS/2024/05/23/service-connector-intro).
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

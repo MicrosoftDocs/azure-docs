@@ -66,7 +66,7 @@ Authoring APIs for packaged apps:
 
 ### The host computer
 
-[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
@@ -95,7 +95,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 
 For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) on Docker Hub.
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## How to use the container
 
@@ -252,7 +252,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the **Azure Resources** page in the LUIS portal and is also available on the Azure `Azure AI services` resource keys page.
 
-[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+[!INCLUDE [Running multiple containers on the same host](../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## Endpoint APIs supported by the container
 
@@ -350,7 +350,7 @@ After the log is uploaded, [review the endpoint](./how-to/improve-application.md
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Run the container disconnected from the internet
 
@@ -372,7 +372,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 The LUIS container sends billing information to Azure, using an _Azure AI services_ resource on your Azure account.
 
-[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 

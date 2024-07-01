@@ -66,7 +66,7 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 * Product ID
 * User ID
 * Subscription ID
-* Location ID
+* Location
 * Gateway ID
 
 ## Usage

@@ -3,13 +3,14 @@ title: OS Images Supported
 description: OS Image Support List for Remote NVMe
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.date: 06/25/2024
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.custom: template-how-to-pattern
 ---
 
 # OS Images Supported with Remote NVMe
 
-> [!CAUTION]
+> [!NOTE]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The following lists provide up-to-date information on which OS images are tagged as NVMe supported. These lists will be updated when new OS images are made available with remote NVMe support.

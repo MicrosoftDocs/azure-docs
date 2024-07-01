@@ -3,7 +3,7 @@ title: Automatic attack disruption for SAP | Microsoft Sentinel
 description: Learn about deploying automatic attack disruption for SAP with the unified security operations platform.
 author: batamig
 ms.author: bagol
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 05/29/2024
 appliesto:
   - Microsoft Sentinel in the Azure portal

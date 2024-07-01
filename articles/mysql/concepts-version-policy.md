@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This page describes the Azure Database for MySQL versioning policy and applies to Azure Database for MySQL - Single Server and Azure Database for MySQL - Flexible Server deployment modes.
 

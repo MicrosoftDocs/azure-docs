@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp, devx-track-azurepowershell, d
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB for MongoDB resources
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This article explains how to provision throughput in Azure Cosmos DB for MongoDB. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 

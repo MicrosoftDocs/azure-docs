@@ -13,8 +13,7 @@ ms.date: 05/20/2024
 
 # Connection monitor overview
 
-> [!IMPORTANT]
-> Connection monitor (Classic) is deprecated and no longer available. For more information, see [Migrate from Connection monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to migrate your connection monitors from Connection monitor (Classic) to the new Connection monitor.
+[!INCLUDE [Migrate connection monitor (classic)](../../includes/network-watcher-connection-monitor-classic.md)]
 
 Connection monitor provides unified, end-to-end connection monitoring in Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 

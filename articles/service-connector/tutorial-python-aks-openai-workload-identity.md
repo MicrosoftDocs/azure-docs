@@ -6,7 +6,7 @@ description: Learn how to connect to Azure OpenAI Service in Azure Kubernetes Se
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python, build-2024
+ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/07/2024
 ---

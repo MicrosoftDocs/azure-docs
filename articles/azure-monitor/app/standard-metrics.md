@@ -9,7 +9,7 @@ ms.reviewer: vitalyg
 
 # Application Insights standard metrics
 
-Standard metrics are pre-aggregated during collection, which gives them better performance at query time. This makes them the best choice for dashboards and real-time alerting.
+Standard metrics are preaggregated during collection, which gives them better performance at query time. This makes them the best choice for dashboards and real-time alerting.
 
 [!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
@@ -273,5 +273,5 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 
 * [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
-* Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
+* Learn about [Log-based and preaggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

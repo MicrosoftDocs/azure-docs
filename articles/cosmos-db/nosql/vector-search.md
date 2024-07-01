@@ -61,6 +61,17 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 > [!NOTE]  
 > DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp). You'll be contacted by a member of the Azure Cosmos DB team when your resource has been onboarded to use the DiskANN index.
 
+> [!TIP]
+> Alternatively, use the Azure CLI to update the capabilities of your account to support NoSQL vector search.
+>
+> ```azurecli
+> az cosmosdb update \
+>      --resource-group <resource-group-name> \
+>      --name <account-name> \
+>      --capabilities EnableNoSQLVectorSearch
+> ```
+>
+
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
 
@@ -70,7 +81,12 @@ Performing vector search with Azure Cosmos DB for NoSQL requires you to define a
    * “path”: the property containing the vector (required).
    * “datatype”: the data type of the vector property (default Float32).  
    * “dimensions”: The dimensionality or length of each vector in the path. All vectors in a path should have the same number of dimensions. (default 1536).
-   * “distanceFunction”: The metric used to compute distance/similarity (default Cosine). 
+   * “distanceFunction”: The metric used to compute distance/similarity. Supported metrics are:   
+     *  [cosine](https://en.wikipedia.org/wiki/Cosine_similarity), which has values from -1 (least similar) to +1 (most similar). 
+     *  [dotproduct](https://en.wikipedia.org/wiki/Dot_product), which has values from -inf (least simialr) to +inf (most similar).
+     *  [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance), which has values from 0 (most similar) to +inf) (least similar). 
+
+
   
 > [!NOTE]
 > Each unique path can have at most one policy. However, multiple policies can be specified provided that they all target a different path.
@@ -180,7 +196,10 @@ Here are examples of valid vector index policies:
 }
 ```
 > [!NOTE]
-> The Quantized Flat index requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead, and will lead to higher RU charges for a vector search query.
+> The Quantized Flat and DiskANN indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead, and will lead to higher RU charges for a vector search query.
+
+> [!IMPORTANT]
+> At this time in the vector search preview do not use nested path or wild card characters in the path of the vector policy. Replace operations on the vector policy are currently not supported.
 
 ## Perform vector search with queries using VectorDistance()
 
@@ -203,10 +222,11 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - Ingestion rate should be limited while using an early preview of DiskANN.
 
 ## Next step
-- [.NET - How-to Index and query vector data](how-to-python-vector-index-query.md)
+- [DiskANN + Azure Cosmos DB - Microsoft Mechanics Video](https://www.youtube.com/watch?v=MlMPIYONvfQ)
+- [.NET - How-to Index and query vector data](how-to-dotnet-vector-index-query.md)
 - [Python - How-to Index and query vector data](how-to-python-vector-index-query.md)
-- [JavaScript - How-to Index and query vector data](how-to-python-vector-index-query.md)
-- [Java - How-to Index and query vector data](how-to-python-vector-index-query.md)
+- [JavaScript - How-to Index and query vector data](how-to-javascript-vector-index-query.md)
+- [Java - How-to Index and query vector data](how-to-java-vector-index-query.md)
 - [VectorDistance system function](query/vectordistance.md)
 - [Vector index overview](../index-overview.md#vector-indexes)
 - [Vector index policies](../index-policy.md#vector-indexes)

@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > - Setup an Azure Static Web Apps site
 > - Deploy the Gatsby app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article will walk you through the steps how to configure Microsoft Entra ID access with Azure Database for MySQL, and how to connect using a Microsoft Entra token.
 
@@ -84,7 +84,7 @@ Invoke the Azure CLI tool to acquire an access token for the Microsoft Entra aut
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://server-name.database.windows.net.database.windows.net
+az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
 
@@ -100,7 +100,7 @@ az account get-access-token --resource-type oss-rdbms
 Using PowerShell, you can use the following command to acquire access token:
 
 ```azurepowershell-interactive
-$accessToken = Get-AzAccessToken -ResourceUrl https://server-name.database.windows.net
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
 $accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
 ```
 

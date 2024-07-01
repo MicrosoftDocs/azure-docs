@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: concept-article
-author: santiagxf
-ms.author: fasantia
+author: ccrestana
+ms.author: cacrest
 ms.reviewer: mopeakande
 ms.custom:
   - devplatv2

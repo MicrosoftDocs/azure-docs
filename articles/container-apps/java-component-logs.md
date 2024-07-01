@@ -4,7 +4,7 @@ description: Learn how to retrieve logs of managed Java components in Azure Cont
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/01/2024
 ms.author: cshoe

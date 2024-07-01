@@ -58,7 +58,7 @@ You can access the following packet core dashboards:
 > [!TIP]
 > Some packet core dashboards display different panels depending on whether the packet core instance supports 5G, 4G, or combined 4G and 5G user equipment (UEs).
 
-- The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
+- The **Overview dashboard** displays important *key performance indicators (KPIs)*, including the number of connected devices, throughput, and any alerts firing in the system.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 

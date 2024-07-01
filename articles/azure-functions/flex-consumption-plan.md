@@ -82,7 +82,7 @@ Concurrency has a direct effect on how your app scales because at lower concurre
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behaviour.
+Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behavior.
 
 ## Billing
 
@@ -111,14 +111,14 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-Currently, each region in a given subscription has a memory limit of 512,000 MB for all instances of apps running on Flex Consumption plans in that region. This means that in a given subscription and region, you could have any of the following combinations of maximum instance sizes and counts, all of which reach the current 512,000 MB limit:
+Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans in that region. This means that in a given subscription and region, you could have any of the following combinations of maximum instance sizes and counts, all of which reach the current `512,000 MB` limit. For example:
 
 | Instance memory size (MB) | Max instance counts (per region) |
 | ----- | ---- |
 | `2048 MB` | 250 |
 | `4096 MB` | 125 |
 
-You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the 512,000 MB limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
+You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the `512,000 MB` limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
 
 ## Deprecated properties and settings
 
@@ -128,6 +128,7 @@ In Flex Consumption, many of the standard application settings and site configur
 
 Keep these other considerations in mind when using Flex Consumption plan during the current preview:
 
++ **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
 + **Deployments**: These deployment-related features aren't currently supported:
@@ -135,7 +136,8 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
-+ **Authorization**: EasyAuth isn't currently supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.  
++ **Authorization**: EasyAuth is currently not supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
++ **CORS**: CORS settings are currently not supported. Exceptions might occur if CORS is configured for Flex Consumption apps.
  
 ## Related articles 
 

@@ -25,7 +25,7 @@ The steps in this article help you:
 * Remove your VM's public IP address if you don't need it for anything else.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## <a name="prereq"></a>Prerequisites
 

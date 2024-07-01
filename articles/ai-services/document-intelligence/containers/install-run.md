@@ -19,7 +19,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD051 -->
 
 :::moniker range="doc-intel-2.1.0 || doc-intel-4.0.0"
-Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read and Layout only:
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, ID Document, Receipt and Invoice models:
 
 * [REST API `2022-08-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)
 * [REST API `2023-07-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.1%20(2023-07-31)&tabs=HTTP&preserve-view=true)
@@ -38,11 +38,9 @@ Azure AI Document Intelligence is an Azure AI service that lets you build automa
 
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
 
-* **Read**, and **Layout**  models are supported by Document Intelligence v3.1 containers.
+* **Read**, **Layout**,  **ID Document**,  **Receipt**, and **Invoice**  models are supported by Document Intelligence v3.1 containers.
 
-* **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, **Business Card**, and **Custom** models are supported by Document Intelligence v3.0 containers.
-
-* **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=doc-intel-2.1.0&preserve-view=true).
+* **Read**, **Layout**, **General Document**, **Business Card**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
 ## Prerequisites
 
@@ -576,7 +574,7 @@ services:
 
  ```
 
-The custom template container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you're using Azure Storage queues. When running locally, delete these variables.
+The custom template container and Layout container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you're using Azure Storage queues. When running locally, delete these variables.
 
 ### Ensure the service is running
 
@@ -610,7 +608,7 @@ Custom template containers require a few different configurations and support ot
 
 * Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract _sample_data.zip_).
 
-* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is `[http://localhost:5000](http://localhost:5000)`.
+* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is `[http://localhost:5001](http://localhost:5001)`.
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description

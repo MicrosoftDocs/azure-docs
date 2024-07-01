@@ -67,8 +67,15 @@ Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernete
     "location": {
       "value": "eastus"
     },
-    "sshPublicKey": {
-      "value": "ssh-rsa AAAAB...."
+    "sshPublicKeys": {
+      "value": [
+        {
+          "keyData": "ssh-rsa AAAAB..."
+        },
+        {
+          "keyData": "ssh-rsa AAAAC..."
+        }
+      ]
     },
     "initialPoolAgentOptions": {
       "value": {"hugepagesCount": 512,"hugepagesSize": "2M"}

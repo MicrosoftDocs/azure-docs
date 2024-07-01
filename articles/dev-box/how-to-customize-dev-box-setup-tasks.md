@@ -40,6 +40,17 @@ You can adopt customizations in stages, building from a simple but functional co
 
 - To complete the steps in this article, you must have a [dev center configured with a dev box definition, dev box pool, and dev box project](./quickstart-configure-dev-box-service.md). 
 
+## Permissions required to configure Microsoft Dev Box for customizations
+
+To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
+
+|Action  |Permission / Role  |
+|---------|---------|
+|Attach a catalog to a dev center |Platform engineer with Contributor permission to the dev center. |
+|Use the developer portal to upload and apply a yaml file during dev box creation | Dev Box User |
+|Create a configuration file    | Anyone can create a configuration file.  |
+|Add tasks to a catalog     | Permission to add to the repository hosting the catalog.        |
+
 ## Create a customized dev box by using an example configuration file
 
 Use the default quick start catalog and an example configuration file to get started with customizations. 
@@ -147,17 +158,6 @@ tasks:
 ```
 
 To learn more about WinGet Configuration, see [WinGet Configuration](https://aka.ms/winget-configuration).
-
-### Permissions required to configure Microsoft Dev Box for customizations
-
-To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.
-
-|Action  |Permission / Role  |
-|---------|---------|
-|Attach a catalog to a dev center |Platform engineer with Contributor permission to the dev center. |
-|Use the developer portal to upload and apply a yaml file during dev box creation | Dev Box User |
-|Create a configuration file    | Anyone can create a configuration file.  |
-|Add tasks to a catalog     | Permission to add to the repository hosting the catalog.        |
 
 ## Write a configuration file
 

@@ -2,7 +2,7 @@
 title: Build a real-time dashboard in Microsoft Fabric with MQTT data
 description: Learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from Azure IoT MQ
 author: PatAltimore
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: how-to
 ms.date: 11/15/2023

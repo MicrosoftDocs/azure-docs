@@ -4,6 +4,8 @@
   items:
   - name: About App Service Environment
     href: overview.md
+  - name: Compare with App Service
+    href: ase-multi-tenant-comparison.md
   - name: Version comparison
     href: version-comparison.md
   - name: Upgrade to App Service Environment v3
