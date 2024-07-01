@@ -56,7 +56,7 @@ Execute the following commands to create your resource group, container apps env
     export LOCATION=eastus
     export RESOURCE_GROUP=my-services-resource-group
     export ENVIRONMENT=my-environment
-    export JAVA_COMPONENT_NAME=eureka
+    export EUREKA_COMPONENT_NAME=eureka
     export APP_NAME=sample-service-eureka-client
     export IMAGE="mcr.microsoft.com/javacomponents/samples/sample-service-eureka-client:latest"
     ```
@@ -66,7 +66,7 @@ Execute the following commands to create your resource group, container apps env
     | `LOCATION` | The Azure region location where you create your container app and Java component. |
     | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
     | `RESOURCE_GROUP` | The Azure resource group name for your demo application. |
-    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Eureka Server for Spring Java component.  |
+    | `EUREKA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Eureka Server for Spring Java component.  |
     | `IMAGE` | The container image used in your container app. |
 
 1. Log in to Azure with the Azure CLI.
@@ -90,7 +90,7 @@ Execute the following commands to create your resource group, container apps env
       --location $LOCATION
     ```
 
-## Use the Eureka Server for Spring Java component
+## Create the Eureka Server for Spring Java component
 
 Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Eureka Server for Spring.
 
@@ -100,18 +100,20 @@ Now that you have an existing environment, you can create your container app and
     az containerapp env java-component eureka-server-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME
+      --name $EUREKA_COMPONENT_NAME
     ```
 
-1. Update the Eureka Server for Spring Java component configuration.
+
+1. Optional: Update the Eureka Server for Spring Java component configuration.
 
     ```azurecli
     az containerapp env java-component eureka-server-for-spring update \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME 
+      --name $EUREKA_COMPONENT_NAME 
       --configuration eureka.server.renewal-percent-threshold=0.85 eureka.server.eviction-interval-timer-in-ms=10000
     ```
+## Bind your container app to the Eureka Server for Spring Java component
 
 1. Create the container app and bind to the Eureka Server for Spring.
 
@@ -125,7 +127,7 @@ Now that you have an existing environment, you can create your container app and
       --max-replicas 1 \
       --ingress external \
       --target-port 8080 \
-      --bind $JAVA_COMPONENT_NAME \
+      --bind $EUREKA_COMPONENT_NAME \
       --query properties.configuration.ingress.fqdn
     ```
 
@@ -193,7 +195,7 @@ Now that you have an existing environment, you can create your container app and
         az containerapp env java-component eureka-server-for-spring show \
         --environment $ENVIRONMENT \
         --resource-group $RESOURCE_GROUP \
-        --name $JAVA_COMPONENT_NAME \
+        --name $EUREKA_COMPONENT_NAME \
         --query properties.ingress.fqdn -o tsv
     ```
 
