@@ -996,7 +996,7 @@ az network vnet peering list \
 ```
 ---
 
-The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using subnet-1 Azure name resolution for the virtual networks, the resources in the virtual networks aren't able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS (Domain Name System) server or use Azure DNS.
+The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using Azure name resolution for the virtual networks, the resources in the virtual networks aren't able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS (Domain Name System) server or use Azure DNS.
 
 > [!IMPORTANT]
 > If you update the address space in one of the members of the peer, you must resync the connection to reflect the address space changes. For more information, see [Update the address space for a peered virtual network using the Azure portal](/azure/virtual-network/update-virtual-network-peering-address-space#modify-the-address-range-prefix-of-an-existing-address-range)
