@@ -78,7 +78,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         **Step 3:** In the codespace terminal:
         1. Run database migrations with `dotnet ef database update`.
         1. Run the app with `dotnet run`.
-        1. When you see the notification `Your application running on port 80 is available.`, select **Open in Browser**.
+        1. When you see the notification `Your application running on port 5093 is available.`, select **Open in Browser**.
         You should see the sample application in a new browser tab.
         To stop the application, type `Ctrl`+`C`.
     :::column-end:::
@@ -123,12 +123,12 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-core-sql-tutorial**.
-        1. *Region* &rarr; Any Azure region near you.
-        1. *Name* &rarr; **msdocs-core-sql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack* &rarr; **.NET 8 (LTS)**.
-        1. *Add Azure Cache for Redis?* &rarr; **Yes**.
-        1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Resource Group*: Select **Create new** and use a name of **msdocs-core-sql-tutorial**.
+        1. *Region*: Any Azure region near you.
+        1. *Name*: **msdocs-core-sql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        1. *Runtime stack*: **.NET 8 (LTS)**.
+        1. *Add Azure Cache for Redis?*: **Yes**.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
         1. Select **SQLAzure** as the database engine. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
@@ -140,16 +140,16 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
-        - **Resource group** &rarr; The container for all the created resources.
-        - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-        - **App Service** &rarr; Represents your app and runs in the App Service plan.
-        - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
-        - **Private endpoints** &rarr; Access endpoints for the database server and the Redis cache in the virtual network.
-        - **Network interfaces** &rarr; Represents private IP addresses, one for each of the private endpoints.
-        - **Azure SQL Database server** &rarr; Accessible only from behind its private endpoint.
-        - **Azure SQL Database** &rarr; A database and a user are created for you on the server.
-        - **Azure Cache for Redis** &rarr; Accessible only from behind its private endpoint.
-        - **Private DNS zones** &rarr; Enable DNS resolution of the database server and the Redis cache in the virtual network.
+        - **Resource group**: The container for all the created resources.
+        - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+        - **App Service**: Represents your app and runs in the App Service plan.
+        - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+        - **Private endpoints**: Access endpoints for the database server and the Redis cache in the virtual network.
+        - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
+        - **Azure SQL Database server**: Accessible only from behind its private endpoint.
+        - **Azure SQL Database**: A database and a user are created for you on the server.
+        - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+        - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png":::
@@ -162,7 +162,7 @@ The creation wizard generated connection strings for the SQL database and the Re
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, from the left menu, select **Environment variables**.
+        **Step 1:** In the App Service page, from the left menu, select **Settings** > **Environment variables**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-get-connection-string-1.png":::
@@ -173,7 +173,7 @@ The creation wizard generated connection strings for the SQL database and the Re
         **Step 2:** 
         1. Find **AZURE_REDIS_CONNECTIONSTRING** in the **App settings** section. This string was generated from the new Redis cache by the creation wizard. To set up your application, this name is all you need.
         1. Select **Connection strings** and find **AZURE_SQL_CONNECTIONSTRING** in the **Connection strings** section. This string was generated from the new SQL database by the creation wizard. To set up your application, this name is all you need.
-        1. If you want, you can select the **Edit** button to the right of each setting and see or copy its value.
+        1. If you want, you can select the setting and see, copy, or edit its value.
         Later, you'll change your application to use `AZURE_SQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
     :::column:::
@@ -187,7 +187,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the left menu, select **Deployment Center**. 
+        **Step 1:** In the left menu, select **Deployment** > **Deployment Center**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-1.png":::
@@ -202,7 +202,8 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. In **Repository**, select **msdocs-app-service-sqldb-dotnetcore**.
         1. In **Branch**, select **starter-no-infra**. This is the same branch that you worked in with your sample app, without any Azure-related files or configuration.
         1. For **Authentication type**, select **User-assigned identity**.
-        1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
+        1. In the top menu, select **Save**. 
+        App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
         By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
     :::column-end:::
     :::column:::
@@ -262,7 +263,6 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 8.*`.
         1. Under the new step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle`.
         The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
-        1. Save your changes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing steps added to the GitHub workflow file for database migration bundle." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-5.png":::
@@ -284,7 +284,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 7:**
         Back in the Deployment Center page in the Azure portal:
-        1. Select **Logs**. A new deployment run is already started from your committed changes.
+        1. Select **Logs**. A new deployment run is already started from your committed changes. You may need to select **Refresh** to see it.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
@@ -293,7 +293,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
+        **Step 8:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-8.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-8.png":::
@@ -316,13 +316,16 @@ With the SQL Database protected by the virtual network, the easiest way to run [
     :::column span="2":::
         **Step 2:** In the SSH terminal:
         1. Run `cd /home/site/wwwroot`. Here are all your deployed files.
-        1. Run the migration bundle that the GitHub workflow generated, with the command `./migrationsbundle -- --environment Production`. If it succeeds, App Service is connecting successfully to the SQL Database.
-        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+        1. Run the migration bundle that the GitHub workflow generated, with the command `./migrationsbundle -- --environment Production`. If it succeeds, App Service is connecting successfully to the SQL Database. Remember that `--environment Production` corresponds to the code changes you made in *Program.cs*.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-2.png":::
     :::column-end:::
 :::row-end:::
+
+In the SSH session, only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Browse to the app
 
@@ -356,8 +359,8 @@ Azure App Service captures all messages logged to the console to assist you in d
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
-        1. From the left menu, select **App Service logs**.
-        1. Under **Application logging**, select **File System**.
+        1. From the left menu, select **Monitoring** > **App Service logs**.
+        1. Under **Application logging**, select **File System**, then select **Save**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-diagnostic-logs-1.png":::
@@ -462,7 +465,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
 
-1. In the AZD output, find the app setting `AZURE_SQL_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
+1. In the AZD output, find the settings `AZURE_SQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
 
     <pre>
     App Service app has the following connection strings:
@@ -471,7 +474,7 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_REDIS_CONNECTIONSTRING
     </pre>
 
-    `AZURE_SQL_CONNECTIONSTRING` contains the connection string to the SQL Database in Azure. You need to use it in your code later. 
+    `AZURE_SQL_CONNECTIONSTRING` contains the connection string to the SQL Database in Azure, and `AZURE_REDIS_CONNECTIONSTRING` contains the connection string to the Azure Redis cache. You need to use them in your code later. 
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
@@ -490,12 +493,6 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 1. Open *Program.cs* in the explorer and add the code suggestion.
 
     GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
-
-1. Back in the codespace terminal, run `azd deploy`.
- 
-    ```bash
-    azd deploy
-    ```
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
@@ -518,14 +515,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     
     When the app isn't in development mode (like in Azure App Service), this code connects to the database by using `AZURE_SQL_CONNECTIONSTRING` and connects to the Redis cache by using the app setting `AZURE_REDIS_CONNECTIONSTRING`.
 
-    Before you deploy these changes, you still need to generate a migration bundle.
-
 -----
 
-> [!TIP]
-> You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
->
-> To find out how the War file is packaged, you can run `azd package --debug` by itself.
+Before you deploy these changes, you still need to generate a migration bundle.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -561,7 +553,11 @@ With the SQL Database protected by the virtual network, the easiest way to run d
     ./migrationsbundle -- --environment Production
     ```
 
-    If it succeeds, App Service is connecting successfully to the database.
+    If it succeeds, App Service is connecting successfully to the database. Remember that `--environment Production` corresponds to the code changes you made in *Program.cs*.
+
+In the SSH session, only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 6. Browse to the app
 
@@ -614,6 +610,8 @@ azd down
 
 - [The portal deployment view for Azure SQL Database shows a Conflict status](#the-portal-deployment-view-for-azure-sql-database-shows-a-conflict-status)
 - [In the Azure portal, the log stream UI for the web app shows network errors](#in-the-azure-portal-the-log-stream-ui-for-the-web-app-shows-network-errors)
+- [The SSH session in the browser shows `SSH CONN CLOSED`](#the-ssh-session-in-the-browser-shows-ssh-conn-closed)
+- [The portal log stream page shows `Connected!` but no logs](#the-portal-log-stream-page-shows-connected-but-no-logs)
 
 ### The portal deployment view for Azure SQL Database shows a Conflict status
 
@@ -627,11 +625,19 @@ This error is most likely caused by a limit on your subscription for the region 
 
 You may see this error: 
 
-```
+<pre>
 Unable to open a connection to your app. This may be due to any network security groups or IP restriction rules that you have placed on your app. To use log streaming, please make sure you are able to access your app directly from your current network.
-```
+</pre>
 
 This is usually a transient error when the app is first started. Wait a few minutes and check again.
+
+### The SSH session in the browser shows `SSH CONN CLOSED`
+
+It takes a few minutes for the Linux container to start up. Wait a few minutes and check again.
+
+### The portal log stream page shows `Connected!` but no logs
+
+After you configure diagnostic logs, the app is restarted. You may need to refresh the page for the changes to take effect in the browser.
 
 ## Frequently asked questions
 
