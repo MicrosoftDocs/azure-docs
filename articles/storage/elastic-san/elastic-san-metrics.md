@@ -4,7 +4,7 @@ description: Learn about the available metrics that can let you understand how y
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 06/28/2024
 ms.author: rogarana
 ---
 
@@ -25,6 +25,24 @@ The following metrics are currently available for your Elastic SAN resource. You
 |**Egress**|The amount of egress data. This number includes egress from the resource to external clients as well as egress within Azure.  |
 
 All metrics are shown at the elastic SAN level.
+
+## Diagnostic logging
+
+You can configure the diagnostic settings of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there are two log configurations:
+
+- All - Every resource log offered by the resource.
+- Audit - All resource logs that record customer interactions with data or the settings of the service. 
+
+Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
+
+Available log categories:
+
+- Write Success Requests
+- Write Failed Requests
+- Read Success Requests
+- Read Failed Requests
+- Persistent Reservation Requests
+- SendTargets Requests
 
 ## Next steps
 

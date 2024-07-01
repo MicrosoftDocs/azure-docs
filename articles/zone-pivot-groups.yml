@@ -3081,7 +3081,7 @@ groups:
   - id: windows-365
     title: Windows 365
   - id: dev-box
-    title: Dev Box
+    title: Microsoft Dev Box
 - id: azure-virtual-desktop-windows-clients
   title: Remote Desktop clients for Windows
   prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
@@ -3092,6 +3092,20 @@ groups:
     title: Azure Virtual Desktop Store app
   - id: rd-store
     title: Remote Desktop Store app
+- id: remote-desktop-clients
+  title: Remote Desktop clients
+  prompt: "Choose what you want to connect to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Microsoft Dev Box
+  - id: remote-desktop-services
+    title: Remote Desktop Services
+  - id: remote-pc
+    title: Remote PC
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
