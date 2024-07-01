@@ -574,6 +574,8 @@ Because the blob trigger uses a queue internally, the maximum number of concurre
 
 Limits apply separately to each function that uses a blob trigger.
 
+Due to the existing architecture, we load the blob into memory several times so you should expect the memory usage to be two to three times the size of the blob. 
+
 ## host.json properties
 
 The [host.json](functions-host-json.md#blobs) file contains settings that control blob trigger behavior. See the [host.json settings](functions-bindings-storage-blob.md#hostjson-settings) section for details regarding available settings.
