@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 07/01/2024
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -52,8 +52,8 @@ You can monitor the following metrics to determine if you need to scale.
   - For Enterprise tier caches using the _Enterprise cluster policy_, scaling out doesn't increase network bandwidth.
   - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 - **Internal Defender Scans**
-  - On _C0_ and _C1_ caches, you might see short spikes in server load not caused by an increase in requests a couple times a day while internal defender scanning is running on the VMs. You see higher latency for requests while internal defender scans happen on these tiers. Caches on the  _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal defender scanning and Redis requests. You can reduce the effect by scaling to a higher tier offering  with multiple CPU cores, such as _C2_.
-    
+  - On _C0_ and _C1_ caches, while internal Defender scanning is running on the VMs, you might see short spikes in server load that aren't caused by an increase in cache requests. You see higher latency for requests while internal Defender scans are run on these tiers a couple of times a day. Caches on the _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal Defender scanning and Redis requests. You can reduce the effect by scaling to a higher tier offering with multiple CPU cores, such as _C2_.
+
 For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 > [!NOTE]
