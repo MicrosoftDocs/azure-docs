@@ -4,7 +4,7 @@ description: This article provides an overview of the Update Management feature 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 12/13/2023
+ms.date: 06/30/2024
 ms.topic: conceptual
 ---
 

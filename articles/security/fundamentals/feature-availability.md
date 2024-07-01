@@ -7,7 +7,7 @@ ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 08/31/2023
+ms.date: 06/27/2024
 ---
 
 # Cloud feature availability for commercial and US Government customers

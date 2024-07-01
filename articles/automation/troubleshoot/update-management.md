@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 05/26/2023
+ms.date: 06/29/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, linux-related-content
 ---
@@ -80,7 +80,7 @@ When an assessment of OS updates pending for your Linux machine is done, [Open V
 
 You can manually check the Linux machine, the applicable updates, and their classification per the distro's package manager. To understand which updates are classified as **Security** by your package manager, run the following commands.
 
-For YUM, the following command returns a non-zero list of updates categorized as **Security** by Red Hat. Note that in the case of CentOS, it always returns an empty list and no security classification occurs.
+For YUM, the following command returns a non-zero list of updates categorized as **Security** by Red Hat. 
 
 ```bash
 sudo yum -q --security check-update
@@ -671,7 +671,7 @@ Updates are often superseded by other updates. For more information, see [Update
 
 ### Installing updates by classification on Linux
 
-Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
+Deploying updates to Linux by classification ("Critical and security updates") has important caveats. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
 
 ### KB2267602 is consistently missing
 

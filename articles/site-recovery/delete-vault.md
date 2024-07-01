@@ -12,13 +12,17 @@ ms.author: ankitadutta
 
 This article describes how to delete a Recovery Services vault for Site Recovery. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 
 ## Before you start
 
 Before you can delete a vault you must remove registered servers, and items in the vault. What you need to remove depends on the replication scenarios you've deployed. 
 
+> [!NOTE]  
+> Before you delete a Backup protection policy from a vault, you must ensure that
+> - the policy doesn't have any associated Backup items.
+> - each associated item is associated with some other policy.
 
 ## Delete a vault-Azure VM to Azure
 

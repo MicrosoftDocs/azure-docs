@@ -13,7 +13,7 @@ services: iot-central
 
 Azure IoT Central is a fully managed Internet of Things (IoT) software-as-a-service solution that makes it easy to connect, monitor, and manage your IoT assets at scale, create deep insights from your IoT data, and take informed action.
 
-[!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Identifying customer data
 

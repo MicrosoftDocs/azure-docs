@@ -8,16 +8,11 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 04/29/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 ---
 
-# Container: Translate Documents (preview)
-
-> [!IMPORTANT]
->
-> * Azure AI Translator public preview releases provide early access to features that are in active development.
-> * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
+# Container: Translate Documents
 
 **Translate document with source language specified**.
 
@@ -32,7 +27,7 @@ ms.author: lajanuar
 Example:
 
 ```bash
-curl -i -X POST "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -F "document=@C:\Test\test-file.md;type=text/markdown" -o "C:\translation\translated-file.md"
+curl -i -X POST "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2024-05-01" -F "document=@C:\Test\test-file.md;type=text/markdown" -o "C:\translation\translated-file.md"
 ```
 
 ## Synchronous request headers and parameters
@@ -71,7 +66,7 @@ For this project, you need a source document to translate. You can download our 
 Here's an example cURL HTTP request using localhost:5000:
 
 ```bash
-curl -v "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=2023-11-01-preview" -F "document=@document-translation-sample-docx" -o "C:\translation\translated-file.md"
+curl -v "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=2024-05-01" -F "document=@document-translation-sample-docx" -o "C:\translation\translated-file.md"
 ```
 
 ***Upon successful completion***:
