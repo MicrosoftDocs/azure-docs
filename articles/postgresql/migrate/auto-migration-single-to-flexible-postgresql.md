@@ -64,6 +64,7 @@ Following described are the ways to review your migration schedule once you rece
 Review the following prerequisites to ensure a successful auto-migration:
 
 - The Single Server instance should be in **ready state** during the planned migration window for auto-migration to take place.
+- For Single Server instance with **SSL enabled**, ensure you have the certificates (**[DigiCertGlobalRootG2 Root CA](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and [DigiCertGlobalRootCA Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)**) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate with all three certificates before scheduled auto-migration to ensure business continuity post-migration.
 - If your source Azure Database for postgresql Single Server has firewall rule names exceeding 80 characters, rename them to ensure length of name is fewer than 80 characters. (The firewall rule name length supported on Flexible Server is 80 characters whereas on Single Server the allowed length is 128 characters.)
 
 ## How is the target postgresql Flexible Server provisioned?
