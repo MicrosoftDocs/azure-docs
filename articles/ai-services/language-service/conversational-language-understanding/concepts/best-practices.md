@@ -43,7 +43,7 @@ You also want to avoid mixing different schema designs. Do not build half of you
 
 ## Use standard training before advanced training
 
-[Standard training](../how-to/train-model.md#training-modes) is free and faster than Advanced training, making it useful to quickly understand the effect of changing your training set or schema while building the model. Once you are satisfied with the schema, consider using advanced training to get the best AIQ out of your model. 
+[Standard training](../how-to/train-model.md#training-modes) is free and faster than Advanced training, making it useful to quickly understand the effect of changing your training set or schema while building the model. Once you're satisfied with the schema, consider using advanced training to get the best AIQ out of your model. 
 
 ## Use the evaluation feature
  
@@ -139,9 +139,9 @@ Once the request is sent, you can track the progress of the training job in Lang
 
 Model version 2023-04-15, conversational language understanding provides normalization in the inference layer that doesn't affect training. 
 
-The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from `[-a,a]` where "a" is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there is a very low number of intents, the normalization layer has a very small range to work with. With a fairly large number of intents, the normalization is more effective.
+The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from `[-a,a]` where "a" is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there's a very low number of intents, the normalization layer has a very small range to work with. With a fairly large number of intents, the normalization is more effective.
 
-If this normalization doesn’t seem to help intents that are out of scope to the extent that the confidence threshold can be used to filter out of scope utterances, it might be related to the number of intents in the app. Consider adding more intents to the app, or if you are using an orchestrated architecture, consider merging apps that belong to the same domain together. 
+If this normalization doesn’t seem to help intents that are out of scope to the extent that the confidence threshold can be used to filter out of scope utterances, it might be related to the number of intents in the app. Consider adding more intents to the app, or if you're using an orchestrated architecture, consider merging apps that belong to the same domain together. 
 
 ## Debugging composed entities
 
@@ -160,7 +160,7 @@ Data in a conversational language understanding project can have two data sets. 
 
 ## Custom parameters for target apps and child apps
 
-If you are using [orchestrated apps](./app-architecture.md), you may want to send custom parameter overrides for various child apps. The `targetProjectParameters` field allows users to send a dictionary representing the parameters for each target project. For example, consider an orchestrator app named `Orchestrator` orchestrating between a conversational language understanding app named `CLU1` and a custom question answering app named `CQA1`. If you want to send a parameter named "top" to the question answering app, you can use the above parameter.
+If you're using [orchestrated apps](./app-architecture.md), you may want to send custom parameter overrides for various child apps. The `targetProjectParameters` field allows users to send a dictionary representing the parameters for each target project. For example, consider an orchestrator app named `Orchestrator` orchestrating between a conversational language understanding app named `CLU1` and a custom question answering app named `CQA1`. If you want to send a parameter named "top" to the question answering app, you can use the above parameter.
 
 ```console
 curl --request POST \
@@ -263,6 +263,6 @@ curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/au
 Once the request is sent, you can track the progress of the training job in Language Studio as usual.
 
 Caveats:
-- The None Score threshold for the app (confidence threshold below which the topIntent is marked as None) when using this recipe should be set to 0. This is because this new recipe attributes a certain portion of the in domain probabiliities to out of domain so that the model is not incorrectly overconfident about in domain utterances. As a result, users may see slightly reduced confidence scores for in domain utterances as compared to the prod recipe.
-- This recipe is not recommended for apps with just two (2) intents, such as IntentA and None, for example.
-- This recipe is not recommended for apps with low number of utterances per intent. A minimum of 25 utterances per intent is highly recommended.
+- The None Score threshold for the app (confidence threshold below which the topIntent is marked as None) when using this recipe should be set to 0. This is because this new recipe attributes a certain portion of the in domain probabilities to out of domain so that the model isn't incorrectly overconfident about in domain utterances. As a result, users may see slightly reduced confidence scores for in domain utterances as compared to the prod recipe.
+- This recipe isn't recommended for apps with just two (2) intents, such as IntentA and None, for example.
+- This recipe isn't recommended for apps with low number of utterances per intent. A minimum of 25 utterances per intent is highly recommended.
