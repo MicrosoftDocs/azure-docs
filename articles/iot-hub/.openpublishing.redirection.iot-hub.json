@@ -1424,6 +1424,26 @@
       "source_path_from_root": "/articles/iot-hub/iot-hub-rm-template.md",
       "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-node.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
     }
   ]
 }

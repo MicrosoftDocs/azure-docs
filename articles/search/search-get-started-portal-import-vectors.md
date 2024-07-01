@@ -44,7 +44,9 @@ For fewer limitations or more data source options, try a code-base approach. See
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ For data, use either an [Azure Storage account](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). For Azure Storage, use a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. ADLS Gen2 isn't supported, so if you enabled hierarchical namespace on your account, it won't work with this version of the wizard.
++ For data, use either [Azure Blob storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). 
+
+  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use ADLS Gen2 (a storage account with a hierarchical namespace). ADLS Gen2 isn't supported with this version of the wizard.
 
 + For vectorization, have an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments.
 
@@ -56,7 +58,7 @@ For fewer limitations or more data source options, try a code-base approach. See
 
 + Role assignments or API keys are required for connections to embedding models and data sources. Instructions for role-based access are provided in this article.
 
-All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security.
+All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here's a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
 
