@@ -135,11 +135,11 @@ Use the following steps to enable port 22:
 
    After the deployment completes, you can SSH to the VM.
 
-1. Connect the VM with the value of **sshCommand** and your password (this article uses *wlsVmCluster2022*).
+1. Connect to the VM with the value of **sshCommand** and your password (this article uses *wlsVmCluster2022*).
 
 ## Clean up resources
 
-If you're not going to continue to use the WebLogic Server, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
+If you're not going to continue to use the WebLogic Server, navigate back to your working resource group in the Azure portal. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
 
 ## Next steps
 
