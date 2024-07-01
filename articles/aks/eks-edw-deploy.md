@@ -46,6 +46,7 @@ As the script executes the commands to configure the infrastructure for the work
 The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following command:
 
 ```bash
+mkdir ./logs
 ./deployment/infra/deploy.sh | tee ./logs/install.log
 ```
 
