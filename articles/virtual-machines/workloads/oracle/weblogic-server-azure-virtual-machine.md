@@ -38,7 +38,7 @@ The steps in this section direct you to deploy WebLogic Server on a VM using the
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *ejb0802wls*.
 
-1. Under **Instance details**, select the region for the deployment. For a list of Azure regions how and where VMs operate, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions).
+1. Under **Instance details**, select the region for the deployment.
 
 1. Accept the default value in **Oracle WebLogic Image**.
 
