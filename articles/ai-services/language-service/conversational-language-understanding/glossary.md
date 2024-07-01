@@ -53,7 +53,7 @@ Measures the model's ability to predict actual positive classes. It's the ratio 
 A regular expression entity represents a regular expression. Regular expression entities are exact matches.
 
 ## Schema
-Schema is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents and entities should be included in your project
+Schema is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents and entities should be included in your project.
 
 ## Training data
 Training data is the set of information that is needed to train a model.
