@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/networking/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md",
+      "redirect_url": "/previous-versions/azure/networking/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/networking/scripts/traffic-manager-cli-websites-high-availability.md",
+      "redirect_url": "/previous-versions/azure/networking/scripts/traffic-manager-cli-websites-high-availability",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
       "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
       "redirect_document_id": false
