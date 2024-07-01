@@ -24,9 +24,11 @@ The “inclusionList” parameter allows for you to specify which of the NER ent
 
 The “exclusionList” parameter allows for you to specify which of the NER entity tags, listed here [link to Preview API table], you would like excluded in the entity list output in your inference JSON listing out all words and categorizations recognized by the NER service. By default, all recognized entities will be listed.
 
+<!--
 ## Example
 
 To do: work with Bidisha & Mikael to update with a good example
+-->
 
 ## overlapPolicy parameter
 

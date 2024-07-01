@@ -460,9 +460,6 @@
       - name: Configure clipboard transfer direction
         displayName: security
         href: clipboard-transfer-direction-data-types.md
-    - name: Set up a disaster recovery plan
-      displayName: bcdr, bc dr
-      href: disaster-recovery.md
   - name: Connect
     items:
     - name: Windows App
@@ -661,8 +658,6 @@
     href: msixmgr-tool-syntax-description.md 
 - name: Resources
   items:
-  - name: User experience estimator
-    href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing
     items:
     - name: Azure Virtual Desktop pricing
