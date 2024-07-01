@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
-# Migrate from QnA Maker to custom question qnswering 
+# Migrate from QnA Maker to custom question answering 
 
 **Purpose of this document:** This article aims to provide information that can be used to successfully migrate applications that use QnA Maker to custom question answering. Using this article, we hope customers will gain clarity on the following: 
 
