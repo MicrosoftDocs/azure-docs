@@ -26,7 +26,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 The steps in this section direct you to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure Portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster).  
 
-1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
+1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **WebLogic Server with Admin Console on VM**.
 
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
