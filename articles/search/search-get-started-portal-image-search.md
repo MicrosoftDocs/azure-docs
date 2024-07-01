@@ -32,7 +32,7 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure AI services, a multiservice account, in a region that provides Azure AI Vision multimodal embeddings.
++ [Azure AI services multiservice account](/azure/ai-services/multi-service-resource), in a region that provides Azure AI Vision multimodal embeddings.
 
   Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval) for an updated list.
 
@@ -40,7 +40,7 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
   Service tier determines how many blobs you can index. We used the free tier to create this walkthrough and limited the content to 10 JPG files.
 
-+ Azure Storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
++ Azure Blob storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. ADLS Gen2 isn't supported, so if you enabled hierarchical namespace on your account, it won't work with this version of the wizard.
 
 All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security.
 
