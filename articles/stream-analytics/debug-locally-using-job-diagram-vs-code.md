@@ -51,7 +51,7 @@ In this section, you explore the metrics available for each part of the diagram.
    > [!div class="mx-imgBorder"]
    > ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. Select the name of the input data source from the dropdown to see input metrics. The input source in the screenshot below is called *quotes*. For more information about input metrics, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md).
+3. Select the name of the input data source from the dropdown to see input metrics. The input source in the screenshot below is called *quotes*. For more information about input metrics, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics).
 
    > [!div class="mx-imgBorder"]
    > ![Job diagram input metrics](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
@@ -61,7 +61,7 @@ In this section, you explore the metrics available for each part of the diagram.
    > [!div class="mx-imgBorder"]
    > ![Step metrics](./media/debug-locally-using-job-diagram-vs-code/step-metrics.png)
 
-5. Select an output in the diagram or from the dropdown to see output-related metrics. For more information about output metrics, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). Live output sinks aren't supported.
+5. Select an output in the diagram or from the dropdown to see output-related metrics. For more information about output metrics, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics). Live output sinks aren't supported.
 
    > [!div class="mx-imgBorder"]
    > ![Output metrics](./media/debug-locally-using-job-diagram-vs-code/output-metrics.png)

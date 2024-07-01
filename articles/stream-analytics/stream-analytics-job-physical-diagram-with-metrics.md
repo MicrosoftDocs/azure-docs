@@ -37,7 +37,7 @@ The physical job diagram visualizes these key metrics in the diagram together to
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-key-metrics-on-node.png" alt-text="Screenshot that shows the key metrics on a node in physical diagram." lightbox="./media/job-physical-diagram-debug/1-key-metrics-on-node.png":::
 
-For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#metric-dimensions).
 
 
 ## Identify the uneven distributed input events (data-skew)
@@ -103,7 +103,7 @@ What should you do if the watermark delay is still increasing when one streaming
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Stream Analytics job diagram (preview) in Azure portal](./job-diagram-with-metrics.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics job metrics](./monitor-azure-stream-analytics-reference.md#metrics)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
