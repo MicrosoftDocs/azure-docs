@@ -127,7 +127,7 @@ To learn more about Windows containers on AKS, see the following resources:
 [upgrade-aks-node-images]: ./node-image-upgrade.md
 [upgrade-windows-workloads-aks]: ./upgrade-windows-2019-2022.md
 [windows-on-aks-partner-solutions]: ./windows-aks-partner-solutions.md
-[use-windows-annual]: ./use-windows-annual-channel.md
+[use-windows-annual]: ./windows-annual-channel.md
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases

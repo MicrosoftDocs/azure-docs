@@ -36,10 +36,10 @@ AKS supports Long Term Servicing Channel Releases (LTSC), including Windows Serv
 
 The following table compares Windows Annual Channel and Long Term Servicing Channel releases:
 
-| | Long Term Servicing Channel Release (LTSC) | Annual Channel for Containers |
-|--------------|-------------------|-------------------|
-| Support |  LTSC channels are released every three years and are supported for five years. This channel is recommended for customers using Long Term Support. | Annual Channel releases occur annually and are supported for two years. |
-| Upgrades | To upgrade from one release to the next, you need to migrate your node pools to a new OS SKU option and rebuild your container images with the new OS version. | To upgrade to the latest release, you can upgrade the Kubernetes version of your node pool. |
+| Channel | Support | Upgrades |
+|---------|---------|----------|
+| Long Term Servicing Channel (LTSC) | LTSC channels are released every three years and are supported for five years. This channel is recommended for customers using Long Term Support. | To upgrade from one release to the next, you need to migrate your node pools to a new OS SKU option and rebuild your container images with the new OS version. |
+| Annual Channel for Containers | Annual Channel releases occur annually and are supported for two years. | To upgrade to the latest release, you can upgrade the Kubernetes version of your node pool. |
 
 ## Before you begin
 
