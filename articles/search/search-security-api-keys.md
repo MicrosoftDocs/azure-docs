@@ -15,7 +15,7 @@ ms.date: 06/28/2024
 
 # Connect to Azure AI Search using keys
 
-Azure AI Search offers key-based authentication for connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. In your source code, you can specify it as an [environment variable](azure/ai-services/cognitive-services-environment-variables) or in an app settings file, and then include the variable on the request. A request made to a search service endpoint is accepted if both the request and the API key are valid.
+Azure AI Search offers key-based authentication for connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. In your source code, you can specify it as an [environment variable](/azure/ai-services/cognitive-services-environment-variables) or as an app setting in your project, and then reference the variable on the request. A request made to a search service endpoint is accepted if both the request and the API key are valid.
 
 Key-based authentication is the default. 
 
