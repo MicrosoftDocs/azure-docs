@@ -17,13 +17,28 @@
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
-    - name: Vector databases in Azure Cosmos DB
+    - name: Integrated vector databases
       expanded: true
       items:
-      - name: Vector Databases
+      - name: What is a vector database
         href: vector-database.md
-      - name: Vector Search in Azure Cosmos DB NoSQL
+      - name: Vector database in Azure Cosmos DB NoSQL
         href: nosql/vector-search.md
+      - name: Vector database in Azure Cosmos DB for MongoDB
+        href: mongodb/vcore/vector-search.md
+      - name: Related concepts
+        expanded: true
+        items:
+        - name: Vector search overview
+          href: gen-ai/vector-search-overview.md
+        - name: Tokens
+          href: gen-ai/tokens.md
+        - name: Vector embeddings
+          href: gen-ai/vector-embeddings.md
+        - name: Distance functions
+          href: gen-ai/distance-functions.md
+        - name: kNN vs ANN
+          href: gen-ai/knn-vs-ann.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB
