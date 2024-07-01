@@ -23,3 +23,5 @@ This image shows the spatial closeness of vectors that are similar compared to v
 
 :::image type="content" source="../media/gen-ai/concepts/vector-closeness.png" lightbox="../media/gen-ai/concepts/vector-closeness.png" alt-text="Screenshot of vector closeness.":::
 Image source: [OpenAI](https://openai.com/index/introducing-text-and-code-embeddings/)
+
+You can see more examples in this [interactive visualization](https://openai.com/index/introducing-text-and-code-embeddings/#_1Vr7cWWEATucFxVXbW465e).
