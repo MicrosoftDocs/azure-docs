@@ -14,7 +14,7 @@ ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
 
 # Connect to Azure AI Search using role-based access controls
 
-Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.yml) for all services running on the platform. In Azure AI Search, you can assign Azure roles for:
+Azure provides a global authentication and [role-based authorization system](../role-based-access-control/role-assignments-portal.yml) for all services running on the platform. In Azure AI Search, you can assign Azure roles for:
 
 > [!div class="checklist"]
 > + [Service administration](#assign-roles-for-service-administration)
@@ -180,9 +180,11 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### Assign roles for read-only queries
 
-Use the Search Index Data Reader role for apps and processes that only need read-access to an index. This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions.
+Use the Search Index Data Reader role for apps and processes that only need read-access to an index. 
 
-It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
+This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions. It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
+
+This section provides basic steps for setting up the role assignment and is here for completeness, but we recommend [Use Azure AI Search without keys ](keyless-connections.md) for comprehensive instructions on configuring your app for role-based access.
 
 #### [**Azure portal**](#tab/roles-portal-query)
 

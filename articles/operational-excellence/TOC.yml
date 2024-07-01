@@ -17,7 +17,7 @@
       - name: Azure Event Hubs Cluster
         href: relocation-event-hub-cluster.md
       - name: Azure Site Recovery (Recovery Services vaults)
-        href: ../site-recovery/move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-site-recovery.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
       - name: Azure Virtual Network

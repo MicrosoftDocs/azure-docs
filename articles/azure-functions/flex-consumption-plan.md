@@ -58,6 +58,14 @@ When deciding on which instance memory size to use with your apps, here are some
 + The default concurrency of HTTP triggers depends on the instance memory size. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
 + Available CPUs and network bandwidth are provided proportional to a specific instance size.
 
+## Per-function scaling
+
+Concurrency is a key factor that determines how Flex Consumption function apps scale. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
+
+This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
+
+In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances, and all Blob (Event Grid) functions are grouped and scale together in the same instances. All other functions in the app are scaled individually into their own instances.
+
 ## Always ready instances
 
 Flex Consumption includes an _always ready_ feature that lets you choose instances that are always running and assigned to each of your per-function scale groups or functions. This is a great option for scenarios where you need to have a minimum number of instances always ready to handle requests, for example, to reduce your application's cold start latency. The default is 0 (zero).
@@ -65,14 +73,6 @@ Flex Consumption includes an _always ready_ feature that lets you choose instanc
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
-
-## Per-function scaling
-
-Concurrency is a key factor that determines how Flex Consumption function apps scale. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
-
-This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
-
-In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances. All other functions in the app are scaled individually.
 
 ## Concurrency
 
@@ -111,14 +111,14 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans in that region. This means that in a given subscription and region, you could have any of the following combinations of maximum instance sizes and counts, all of which reach the current `512,000 MB` limit. For example:
+Currently in preview each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota has been reached and the apps would stop scaling:
 
-| Instance memory size (MB) | Max instance counts (per region) |
-| ----- | ---- |
-| `2048 MB` | 250 |
-| `4096 MB` | 125 |
++ You have one 2048GB app scaled to 100 and a second 2048GB app scaled to 150 instances
++ You have one 2048GB app that scaled out to 250 instances
++ You have one 4096GB app that scaled out to 125 instances
++ You have one 4096GB app scaled to 100 and one 2048GB app scaled to 50 instances
 
-You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the `512,000 MB` limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
+This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota please create a support ticket.
 
 ## Deprecated properties and settings
 
@@ -130,7 +130,9 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 
 + **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
-+ **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
++ **Regions**:
+  + Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
+  + There is a temporary limitation in West US 3. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." in that region please raise a support ticket so that your app can be unblocked.
 + **Deployments**: These deployment-related features aren't currently supported:
   + Deployment slots
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
@@ -138,6 +140,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
 + **Authorization**: EasyAuth is currently not supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
 + **CORS**: CORS settings are currently not supported. Exceptions might occur if CORS is configured for Flex Consumption apps.
++ **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
  
 ## Related articles 
 
