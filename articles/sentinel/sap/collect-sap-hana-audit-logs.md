@@ -73,7 +73,11 @@ TimeGenerated = column_ifexists('TimeGenerated', '1000-01-01T00:00:00Z')
 T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00:00:00Z')
 ```
 
-Alternately, use the following built-in analytics rules to show that SAP logs are being ingested:
+
+## Add analytics rules for SAP HANA
+
+Use the following built-in analytics rules to have Microsoft Sentinel start triggering alerts on related SAP HANA activity:
+
 - **SAP - (PREVIEW) HANA DB -Assign Admin Authorizations**
 - **SAP - (PREVIEW) HANA DB -Audit Trail Policy Changes**
 - **SAP - (PREVIEW) HANA DB -Deactivation of Audit Trail**
