@@ -9,7 +9,7 @@ ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 
-# Migrate from QnA Maker to custom question answering
+# Migrate from QnA Maker knowledge bases to custom question answering
 
 > [!NOTE]
 > You can also migrate to [Azure OpenAI](../../../qnamaker/How-To/migrate-to-openai.md).
