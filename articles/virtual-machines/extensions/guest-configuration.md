@@ -27,7 +27,7 @@ To enable your VM to authenticate to the Machine Configuration service, your VM 
 
 ### Operating systems
 
-Operating system support for the Machine Configuration extension is the same as documented [operating system support for the end-to-end solution](/../../governance/machine-configuration/overview#supported-client-types).
+Operating system support for the Machine Configuration extension is the same as documented [operating system support for the end-to-end solution](../../governance/machine-configuration/overview#supported-client-types).
 
 ### Internet connectivity
 
