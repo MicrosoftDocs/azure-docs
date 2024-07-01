@@ -648,7 +648,7 @@ The response looks as follows.
 Let's create a simple chat completion request to see the output of the model.
 
 
-```rest
+```json
 {
     "messages": [
         {
@@ -671,7 +671,7 @@ Let's create a simple chat completion request to see the output of the model.
 The response looks as follows, where you can see the model's usage statistics.
 
 
-```rest
+```json
 {
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
@@ -705,7 +705,7 @@ To get the content sooner as it's being generated, you can 'stream' the content.
 
 
 
-```rest
+```json
 {
     "messages": [
         {
@@ -728,7 +728,7 @@ Responses look as follows when using streaming:
 
 
 
-```rest
+```json
 {
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
@@ -752,7 +752,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 
 
 
-```rest
+```json
 {
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
@@ -781,7 +781,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```rest
+```json
 {
     "messages": [
         {
@@ -809,7 +809,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```rest
+```json
 {
     "messages": [
         {
@@ -831,7 +831,7 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
 
 
 
-```rest
+```json
 {
     "messages": [
         {
@@ -854,7 +854,7 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
 }
 ```
 
-```rest
+```json
 {
     "error": {
         "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
