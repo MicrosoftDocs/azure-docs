@@ -26,7 +26,7 @@ To set up your app to require client certificates:
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Set **Client certificate mode** to **Require**. Click **Save** at the top of the page.
+1. Set **Client certificate mode** to **Require**. Select **Save** at the top of the page.
 
 ### [Azure CLI](#tab/azurecli)
 To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -55,7 +55,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 }
 ```
 
-### [ARM](#tab/arm)
+### [ARM template](#tab/arm)
 
 For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
@@ -88,25 +88,25 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Next to **Certificate exclusion paths**, click the edit icon.
+1. Next to **Certificate exclusion paths**, select the edit icon.
 
-1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
+1. Select **New path**, specify a path, or a list of paths separated by `,` or `;`, and select **OK**.
 
-1. Click **Save** at the top of the page.
+1. Select **Save** at the top of the page.
 
-In the following screenshot, any path for your app that starts with `/public` does not request a client certificate. Path matching is case-insensitive.
+In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching is case-insensitive.
 
 ![Certificate Exclusion Paths][exclusion-paths]
 
 ## Access client certificate
 
-In App Service, TLS termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+In App Service, TLS termination of the request happens at the frontend load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
 
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
 
-## ASP.NET 5+, ASP.NET Core 3.1 sample
+## ASP.NET Core sample
 
 For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
 
@@ -241,12 +241,12 @@ public class Startup
             private bool IsValidClientCertificate()
             {
                 // In this example we will only accept the certificate as a valid certificate if all the conditions below are met:
-                // 1. The certificate is not expired and is active for the current time on server.
+                // 1. The certificate isn't expired and is active for the current time on server.
                 // 2. The subject name of the certificate has the common name nildevecc
                 // 3. The issuer name of the certificate has the common name nildevecc and organization name Microsoft Corp
                 // 4. The thumbprint of the certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
                 //
-                // This example does NOT test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
+                // This example doesn't test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
                 // and it allows for self signed certificates
                 //
 
@@ -344,7 +344,7 @@ export class AuthorizationHandler {
 
 ## Java sample
 
-The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate has not expired.
+The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate hasn't expired.
 
 
 ```java
@@ -384,8 +384,8 @@ public class ClientCertValidator {
 
     /**
      * Check that the certificate's thumbprint matches the one given in the constructor, and that the
-     * certificate has not expired.
-     * @return True if the certificate's thumbprint matches and has not expired. False otherwise.
+     * certificate hasn't expired.
+     * @return True if the certificate's thumbprint matches and hasn't expired. False otherwise.
      */
     public boolean certificateIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
         return certificateHasNotExpired() && thumbprintIsValid();
@@ -393,7 +393,7 @@ public class ClientCertValidator {
 
     /**
      * Check certificate's timestamp.
-     * @return Returns true if the certificate has not expired. Returns false if it has expired.
+     * @return Returns true if the certificate hasn't expired. Returns false if it has expired.
      */
     private boolean certificateHasNotExpired() {
         Date currentTime = new java.util.Date();
