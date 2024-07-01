@@ -238,6 +238,10 @@ Azure App Service captures all messages output to the console to assist you in d
 
 :::code language="python" source="~/msdocs-python-django-webapp-quickstart/hello_azure/views.py" range="5-21" highlight="2,11,14":::
 
+### [FastAPI](#tab/fastapi)
+
+:::code language="python" source="~/msdocs-python-fastapi-webapp-quickstart/main.py" range="11-31" highlight="14,26,29":::
+
 ---
 
 The contents of the App Service diagnostic logs can be reviewed using the Azure CLI, VS Code, or Azure portal.
