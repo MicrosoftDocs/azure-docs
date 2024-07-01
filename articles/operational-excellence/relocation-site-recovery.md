@@ -55,7 +55,7 @@ There's no first-class way to move an existing Recovery Services vault configura
     - RPO that can be achieved for a given bandwidth
     - Impact on the desired RPO if lower bandwidth is provisioned
 
-- As its a relocation of Recovery service vault, you must cross check the permission requirement in the current VMware vCenter server/VMware vSphere ESXi host during profiling.
+- As it's a relocation of Recovery service vault, you must cross check the permission requirement in the current VMware vCenter server/VMware vSphere ESXi host during profiling.
 
 - Make sure that you remove and delete the Site Recovery configuration before you try to move the Azure VMs to a different region. 
 
