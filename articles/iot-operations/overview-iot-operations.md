@@ -32,10 +32,10 @@ Azure IoT Operations:
 There are two core elements in the Azure IoT Operations Preview architecture:
 
 * **Azure IoT Operations Preview**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
-  * **Azure IoT Data Processor Preview** - a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
-  * **Azure IoT MQ Preview** - an edge-native MQTT broker that powers event-driven architectures.
-  * **Azure IoT OPC UA Broker Preview** - an OPC UA broker that handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
-* **Azure IoT Operations (preview) portal**. This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment. An IT administrator can use Azure Arc sites to control the resources that an operational technologist can access in the portal.
+  * The _data processor_ is a configurable service that can manage the complexities and diversity of industrial data. Use the data processor to make data from disparate sources more understandable, usable, and valuable.
+  * The _MQTT broker_ is an edge-native MQTT broker that powers event-driven architectures.
+  * The _connector for OPC UA_ handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
+* The _operations experience_ is a web UI that provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment. An IT administrator can use Azure Arc sites to control the resources that an operational technologist can access in the portal.
 
 ## Deploy
 
@@ -48,46 +48,46 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [Azure IoT Operations (preview)](discover-manage-assets/howto-manage-assets-remotely.md?tabs=portal) portal or the [Azure CLI](discover-manage-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-manage-assets-remotely.md?tabs=portal) or the [Azure CLI](discover-manage-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
 
-The [Azure IoT OPC UA Broker Preview](discover-manage-assets/overview-opcua-broker.md) component manages the connection to OPC UA servers and other leaf devices. The OPC UA Broker component publishes data from the OPC UA servers and the devices discovered by _Azure IoT Akri Preview_ to Azure IoT MQ topics.
+The [connector for OPC UA](discover-manage-assets/overview-opcua-broker.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers and the devices discovered by _Akri services_ to MQTT broker topics.
 
-The [Azure IoT Akri Preview](discover-manage-assets/overview-akri.md) component helps you discover and connect to other types of devices and assets.
+The [Akri services](discover-manage-assets/overview-akri.md) help you discover and connect to other types of devices and assets.
 
 ## Publish and subscribe with MQTT
 
-[Azure IoT MQ Preview](manage-mqtt-broker/overview-iot-mq.md) is an MQTT broker that runs on the edge. It lets you publish and subscribe to MQTT topics. You can use MQ to build event-driven architectures that connect your devices and assets to the cloud.
+The [MQTT broker](manage-mqtt-broker/overview-iot-mq.md) runs on the edge. It lets you publish and subscribe to MQTT topics. You can use the MQTT broker to build event-driven architectures that connect your devices and assets to the cloud.
 
-Examples of how components in Azure IoT Operations use MQ Preview include:
+Examples of how components in Azure IoT Operations use the MQTT broker include:
 
-* OPC UA Broker publishes data from OPC UA servers and other leaf devices to MQTT topics.
-* Data Processor pipelines subscribe to MQTT topics to retrieve messages for processing.
-* North-bound cloud connectors subscribe to MQTT topics to fetch messages for forwarding to cloud services.
+* The connector for OPC UA publishes data from OPC UA servers and other leaf devices to MQTT topics.
+* Data processor pipelines subscribe to MQTT topics to retrieve messages for processing.
+* Northbound cloud connectors subscribe to MQTT topics to fetch messages for forwarding to cloud services.
 
 ## Process data
 
-Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [Data Processor](process-data/overview-data-processor.md) pipelines to process messages.
+Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [data processor](process-data/overview-data-processor.md) pipelines to process messages.
 
-A Data Processor pipeline typically:
+A data processor pipeline typically:
 
 1. Subscribes to an MQTT topic to retrieve messages.
 1. Processes the messages by using one or more configurable stages.
 1. Sends the processed messages to a destination such as a Microsoft Fabric data lake for storage and analysis.
 
 > [!NOTE]
-> Data Processor is an optional component of Azure IoT Operations. To use it, you must chose to add it when you deploy Azure IoT Operations.
+> The data processor is an optional component of Azure IoT Operations. To use it, you must choose to add it when you deploy Azure IoT Operations.
 
 ## Connect to the cloud
 
 To connect to the cloud from Azure IoT Operations, you have the following options:
 
-The north-bound cloud connectors let you connect MQ directly to cloud services such as:
+The northbound cloud connectors let you connect the MQTT broker directly to cloud services such as:
 
 * [MQTT brokers](connect-to-cloud/howto-configure-mqtt-bridge.md)
 * [Azure Event Hubs or Kafka](connect-to-cloud/howto-configure-kafka.md)
 * [Azure Data Lake Storage](connect-to-cloud/howto-configure-data-lake.md)
 
-The Data Processor pipeline destinations let you connect to cloud services such as:
+The data processor pipeline destinations let you connect to cloud services such as:
 
 * [Microsoft Fabric](connect-to-cloud/howto-configure-destination-fabric.md)
 * [Azure Data Explorer](connect-to-cloud/howto-configure-destination-data-explorer.md)

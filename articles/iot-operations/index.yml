@@ -35,7 +35,7 @@ landingContent:
             url: deploy-iot-ops/howto-deploy-iot-operations.md
           - text: Discover and manage assets
             url: discover-manage-assets/overview-manage-assets.md
-          - text: Azure IoT MQ overview
+          - text: MQTT broker overview
             url: manage-mqtt-broker/overview-iot-mq.md
           - text: Process data
             url: process-data/overview-data-processor.md

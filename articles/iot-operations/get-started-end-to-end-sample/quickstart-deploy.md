@@ -20,9 +20,9 @@ In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled K
 The services deployed in this quickstart include:
 
 * [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
-* [Azure IoT MQ Preview](../manage-mqtt-broker/overview-iot-mq.md)
-* [Azure IoT OPC UA Broker Preview](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Azure IoT Akri Preview](../discover-manage-assets/overview-akri.md)
+* [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
+* [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
+* [Akri services](../discover-manage-assets/overview-akri.md)
 * [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../configure-observability-monitoring/howto-configure-observability.md)
