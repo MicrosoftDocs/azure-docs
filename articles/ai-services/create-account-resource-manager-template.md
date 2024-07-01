@@ -29,7 +29,7 @@ By creating an Azure AI services resource, you can:
 * Access multiple AI services in Azure with a single key and endpoint.
 * Consolidate billing from the services that you use.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
