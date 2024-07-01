@@ -22,6 +22,12 @@ Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web ap
 
 ## Tiers
 
+### DDoS Infrastructure Protection
+
+Azure DDoS Infrastructure Protection (formally Azure DDoS Protection Basic) is a default, platform-level protection that secures and maintains the availability of Azure services in public and government cloud regions. It monitors and mitigates DDoS attacks that target an Azure region or Azure service with the aim of disrupting availability for all Azure customers. This protection is provided free of charge and does not require any configuration or activation. It safeguards critical Microsoft and consumer services like Azure Front Door, Azure DNS, Azure shared services, Microsoft 365, LinkedIn, Bing, and Xbox gaming.
+
+However, it’s important to note that while Azure DDoS Infrastructure Protection is designed to protect the Azure platform from large-scale DDoS attacks, it does not specifically protect individual customer workloads. Large-scale attacks can still impact customer workloads, even if they don’t disrupt the overall Azure platform.
+
 ### DDoS Network Protection
 
 Azure DDoS Network Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. For more information about enabling DDoS Network Protection, see [Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal](manage-ddos-protection.md).
