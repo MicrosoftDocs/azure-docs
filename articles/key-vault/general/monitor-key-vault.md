@@ -14,11 +14,9 @@ ms.subservice: general
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-## Insights
-
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
-Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../key-vault-insights-overview.md).
+Key Vault Insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. For full details, see [Monitoring your key vault service with Key Vault insights](../key-vault-insights-overview.md).
 
 ## Monitoring overview page in Azure portal
 
@@ -46,11 +44,11 @@ For more information about the resource types for Key Vault, see [Azure Key Vaul
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Key Vault* are listed in [Key Vault monitoring data reference](monitor-key-vault-reference.md#resource-logs).
 
-To create a diagnostic setting for you key vault, see [Enable Key Vault logging](howto-logging.md).  The metrics and logs you can collect are discussed in the following sections.
+To create a diagnostic setting for your key vault, see [Enable Key Vault logging](howto-logging.md). The metrics and logs you can collect are discussed in the following sections.
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -74,7 +72,7 @@ Data in Azure Monitor Logs is stored in tables where each table has its own set 
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md) 
 
-The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log for Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Key Vault, see [Monitoring Key Vault data reference](monitor-key-vault-reference.md#resource-logs)  
 
@@ -126,7 +124,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
   // httpStatusCode_d contains HTTP status code returned
   ```
 
-- Input deserialization errors
+- Are there any Input deserialization errors?
 
   ```Kusto
   // Shows errors caused due to malformed events that could not be deserialized by the job. 
@@ -197,12 +195,12 @@ Here are some queries that you can enter into the **Log search** bar to help you
 The following list contains some suggested alert rules for Key Vault. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Key Vault monitoring data reference](monitor-key-vault-reference.md).
 
 - Key Vault Availability drops below 100% (Static Threshold)
-- Key Vault Latency is greater than 1000ms (Static Threshold)
+- Key Vault Latency is greater than 1000 ms (Static Threshold)
 - Overall Vault Saturation is greater than 75% (Static Threshold)
 - Overall Vault Saturation exceeds average (Dynamic Threshold)
 - Total Error Codes higher than average (Dynamic Threshold)
 
-See [Alerting for Azure Key Vault](alert.md) for more details.
+For more information, see [Alerting for Azure Key Vault](alert.md).
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
