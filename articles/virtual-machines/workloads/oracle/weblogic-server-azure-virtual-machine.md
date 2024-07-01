@@ -25,7 +25,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy WebLogic Server with Administration Server on a VM
 
-The steps in this section direct you to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster).  
+The following steps show you how to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster).
 
 1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **WebLogic Server with Admin Console on VM**. You can also go directly to the offer using the portal link.
 
@@ -56,14 +56,14 @@ The steps in this section direct you to deploy WebLogic Server on a VM using the
 1. Fill in *wlsVmCluster2022* for the **Password for WebLogic Administrator**. Use the same value for the confirmation.
 
 1. Select **Review + create**.
-   
-1. Ensure the green **Validation Passed** message appears at the top. If not, fix any validation problems and select **Review + create** again.
+
+1. Ensure the green **Validation Passed** message appears at the top. If it doesn't, fix any validation problems and select **Review + create** again.
 
 1. Select **Create**.
 
 1. Track the progress of the deployment in the **Deployment is in progress** page.
 
-Depending on network conditions and other activity in your selected region, the deployment may take up to 30 minutes to complete.
+Depending on network conditions and other activity in your selected region, the deployment might take up to 30 minutes to complete.
 
 ## Examine the deployment output
 
@@ -75,7 +75,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. In the box with the text **Filter for any field**, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
 1. In the left navigation pane, in the **Settings** section, select **Deployments**. You can see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown in the following screenshot:
-
+x
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png" alt-text="Screenshot of the Azure portal that shows the resource group deployments list." lightbox="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows useful output values from the deployment.
