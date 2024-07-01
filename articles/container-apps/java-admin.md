@@ -185,6 +185,10 @@ Now that you have an existing environment, you can create your container app and
 
     :::image type="content" source="media/java-components/sba-alone.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba-alone.png":::
 
+## Optional: Integrate the Eureka Server for Spring and Admin for Spring Java components
+
+If you want to integrate the Eureka Server for Spring and the Admin for Spring Java components, you can follow the steps in the [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md).
+
 ## Clean up resources
 
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.

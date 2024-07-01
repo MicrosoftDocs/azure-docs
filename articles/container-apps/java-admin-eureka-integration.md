@@ -28,6 +28,7 @@ To complete this tutorial, you need the following items:
 |--|--|
 | Azure account | An active subscription is required. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+| An existing Eureka Server for Spring Java component | If you don't have one, follow the [Create the Eureka Server for Spring](#create-the-eureka-server-for-spring) section to create one. |
 
 ## Considerations
 
@@ -88,9 +89,9 @@ Before you begin, create the necessary resources by executing the following comm
       --location $LOCATION
     ```
 
-## Create the Eureka Server for Spring
+## Optional: Create the Eureka Server for Spring
 
-1. Create the Eureka Server Java component.
+1. If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component.
 
     ```azurecli
     az containerapp env java-component eureka-server-for-spring create \
