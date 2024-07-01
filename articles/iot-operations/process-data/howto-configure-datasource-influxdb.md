@@ -3,7 +3,7 @@ title: Configure a pipeline InfluxDB source stage
 description: Configure a pipeline source stage to read data from InfluxDB for processing. The source stage is the first stage in a Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.topic: how-to
 ms.date: 05/22/2024
 

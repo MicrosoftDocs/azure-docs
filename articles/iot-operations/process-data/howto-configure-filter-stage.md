@@ -3,7 +3,7 @@ title: Filter data in a pipeline
 description: Configure a filter pipeline stage to remove messages that aren't needed for further processing and to avoid sending unnecessary data to cloud services using Azure IoT Data Processor Preview.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

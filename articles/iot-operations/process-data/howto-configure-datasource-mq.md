@@ -3,7 +3,7 @@ title: Configure a pipeline MQ source stage
 description: Configure a pipeline source stage to read messages from an Azure IoT MQ topic for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

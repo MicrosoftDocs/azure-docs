@@ -3,7 +3,7 @@ title: Send data to the reference data store from a pipeline
 description: Configure a pipeline destination stage to send the pipeline output to the reference data store to use to contextualize messages in other pipelines using Azure IoT Data Processor.
 author: dominicbetts
 ms.author: dobett
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

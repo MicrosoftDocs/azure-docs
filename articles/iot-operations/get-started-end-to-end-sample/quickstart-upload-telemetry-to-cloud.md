@@ -4,7 +4,7 @@ description: "Quickstart: Use the data lake connector for MQ to send asset telem
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
-ms.subservice: data-processor
+ms.subservice: azure-data-processor
 ms.custom:
   - ignite-2023
 ms.date: 04/19/2024
