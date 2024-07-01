@@ -1,0 +1,13 @@
+---
+title: Vector embeddings
+description: Vector embeddings overview.
+author: wmwxwa
+ms.author: wangwilliam
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 07/01/2024
+---
+
+# What are vector embeddings?
+
+Vectors, also known as embeddings or vector embeddings, are numerical representations of data. They convert various types of information — text, images, audio — into a format that machine learning models can process. Each embedding is a vector of floating-point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar.  These high-dimensional representations capture semantic meaning, making it easier to perform tasks like searching, clustering, and classifying.
