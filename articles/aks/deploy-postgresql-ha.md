@@ -204,6 +204,8 @@ The following table outlines the key properties set in the YAML deployment manif
     
       postgresql:
         parameters:
+          shared_buffers: "512MB"
+          effective_cache_size: "1024MB"
           # max_worker_processes: 64
         pg_hba:
           - host all all all scram-sha-256
