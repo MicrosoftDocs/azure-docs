@@ -1,4 +1,3 @@
-
 ---
 ms.service: azure-monitor
 ms.topic: include
@@ -7,7 +6,7 @@ ms.author: edbaynash
 author: EdB-MSFT
 ---
 
-You can get a token for your rest calls using any of the following 
+Get a token using any of the following 
 - CLI
 - REST API
 - SDK
@@ -20,25 +19,13 @@ Resources include:
 - https://monitoring.azure.com 
 
 
-## [CLI](#tab/cli)
-
-To get a token using CLI, you can use the following command
-
-```bash
-az account get-access-token 
-```
-
-For morte information see [az account get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token)
 
 
 ## [REST](#tab/rest)
 
 Use the following REST API call to get a token.
-this request uses a client ID and client secret to authenticate the request. The client ID and client secret are obtained when you register your application with Azure AD. For more information see [Register an App to request authorization tokens and work with APIs](/azure/azure-monitor/logs/api/register-app-for-token?tabs=portal)
+This request uses a client ID and client secret to authenticate the request. The client ID and client secret are obtained when you register your application with Microsoft Entra ID. For more information, see [Register an App to request authorization tokens and work with APIs](/azure/azure-monitor/logs/api/register-app-for-token?tabs=portal)
 
-
-
-- 
 
 ```console
 curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
@@ -63,20 +50,30 @@ The response body appears in the following format:
 }
 ```
 
+## [CLI](#tab/cli)
+
+To get a token using CLI, you can use the following command
+
+```bash
+az account get-access-token 
+```
+
+For more information, see [az account get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token)
+
 ## [SDK](#tab/SDK)
 
 You can use the SDK to get a token. The following code is an example of how to get a token using the SDK.
 
 ### .NET
 
-The following code shows how to get a token using the Azure.Identity library It requires a client ID and client secret to authenticate the request. 
+The following code shows how to get a token using the Azure. Identity library It requires a client ID and client secret to authenticate the request. 
 ```csharp
 var context = new AuthenticationContext("https://login.microsoftonline.com/<tennant ID>");
 var clientCredential = new ClientCredential("<your apps client ID>", "<your apps client secret>");
 var result = context.AcquireTokenAsync("https://monitoring.azure.com", clientCredential).Result;
 ```    
 
-Alternatively you can use the DefaultAzureCredential class to get a token. This uses the default Azure credentials to authenticate the request and does not require a client ID or client secret.
+Alternatively you can use the DefaultAzureCredential class to get a token. This uses the default Azure credentials to authenticate the request and doesn't require a client ID or client secret.
 
 ```csharp
 var credential = new DefaultAzureCredential();
@@ -97,15 +94,15 @@ var credential = new DefaultAzureCredential(
 var token = credential.GetToken(new TokenRequestContext(new[] { "https://management.azure.com/.default" }));
 
 ```
-For more information see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
+For more information, see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
 
 
 ### Node.js
 
-For information on authentication use Javascript and NodeJS,  see [How to authenticate JavaScript apps to Azure services using the Azure SDK for JavaScript](/azure/developer/javascript/sdk/authentication/overview)
+For information on authentication use JavaScript and NodeJS,  see [How to authenticate JavaScript apps to Azure services using the Azure SDK for JavaScript](/azure/developer/javascript/sdk/authentication/overview)
 
 
-The following code shows how to get a token using the DefaultAzureCredential class. This uses the default Azure credentials to authenticate the request and does not require a client ID or client secret.
+The following code shows how to get a token using the DefaultAzureCredential class. This uses the default Azure credentials to authenticate the request and doesn't require a client ID or client secret.
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
@@ -113,7 +110,7 @@ const { DefaultAzureCredential } = require("@azure/identity");
 const credential = new DefaultAzureCredential();
 const accessToken = await credential.getToken("https://management.azure.com/.default");
 ```
-For more information see [DefaultAzureCredential Class](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest)
+For more information, see [DefaultAzureCredential Class](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest)
 
 Alternatively you can use the ClientSecretCredential class to get a token. This requires a client ID and client secret to authenticate the request.
 
@@ -126,11 +123,11 @@ credential = ClientSecretCredential(
    )
 const accessToken = await credential.getToken("https://management.azure.com/.default");
 ```
-For more information see [ClientSecretCredential Class](/javascript/api/@azure/identity/clientsecretcredential?view=azure-node-latest)
+For more information, see [ClientSecretCredential Class](/javascript/api/@azure/identity/clientsecretcredential?view=azure-node-latest)
 
 ### Python
 
-The following code shows how to get a token using the DefaultAzureCredential class. This uses the default Azure credentials to authenticate the request and does not require a client ID or client secret.
+The following code shows how to get a token using the DefaultAzureCredential class. This uses the default Azure credentials to authenticate the request and doesn't require a client ID or client secret.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -139,7 +136,7 @@ credential = DefaultAzureCredential()
 token = credential.get_token('https://management.azure.com/.default')
 print(token.token)
 ```
-For more information see [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python)
+For more information, see [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python)
 
 Alternatively you can use the ClientSecretCredential class to get a token. This requires a client ID and client secret to authenticate the request.
 
@@ -155,4 +152,6 @@ token =  credential2.get_token("https://management.azure.com/.default")
 print(token.token)
 ```
 
- for more information see [ClientSecretCredential Class](/python/api/azure-identity/azure.identity.clientsecretcredential?view=azure-python)
+ For more information see [ClientSecretCredential Class](/python/api/azure-identity/azure.identity.clientsecretcredential?view=azure-python)
+
+---
