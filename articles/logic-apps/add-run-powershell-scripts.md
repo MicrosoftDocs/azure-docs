@@ -45,7 +45,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 - The Azure portal saves your script as a PowerShell script file (.ps1) in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition.
 
-  The **.ps1** file format lets you write less "boilerplate" and focus just on writing PowerShell code. You can rename the .ps1 file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
+  The **.ps1** file format lets you write less "boilerplate" and focus just on writing PowerShell code. If you rename the action, the file is also renamed, but not vice versa. If you directly rename the file, the renamed version overwrites the previous version. If the action name and file names don't match, the action can't find the file and tries to create a new empty file.
 
 - The script is local to the workflow. To use the same script in other workflows, [view the script file in the **KuduPlus** console](#view-script-file), and then copy the script to reuse in other workflows.
 
