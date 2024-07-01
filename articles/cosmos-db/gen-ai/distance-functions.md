@@ -14,7 +14,7 @@ Distance functions are mathematical formulas used to measure the similarity or d
 
 ## Manhattan distance
 
-This measures the distance between two points by adding up the absolute differences of their coordinates. Imagine walking in a grid-like city, such as many neighborhoods in Manhattan; it's the total number of blocks you walk north-south and east-west.
+This measures the distance between two points by adding up the absolute differences of their coordinates. Imagine walking in a grid-like city, such as many neighborhoods in Manhattan; it is the total number of blocks you walk north-south and east-west.
 
 ## Euclidean distance
 
