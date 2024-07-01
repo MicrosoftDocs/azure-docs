@@ -16,23 +16,22 @@ This article walks through the prerequisites for setting up a PostgreSQL cluster
 
 ## Prerequisites
 
-This guide assumes a basic understanding of [core Kubernetes concepts][core-kubernetes-concepts] and [PostgreSQL][postgresql].
-
-You need the **Owner** or **User Access Administrator** and the **Contributor** [Azure built-in roles][azure-roles] on a subscription in your Azure account.
+* This guide assumes a basic understanding of [core Kubernetes concepts][core-kubernetes-concepts] and [PostgreSQL][postgresql].
+* You need the **Owner** or **User Access Administrator** and the **Contributor** [Azure built-in roles][azure-roles] on a subscription in your Azure account.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-You also need the following resources installed:
+* You also need the following resources installed:
 
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.56 or later.
-- [Azure Kubernetes Service (AKS) preview extension][aks-preview].
-- [jq][jq], version 1.5 or later.
-- [kubectl][install-kubectl] version 1.21.0 or later.
-- [Helm][install-helm] verison 3.0.0 or later.
-- [openssl][install-openssl] version 3.3.0 or later.
-- [Visual Studio Code][install-vscode] or equivalent.
-- [Krew][install-krew] version 0.4.4 or later.
-- [kubectl CloudNativePG (CNPG) Plugin][cnpg-plugin].
+    * [Azure CLI](/cli/azure/install-azure-cli) version 2.56 or later.
+    * [Azure Kubernetes Service (AKS) preview extension][aks-preview].
+    * [jq][jq], version 1.5 or later.
+    * [kubectl][install-kubectl] version 1.21.0 or later.
+    * [Helm][install-helm] verison 3.0.0 or later.
+    * [openssl][install-openssl] version 3.3.0 or later.
+    * [Visual Studio Code][install-vscode] or equivalent.
+    * [Krew][install-krew] version 0.4.4 or later.
+    * [kubectl CloudNativePG (CNPG) Plugin][cnpg-plugin].
 
 ## Deployment process
 
