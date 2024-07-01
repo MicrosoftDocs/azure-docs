@@ -446,11 +446,11 @@ You can't currently change the instance memory size setting for your app using V
 ## Set always ready instance counts
 
 You can set a number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. There are three special groups, as in per-function scaling: 
-+ `http` - all the HTTP triggered functions in the app are scaled together into their own instances.  
-+ `durable` - all the Durable triggered functions (Orchestration, Activity, Entity) in the app are scaled together into their own instances. Use `durable` as the name for the name value pair setting.
-+ `blob` - all the event grid blob storage triggered functions in the app are scaled together into their own instances. Use `blob` as the name for the name value pair setting.
++ `http` - all the HTTP triggered functions in the app scale together into their own instances.  
++ `durable` - all the Durable triggered functions (Orchestration, Activity, Entity) in the app scale together into their own instances.
++ `blob` - all the blob (Event Grid) triggered functions in the app scale together into their own instances. 
 
-Use `http`, `durable` or `blob` as the name for the name value pair setting to configure Always Ready counts for these groups. For all othere trigger types you need to configure Always Ready for each individual function using the format `function:<FUNCTION_NAME>=n`.
+Use `http`, `durable` or `blob` as the name for the name value pair setting to configure always ready counts for these groups. For all other functions in the app you need to configure always ready for each individual function using the format `function:<FUNCTION_NAME>=n`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -498,7 +498,7 @@ az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP
 
 1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Scale and concurrency**.
 
-1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name in **Trigger** and type the **Number of always-ready instances**.
+1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name using the format `function:<FUNCTION_NAME>=n` in **Trigger** and type the **Number of always-ready instances**.
 
 1. Select **Save** to update the app.
 
