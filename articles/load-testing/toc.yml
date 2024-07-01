@@ -13,7 +13,9 @@ items:
     - name: Create a URL-based load test
       href: quickstart-create-and-run-load-test.md
     - name: Create a load test with a JMeter script
-      href: how-to-create-and-run-load-test-with-JMeter-script.md 
+      href: how-to-create-and-run-load-test-with-JMeter-script.md
+    - name: Create a load test with a Locust script
+      href: quickstart-create-run-load-test-with-locust.md      
     - name: Automate load tests with Azure Pipelines
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
@@ -49,18 +51,26 @@ items:
       items:
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
+        - name: Generate load from multiple regions
+          href: how-to-generate-load-from-multiple-regions.md          
         - name: Define test fail criteria
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
         - name: Test App Service web apps
           href: how-to-create-load-test-app-service.md
+        - name: Test Azure Functions
+          href: how-to-create-load-test-function-app.md
+        - name: Optimize Azure Functions
+          href: how-to-optimize-azure-functions.md          
         - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
         - name: Test secure endpoints
           displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
           href: how-to-test-secured-endpoints.md
+        - name: Run tests in debug mode
+          href: how-to-run-tests-in-debug-mode.md  
     - name: Automation
       items:
         - name: Run load tests in CI/CD

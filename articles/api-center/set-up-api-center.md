@@ -10,7 +10,9 @@ ms.author: danlep
 
 # Quickstart: Create your API center - portal
 
-[!INCLUDE [quickstart-intro-prerequisites](includes/quickstart-intro-prerequisites.md)]
+[!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
+
+[!INCLUDE [quickstart-prerequisites](includes/quickstart-prerequisites.md)]
 
 ## Register the Microsoft.ApiCenter provider
 

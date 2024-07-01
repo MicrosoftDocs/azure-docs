@@ -4,18 +4,18 @@ description: Learn about how using Azure Virtual Desktop Insights can help you u
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/24/2023
+ms.date: 06/21/2024
 ---
 
 # Use cases for Azure Virtual Desktop Insights
 
-Using Azure Virtual Desktop Insights can help you understand your deployments of Azure Virtual Desktop. It can help with checks such as which client versions are connecting, opportunities for cost saving, or knowing if you have resource limitations or connectivity issues. If you make changes, you can continually validate that the changes have had the intended effect, and iterate if needed. This article provides some use cases for Azure Virtual Desktop Insights and example scenarios using the Azure portal.
+Using Azure Virtual Desktop Insights can help you understand your deployments of Azure Virtual Desktop. It can help with checks such as which client versions are connecting, opportunities for cost saving, or knowing if you have resource limitations or connectivity issues. If you make changes, you can continually validate that the changes have the intended effect, and iterate if needed. This article provides some use cases for Azure Virtual Desktop Insights and example scenarios using the Azure portal.
 
 ## Prerequisites
 
 - An existing host pool with session hosts, and a workspace [configured to use Azure Virtual Desktop Insights](insights.md).
 
-- You need to have had active sessions for a period of time before you can make informed decisions.
+- You need to have active sessions for a period of time before you can make informed decisions.
 
 ## Connectivity
 
@@ -48,9 +48,60 @@ To view round-trip time:
    
    :::image type="content" source="media/insights-use-cases/insights-connection-performance-latency-3.png" alt-text="A screenshot of a table showing the round-trip time per user." lightbox="media/insights-use-cases/insights-connection-performance-latency-3.png":::
 
-There are several possibilities for why latency may be higher than anticipated for some users, such as a poor Wi-Fi connection, or issues with their Internet Service Provider (ISP). However, with a list of impacted users, you have the ability to proactively contact and attempt to resolve end-user experience problems by understanding their network connectivity.
+There are several possibilities for why latency might be higher than anticipated for some users, such as a poor Wi-Fi connection, or issues with their Internet Service Provider (ISP). However, with a list of impacted users, you have the ability to proactively contact and attempt to resolve end-user experience problems by understanding their network connectivity.
 
 You should periodically review the round-trip time in your environment and the overall trend to identify potential performance concerns.
+
+### Connection reliability
+
+The reliability of a connection can have a significant impact on the end-user experience. Azure Virtual Desktop Insights can help you understand disconnection events and correlations between errors that affect end users.
+
+Connection reliability provides two main views to help you understand the reliability of your connections:
+
+- A graph showing the number of disconnections over the concurrent connections in a given time range. This graph enables you to easily detect clusters of disconnects that are impacting connection reliability. 
+
+- A table of the top 20 disconnection events, listing the top 20 specific time intervals where the most disconnections occurred. You can select a row in the table to highlight specific segments of the connection graph to view the disconnections that occurred at those specific time segments.
+
+You can also analyze connection errors by different pivots to determine the root cause of disconnects and improve connection reliability. Here are the available pivots:
+
+   | Pivot | Description |
+   |--|--|
+   | Subscription | Groups events by the subscription that contains related resources. When more than one subscription has Azure Virtual Desktop resources, it helps to determine whether issues are scoped to one or more subscriptions. |
+   | Resource group | Groups events by the resource group that contains related resources. |
+   | Host pool | Groups events by host pool. |
+   | Transport | Groups events by the network transport layer used for connections, either UDP or TCP.<br /><br />For UDP, valid values are `Relay`, `ShortpathPublic`, and `ShortpathPrivate`.<br /><br />For TCP, valid values are `NotUsed` and `<>` |
+   | Session host | Groups events by session host. |
+   | Session host IP/16 | Groups events by the IPv4 address of each session host, collated by the first two octets, for example (**1.2**.3.4). |
+   | Client type | Groups events by the client used to connect to a remote session, including platform and processor architecture of the connecting device. |
+   | Client version | Groups events by the version number of Windows App or the Remote Desktop app used to connect to a remote session. |
+   | Client IP/16 | Groups events by the IPv4 address of each client device connecting to a remote session, collated by the first two octets, for example (**1.2**.3.4). |
+   | Gateway region | Groups events by the Azure Virtual Desktop gateway region a client device connected through. For a list of gateway regions, see [Gateway region codes](insights-glossary.md#gateway-region-codes). |
+
+To view connection reliability information:
+
+1. Sign in to Azure Virtual Desktop Insights in the Azure portal by browsing to [https://aka.ms/avdi](https://aka.ms/avdi).
+
+1. From the drop-down lists, select one or more **subscriptions**, **resource groups**, **host pools**, and specify a **time range**, then select the **Connection Reliability** tab. The table and graph populate with the top 20 disconnection events and a graph of concurrent connections and disconnections over time.
+
+1. In the graph, review the number of disconnections (shown in red) over the count of concurrent connections (shown in green).
+
+   :::image type="content" source="media/insights-use-cases/insights-connection-reliability-top-20-table-graph-disconnects.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with the top 20 disconnection events table and concurrent connection graph with disconnects. " lightbox="media/insights-use-cases/insights-connection-reliability-top-20-table-graph-disconnects.png":::
+
+1. In the table, review the top 20 disconnection events. Select a row to highlight the specific time segment and neighboring time segments in the graph when the disconnections occurred.
+
+   :::image type="content" source="media/insights-use-cases/insights-connection-reliability-top-20-table-graph-disconnects-selection.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with the top 20 disconnection events table and concurrent connection graph with disconnects with an entry selected. " lightbox="media/insights-use-cases/insights-connection-reliability-top-20-table-graph-disconnects-selection.png":::
+
+1. When you select a row in the table, you can select one of the pivots to analyze the connection errors in further detail. You might need to scroll down to see all the relevant data available. By reviewing the connection errors across different pivots, you can look for commonalities of disconnections.
+
+   :::image type="content" source="media/insights-use-cases/insights-connection-reliability-pivots-events.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with list of pivoted events. " lightbox="media/insights-use-cases/insights-connection-reliability-pivots-events.png":::
+
+1. Select a specific time slice to view its details with the full list of connections in the time slice, their start and end dates, their duration, an indication of their success or failure, and the impacted user and session host.
+
+   :::image type="content" source="media/insights-use-cases/insights-connection-reliability-time-slice.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with the list of events for the time slice. " lightbox="media/insights-use-cases/insights-connection-reliability-time-slice.png":::
+
+1. To see the detailed history of a specific connection, select an entry in the **Details** section of a time slice. Selecting an entry generates a list of steps in the connection and any errors.
+
+   :::image type="content" source="media/insights-use-cases/insights-connection-reliability-connection-details.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with the details of a connection. " lightbox="media/insights-use-cases/insights-connection-reliability-connection-details.png":::
 
 ## Session host performance
 
@@ -74,13 +125,14 @@ To view session host performance:
    
 1. If you find higher than expected user input delay (>100 ms), it can be useful to then look at the aggregated statistics for CPU, memory, and disk activity for the session hosts to see if there are periods of higher-than-expected utilization. The graphs for **Host CPU and memory metrics**, **Host disk timing metrics**, and **Host disk queue length**  show either the aggregate across session hosts, or a selected session host's resource metrics.
    
-   In this example there are some periods of higher disk read times that correlate with the higher user input delay above.
+   In this example, there are some periods of higher disk read times that correlate with the higher user input delay.
    
    :::image type="content" source="media/insights-use-cases/insights-session-host-performance-2.png" alt-text="A screenshot of graphs showing session host metrics." lightbox="media/insights-use-cases/insights-session-host-performance-2.png":::
    
 1. For more information about a specific session host, select the **Host Diagnostics** tab.
 
-1. Review the section for **Performance counters** to see a quick summary of any devices that have crossed the specified thresholds for:
+1. Review the section for **Performance counters** to see a quick summary of any devices that crossed the specified thresholds for:
+
    - Available MBytes (available memory)
    - Page Faults/sec
    - CPU Utilization
@@ -95,7 +147,7 @@ In cases where a session host has extended periods of high resource utilization,
 
 ## Client version usage
 
-A common source of issues for end-users of Azure Virtual Desktop is using older clients that may either be missing new or updated features, or have known issues that have been resolved with more recent versions. Azure Virtual Desktop Insights contains a list of the different clients in use, as well as identifying clients that may be out of date.
+A common source of issues for end-users of Azure Virtual Desktop is using older clients that might either be missing new or updated features, or contain known issues that are resolved with more recent versions. Azure Virtual Desktop Insights contains a list of the different clients in use, and identifying clients that might be out of date.
 
 To view a list of users with outdated clients:
 
@@ -105,7 +157,7 @@ To view a list of users with outdated clients:
 
 1. Review the section for **Users with potentially outdated clients (all activity types)**. A summary table shows the highest version level of each client found connecting to your environment (marked as **Newest**) in the selected time range, and the count of users using outdated versions (in parentheses).
 
-   In the below example, the newest version of the Microsoft Remote Desktop Client for Windows (MSRDC) is 1.2.4487.0, and 993 users are currently using a version older than that. It also shows a count of connections and the number of days behind the latest version the older clients are.
+   In the below example, the newest version of the Microsoft Remote Desktop Client for Windows (MSRDC) is 1.2.4487.0, and 993 users are currently using a version older. It also shows a count of connections and the number of days behind the latest version the older clients are.
 
    :::image type="content" source="media/insights-use-cases/insights-client-version-usage-1.png" alt-text="A screenshot showing a table of outdated clients." lightbox="media/insights-use-cases/insights-client-version-usage-1.png":::
 
@@ -129,9 +181,9 @@ To view session host utilization:
 
 1. From the drop-down lists, select one or more **subscriptions**, **resource groups**, **host pools**, and specify a **time range**, then select the **Utilization** tab.
 
-1. Review the **Session history** chart, which displays the number of active and idle (disconnected) sessions over time. Identify any periods of high activity, and periods of low activity from the peak user session count and the time period in which the peaks occur. If you find a regular, repeated pattern of activity, this usually implies there's a good opportunity to implement a scaling plan.
+1. Review the **Session history** chart, which displays the number of active and idle (disconnected) sessions over time. Identify any periods of high activity, and periods of low activity from the peak user session count and the time period in which the peaks occur. If you find a regular, repeated pattern of activity, it usually implies there's a good opportunity to implement a scaling plan.
    
-   In this example, the graph shows the number of users sessions over the course of a week. Peaks occur at around midday on weekdays, and there's a noticeable lack of activity over the weekend. This suggests that there's an opportunity to scale session hosts to meet demand during the week, and reduce the number of session hosts over the weekend.        
+   In this example, the graph shows the number of users sessions over the course of a week. Peaks occur at around midday on weekdays, and there's a noticeable lack of activity over the weekend. This pattern suggests that there's an opportunity to scale session hosts to meet demand during the week, and reduce the number of session hosts over the weekend.        
    
    :::image type="content" source="media/insights-use-cases/insights-session-count-over-time.png" alt-text="A screenshot of a graph showing the number of users sessions over the course of a week." lightbox="media/insights-use-cases/insights-session-count-over-time.png":::
    
@@ -143,7 +195,7 @@ To view session host utilization:
 
    :::image type="content" source="media/insights-use-cases/insights-session-host-idle-count-over-time.png" alt-text="A screenshot of a graph showing the number of active and idle session hosts over the course of a week." lightbox="media/insights-use-cases/insights-session-host-idle-count-over-time.png":::
 
-1. Use the drop-down lists to reduce the scope to a single host pool and repeat the analysis for **session history** and **session host count**. At this scope you can identify patterns that are specific to the session hosts in a particular host pool to help develop a scaling plan for that host pool.
+1. Use the drop-down lists to reduce the scope to a single host pool and repeat the analysis for **session history** and **session host count**. At this scope, you can identify patterns that are specific to the session hosts in a particular host pool to help develop a scaling plan for that host pool.
 
    In this example, the first graph shows the pattern of user activity throughout a week between 6AM and 10PM. On the weekend, there's minimal activity. The second graph shows the number of active and idle session hosts throughout the same week. There are long periods of time where idle session hosts are powered on. Use this information to help determine optimal ramp-up and ramp-down times for a scaling plan.
 
@@ -151,7 +203,7 @@ To view session host utilization:
 
    :::image type="content" source="media/insights-use-cases/insights-session-host-idle-count-over-time-single-host-pool.png" alt-text="A graph showing the number of active and idle session hosts over the course of a week for a single host pool." lightbox="media/insights-use-cases/insights-session-host-idle-count-over-time-single-host-pool.png":::
 
-1. [Create a scaling plan](autoscale-scaling-plan.md) based on the usage patterns you've identified, then [assign the scaling plan to your host pool](autoscale-new-existing-host-pool.md).
+1. [Create a scaling plan](autoscale-scaling-plan.md) based on the usage patterns you identify, then [assign the scaling plan to your host pool](autoscale-new-existing-host-pool.md).
 
 After a period of time, you should repeat this process to validate that your session hosts are being utilized effectively. You can make changes to the scaling plan if needed, and continue to iterate until you find the optimal scaling plan for your usage patterns.
 

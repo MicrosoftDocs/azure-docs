@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 06/24/2024
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
@@ -93,7 +93,7 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 5. Mount the volume on the host: 
 
-    `sudo mount -t nfs -o sec=krb5p,rw,hard,rsize=1048576,wsize=1048576,vers=4.1,tcp $ANFEXPORT $ANFMOUNTPOINT`
+    `sudo mount -t nfs -o sec=krb5p,rw,hard,rsize=262144,wsize=262144,vers=4.1,tcp $ANFEXPORT $ANFMOUNTPOINT`
 
     * The `$ANFEXPORT` variable is the `host:/export` path found in the mount instructions.
     * The `$ANFMOUNTPOINT` variable is the user-created folder on the Linux host.

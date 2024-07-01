@@ -58,7 +58,7 @@ az extension show -n ml #(the version value needs to be 2.15.1 or later)
 # [Python SDK](#tab/python)
 
 ```python
-pip uninstall azure-ai-ml
+pip install azure-ai-ml
 pip show azure-ai-ml #(the version value needs to be 1.15.0 or later)
 ```
 

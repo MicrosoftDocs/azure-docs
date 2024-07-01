@@ -1,5 +1,5 @@
 ---
-title: Request authorization key for ExpressRoute
+title: Request an authorization key for ExpressRoute
 description: Steps to request an authorization key for ExpressRoute.
 ms.topic: include
 ms.service: azure-vmware
@@ -11,15 +11,18 @@ ms.custom: engagement-fy23
 
 <!-- used in tutorial-expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
-1. In the Azure portal, navigate to the Azure VMware Solution private cloud. Select **Manage** > **Connectivity** > **ExpressRoute** and then select **+ Request an authorization key**.
+1. In the Azure portal, go to the Azure VMware Solution private cloud.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Screenshot shows how to request an ExpressRoute authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
+1. Under **Manage**, select **Connectivity**.
 
-1. Provide a name for it and select **Create**.
+1. Select the **ExpressRoute** tab, and then select **+ Request an authorization key**.
 
-   It can take about 30 seconds to create the key. Once created, the new key appears in the list of authorization keys for the private cloud.
+   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Screenshot that shows selections for requesting an ExpressRoute authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 
-   :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Screenshot shows the ExpressRoute Global Reach authorization key." lightbox="../media/expressroute-global-reach/show-global-reach-auth-key.png":::
-  
-1. Copy the authorization key and ExpressRoute ID. You need them to complete the peering. The authorization key disappears after some time, so copy it as soon as it appears.
+1. Provide a name for the authorization key, and then select **Create**.
 
+   It can take about 30 seconds to create the key. After the key is created, it appears in the list of authorization keys for the private cloud.
+
+   :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Screenshot that shows the ExpressRoute Global Reach authorization key." lightbox="../media/expressroute-global-reach/show-global-reach-auth-key.png":::
+
+1. Copy the authorization key and the ExpressRoute ID. You need them to complete the peering. The authorization key disappears after some time, so copy it as soon as it appears.

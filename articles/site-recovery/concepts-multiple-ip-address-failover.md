@@ -1,54 +1,62 @@
 ---
 title: Configure failover of multiple IP addresses with Azure Site Recovery
-description: Describes how to configure the failover of secondary IP configs for Azure VMs
+description: This article describes how to configure the failover of secondary IP configs for Azure virtual machines.
 services: site-recovery
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 04/29/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 
 ---
 # Configure failover of multiple IP addresses with Azure Site Recovery
 
-Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. A public IP address resource has either a dynamic or static public IP address assigned to it. To learn more about [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md), read the IP addresses in Azure article.
+Every Network Interface Card (NIC) attached to a virtual machine has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. A public IP address resource has either a dynamic or static public IP address assigned to it. Learn more about [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md).
 
-Today, Site Recovery automatically configures the failover of the Primary IP Configuration. This article describes how you can configure failover of Secondary IP Configs with Site Recovery. Please note that this is supported only for Azure VMs.
+Azure Site Recovery automatically configures the failover of the Primary IP Configuration. This article describes how you can configure failover of Secondary IP configuration with Site Recovery. This is supported only for Azure virtual machines.
 
-## Configure Secondary IP Address Failover via Azure portal
 
-Site Recovery automatically configures the failover of your Primary IP Configuration when you Enable Replication for the VM. Secondary IP Configurations need to be manually configured after the Enable Replication completes. For this you need a protected VM that has one or more Secondary IP Configurations.
+## Configure secondary IP address failover via Azure portal
 
-**Follow these steps:**
+Site Recovery automatically configures the failover of your Primary IP Configuration when you Enable Replication for the virtual machine. Secondary IP Configurations need to be manually configured after the replication completes. For this, you need a protected virtual machine that has one or more Secondary IP Configurations.
 
-1. Navigate to the **Network** blade on the Replicated Items page.
+To configure secondary IP address failover, follow these steps:
+
+1. Navigate to the **Network** section on the **Replicated items** page.
 
     :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-tab.png" alt-text="Screenshot of Replicated Items Blade.":::
     
 
-2. You will see the following highlighted text.  Click on **Edit** to modify it.
+2. Under **Secondary IP Configuration**, select **Edit** to modify it.
  
     :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-edit.png" alt-text="Screenshot of Network Tab Edit Mode." lightbox="./media/concepts-multiple-ip-address-failover/network-edit-expanded.png":::    
 
-3. Click on "+ IP Configurations". You will see two options, Either add all IP Configurations, or selectively add IP Configurations.
+3. Select **+ IP configurations**. 
+    You have two options, you can either add all IP configurations, or select and add individual IP configurations.
 
     :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-ip-configurations.png" alt-text="Screenshot of Add IP Configurations.":::
 
-4. On clicking **Add all secondary IP Configurations**, all of them will appear in the grid below, and then you can configure them as you like.
+    > [!NOTE]
+    > If you add a NIC to the source virtual machine while replication is ongoing, you must disable and re-enable replication to update the same settings for the target virtual machine. 
+
+4. Select **Add all secondary IP configurations** to list all available configurations. You can now configure them as you like.
 
     :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations.png" alt-text="Screenshot of All IP Configurations." lightbox="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations-expanded.png":::    
 
-5. Alternatively, on clicking **Select and add secondary IP Configurations**, a blade will open where you can pick and add IP Configurations you'd like to configure for failover.
+5. Alternatively, selecting **Select and add secondary IP configurations**, opens a pane where you can pick and add IP configurations you'd like to configure for failover.
 
     :::image type="content" source="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png" alt-text="Screenshot of Select and Add IP Configurations." lightbox="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png":::
 
-Now, for each IP Configuration that you've added, you can configure the values for Private IP, Public IP, and Backend Pool for Failover and Test Failover separately. After you've done it all, don't forget to Save changes.
+    For each IP configuration that was added, you can configure the values for Private IP, Public IP, and Backend Pool for Failover and Test Failover separately. 
+
+1. Save your changes.
 
 
 ## Next steps
 
-- Learn more about [Traffic Manager with Azure Site Recovery](../site-recovery/concepts-traffic-manager-with-site-recovery.md)
-- Learn more about Traffic Manager [routing methods](../traffic-manager/traffic-manager-routing-methods.md).
-- Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.
+Learn more about:
+
+- [Traffic Manager with Azure Site Recovery](../site-recovery/concepts-traffic-manager-with-site-recovery.md)
+- Traffic Manager [routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+- [Recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

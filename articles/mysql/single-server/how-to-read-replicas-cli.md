@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 

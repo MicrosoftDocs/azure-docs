@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/20/2022
+ms.date: 06/20/2024
 ---
 # Manage secrets by using Bicep
 

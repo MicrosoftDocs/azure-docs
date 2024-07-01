@@ -15,7 +15,7 @@ ms.custom:
 
 # How to optimize performance when using `pgvector` on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The `pgvector` extension adds an open-source vector similarity search to Azure Database for PostgreSQL flexible server.
 
@@ -23,7 +23,7 @@ This article explores the limitations and tradeoffs of [`pgvector`](https://gith
 
 For more on the extension itself, see [basics of `pgvector`](how-to-use-pgvector.md). You might also want to refer to the official [README](https://github.com/pgvector/pgvector/blob/master/README.md) of the project.
 
-[!INCLUDE [Performance](../../cosmos-db/postgresql/includes/pgvector-performance.md)]
+[!INCLUDE [Performance](~/reusable-content/ce-skilling/azure/includes/cosmos-db/postgresql/includes/pgvector-performance.md)]
 
 ## Next steps
 

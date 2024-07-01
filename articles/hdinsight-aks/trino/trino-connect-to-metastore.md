@@ -41,7 +41,7 @@ Configure external Hive metastore database in `config.properties` file:
 {
     "fileName": "config.properties",
     "values": {
-        "hive.metastore.hdi.metastoreDbConnectionURL": "jdbc:sqlserver://mysqlserver1.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
+        "hive.metastore.hdi.metastoreDbConnectionURL": "jdbc:sqlserver://server-name.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
         "hive.metastore.hdi.metastoreDbConnectionUserName": "trinoadmin",
         "hive.metastore.hdi.metastoreDbConnectionPasswordSecret": "hms-db-pwd",
         "hive.metastore.hdi.metastoreWarehouseDir": "abfs://container1@myadlsgen2account1.dfs.core.windows.net/hive/warehouse"
@@ -50,7 +50,7 @@ Configure external Hive metastore database in `config.properties` file:
 ```
 | Property| Description| Example|
 |---|---|---|
-|hive.metastore.hdi.metastoreDbConnectionURL|JDBC connection string to database.|jdbc:sqlserver://mysqlserver1.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30|
+|hive.metastore.hdi.metastoreDbConnectionURL|JDBC connection string to database.|jdbc:sqlserver://server-name.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30|
 |hive.metastore.hdi.metastoreDbConnectionUserName|SQL user name to connect to database.|trinoadmin|
 |hive.metastore.hdi.metastoreDbConnectionPasswordSecret|Secret referenceName configured in secretsProfile with password.|hms-db-pwd|
 |hive.metastore.hdi.metastoreWarehouseDir|ABFS URI to location in storage where data is stored.|`abfs://container1@myadlsgen2account1.dfs.core.windows.net/hive/warehouse`|
@@ -127,7 +127,7 @@ To configure external Hive metastore to an existing Trino cluster, add the requi
                                         {
                                             "fileName": "config.properties",
                                             "values": {
-                                                "hive.metastore.hdi.metastoreDbConnectionURL": "jdbc:sqlserver://mysqlserver1.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
+                                                "hive.metastore.hdi.metastoreDbConnectionURL": "jdbc:sqlserver://server-name.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
                                                 "hive.metastore.hdi.metastoreDbConnectionUserName": "trinoadmin",
                                                 "hive.metastore.hdi.metastoreDbConnectionPasswordSecret": "hms-db-pwd",
                                                 "hive.metastore.hdi.metastoreWarehouseDir": "abfs://container1@myadlsgen2account1.dfs.core.windows.net/hive/warehouse"
@@ -181,7 +181,7 @@ Alternatively external Hive metastore database parameters can be specified in `t
 |---|---|---|
 |trinoProfile.catalogOptions.hive|List of Hive or iceberg or delta catalogs with parameters of external Hive metastore database, require parameters for each. To use external metastore database, catalog must be present in this list.
 |trinoProfile.catalogOptions.hive[*].catalogName|Name of Trino catalog configured in `serviceConfigsProfiles`, which configured to use external Hive metastore database.|hive1|
-|trinoProfile.catalogOptions.hive[*].metastoreDbConnectionURL|JDBC connection string to database.|jdbc:sqlserver://mysqlserver1.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30|
+|trinoProfile.catalogOptions.hive[*].metastoreDbConnectionURL|JDBC connection string to database.|jdbc:sqlserver://server-name.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30|
 |trinoProfile.catalogOptions.hive[*].metastoreDbConnectionUserName|SQL user name to connect to database.|trinoadmin|
 |trinoProfile.catalogOptions.hive[*].metastoreDbConnectionPasswordSecret|Secret referenceName configured in secretsProfile with password.|hms-db-pwd|
 |trinoProfile.catalogOptions.hive[*].metastoreWarehouseDir|ABFS URI to location in storage where data is stored.|`abfs://container1@myadlsgen2account1.dfs.core.windows.net/hive/warehouse`|
@@ -236,7 +236,7 @@ Alternatively external Hive metastore database parameters can be specified in `t
                             "hive": [
                                 {
                                     "catalogName": "hive1",
-                                    "metastoreDbConnectionURL": "jdbc:sqlserver://mysqlserver1.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
+                                    "metastoreDbConnectionURL": "jdbc:sqlserver://server-name.database.windows.net;database=myhmsdb1;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
                                     "metastoreDbConnectionUserName": "trinoadmin",
                                     "metastoreDbConnectionPasswordSecret": "hms-db-pwd",
                                     "metastoreWarehouseDir": "abfs://container1@myadlsgen2account1.dfs.core.windows.net/hive/warehouse"

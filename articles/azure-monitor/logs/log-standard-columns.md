@@ -4,7 +4,7 @@ description: Describes columns that are common to multiple data types in Azure M
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 02/18/2022
+ms.date: 05/26/2024
 
 ---
 

@@ -4,18 +4,28 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 4/30/2024
+ms.date: 5/31/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are important updates to existing articles.
 
+## May 2024
+
+In May 2024, we made the following changes to the documentation:
+
+- Published a new article to [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+
+- Updated the branding of the Getting started feature to [Quickstart](quickstart.md) to match the Azure portal.
+
+- Added the steps to [Set up Start VM on Connect](start-virtual-machine-connect.md) using Azure CLI.
+
 ## April 2024
 
 In April 2024, we made the following changes to the documentation:
 
-- Published a new article to [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md).
+- Published a new article to [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md). Integrated with Insights in Azure Virtual Desktop, Autoscale diagnostic data enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save costs. 
 
 - Updated [Azure Virtual Desktop Insights glossary](insights-glossary.md) to include a list of [gateway region codes](insights-glossary.md#gateway-region-codes) used in Azure Virtual Desktop Insights and the Azure regions they correspond to.
 

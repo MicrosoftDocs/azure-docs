@@ -14,6 +14,7 @@ ZRS disks are currently available in the following regions:
 - East Asia
 - Southeast Asia
 - Australia East
+- US Gov Virginia
 - Brazil South
 - Canada Central
 - China North 3

@@ -79,7 +79,7 @@ The following table can answer your questions about using gRPC with App Service.
 
 | Topic | Answer |
 | --- | --- |
-| OS support | Currently, gRPC is a Linux-only feature. It's not yet supported for .NET workloads in Windows. |
+| OS support | gRPC is available on Linux. Windows support is currently in preview. |
 | Language support | gRPC is supported for each language that supports gRPC.  |
 | Client certificates | HTTP/2 enabled on App Service doesn't currently support client certificates. Client certificates need to be ignored when you're using gRPC. |
 | Secure calls | gRPC must make secure HTTP calls to App Service. You can't make nonsecure calls. |

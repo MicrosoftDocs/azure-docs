@@ -4,7 +4,7 @@ description: How to use Apache Spark Streaming applications on HDInsight Spark c
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/25/2023
+ms.date: 06/15/2024
 ---
 
 # Overview of Apache Spark Streaming
@@ -21,7 +21,7 @@ Spark Streaming represents a continuous stream of incoming data using a *discret
 
 A DStream provides a layer of abstraction on top of the raw event data.
 
-Start with a single event, say a temperature reading from a connected thermostat. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. The Spark core uses a data structure that distributes data across multiple nodes in the cluster. Where each node generally maintains its own data in-memory for best performance. This data structure is called a *resilient distributed dataset* (RDD).
+Start with a single event, say a temperature reading from a connected thermostat. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. The Spark core uses a data structure that distributes data across multiple nodes in the cluster. Where each node generally maintains its own data in-memory for best performance. This data structure is called a *resilient distributed dataset (RDD)*.
 
 Each RDD represents events collected over a user-defined timeframe called the *batch interval*. As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous set of RDDs is collected into a DStream. For example, if the batch interval is one second long, your DStream emits a batch every second containing one RDD that contains all the data ingested during that second. When processing the DStream, the temperature event appears in one of these batches. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
 
