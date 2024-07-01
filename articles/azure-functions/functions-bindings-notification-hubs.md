@@ -3,8 +3,8 @@ title: Azure Notification Hubs output bindings for Azure Functions
 description: Learn how to use Azure Notification Hub output bindings in Azure Functions.
 ms.service: azure-functions
 ms.topic: reference
-ms.devlang: csharp
 ms.date: 06/24/2024
+ms.devlang: csharp
 # ms.devlang: csharp, fsharp, javascript
 ms.custom: devx-track-csharp
 ---
@@ -285,11 +285,11 @@ To configure the connection string to an existing notification hub:
 1. Navigate to your notification hub in the [Azure portal](https://portal.azure.com), choose **Access policies**, and select the copy button next to the **DefaultFullSharedAccessSignature** policy.
 
    The connection string for the *DefaultFullSharedAccessSignature* policy is copied to your notification hub. This connection string lets your function send notification messages to the hub.
-    ![Screenshot that shows how to copy the notification hub connection string.](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
+   :::image type="content" source="./media/functions-bindings-notification-hubs/get-notification-hub-connection.png" alt-text="Screenshot that shows how to copy the notification hub connection string.":::
 
 1. Navigate to your function app in the Azure portal, expand **Settings**, and then select **Environment variables**.
 
-1. From the **App setting** tab, select **+ Add** to add a key such as **MyHubConnectionString**. The name of this app setting is the output binding connection setting in *function.json* or the .NET attribute. For more information, see [Configuration](#configuration).
+1. From the **App setting** tab, select **+ Add** to add a key such as **MyHubConnectionString**. The **Name** of this app setting is the output binding connection setting in *function.json* or the .NET attribute. For more information, see [Configuration](#configuration).
 
 1. For the value, paste the copied *DefaultFullSharedAccessSignature* connection string from your notification hub, and then select **Apply**.
 
