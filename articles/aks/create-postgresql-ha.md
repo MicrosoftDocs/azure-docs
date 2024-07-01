@@ -54,7 +54,7 @@ az extension add --upgrade --name amg --yes --allow-preview false
 
 ## Create a resource group
 
-Create a resource group for the resources you'll create in this guide using the [`az group create`][az-group-create] command.
+Create a resource group to hold the resources you create in this guide using the [`az group create`][az-group-create] command.
 
 ```azurecli-interactive
 az group create \
