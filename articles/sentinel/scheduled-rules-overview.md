@@ -47,11 +47,11 @@ The first page of the analytics rule wizard contains the rule’s basic informat
 
 # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/scheduled-rules-overview/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
+:::image type="content" source="media/create-analytics-rules/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
 
 # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/scheduled-rules-overview/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
+:::image type="content" source="media/create-analytics-rules/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
 
 ---
 
@@ -124,19 +124,19 @@ There are three types of alert enhancements you can configure:
 
 Entities are the players on either side of any attack story. Identifying all the entities in an alert is essential for detecting and investigating threats. To ensure that Microsoft Sentinel identifies the entities in your raw data, you must map the entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the identified entities into the [*Entities* field in your alert schema](security-alert-schema.md).
 
-For complete instructions on mapping entities, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
+To learn more about entity mapping, and to get complete instructions, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
 
 ##### Custom details
 
 By default, only the alert entities and metadata are visible in incidents without drilling down into the raw events in the query results. To give other fields from your query results immediate visibility in your alerts and incidents, define them as **custom details**. Microsoft Sentinel integrates these custom details into the [*ExtendedProperties* field in your alerts](security-alert-schema.md), causing them to be displayed up front in your alerts, and in any incidents created from those alerts.
 
-For complete instructions on surfacing custom details, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
+To learn more about surfacing custom details, and to get complete instructions, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
 
 ##### Alert details
 
 This setting allows you to customize otherwise-standard alert properties according to the content of various fields in each individual alert. These customizations are integrated into the [*ExtendedProperties* field in your alerts](security-alert-schema.md). For example, you can customize the alert name or description to include a username or IP address featured in the alert.
 
-For complete instructions on customizing alert details, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
+To learn more about customizing alert details, and to get complete instructions, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
 > [!NOTE]
 > In the unified security operations platform, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
@@ -165,11 +165,15 @@ The **Start running** setting, now in PREVIEW, allows you to create a rule with 
 
 - The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
 
-    :::image type="content" source="media/scheduled-rules-overview/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
+    :::image type="content" source="media/create-analytics-rules/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
 
 #### Alert threshold
 
+Many types of security events are normal or even expected in small numbers, but are a sign of a threat in larger numbers. Different scales of large numbers can mean different kinds of threats. For example, two or three failed sign-in attempts in the space of a minute is a sign of a user not remembering a password, but fifty in a minute could be a sign of a human attack, and a thousand is probably an automated attack.
 
+Depending on what kind of activity your rule is trying to detect, you can set a minimum number of events (query results) necessary to trigger an alert. The threshold applies separately to each time the rule runs, not collectively.
+
+The threshold can also be set to a maximum number of results, or an exact number.
 
 #### Event grouping
 

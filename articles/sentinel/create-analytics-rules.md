@@ -177,10 +177,11 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
    > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
    >
    > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
+
 1. <a name="alert-threshold"></a>**Set the threshold for creating alerts.**
 
    Use the **Alert threshold** section to define the sensitivity level of the rule.
-   - Set **Generate alert when number of query results** to **Is greater than**, and enter the minimum number of events that need to be found over the time period of the query for the rule to generate an alert. 
+   - To set a minimum threshold, set **Generate alert when number of query results** to **Is greater than**, and enter the minimum number of events that need to be found over the time period of the query for the rule to generate an alert. 
    - This is a required field, so if you don’t want to set a threshold&mdash;that is, if you want to trigger the alert for even a single event in a given time period&mdash;enter `0` in the number field.
 
 1. **Set event grouping settings.** 
