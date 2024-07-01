@@ -24,11 +24,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy WebLogic Server with Administration Server on a VM
 
-The steps in this section direct you to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure Portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster). The first screen of the single instance offer will look like the following. 
-
-:::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows the Create WebLogic Server With Admin console on Azure VM page." lightbox="media/weblogic-server-azure-virtual-machine/portal-start-experience.png":::
-
-The following steps show you how to find the WebLogic Server with Admin Server offer and fill out the **Basics** pane:
+The steps in this section direct you to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure Portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster).  
 
 1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
 
@@ -37,6 +33,8 @@ The following steps show you how to find the WebLogic Server with Admin Server o
    You can also go directly to the offer with this [portal link](https://aka.ms/wls-vm-admin).
 
 1. On the offer page, select **Create**.
+
+:::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows the Create WebLogic Server With Admin console on Azure VM page." lightbox="media/weblogic-server-azure-virtual-machine/portal-start-experience.png":::
 
 1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that you used to sign in to the Azure portal.
 
