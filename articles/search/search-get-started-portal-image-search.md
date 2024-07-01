@@ -40,9 +40,9 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
   Service tier determines how many blobs you can index. We used the free tier to create this walkthrough and limited the content to 10 JPG files.
 
-+ Azure Blob storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. ADLS Gen2 isn't supported, so if you enabled hierarchical namespace on your account, it won't work with this version of the wizard.
++ Azure Blob storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use ADLS Gen2 (a storage account with a hierarchical namespace). ADLS Gen2 isn't supported with this version of the wizard.
 
-All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security.
+All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here's a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
 
