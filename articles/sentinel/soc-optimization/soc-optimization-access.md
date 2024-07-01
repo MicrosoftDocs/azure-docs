@@ -101,7 +101,7 @@ In the Defender portal, SOC optimization recommendations are listed in the **You
 
 Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
-SOC optimization recommendations are calculated for the optimization cards every 24 hours. If you need quicker updates, we recommend using the API instead. For more information, see [Using SOC optimizations programmatically](soc-optimization-api.md)
+SOC optimization recommendations are calculated for the optimization cards every 24 hours. If you need quicker updates, we recommend using the API instead. For more information, see [Using SOC optimizations programmatically](soc-optimization-api.md).
 
 ### Filter optimizations
 
