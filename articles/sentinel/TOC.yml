@@ -1141,14 +1141,14 @@
         href: automation/define-playbook-access-restrictions.md
       - name: Create and perform advanced incident tasks using playbooks
         href: automation/create-tasks-playbook.md
-- name: Optimize your security operations
+- name: SOC optimizations
   items:
-  - name: SOC optimizations overview
+  - name: Optimize your security operations
     href: soc-optimization/soc-optimization-access.md
-  - name: SOC optimization reference
-    href: soc-optimization/soc-optimization-reference.md
   - name: Use SOC optimizations programmatically
     href: soc-optimization/soc-optimization-api.md
+  - name: SOC optimization reference
+    href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing
