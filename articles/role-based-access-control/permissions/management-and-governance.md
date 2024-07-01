@@ -1112,10 +1112,10 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/changes/read | Gets or lists changes |
 > | Microsoft.Resources/checkPolicyCompliance/read | Check the compliance status of a given resource against resource policies. |
 > | Microsoft.Resources/deployments/read | Gets or lists deployments. |
-> | Microsoft.Resources/deployments/write | Creates or updates an deployment. |
+> | Microsoft.Resources/deployments/write | Creates or updates a deployment. |
 > | Microsoft.Resources/deployments/delete | Deletes a deployment. |
 > | Microsoft.Resources/deployments/cancel/action | Cancels a deployment. |
-> | Microsoft.Resources/deployments/validate/action | Validates an deployment. |
+> | Microsoft.Resources/deployments/validate/action | Validates a deployment. |
 > | Microsoft.Resources/deployments/whatIf/action | Predicts template deployment changes. |
 > | Microsoft.Resources/deployments/exportTemplate/action | Export template for a deployment |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
@@ -1149,7 +1149,7 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/subscriptions/resourceGroups/moveResources/action | Moves resources from one resource group to another. |
 > | Microsoft.Resources/subscriptions/resourceGroups/validateMoveResources/action | Validate move of resources from one resource group to another. |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
-> | Microsoft.Resources/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/write | Creates or updates a deployment. |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
 > | Microsoft.Resources/subscriptions/resourcegroups/resources/read | Gets the resources for the resource group. |
