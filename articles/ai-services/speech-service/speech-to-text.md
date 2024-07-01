@@ -21,7 +21,7 @@ For a full list of available speech to text languages, see [Language and voice s
 
 ## Real-time speech to text
 
-With real-time speech to text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
+With real-time speech to text, the audio that is transcribed as speech is recognized from a microphone or file. Use real-time speech to text for applications that need to transcribe audio in real-time such as:
 - Transcriptions, captions, or subtitles for live meetings
 - [Diarization](get-started-stt-diarization.md)
 - [Pronunciation assessment](how-to-pronunciation-assessment.md)
