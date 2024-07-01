@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 07/01/2024
 
 #customer intent: As a network administrator, I want to change the MTU for my Linux or Windows virtual machine so that I can optimize network performance.
 
@@ -73,7 +73,7 @@ Use the following steps to set a larger MTU size on a source and destination vir
 
 The shell script is available in the Azure samples gallery. Download the script for Linux from the following link and save to **vm-1** and **vm-2**.
 
-- [Linux](link here)
+- [GetPathMTU - Path MTU Discovery Sample Script](/samples/azure-samples/getpathmtu/getpathmtu/)
 
 Use the following steps to change the MTU size on a Linux virtual machine:
 
