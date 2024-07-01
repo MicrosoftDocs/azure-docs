@@ -51,7 +51,9 @@ You can monitor the following metrics to determine if you need to scale.
   - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If your Redis server is exceeding available network bandwidth, you should consider scaling out or scaling up to a larger cache size with higher network bandwidth.
   - For Enterprise tier caches using the _Enterprise cluster policy_, scaling out doesn't increase network bandwidth.
   - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
-
+- **Internal Defender Scans**
+  - On _C0_ and _C1_ caches, you might see short spikes in server load not caused by an increase in requests a couple times a day while internal defender scanning is running on the VMs. You see higher latency for requests while internal defender scans happen on these tiers. Caches on the  _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal defender scanning and Redis requests. You can reduce the effect by scaling to a higher tier offering  with multiple CPU cores, such as _C2_.
+    
 For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 > [!NOTE]
