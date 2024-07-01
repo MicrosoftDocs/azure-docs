@@ -12,9 +12,9 @@ ms.date: 09/30/2023
 
 This article includes the sample Azure PowerShell scripts for Azure Lab Services.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh.md)]
 
 This article includes the following samples:
 

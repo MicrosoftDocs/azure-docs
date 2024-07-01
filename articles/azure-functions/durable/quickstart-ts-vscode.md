@@ -50,7 +50,7 @@ To complete this tutorial:
 ::: zone-end
 * Make sure that you have [TypeScript](https://www.typescriptlang.org/) v4.x+ installed.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

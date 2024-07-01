@@ -17,7 +17,7 @@ In this quickstart, you learn how to create a virtual network with two subnets b
 
 :::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart by using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or the [Azure CLI](quick-create-cli.md).
 

@@ -13,7 +13,7 @@ ms.custom: mode-api, devx-track-js, devx-track-ts
 
 Microsoft Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying confidential applications. For more information on Azure Managed CCF, see [About Azure Managed Confidential Consortium Framework](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [API reference documentation](/javascript/api/overview/azure/confidential-ledger) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confidentialledger/arm-confidentialledger) | [Package (npm)](https://www.npmjs.com/package/@azure/arm-confidentialledger)
 

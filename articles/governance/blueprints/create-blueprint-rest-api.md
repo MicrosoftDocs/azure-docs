@@ -17,7 +17,7 @@ In this tutorial, you learn to use Azure Blueprints to do some of the common tas
 - Register the `Microsoft.Blueprint` resource provider. For directions, see
   [Resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Get started with REST API
 
