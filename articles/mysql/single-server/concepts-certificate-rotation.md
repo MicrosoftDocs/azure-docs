@@ -4,8 +4,8 @@ description: Learn about the upcoming changes of root certificate changes that w
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

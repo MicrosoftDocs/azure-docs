@@ -78,6 +78,10 @@ The subnets:
 | Reserved                      | Reserved                                            | `/26`  | `10.10.3.128/26` |
 | Reserved                      | Reserved                                            | `/26`  | `10.10.3.192/26` |
 
+> [!NOTE]
+> ESXi management/vmotion/replication networks are technically capable of supporting 125 Hosts, however supported max is 96 as 29 are reserved for replacements/maintenance(19) and HCX(10).
+
+
 ## Required network ports
 
 | Source | Destination | Protocol | Port | Description  | 

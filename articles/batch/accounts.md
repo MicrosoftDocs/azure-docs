@@ -2,7 +2,7 @@
 title: Batch accounts and Azure Storage accounts
 description: Learn about Azure Batch accounts and how they're used from a development standpoint.
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 06/25/2024
 
 ---
 # Batch accounts and Azure Storage accounts
@@ -11,7 +11,7 @@ An Azure Batch account is a uniquely identified entity within the Batch service.
 
 ## Batch accounts
 
-All processing and resources are associated with a Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name and the account URL. Additionally, it can use either an access key or a Microsoft Entra token.
+All processing and resources such as tasks, job and batch pool are associated with a Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name and the account URL. Additionally, it can use either an access key or a Microsoft Entra token.
 
 You can run multiple Batch workloads in a single Batch account. You can also distribute your workloads among Batch accounts that are in the same subscription but located in different Azure regions.
 

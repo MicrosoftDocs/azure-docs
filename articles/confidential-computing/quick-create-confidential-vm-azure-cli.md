@@ -90,7 +90,7 @@ For this step you need to be a Global Admin or you need to have the User Access 
   ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
-  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
+  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true --enable-rbac-authorization false
   ```
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
   ```Powershell

@@ -7,14 +7,14 @@ ms.subservice: vm-linux-setup-configuration
 ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
 ms.topic: article
-ms.date: 12/1/2023
+ms.date: 06/25/2024
 ms.author: carols
 ---
 # CentOS End-Of-Life guidance
 
-In September 2019, Red Hat announced its intent to sunset CentOS and replace it with CentOS Stream. For more information, see  [Transforming the development experience within CentOS](https://www.redhat.com/en/blog/transforming-development-experience-within-centos)
+As of June 30, 2024, Red Hat has sunsetted CentOS and replaced it with CentOS Stream. For more information, see  [Transforming the development experience within CentOS](https://www.redhat.com/en/topics/linux/centos-linux-eol)
 
-CentOS 7 and 8 are the final releases of CentOS Linux. The end-of-life dates for CentOS 7 and 8 are:
+CentOS 7 and 8 are the final releases of CentOS Linux. The end-of-life dates for CentOS 7 and 8 were:
 
 - CentOS 8 - December 31, 2021
 - CentOS 7 - June 30, 2024
@@ -33,7 +33,7 @@ There are several options for CentOS customers to move to a supported OS. The de
 
 If you need to keep CentOS compatibility, migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several choices such as Oracle Linux, Alma Linux, Rocky Linux, etc.
 
-If your workload runs on many distributions, you may want to consider moving to another distribution, either community based or commercial.
+If your workload runs on many distributions, you may want to consider moving to another distribution, either community-based or commercial.
 
 While you evaluate your end state, consider whether performing an in-place conversion (many distributions give tools for this purpose) is preferable vs. taking this opportunity to start with a clean slate and a new VM / OS / image. Microsoft recommends starting with a fresh VM / OS.
 
@@ -102,7 +102,7 @@ These are the official / endorsed CentOS images in Azure, and don't have softwar
 
 There's a multitude of CentOS based offers from various publishers available in the Azure Marketplace. They range from simple OS only offers to various bundled offers with more software, desktop versions and configurations for specific cases (for example CIS hardened images).
 
-Some of these offers do have a price tag associated, and can include services such as end customer support etc.
+Some of these offers do have a price associated, and can include services such as end customer support etc.
 
 If you convert a system with a price associated, you'll continue to pay the original price after conversion. Even if you have a separate subscription or license for the converted system, you may be double paying.
 
@@ -114,6 +114,6 @@ If you're moving to another distribution, you need to redeploy your Virtual Mach
 
 ### Modernize
 
-The end-of-life moment for CentOS may also be an opportunity for you to consider modernizing your workload, move to a PaaS, SaaS or containerized solution.
+This end-of-life moment may also be an opportunity for you to consider modernizing your workload, move to a PaaS, SaaS or containerized solution.
 
 [What is Application Modernization? | Microsoft Azure](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-application-modernization/)

@@ -87,7 +87,6 @@ For the complete Python API reference, see the [ONNX Runtime reference docs](htt
 
 ## Examples
 
-- For example Python notebooks that create and deploy ONNX models, see [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx).
 - [!INCLUDE [aml-clone-in-azure-notebook](includes/aml-clone-for-examples.md)]
 - For samples that show ONNX usage in other languages, see the [ONNX Runtime GitHub](https://github.com/microsoft/onnxruntime/tree/master/samples).
 
