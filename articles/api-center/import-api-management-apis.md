@@ -233,13 +233,14 @@ Use the [az apic import-from-apim](/cli/azure/apic#az-apic-import-from-apim) com
 In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Use `*` to specify all APIs from the API Management instance.
 
 ```azurecli
+#! /bin/bash
 az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> \
     --apim-apis *  
 ```
 
 ```azurecli
-#! PowerShell syntax
+# PowerShell syntax
 az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> `
     --apim-apis *  
@@ -255,6 +256,7 @@ Specify an API to import using its name from the API Management instance.
 In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. In `<api-name>`, specify an API name from the API Management instance.
 
 ```azurecli
+#! /bin/bash
 import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> \
     --apim-apis <api-name>    
@@ -262,7 +264,7 @@ import-from-apim --service-name <api-center-name> --resource-group <resource-gro
 
 
 ```azurecli
-#! PowerShell syntax
+# PowerShell syntax
 import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> `
     --apim-apis <api-name>    
