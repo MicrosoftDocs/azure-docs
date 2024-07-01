@@ -80,8 +80,6 @@ sections:
               - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation administrator.
           - Customers with Microsoft Customer Agreement (Azure Plan)
               - Notifications are sent to the reservation owners and the reservation administrator.
-          - Cloud Solution Provider and new commerce partners
-              - Emails are sent to the partner notification contact.
       - question: Can I use the new experience with self-installed SQL Server in Azure virtual machines?
         answer: |
           The new approach of centrally managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The experience includes a feature that informs you about current usage of Azure Hybrid Benefit. And, the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage ensures that you don't experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration might incur unexpected pay-as-you-go charges. 
