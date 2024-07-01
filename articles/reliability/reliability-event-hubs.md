@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Event Hubs
-description: Learn about reliability in Azure Event Hubs
+description: Learn about reliability in Azure Event Hubs.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -34,7 +34,7 @@ Availability zone support is only available in [Azure regions with availability 
 
 When you use the Azure portal, zone redundancy is automatically enabled. When you create a namespace, you see the following highlighted message when you select a region that supports availability zones. 
 
-:::image type="content" source="../event-hubs/media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
+:::image type="content" source="../event-hubs/media/event-hubs-geo-dr/eh-az.png" alt-text="Screenshot showing the Create Namespace page with a region that has availability zones.":::
 
 
 ### Disable availability zones
