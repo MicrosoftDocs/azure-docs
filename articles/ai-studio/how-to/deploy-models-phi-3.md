@@ -11,13 +11,12 @@ reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, build-2024
+zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
 # How to deploy Phi-3 family of small language models with Azure AI Studio
 
 Learn how to use Phi-3 with Azure AI studio to build and deploy machine learning models.
-
-
 
 ::: zone pivot="programming-language-python"
 
@@ -103,6 +102,7 @@ response = model.complete(
 )
 ```
 
+> [!NOTE]
 > Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
@@ -243,7 +243,7 @@ except HttpResponseError as ex:
 ::: zone-end
 
 
-::: zone pivot="programming-language-json"
+::: zone pivot="programming-language-rest"
 
 ## Phi-3 family of models
 
@@ -314,6 +314,7 @@ Let's create a simple chat completion request to see the output of the model.
 }
 ```
 
+> [!NOTE]
 > Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
