@@ -147,7 +147,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
-|[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|

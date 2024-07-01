@@ -1,6 +1,5 @@
 ---
 title: Vector database
-titleSuffix: Azure Cosmos DB
 description: Vector database functionalities, implementation, and comparison.
 author: wmwxwa
 ms.author: wangwilliam
