@@ -20,13 +20,6 @@ You can set auxiliary retention to up to 12 years on all tables.
 
 This article explains how to manage data retention at the Log Analytics workspace and table levels.
 
-## Permissions required
-
-| Action | Permissions required |
-|:-------|:---------------------|
-| Configure default interactive retention for Analytics tables in a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
-| Get retention setting by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
-
 
 ## What is total retention and how do retention modifications work?
 
@@ -58,6 +51,13 @@ A Log Analytics workspace can contain several [types of tables](../logs/manage-l
 |[Restored table](./restore.md) `(table_RST`)| Deletes the hot cache provisioned for the restore, but source table data isn't deleted.||
 |[Search results table](./search-jobs.md) (`table_SRCH`)| Deletes the table and data immediately and permanently.||
 |[Custom log table](./create-custom-table.md#create-a-custom-table) (`table_CL`)| Soft deletes the table until the end of the table-level retention or default workspace retention period. During the soft delete period, you continue to pay for data retention and can recreate the table and access the data by setting up a table with the same name and schema. Fourteen days after you delete a custom table, Azure Monitor removes the table-level retention configuration and applies the default workspace retention.|To minimize charges, set [table-level retention](#configure-table-level-retention) to four days before you delete the table.|
+
+## Permissions required
+
+| Action | Permissions required |
+|:-------|:---------------------|
+| Configure default interactive retention for Analytics tables in a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
+| Get retention setting by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 
 ## Configure the default interactive retention period of Analytics tables
 
@@ -329,9 +329,7 @@ For example:
 Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -tableName SecurityEvent
 ``` 
 
-
 ---
-
 
 ## Tables with unique retention periods
 
