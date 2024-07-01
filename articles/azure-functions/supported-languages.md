@@ -27,7 +27,7 @@ The following table shows which languages supported by Functions can run on Linu
 | [C# (in-process model)](functions-dotnet-class-library.md)|.NET|✓ |✓ | | 
 | [C# script](functions-reference-csharp.md) | .NET | ✓ |✓ |✓ |
 | [JavaScript](functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
-| [Python](functions-reference-python.md) | Python |✓ |X|✓ |
+| [Python](functions-reference-python.md) | Python |✓ |X|✓ <sup>1</sup> |
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
@@ -37,6 +37,7 @@ For more information on operating system and language support, see [Operating sy
 
 When in-portal editing isn't available, you must instead [develop your functions locally](functions-develop-local.md#local-development-environments).
 
+<sup>1</sup> Python in-portal editing is only supported when running in the Consumption plan.
 
 ### Language major version support
 
