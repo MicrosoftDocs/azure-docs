@@ -149,7 +149,7 @@ To enable backups, the PostgreSQL cluster needs to read and write to an object s
 
 ## Set up monitoring infrastructure
 
-In this section, you deploy an instance of [Azure Managed Grafana](/azure/managed-grafana/overview), an [Azure Monitor workspace](/azure-monitor/essentials/azure-monitor-workspace-overview), and an [Azure Monitor Log Analytics workspace](/azure-monitor/logs/log-analytics-overview) to enable monitoring of the PostgreSQL cluster. You also store references to the created monitoring infrastructure to use as input during the AKS cluster creation process later in the guide. This section might take some time to complete.
+In this section, you deploy an instance of Azure Managed Grafana, an Azure Monitor workspace, and an Azure Monitor Log Analytics workspace to enable monitoring of the PostgreSQL cluster. You also store references to the created monitoring infrastructure to use as input during the AKS cluster creation process later in the guide. This section might take some time to complete.
 
 > [!NOTE]
 > Azure Managed Grafana instances and AKS clusters are billed independently. For more pricing information, see [Azure Managed Grafana pricing][azure-managed-grafana-pricing].

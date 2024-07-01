@@ -260,7 +260,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
     ...
     ```
 
-If you are using [Azure Monitor for Managed Prometheus](/azure-monitor/essentials/prometheus-metrics-overview.md), you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
+If you are using Azure Monitor for Managed Prometheus, you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
 
 ```azurecli-interactive
 cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f apply -f -
