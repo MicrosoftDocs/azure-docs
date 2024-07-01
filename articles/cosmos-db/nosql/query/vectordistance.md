@@ -37,7 +37,7 @@ VECTORDISTANCE(<vector_expr1>, <vector_expr2>, [<bool_expr>], [<obj_expr>])
 | **`bool_expr`** | A boolean specifying how the computed value is used in an ORDER BY expression. If `true`, then brute force is used. A value of `false` leverages any index defined on the vector property, if it exists. Default value is `false`.|
 |**`obj_expr`**| A JSON formatted object literal used to specify options for the vector distance calculation. Valid items include `distanceFunction` and `dataType`.|
 | **`distanceFunction`** | The metric used to compute distance/similarity.
-| **`dataType`** | The data type of the vectors. `float32`, `float16`, `int8`, `uint8` values. Default value is `float32`. |
+| **`dataType`** | The data type of the vectors. `float32`, `int8`, `uint8` values. Default value is `float32`. |
 
 
 Supported metrics for `distanceFunction` are: 
