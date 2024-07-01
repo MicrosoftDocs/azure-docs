@@ -30,7 +30,7 @@ For more info about the managed identity for your ADF, see [Managed identity for
 > 
 > - If you have already created your Azure-SSIS IR using SQL authentication, you can not reconfigure it to use Microsoft Entra authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 <a name='enable-azure-ad-authentication-on-azure-sql-database'></a>
 
