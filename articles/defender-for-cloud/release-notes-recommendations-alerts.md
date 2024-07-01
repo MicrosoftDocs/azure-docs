@@ -27,21 +27,12 @@ New and updated recommendations and alerts are added to the table in date order.
 <!-- 4. If you're adding a new alert here, make sure you also add it to the recommendations reference page-->
 <!-- 5. You can optionally add a short sentence with additional details in the details column. The details column shouldn't include a description of the recommendation or its severity. that information belongs in the recommendations reference article-->
 
-### New DevOps security recommendations
-
-June 28, 2024
-
-We're announcing DevOps security recommendations that improve the security posture of Azure DevOps and GitHub environments. If issues are found, these recommendations offer remediation steps.
-
-The following new recommendations are supported if you have connected Azure DevOps or GitHub to Microsoft Defender for Cloud. All recommendations are included in Foundational Cloud Security Posture Management. 
-
-
 
 **Date** | **Type** | **Name** | **Details**
 --- | --- | --- | --- 
-June 28 | New recommendation GA | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/470742ea-324a-406c-b91f-fc1da6a27c0c) |
-June 28 | New recommendation GA | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98b5895a-0ad8-4ed9-8c9d-d654f5bda816) | 
-June 28 | New recommendation GA | [GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3) | 
+June 28 | Recommendation GA | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
+June 28 | Recommendation GA | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) | 
+June 28 | Recommendation GA | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all repositories) | 
 June 27 | Deprecated alert | **Security incident detected suspicious source IP activity** | 
 June 27 | Deprecated alert | **Security incident detected on multiple resources** |
 June 27 | Deprecated alert | **Security incident detected compromised machine** 
