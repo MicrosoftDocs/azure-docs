@@ -24,6 +24,14 @@ The following scenarios can currently use DCR endpoints.  A DCE required if priv
 - [Logs ingestion API](../logs/logs-ingestion-api-overview.md).
 
 
+The following data types still require creating a DCE.
+
+- [AMA Based Custom Logs](/azure/azure-monitor/agents/data-collection-text-log?tabs=portal)
+
+- [Windows IIS Logs](/azure/azure-monitor/agents/data-collection-iis)
+
+- [Prometheus Metrics](/azure/azure-monitor/containers/container-insights-prometheus-logs?tabs=cluster-wide)
+
 ## Components of a DCE
 
 A data collection endpoint includes components required to ingest data into Azure Monitor and send configuration files to Azure Monitor Agent. 
