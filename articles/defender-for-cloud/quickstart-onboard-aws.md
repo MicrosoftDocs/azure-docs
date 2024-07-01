@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.date: 04/08/2024
+ms.date: 07/01/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -171,6 +171,15 @@ To connect your AWS to Defender for Cloud by using a native connector:
 1. Enter the details of the AWS account, including the location where you store the connector resource.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
+
+1. Select a scan interval between 1 to 24 hours.
+
+    Some data collectors run with fixed scan intervals and are not affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
+
+    | Data collector name | Scan interval |
+    |--|--|
+    | EC2Instance <br> ECRImage  <br> ECRRepository  <br> RDSDBInstance <br> S3Bucket  <br> S3BucketTags <br> S3Region <br> EKSCluster <br> EKSClusterName <br> EKSNodegroup <br> EKSNodegroupName <br> AutoScalingAutoScalingGroup  | 1 hour  |
+    | EcsClusterArn <br> EcsService <br> EcsServiceArn <br> EcsTaskDefinition <br> EcsTaskDefinitionArn <br> EcsTaskDefinitionTags <br> AwsPolicyVersion <br> LocalPolicyVersion <br> AwsEntitiesForPolicy <br> LocalEntitiesForPolicy <br> BucketEncryption <br> BucketPolicy <br> S3PublicAccessBlockConfiguration <br> BucketVersioning <br> S3LifecycleConfiguration <br> BucketPolicyStatus <br> S3ReplicationConfiguration <br> S3AccessControlList <br> S3BucketLoggingConfig <br> PublicAccessBlockConfiguration | 12 hours |
 
 > [!NOTE]
 > (Optional) Select **Management account** to create a connector to a management account. Connectors are then created for each member account discovered under the provided management account. Auto-provisioning is also enabled for all of the newly onboarded accounts.
