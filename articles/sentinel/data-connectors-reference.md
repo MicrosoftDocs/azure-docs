@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 06/28/2024
+ms.date: 07/01/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -192,6 +192,7 @@ Contact the solution provider for more information or where information is unava
 ## Crowdstrike
 
 - [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
+- [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
 
