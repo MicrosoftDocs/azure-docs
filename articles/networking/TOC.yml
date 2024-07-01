@@ -44,8 +44,6 @@
       items:
       - name: Preface and Test Setup
         href: connectivity-interoperability-preface.md
-      - name: Test Setup Configuration
-        href: connectivity-interoperability-configuration.md
       - name: Control Plane Analysis
         href: connectivity-interoperability-control-plane.md
       - name: Data Plane Analysis
