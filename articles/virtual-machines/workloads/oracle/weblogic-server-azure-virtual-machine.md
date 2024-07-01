@@ -30,7 +30,7 @@ The steps in this section direct you to deploy WebLogic Server on a VM using the
 
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
-1. On the offer page, select **Create**.
+1. On the offer page, select **Create**. You will then see the **Basics** pane.
 
 :::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows the Create WebLogic Server With Admin console on Azure VM page." lightbox="media/weblogic-server-azure-virtual-machine/portal-start-experience.png":::
 
