@@ -44,15 +44,15 @@ For fewer limitations or more data source options, try a code-base approach. See
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ For data, use either an [Azure Storage account](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). For Azure Storage, use a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
++ For data, use either an [Azure Storage account](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). For Azure Storage, use a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. ADLS Gen2 isn't supported, so if you enabled hierarchical namespace on your account, it won't work with this version of the wizard.
 
-+ For vectorization, have an Azure AI services multiservice account or [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments.
++ For vectorization, have an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments.
 
   For [multimodal with Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval), create an Azure AI service in SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
 
   You can also use [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
 
-+ Azure AI Search, in the same region as your Azure AI service. We recommend Basic tier or higher.s
++ Azure AI Search, in the same region as your Azure AI service. We recommend Basic tier or higher.
 
 + Role assignments or API keys are required for connections to embedding models and data sources. Instructions for role-based access are provided in this article.
 
