@@ -18,7 +18,24 @@ Use this article to learn which natural languages are supported by document and 
 
 ## Text and document summarization
 
-Extractive and abstractive text summarization as well as document summarization support the following languages:
+Extractive text and document summarization support the following languages:
+
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
+| English               | `en`          |                     |
+| French                | `fr`          |                     |
+| German                | `de`          |                     |
+| Hebrew                | `he`          |                     |
+| Italian               | `it`          |                     |
+| Japanese              | `ja`          |                     |
+| Korean                | `ko`          |                     |
+| Polish                | `pl`          |                     |
+| Portuguese (Portugal) | `pt`          |                     |
+| Portuguese (Brazil)   | `pt-br`       |                     |
+| Spanish               | `es`          |                     |
+
+Abstractive text and document summarization support the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
@@ -32,7 +49,8 @@ Extractive and abstractive text summarization as well as document summarization 
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
 | Polish                | `pl`          |                     |
-| Portuguese            | `pt`          |                     |
+| Portuguese (Portugal) | `pt`          |                     |
+| Portuguese (Brazil)   | `pt-br`       |                     |
 | Spanish               | `es`          |                     |
 
 ## Conversation summarization
@@ -42,6 +60,7 @@ Conversation summarization supports the following languages:
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
 | Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
+| Chinese-Traditional   | `zh-hant`     |                     |
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
@@ -50,7 +69,19 @@ Conversation summarization supports the following languages:
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
 | Polish                | `pl`          |                     |
-| Portuguese            | `pt`          |                     |
+| Portuguese (Portugal) | `pt`          |                     |
+| Portuguese (Brazil)   | `pt-br`       |                     |
+| Dutch, Flemish        | `nl`          |                     |
+| Swedish               | `sv`          |                     |
+| Danish                | `da`          |                     |
+| Finnish               | `fi`          |                     |
+| Russian               | `ru`          |                     |
+| Norwegian             | `no`          |                     |
+| Turkish               | `tr`          |                     |
+| Arabic                | `ar`          |                     |
+| Czech                 | `cs`          |                     |
+| Hungarian             | `hu`          |                     |
+| Thai                  | `th`          |                     |
 | Spanish               | `es`          |                     |
 
 ## Custom summarization
