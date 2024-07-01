@@ -223,7 +223,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace How does the app connect to the database and the cache?*". Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
+        1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
         1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
         1. Open *Program.cs* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
@@ -284,7 +284,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 7:**
         Back in the Deployment Center page in the Azure portal:
-        1. Select **Logs**. A new deployment run is already started from your committed changes. You may need to select **Refresh** to see it.
+        1. Select **Logs**. A new deployment run is already started from your committed changes. You might need to select **Refresh** to see it.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
@@ -306,7 +306,7 @@ With the SQL Database protected by the virtual network, the easiest way to run [
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **SSH**. 
+        **Step 1:** Back in the App Service page, in the left menu, select **Development Tools** > **SSH**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png":::
@@ -486,7 +486,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Back in the GitHub codespace of your sample fork, start a new chat session by selecting the **Chat** view, then selecting **+**. 
 
-1. Ask, "*@workspace How does the app connect to the database and the cache?*". Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
+1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
 
 1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file.
 
@@ -623,7 +623,7 @@ This error is most likely caused by a limit on your subscription for the region 
 
 ### In the Azure portal, the log stream UI for the web app shows network errors
 
-You may see this error: 
+You might see this error: 
 
 <pre>
 Unable to open a connection to your app. This may be due to any network security groups or IP restriction rules that you have placed on your app. To use log streaming, please make sure you are able to access your app directly from your current network.
@@ -637,7 +637,7 @@ It takes a few minutes for the Linux container to start up. Wait a few minutes a
 
 ### The portal log stream page shows `Connected!` but no logs
 
-After you configure diagnostic logs, the app is restarted. You may need to refresh the page for the changes to take effect in the browser.
+After you configure diagnostic logs, the app is restarted. You might need to refresh the page for the changes to take effect in the browser.
 
 ## Frequently asked questions
 
@@ -689,7 +689,7 @@ You might have noticed that the GitHub Copilot chat view was already there for y
 A few tips for you when you talk to GitHub Copilot:
 
 - In a single chat session, the questions and answers build on each other and you can adjust your questions to fine-tune the answer you get.
-- By default, GitHub Copilot doesn't have access to any file in your repository. You can ask it questions about a file, open the file in the editor first.
+- By default, GitHub Copilot doesn't have access to any file in your repository. To ask questions about a file, open the file in the editor first.
 - To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
 - In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
