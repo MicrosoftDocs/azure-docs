@@ -15,7 +15,7 @@ ms.reviewer: jeffwo
 
  
 
-The agent can handle many thousands of events per second in the gateway event forwarding scenario. The exact throughput rate depends on various factors such as the size of each event, the specific data type, and physical hardware resources. This article will describe the Microsoft internal benchmark used for testing the agent throughput of 10k Syslog events in the forwarder scenario. The benchmark results should provide a guide to size the resources that you will need in your environment. 
+The agent can handle many thousands of events per second in the gateway event forwarding scenario. The exact throughput rate depends on various factors such as the size of each event, the specific data type, and physical hardware resources. This article describes the Microsoft internal benchmark used for testing the agent throughput of 10k Syslog events in the forwarder scenario. The benchmark results should provide a guide to size the resources that you need in your environment.
 
  
 
@@ -29,7 +29,7 @@ The agent can handle many thousands of events per second in the gateway event fo
 
 
 
-- Each AMA is limited to ingesting 20k EPS, and will drop any data that exceeds the limits.
+- Each AMA is limited to ingesting 20k EPS, and drops any data that exceeds the limits.
 
 - The forwarder should be on a dedicated system to eliminate potential interference from other workloads. 
 
@@ -37,7 +37,7 @@ The agent can handle many thousands of events per second in the gateway event fo
 
 - Where possible use a load balancer and redundant forwarder systems to improve reliability and scalability. 
 
-- For other considerations for forwarders see the Log Analytics Gateway documentation. 
+- For other considerations for forwarders, see the Log Analytics Gateway documentation. 
 
 
 
