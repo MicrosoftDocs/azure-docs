@@ -139,7 +139,7 @@ Use the following steps to enable port 22:
 
 ## Clean up resources
 
-If you're not going to continue to use the WebLogic Server, navigate back to your working resource group in the Azure portal. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
+If you're not going to continue to use the WebLogic Server, navigate back to your working resource group in the Azure portal. At the top of the page, under the text **Resource group**, select **Delete resource group**.
 
 ## Next steps
 
