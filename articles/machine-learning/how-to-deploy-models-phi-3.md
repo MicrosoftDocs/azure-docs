@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 07/01/2024
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: mopeakande
@@ -24,20 +24,35 @@ The Phi-3 family of SLMs is a collection of instruction-tuned generative text mo
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
+Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model. Phi-3-Mini was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly-available websites data, with a focus on high quality and reasoning-dense properties. 
+
+The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which denote the context length (in tokens) that each model variant can support.
 
 - [Phi-3-mini-4k-Instruct](https://ai.azure.com/explore/models/Phi-3-mini-4k-instruct/version/4/registry/azureml)
 - [Phi-3-mini-128k-Instruct](https://ai.azure.com/explore/models/Phi-3-mini-128k-instruct/version/4/registry/azureml)
 
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4K-Instruct and Phi-3 Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+# [Phi-3-small](#tab/phi-3-small)
+
+Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly-available websites data, with a focus on high quality and reasoning-dense properties.
+
+The model belongs to the Phi-3 model family, and the Small version comes in two variants, 8K and 128K, which denote the context length (in tokens) that each model variant can support.
+
+- Phi-3-small-8k-Instruct
+- Phi-3-small-128k-Instruct
+
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 # [Phi-3-medium](#tab/phi-3-medium)
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
+Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly-available websites data, with a focus on high quality and reasoning-dense properties.
+
+The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which denote the context length (in tokens) that each model variant can support.
 
 - Phi-3-medium-4k-Instruct
 - Phi-3-medium-128k-Instruct
 
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. 
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 ---
 
@@ -64,7 +79,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
+1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to one of the regions listed in the [prerequisites](#prerequisites) section.
 1. Choose the model you want to deploy, for example **Phi-3-medium-128k-Instruct**, from the [model catalog](https://ml.azure.com/model/catalog).
 1. On the model's overview page in the model catalog, select **Deploy** and then **Serverless API with Azure AI Content Safety**.
 
