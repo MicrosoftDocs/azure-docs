@@ -47,13 +47,9 @@ The Azure portal doesn't support disabling availability zones. To disable availa
 
 ### Availability zone migration
 
-You can't disable or enable availability zones for Event Hubs. When you create availability zones in the a region that supports them, availability zones are automatically enabled. 
+When you create availability zones in a region that supports them, availability zones are automatically enabled. If you wish to learn how to move your Event Hub to a new region that supports availability zones, see
+[Relocate Event Hubs to another region](../operational-excellence/relocation-event-hub.md).
 
-
-### Zone down experience
-
-
-When a client application sends events to an event hub without specifying a partition, events are automatically distributed among partitions in your event hub. If a partition isn't available for some reason, events are distributed among the remaining partitions. This behavior allows for the greatest amount of up time. For use cases that require the maximum up time, this model is preferred instead of sending events to a specific partition.
 
 ### Pricing
 Need Info. Any pricing considerations when using availability zones?
@@ -79,7 +75,6 @@ There are two features that provide geo-disaster recovery in Azure Event Hubs.
     For detailed information, as well as samples and further documentation, on Geo-Disaster recovery in Event Hubs, see [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
 - **Geo-replication (public preview)**, which provides replication of both metadata and data, replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
-
 
     For detailed information, as well as samples and further documentation, on Geo-replication in Event Hubs, see [Geo-replication ](../event-hubs/geo-replication.md).
 
