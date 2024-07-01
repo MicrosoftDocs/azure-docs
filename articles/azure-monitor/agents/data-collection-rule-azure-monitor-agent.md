@@ -54,7 +54,7 @@ You can define a data collection rule to send data from multiple machines to mul
     
         If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
-    1. Select **Enable Data Collection Endpoints**.
+    1. Select **Data Collection Endpoint** which is an optional field that does not need to be set unless you plan to use Azure Monitor Private Links. If you need it, specifies the data collection endpoint used to collect data. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).   
     1. Select a data collection endpoint for each of the resources associate to the data collection rule.
 
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::

@@ -1,8 +1,8 @@
 ---
 title: TextBox UI element
-description: Describes the Microsoft.Common.TextBox UI element for Azure portal that's used for adding unformatted text.
+description: Describes the Microsoft.Common.TextBox UI element for Azure portal used for adding unformatted text.
 ms.topic: reference
-ms.date: 08/23/2022
+ms.date: 06/24/2024
 ---
 
 # Microsoft.Common.TextBox UI element
@@ -59,7 +59,7 @@ Example of multi-line text box.
 
 - Use the `toolTip` property to display text about the element when the mouse cursor is hovered over the information symbol.
 - The `placeholder` property is help text that disappears when the user begins editing. If the `placeholder` and `defaultValue` are both defined, the `defaultValue` takes precedence and is shown.
-- The `multiLine` property is boolean, `true` or `false`. To use a multi-line text box, set the property to `true`. If a multi-line text-box isn't needed, set the property to `false` or exclude the property. For new lines, JSON output shows `\n` for the line feed. The multi-line text box accepts `\r` for a carriage return (CR) and `\n` for a line feed (LF). For example, a default value can include `\r\n` to specify CRLF.
+- The `multiLine` property is boolean, `true` or `false`. To use a multi-line text box, set the property to `true`. If a multi-line text-box isn't needed, set the property to `false` or exclude the property. For new lines, JSON output shows `\n` for the line feed. The multi-line text box accepts `\r` for a carriage return (CR) and `\n` for a line feed (LF). For example, a default value can include `\r\n` to specify carriage return and line feed (CRLF).
 - If `constraints.required` is set to `true`, then the text box must have a value to validate successfully. The default value is `false`.
 - The `validations` property is an array where you add conditions for checking the value provided in the text box.
 - The `regex` property is a JavaScript regular expression pattern. If specified, the text box's value must match the pattern to validate successfully. The default value is `null`. For more information about regex syntax, see [Regular expression quick reference](/dotnet/standard/base-types/regular-expression-language-quick-reference).

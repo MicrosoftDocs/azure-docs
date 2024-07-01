@@ -151,7 +151,7 @@ Successfully connected to mysqldemoserver1.
 Ran Database Query: 'select * from table1;'
 Retrieving first 30 rows of query output, if applicable.
 Closed the connection to mysqldemoserver1
-Local context is turned on. Its information is saved in working directory C:\Users\sumuth. You can run `az local-context off` to turn it off.
+Local context is turned on. Its information is saved in working directory C:\Users\<username>. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 Txt    Val
 -----  -----

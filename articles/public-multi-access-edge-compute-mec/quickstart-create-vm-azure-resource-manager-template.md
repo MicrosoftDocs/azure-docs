@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurecli, devx-track-arm-template
 
 In this quickstart, you learn how to use an Azure Resource Manager (ARM) template to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (MEC).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 

@@ -114,7 +114,7 @@ Content-Type:application/fhir+json
                 },
                 {
                     "name": "etag",
-                    "valueUri": "0x8D92A7342657F4F"
+                    "valueUri": "\"0x8D92A7342657F4F\""
                 }
             ]
         }
