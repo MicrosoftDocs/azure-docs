@@ -78,7 +78,7 @@ In this section, you create a user-assigned managed identity (UAMI) to allow the
         --output json)
     ```
 
-1. Use the following commands to enable AKS workload identity and generate a service account to use later in this guide:
+1. Enable AKS workload identity and generate a service account to use later in this guide using the following commands:
 
     ```azurecli-interactive
     export AKS_UAMI_WORKLOAD_OBJECTID=$( \
