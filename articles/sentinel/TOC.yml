@@ -143,8 +143,6 @@
         items:
         - name: Overview
           href: sap/solution-overview.md
-        - name: Get started with SAP integrations
-          href: TBD.md
         - name: Integrate SAP across multiple workspaces
           href: sap/cross-workspace.md
         - name: Deploy the SAP integration
@@ -159,25 +157,21 @@
             href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content
             href: sap/deploy-sap-security-content.md
-          - name: Configure the solution
+          - name: Configure intial solution content
             href: sap/deployment-solution-configuration.md
           - name: Update the connector
             href: sap/update-sap-data-connector.md      
           - name: Disable the connector
             displayName: disable, stop ingestion, stop
-            href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
+            href: sap/deployment-overview.md#stop-sap-data-collection
         - name: Deploy automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md
         - name: Optional deployment steps
-          items: 
-          - name: Configure SAP data connector to use SNC
-            href: sap/configure-snc.md
-          - name: Deploy the data connector agent using a configuration file
-            href: sap/deploy- 
-          - name: Collect SAP HANA audit logs
-            href: sap/collect-sap-hana-audit-logs.md
+          items:
           - name: Deploy SAP connector manually
             href: sap/sap-solution-deploy-alternate.md
+          - name: Collect SAP HANA audit logs
+            href: sap/collect-sap-hana-audit-logs.md
           - name: Configure SAP audit log monitoring rules
             href: sap/configure-audit-log-rules.md
           - name: Select SAP ingestion profile

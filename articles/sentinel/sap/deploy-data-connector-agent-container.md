@@ -29,7 +29,7 @@ Before you deploy the data connector agent:
 
 - Make sure that have all the deployment prerequisites in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-- If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), take the relevant preparatory steps. For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md).
+- If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
 
 The procedures in this step require coordination between your security, infrastructure, and SAP teams.
 
@@ -48,7 +48,7 @@ We recommend that you store your SAP and authentication secrets in an Azure key 
 |**Container on an Azure VM**     |  We recommend using an Azure system-assigned managed identity to access Azure Key Vault. <br><br>If a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using a Microsoft Entra ID registered-application service principal, or, as a last resort, a configuration file.  |
 |**A container on an on-premises VM**, or **a VM in a third-party cloud environment**     |   Authenticate to Azure Key Vault using a Microsoft Entra ID registered-application service principal.    |
 
-If you can't use a registered application or a service principal, use a configuration file to manage your credentials, though this method isn't preferred. For more information, see [Deploy and configure the SAP data connector agent container with a configuration file](deploy-with-config-file.md).
+If you can't use a registered application or a service principal, use a configuration file to manage your credentials, though this method isn't preferred. For more information, see [Deploy and configure the SAP data connector agent container with a configuration file](sap-solution-deploy-alternate.md). <!--fix xref-->
 
 For more information, see:
 
@@ -252,7 +252,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     |**Agent name**     |  Enter an agent name, including any of the following characters: <ul><li> a-z<li> A-Z<li>0-9<li>_ (underscore)<li>. (period)<li>- (dash)</ul>       |
     |**Subscription** / **Key vault**     |   Select the **Subscription** and **Key vault** from their respective drop-downs.      |
     |**NWRFC SDK zip file path on the agent VM**     |  Enter the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). <br><br>Make sure that this path includes the SDK version number in the following syntax: `<path>/NWRFC<version number>.zip`. For example: `/src/test/nwrfc750P_12-70002726.zip`.       |
-    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.     <br><br>If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent. For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md). <br><Br>For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md).    |
+    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.     <br><br>If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent.     |
     |**Authentication to Azure Key Vault**     |   To authenticate to your key vault using a managed identity, leave the default **Managed Identity** option selected.  To authenticate to your key vault using a registered application, select **Application Identity**. <br><br>You must have the managed identity or registered application set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).     |
 
     For example:
@@ -338,7 +338,7 @@ For more information, see [Monitor the health and role of your SAP systems](../m
 
 This procedure describes how to create a new agent and connect it to your SAP system via the command line, authenticating with a managed identity or a Microsoft Entra ID registered application.
 
-If you're using a configuration file to store your credentials, see [Deploy and configure the SAP data connector agent container with a configuration file](deploy-with-config-file.md) instead.
+If you're using a configuration file to store your credentials, see [Deploy and configure the SAP data connector agent container with a configuration file](sap-solution-deploy-alternate.md) instead. <!--fix xref-->
 
 1. To start creating your new agent, download and run the deployment kickstart script.
 
@@ -365,6 +365,34 @@ If you're using a configuration file to store your credentials, see [Deploy and 
 
         ```bash
         ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
+        ```
+
+    - **To configure secure SNC configuration**, specify the following base paramters:
+
+        - `--use-snc`
+        - `--cryptolib <path to sapcryptolib.so>`
+        - `--sapgenpse <path to sapgenpse>`
+        - `--server-cert <path to server certificate public key>`
+
+        If the client certificate is in *.crt* or *.key* format, use the following switches:
+
+        - `--client-cert <path to client certificate public key>`
+        - `--client-key <path to client certificate private key>`
+
+        If the client certificate is in *.pfx* or *.p12* format, use the following switches:
+
+        - `--client-pfx <pfx filename>`
+        - `--client-pfx-passwd <password>`
+
+        If the client certificate was issued by an enterprise CA, add the following switch for each CA in the trust chain:
+
+        - `--cacert <path to ca certificate>`
+
+        For example:
+
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
+        chmod +x ./sapcon-sentinel-kickstart.sh    --use-snc     --cryptolib /home/azureuser/libsapcrypto.so     --sapgenpse /home/azureuser/sapgenpse     --client-cert /home/azureuser/client.crt --client-key /home/azureuser/client.key --cacert /home/azureuser/issuingca.crt    --cacert /home/azureuser/rootca.crt --server-cert /home/azureuser/server.crt
         ```
 
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. Supply extra parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
@@ -422,14 +450,77 @@ If you're using a configuration file to store your credentials, see [Deploy and 
     docker update --restart unless-stopped <container-name>
     ```
 
+### Deploy the data connector agent for secure communication with SNC
+
+Use the following procedure to configure the Microsoft Sentinel SAP data connector agent container to use SNC for secure commuinications with your SAP system.
+
+**Prerequisites**: Make sure that you've completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections) before you start this procedure.
+
+**To configure the container for secure communication with SNC**:
+
+1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where the container will be created.
+
+1. Transfer the client certificate, including both private and public keys to the system where the container will be created.
+
+    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
+
+1. Transfer the server certificate (public key only) to the system where the container will be created.
+
+    The server certificate must be in Base64 *.crt* format.
+
+1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
+
+1. Get the kickstart script from the Microsoft Sentinel GitHub repository:
+
+    ```bash
+    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
+    ```
+
+1. Change the script's permissions to make it executable:
+
+    ```bash
+    chmod +x ./sapcon-sentinel-kickstart.sh
+    ```
+
+
+
+For more information about options that are available in the kickstart script, see [Reference: Kickstart script](reference-kickstart.md).
 ---
 
 ## Check health and connectivity
 
-We recommend periodically checking on your data connector agent's health and connectivity, as shown in the following video:
+We recommend periodically checking on your data connector agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md) and watch the following video:
 
-<br>
+<br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
+
+## Stop log ingestion and disable the connector
+
+To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, sign into your data connector agent machine and run:
+
+```bash
+docker stop sapcon-[SID/agent-name]
+```
+
+To stop ingesting a specific SID for a multi-SID container, make sure that you also delete the SID from the connector page UI in Microsoft Sentinel:
+
+1. In Microsoft Sentinel, select **Configuration > Data connectors** and search for **Microsoft Sentinel for SAP**.
+1. Select the data connector row and then select **Open connector page** in the side pane.
+1. In the **Configuration** area on the **Microsoft Sentinel for SAP** data connector page, locate the SID agent you want to remove and select **Delete**. <!--need validation for this-->
+
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
+
+If you need to reenable the Docker container, sign into the data connector agent machine and run:
+
+```bash
+docker start sapcon-[SID]
+```
+
+
+
+
+
+
 
 ## Related content
 

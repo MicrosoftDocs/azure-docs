@@ -222,7 +222,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the username and password is used for authentication. If specified, `--cryptolib`, `--sapgenpse`, combination of either `--client-cert` and `--client-key`, or `--client-pfx` and `--client-pfx-passwd` as well as `--server-cert`, and in certain cases `--cacert` switches is required.
 
-**Explanation:** Specifies that X.509 authentication is used to connect to ABAP server, rather than username/password authentication. For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md).
+**Explanation:** Specifies that X.509 authentication is used to connect to ABAP server, rather than username/password authentication. For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
 
 #### SAP Cryptographic library path
 
@@ -351,7 +351,6 @@ Learn more about the Microsoft Sentinel solution for SAP applications:
 - [Deploy SAP change requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 

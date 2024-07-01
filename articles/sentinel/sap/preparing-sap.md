@@ -37,7 +37,7 @@ The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack
 
 **To configure the role**:
 
-1. <!--is this correct?-->In your SAP system, upload role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub. 
+1. In your SAP system, upload role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
 
     This creates the **/MSFTSEN/SENTINEL_RESPONDER** role, which includes all the authorizations required to retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).
 
@@ -453,6 +453,55 @@ The screenshots shown in this procedure are examples, and your SAP system may lo
 1. Select **Save** both inside the dialog, and then select **Save** at the bottom.
 
 1. To release the job, select **Save** at the top.
+
+## Configure your system to use SNC for secure connections
+
+By default, the SAP data connector agent connects to an SAP server using a remote function call (RFC) connection and a username and password for authentication.
+
+However, you might need to make the connection on an encrypted channel or use client certificates for authentication. In these cases, use Smart Network Communications (SNC) from SAP to secure your data connections, as described in this section.
+
+> [!NOTE]
+> This section describes a sample case for configuring SNC. In a production environment, we strongly recommended that you consult with SAP administrators to create a deployment plan.
+
+1. Make sure that you have the following prerequisites:
+
+    - The [SAP Cryptographic Library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
+    - Network connectivity. SNC uses port 48*xx* (where *xx* is the SAP instance number) to connect to the SAP server.
+    - Your SAP server configured to support SNC authentication. <!--for more information, see xref-->
+    - A self-signed or enterprise certificate authority (CA)-issued certificate for user authentication.
+
+1. Export your SAP server certificate in a **Base64** format, and then import it to your SAP system. Make sure that you're importing the correct certificate for your system, including the public keys. <!--which system are we importing to?-->
+
+    We recommend using a certificate issued by an enterprise CA. In such cases, if both the root and subordinate CA servers are used, import both the certificates. If you're using a self-signed certificate instead, import the self-signed, user certificate.
+
+1. Associate the certificate with a SAP system user account. When doing this, configure the user's **SNC Name** as the user's certificate subject name prefixed with **p:**. For example: **p: CN=SentinelUser,DC=Contoso,DC=com**.
+
+1. Grant the user with rights to authenticate using the certificate you imported. When doing so, make sure that the options for **Entry for RFC activated** and **Entry for certificate activated** are selected.
+
+1. Map your SAP service provider to external user IDs using the following values: <!--this is only ABAP. But should we be making this generic to support Java in the future?-->
+
+    - Define the external ID as **CN=Sentinel**, **C=US**.
+    - Define the sequence number as **000**.
+    - Define the user as **SENTINEL**.
+
+1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where the container will be created.
+
+1. Transfer the client certificate, including both private and public keys to the system where the container will be created. <!--i thought we only needed public keys?-->
+
+    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
+
+1. Transfer the server certificate, including the public key only to the system where the SAP data connector agent container will be created. The server certificate must be in Base64 *.crt* format. <!--did we just do this by exporting and importing?-->
+
+1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
+
+If you're configuring your system to use SNC connections, make sure to use the relevant procedure when configuring your SAP data connector agent container. 
+
+
+## Remove the user role and the optional CR installed on your ABAP system
+
+If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
+
+To do so, import the deletion CR *NPLK900259* into your ABAP system.
 
 ## Next step
 
