@@ -113,7 +113,7 @@ This same compound index doesn't work in this case since there's an array in the
 }
 ```
 
-**Limitations**
+### Limitations
 
 - Maximum of 32 fields\paths within a compound index.
 
@@ -130,7 +130,7 @@ db.products.createIndex (
 )
 ```
 
-**Limitations**
+### Limitations
 
 - Partial indexes don't support `ORDER BY` or `UNIQUE` unless the filter qualifies.
 
@@ -173,26 +173,26 @@ Once the text index is created, you can perform text searches using the "text" o
 
 - Perform a text search for the phrase `Cosmos DB`.
 
-```javascript
-use cosmicworks
+    ```javascript
+    use cosmicworks
 
-db.products.find(
-  { $text: { $search: "Cosmos DB" } }
-)
-```
+    db.products.find(
+      { $text: { $search: "Cosmos DB" } }
+    )
+    ```
 
 - Optionally, use the `$meta` projection operator along with the `textScore` field in a query to see the weight
 
-```javascript
-use cosmicworks
+    ```javascript
+    use cosmicworks
 
-db.products.find(
-{ $text: { $search: "Cosmos DB" } },
-{ score: { $meta: "textScore" } }
-)
-```
+    db.products.find(
+    { $text: { $search: "Cosmos DB" } },
+    { score: { $meta: "textScore" } }
+    )
+    ```
 
-**Limitations**
+### Limitations
 
 - Only one text index can be defined on a collection.
 - Text indexes support simple text searches and don't yet provide advanced search capabilities like regular expressions.
@@ -216,7 +216,7 @@ Index on single field, indexes all paths beneath the `field` , excluding other f
 
 Creating an index on { "pets.$**": 1 }, creates index on details & sub-document properties but doesn't create an index on “familyName”.
 
-**Limitations**
+### Limitations
 
 - Wildcard indexes can't support unique indexes.
 - Wildcard indexes don't support push downs of `ORDER BY` unless the filter includes only paths present in the wildcard (since they don't index undefined elements)
@@ -242,7 +242,7 @@ Use the `createIndex` method with the `2d` option to create a geospatial index o
 db.places.createIndex({ "location": "2d"});
 ```
 
-**Limitations**
+### Limitations
 
 - Only 1 location field can be part of the `2d` index and only 1 other non-geospatial field can be part of the `compound 2d` index
 `db.places.createIndex({ "location": "2d", "non-geospatial-field": 1 / -1 })`
@@ -260,22 +260,22 @@ db.places.createIndex({ "location": "2dsphere"});
 `2dsphere` indexes allow creating indexes on multiple geospatial and multiple non-geospatial data fields.
 `db.places.createIndex({ "location": "2d", "non-geospatial-field": 1 / -1, ... "more non-geospatial-field": 1 / -1 })`
 
-**Limitations**
+### Limitations
 
 - A compound index using a regular index and geospatial index isn't supported. Creating either of the geospatial indexes would lead into errors.
 
-```javascript
-// Compound Regular & 2dsphere indexes are not supported yet
-db.collection.createIndex({a: 1, b: "2dsphere"})
+    ```javascript
+    // Compound Regular & 2dsphere indexes are not supported yet
+    db.collection.createIndex({a: 1, b: "2dsphere"})
 
-// Compound 2d indexes are not supported yet
-db.collection.createIndex({a: "2d", b: 1})
-```
+    // Compound 2d indexes are not supported yet
+    db.collection.createIndex({a: "2d", b: 1})
+    ```
 
 - Polygons with holes don't work. Inserting a Polygon with hole isn't restricted though `$geoWithin` query fails for scenarios:
   1. If the query itself has polygon with holes.
 
-```javascript
+    ```javascript
       coll.find(
         {
             "b": {
@@ -296,12 +296,12 @@ db.collection.createIndex({a: "2d", b: 1})
         })
 
     // MongoServerError: $geoWithin currently doesn't support polygons with holes
-```
+    ```
 
- 1. If there's any unfiltered document that has polygon with holes.
+  2. If there's any unfiltered document that has polygon with holes.
   
-```javascript
-   [mongos] test> coll.find()
+    ```javascript
+     [mongos] test> coll.find()
         [
           {
             _id: ObjectId("667bf7560b4f1a5a5d71effa"),
@@ -315,16 +315,16 @@ db.collection.createIndex({a: "2d", b: 1})
           }
         ]
 
-    // MongoServerError: $geoWithin currently doesn't support polygons with holes
-```
+     // MongoServerError: $geoWithin currently doesn't support polygons with holes
+    ```
 
-  1. `key` field is mandatory while using `geoNear`.
+  3. `key` field is mandatory while using `geoNear`.
 
-```javascript
-   [mongos] test> coll.aggregate([{ $geoNear: { near: { "type": "Point", coordinates: [0, 0] } } }])
+    ```javascript
+       [mongos] test> coll.aggregate([{ $geoNear: { $near: { "type": "Point", coordinates: [0, 0] } } }])
 
-  // MongoServerError: $geoNear requires a 'key' option as a String
-```
+       // MongoServerError: $geoNear requires a 'key' option as a String
+    ```
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Background Indexing
-titleSuffix: Background Indexing on Azure Cosmos DB for MongoDB vCore
+title: Background indexing
+titleSuffix: Background indexing on Azure Cosmos DB for MongoDB vCore
 description: Background indexing to enable non-blocking operation during index creation
 author: avijitgupta
 ms.author: avijitgupta
