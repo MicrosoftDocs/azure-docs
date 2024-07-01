@@ -111,14 +111,14 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans in that region. This means that in a given subscription and region, you could have any of the following combinations of maximum instance sizes and counts, all of which reach the current `512,000 MB` limit. For example:
+While you can change the maximum instance count of Flex Consumption apps up to 1000, your apps will reach a quota limit before reaching that number. Currently in preview each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota has been reached and the apps would stop scaling:
 
-| Instance memory size (MB) | Max instance counts (per region) |
-| ----- | ---- |
-| `2048 MB` | 250 |
-| `4096 MB` | 125 |
++ You have one 2048GB app scaled to 100 and a second 2048GB app scaled to 150 instances
++ You have one 2048GB app that scaled out to 250 instances
++ You have one 4096GB app that scaled out to 125 instances
++ You have one 4096GB app scaled to 100 and one 2048GB app scaled to 50 instances
 
-You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the `512,000 MB` limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
+This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota please create a support ticket.
 
 ## Deprecated properties and settings
 
@@ -130,7 +130,9 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 
 + **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
-+ **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
++ **Regions**:
+  + Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
+  + There is a temporary limitation in West US 3. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." in that region please raise a support ticket so that your app can be unblocked.
 + **Deployments**: These deployment-related features aren't currently supported:
   + Deployment slots
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
