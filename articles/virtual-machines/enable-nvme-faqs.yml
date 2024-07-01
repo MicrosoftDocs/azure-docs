@@ -74,6 +74,10 @@ sections:
           1.  Verify Feature is enabled by going to **Review and Create**.
 
               :::image type="content" source="./media/enable-nvme/azure-portal-3.png" alt-text="Screenshot of instructions to review and verify features enablement.":::
+      - question: |
+          Can VMs configured with Trusted Launch move from SCSI to NVMe?
+        answer: |
+          No, VMs configured with Trusted Launch can't move from SCSI to NVMe.
 
   - name: Azure storage performance with NVMe disks
     questions:
