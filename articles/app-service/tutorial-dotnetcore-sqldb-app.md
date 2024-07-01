@@ -582,9 +582,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
-The sample application includes standard logging statements to demonstrate this capability, as shown in the following snippet:
+<!-- The sample application includes standard logging statements to demonstrate this capability, as shown in the following snippet:
 
-:::code language="csharp" source="~/msdocs-app-service-sqldb-dotnetcore/Controllers/TodosController.cs" range="28-45" highlight="6,12":::
+:::code language="csharp" source="~/msdocs-app-service-sqldb-dotnetcore/Controllers/TodosController.cs" range="28-45" highlight="6,12"::: -->
 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
