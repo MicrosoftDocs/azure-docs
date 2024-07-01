@@ -11,10 +11,11 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Quickstart: Deploy WebLogic Server on Azure Virtual Machines (VMs)
 
-This article shows you how to quickly deploy WebLogic Server (WLS) on an Azure Virtual Machine (VM) with the simplest possible set of configuration choices using the Azure portal. In this quickstart, you will learn how to:
+This article shows you how to quickly deploy WebLogic Server (WLS) on an Azure Virtual Machine (VM) with the simplest possible set of configuration choices using the Azure portal. In this quickstart, you learn how to:
 
 - Deploy WebLogic Server with Administration Server enabled on a VM using the Azure portal.
 - Deploy a sample Java application with the WebLogic Server Administration Console.
+- Connect to the VM running WebLogic using SSH.
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -24,13 +25,13 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy WebLogic Server with Administration Server on a VM
 
-The steps in this section direct you to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure Portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster).  
+The steps in this section direct you to deploy WebLogic Server on a VM using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer on the Azure portal. There are other offers that meet different scenarios such as [WebLogic cluster on multiple VMs](https://aka.ms/wls-vm-cluster).  
 
 1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **WebLogic Server with Admin Console on VM**. You can also go directly to the offer using the portal link.
 
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
-1. On the offer page, select **Create**. You will then see the **Basics** pane.
+1. On the offer page, select **Create**. You then see the **Basics** pane.
 
 :::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows the Create WebLogic Server With Admin console on Azure VM page." lightbox="media/weblogic-server-azure-virtual-machine/portal-start-experience.png":::
 
@@ -146,8 +147,6 @@ If you're not going to continue to use the WebLogic Server, navigate back to you
 Continue to explore options to run WebLogic Server on Azure.
 
 * [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [Migrate WebLogic Server applications to Azure Kubernetes Service](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
+* [WebLogic Server on Azure Kubernetes Service](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 For more information about the Oracle WebLogic offers at Azure Marketplace, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume that you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
