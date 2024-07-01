@@ -14,7 +14,13 @@ This article explains how to collect audit logs from your SAP HANA database.
 > [!IMPORTANT]
 > Microsoft Sentinel SAP HANA support is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-If you have SAP HANA database audit logs configured with Syslog, you'll also need to configure your AMA agent or Log Analytics agent (legacy) to collect the Syslog files.
+
+## Prerequisites
+
+SAP HANA logs are sent over Syslog. Make sure that your AMA agent or your Log Analytics agent (legacy) is configured to collect Syslog files. For more information, see:
+
+For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/sentinel/connect-cef-syslog-ama.md).
+
 
 ## Collect SAP HANA audit logs
 
