@@ -68,13 +68,25 @@ The following resources can be managed in workspaces.
 
 ## Workspace gateway
 
-By default, the managed API gateway in the API Management instance is the default runtime environment for workspace APIs. However, a dedicated API gateway can be configured for each workspace, managed by the workspace collaborators and separate from the default service gateway and other workspace gateways. If configured, the gateway is used to route API traffic only to the backend services for the workspace's APIs. 
+Each workspace has a dedicated API gateway for use by the workspace collaborators, with the same core functionality as the gateway built-into your API Management service. The workspace gateway provides runtime isolation by routing API traffic only to the backend services for the workspace's APIs. The workspace gateway is a top-level Azure resource that you can manage independently of the API Management instance and its default gateway and gateways for other workspaces.
 
-Key features and constraints of workspace gateways are in the following sections. For more information, see [API Management gateways](api-management-gateways-overview.md).
+Key features and constraints of workspace gateways are in the following sections. For a gateway comparison, see [API Management gateways](api-management-gateways-overview.md).
+
+### Network isolation
+
+A workspace gateway can be configured in a private virtual network to isolate inbound and/or outbound traffic. If configured, the workspace gateway must use a dedicated subnet in the virtual network. 
+
+### Scale capacity
+
+Control gateway capacity by adding or removing scale units, similar to the [units] that can be added to the API Management instance in certain service tiers. The workspace gateway can be scaled to accommodate capacity needs, but autoscale isn't supported.
+
+
+### Monitor
 
 ### Supported gateway features
 
 * Optionally configure the workspace gateway in a private virtual network to isolate inbound and outbound traffic
+* Add or remove scale units for the workspace gateway to handle runtime traffic
 * Monitor APIs with workspace-specific configuration
 * Manage API backends and import APIs from Azure services and most sources that can be managed by the service gateway. 
 * Validate client certificates 
@@ -128,5 +140,5 @@ Certain features of API Management aren't available in workspaces or have constr
 
 ## Related content
 
-* [Tutorial: Create a workspace](how-to-create-workspace.md)
+* [Create a workspace](how-to-create-workspace.md)
 * [Workspaces breaking changes - June 2024](breaking-changes/workspaces-breaking-changes-june-2024.md)

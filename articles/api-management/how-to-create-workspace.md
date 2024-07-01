@@ -9,7 +9,7 @@ ms.date: 06/24/2024
 ms.custom:
 ---
 
-# Set up a workspace
+# Create and manage a workspace
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
@@ -19,45 +19,55 @@ Set up a [workspace](workspaces-overview.md) to enable a decentralized API devel
 
 Follow the steps in this article to:
 
-* Create a workspace in the Azure portal
-* Create a workspace gateway
+* Create an API Management workspace and a dedicated workspace gateway using the Azure portal
 * Optionally, isolate the workspace gateway in an Azure virtual network
 * Assign users to the workspace
 
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
+* **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
 * (Optional) An Azure virtual network and subnet to isolate the workspace gateway.
     * The virtual network must be in the same region and Azure subscription as the API Management instance.
     * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
-    * For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**. For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. The subnet can't have another delegation configured.
+    * Configure subnet delegation to enable the desired access:
+        * For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**
+        * For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. 
+        
+        The subnet can't have another delegation configured.
+
+    > [!IMPORTANT]
+    > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace. 
 
 ## Create a workspace - portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
 
-1. In the left menu, under **APIs** select **Workspaces** > **+ Add**.
+1. In the left menu, under **APIs**, select **Workspaces** > **+ Add**.
 
 1. On the **Basics** tab, enter a descriptive **Display name**, resource **Name**, and optional **Description** for the workspace. Select **Save**.
 
-1. On the **Gateway** tab, do the following:
+1. On the **Gateway** tab, configure settings for the dedicated workspace gateway:
 
     * In **Gateway details**, enter a gateway name and select the number of scale **Units**.
 
     * In **Network**, select a **Network configuration** for your workspace gateway. 
 
-    * if you select a network configuration that includes private inbound or outbound network access, select or create a **Virtual network** and **Subnet** to isolate the workspace gateway. For network requirements, see [Prerequisites](#prerequisites).
+    * If you select a network configuration that includes private inbound or private outbound network access, select or create a **Virtual network** and **Subnet** to isolate the workspace gateway. For network requirements, see [Prerequisites](#prerequisites).
 
 1. Select **Review + create**. After validation completes, select **Create**.
 
 It can take some time to create the workspace, workspace gateway, and related resources. After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
+
+> [!NOTE]
+> You can view the gateway runtime hostname and other gateway details by selecting the workspace in the portal. Under **Deployment + infrastructure**, select **Gateways**, and select the name of the workspace's gateway.
 
 
 ## Assign users to workspace - portal
 
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
-To work with the workspace gateway, also assign workspace users the **Owner**, **Contributor**, or **Reader** role scoped to the workspace gateway.
+To manage the workspace gateway, workspace users should also be assigned the **Owner** or **Contributor** role scoped to the workspace gateway. 
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
@@ -80,7 +90,7 @@ To work with the workspace gateway, also assign workspace users the **Owner**, *
 
 ### Assign a workspace-scoped role
 
-1. In the menu for your API Management instance, select **Workspaces**  > the name of the workspace that you created.
+1. In the menu for your API Management instance, under **APIs**, select **Workspaces**  > the name of the workspace that you created.
 1. In the **Workspace** window, select **Access control (IAM)**> **+ Add**.
     
 1. Assign one of the following workspace-scoped roles to the workspace members to manage workspace APIs and other resources. 
@@ -96,7 +106,7 @@ To work with the workspace gateway, also assign workspace users the **Owner**, *
 
 1. In the left menu, select **Access control (IAM)** > **+ Add**.
 
-1. Assign one of the following roles to each member of the workspace:
+1. Assign one of the following roles to each member of the workspace. At minimum, we recommend assigning the **Reader** role to view the gateway's settings.
     
     * **Owner**
     * **Contributor**
@@ -106,8 +116,7 @@ To work with the workspace gateway, also assign workspace users the **Owner**, *
 
 Depending on their role in the workspace, users might have permissions to create APIs, products, subscriptions, and other resources, or they might have read-only access to some or all of them.
 
-To get started managing, protecting, and publishing APIs in your workspaces, see the following guidance.
-
+To get started managing, protecting, and publishing APIs in a workspaces, see the following guidance.
 
 
 |Resource  |Guide  |
@@ -126,4 +135,4 @@ To get started managing, protecting, and publishing APIs in your workspaces, see
 
 ## Next steps
 
-* Workspace collaborators can get started [managing APIs and other resources in their API Management workspace](api-management-in-workspace.md)
+* Learn more about [workspaces in Azure API Management](workspaces-overview.md).
