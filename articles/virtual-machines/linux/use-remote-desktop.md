@@ -74,7 +74,7 @@ echo xfce4-session >~/.xsession
 Restart the xrdp service for the changes to take effect as follows:
 
 ```bash
-sudo service xrdp restart
+sudo systemctl restart xrdp
 ```
 
 ## Set a local user account password
@@ -170,7 +170,7 @@ tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 If the *xrdp-sesman* service isn't listening, on an Ubuntu VM restart the service as follows:
 
 ```bash
-sudo service xrdp restart
+sudo systemctl restart xrdp
 ```
 
 Review logs in */var/log* on your Ubuntu VM for indications as to why the service may not be responding. You can also monitor the syslog during a remote desktop connection attempt to view any errors:
