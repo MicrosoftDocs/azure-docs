@@ -33,7 +33,9 @@ In this article, you will deploy an [AWS EDW workload][eks-edw-overview] to Azur
 
 ## EDW workload deployment script
 
-You use the `deploy.sh` script in the `deployment` directory of the [GitHub repository][github-repo] to deploy the application to Azure.
+Review the environment variables in the file `deployment/environmentVariables.sh` and then you use the
+`deploy.sh` script in the `deployment/infra/` directory of the [GitHub repository][github-repo] to deploy
+the application to Azure.
 
 The script first checks that all of the [prerequisite tools][prerequisites] are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, and then run the script again. The [Node autoprovisioning (NAP) for AKS][nap-aks] feature flag must be registered on your Azure subscription. If it isn't already registered, the script executes an Azure CLI command to register the feature flag.
 
@@ -41,9 +43,10 @@ The script records the state of the deployment in a file called `deploy.state`, 
 
 As the script executes the commands to configure the infrastructure for the workflow, it checks that each command executes successfully. If any issues occur, an error message is displayed, and the execution stops.
 
-The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following command:
+The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following commands:
 
 ```bash
+mkdir ./logs
 ./deployment/infra/deploy.sh | tee ./logs/install.log
 ```
 
@@ -67,15 +70,6 @@ The deployment script creates the following Azure resources:
 - **AKS cluster managed identity**: The script assigns the `acrPull` role to this managed identity, which facilitates access to the attached Azure container registry for pulling images.
 - **Workload identity**: The script assigns the **Storage Queue Data Contributor** and **Storage Table Data Contributor** roles to provide role-based access control (RBAC) access to this managed identity, which is associated with the Kubernetes service account used as the identity for pods on which the consumer app containers are deployed.
 - **Two federated credentials**:  One credential enables the managed identity to implement pod identity, and the other credential is used for the KEDA operator service account to provide access to the KEDA scaler to gather the metrics needed to control pod autoscaling.
-
-## Deploy the EDW workload to Azure
-
-- Make sure you're in the `deployment` directory of the project and deploy the workload using the following commands:
-
-    ```bash
-    cd deployment
-    ./deploy.sh
-    ```
 
 ## Validate deployment and run the workload
 
@@ -239,7 +233,7 @@ You can use various tools to verify the operation of apps deployed to AKS, inclu
       minReplicaCount: 0  # We don't want pods if the queue is empty nginx-deployment
       maxReplicaCount: 15 # We don't want to have more than 15 replicas
       pollingInterval: 30 # How frequently we should go for metrics (in seconds)
-      cooldownPeriod:  10 # How many seconds should we wait for downscale  
+      cooldownPeriod:  10 # How many seconds should we wait for downscale
       triggers:
       - type: azure-queue
         authenticationRef:
