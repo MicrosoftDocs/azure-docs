@@ -69,10 +69,10 @@ sections:
           3. Select the review date.
           4. Fill the review date and select **Save**.
 
-          No notification is sent on the review date. 
+          No notification is sent on the review date.
       - question: Who gets expiration notifications?
-        answer: | 
-        Expiration notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allowlist.
+        answer: |
+          Expiration notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allowlist.
 
           Emails are sent to different people depending on your purchase method:
 
@@ -112,7 +112,7 @@ sections:
           You can track your usage of the assigned SQL Server licenses in **Cost Management** > **Reservations + Hybrid Benefit**. For more information, see [Track assigned license usage](create-sql-license-assignments.md#track-assigned-license-use).
       - question: Can I use my existing Windows Server and Client Access Licenses with the new centrally managed Azure Hybrid Benefit experience?
         answer: |
-          The scope-level managed license experience is optimized for SQL Server core licenses with Software Assurance and core subscription licenses. It doesn’t currently support Windows Server or the Server + Client Access Licenses version of SQL Server. Concerning the latter, you can continue to use [License Mobility through Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility).  Also, don’t hesitate to reach out to your Microsoft account team to see how they can help.
+          The scope-level managed license experience is optimized for SQL Server core licenses with Software Assurance and core subscription licenses. It doesn’t currently support Windows Server or the Server + Client Access Licenses version of SQL Server. Concerning the latter, you can continue to use [License Mobility through Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility). Also, don’t hesitate to reach out to your Microsoft account team to see how they can help.
       - question: How do I enable and manage Azure Hybrid Benefit for my Windows Server licenses?
         answer: |
           You can enable Azure Hybrid Benefit for each individual resource, for example an Azure virtual machine. Managing Window Server licenses at a scope level isn't currently supported.
