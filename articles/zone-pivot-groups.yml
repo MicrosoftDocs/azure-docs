@@ -1062,7 +1062,7 @@ groups:
     - id: programming-language-python
       title: Python
     - id: programming-language-rest
-      titel: REST
+      title: REST
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
