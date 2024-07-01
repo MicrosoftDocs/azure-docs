@@ -12,7 +12,9 @@ ms.custom: innovation-engine, aks-related-content
 
 In this article, you create the infrastructure needed to deploy a highly available PostgreSQL database on AKS using the [CloudNativePG (CNPG)](https://cloudnative-pg.io/) operator.
 
-* Before you begin, make sure you've met all of the prerequisites and review the deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
+## Before you begin
+
+* Review the deployment overview and make sure you meet all the prerequisites in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
 * [Set environment variables](#set-environment-variables) for use throughout this guide.
 * [Install the required extensions](#install-required-extensions).
 
