@@ -11,3 +11,15 @@ ms.date: 07/01/2024
 # What are vector embeddings?
 
 Vectors, also known as embeddings or vector embeddings, are numerical representations of data. They convert various types of information — text, images, audio — into a format that machine learning models can process. Each embedding is a vector of floating-point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar.  These high-dimensional representations capture semantic meaning, making it easier to perform tasks like searching, clustering, and classifying.
+
+Here are two examples of texts represented as vectors:
+
+:::image type="content" source="../media/gen-ai/concepts/vector-examples.png" lightbox="../media/gen-ai/concepts/vector-examples.png" alt-text="Screenshot of vector examples.":::
+Image source: [OpenAI](https://openai.com/index/introducing-text-and-code-embeddings/)
+
+These two vectors have similarities and differences in some of the dimensions because of the similarities and differences in the meaning of the two phrases.
+
+This image shows the spatial closeness of vectors that are similar compared to vectors that are drastically different:
+
+:::image type="content" source="../media/gen-ai/concepts/vector-closeness.png" lightbox="../media/gen-ai/concepts/vector-closeness.png" alt-text="Screenshot of vector closeness.":::
+Image source: [OpenAI](https://openai.com/index/introducing-text-and-code-embeddings/)
