@@ -838,6 +838,17 @@ In this how-to guide, you learned how to:
 
 To learn more about how you can leverage AKS for your workloads, see [What is Azure Kubernetes Service (AKS)?][what-is-aks]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+* Ken Kilty | Principal TPM
+* Russell de Pina | Principal TPM
+* Adrian Joian | Senior Customer Engineer
+* Jenny Hayes | Senior Content Developer
+* Carol Smith | Senior Content Developer
+* Erin Schaffer | Content Developer 2
+
 <!-- LINKS -->
 [helm-upgrade]: https://helm.sh/docs/helm/helm_upgrade/
 [create-infrastructure]: ./create-postgresql-ha.md
