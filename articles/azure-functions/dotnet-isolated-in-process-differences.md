@@ -46,7 +46,7 @@ Use the following table to compare feature and functional differences between th
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 
-<sup>2</sup> Cold start times could be additionally impacted on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and out-of-process models but can be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.
+<sup>2</sup> Cold start times could be additionally impacted on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and isolated worker models but can be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.
 
 <sup>3</sup> C# Script functions also run in-process and use the same libraries as in-process class library functions. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md). 
 
