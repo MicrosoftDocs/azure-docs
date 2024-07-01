@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/22/2024
+ms.date: 07/01/2024
 
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
@@ -163,7 +163,7 @@ The `x509` field includes the following fields:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| secretName | Yes | The Kubernetes secret containing the client certificate and private key. You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).|
+| secretName | Yes | The Kubernetes secret containing the client certificate and private key. |
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Azure IoT MQ's MQTT bridge can present a client X.509 certificate and negotiate the TLS communication. Use a Kubernetes secret to store the X.509 client certificate, private key and intermediate CA.
 

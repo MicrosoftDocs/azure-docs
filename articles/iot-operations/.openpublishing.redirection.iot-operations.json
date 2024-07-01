@@ -127,7 +127,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-manage-secrets.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-manage-secrets",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
             "redirect_document_id": true
         },
         {
