@@ -15,7 +15,7 @@ Two popular vector search algorithms are k-Nearest Neighbors (kNN) and Approxima
 ## How kNN works
 
 1. Vectorization: Each data point in the dataset is represented as a vector in a multi-dimensional space.
-2. Distance Calculation: To classify a new data point (query point), the algorithm calculates the distance between the query point and all other points in the dataset using a [distance function](distance-function.md).
+2. Distance Calculation: To classify a new data point (query point), the algorithm calculates the distance between the query point and all other points in the dataset using a [distance function](distance-functions.md).
 3. Finding Neighbors: The algorithm identifies the k closest data points (neighbors) to the query point based on the calculated distances. The value of k (the number of neighbors) is crucial. A small k can be sensitive to noise, while a large k can smooth out details.
 4. Making Predictions:
   - Classification: For classification tasks, kNN assigns the class label to the query point that is most common among the k neighbors. Essentially, it performs a "majority vote."
