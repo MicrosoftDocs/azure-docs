@@ -49,7 +49,7 @@ To view and set up alerts on IoT Hub Device Provisioning Service metrics:
 1. To set up an alert of a metric, select **New alert rules** from the top right of the metric area, similarly you can go to **Alert** pane and select **New alert rules**.
 1. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
-To learn more about viewing metrics and setting up alerts on your DPS instance, see [Analyzing metrics](monitor-iot-dps.md#analyzing-metrics) and [Alerts](monitor-iot-dps.md#alerts) in Monitor Device Provisioning Service.
+To learn more about viewing metrics and setting up alerts on your DPS instance, see [Analyzing metrics](#analyzing-metrics) and [Alerts](#alerts) in Monitor Device Provisioning Service.
 
 ### Analyzing metrics
 
@@ -59,15 +59,13 @@ In Azure portal, you can select **Metrics** under **Monitoring** on the left-pan
 
 :::image type="content" source="media/monitor-iot-dps/metrics-portal.png" alt-text="Screenshot showing the metrics explorer page for a DPS instance." border="true":::
 
-For a list of the platform metrics collected for DPS, see [Metrics in the Monitoring Azure IoT Hub Device Provisioning Service data reference](monitor-iot-dps-reference.md#metrics). For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For a list of the platform metrics collected for DPS, see [Metrics](monitor-iot-dps-reference.md#metrics). For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for IoT Hub DPS, see [IoT Hub DPS monitoring data reference](monitor-iot-dps-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
-
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 ### Analyzing logs
 
@@ -107,8 +105,6 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
-
-<!-- REQUIRED. Add sample Kusto queries for your service here. -->
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
