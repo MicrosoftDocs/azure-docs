@@ -285,7 +285,7 @@ To configure the connection string to an existing notification hub:
 1. Navigate to your notification hub in the [Azure portal](https://portal.azure.com), choose **Access policies**, and select the copy button next to the **DefaultFullSharedAccessSignature** policy.
 
    The connection string for the *DefaultFullSharedAccessSignature* policy is copied to your notification hub. This connection string lets your function send notification messages to the hub.
-   :::image type="content" source="./media/functions-bindings-notification-hubs/get-notification-hub-connection.png" alt-text="Screenshot that shows how to copy the notification hub connection string.":::
+   :::image type="content" source="./media/functions-bindings-notification-hubs/get-notification-hub-connection.png" alt-text="Screenshot that shows how to copy the notification hub connection string." lightbox="./media/functions-bindings-notification-hubs/get-notification-hub-connection.png":::
 
 1. Navigate to your function app in the Azure portal, expand **Settings**, and then select **Environment variables**.
 
