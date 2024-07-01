@@ -124,7 +124,7 @@ If you want to manage the VM, you can connect to it with SSH command. Before acc
 
 Use the following steps to enable port 22:
 
-1. Navigate back to your working resource group. In the overview page, you can find a network security group named **wls-nsg**. Select **wls-nsg**.
+1. Navigate back to your working resource group in the Azure portal. In the overview page, you can find a network security group named **wls-nsg**. Select **wls-nsg**.
 1. In the left panel, select **Settings**, then **Inbound security rules**. If there's a rule to allow port `22`, then you can jump to step 4.
 1. In the top of the page, select **Add**.
 
