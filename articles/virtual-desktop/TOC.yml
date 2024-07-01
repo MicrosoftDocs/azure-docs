@@ -260,7 +260,7 @@
           displayName: deploy, get started
           href: add-session-hosts-host-pool.md
         - name: Enable GPU acceleration
-          displayName: graphics, multimedia, videos, cad, session hosts
+          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
           href: enable-gpu-acceleration.md
         - name: Customize session host images
           items:
@@ -284,6 +284,9 @@
           - name: Windows 11 Enterprise images
             displayName: languages, language packs
             href: windows-11-language-packs.md
+        - name: Configure default chroma value
+          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
+          href: configure-default-chroma-value.md
       - name: Applications
         items:
         - name: Publish applications with RemoteApp
