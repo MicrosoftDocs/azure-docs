@@ -494,7 +494,7 @@ The following considerations apply when using dependency management:
 
 + Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
 
-+ Managed dependencies are not supported in Linux Consumption on Flex Consumption plan.
++ Managed dependencies aren't supported when you host your function app in a [Flex Consumption plan](flex-consumption-plan.md). You must instead [define your own custom modules](#custom-modules).
 
 ### Dependency management app settings
 
