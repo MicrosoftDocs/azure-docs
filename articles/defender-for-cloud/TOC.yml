@@ -15,9 +15,8 @@
     - name: What's new (recommendations and alerts)
       displayName: what's new, recommendations, alerts
       href: release-notes-recommendations-alerts.md
-      items:
-        - name: Prepare for retirement of the Log Analytics agent
-          href: prepare-deprecation-log-analytics-mma-agent.md
+    - name: Prepare for retirement of the Log Analytics agent
+      href: prepare-deprecation-log-analytics-mma-agent.md
     - name: Common questions
       items:
         - name: Common questions about Defender for Cloud

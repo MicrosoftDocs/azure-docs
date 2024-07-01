@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 06/03/2024
 ---
 
-# What's new archive - Defender for Cloud
+# Defender for Cloud-What's new archive
 
 This page provides you with information about features, fixes, and deprecations that are older than six months. For the latest updates, read [What's new in Defender for Cloud?](release-notes.md).
 

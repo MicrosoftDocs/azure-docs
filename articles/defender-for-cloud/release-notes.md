@@ -5,13 +5,11 @@ ms.topic: overview
 ms.date: 03/24/2024
 ---
 
-# What's new - Defender for Cloud
+# Defender for Cloud-What's new
 
-We develop and improve Microsoft Defender for Cloud on an ongoing basis.
+This article summarizes what's new in Microsoft Defender for Cloud. It includes information about new features in preview or in general availability (GA), feature updates, upcoming feature plans, and deprecated functionality.
 
-This article provides you with up-to-date information about new features in preview or in general availability (GA), feature updates, upcoming feature plans, and deprecated functionality.
-
-- To get the latest on new and updated security recommendations and alerts, review [What's new in recommendations and alerts](release-notes.md).
+- Find the latest information about security recommendations and alerts in [What's new in recommendations and alerts](release-notes.md).
 - If you're looking for items older than six months, you can find them in the [What's new archive](release-notes-archive.md).
 
 > [!TIP]
@@ -635,4 +633,4 @@ The list is applicable to all plans and sufficient for full capability of the CS
 
 ## Next steps
 
-For past changes to Defender for Cloud, see [Archive for what's new in Defender for Cloud?](release-notes-archive.md).
+Check [What's new in security recommendations and alerts](release-notes-recommendations-alerts.md).
