@@ -296,7 +296,7 @@
       items:
         - name: Send cloud-to-device messages
           displayName: cloud-to-device messages
-          href: c2d-messaging-howto.md
+          href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
           items:
             - name: .NET

@@ -115,7 +115,7 @@ To receive callback cloud-to-device messages in the device application, the appl
 
 Using callback, the device application sets up a message handler method using [SetReceiveMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setreceivemessagehandlerasync). The message handler is called then a message is received. Creating a callback method to receive messages removes the need to continuously poll for received messages.
 
-Callback is available only using the these protocols:
+Callback is available only using these protocols:
 
 * `Mqtt`
 * `Mqtt_WebSocket_Only`

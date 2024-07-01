@@ -228,7 +228,7 @@ messageToSend.setProperties(propertiesToSend);
 
 The [Message](/java/api/com.microsoft.azure.sdk.iot.service.message) object stores the message to be sent. In this example, a "Cloud to device message" is delivered.
 
-Use [setDeliveryAcknowledgement](/java/api/com.microsoft.azure.sdk.iot.service.message?#com-microsoft-azure-sdk-iot-service-message-setdeliveryacknowledgementfinal(com-microsoft-azure-sdk-iot-service-deliveryacknowledgement)) to request delivered/not delivered to IoT Hub message queue acknowledgement. In this example, the acknowledgement requested is `Full`, either delivered or not delivered.
+Use [setDeliveryAcknowledgement](/java/api/com.microsoft.azure.sdk.iot.service.message?#com-microsoft-azure-sdk-iot-service-message-setdeliveryacknowledgementfinal(com-microsoft-azure-sdk-iot-service-deliveryacknowledgement)) to request delivered/not delivered to IoT Hub message queue acknowledgment. In this example, the acknowledgment requested is `Full`, either delivered or not delivered.
 
 Use [SendAsync](/java/api/com.microsoft.azure.sdk.iot.service.serviceclient) to send an asynchronous message from the client to the device. Alternatively, you can use the `Send` (not async) method, but this function is synchronized internally so that only one send operation is allowed at a time. The message is delivered from the application to IoT Hub. IoT Hub puts the message into the message queue, ready to be delivered to the target device.
 

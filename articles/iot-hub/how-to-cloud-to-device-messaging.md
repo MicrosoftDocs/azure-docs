@@ -32,7 +32,7 @@ For a device application to receive cloud-to-device messages, it must connect to
 * Declare a device client object
 * Connect to IoT Hub
 * Retrieve messages from the IoT Hub message queue
-* Process the message and send an acknowledgement back to IoT Hub
+* Process the message and send an acknowledgment back to IoT Hub
 * Configure a receive message retry policy
 
 For a back end application to send cloud-to-device messages, it must connect to an IoT Hub and send messages through an IoT Hub message queue. The [Azure IoT Hub service SDKs](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) provide classes and methods that an application can use to send messages to devices. This article discusses key elements of any application that sends messages to devices, including:
@@ -62,25 +62,25 @@ For more information about the cloud-to-device message lifecycle and how IoT Hub
 
 :::zone pivot="programming-language-csharp"
 
-[!INCLUDE [iot-hub-howto-c2d-messaging-dotnet](../../includes/iot-hub-howto-c2d-messaging-dotnet.md)]
+[!INCLUDE [iot-hub-howto-c2d-messaging-dotnet](../../includes/iot-hub-howto-cloud-to-device-messaging-dotnet.md)]
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-[!INCLUDE [iot-hub-howto-c2d-messaging-java](../../includes/iot-hub-howto-c2d-messaging-java.md)]
+[!INCLUDE [iot-hub-howto-c2d-messaging-java](../../includes/iot-hub-howto-cloud-to-device-messaging-java.md)]
 
 :::zone-end
 
 :::zone pivot="programming-language-python"
 
-[!INCLUDE [iot-hub-howto-c2d-messaging-python](../../includes/iot-hub-howto-c2d-messaging-python.md)]
+[!INCLUDE [iot-hub-howto-c2d-messaging-python](../../includes/iot-hub-howto-cloud-to-device-messaging-python.md)]
 
 :::zone-end
 
 :::zone pivot="programming-language-node"
 
-[!INCLUDE [iot-hub-howto-c2d-messaging-node](../../includes/iot-hub-howto-c2d-messaging-node.md)]
+[!INCLUDE [iot-hub-howto-c2d-messaging-node](../../includes/iot-hub-howto-cloud-to-device-messaging-node.md)]
 
 :::zone-end
 
