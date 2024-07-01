@@ -2,7 +2,7 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud. Protect your workloads and enhance your cloud security with our comprehensive solution.
 ms.topic: install-set-up-deploy
-ms.date: 05/12/2024
+ms.date: 07/01/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -75,7 +75,7 @@ Some data collectors run with fixed scan intervals and are not affected by custo
 
 | Data collector name | Scan interval |
 |--|--|
-| DataCollectionForComputeInstance <br> DataCollectionForArtifactRegistryRepositoryPolicy <br> DataCollectionForArtifactRegistryImage | 1 hour |
+| ComputeInstance <br> ArtifactRegistryRepositoryPolicy <br> ArtifactRegistryImage <br> ContainerCluster <br> ComputeInstanceGroup <br> ComputeZonalInstanceGroupInstance <br> ComputeRegionalInstanceGroupManager <br> ComputeZonalInstanceGroupManager <br> ComputeGlobalInstanceTemplate | 1 hour |
 
 When you onboard an organization, you can also choose to exclude project numbers and folder IDs.
 

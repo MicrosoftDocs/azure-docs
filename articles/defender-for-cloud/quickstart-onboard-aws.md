@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.date: 05/12/2024
+ms.date: 07/01/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -178,8 +178,8 @@ To connect your AWS to Defender for Cloud by using a native connector:
 
     | Data collector name | Scan interval |
     |--|--|
-    | DataCollectionForEC2Instance <br> DataCollectionForECRImage  <br> DataCollectionForECRRepository  <br> DataCollectionForRDSDBInstance <br> DataCollectionForS3Bucket  <br> DataCollectionForS3BucketTags <br> DataCollectionForS3Region  | 1 hour  |
-    | DataCollectionForEcsClusterArn <br> DataCollectionForEcsService <br> DataCollectionForEcsServiceArn <br> DataCollectionForEcsTaskDefinition <br> DataCollectionForEcsTaskDefinitionArn <br> DataCollectionForEcsTaskDefinitionTags <br> DataCollectionForAwsPolicyVersion <br> DataCollectionForLocalPolicyVersion <br> DataCollectionForAwsEntitiesForPolicy <br> DataCollectionForLocalEntitiesForPolicy <br> DataCollectionForBucketEncryption <br> DataCollectionForBucketPolicy <br> DataCollectionForS3PublicAccessBlockConfiguration <br> DataCollectionForBucketVersioning <br> DataCollectionForS3LifecycleConfiguration <br> DataCollectionForBucketPolicyStatus <br> DataCollectionForS3ReplicationConfiguration <br> DataCollectionForS3AccessControlList <br> DataCollectionForS3BucketLoggingConfig <br> DataCollectionForPublicAccessBlockConfiguration | 12 hours |
+    | EC2Instance <br> ECRImage  <br> ECRRepository  <br> RDSDBInstance <br> S3Bucket  <br> S3BucketTags <br> S3Region <br> EKSCluster <br> EKSClusterName <br> EKSNodegroup <br> EKSNodegroupName <br> AutoScalingAutoScalingGroup  | 1 hour  |
+    | EcsClusterArn <br> EcsService <br> EcsServiceArn <br> EcsTaskDefinition <br> EcsTaskDefinitionArn <br> EcsTaskDefinitionTags <br> AwsPolicyVersion <br> LocalPolicyVersion <br> AwsEntitiesForPolicy <br> LocalEntitiesForPolicy <br> BucketEncryption <br> BucketPolicy <br> S3PublicAccessBlockConfiguration <br> BucketVersioning <br> S3LifecycleConfiguration <br> BucketPolicyStatus <br> S3ReplicationConfiguration <br> S3AccessControlList <br> S3BucketLoggingConfig <br> PublicAccessBlockConfiguration | 12 hours |
 
 > [!NOTE]
 > (Optional) Select **Management account** to create a connector to a management account. Connectors are then created for each member account discovered under the provided management account. Auto-provisioning is also enabled for all of the newly onboarded accounts.
