@@ -181,9 +181,10 @@ Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WOR
 
 ## Azure tables that support the Basic data plan
 
-All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API](logs-ingestion-api-overview.md) support Basic logs. 
+All custom tables created with or migrated to the [Logs ingestion API](logs-ingestion-api-overview.md), and the Azure tables listed below support Basic logs.
 
-These Azure tables currently support Basic logs:
+> [!NOTE]
+> Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
 
 
 | Service | Table |
@@ -237,8 +238,6 @@ These Azure tables currently support Basic logs:
 | Storage Mover | [StorageMoverJobRunLogs](/azure/azure-monitor/reference/tables/StorageMoverJobRunLogs)<br>[StorageMoverCopyLogsFailed](/azure/azure-monitor/reference/tables/StorageMoverCopyLogsFailed)<br>[StorageMoverCopyLogsTransferred](/azure/azure-monitor/reference/tables/StorageMoverCopyLogsTransferred)<br> |
 | Virtual Network Manager  | [AVNMNetworkGroupMembershipChange](/azure/azure-monitor/reference/tables/AVNMNetworkGroupMembershipChange)<br>[AVNMRuleCollectionChange](/azure/azure-monitor/reference/tables/AVNMRuleCollectionChange) |
     
-> [!NOTE]
-> Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
 
 ## Next steps
 
