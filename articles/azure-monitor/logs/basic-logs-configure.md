@@ -19,13 +19,6 @@ You can use one Log Analytics workspace to store any type of log required for an
 
 Data plans let you manage data ingestion and retention costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each data plan offers, which use cases it's optimal for, and how to configure the log plan of a table in your Log Analytics workspace.
 
-## Permissions required
-
-| Action | Permissions required |
-|:-------|:---------------------|
-| View log plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
-| Set log plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
-
 ## Select a table plan based on usage needs
 
 The diagram and table below compare the Analytics, Basic, and Auxiliary log data plans.
@@ -35,20 +28,27 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary log data
 |                     | Analytics                                                                                   | Basic                                                                                       | Auxiliary (Preview)                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Best for                 | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch data needed for troubleshooting and incident response.              | Low-touch data, such as verbose logs, and data required for auditing and compliance.           |
-| Supported [table types](../logs/manage-logs-tables.md)      | All table types                                                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-log-plan) and DCR-based custom tables                                                     | DCR-based custom tables                                                 |
+| Supported [table types](../logs/manage-logs-tables.md)      | All table types                                                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-data-plan) and DCR-based custom tables                                                     | DCR-based custom tables                                                 |
 | Log queries             | Full query capabilities.                                                                                   | Full Kusto Query Language (KQL) on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).                                       | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).                                        |
 | Query performance        | Fast                                                                                        | Fast                                                                                        | Slower                                                                                      |
-| Dashboards and alerts    | ✅                                                                                           | ❌                                                                                           | ❌                                                                                           |
+| Alerts    | ✅                                                                                           | ❌                                                                                           | ❌                                                                                           |
+| Dashboards    | ✅                                                                                           | ❌                                                                                           | ✅                                                                                           |
 | [Search jobs](../logs/search-jobs.md) | ✅                                                                                   | ✅                                                                                           | ✅                                                                                           |
 | [Summary rules](../logs/summary-rules.md)            | ✅                                                                                           | ✅ KQL limited to a single table                                                      | ✅ KQL limited to a single table                                                        |
 | [Restore](../logs/restore.md) | ✅                                                                                   | ✅                                                                                           | ❌                                                                                           |
 |Pricing model|**Ingestion** - Standard cost.<br>**Interactive retention** - Unlimited queries. Prorated monthly retention charge for extended interactive retention.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. |**Ingestion** - Reduced cost.<br>**Interactive retention** - Pay-per-query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge.|**Ingestion** - Minimal cost.<br>**Interactive retention** - Pay-per-query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge.|
-| Interactive retention | 31 days (90 days for Microsoft Sentinel and Application Insights).<br> Can be extended to up to two years.                                                                     | 30 days                                                                                     | 30 days                                                                                     |
+| Interactive retention | 30 days (90 days for Microsoft Sentinel and Application Insights).<br> Can be extended to up to two years.                                                                     | 30 days                                                                                     | 30 days                                                                                     |
 | Total retention                | Up to 12 years                                                                             | Up to 12 years                                                                              | Up to 12 years                                                                              |
 
 > [!NOTE]
 > The Basic and Auxiliary log data plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
+## Permissions required
+
+| Action | Permissions required |
+|:-------|:---------------------|
+| View log plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
+| Set log plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
   
 ## Configure the table plan
 
@@ -139,7 +139,7 @@ Status code: 200
 ```http
 {
     "properties": {
-        "retentionInDays": 8,
+        "retentionInDays": 30,
         "totalRetentionInDays": 30,
         "archiveRetentionInDays": 22,
         "plan": "Basic",
