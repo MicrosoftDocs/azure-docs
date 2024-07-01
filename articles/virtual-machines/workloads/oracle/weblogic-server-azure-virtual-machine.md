@@ -54,7 +54,9 @@ The steps in this section direct you to deploy WebLogic Server on a VM using the
 
 1. Fill in *wlsVmCluster2022* for the **Password for WebLogic Administrator**. Use the same value for the confirmation.
 
-1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If not, fix any validation problems and select **Review + create** again.
+1. Select **Review + create**.
+   
+1. Ensure the green **Validation Passed** message appears at the top. If not, fix any validation problems and select **Review + create** again.
 
 1. Select **Create**.
 
