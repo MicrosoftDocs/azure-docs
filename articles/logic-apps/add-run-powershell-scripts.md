@@ -62,7 +62,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute PowerShell Code** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own code.
+1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopulated sample code with your own code.
 
      - To access data coming from your workflow, see [Access workflow trigger and action outputs in your script](#access-trigger-action-outputs) later in this guide.
 
