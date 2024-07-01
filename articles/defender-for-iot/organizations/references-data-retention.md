@@ -9,7 +9,7 @@ ms.date: 06/30/2024
 
 Microsoft Defender for IoT stores data in the Microsoft Azure portal, in OT network sensors, and in on-premises management consoles.
 
-Each storage type has varying storage capacity options and retention times. This article describes the data retention policy for the amount of data and length of time it's stored in each storage type before being deleted or overwritten.
+Each storage type has varying storage capacity options and retention times. This article describes the data retention policy for the amount of data and length of time the data is stored in each storage type before being deleted or overwritten.
 
 ## What are we collecting? 
 
@@ -29,14 +29,14 @@ Microsoft doesn't use your data for advertising.
 
 Defender for IoT uses the Microsoft Azure data centers in the European Union and the United States. Customer data collected by the service might be stored in one of two geo-locations:
 
-- The geo-location of the tenant as identified during provisioning. 
-- The geo-location as defined by the data storage rules of an online service if it's used by Defender for IoT to process such data. 
+- The geolocation of the tenant as identified during provisioning. 
+- The geolocation as defined by the data storage rules of an online service, that's used by Defender for IoT to process its data. 
 
 ## Data retention 
 
 Data from Defender for IoT is retained for as long as a customer is active or for 90 days after the end of your contract. During this period the data is visible across your other services on the portal.
 
-Your data is kept and is available while your license is under a grace period or suspended mode. Ninety days after the end of this period, your data will be erased from Microsoft's systems making it unrecoverable.
+Your data is kept and is available while your license is under a grace period or in suspended mode. 90 days after the end of this period, your data is erased from Microsoft's systems making it unrecoverable.
 
 ## Device data retention periods
 
