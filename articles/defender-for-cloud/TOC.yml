@@ -9,15 +9,12 @@
         key vault, resource manager, dns, open-source relational databases,
         Azure cosmos db, db, Azure, defender
       href: defender-for-cloud-introduction.md
-    - name: Release notes
+    - name: What's new
       displayName: changelog, news, release notes
       href: release-notes.md
-    - name: Release notes (recommendations and alerts)
+    - name: What's new (recommendations and alerts)
       displayName: what's new, recommendations, alerts
       href: release-notes-recommendations-alerts.md
-    - name: Important upcoming changes
-      displayName: release notes, changelog  
-      href: upcoming-changes.md
       items:
         - name: Prepare for retirement of the Log Analytics agent
           href: prepare-deprecation-log-analytics-mma-agent.md
