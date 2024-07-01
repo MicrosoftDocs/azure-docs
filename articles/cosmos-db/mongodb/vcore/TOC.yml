@@ -42,6 +42,8 @@
       href: high-availability.md
     - name: Cross-region replication
       href: cross-region-replication.md
+    - name: Indexing
+      href: indexing.md
     - name: Reliability
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Compute and storage
@@ -76,22 +78,28 @@
           href: how-to-transactions.md
         - name: Connect using Spark connector from Azure Databricks
           href: connect-from-databricks.md
+    - name: Work with indexes
+      items:
+        - name: Background indexing
+          href: background-indexing.md
+        - name: Indexing best practices
+          href: how-to-create-indexes.md
+        - name: Working with wildcard
+          href: how-to-create-wildcard-indexes.md
+        - name: Search and query text
+          href: how-to-create-text-index.md
+        - name: Optimize index creation
+          href: how-to-create-indexes.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
     - name: Manage replication
       href: how-to-cluster-replica.md
-    - name: Search and query text
-      href: how-to-create-text-index.md
     - name: Monitor diagnostics logs
       href: how-to-monitor-diagnostics-logs.md
     - name: Use Azure Private Link
       href: how-to-private-link.md
-    - name: Optimize index creation
-      href: how-to-create-indexes.md
-    - name: Create wildcard indexes
-      href: how-to-create-wildcard-indexes.md
 - name: Reference
   items:
     - name: Release notes
@@ -102,6 +110,8 @@
   items:
     - name: Solution accelerators
       href: ../../solutions.md?pivots=api-mongodb
-    - name: AI-Enhanced Advertisement Generation
+    - name: AI agent
+      href: ../../ai-agents.md
+    - name: AI-enhanced advertisement generation
       href: ai-advertisement-generation.md
       

@@ -28,7 +28,7 @@ The wizard creates multiple objects on your search service - [searchable index](
 
 - An Azure AI Search service for any tier and any region. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-  For this quickstart, make sure the search service doesn't have [network access controls](service-configure-firewall.md) in place. The portal connects to the hosted sample data over a public endpoint. If search is behind a firewall, the wizard can't create the data source.
+For this quickstart, which uses built-in sample data, make sure the search service doesn't have [network access controls](service-configure-firewall.md) in place. The portal controller uses the public endpoint to retrieve data and metadata from the built-in sample data source hosted by Microsoft. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 ### Check for space
 
