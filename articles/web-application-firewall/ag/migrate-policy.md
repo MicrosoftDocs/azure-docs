@@ -182,7 +182,7 @@ function createNewTopLevelWafPolicy ($subscriptionId, $resourceGroupName, $appli
 
     if ($appgw.FirewallPolicy) {
         $customRulePolicyId = $appgw.FirewallPolicy.Id
-        $rg = Get-AzResourceGroup -Id $customRulePolicyId
+        $rg = Get-AzResourceGroup -Name $resourceGroupName
         $crPolicyName = $customRulePolicyId.Substring($customRulePolicyId.LastIndexOf("/") + 1)
         $customRulePolicy = Get-AzApplicationGatewayFirewallPolicy -ResourceGroupName $rg.ResourceGroupName -Name $crPolicyName
         $wafPolicy = New-AzApplicationGatewayFirewallPolicy -ResourceGroupName $rg.ResourceGroupName -Name $wafPolicyName -CustomRule $customRulePolicy.CustomRules -ManagedRule $managedRule -PolicySetting $policySetting -Location $appgw.Location

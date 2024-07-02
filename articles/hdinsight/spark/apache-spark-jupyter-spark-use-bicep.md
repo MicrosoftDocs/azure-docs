@@ -16,7 +16,7 @@ In this quickstart, you use Bicep to create an [Apache Spark](./apache-spark-ove
 
 If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

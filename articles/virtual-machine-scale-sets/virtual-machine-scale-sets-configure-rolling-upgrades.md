@@ -12,7 +12,7 @@ ms.custom: upgradepolicy, devx-track-azurepowershell
 # Configure rolling upgrades on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA) . 
+> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA). 
 >
 > **Rolling upgrade policy for Virtual Machine scale Sets with Flexible Orchestration is currently in preview.** 
 >

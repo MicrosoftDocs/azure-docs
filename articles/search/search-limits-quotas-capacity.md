@@ -27,10 +27,10 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
 ## Subscription limits
-[!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 ## Service limits
-[!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
 
