@@ -231,7 +231,7 @@ App Service automatically detects the presence of a Django app. No additional co
 
 For FastAPI you must configure a custom startup command for App Service to run your app.
 
-#### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/configure-startup-azure-cli)
 
 First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
@@ -250,11 +250,11 @@ az webapp restart \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
-#### [VS Code](#tab/vscode-aztools)
+#### [VS Code](#tab/configure-startup-vscode-aztools)
 
 Use Azure CLI or the Azure portal to configure the startup command.
 
-#### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/configure-startup-azure-portal)
 
 First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *python main.py*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
 
