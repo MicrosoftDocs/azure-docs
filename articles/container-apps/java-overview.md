@@ -125,6 +125,8 @@ Azure Container Apps offers support for the following Spring Components as manag
 
 - **Config Server for Spring**: Config Server provides centralized external configuration management for distributed systems. This component designed to address the challenges of [managing configuration settings across multiple microservices](java-config-server-usage.md) in a cloud-native environment.
 
+- **Admin for Spring**： The Admin for Spring managed component provides an administrative interface specifically designed for Spring Boot web applications that utilize actuator endpoints. As a managed component within Azure Container Apps, it facilitates effortless integration and management by allowing you to seamlessly bind your container app to [Admin for Spring](java-admin.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
