@@ -92,7 +92,6 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 - For Single Servers with greater storage requirement, sufficient storage equivalent to 1.25 times or 25% more storage than what is being used in the Single server is allocated. During the initial base copy of data, multiple insert statements are executed on the target, which generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target and hence the margin of safety.
 - Both username formats – username@server_name (Single Server) and username (Flexible Server) are supported on the migrated Flexible Server.
 - Both connection string formats – Single Server and Flexible Server are supported on the migrated Flexible Server.
-- For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. For certain workloads 'slow_query_log' could affect performance. If you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
 
 ## Post-migration steps
 
