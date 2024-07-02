@@ -53,4 +53,4 @@ To set up Prometheus metrics collection for the new Arc enabled cluster, follow 
 
 ## Access Grafana dashboards
 
-Navigate to the endpoint for the Grafana instance that you created previously in [Deploy observability resources with a script](howto-configure-observability.md). If you didn't already do so, create the relevant dashboards by going to the [dashboard list](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards). In the dashboards, you see the name of the new Arc-enabled cluster in the **Cluster** selector dropdown. 
+Browse to the endpoint for the Grafana instance that you created previously in [Deploy observability resources with a script](howto-configure-observability.md). If you didn't already do so, create the relevant dashboards by going to the [dashboard list](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboards). In the dashboards, you see the name of the new Arc-enabled cluster in the **Cluster** selector dropdown. 

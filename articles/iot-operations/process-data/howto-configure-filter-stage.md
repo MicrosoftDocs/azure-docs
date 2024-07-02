@@ -1,6 +1,6 @@
 ---
 title: Filter data in a pipeline
-description: Configure a filter pipeline stage to remove messages that aren't needed for further processing and to avoid sending unnecessary data to cloud services using Azure IoT Data Processor Preview.
+description: Configure a filter pipeline stage to remove messages that aren't needed for further processing and to avoid sending unnecessary data to cloud services using the data processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want filter data in a pipeline so that I can remove messages that I don't need from the data processing pipeline.
 ---
 
-# Filter data in an Azure IoT Data Processor Preview pipeline
+# Filter data in a data processor pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -23,7 +23,7 @@ Use a _filter_ stage to filter out messages that you don't need for further proc
 
 ## Prerequisites
 
-To configure and use a filter pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
+To configure and use a filter pipeline stage, you need a deployed instance of the data processor that includes the optional data processor component.
 
 ## Configure the stage
 
@@ -31,13 +31,13 @@ The filter stage JSON configuration defines the details of the stage. To author 
 
 | Name | Value | Required | Default | Example |
 | --- | --- | --- | --- | --- |
-| Display name  | A name to show in the Data Processor UI.  | Yes | -  | `Filter1` |
+| Display name  | A name to show in the data processor UI.  | Yes | -  | `Filter1` |
 | Description | A user-friendly description of what the filter stage does.  | No | -  | `Filter out anomalies` |
 | Query | The [jq expression](#jq-expression)  | Yes | - | `.payload.temperature > 0 and .payload.pressure < 50` |
 
 ### jq expression
 
-Filter queries in Data Processor use the [jq](concept-jq.md) language to define the filter condition:
+Filter queries in the data processor use the [jq](concept-jq.md) language to define the filter condition:
 
 - The jq provided in the query must be syntactically valid.
 - The result of the filter query must be a boolean value.

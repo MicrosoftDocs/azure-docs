@@ -45,8 +45,8 @@ The `keyVault` field is available wherever Kubernetes secrets (`secretName`) are
 | Property | Required | Description |
 | --- | --- | --- |
 | vault | Yes | Specifies the Azure Key Vault that contains the secrets. |
-| vault.name | Yes | Specifies the name of the Azure Key Vault. To get the Key Vault name from Azure portal, navigate to the Key Vault instance and copy the name from the Overview page. |
-| vault.directoryId | Yes | Specifies the Microsoft Entra tenant ID. To get the tenant ID from Azure portal, navigate to the Key Vault instance and copy the tenant ID from the Overview page. |
+| vault.name | Yes | Specifies the name of the Azure Key Vault. To get the Key Vault name from Azure portal, go to the Key Vault instance and copy the name from the Overview page. |
+| vault.directoryId | Yes | Specifies the Microsoft Entra tenant ID. To get the tenant ID from Azure portal, go to the Key Vault instance and copy the tenant ID from the Overview page. |
 | vault.credentials.servicePrincipalLocalSecretName | Yes | Specifies the name of the secret that contains the service principal credentials. |
 | vaultSecret | Yes, when using regular Key Vault secrets | Specifies the secret in the Azure Key Vault. |
 | vaultSecret.name | Yes | Specifies the name of the secret. |

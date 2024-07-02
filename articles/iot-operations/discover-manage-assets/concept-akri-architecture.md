@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Akri architecture
-description: Understand the key components in the Azure IoT Akri architecture and how they relate to each other. Includes some information about the CNCF version of Akri
+title: Akri services architecture
+description: Understand the key components in the Akri services architecture and how they relate to each other. Includes some information about the CNCF version of Akri
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-akri
@@ -9,39 +9,39 @@ ms.custom:
   - ignite-2023
 ms.date: 05/13/2024
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
+# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Akri services architecture so that I understand how it works to enable device and asset discovery for my edge solution.
 ---
 
-# Azure IoT Akri Preview architecture
+# Akri services architecture
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article helps you understand the architecture of Azure IoT Akri Preview. After you learn about the core components of Azure IoT Akri, you can use it to detect devices and assets, and add them to your Kubernetes cluster.
+This article helps you understand the architecture of the Akri services. After you learn about the core components of the Akri services, you can use them to detect devices and assets, and add them to your Kubernetes cluster.
 
-Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source Cloud Native Computing Foundation (CNCF) project.
+The Akri services are a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source Cloud Native Computing Foundation (CNCF) project.
 
 ## Core components
 
-Azure IoT Akri consists of the following five components:
+The Akri services consist of the following five components:
 
-- **Akri configuration** is a custom resource where you name a device. This configuration tells Azure Iot Akri what kind of devices to look for.
+- **Akri configuration** is a custom resource where you name a device. This configuration tells the Akri services what kind of devices to look for.
 - **Akri instance** is a custom resource that tracks the availability and usage of a device. Each Akri instance represents a leaf device.
 - **Akri discovery handlers** look for the configured device and inform the agent about discovered devices.
 - **Akri agent** creates the Akri instance custom resource.
 - **Akri controller** helps you to use a configured device. The controller sees each Akri instance and deploys a broker pod that knows how to connect to and use the resource.
 
-:::image type="content" source="media/concept-akri-architecture/akri-architecture.png" alt-text="Diagram for Azure IoT Akri Preview architecture." border="false":::
+:::image type="content" source="media/concept-akri-architecture/akri-architecture.png" alt-text="Diagram for the Akri services architecture." border="false":::
 
 ## Custom resource definitions
 
-A custom resource definition (CRD) is a Kubernetes API extension that lets you define new object types. There are two Azure IoT Akri CRDs:
+A custom resource definition (CRD) is a Kubernetes API extension that lets you define new object types. There are two Akri services CRDs:
 
 - Configuration
 - Instance
 
 ### Akri configuration CRD
 
-The configuration CRD configures Azure IoT Akri. You create configurations that describe the resources to discover and the pod to deploy on a node that discovers a resource. To learn more, see  [Akri Configuration CRD](https://github.com/project-akri/akri/blob/main/deployment/helm/crds/akri-configuration-crd.yaml). The CRD schema specifies the settings all configurations must have, including the following settings:
+The configuration CRD configures the Akri services. You create configurations that describe the resources to discover and the pod to deploy on a node that discovers a resource. To learn more, see  [Akri configuration CRD](https://github.com/project-akri/akri/blob/main/deployment/helm/crds/akri-configuration-crd.yaml). The CRD schema specifies the settings all configurations must have, including the following settings:
 
 - The discovery protocol for finding resources. For example, ONVIF or udev.
 - `spec.capacity` that defines the maximum number of nodes that can schedule workloads on this resource.
@@ -51,7 +51,7 @@ The configuration CRD configures Azure IoT Akri. You create configurations that 
 
 ### Akri instance CRD
 
-Each Azure IoT Akri instance represents an individual resource that's visible to the cluster. For example, if there are five IP cameras visible to the cluster, there are five instances. The instance CRD enables Azure IoT Akri coordination and resource sharing. These instances store internal state and aren't intended for you to edit. To learn more, see [Resource sharing in-depth](https://docs.akri.sh/architecture/resource-sharing-in-depth).
+Each Akri instance represents an individual resource that's visible to the cluster. For example, if there are five IP cameras visible to the cluster, there are five instances. The instance CRD enables Akri services coordination and resource sharing. These instances store internal state and aren't intended for you to edit. To learn more, see [Resource sharing in-depth](https://docs.akri.sh/architecture/resource-sharing-in-depth).
 
 ## Agent
 

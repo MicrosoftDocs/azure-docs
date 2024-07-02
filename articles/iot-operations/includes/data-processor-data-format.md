@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
 ---
 
-In a Data Processor pipeline, the [format](../process-data/concept-supported-formats.md) field in the source stage specifies how to deserialize the incoming data. By default, the Data Processor pipeline uses the `raw` format that means it doesn't convert the incoming data. To use many Data Processor features such as `Filter` or `Enrich` stages in a pipeline, you must deserialize your data in the input stage. You can choose to deserialize your incoming data from `JSON`, `jsonStream`, `MessagePack`, `CBOR`, `CSV`, or `Protobuf` formats into a Data Processor readable message in order to use the full Data Processor functionality.
+In a data processor pipeline, the [format](../process-data/concept-supported-formats.md) field in the source stage specifies how to deserialize the incoming data. By default, the data processor pipeline uses the `raw` format that means it doesn't convert the incoming data. To use many data processor features such as `Filter` or `Enrich` stages in a pipeline, you must deserialize your data in the input stage. You can choose to deserialize your incoming data from `JSON`, `jsonStream`, `MessagePack`, `CBOR`, `CSV`, or `Protobuf` formats into a data processor readable message in order to use the full data processor functionality.
 
 The following tables describe the different deserialization configuration options:
 
@@ -27,7 +27,7 @@ To deserialize CSV messages, you also need to specify the following fields:
 | Header | Whether the CSV data includes a header line. | Yes | `Yes` `No` | `No` |
 | Name | Name of the column in CSV | Yes | - | `temp`, `asset` |
 | Path | The [jq path](../process-data/concept-jq-path.md) in the message where the column information is added. | No | - | The default jq path is the column name |
-| Data Type | The data type of the data in the column and how it's represented inside the Data Processor pipeline. | No | `String`, `Float`, `Integer`, `Boolean`, `Bytes` | Default: `String` |
+| Data Type | The data type of the data in the column and how it's represented inside the data processor pipeline. | No | `String`, `Float`, `Integer`, `Boolean`, `Bytes` | Default: `String` |
 
 To deserialize Protobuf messages, you also need to specify the following fields:
 
@@ -38,4 +38,4 @@ To deserialize Protobuf messages, you also need to specify the following fields:
 | Package | The name of the package in the descriptor where the type is defined. | Yes | - | `schedulerv1` |
 
 > [!NOTE]
-> Data Processor supports only one message type in each **.proto** file.
+> The data processor supports only one message type in each **.proto** file.

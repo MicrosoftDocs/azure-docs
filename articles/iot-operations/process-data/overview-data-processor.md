@@ -1,6 +1,6 @@
 ---
 title: Process messages at the edge
-description: Use the Azure IoT Data Processor to aggregate, enrich, normalize, and filter the data from your devices before you send it to the cloud.
+description: Use the data processor to aggregate, enrich, normalize, and filter the data from your devices before you send it to the cloud.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,25 +12,25 @@ ms.date: 09/08/2023
 #CustomerIntent: As an OT user, I want process data at the edge so that I can send well-structured, complete, and relevant data to the cloud for storage and analysis.
 ---
 
-# Process data at the edge with Azure IoT Data Processor Preview pipelines
+# Process data at the edge with data processor pipelines
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 Industrial assets generate data in many different formats and use various communication protocols. This diversity of data sources, coupled with varying schemas and unit measures, makes it difficult to use and analyze raw industrial data effectively. Furthermore, for compliance, security, and performance reasons, you can’t upload all datasets to the cloud.
 
-To process this data traditionally requires expensive, complex, and time-consuming data engineering. Azure IoT Data Processor Preview is a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
+To process this data traditionally requires expensive, complex, and time-consuming data engineering. The data processor is a configurable data processing service that can manage the complexities and diversity of industrial data. Use the data processor to make data from disparate sources more understandable, usable, and valuable.
 
-## What is Azure IoT Data Processor Preview?
+## What is the data processor?
 
-Azure IoT Data Processor Preview is an optional component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
+The data processor is an optional component of Azure IoT Operations Preview. The data processor lets you aggregate, enrich, normalize, and filter the data from your devices. The data processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
 
-:::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram of the Azure IoT Operations architecture that highlights the Data Processor component." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
+:::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram of the Azure IoT Operations architecture that highlights the data processor component." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
 
-Data Processor ingests real-time streaming data from sources such as OPC UA servers, historians, and other industrial systems. It normalizes this data by converting various data formats into a standardized, structured format, which makes it easier to query and analyze. The data processor can also contextualize the data, enriching it with reference data or last known values (LKV) to provide a comprehensive view of your industrial operations.
+The data processor ingests real-time streaming data from sources such as OPC UA servers, historians, and other industrial systems. It normalizes this data by converting various data formats into a standardized, structured format, which makes it easier to query and analyze. The data processor can also contextualize the data, enriching it with reference data or last known values (LKV) to provide a comprehensive view of your industrial operations.
 
-The output from Data Processor is clean, enriched, and standardized data that's ready for downstream applications such as real-time analytics and insights tools. The data processor significantly reduces the time required to transform raw data into actionable insights.
+The output from the data processor is clean, enriched, and standardized data that's ready for downstream applications such as real-time analytics and insights tools. The data processor significantly reduces the time required to transform raw data into actionable insights.
 
-Key Data Processor features include:
+Key data processor features include:
 
 - Flexible data normalization to convert multiple data formats into a standardized structure.
 
@@ -40,17 +40,17 @@ Key Data Processor features include:
 
 - Ability to process data from various sources and publish the data to various destinations.
 
-- As a data agnostic data processing platform, Data Processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, Data Processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
+- As a data agnostic data processing platform, the data processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, the data processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
 
 - Automatic and configurable retry policies to handle transient errors when sending data to cloud destinations.
 
-## Deploy Data Processor
+## Deploy the data processor
 
-By default, Data Processor isn't included in an Azure IoT Operations Preview deployment. If you plan to use Data Processor, you must include it when you deploy Azure IoT Operations Preview - you can't add it later. To deploy Data Processor, use the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. To learn more, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+By default, the data processor isn't included in an Azure IoT Operations Preview deployment. If you plan to use the data processor, you must include it when you deploy Azure IoT Operations Preview - you can't add it later. To deploy the data processor, use the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. To learn more, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## What is a pipeline?
 
-A Data Processor pipeline has an input source where it reads data from, a destination where it writes processed data to, and a variable number of intermediate stages to process the data.
+A data processor pipeline has an input source where it reads data from, a destination where it writes processed data to, and a variable number of intermediate stages to process the data.
 
 :::image type="content" source="media/pipeline-stages.png" alt-text="Diagram that shows how a pipeline is made up from stages." border="false":::
 
@@ -63,7 +63,7 @@ The intermediate stages represent the different available data processing capabi
 - All stages operate within the scope of a [partition](concept-partitioning.md). Data isn't shared between different partitions.
 - Data flows from one stage to the next only.
 
-Data Processor pipelines can use the following stages:
+Data processor pipelines can use the following stages:
 
 | Stage | Description |
 | ----- | ----------- |
@@ -86,9 +86,9 @@ Data Processor pipelines can use the following stages:
 
 ## Next step
 
-To try out Data Processor pipelines, see the [Azure IoT Operations quickstarts](../get-started-end-to-end-sample/quickstart-deploy.md).
+To try out data processor pipelines, see the [Azure IoT Operations quickstarts](../get-started-end-to-end-sample/quickstart-deploy.md).
 
-To learn more about Data Processor, see:
+To learn more about the data processor, see:
 
 - [Message structure overview](concept-message-structure.md)
 - [Serialization and deserialization formats overview](concept-supported-formats.md)

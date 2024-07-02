@@ -1,6 +1,6 @@
 ---
 title: "Known issues: Azure IoT Operations Preview"
-description: Known issues for Azure IoT MQ, Layered Network Management, OPC UA Broker, OPC PLC simulator, Data Processor, and Operations portal.
+description: Known issues for the MQTT broker, Layered Network Management, connector for OPC UA, OPC PLC simulator, data processor, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
@@ -28,7 +28,7 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
-## Azure IoT MQ Preview
+## MQTT broker
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
 
@@ -36,7 +36,7 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - You can't configure the size of a disk-backed buffer unless your chosen storage class supports it.
 
-- Even though IoT MQ's [diagnostic service](../configure-observability-monitoring/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+- Even though the MQTT broker's [diagnostic service](../configure-observability-monitoring/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
 
@@ -56,11 +56,11 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - If DNS queries don't resolve to the expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
 
-## Azure IoT OPC UA Broker Preview
+## Connector for OPC UA
 
-- All `AssetEndpointProfiles` in the cluster must be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations (preview) portal.
+- All `AssetEndpointProfiles` in the cluster must be configured with the same transport authentication certificate, otherwise the connector for OPC UA might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations (preview) portal.
 
-- If you deploy an `AssetEndpointProfile` into the cluster and the OPC UA Broker can't connect to the configured endpoint on the first attempt, then the OPC UA Broker never retries to connect.
+- If you deploy an `AssetEndpointProfile` into the cluster and the connector for OPC UA can't connect to the configured endpoint on the first attempt, then the connector for OPC UA never retries to connect.
 
     As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the `AssetEndpointProfile` and deploy it again.
 
@@ -97,9 +97,9 @@ If the OPC PLC simulator isn't sending data to the IoT MQ broker after you creat
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
 
-## Azure IoT Data Processor Preview
+## Data processor
 
-- If you see deployment errors with Data Processor pods, make sure that when you created your Azure Key Vault you chose **Vault access policy** as the **Permission model**.
+- If you see deployment errors with data processor pods, make sure that when you created your Azure Key Vault you chose **Vault access policy** as the **Permission model**.
 
 - If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
 
@@ -118,16 +118,16 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
     kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
     ```
 
-- It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
+- It's possible a momentary loss of communication with MQTT broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
 
     ```bash
     kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
     kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
     ```
 
-- If data is corrupted in the Microsoft Fabric lakehouse table that your Data Processor pipeline is writing to, make sure that no other processes are writing to the table. If you write to the Microsoft Fabric lakehouse table from multiple sources, you might see corrupted data in the table.
+- If data is corrupted in the Microsoft Fabric lakehouse table that your data processor pipeline is writing to, make sure that no other processes are writing to the table. If you write to the Microsoft Fabric lakehouse table from multiple sources, you might see corrupted data in the table.
 
-## Azure IoT Akri Preview
+## Akri services
 
 A sporadic issue might cause the `aio-opc-asset-discovery` pod to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
 
@@ -214,13 +214,13 @@ To work around this issue, use the following steps to update the **DaemonSet** s
                     volumes: ...
     ```
 
-## Azure IoT Operations Preview portal
+## Operations experience web UI
 
-To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
+To sign in to the operations experience, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
-1. In the Azure portal, navigate to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
-1. In the Azure portal, navigate to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
+1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
+1. In the Azure portal, go to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
 1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
 1. On the **Members** page, add your new user to the role.
 1. Select **Review and assign** to complete setting up the new user.

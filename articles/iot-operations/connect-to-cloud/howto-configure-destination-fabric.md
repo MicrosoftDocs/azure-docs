@@ -12,17 +12,17 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to send data from a pipeline to Microsoft Fabric so that I can store and analyze my data in the cloud.
 ---
 
-# Send data to Microsoft Fabric from a Data Processor pipeline
+# Send data to Microsoft Fabric from a data processor pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
+Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from a [data processor pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
 
 ## Prerequisites
 
 To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
-- A deployed instance of Data Processor.
+- A deployed instance of the data processor.
 - A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial).
 - A [lakehouse in Microsoft Fabric](/fabric/data-engineering/create-lakehouse).
 
@@ -90,7 +90,7 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `Azure IoT MQ output` |
+| Display name  | String | A name to show in the data processor UI.  | Yes | -  | `MQTT broker output` |
 | Description | String |  A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
 | WorkspaceId | String | The lakehouse workspace ID.  | Yes | - | |
 | LakehouseId | String | The lakehouse Lakehouse ID.  | Yes | - |  |
