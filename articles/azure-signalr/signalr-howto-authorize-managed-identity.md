@@ -22,12 +22,13 @@ The first step is to configure managed identities.
 
 This example shows you how to configure a system-assigned managed identity on a virtual machine (VM) by using the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), search for and select a VM.
-1. Under **Settings**, select **Identity**.
-1. On the **System assigned** tab, switch **Status** to **On**.
+1. Access your app's settings in the [Azure portal](https://portal.azure.com) under the **Settings** group in the left navigation pane.
+   
+1. Select **Identity**.
 
-   ![Screenshot of selections for turning on system-assigned managed identities for a virtual machine.](./media/signalr-howto-authorize-managed-identity/identity-virtual-machine.png)
-1. Select the **Save** button to confirm the change.
+1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
+
+    ![Screenshot that shows where to switch Status to On and then select Save.](../app-service/media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 To learn how to create user-assigned managed identities, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 
@@ -39,7 +40,7 @@ To learn more about configuring managed identities, see one of these articles:
 - [Configure managed identities for Azure resources on an Azure VM using templates](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Configure a VM with managed identities for Azure resources using an Azure SDK](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-To learn how to configure managed identities for Azure App Service and Azure Functions, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+To learn more how to configure managed identities for Azure App Service and Azure Functions, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
 
 ## Add role assignments in the Azure portal
 
