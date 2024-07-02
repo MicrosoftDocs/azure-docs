@@ -27,7 +27,7 @@ Automatic VM guest patching has the following characteristics:
 
 ## How does automatic VM guest patching work?
 
-If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as configured. Please note, the rebootSetting parameter on the VM Model takes precedence over settings in another system, such as [Maintenance Configuration](https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations#guest). 
+If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as configured. The rebootSetting parameter on the VM Model takes precedence over settings in another system, such as [Maintenance Configuration](https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations#guest). 
 
 The VM is assessed periodically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
@@ -35,11 +35,11 @@ Patches are installed within 30 days of the monthly patch releases, following av
 
 Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
-Enabling Automatic Guest Patching on single-instance VMs or VM Scale Set Flexible allows the Azure platform to update your fleet in phases. This follows Azure's [Safe Deployment Practices](https://azure.microsoft.com/en-us/blog/advancing-safe-deployment-practices/) and reduces the impact radius if any issues are identified with the latest update. [Health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) is recommended for single instance VMs and required for Flexible Scale Sets to detect issues any issues with the update.
+Enabling Automatic Guest Patching on single-instance VMs or VM Scale Set Flexible allows the Azure platform to update your fleet in phases. Phased deployment follows Azure's [Safe Deployment Practices](https://azure.microsoft.com/en-us/blog/advancing-safe-deployment-practices/) and reduces the impact radius if any issues are identified with the latest update. [Health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) is recommended for single instance VMs and required for Flexible Scale Sets to detect issues any issues with the update.
 
 ### Availability-first Updates
 
-The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure.
+Azure orchestrates the patch installation process across all public and private clouds for VMs that have enabled Automatic Guest Patching. The orchestration follows availability-first principles across different levels of availability provided by Azure.
 
 For a group of virtual machines undergoing an update, the Azure platform will orchestrate updates:
 
@@ -62,7 +62,7 @@ Narrowing the scope of VMs that are patched across regions, within a region, or 
 The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch between monthly patching cycles.
 
 ### Which patches are installed?
-The patches installed depend on the rollout stage for the VM. Every month, a new global rollout is started where all security and critical patches assessed for an individual VM are installed for that VM. The rollout is orchestrated across all Azure regions in batches (described in the availability-first patching section above).
+The patches installed depend on the rollout stage for the VM. Every month, a new global rollout is started where all security and critical patches assessed for an individual VM are installed for that VM. The rollout is orchestrated across all Azure regions in batches.
 
 The exact set of patches to be installed vary based on the VM configuration, including OS type, and assessment timing. It's possible for two identical VMs in different regions to get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
 
@@ -273,7 +273,7 @@ When automatic VM guest patching is enabled for a VM, a VM extension of type `Mi
 
 It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. The extension is also installed and updated during off-peak hours for the VM. If the VM's off-peak hours end before enablement can be completed, the enablement process will resume during the next available off-peak time.
 
-Please note that the platform will make periodic patching configuration calls to ensure alignment when model changes are detected on IaaS VMs or VMSS Flexible orchestration. Certain model changes such as, but not limited to, updating assessment mode, patch mode, and extension update may trigger a patching configuration call.
+The platform will make periodic patching configuration calls to ensure alignment when model changes are detected on IaaS VMs or VMSS Flexible orchestration. Certain model changes such as, but not limited to, updating assessment mode, patch mode, and extension update may trigger a patching configuration call.
 
 Automatic updates are disabled in most scenarios, and patch installation is done through the extension going forward. The following conditions apply.
 - If a Windows VM previously had Automatic Windows Update turned on through the AutomaticByOS patch mode, then Automatic Windows Update is turned off for the VM when the extension is installed.
