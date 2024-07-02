@@ -24,9 +24,9 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | Compute capacity loss, resource pressure                    |
 | Windows, Linux      | [Kill Process](#kill-process)                                               | Dependency disruption                                       |
 | Windows             | [Pause Process](#pause-process)                                             | Dependency disruption, service disruption                   |
-| Windows (TCP/UDP only), Linux (outbound only)      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
-| Windows (TCP/UDP only), Linux (outbound only)      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
-| Windows (TCP/UDP only), Linux (outbound only)      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
 | Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
 | Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
@@ -37,6 +37,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
 | Windows             | [DiskIO Pressure](#disk-io-pressure)                                        | Disk I/O performance degradation                            |
 
+<sup>1</sup> TCP/UDP packets only. <sup>2</sup> Outbound network traffic only.
 
 ## App Service
 
