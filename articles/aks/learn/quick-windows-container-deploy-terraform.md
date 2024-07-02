@@ -42,16 +42,16 @@ In this quickstart, you create an Azure Kubernetes cluster with a Windows node p
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-aks-cluster-windows/outputs.tf":::
 
 ## Initialize Terraform
 
