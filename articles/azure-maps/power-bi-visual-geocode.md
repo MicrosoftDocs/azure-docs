@@ -43,7 +43,7 @@ To ensure fields are correctly geocoded, you can set the Data Category on the da
 :::image type="content" source="media/power-bi-visual/data-category.png" alt-text="A screenshot showing the data category drop-down list in Power BI desktop.":::
 
 > [!NOTE]
-> When categorizing geographic fields in Power BI, ensure to enter **State** and **County** data separately for accurate geocoding. Incorrect categorization, such as entering both **State** and **County** data into either category, may work currently but could lead to issues in the future.
+> When categorizing geographic fields in Power BI, be sure to enter **State** and **County** data separately for accurate geocoding. Incorrect categorization, such as entering both **State** and **County** data into either category, might work currently but can lead to issues in the future.
 >
 > For instance:
 > - Correct Usage: State = GA, County = Decatur County
