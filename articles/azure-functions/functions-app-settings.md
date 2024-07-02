@@ -624,6 +624,9 @@ Azure Files doesn't support using managed identity when accessing the file share
 > [!IMPORTANT]
 > WEBSITE_CONTENTOVERVNET is a legacy app setting that has been replaced by the [vnetContentShareEnabled](#vnetcontentshareenabled) site property.
 
+> [!IMPORTANT]
+> If multiple Function Apps in the same App Service Plan use the same Azure Files account with the same credentials, they should also all use the same value for WEBSITE_CONTENTOVERVNET to ensure that traffic is consistently routed through the intended network. A mismatch in settings may result in traffic being routed through public networks, resulting in access being blocked by storage account network rules.
+
 A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. Only required when using `WEBSITE_CONTENTSHARE` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
@@ -831,6 +834,9 @@ Sets the specific version of PowerShell on which your functions run. For more in
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
 ### vnetContentShareEnabled
+
+> [!IMPORTANT]
+> If multiple Function Apps in the same App Service Plan use the same Azure Files account with the same credentials, they should also all use the same value for vnetContentShareEnabled to ensure that traffic is consistently routed through the intended network. A mismatch in settings may result in traffic being routed through public networks, resulting in access being blocked by storage account network rules.
 
 Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
 
