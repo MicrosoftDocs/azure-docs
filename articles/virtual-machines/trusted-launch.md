@@ -20,8 +20,8 @@ Azure offers Trusted Launch as a seamless way to improve the security of [Genera
 > [!IMPORTANT]
 >
 > - Trusted Launch is selected as the default state for newly created Azure VMs. If your new VM requires features that aren't supported by Trusted Launch, see the [Trusted Launch FAQs](trusted-launch-faq.md).
-> - Existing [VMs](overview.md) can have Trusted Launch enabled after being created. For more information, see [Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md).
-> - Existing [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) can have Trusted Launch enabled after being created. For more information, see [Enable Trusted Launch on existing scale sets](trusted-launch-existing-vmss.md).
+> - Existing [virtual machines (VMs)](overview.md) can have Trusted Launch enabled after being created. For more information, see [Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md).
+> - Existing [virtual machine scale sets (VMSS)](../virtual-machine-scale-sets/overview.md) can have Trusted Launch enabled after being created. For more information, see [Enable Trusted Launch on existing scale sets](trusted-launch-existing-vmss.md).
 
 ## Benefits
 
@@ -42,6 +42,7 @@ Azure offers Trusted Launch as a seamless way to improve the security of [Genera
 | [High Performance Compute](sizes-hpc.md) |[HB-series](hb-series.md), [HBv2-series](hbv2-series.md), [HBv3-series](hbv3-series.md), [HBv4-series](hbv4-series.md), [HC-series](hc-series.md), [HX-series](hx-series.md) | All sizes supported. | 
 
 > [!NOTE]
+>
 > - Installation of the *CUDA & GRID drivers on Secure Boot-enabled Windows VMs* doesn't require any extra steps.
 > - Installation of the *CUDA driver on Secure Boot-enabled Ubuntu VMs* requires extra steps. For more information, see [Install NVIDIA GPU drivers on N-series VMs running Linux](./linux/n-series-driver-setup.md#install-cuda-drivers-on-n-series-vms). Secure Boot should be disabled for installing CUDA drivers on other Linux VMs.
 > - Installation of the *GRID driver* requires Secure Boot to be disabled for Linux VMs.
