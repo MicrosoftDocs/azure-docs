@@ -148,7 +148,7 @@ To route content share traffic through the virtual network integration, you must
 
 In addition to configuring the routing, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
-#### Container image pulls
+#### Container image pull
 
 When using custom containers, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must ensure that the routing setting is configured. Learn [how to configure image pull routing](./configure-vnet-integration-routing.md#container-image-pull).
 
