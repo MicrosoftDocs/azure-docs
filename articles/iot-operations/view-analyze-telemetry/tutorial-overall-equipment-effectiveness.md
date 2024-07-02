@@ -75,11 +75,11 @@ To calculate OEE for Contoso, you need data from three data sources: production 
 
 ### Production line assets
 
-_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ Preview.
+_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to the MQTT broker.
 
 In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/oee/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
-The following snippet shows an example of the measurements the simulator sends to MQ:
+The following snippet shows an example of the measurements the simulator sends to the MQTT broker:
 
 ```json
 [
@@ -241,9 +241,9 @@ To make the production data available to the enrichment stage in the process pip
 
 To create the _production-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
+1. Browse to the [operations experience](https://iotoperations.azure.com) web UI in your browser and sign in with your Microsoft Entra ID credentials.
 
-1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
+1. Select **Get started** and go to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 
 1. Select your instance and then select **Data pipelines**. Here, you can author the Data Processor pipelines, create the reference data sets, and deploy them to your Azure Arc-enabled Kubernetes cluster.
 
@@ -262,7 +262,7 @@ To create the _production-data_ dataset:
 
 To create the _production-data-reference_ pipeline that ingests the data from the HTTP endpoint and then saves it in the _production-data_ dataset:
 
-1. Navigate back to **Data pipelines** and select **Create pipeline**.
+1. Go back to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename it to _production-data-reference_, and **Apply** the change.
 
@@ -300,7 +300,7 @@ To make the operations data available to the enrichment stage in the process pip
 
 To create the _operations-data_ dataset:
 
-1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, make sure you're still on the **Data pipelines** page.
+1. In the [operations experience](https://iotoperations.azure.com) web UI, make sure you're still on the **Data pipelines** page.
 
 1. Select **Reference datasets**. Then select **Create reference dataset**.
 
@@ -317,7 +317,7 @@ To create the _operations-data_ dataset:
 
 To create the _operations-data-reference_ pipeline that ingests the data from the HTTP endpoint and then saves it in the _operations-data_ dataset:
 
-1. Navigate back to **Data pipelines** and select **Create pipeline**.
+1. Go back to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename it to _operations-data-reference_, and **Apply** the change.
 
@@ -358,7 +358,7 @@ Now you can build the process pipeline that:
 
 To create the _oee-process-pipeline_ pipeline:
 
-1. Navigate back to **Data pipelines** and select **Create pipeline**.
+1. Go back to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename it to _oee-process-pipeline_, and **Apply** the change.
 
@@ -371,7 +371,7 @@ To create the _oee-process-pipeline_ pipeline:
     | Topic           | `Contoso/#`                        |
     | Data format     | `JSON`                             |
 
-    Select **Apply**. The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `Contoso` topic in the MQ broker.
+    Select **Apply**. The simulated production line assets send measurements to the MQTT broker in the cluster. This input stage configuration subscribes to all the topics under the `Contoso` topic in the MQTT broker.
 
 1. Use the **Stages** list on the left to add a **Transform** stage after the source stage. Name the stage _Transform - flatten message_ and add the following JQ expressions. This transform creates a flat, readable view of the message and extracts the `Line` and `Site` information from the topic:
 
@@ -565,7 +565,7 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. Review your pipeline diagram to make sure all the stages are present and connected. It should look like the following:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations (preview) portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the operations experience web UI." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
 
 1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
 
@@ -619,7 +619,7 @@ Next, you can send your transformed and enriched measurement data to Microsoft F
 
 The next step is to create a Data Processor pipeline that sends the transformed and enriched measurement data to your Microsoft Fabric lakehouse.
 
-1. Back in the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
+1. Back in the [operations experience](https://iotoperations.azure.com) web UI, go to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename it to _oee-fabric_, and **Apply** the change.
 
@@ -757,7 +757,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
     }
     ```
 
-1. Then navigate to the **Basic** tag and fill in the following fields by using the information you made a note of previously:
+1. Then go to the **Basic** tag and fill in the following fields by using the information you made a note of previously:
 
     | Field | Value |
     |-------|-------|
@@ -773,7 +773,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 ## View your measurement data in Microsoft Fabric
 
-In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-bi), navigate to your lakehouse and select the _OEE_ table. After a few minutes of receiving data from the pipeline, it looks like the following example:
+In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-bi), go to your lakehouse and select the _OEE_ table. After a few minutes of receiving data from the pipeline, it looks like the following example:
 
 :::image type="content" source="media/tutorial-overall-equipment-effectiveness/lakehouse-oee-table.png" alt-text="Screenshot that shows the OEE table in Microsoft Fabric lakehouse." lightbox="media/tutorial-overall-equipment-effectiveness/lakehouse-oee-table.png":::
 
@@ -867,7 +867,7 @@ To share your dashboard with your coworkers, select **Publish** in the top nav
 ## Related content
 
 - [Tutorial: Detect anomalies in real time](tutorial-anomaly-detection.md)
-- [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Tutorial: Configure MQTT bridge between the MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../create-edge-apps/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

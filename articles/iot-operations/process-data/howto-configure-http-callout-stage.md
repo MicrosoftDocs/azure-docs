@@ -1,6 +1,6 @@
 ---
 title: Call an HTTP endpoint from a pipeline
-description: Configure an HTTP call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic using Azure IoT Data Processor.
+description: Configure an HTTP call out pipeline stage to make an HTTP request from a pipeline to incorporate custom processing logic using the data processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to call an HTTP endpoint from within a pipeline stage so that I can incorporate custom processing logic.
 ---
 
-# Call out to an HTTP endpoint from an Azure IoT Data Processor Preview pipeline
+# Call out to an HTTP endpoint from a data processor pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -25,8 +25,8 @@ Use the _HTTP call out_ stage to call an external HTTP endpoint with an optional
 
 To configure and use an aggregate pipeline stage, you need a:
 
-- Deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
-- An HTTP server that's accessible from the Data Processor instance.
+- Deployed instance of the data processor that includes the optional data processor component.
+- An HTTP server that's accessible from the data processor instance.
 
 ## Configure an HTTP call out stage
 
@@ -34,7 +34,7 @@ The HTTP call out stage JSON configuration defines the details of the stage. To 
 
 | Name | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Name  | string | A name to show in the Data Processor UI.  | Yes | -  | `MLCall1` |
+| Name  | string | A name to show in the data processor UI.  | Yes | -  | `MLCall1` |
 | Description | string | A user-friendly description of what the call out stage does.  | No |   | `Call ML endpoint 1` |
 | Method | string enum | The HTTP method.  | No | `POST` | `GET` |
 | URL | string | The HTTP URL. | Yes | - | `http://localhost:8080` |

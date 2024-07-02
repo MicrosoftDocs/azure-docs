@@ -1,6 +1,6 @@
 ---
-title: Data Processor jq usage
-description: Overview of how the Azure IoT Data Processor uses jq expressions and paths to configure pipeline stages.
+title: Data processor jq usage
+description: Overview of how the data processor uses jq expressions and paths to configure pipeline stages.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,11 +12,11 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand how pipelines use jq expressions so that I can configure pipeline stages.
 ---
 
-# What is jq in Azure IoT Data Processor Preview pipelines?
+# What is jq in data processor pipelines?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[jq](https://jqlang.github.io/jq/) is an open-source JSON processor that you can use restructure and format structured payloads in Azure IoT Data Processor Preview) pipelines:
+[jq](https://jqlang.github.io/jq/) is an open-source JSON processor that you can use restructure and format structured payloads in the data processor) pipelines:
 
 - The [filter](howto-configure-filter-stage.md) pipeline stage uses jq to enable flexible filter queries.
 - The [transform](howto-configure-transform-stage.md) pipeline stage uses jq to enable data transformation.
@@ -31,7 +31,7 @@ The jq you provide in these stages must be:
 
 ## How to use jq
 
-There are two ways that you use the jq language in Data Processor pipeline stages:
+There are two ways that you use the jq language in the data processor pipeline stages:
 
 - [Expressions](concept-jq-expression.md) that use the full power of the jq language, including the ability to perform arbitrary manipulations and computations with your data. Expressions appear in pipeline stages such as filter and transform and are referred to as _expressions_ where they're used.
 - [Paths](concept-jq-path.md) identify a single location in a message. Paths use a small subset of the jq language. You use paths to retrieve information from messages and to place computed information back into the message for processing later in a pipeline.
@@ -39,7 +39,7 @@ There are two ways that you use the jq language in Data Processor pipeline stage
 > [!TIP]
 > This guide doesn't provide a complete picture of the features of jq. For the full language reference, see the [jq manual](https://jqlang.github.io/jq/manual/).
 
-For performance reasons, Data Processor blocks the use of the following jq functions:
+For performance reasons, the data processor blocks the use of the following jq functions:
 
 - `Modulemeta`
 - `Range`

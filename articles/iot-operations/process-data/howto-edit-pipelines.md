@@ -1,6 +1,6 @@
 ---
 title: Edit and manage pipelines
-description: Use the advanced features in the Azure IoT Operations portal to edit Azure IoT Data Processor pipelines and import and export pipelines.
+description: Use the advanced features in the operations experience web UI to edit data processor pipelines and import and export pipelines.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,21 +12,21 @@ ms.date: 10/17/2023
 #CustomerIntent: As an OT user, I want edit and manage my pipelines so that I have greater flexibility in advanced editing capabilities.
 ---
 
-# Edit and manage Azure IoT Data Processor Preview pipelines
+# Edit and manage data processor pipelines
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Azure IoT Operations (preview) portal provides a graphical user interface (GUI) for editing pipelines. To edit the JSON definition of a stage directly, you can use the **Advanced** tab. This feature gives you more flexibility and control over the pipeline configuration, especially if you need to manage complex configurations that might not be fully supported by the GUI such as for the [filter stage](howto-configure-filter-stage.md).
+The operations experience web UI provides a graphical user interface (GUI) for editing pipelines. To edit the JSON definition of a stage directly, you can use the **Advanced** tab. This feature gives you more flexibility and control over the pipeline configuration, especially if you need to manage complex configurations that might not be fully supported by the GUI such as for the [filter stage](howto-configure-filter-stage.md).
 
-The portal also lets you import and export complete pipelines as JSON files.
+The operations experience also lets you import and export complete pipelines as JSON files.
 
 ## Prerequisites
 
-To configure and use a data processor pipeline, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
+To configure and use a data processor pipeline, you need a deployed instance of the data processor that includes the optional data processor component.
 
-If Data Processor isn't installed, you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
+If the data processor isn't installed, you see the following message when you try to access the **Pipelines** tab in the operations experience:
 
-_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the Data Processor._
+_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the data processor._
 
 ## Edit the JSON definition of a stage
 
@@ -42,7 +42,7 @@ When you use the **Advanced** tab, it’s important to understand the underlying
 
 ## Import and export pipelines
 
-You can import and export pipelines as JSON files. This feature lets you share pipelines between different instances of Data Processor:
+You can import and export pipelines as JSON files. This feature lets you share pipelines between different instances of the data processor:
 
 :::image type="content" source="media/pipeline-import-export.png" alt-text="A screenshot that shows the location of the import and export options in the pipeline editor.":::
 
@@ -54,7 +54,7 @@ To pause or restart a pipeline, open the pipeline, select **Edit** and use **Pip
 
 ## Manage pipelines in your cluster
 
-To create, delete or copy pipelines, use the **Pipelines** tab in the Azure IoT Operations (preview) portal:
+To create, delete or copy pipelines, use the **Pipelines** tab in the operations experience:
 
 :::image type="content" source="media/pipelines-manage.png" alt-text="A screenshot that shows the options in the pipelines list.":::
 

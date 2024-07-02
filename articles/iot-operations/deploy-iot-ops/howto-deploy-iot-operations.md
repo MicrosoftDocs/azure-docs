@@ -121,7 +121,7 @@ It can take several minutes for the deployment to complete. Rerun the `get pods`
 
 To view your cluster on the Azure portal, use the following steps:
 
-1. In the Azure portal, navigate to the resource group that contains your cluster.
+1. In the Azure portal, go to the resource group that contains your cluster.
 
 1. From the **Overview** of the resource group, select the name of your cluster.
 

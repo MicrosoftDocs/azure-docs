@@ -1,6 +1,6 @@
 ---
 title: Send data to a gRPC endpoint from a pipeline
-description: Configure a pipeline destination stage to send the pipeline output to a gRPC endpoint for further processing with Azure IoT Data Processor.
+description: Configure a pipeline destination stage to send the pipeline output to a gRPC endpoint for further processing with the data processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,7 +12,7 @@ ms.date: 10/09/2023
 #CustomerIntent: As an operator, I want to send data from a pipeline to a gRPC endpoint so that I can run custom processing on the output from the pipeline.
 ---
 
-# Send data to a gRPC endpoint with Azure IoT Data Processor Preview
+# Send data to a gRPC endpoint with the data processor
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -28,8 +28,8 @@ When you send data to a gRPC endpoint from a destination stage:
 
 To configure and use a destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
-- A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
+- A deployed instance of the data processor that includes the optional data processor component.
+- A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the data processor instance.
 - The `protoc` tool to generate the descriptor.
 
 ## Configure the destination stage
@@ -38,7 +38,7 @@ The gRPC destination stage JSON configuration defines the details of the stage. 
 
 | Name | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Name  | string | A name to show in the Data Processor UI.  | Yes | -  | `MLCall2` |
+| Name  | string | A name to show in the data processor UI.  | Yes | -  | `MLCall2` |
 | Description | string | A user-friendly description of the destination stage.  | No |   | `Call ML endpoint 2` |
 | Server address | String | The gRPC server address | Yes | - | `https://localhost:1313` |
 | RPC name | string | The RPC name to call| Yes | - | `GetInsights` |
@@ -47,7 +47,7 @@ The gRPC destination stage JSON configuration defines the details of the stage. 
 | Metadata key   | string | The metadata key to use when `Authentication` is set to `Metadata`. | No | `authorization` | `authorization` |
 | Secret | string | The [secret reference](../deploy-iot-ops/howto-manage-secrets.md) to use when `Authentication` is set to `Metadata`. | No | - | `mysecret` |
 | Retry | [Retry](concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
-| API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the Data Processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
+| API request&nbsp;>&nbsp;Body path | [Path](concept-configuration-patterns.md#path) | The path to the portion of the data processor message that should be serialized and set as the request body. Leave empty if you don't need to send a request body. | No | - | `.payload.gRPCRequest` |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Key<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata key to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 | API request&nbsp;>&nbsp;Metadata&nbsp;>&nbsp;Value<sup>2</sup> | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) | The metadata value to set in the request. | No |  | [Static/Dynamic field](concept-configuration-patterns.md#static-and-dynamic-fields) |
 

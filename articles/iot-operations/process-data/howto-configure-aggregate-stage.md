@@ -1,6 +1,6 @@
 ---
 title: Aggregate data in a pipeline
-description: Configure an aggregate pipeline stage to aggregate data in an Azure IoT Data Processor pipeline to enable batching and down-sampling scenarios.
+description: Configure an aggregate pipeline stage to aggregate data in a data processor pipeline to enable batching and down-sampling scenarios.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to aggregate data in a pipeline so that I can down-sample or batch messages.
 ---
 
-# Aggregate data in an Azure IoT Data Processor Preview pipeline
+# Aggregate data in a data processor pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -27,7 +27,7 @@ Use an aggregate stage to accumulate messages over a defined [window](#windows) 
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
+To configure and use an aggregate pipeline stage, you need a deployed instance of the data processor that includes the optional data processor component.
 
 ## Configure the stage
 
@@ -35,7 +35,7 @@ The aggregate stage JSON configuration defines the details of the stage. To auth
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Name  | String|  A name to show in the Data Processor UI.  | Yes | -  | `Calculate Aggregate`  |
+| Name  | String|  A name to show in the data processor UI.  | Yes | -  | `Calculate Aggregate`  |
 | Description | String |  A user-friendly description of what the aggregate stage does. |  No |  | `Aggregation over temperature`  |
 | [Time window](#windows) | [Duration](concept-configuration-patterns.md#duration) that specifies the period over which the aggregation runs.  | Yes | - | `10s` |
 | Properties&nbsp;>&nbsp;Function  | Enum | The aggregate [function](#functions) to use. | Yes | - | `Sum` |

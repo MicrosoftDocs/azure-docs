@@ -12,17 +12,17 @@ ms.date: 01/10/2024
 #CustomerIntent: As an operator, I want to send data from a pipeline to Azure Data Explorer so that I can store and analyze my data in the cloud.
 ---
 
-# Send data to Azure Data Explorer from an Azure IoT Data Processor Preview pipeline
+# Send data to Azure Data Explorer from a data processor pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
+Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from a [data processor pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
 
 ## Prerequisites
 
 To configure and use an Azure Data Explorer destination pipeline stage, you need:
 
-- A deployed instance of Data Processor.
+- A deployed instance of the data processor.
 - An [Azure Data Explorer cluster](/azure/data-explorer/create-cluster-and-database?tabs=free#create-a-cluster).
 - A [database](/azure/data-explorer/create-cluster-and-database?tabs=free#create-a-database) in your Azure Data Explorer cluster.
 
@@ -56,7 +56,7 @@ For the destination stage to connect to Azure Data Explorer, it needs access to 
 
 [!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
 
-To add the managed identity to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of in the previous step:
+To add the managed identity to the database, go to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of in the previous step:
 
 ```kusto
 .add database ['<your-database-name>'] admins ('aadapp=<your-app-ID>;<your-tenant-ID>');
@@ -66,7 +66,7 @@ To add the managed identity to the database, navigate to the Azure Data Explorer
 
 ### Batching
 
-Data Processor writes to Azure Data Explorer in batches. While you batch data in data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after Data Processor writes it to the Azure Data Explorer destination.
+The data processor writes to Azure Data Explorer in batches. While you batch data in the data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after the data processor writes it to the Azure Data Explorer destination.
 
 To view data in Azure Data Explorer as soon as the pipeline sends it, you can set the ingestion batching policy count to `1`. To edit the ingestion batching policy, run the following command in your database query tab:
 
@@ -87,7 +87,7 @@ The Azure Data Explorer destination stage JSON configuration defines the details
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `Azure IoT MQ output` |
+| Display name  | String | A name to show in the data processor UI.  | Yes | -  | `MQTT broker output` |
 | Description | String |  A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
 | Cluster URL | String | The URI (This value isn't the data ingestion URI). | Yes | - | |
 | Database | String | The database name.  | Yes | - | |

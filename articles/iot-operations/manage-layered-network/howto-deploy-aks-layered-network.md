@@ -179,7 +179,7 @@ In level 3, you create a K3S Kubernetes cluster on a Linux virtual machine. To s
     curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
     ```
 1. Configure network isolation for level 3. Use the following steps to configure the level 3 cluster to only send traffic to Layered Network Management in level 4.
-    - Navigate to the **network security group** of the VM's network interface.
+    - Browse to the **network security group** of the VM's network interface.
     - Add an additional outbound security rule to **deny all outbound traffic** from the level 3 virtual machine.
     - Add another outbound rule with the highest priority to **allow outbound to the IP of level 4 AKS cluster on ports 443 and 8084**.
 

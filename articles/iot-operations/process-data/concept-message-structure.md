@@ -1,6 +1,6 @@
 ---
-title: Data Processor message structure overview
-description: Understand the message structure used internally by Azure IoT Data Processor to represent messages as they move between pipeline stages.
+title: Data processor message structure overview
+description: Understand the message structure used internally by the data processor to represent messages as they move between pipeline stages.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -9,16 +9,16 @@ ms.custom:
   - ignite-2023
 ms.date: 09/07/2023
 
-#CustomerIntent: As an operator, I want understand how internal messages in Data Processor are structured so that I can configure pipelines and pipeline stages to process my telemetry.
+#CustomerIntent: As an operator, I want understand how internal messages in the data processor are structured so that I can configure pipelines and pipeline stages to process my telemetry.
 ---
 
-# Message structure in Azure IoT Data Processor Preview pipelines
+# Message structure in data processor pipelines
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Azure IoT Data Processor Preview processes incoming messages by passing them through a series of pipeline stages. Each stage in the pipeline can transform the message before passing it to the next stage. This article describes the structure used to represent the messages as they move through the pipeline. Understanding the message structure is important when you configure pipeline stages to process your telemetry messages.
+The data processor processes incoming messages by passing them through a series of pipeline stages. Each stage in the pipeline can transform the message before passing it to the next stage. This article describes the structure used to represent the messages as they move through the pipeline. Understanding the message structure is important when you configure pipeline stages to process your telemetry messages.
 
-The following example shows the JSON representation of a message that was read from Azure IoT MQ Preview by a pipeline:
+The following example shows the JSON representation of a message that was read from the MQTT broker by a pipeline:
 
 ```json
 {
@@ -76,7 +76,7 @@ The following example shows the JSON representation of a message that was read f
 
 ## Data types
 
-Data Processor messages support the following data types:
+Data processor messages support the following data types:
 
 - Map
 - Array

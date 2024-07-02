@@ -35,7 +35,7 @@ az provider register -n "Microsoft.AlertsManagement"
 ## Install observability components
 The steps in this section install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights. 
 
-1. In your console, navigate to a local folder where you want to clone the Azure IoT Operations repo: 
+1. In your console, go to the local folder where you want to clone the Azure IoT Operations repo: 
     > [!NOTE]
     > The repo contains the deployment definition of Azure IoT Operations, and samples that include the sample dashboards used in this article.
 
@@ -45,7 +45,7 @@ The steps in this section install shared monitoring resources and configure your
     git clone https://github.com/Azure/azure-iot-operations.git
     ```
 
-1. Navigate to the following path in your local copy of the repo:
+1. Browse to the following path in your local copy of the repo:
 
     *azure-iot-operations\tools\setup-3p-obs-infra*
 
@@ -81,7 +81,7 @@ The steps in this section install shared monitoring resources and configure your
 
     To set up permissions manually, [add a role assignment](../../managed-grafana/how-to-share-grafana-workspace.md#add-a-grafana-role-assignment) to the Grafana instance for any users who should have access. Assign one of the Grafana roles (Grafana Admin, Grafana Editor, Grafana Viewer) depending on the level of access desired.
 
-If the deployment succeeds, a few pieces of information are printed at the end of the command output. The information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to navigate to the Grafana instance that you configure in [Deploy dashboards to Grafana](#deploy-dashboards-to-grafana). The two resource IDs enable you to configure other Arc enabled clusters by following the steps in [Add an Arc-enabled cluster to existing observability infrastructure](howto-add-cluster.md).
+If the deployment succeeds, a few pieces of information are printed at the end of the command output. The information includes the Grafana URL and the resource IDs for both the Log Analytics and Azure Monitor resources that were created. The Grafana URL allows you to go to the Grafana instance that you configure in [Deploy dashboards to Grafana](#deploy-dashboards-to-grafana). The two resource IDs enable you to configure other Arc enabled clusters by following the steps in [Add an Arc-enabled cluster to existing observability infrastructure](howto-add-cluster.md).
 
 ## Configure Prometheus metrics collection
 1. Copy and paste the following configuration to a new file named *ama-metrics-prometheus-config.yaml*, and save the file:

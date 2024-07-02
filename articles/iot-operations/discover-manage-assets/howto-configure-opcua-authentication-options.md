@@ -1,6 +1,6 @@
 ---
 title: Configure OPC UA user authentication options
-description: How to configure OPC UA Broker user authentication options for it to use when it connects to an OPC UA server.
+description: How to configure connector for OPC UA user authentication options for it to use when it connects to an OPC UA server.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
@@ -11,11 +11,11 @@ ms.date: 05/16/2024
 # CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment with custom OPC UA user authentication options to keep it secure and work with my solution.
 ---
 
-# Configure OPC UA user authentication options for Azure IoT OPC UA Broker Preview to use
+# Configure OPC UA user authentication options for the connector for OPC UA
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to configure OPC UA user authentication options. These options provide more control over how OPC UA Broker Preview authenticates with OPC UA servers in your environment.
+In this article, you learn how to configure OPC UA user authentication options. These options provide more control over how the connector for OPC UA authenticates with OPC UA servers in your environment.
 
 To learn more, see [OPC UA applications - user authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/5.2.3).
 
@@ -34,7 +34,7 @@ A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operati
 
 First, configure the secrets for the username and password in Azure Key Vault and project them into the connected cluster by using a `SecretProviderClass` object.
 
-1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the asset endpoint configuration in the Azure IoT Operations (preview) portal.
+1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the asset endpoint configuration in the operations experience web UI.
 
     Replace the placeholders for username and password with the credentials used to connect to the OPC UA server.
 
@@ -87,4 +87,4 @@ First, configure the secrets for the username and password in Azure Key Vault an
     > [!NOTE]
     > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
-In the Azure IoT Operations (preview) portal, select the **Username & password** option when you configure the Asset endpoint. Enter the names of the references that store the username and password values. In this example, the names of the references are `username` and `password`.
+In the operations experience, select the **Username & password** option when you configure the Asset endpoint. Enter the names of the references that store the username and password values. In this example, the names of the references are `username` and `password`.
