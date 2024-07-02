@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 family of language models with Azure AI studio
+title: How to use Phi-3 (vision) family of language models with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Phi-3 family of small language models with Azure AI Studio.
+description: Learn how to use Phi-3 (vision) family of small language models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/02/2024
@@ -39,15 +39,15 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
-  * Python 3.8 or later installed, including pip.
-  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+    * Python 3.8 or later installed, including pip.
+    * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+    * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+  
+      To install the Azure AI Inferencing package use the following command:
 
-    To install the Azure AI Inferencing package use the following command:
-
-    ```bash
-    pip install azure-ai-inference
-    ```
+      ```bash
+      pip install azure-ai-inference
+      ```
 
 
 

@@ -17,20 +17,59 @@ zone_pivot_groups: azure-ai-model-catalog-samples
 
 In this guide, you will learn about Cohere Command models and how to use them with Azure AI studio.
 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
-
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
-* **Context length:** Command R and Command R+ support a context length of 128K.
-* **Input:** Models input text only.
-* **Output:** Models generate text only.
+The Cohere family of models includes a variety of models optimized for different use cases, including chat completions and embeddings. Cohere models are optimized for a variety of use cases including reasoning, summarization, and question answering.
 
 
 
 
 
 ::: zone pivot="programming-language-python"
+
+## Cohere Command family of models
+
+The Cohere Command family of models includes the following models:
+
+
+
+# [Cohere Command R+](#tab/cohere-command-r-plus)
+
+Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+
+We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+
+
+The following models are available:
+
+- Cohere-command-r-plus
+
+
+
+# [Cohere Command R](#tab/cohere-command-r)
+
+Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+
+Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
+
+
+The following models are available:
+
+- Cohere-command-r
+
+
+
+---
+
+
 
 ## Prerequisites
 
@@ -95,7 +134,7 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "Cohere-command-r",
+    "model_name": "Cohere-command-r-plus",
     "model_type": "chat-completions",
     "model_provider_name": "Cohere"
 }
@@ -274,7 +313,7 @@ def get_flight_info(loc_origin: str, loc_destination: str):
 ```
 
 > [!NOTE]
-> Cohere-command-r and Cohere-command-r-plus require tool content to be a key value pair JSON string.
+> Cohere-command-r-plus and Cohere-command-r require tool content to be a key value pair JSON string.
 
 
 
@@ -415,6 +454,52 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
+## Cohere Command family of models
+
+The Cohere Command family of models includes the following models:
+
+
+
+# [Cohere Command R+](#tab/cohere-command-r-plus)
+
+Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+
+We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+
+
+The following models are available:
+
+- Cohere-command-r-plus
+
+
+
+# [Cohere Command R](#tab/cohere-command-r)
+
+Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+
+Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
+
+
+The following models are available:
+
+- Cohere-command-r
+
+
+
+---
+
+
+
 ## Prerequisites
 
 To use Cohere Command models with Azure AI studio, you need the following prerequisites:
@@ -478,7 +563,7 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "Cohere-command-r",
+    "model_name": "Cohere-command-r-plus",
     "model_type": "chat-completions",
     "model_provider_name": "Cohere"
 }
@@ -680,7 +765,7 @@ function get_flight_info(loc_origin, loc_destination) {
 ```
 
 > [!NOTE]
-> Cohere-command-r and Cohere-command-r-plus require tool content to be a key value pair JSON string.
+> Cohere-command-r-plus and Cohere-command-r require tool content to be a key value pair JSON string.
 
 
 
@@ -813,6 +898,52 @@ catch (error) {
 
 ::: zone pivot="programming-language-rest"
 
+## Cohere Command family of models
+
+The Cohere Command family of models includes the following models:
+
+
+
+# [Cohere Command R+](#tab/cohere-command-r-plus)
+
+Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+
+We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+
+
+The following models are available:
+
+- Cohere-command-r-plus
+
+
+
+# [Cohere Command R](#tab/cohere-command-r)
+
+Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+
+Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
+
+
+The following models are available:
+
+- Cohere-command-r
+
+
+
+---
+
+
+
 ## Prerequisites
 
 To use Cohere Command models with Azure AI studio, you need the following prerequisites:
@@ -855,7 +986,7 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "Cohere-command-r",
+    "model_name": "Cohere-command-r-plus",
     "model_type": "chat-completions",
     "model_provider_name": "Cohere"
 }
@@ -889,7 +1020,7 @@ The response looks as follows, where you can see the model's usage statistics.
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Cohere-command-r",
+    "model": "Cohere-command-r-plus",
     "choices": [
         {
             "index": 0,
@@ -946,7 +1077,7 @@ Responses look as follows when using streaming:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Cohere-command-r",
+    "model": "Cohere-command-r-plus",
     "choices": [
         {
             "index": 0,
@@ -970,7 +1101,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Cohere-command-r",
+    "model": "Cohere-command-r-plus",
     "choices": [
         {
             "index": 0,
@@ -1043,7 +1174,7 @@ Cohere Command chat models can create JSON outputs. Setting `response_format` to
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718727522,
-    "model": "Cohere-command-r",
+    "model": "Cohere-command-r-plus",
     "choices": [
         {
             "index": 0,
@@ -1126,7 +1257,7 @@ In this simple example, we will implement this function in a simple way by just 
 
 
 > [!NOTE]
-> Cohere-command-r and Cohere-command-r-plus require tool content to be a key value pair JSON string.
+> Cohere-command-r-plus and Cohere-command-r require tool content to be a key value pair JSON string.
 
 
 
@@ -1185,7 +1316,7 @@ You can find out if a tool needs to be called by inspecting the response. When a
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726007,
-    "model": "Cohere-command-r",
+    "model": "Cohere-command-r-plus",
     "choices": [
         {
             "index": 0,

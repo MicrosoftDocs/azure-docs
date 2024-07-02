@@ -30,7 +30,7 @@ The Mistral family of models includes the following models:
 
 
 
-# [Mistral-7B-Instruct](#tab/Mistral-7B-Instruct)
+# [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
 The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
@@ -46,7 +46,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x7B-Instruct](#tab/Mixtral-8x7B-Instruct)
+# [Mixtral-8x7B-Instruct](#tab/mistral-7b-instruct)
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
@@ -59,7 +59,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x22B-Instruct](#tab/Mixtral-8x22B-Instruct)
+# [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
 The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 
@@ -315,7 +315,7 @@ The Mistral family of models includes the following models:
 
 
 
-# [Mistral-7B-Instruct](#tab/Mistral-7B-Instruct)
+# [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
 The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
@@ -331,7 +331,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x7B-Instruct](#tab/Mixtral-8x7B-Instruct)
+# [Mixtral-8x7B-Instruct](#tab/mistral-7b-instruct)
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
@@ -344,7 +344,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x22B-Instruct](#tab/Mixtral-8x22B-Instruct)
+# [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
 The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 
@@ -622,7 +622,7 @@ The Mistral family of models includes the following models:
 
 
 
-# [Mistral-7B-Instruct](#tab/Mistral-7B-Instruct)
+# [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
 The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
@@ -638,7 +638,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x7B-Instruct](#tab/Mixtral-8x7B-Instruct)
+# [Mixtral-8x7B-Instruct](#tab/mistral-7b-instruct)
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
@@ -651,7 +651,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x22B-Instruct](#tab/Mixtral-8x22B-Instruct)
+# [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
 The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 

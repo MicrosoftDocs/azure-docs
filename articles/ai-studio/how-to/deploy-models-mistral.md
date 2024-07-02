@@ -30,7 +30,7 @@ The Mistral family of models includes the following models:
 
 
 
-# [Mistral-Large](#tab/Mistral-Large)
+# [Mistral Large](#tab/mistral-large)
 
 Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
 
@@ -48,7 +48,7 @@ The following models are available:
 
 
 
-# [Mistral-Small](#tab/Mistral-Small)
+# [Mistral Small](#tab/mistral-small)
 
 Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
 
@@ -477,7 +477,7 @@ The Mistral family of models includes the following models:
 
 
 
-# [Mistral-Large](#tab/Mistral-Large)
+# [Mistral Large](#tab/mistral-large)
 
 Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
 
@@ -495,7 +495,7 @@ The following models are available:
 
 
 
-# [Mistral-Small](#tab/Mistral-Small)
+# [Mistral Small](#tab/mistral-small)
 
 Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
 
@@ -944,7 +944,7 @@ The Mistral family of models includes the following models:
 
 
 
-# [Mistral-Large](#tab/Mistral-Large)
+# [Mistral Large](#tab/mistral-large)
 
 Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
 
@@ -962,7 +962,7 @@ The following models are available:
 
 
 
-# [Mistral-Small](#tab/Mistral-Small)
+# [Mistral Small](#tab/mistral-small)
 
 Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
 

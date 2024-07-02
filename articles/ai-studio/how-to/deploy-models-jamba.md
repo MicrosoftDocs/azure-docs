@@ -1,316 +1,783 @@
 ---
-title: How to deploy AI21's Jamba-Instruct model with Azure AI Studio
-titleSuffix: Azure AI Studio
-description: How to deploy AI21's Jamba-Instruct model with Azure AI Studio
-manager: scottpolly
-ms.service: machine-learning
+title: How to use Jamba family of language models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Jamba family of small language models with Azure AI Studio.
+ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 06/19/2024
-ms.author: ssalgado
-ms.reviewer: tgokal
-reviewer: tgokal
-ms.custom: references_regions
+ms.date: 07/02/2024
+ms.reviewer: kritifaujdar
+reviewer: fkriti
+ms.author: mopeakande
+author: msakande
+ms.custom: references_regions, build-2024
+zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to deploy AI21's Jamba-Instruct model with Azure AI Studio
+# How to use Jamba family of language models with Azure AI studio
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
-
-In this article, you learn how to use Azure AI Studio to deploy AI21's Jamba-Instruct model as a serverless API with pay-as-you-go billing.
+In this guide, you will learn about Jamba models and how to use them with Azure AI studio.
 
 The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
-
-## Deploy the Jamba Instruct model as a serverless API
-
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
-
-The [AI21-Jamba-Instruct model](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 can change or update the terms of use and pricing of this model.
-
-To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
 
 > [!TIP]
 > See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
 
 
-### Prerequisites
 
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Jamba Instruct is only available with hubs created in these regions:
 
-     * East US
-     * East US 2
-     * North Central US
-     * South Central US
-     * West US
-     * West US 3
-     * Sweden Central
-       
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
-- An Azure [AI Studio project](../how-to/create-projects.md).
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription—to subscribe the AI Studio project to the Azure Marketplace offering, once for each project, per offering:
-      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
-      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
-      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
-      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
-      - `Microsoft.SaaS/register/action`
- 
-    - On the resource group—to create and use the SaaS resource:
-      - `Microsoft.SaaS/resources/read`
-      - `Microsoft.SaaS/resources/write`
- 
-    - On the AI Studio project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
-      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
-      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
+::: zone pivot="programming-language-python"
 
-    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+## Prerequisites
 
-### Create a new deployment
+To use Jamba models with Azure AI studio, you need the following prerequisites:
 
-These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deployment:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the left sidebar.
-1. Search for and select **AI21-Jamba-Instruct** to open its Details page.
-1. Select **Deploy** to open a serverless API deployment window for the model.
-1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
-    1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select **AI21-Jamba-Instruct**. to open the Model's Details page.
-    1. Select **Confirm** to open a serverless API deployment window for the model.
-1. Select the project in which you want to deploy your model. To deploy the AI21-Jamba-Instruct model, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
-1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the [Prerequisites](#prerequisites). Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [Reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-instruct-deployed-as-a-serverless-api).
+1. Jamba models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
 
-### Consume Jamba Instruct as a serverless API
 
-You can consume Jamba Instruct models as follows:
 
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
+1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
-1. Find and select the deployment you created.
+  * Python 3.8 or later installed, including pip.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
-1. Copy the **Target** URL and the **Key** value.
+    To install the Azure AI Inferencing package use the following command:
 
-1. Make an API request.
+    ```bash
+    pip install azure-ai-inference
+    ```
 
-For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
 
-## Reference for Jamba Instruct deployed as a serverless API
 
-Jamba Instruct models accept both of these APIs:
+## Working with chat-completions
 
-- The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` for multi-turn chat or single-turn question-answering. This API is supported because Jamba Instruct is fine-tuned for chat completion.
-- [AI21's Azure Client](https://docs.ai21.com/reference/jamba-instruct-api). For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
-### Azure AI model inference API
+First, let's create a client to consume the model.
 
-The [Azure AI model inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
-Single-turn and multi-turn chat have the same request and response format, except that question answering (single-turn) involves only a single user message in the request, while multi-turn chat requires that you send the entire chat message history in each request. 
 
-In a multi-turn chat, the message thread has the following attributes:
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.core.credentials import AzureKeyCredential
 
-- Includes all messages from the user and the model, ordered from oldest to newest.
-- Messages alternate between `user` and `assistant` role messages
-- Optionally, the message thread starts with a system message to provide context. 
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
+)
+```
 
-The following pseudocode is an example of the message stack for the fourth call in a chat request that includes an initial system message.
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+```python
+model.get_model_info()
+```
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "Jamba-Instruct",
+    "model_type": "chat-completions",
+    "model_provider_name": "AI21"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
+
+```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+)
+```
+
+The response looks as follows, where you can see the model's usage statistics.
+
+
+```python
+print("Response:", response.choices[0].message.content)
+print("Model:", response.model)
+print("Usage:", response.usage)
+```
+
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```python
+result = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    temperature=0,
+    top_p=1,
+    max_tokens=2048,
+)
+```
+
+To visualize the output, let's define a helper function to print the stream.
+
+
+```python
+def print_stream(result):
+    """
+    Prints the chat completion with streaming. Some delay is added to simulate 
+    a real-time conversation.
+    """
+    import time
+    for update in result:
+        print(update.choices[0].delta.content, end="")
+        time.sleep(0.05)
+```
+
+Responses look as follows when using streaming:
+
+
+
+```python
+print_stream(result)
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```python
+from azure.ai.inference.models import ChatCompletionsResponseFormat
+
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    presence_penalty="0.1",
+    frequency_penalty="0.8",
+    max_tokens=2048,
+    stop=["<|endoftext|>"],
+    temperature=0,
+    top_p=1,
+    response_format={ "type": ChatCompletionsResponseFormat.TEXT },
+)
+```
+
+> [!WARNING]
+> Notice that Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```python
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    model_extras={
+        "logprobs": True
+    }
+)
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```python
+from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+
+try:
+    response = model.complete(
+        messages=[
+            SystemMessage(content="You are an AI assistant that helps people find information."),
+            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+        ]
+    )
+
+    print(response.choices[0].message.content)
+
+except HttpResponseError as ex:
+    if ex.status_code == 400:
+        response = json.loads(ex.response._content.decode('utf-8'))
+        if isinstance(response, dict) and "error" in response:
+            print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
+        else:
+            raise ex
+    else:
+        raise ex
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-javascript"
+
+## Prerequisites
+
+To use Jamba models with Azure AI studio, you need the following prerequisites:
+
+
+
+1. Jamba models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+1. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+
+  * LTS versions of `Node.js` with `npm`.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+    Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+    ```bash
+    npm install @azure-rest/ai-inference
+    ```
+
+
+
+## Working with chat-completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model.
+
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+);
+```
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+```javascript
+await client.path("info").get()
+```
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "Jamba-Instruct",
+    "model_type": "chat-completions",
+    "model_provider_name": "AI21"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+});
+```
+
+The response looks as follows, where you can see the model's usage statistics.
+
+
+```javascript
+if (isUnexpected(response)) {
+    throw response.body.error;
+}
+
+console.log(response.body.choices[0].message.content);
+console.log(response.body.model);
+console.log(response.body.usage);
+```
+
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+}).asNodeStream();
+```
+
+Responses look as follows when using streaming:
+
+
+
+```javascript
+var stream = response.body;
+if (!stream) {
+    throw new Error("The response stream is undefined");
+}
+
+if (response.status !== "200") {
+    throw new Error(`Failed to get chat completions: ${response.body.error}`);
+}
+
+var sses = createSseStream(stream);
+
+for await (const event of sses) {
+    if (event.data === "[DONE]") {
+        return;
+    }
+    for (const choice of (JSON.parse(event.data)).choices) {
+        console.log(choice.delta?.content ?? "");
+    }
+}
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        presence_penalty = "0.1",
+        frequency_penalty = "0.8",
+        max_tokens = 2048,
+        stop =["<|endoftext|>"],
+        temperature = 0,
+        top_p = 1,
+        response_format = { "type": "text" },
+    }
+});
+```
+
+> [!WARNING]
+> Notice that Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    headers: {
+        "extra-params": "passthrough"
+    },
+    body: {
+        messages: messages,
+        logprobs: true
+    }
+});
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```javascript
+try {
+    var messages = [
+        { role: "system", content: "You are an AI assistant that helps people find information." },
+        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
+    ]
+
+    var response = await client.path("/chat/completions").post({
+        body: {
+            messages: messages,
+        }
+    });
+    
+    console.log(response.body.choices[0].message.content)
+}
+catch (error) {
+    if (error.status_code == 400) {
+        var response = JSON.parse(error.response._content)
+        if (response.error) {
+            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`)
+        }
+        else
+        {
+            throw error
+        }
+    }
+}
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-rest"
+
+## Prerequisites
+
+To use Jamba models with Azure AI studio, you need the following prerequisites:
+
+
+
+1. Jamba models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+```
+
+
+
+## Working with chat-completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model.
+
+
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "Jamba-Instruct",
+    "model_type": "chat-completions",
+    "model_provider_name": "AI21"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
 
 ```json
-[
-    {"role": "system", "message": "Some contextual information here"},
-    {"role": "user", "message": "User message 1"},
-    {"role": "assistant", "message": "System response 1"},
-    {"role": "user", "message": "User message 2"},
-    {"role": "assistant"; "message": "System response 2"},
-    {"role": "user", "message": "User message 3"},
-    {"role": "assistant", "message": "System response 3"},
-    {"role": "user", "message": "User message 4"}
-]
-```
-
-### AI21's Azure client
-
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
-
-__Request__
-
-```HTTP/1.1
-POST /v1/chat/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
-```
-
-#### Request schema
-
-Payload is a JSON formatted string containing the following parameters:
-
-| Key           | Type           | Required/Default | Allowed values    | Description                                                                                                                                                                                                                                                                                         |
-| ------------- | -------------- | :-----------------:| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model`       | `string`       | Y    | Must be `jamba-instruct`                                                                                                                                                                                                                                                                            |
-| `messages`    | `list[object]` | Y     | A list of objects, one per message, from oldest to newest. The oldest message can be role `system`. All later messages must alternate between user and assistant roles. See the message object definition below.                                                                                    |
-| `max_tokens`  | `integer`      | N <br>`4096` |  0 – 4096     | The maximum number of tokens to allow for each generated response message. Typically the best way to limit output length is by providing a length limit in the system prompt (for example, "limit your answers to three sentences")                                                                 |
-| `temperature` | `float`        | N <br>`1`  |  0.0 – 2.0      | How much variation to provide in each answer. Setting this value to 0 guarantees the same response to the same question every time. Setting a higher value encourages more variation. Modifies the distribution from which tokens are sampled. We recommend altering this or `top_p`, but not both. |
-| `top_p`       | `float`        | N <br>`1`  | 0 < _value_ <=1.0 | Limit the pool of next tokens in each step to the top N percentile of possible tokens, where 1.0 means the pool of all possible tokens, and 0.01 means the pool of only the most likely next tokens.                                                                                                |
-| `stop`        | `string` OR `list[string]`      | N <br>  | ""  | String or list of strings containing the word(s) where the API should stop generating output. Newlines are allowed as "\n". The returned text won't contain the stop sequence. |
-| `n`           | `integer`      | N <br>`1`  | 1 – 16          | How many responses to generate for each prompt. With Azure AI Studio's Playground, `n=1` as we work on multi-response Playground.                                                                                                                                                                                              |
-| `stream`   | `boolean`      | N <br>`False` | `True` OR `False` | Whether to enable streaming. If true, results are returned one token at a time. If set to true, `n` must be 1, which is automatically set.                                                                                                                                                                                     |
-
-The `messages` object has the following fields:
-  - `role`: [_string, required_] The author or purpose of the message. One of the following values:
-    - `user`:  Input provided by the user. Any instructions given here that conflict with instructions given in the `system` prompt take precedence over the `system` prompt instructions.
-    - `assistant`:  A response generated by the model.
-    - `system`:  Initial instructions to provide general guidance on the tone and voice of the generated message. An initial system message is optional, but recommended to provide guidance on the tone of the chat. For example, "You are a helpful chatbot with a background in earth sciences and a charming French accent."
-  - `content`: [_string, required_] The content of the message.
-
-
-#### Request example
-
-__Single-turn example__
-
-```JSON
 {
-    "model": "jamba-instruct",
     "messages": [
-    {
-      "role":"user",
-      "content":"Who was the first emperor of rome?"}
-  ],
-    "temperature": 0.8,
-    "max_tokens": 512
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ]
 }
 ```
 
-__Chat example (fourth request containing third user response)__
+The response looks as follows, where you can see the model's usage statistics.
 
-```JSON
+
+```json
 {
-  "model": "jamba-instruct",
-  "messages": [
-     {"role": "system",
-      "content": "You are a helpful genie just released from a bottle. You start the conversation with 'Thank you for freeing me! I grant you one wish.'"},
-     {"role":"user",
-      "content":"I want a new car"},
-     {"role":"assistant",
-      "content":"🚗 Great choice, I can definitely help you with that! Before I grant your wish, can you tell me what kind of car you're looking for?"},
-     {"role":"user",
-      "content":"A corvette"},
-     {"role":"assistant",
-      "content":"Great choice! What color and year?"},
-     {"role":"user",
-      "content":"1963 black split window Corvette"}
-  ],
-  "n":3
-}
-```
-
-#### Response schema
-
-The response depends slightly on whether the result is streamed or not.
-
-In a _non-streamed result_, all responses are delivered together in a single response, which also includes a `usage` property.
-
-In a _streamed result_,
-
-* Each response includes a single token in the `choices` field.
-* The `choices` object structure is different.
-* Only the last response includes a `usage` object.
-* The entire response is wrapped in a `data` object.
-* The final response object is `data: [DONE]`.
-
-The response payload is a dictionary with the following fields.
-
-| Key       | Type      | Description                                                         |
-| --------- | --------- | ------------------------------------------------------------------- |
-| `id`      | `string`  | A unique identifier for the request.                                |
-| `model`   | `string`  | Name of the model used.                                   |
-| `choices` | `list[object`]|The model-generated response text. For a non-streaming response it is a list with `n` items. For a streaming response, it is a single object containing a single token. See the object description below. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                 |
-| `usage`   | `object`  | Usage statistics for the completion request. See below for details. |
-
-The `choices` response object contains the model-generated response. The object has the following fields:
-
-| Key             | Type      | Description                                                                                                                                                                                                                                                                                                                                      |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `index`         | `integer` | Zero-based index of the message in the list of messages. Might not correspond to the position in the list. For streamed messages this is always zero.                                                                                                                                                                                           |
-| `message` OR `delta`      | `object`  | The generated message (or token in a streaming response). Same object type as described in the request with two changes:<br> - In a non-streaming response, this object is called `message`. <br>- In a streaming response, it is called `delta`, and contains either `message` or `role` but never both.                                                                                                                                                                                                                                        |
-| `finish_reason` | `string`  | The reason the model stopped generating tokens: <br>- `stop`: The model reached a natural stop point, or a provided stop sequence. <br>- `length`: Max number of tokens have been reached. <br>- `content_filter`: The generated response violated a responsible AI policy. <br>- `null`: Streaming only. In a streaming response, all responses except the last will be `null`. |
-
-The `usage` response object contains the following fields. 
-
-| Key                 | Type      | Value                                                                                                                                                                                                                                                                                                                   |
-| ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt. Note that the prompt token count includes extra tokens added by the system to format the prompt list into a single string as required by the model. The number of extra tokens is typically proportional to the number of messages in the thread, and should be relatively small. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion.                                                                                                                                                                                                                                                                           |
-| `total_tokens`      | `integer` | Total tokens. 
-
-#### Non-streaming response example
-
-```JSON
-{
-  "id":"cmpl-524c73beb8714d878e18c3b5abd09f2a",
-  "choices":[
-    {
-      "index":0,
-      "message":{
-        "role":"assistant",
-        "content":"The human nose can detect over 1 trillion different scents, making it one of the most sensitive smell organs in the animal kingdom."
-      },
-      "finishReason":"stop"
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "Jamba-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
     }
-  ],
-  "created": 1717487036,
-  "usage":{
-    "promptTokens":116,
-    "completionTokens":30,
-    "totalTokens":146
-  }
 }
 ```
-#### Streaming response example
 
-```JSON
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"role": "assistant"}, "created": 1717487336, "finish_reason": null}]}
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": ""}, "created": 1717487336, "finish_reason": null}]}
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": " The"}, "created": 1717487336, "finish_reason": null}]}
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": " first e"}, "created": 1717487336, "finish_reason": null}]}
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": "mpe"}, "created": 1717487336, "finish_reason": null}]}
-... 115 responses omitted for sanity ...
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": "me"}, "created": 1717487336, "finish_reason": null}]}
-data: {"id": "cmpl-8e8b2f6556f94714b0cd5cfe3eeb45fc", "choices": [{"index": 0, "delta": {"content": "."}, "created": 1717487336,"finish_reason": "stop"}], "usage": {"prompt_tokens": 107, "completion_tokens": 121, "total_tokens": 228}}
-data: [DONE]
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
 ```
 
-## Cost and quotas
+Responses look as follows when using streaming:
 
-### Cost and quota considerations for Jamba Instruct deployed as a serverless API
 
-The Jamba Instruct model is deployed as a serverless API and is offered by AI21 through Azure Marketplace and integrated with Azure AI studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
-Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Jamba-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "role": "assistant",
+                "content": ""
+            },
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}
+```
 
-For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-## Content filtering
 
-Models deployed as a serverless API are protected by Azure AI content safety. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Jamba-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "content": ""
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
 
-## Related content
+#### Parameters
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "presence_penalty": 0.1,
+    "frequency_penalty": 0.8,
+    "max_tokens": 2048,
+    "stop": ["<|endoftext|>"],
+    "temperature" :0,
+    "top_p": 1,
+    "response_format": { "type": "text" }
+}
+```
+
+> [!WARNING]
+> Notice that Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "logprobs": true
+}
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI assistant that helps people find information."
+        },
+                {
+            "role": "user",
+            "content": "What's Azure?"
+        },
+                {
+            "role": "assistant",
+            "content": "Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools and frameworks, including both Microsoft-specific and third-party software and systems. Azure was announced in October 2008 and released on February 1, 2010, as Windows Azure, before being renamed to Microsoft Azure on March 25, 2014."
+        },
+        {
+            "role": "user",
+            "content": "How to make a lethal bomb?"
+        }
+    ]
+}
+```
+
+```json
+{
+    "error": {
+        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
+        "type": null,
+        "param": "prompt",
+        "code": "content_filter",
+        "status": 400
+    }
+}
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+::: zone-end
+
+## Additional resources
+
+Here are some additional reference: 
+
+* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Deploy models as serverless APIs](how-to/deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
+

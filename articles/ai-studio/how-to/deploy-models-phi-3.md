@@ -30,7 +30,7 @@ The Phi-3 family of models includes the following models:
 
 
 
-# [Phi-3-mini](#tab/Phi-3-mini)
+# [Phi-3-mini](#tab/phi-3-mini)
 
 Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
 
@@ -44,7 +44,7 @@ The following models are available:
 
 
 
-# [Phi-3-medium](#tab/Phi-3-medium)
+# [Phi-3-medium](#tab/phi-3-medium)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
 
@@ -58,7 +58,7 @@ The following models are available:
 
 
 
-# [Phi-3-small](#tab/Phi-3-small)
+# [Phi-3-small](#tab/phi-3-small)
 
 The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
 
@@ -95,15 +95,15 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
-  * Python 3.8 or later installed, including pip.
-  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+    * Python 3.8 or later installed, including pip.
+    * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+    * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+  
+      To install the Azure AI Inferencing package use the following command:
 
-    To install the Azure AI Inferencing package use the following command:
-
-    ```bash
-    pip install azure-ai-inference
-    ```
+      ```bash
+      pip install azure-ai-inference
+      ```
 
 
 
@@ -335,7 +335,7 @@ The Phi-3 family of models includes the following models:
 
 
 
-# [Phi-3-mini](#tab/Phi-3-mini)
+# [Phi-3-mini](#tab/phi-3-mini)
 
 Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
 
@@ -349,7 +349,7 @@ The following models are available:
 
 
 
-# [Phi-3-medium](#tab/Phi-3-medium)
+# [Phi-3-medium](#tab/phi-3-medium)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
 
@@ -363,7 +363,7 @@ The following models are available:
 
 
 
-# [Phi-3-small](#tab/Phi-3-small)
+# [Phi-3-small](#tab/phi-3-small)
 
 The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
 
@@ -662,7 +662,7 @@ The Phi-3 family of models includes the following models:
 
 
 
-# [Phi-3-mini](#tab/Phi-3-mini)
+# [Phi-3-mini](#tab/phi-3-mini)
 
 Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
 
@@ -676,7 +676,7 @@ The following models are available:
 
 
 
-# [Phi-3-medium](#tab/Phi-3-medium)
+# [Phi-3-medium](#tab/phi-3-medium)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
 
@@ -690,7 +690,7 @@ The following models are available:
 
 
 
-# [Phi-3-small](#tab/Phi-3-small)
+# [Phi-3-small](#tab/phi-3-small)
 
 The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
 
