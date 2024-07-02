@@ -16,7 +16,7 @@
     - name: Distributed relational
       href: distributed-relational.md
     - name: Integrated vector databases
-      expanded: false
+      expanded: true
       items:
       - name: What is a vector database
         href: vector-database.md
@@ -25,7 +25,6 @@
       - name: Vector database in Azure Cosmos DB for MongoDB
         href: mongodb/vcore/vector-search.md
       - name: Related concepts
-        expanded: false
         items:
         - name: Vector search overview
           href: gen-ai/vector-search-overview.md
@@ -38,7 +37,6 @@
         - name: kNN vs ANN
           href: gen-ai/knn-vs-ann.md
     - name: Unified AI database
-        expanded: false
         items:
         - name: AI agent
           href: ai-agents.md
