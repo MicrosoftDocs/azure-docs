@@ -67,7 +67,7 @@ Use the unified security operations platform with your Microsoft Sentinel data f
 For example:
 
 - The [SAP (Preview) solution]() is installed in your workspace for Microsoft Sentinel.
-- The near real-time rule [**SAP - (Preview) File Downloaded From a Malicious IP Address**](sentinel/sap/sap-solution-security-content.md#data-exfiltration) triggers an alert, creating a Microsoft Sentinel incident.
+- The near real-time rule [**SAP - (Preview) File Downloaded From a Malicious IP Address**](sap/sap-solution-security-content.md#data-exfiltration) triggers an alert, creating a Microsoft Sentinel incident.
 - [Microsoft Sentinel was added to the unified security operations platform](/defender-xdr/microsoft-sentinel-onboard).
 - Microsoft Sentinel incidents are now unified with Defender XDR incidents.
 - Use Copilot in Microsoft Defender for incident summary, guided responses and incident reports.
