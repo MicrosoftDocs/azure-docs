@@ -17,14 +17,17 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 The following Azure Storage Mover agent versions are supported:
 
-| Milestone                    | Version number | Release date       | Status                                                            |
-|------------------------------|----------------|--------------------|-------------------------------------------------------------------|
-| Important security release   | 3.0.412        | November 30, 2023  | Current                                                           |
-| Major refresh release        | 2.0.358        | November 6, 2023   | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| Refresh release              | 2.0.287        | August 5, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| Refresh release              | 1.1.256        | June 14, 2023      | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| General availability release | 1.0.229        | April 17, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| Public preview release       | 0.1.116        | September 15, 2022 | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Milestone                                     | Version number | Release date       | Status                                        |
+|-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
+| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Current                                       |
+| Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Important security release                    | 3.0.412        | November 30, 2023  | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Major refresh release                         | 2.0.358        | November 6, 2023   | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release                               | 2.0.287        | August 5, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release                               | 1.1.256        | June 14, 2023      | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| General availability release                  | 1.0.229        | April 17, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Public preview release                        | 0.1.116        | September 15, 2022 | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 
 ### Azure Storage Mover update policy
 
@@ -35,11 +38,6 @@ The automatic agent update doesn't affect running migration jobs. Running jobs a
 
 > [!TIP]
 > Always download the latest agent version from Microsoft Download Center. [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent). Redistributing previously downloaded images may no longer be supported (check the [Supported agent versions](#supported-agent-versions) table), or they need to update themselves prior to being ready for use. Speed up your deployments by always obtaining a the latest image from Microsoft Download Center.
-
-#### Major vs. minor versions
-
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 1.0.0
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: 1.1.0
 
 #### Lifecycle and change management guarantees
 
@@ -52,6 +50,50 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
 
+## 2024 July 10
+
+Major refresh release notes for:
+
+- Service version: July 2, 2024
+- Agent version: 3.1.613
+
+### What's new
+
+- Supports WAN link bandwidth management schedules. ([see documentation](bandwidth-management.md))
+- Performance optimizations.
+- Security improvements and bug fixes.
+
+## 2024 June 16
+
+Refresh release notes for:
+
+- Service version: June 10, 2024
+- Agent version: 3.1.593
+
+### What's new
+
+- You can now collect support bundles from the agent VM even if a part of it isn't running.
+- The agent can now handle data migration from SMB shares that do not support *INodes*.
+- Improved agent registration reliability.
+- Security improvements and bug fixes.
+
+## 2024 April 2
+
+Refresh release notes for:
+
+- Service version: April 2, 2024
+- Agent version: 3.0.500
+
+## What's new
+
+- Improved agent registration: You can now add tags to the ARC machine that the agent creates.
+- Improved network connectivity testing: The Storage Mover agent now utilizes the Azure ARC CLI tool (azcmagent) and a curl GET command to verify the ARC and Storage Mover endpoints with the 'Test Network Connectivity' option in the agent console. 
+- A new option, 'Test Network Connectivity Verbosely' can help diagnose local network problems more easily.
+- Improved user experience to error conditions during agent registration and unregistration processes.
+- Since Storage Mover depends on Azure ARC and an Entra ID Managed Identity, additional safeguards are added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, anas well as the Azure Arc Private Link Scope (if applicable) is in the same Azure region.
+- Improved instructions during agent registration when leveraging private networking.
+- Security improvements and bug fixes.
+
 ## 2023 December 1
 
 Major refresh release notes for:
@@ -59,7 +101,7 @@ Major refresh release notes for:
 - Service version: December 1, 2023
 - Agent version: 3.0.412
 
-### Agent
+### What's new
 
 - Extended support to the SMB 2.0 protocol (vs. previously SMB 2.1+)
 - Security improvements and bug fixes.
