@@ -78,25 +78,32 @@ The following models are available:
 
 ## Prerequisites
 
-To use the package `azure-ai-inference` with Python, you need the following prerequisites:
-
-* Python 3.8 or later installed, including pip.
-* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-### Install the package
-
-To install the Azure AI Inferencing package use the following command:
-
-```bash
-pip install azure-ai-inference
-```
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-> [!TIP]
-> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+
+  > [!TIP]
+  > Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+
+
+
+#. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+#. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+
+  * Python 3.8 or later installed, including pip.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+  To install the Azure AI Inferencing package use the following command:
+
+  ```bash
+  pip install azure-ai-inference
+  ```
 
 
 
@@ -117,8 +124,6 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
     credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
 )
-
-ChatCompletionsClient.with_defaults()
 ```
 
 When deploying the model to a self-hosted online endpoint with **Entra ID** support, you can use the following code snippet to create a client.
@@ -257,6 +262,11 @@ response = model.complete(
 )
 ```
 
+> [!WARNING]
+> Notice that Phi-3 doesn't support JSON output formatting. You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
 ### Extra parameters
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
@@ -277,7 +287,11 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -288,18 +302,7 @@ try:
     response = model.complete(
         messages=[
             SystemMessage(content="You are an AI assistant that helps people find information."),
-            UserMessage(content="What's Azure?"),
-            AssistantMessage(content="Azure is a cloud computing service created by Microsoft for "
-                             "building, testing, deploying, and managing applications and "
-                             "services through Microsoft-managed data centers. It provides "
-                             "software as a service (SaaS), platform as a service (PaaS) and "
-                             "infrastructure as a service (IaaS) and supports many different "
-                             "programming languages, tools and frameworks, including both "
-                             "Microsoft-specific and third-party software and systems. Azure was "
-                             "announced in October 2008 and released on February 1, 2010, as "
-                             "Windows Azure, before being renamed to Microsoft Azure on "
-                             "March 25, 2014."),
-            UserMessage(content="How to make a lethal bomb?")
+            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
         ]
     )
 
@@ -315,6 +318,11 @@ except HttpResponseError as ex:
     else:
         raise ex
 ```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
 
 ::: zone-end
 
@@ -375,25 +383,32 @@ The following models are available:
 
 ## Prerequisites
 
-The `@azure-rest/ai-inference` package provides a convenient way to consume predictions from models deployed in Azure AI studio. To use the package, you need the following prerequisites:
-
-* LTS versions of `Node.js`.
-* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-### Install the package
-
-Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
-
-```bash
-npm install @azure-rest/ai-inference
-```
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-> [!TIP]
-> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+
+  > [!TIP]
+  > Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+
+
+
+#. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+#. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+
+  * LTS versions of `Node.js` with `npm`.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+  Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+  ```bash
+  npm install @azure-rest/ai-inference
+  ```
 
 
 
@@ -564,6 +579,11 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
+> [!WARNING]
+> Notice that Phi-3 doesn't support JSON output formatting. You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
 ### Extra parameters
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
@@ -586,7 +606,11 @@ var response = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -594,18 +618,7 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
 try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
-        { role: "user", content: "What's Azure?" },
-        { role: "system", content: "Azure is a cloud computing service created by Microsoft for "
-                            + "building, testing, deploying, and managing applications and "
-                            + "services through Microsoft-managed data centers. It provides "
-                            + "software as a service (SaaS), platform as a service (PaaS) and "
-                            + "infrastructure as a service (IaaS) and supports many different "
-                            + "programming languages, tools and frameworks, including both "
-                            + "Microsoft-specific and third-party software and systems. Azure was "
-                            + "announced in October 2008 and released on February 1, 2010, as "
-                            + "Windows Azure, before being renamed to Microsoft Azure on "
-                            + "March 25, 2014." },
-        { role: "user", content: "How to make a lethal bomb?" }
+        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
     ]
 
     var response = await client.path("/chat/completions").post({
@@ -629,6 +642,11 @@ catch (error) {
     }
 }
 ```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
 
 ::: zone-end
 
@@ -689,17 +707,26 @@ The following models are available:
 
 ## Prerequisites
 
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
+
+
+
+#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+
+  > [!TIP]
+  > Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+
+
+
+#. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
 Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
 * To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 ```
-
-
-
-> [!TIP]
-> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
@@ -896,6 +923,11 @@ Explore additional parameters that can be indicated in the inference client. For
 }
 ```
 
+> [!WARNING]
+> Notice that Phi-3 doesn't support JSON output formatting. You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
 ### Extra parameters
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
@@ -920,7 +952,11 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -958,6 +994,11 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
     }
 }
 ```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
 
 ::: zone-end
 

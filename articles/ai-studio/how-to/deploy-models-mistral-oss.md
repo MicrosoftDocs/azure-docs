@@ -87,24 +87,17 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-### Deploy the model
+#. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
-You need to deploy this model to start consuming its predictions.
+  * Python 3.8 or later installed, including pip.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
+  To install the Azure AI Inferencing package use the following command:
 
-### Install the inference package
-
-You can consume predictions from this model using the `azure-ai-inference` package with Python. You need the following prerequisites:
-
-* Python 3.8 or later installed, including pip.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-To install the Azure AI Inferencing package use the following command:
-
-```bash
-pip install azure-ai-inference
-```
+  ```bash
+  pip install azure-ai-inference
+  ```
 
 
 
@@ -274,7 +267,11 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -301,6 +298,11 @@ except HttpResponseError as ex:
     else:
         raise ex
 ```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
 
 ::: zone-end
 
@@ -370,24 +372,17 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-### Deploy the model
+#. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
 
-You need to deploy this model to start consuming its predictions.
+  * LTS versions of `Node.js` with `npm`.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
+  Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
 
-### Install the inference package
-
-You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
-
-* LTS versions of `Node.js` with `npm`.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
-
-```bash
-npm install @azure-rest/ai-inference
-```
+  ```bash
+  npm install @azure-rest/ai-inference
+  ```
 
 
 
@@ -571,7 +566,11 @@ var response = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -603,6 +602,11 @@ catch (error) {
     }
 }
 ```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
 
 ::: zone-end
 
@@ -670,11 +674,6 @@ The following models are available:
 
 To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-
-
-### Deploy the model
-
-You need to deploy this model to start consuming its predictions.
 
 
 Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
@@ -904,7 +903,11 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -942,6 +945,11 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
     }
 }
 ```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
 
 ::: zone-end
 

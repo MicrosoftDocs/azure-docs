@@ -24,95 +24,30 @@ The Phi-3 family of SLMs is a collection of instruction-tuned generative text mo
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 family of models
-
-The Phi-3 family of models includes the following models:
-
-
-
-# [Phi-3-mini](#tab/Phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4K-Instruct and Phi-3 Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-- Phi-3-mini-4k-Instruct
-- Phi-3-mini-128k-Instruct
-
-
-
-# [Phi-3-medium](#tab/Phi-3-medium)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
-
-
-The following models are available:
-
-- Phi-3-medium-4k-Instruct
-- Phi-3-medium-128k-Instruct
-
-
-
-# [Phi-3-small](#tab/Phi-3-small)
-
-The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
-
-The model has underwent a post-training process that incorporates both supervised fine-tuning and direct preference optimization for the instruction following and safety measures. When assessed against benchmarks testing common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-128K-Instruct showcased a robust and state-of-the-art performance among models of the same-size and next-size-up.
-
-
-The following models are available:
-
-- Phi-3-small-4k-Instruct
-- Phi-3-small-128k-Instruct
-
-
-
----
-
-
-
 ## Prerequisites
 
 To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-### Deploy the model
+#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
 
-You need to deploy this model to start consuming its predictions.
-
-
-You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+  > [!TIP]
+  > Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-> [!TIP]
-> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+#. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
+  * Python 3.8 or later installed, including pip.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
+  To install the Azure AI Inferencing package use the following command:
 
-Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
-
-
-
-### Install the inference package
-
-You can consume predictions from this model using the `azure-ai-inference` package with Python. You need the following prerequisites:
-
-* Python 3.8 or later installed, including pip.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-To install the Azure AI Inferencing package use the following command:
-
-```bash
-pip install azure-ai-inference
-```
+  ```bash
+  pip install azure-ai-inference
+  ```
 
 
 
@@ -149,11 +84,6 @@ model = ChatCompletionsClient(
 )
 ```
 
-> [!NOTE]
-> Serverless API endpoints do not support using Entra ID for authentication by the moment.
-
-
-
 ### Model capabilities
 
 The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
@@ -169,7 +99,7 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_name": "Phi-3-vision-128k-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "Microsoft"
 }
@@ -192,7 +122,7 @@ response = model.complete(
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -296,7 +226,11 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -324,62 +258,84 @@ except HttpResponseError as ex:
         raise ex
 ```
 
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+## Working with images
+
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+
+
+
+> [!IMPORTANT]
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+
+
+
+To see this capability, let's download an image and encode the information as base64 string:
+
+
+
+```python
+from urllib.request import urlopen, Request
+import base64
+
+image_url = "https://news.microsoft.com/source/wp-content/uploads/2024/04/The-Phi-3-small-language-models-with-big-potential-1-1900x1069.jpg"
+image_format = "jpeg"
+
+request = Request(image_url, headers={"User-Agent": "Mozilla/5.0"})
+image_data = base64.b64encode(urlopen(request).read()).decode("utf-8")
+data_url = f"data:image/{image_format};base64,{image_data}"
+```
+
+You can visualize the image:
+
+
+
+```python
+import requests
+import IPython.display as Disp
+
+Disp.Image(requests.get(image_url).content)
+```
+
+Now, let's create a chat completion request with the image:
+
+
+
+```python
+from azure.ai.inference.models import TextContentItem, ImageContentItem, ImageUrl
+response = model.complete(
+    messages=[
+        SystemMessage("You are a helpful assistant that can generate responses based on images."),
+        UserMessage(content=[
+            TextContentItem(text="Which conclusion can be extracted from the following chart?"),
+            ImageContentItem(image=ImageUrl(url=data_url))
+        ]),
+    ],
+    temperature=0,
+    top_p=1,
+    max_tokens=2048,
+)
+```
+
+The response looks as follows, where you can see the model's usage statistics:
+
+
+
+```python
+print(f"{response.choices[0].message.role}:\n\t{response.choices[0].message.content}\n")
+print("finish reason:", response.choices[0].finish_reason)
+print("model:", response.model)
+print("usage:", response.usage)
+```
+
 ::: zone-end
 
 
 ::: zone pivot="programming-language-javascript"
-
-## Phi-3 family of models
-
-The Phi-3 family of models includes the following models:
-
-
-
-# [Phi-3-mini](#tab/Phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4K-Instruct and Phi-3 Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-- Phi-3-mini-4k-Instruct
-- Phi-3-mini-128k-Instruct
-
-
-
-# [Phi-3-medium](#tab/Phi-3-medium)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
-
-
-The following models are available:
-
-- Phi-3-medium-4k-Instruct
-- Phi-3-medium-128k-Instruct
-
-
-
-# [Phi-3-small](#tab/Phi-3-small)
-
-The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
-
-The model has underwent a post-training process that incorporates both supervised fine-tuning and direct preference optimization for the instruction following and safety measures. When assessed against benchmarks testing common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-128K-Instruct showcased a robust and state-of-the-art performance among models of the same-size and next-size-up.
-
-
-The following models are available:
-
-- Phi-3-small-4k-Instruct
-- Phi-3-small-128k-Instruct
-
-
-
----
-
-
 
 ## Prerequisites
 
@@ -387,37 +343,24 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-### Deploy the model
+#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
 
-You need to deploy this model to start consuming its predictions.
-
-
-You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+  > [!TIP]
+  > Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-> [!TIP]
-> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+#. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
 
+  * LTS versions of `Node.js` with `npm`.
+  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
+  Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
 
-Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
-
-
-
-### Install the inference package
-
-You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
-
-* LTS versions of `Node.js` with `npm`.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
-
-```bash
-npm install @azure-rest/ai-inference
-```
+  ```bash
+  npm install @azure-rest/ai-inference
+  ```
 
 
 
@@ -454,11 +397,6 @@ const client = new ModelClient(
 );
 ```
 
-> [!NOTE]
-> Serverless API endpoints do not support using Entra ID for authentication by the moment.
-
-
-
 ### Model capabilities
 
 The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
@@ -474,7 +412,7 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_name": "Phi-3-vision-128k-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "Microsoft"
 }
@@ -499,7 +437,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -615,7 +553,11 @@ var response = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -648,62 +590,90 @@ catch (error) {
 }
 ```
 
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+## Working with images
+
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+
+
+
+> [!IMPORTANT]
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+
+
+
+To see this capability, let's download an image and encode the information as base64 string:
+
+
+
+```javascript
+const image_url = "https://news.microsoft.com/source/wp-content/uploads/2024/04/The-Phi-3-small-language-models-with-big-potential-1-1900x1069.jpg";
+const image_format = "jpeg";
+
+const response = await fetch(image_url, { headers: { "User-Agent": "Mozilla/5.0" } });
+const image_data = await response.arrayBuffer();
+const image_data_base64 = Buffer.from(image_data).toString("base64");
+const data_url = `data:image/${image_format};base64,${image_data_base64}`;
+```
+
+You can visualize the image:
+
+
+
+```javascript
+const img = document.createElement("img");
+img.src = data_url;
+document.body.appendChild(img);
+```
+
+Now, let's create a chat completion request with the image:
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant that can generate responses based on images." },
+    { role: "user", content: 
+        [
+            { type: "text", text: "Which conclusion can be extracted from the following chart?" },
+            { type: "image_url", image:
+                {
+                    url: data_url
+                }
+            } 
+        ] 
+    }
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        temperature = 0,
+        top_p = 1,
+        max_tokens = 2048,
+    }
+});
+```
+
+The response looks as follows, where you can see the model's usage statistics:
+
+
+
+```javascript
+console.log(response.body.choices[0].message.role + ": " + response.body.choices[0].message.content)
+console.log("Finish reason:" + response.body.choices[0].finish_reason)
+console.log("Model:", response.body.model)
+console.log("usage:", response.body.usage)
+```
+
 ::: zone-end
 
 
 ::: zone pivot="programming-language-rest"
-
-## Phi-3 family of models
-
-The Phi-3 family of models includes the following models:
-
-
-
-# [Phi-3-mini](#tab/Phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4K-Instruct and Phi-3 Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-- Phi-3-mini-4k-Instruct
-- Phi-3-mini-128k-Instruct
-
-
-
-# [Phi-3-medium](#tab/Phi-3-medium)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model built upon datasets used for Phi-2—synthetic data and filtered publicly available websites—with a focus on high-quality, reasoning-dense data. The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which is the context length (in tokens) that the model can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
-
-
-The following models are available:
-
-- Phi-3-medium-4k-Instruct
-- Phi-3-medium-128k-Instruct
-
-
-
-# [Phi-3-small](#tab/Phi-3-small)
-
-The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
-
-The model has underwent a post-training process that incorporates both supervised fine-tuning and direct preference optimization for the instruction following and safety measures. When assessed against benchmarks testing common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-128K-Instruct showcased a robust and state-of-the-art performance among models of the same-size and next-size-up.
-
-
-The following models are available:
-
-- Phi-3-small-4k-Instruct
-- Phi-3-small-128k-Instruct
-
-
-
----
-
-
 
 ## Prerequisites
 
@@ -711,21 +681,10 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-### Deploy the model
+#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
 
-You need to deploy this model to start consuming its predictions.
-
-
-You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
-
-
-
-> [!TIP]
-> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
-
-
-
-Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+  > [!TIP]
+  > Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
@@ -748,11 +707,6 @@ First, let's create a client to consume the model.
 When deploying the model to a self-hosted online endpoint with **Entra ID** support, you can use the following code snippet to create a client.
 
 
-> [!NOTE]
-> Serverless API endpoints do not support using Entra ID for authentication by the moment.
-
-
-
 ### Model capabilities
 
 The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
@@ -764,7 +718,7 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_name": "Phi-3-vision-128k-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "Microsoft"
 }
@@ -791,7 +745,7 @@ Let's create a simple chat completion request to see the output of the model.
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -803,7 +757,7 @@ The response looks as follows, where you can see the model's usage statistics.
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3-vision-128k-Instruct",
     "choices": [
         {
             "index": 0,
@@ -860,7 +814,7 @@ Responses look as follows when using streaming:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3-vision-128k-Instruct",
     "choices": [
         {
             "index": 0,
@@ -884,7 +838,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3-vision-128k-Instruct",
     "choices": [
         {
             "index": 0,
@@ -959,7 +913,11 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 ### Content safety
 
-The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
 
@@ -994,6 +952,89 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
         "param": "prompt",
         "code": "content_filter",
         "status": 400
+    }
+}
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+## Working with images
+
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+
+
+
+> [!IMPORTANT]
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+
+
+
+To see this capability, let's download an image and encode the information as base64 string:
+
+
+
+You can visualize the image:
+
+
+
+Now, let's create a chat completion request with the image:
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Which peculiar conclusion about LLMs and SLMs can be extracted from the following chart?"
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "data:image/jpg;base64,0xABCDFGHIJKLMNOPQRSTUVWXYZ..."
+                    }
+                }
+            ]
+        }
+    ],
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
+```
+
+The response looks as follows, where you can see the model's usage statistics:
+
+
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "Phi-3-vision-128k-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there may be other factors at play that influence a model's performance.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 2380,
+        "completion_tokens": 126,
+        "total_tokens": 2506
     }
 }
 ```
