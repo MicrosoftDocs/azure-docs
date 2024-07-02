@@ -212,7 +212,7 @@ In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it
 
 In this section, you create the federated identity credential needed to establish trust between the AKS cluster in *Tenant A* and the managed identity in *Tenant B*. You use the OIDC issuer URL from the AKS cluster in *Tenant A* and the name of the managed identity in *Tenant B*.
 
-* Create a federated identity credential using the [`az aks federated-identity add`][az-aks-federated-identity-add] command.
+* Create a federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
     az identity federated-credential create \
@@ -387,8 +387,8 @@ In this article, you learned how to configure cross-tenant workload identity on 
 [workload-identity-overview]: ./workload-identity-overview.md
 [configure-workload-identity]: ./workload-identity-deploy-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-login-interactively]: cli/azure/authenticate-azure-cli-interactively#interactive-login
-[az-logout]: cli/azure/authenticate-azure-cli-interactively#logout
+[az-login-interactively]: /cli/azure/authenticate-azure-cli-interactively
+[az-logout]: /cli/azure/authenticate-azure-cli-interactively#logout
 [az-account-set]: /cli/azure/account#az_account_set
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -396,10 +396,9 @@ In this article, you learned how to configure cross-tenant workload identity on 
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-show]: /cli/azure/identity#az_identity_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[az-aks-federated-identity-add]: /cli/azure/aks/federated-identity#az_aks_federated_identity_add
+[az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[az-servicebus-namespace-create]: cli/azure/servicebus/namespace?view=azure-cli-latest#az-servicebus-namespace-create
-[az-servicebus-namespace-show]: cli/azure/servicebus/namespace?view=azure-cli-latest#az-servicebus-namespace-show
-[az-servicebus-queue-create]: cli/azure/servicebus/queue?view=azure-cli-latest#az-servicebus-queue-create
+[az-servicebus-namespace-create]: /cli/azure/servicebus/namespace#az-servicebus-namespace-create
+[az-servicebus-namespace-show]: /cli/azure/servicebus/namespace#az-servicebus-namespace-show
+[az-servicebus-queue-create]: /cli/azure/servicebus/queue#az-servicebus-queue-create
 [az-group-delete]: /cli/azure/group#az_group_delete
-
