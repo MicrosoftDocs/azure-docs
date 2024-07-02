@@ -89,7 +89,7 @@ All the [standard observability tools](observability.md) work with your Java app
 
 Azure Container Apps platform offers built-in diagnostics tools exclusively for Java developers, streamlining the debugging and troubleshooting of Java applications running on Azure Container Apps for enhanced efficiency and ease.
 
-- **Dynamic logger level**: Allows you to access and check different level of log details without code modifications or forcing you to restart your app. You can view a [Set dynamic logger level](java-dynamic-log-level.md) for reference.
+- **Dynamic logger level**: Allows you to access and check different level of log details without code modifications or forcing you to restart your app. You can view [Set dynamic logger level](java-dynamic-log-level.md) for reference.
 
 
 ## Scaling
