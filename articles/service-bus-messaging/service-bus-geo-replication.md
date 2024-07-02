@@ -120,7 +120,9 @@ The Geo-Replication feature enables customers to configure a secondary region to
 
 ## Setup
 
-The following section is an overview to set up the Geo-Replication feature on a new namespace.
+### Using Azure Portal
+
+The following section is an overview to set up the Geo-Replication feature on a new namespace through the Azure portal.
 > [!NOTE]
 > This experience might change during public preview. We'll update this document accordingly.
 
@@ -129,6 +131,44 @@ The following section is an overview to set up the Geo-Replication feature on a 
 1. Click on the **Add secondary region** button, and choose a region.
 1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
 :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
+
+### Using Bicep template
+
+To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section as shown below.
+
+To create a queue with duplicate detection enabled, set requiresDuplicateDetection to true in the queue properties section. For more information, see Microsoft.ServiceBus namespaces/queues template reference. Specify a value for the duplicateDetectionHistoryTimeWindow property to set the size of the duplicate detection window. In the following example, it's set to one day.
+
+```bicep
+param serviceBusName string
+param primaryLocation string
+param secondaryLocation string
+param maxReplicationLagInSeconds int
+
+resource sb 'Microsoft.ServiceBus/namespaces@2023-01-01-preview' = {
+  name: serviceBusName
+  location: primaryLocation
+  sku: {
+    name: 'Premium'
+    tier: 'Premium'
+    capacity: 1
+  }
+  properties: {
+    geoDataReplication: {
+      maxReplicationLagDurationInSeconds: maxReplicationLagInSeconds
+      locations: [
+        {
+          locationName: primaryLocation
+          roleType: 'Primary'
+        }
+        {
+          locationName: secondaryLocation
+          roleType: 'Secondary'
+        }
+      ]
+    }
+  }
+}
+```
 
 ## Management
 
@@ -146,14 +186,10 @@ To remove a secondary region, click on the **...**-ellipsis next to the region, 
 
 ### Promotion flow
 
-A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. In the portal, click on the **Promote** icon, and follow the instructions in the pop-up blade to delete the region. 
-
-When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
+A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
 
 > [!IMPORTANT]
 > When using **Forced** promotion, any data that has not been replicated may be lost.
-
-:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screeshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
 
 After the promotion is initiated:
 
@@ -163,10 +199,24 @@ After the promotion is initiated:
     > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
+
 :::image type="content" source="./media/service-bus-geo-replication/promotion-flow.png" alt-text="Screenshot of the portal showing the flow of promotion from primary to secondary region." lightbox="./media/service-bus-geo-replication/promotion-flow.png":::
 
-
 You can automate promotion either with monitoring systems, or with custom-built monitoring solutions. However, such automation takes extra planning and work, which is out of the scope of this article.
+
+### Using Azure Portal
+
+In the portal, click on the **Promote** icon, and follow the instructions in the pop-up blade to delete the region. 
+
+:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screeshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
+
+### Using Azure CLI
+
+Execute theAzure CLI command below to initiate the promotion. The **Force** property is optional, and defaults to **false**.
+
+```cli
+az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2023-01-01-preview --body "{'properties': {'PrimaryLocation': '<newPrimaryocation>', 'api-version':'2023-01-01-preview', 'Force':'false'}}"
+```
 
 ### Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Log Analytics.
