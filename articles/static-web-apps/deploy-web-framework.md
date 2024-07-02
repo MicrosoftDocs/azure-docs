@@ -34,7 +34,7 @@ You can run the app you create in this article on the platform of your choice in
 
 ::: zone pivot="vanilla-js"
 
-1. Select an appropriate directory for your code, then run the following commands.
+2. Select an appropriate directory for your code, then run the following commands.
 
     ```bash
     npm create vite@latest swa-vanilla-demo -- --template=vanilla
@@ -51,7 +51,7 @@ You can run the app you create in this article on the platform of your choice in
 
 ::: zone pivot="angular"
 
-1. Select an appropriate directory for your code, then run the following commands.
+2. Select an appropriate directory for your code, then run the following commands.
 
     ```bash
     npx --package @angular/cli@latest ng new swa-angular-demo --ssr=false --defaults
@@ -67,7 +67,7 @@ You can run the app you create in this article on the platform of your choice in
 
 ::: zone pivot="react"
 
-1. Select an appropriate directory for your code, then run the following commands.
+2. Select an appropriate directory for your code, then run the following commands.
 
     ```bash
     npm create vite@latest swa-react-demo -- --template react
@@ -84,7 +84,7 @@ You can run the app you create in this article on the platform of your choice in
 
 ::: zone pivot="vue"
 
-1. Select an appropriate directory for your code, then run the following commands.
+2. Select an appropriate directory for your code, then run the following commands.
 
     ```bash
     npm create vite@latest swa-vue-demo -- --template vue
@@ -99,7 +99,7 @@ You can run the app you create in this article on the platform of your choice in
 
 ::: zone-end
 
-1. Select <kbd>Cmd/Ctrl</kbd>+<kbd>C</kbd> to stop the development server.
+3. Select <kbd>Cmd/Ctrl</kbd>+<kbd>C</kbd> to stop the development server.
 
 [!INCLUDE [Create an Azure Static Web App](../../includes/static-web-apps/quickstart-direct-deploy-create.md)]
 
