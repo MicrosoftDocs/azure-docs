@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-[Socket.IO Admin UI](https://socket.io/docs/v4/admin-ui/) is a website tool developed by Socket.IO offical team and it can be used to have an overview of the state of your Socket.IO deployment. See how it works and explore its advanced usage in [Socket.IO Admin UI Doc](https://socket.io/docs/v4/admin-ui/).
+[Socket.IO Admin UI](https://socket.io/docs/v4/admin-ui/) is a website tool developed by Socket.IO official team and it can be used to have an overview of the state of your Socket.IO deployment. See how it works and explore its advanced usage in [Socket.IO Admin UI Doc](https://socket.io/docs/v4/admin-ui/).
 
 [Azure Socket.IO Admin UI](https://github.com/Azure/azure-webpubsub/tree/main/tools/azure-socketio-admin-ui) is a customized version of it for Azure Socket.IO. 
 
@@ -36,7 +36,7 @@ The static website files could be either downloaded from release or built from s
     yarn build
     ```
 
-3. Host the static files using any HTTP server. Let's use [a simple static HTTP server](https://www.npmjs.com/package/http-server) as an example:
+3. Host the static files using any HTTP server. Let's use [a tiny static HTTP server](https://www.npmjs.com/package/http-server) as an example:
     ```bash
     cd dist
     npm install -g http-server
@@ -45,7 +45,7 @@ The static website files could be either downloaded from release or built from s
 
     The http server is hosted on port 8080 by default.
 
-4. Visit `http://localhost:8080` to view the website.
+4. Visit `http://localhost:8080` in browser
 
 # Service-side
 1. install the `@socket.io/admin-ui` package:
