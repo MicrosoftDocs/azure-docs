@@ -24,7 +24,7 @@ For more information, see [Azure role-based access control (Azure RBAC)](../role
 
 Azure Operator Nexus provides the following built-in roles.
 
-[Operator Nexus Infrastructure Contributor Role (Preview)](#operator-nexus-infrastructure-contributor-role-preview)
+[Operator Nexus Compute Contributor Role (Preview)](#operator-nexus-compute-contributor-role-preview)
 
 [Operator Nexus Keyset Administrator Role (Preview)](#operator-nexus-keyset-administrator-role-preview)
 
@@ -34,10 +34,10 @@ Azure Operator Nexus provides the following built-in roles.
 
 ---
 
-### Operator Nexus Infrastructure Contributor Role (Preview)
+### Operator Nexus Compute Contributor Role (Preview)
 
 The user with this role can have full access to manage and configure Nexus resources,
-including creating, modifying, and deleting resources related to Nexus Infrastructure.
+including creating, modifying, and deleting resources related to Nexus infrastructure.
 
 | Actions                                                             | Description                                                                                                                                                              |
 |---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,9 +97,9 @@ including creating, modifying, and deleting resources related to Nexus Infrastru
 >
 > In some instances, it may be necessary to assign additional actions to the user.
 > One solution would be to create a custom role with the below actions to be assigned to
-> the user in conjunction with the Oerator Nexus Infrastructure Contributor role.
+> the user in conjunction with the Operator Nexus Compute Contributor role.
 
-#### Ancillary Operator Nexus Infrastructure Contributor Actions
+#### Ancillary Operator Nexus Compute Contributor Actions
 
 | Actions                                                             | Description                                                                                                         |
 |---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
