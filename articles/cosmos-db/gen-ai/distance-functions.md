@@ -30,3 +30,10 @@ Two vectors are multiplied to return a single number. It combines the two vector
 
 ## Related content
 - [VectorDistance system function](../nosql/query/vectordistance.md) in Azure Cosmos DB NoSQL
+- [What is a vector database?](../vector-database.md)
+- [Vector database in Azure Cosmos DB NoSQL](../nosql/vector-search.md)
+- [Vector database in Azure Cosmos DB for MongoDB](../mongodb/vcore/vector-search.md)
+- [What is vector search?](vector-search-overview.md)
+- LLM [tokens](tokens.md)
+- Vector [embeddings](vector-embeddings.md)
+- [kNN vs ANN vector search algorithms](knn-vs-ann.md)
