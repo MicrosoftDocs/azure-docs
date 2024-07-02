@@ -484,7 +484,7 @@ items:
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
-        href: availability-zones-disaster-recovery.md
+        href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
       - name: Security
         items:
         - name: Security baseline

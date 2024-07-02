@@ -1,6 +1,6 @@
 ---
-title: Reliability in Azure Event Grid and Event Grid namespacess
-description: Find out about reliability in Azure Event Grid and Event Grid namespaces
+title: Reliability in Azure Event Grid and Event Grid namespace
+description: Find out about reliability in Azure Event Grid and Event Grid namespace
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -9,9 +9,9 @@ ms.service: virtual-machines
 ms.date: 07/02/2024
 ---
  
-# Reliability in Azure Event Grid and Event Grid namespaces
+# Reliability in Azure Event Grid and Event Grid namespace
 
-This article contains detailed information on Event Grid and Event Grid namespaces regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+This article contains detailed information on Event Grid and Event Grid namespace regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
@@ -24,12 +24,12 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones.  When there's a regional failure in one of the availability zones, Event Grid resources **automatically failover** to another availability zone without human intervention. Currently, it isn't possible for you to control (enable or disable) this feature. When an existing region starts supporting availability zones, existing Event Grid resources are automatically failed over to take advantage of this feature. No customer action is required. 
 
-**Azure Event Grid namespaces** also achieve intra-region high availability using availability zones. 
+**Azure Event Grid namespace** also achieves intra-region high availability using availability zones. 
 
  
 ### Prerequisites
 
-For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions].(availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
 
 
 ### Pricing
@@ -70,6 +70,18 @@ The following table illustrates the client-side failover and geo disaster recove
 | Partner Namespaces  | Supported                                 | Not supported                         |
 | Namespaces          | Supported                                 | Not supported                         |
 
+
+### Event grid namespace
+
+Event Grid namespace doesn't support cross-region DR. However, you can achieve cross region high availability through client-side failover implementation by creating primary and secondary namespaces.
+
+With a client-side failover implementation, you can:
+
+- Implement a** custom (manual or automated) process to replicate namespace, client identities, and other configurations** including CA certificates, client groups, topic spaces, permission bindings, routing, between primary and secondary regions.
+
+- Implement a **concierge service** that provides clients with primary and secondary endpoints by performing a health check on endpoints. The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques, for example, using Azure Traffic Manager.
+
+- **Achieve an Active-Active DR solution**  by replicating the metadata and balancing load across the namespaces. An Active-Passive DR solution can be achieved by replicating the metadata to keep the secondary namespace ready so that when the primary namespace is unavailable, the traffic can be directed to secondary namespace.
 
 
 ### Set up disaster recovery

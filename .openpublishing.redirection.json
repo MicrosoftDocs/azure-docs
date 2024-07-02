@@ -4209,6 +4209,11 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
             "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
         }
 
     ]
