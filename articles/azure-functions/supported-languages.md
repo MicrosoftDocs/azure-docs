@@ -56,6 +56,7 @@ Starting with version 2.x, the runtime is designed to offer [language extensibil
 ::: zone pivot="programming-language-python"
 ## ODBC driver support
 This table indicates the ODBC driver support for your Python functions:
+
 | Driver version | Python version |
 | ---- | ---- |
 | ODBC driver 18 | ≥ Python 3.11 |
