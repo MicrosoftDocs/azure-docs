@@ -103,7 +103,7 @@ You can run the app you create in this article on the platform of your choice in
 
 [!INCLUDE [Create an Azure Static Web App](../../includes/static-web-apps/quickstart-direct-deploy-create.md)]
 
-[!INCLUDE [Build your site for deployment](../../includes/static-web-apps/quickstart-direct-deplopy-build.md)]
+[!INCLUDE [Build your site for deployment](../../includes/static-web-apps/quickstart-direct-deploy-build.md)]
 
 ::: zone pivot="angular"
 

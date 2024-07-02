@@ -106,11 +106,6 @@ Deploy your site in the same way as you did in the last tutorial.
 
 [!INCLUDE [Clean up resources](../../includes/static-web-apps/quickstart-direct-deploy-clean-up-resources.md)]
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Configure automated deployments](./add-github-action.md)
-
 ## Related content
 
 * [Authentication and authorization](./authentication-authorization.yml)
