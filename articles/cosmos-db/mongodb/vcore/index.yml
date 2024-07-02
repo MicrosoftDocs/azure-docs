@@ -58,8 +58,6 @@ landingContent:
             url: how-to-restore-cluster.md
             - linkListType: concept
               links:
-              - text: Monitor metrics
-                url: request-metrics.md
               - text: Monitor diagnostics logs
                 url: how-to-monitor-diagnostics-logs.md
       - linkListType: concept
