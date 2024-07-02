@@ -294,9 +294,31 @@ The Application Insights API supports Microsoft Entra authentication with three 
 
 In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Microsoft Entra ID](../logs/api/register-app-for-token.md).
 
-Use  `resource=https://api.applicationinsights.io`.
+Use the `https://api.applicationinsights.io` endpoint.
 
-[!INCLUDE [Get a token](../includes/get-a-token.md)]
+##### Client credentials token URL (POST request)
+
+```http
+    POST /<your-tenant-id>/oauth2/token
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &client_id=<app-client-id>
+    &resource=https://api.applicationinsights.io
+    &client_secret=<app-client-secret>
+```
+
+A successful request receives an access token in the response:
+
+```http
+    {
+        token_type": "Bearer",
+        "expires_in": "86399",
+        "ext_expires_in": "86399",
+        "access_token": ""eyJ0eXAiOiJKV1QiLCJ.....Ax"
+    }
+```
 
 Use the token in requests to the Application Insights endpoint:
 
