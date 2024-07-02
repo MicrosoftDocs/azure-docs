@@ -154,9 +154,6 @@ New limits are as follows:
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
 
-#### SMS to Canadian phone numbers
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
-
 ### What happens after I submit the toll-free verification form?
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
@@ -171,7 +168,7 @@ Updates for changes and the status of your applications will be communicated via
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Select on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### What is considered a high quality toll-free verification application? 
-The higher the quality of the application the higher chances your application enters [verified state](#what-do-the-different-application-statuses-verified-and-unverified-mean) faster.  
+The better the quality of your application, the greater the likelihood of it being approved.
 
 Pointers to ensure you are submitting a high quality application:
 - Phone number(s) listed is/are Toll-free number(s)
