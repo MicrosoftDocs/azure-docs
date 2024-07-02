@@ -4,7 +4,7 @@ description: Take the first steps toward working with Azure App Service.
 ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
-ms.custom: devx-track-extended-java, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 8/31/2023
 zone_pivot_groups: app-service-getting-started-stacks
 ---

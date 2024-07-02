@@ -4,7 +4,7 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 04/21/2024
+ms.date: 06/29/2024
 ms.topic: conceptual
 ---
 
@@ -44,7 +44,6 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 isn't supported for any operating system.
 
 * Amazon Linux 2012.09 to 2015.09
-* CentOS Linux 5, 6, 7, and 8
 * Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
@@ -105,7 +104,7 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 |Runbook type | Supported |
 |-------------|-----------|
-|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8, and CentOS 8|
+|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8|
 |Python 2 |Yes, for any distro that doesn't require Python 3<sup>1</sup> |
 |PowerShell |Yes<sup>2</sup> |
 |PowerShell Workflow |No |
@@ -229,15 +228,13 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 ## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
-Run the following commands as root on the agent-based Linux Hybrid Worker:
+1. Run the following commands as root on the agent-based Linux Hybrid Worker:
 
-1. ```bash
-      sudo bash
+   ```bash
+   sudo bash
+   rm -r /home/nxautomation
    ```
 
-1. ```bash
-      rm -r /home/nxautomation
-   ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.

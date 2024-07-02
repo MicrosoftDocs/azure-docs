@@ -38,7 +38,11 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
 1. Create a new AKS cluster and enable the HTTP application routing add-on using the [`az aks create`][az-aks-create] command with the `--enable-addons` parameter.
 
     ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --enable-addons http_application_routing \
+        --generate-ssh-keys
     ```
 
     You can also enable HTTP routing on an existing AKS cluster using the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter.

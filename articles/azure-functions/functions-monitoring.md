@@ -165,5 +165,5 @@ To report an issue with Application Insights integration in Functions, or to mak
 
 For more information, see the following resources:
 
-* [Application Insights](/azure/application-insights/)
+* [Application Insights](../azure-monitor/app/app-insights-overview.md)
 * [ASP.NET Core logging](/aspnet/core/fundamentals/logging/)

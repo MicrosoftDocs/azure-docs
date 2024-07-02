@@ -71,6 +71,13 @@ A single worker instance can execute multiple work items concurrently to increas
 > [!NOTE]
 > This is not a replacement for fine-tuning the performance and concurrency settings of your language runtime in Azure Functions. The Durable Functions concurrency settings only determine how much work can be assigned to a given VM at a time, but it does not determine the degree of parallelism in processing that work inside the VM. The latter requires fine-tuning the language runtime performance settings.
 
+### Use unique names for your external events
+
+As with activity functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain _rare_ conditions (which may occur during restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain an ID that allows them to be manually de-duplicated in orchestrators.
+
+> [!NOTE]
+> The [MSSQL](./durable-functions-storage-providers.md#mssql) storage provider consumes external events and updates orchestrator state transactionally, so in that backend there should be no risk of duplicate events, unlike with the default [Azure Storage storage provider](./durable-functions-storage-providers.md). That said, it is still recommended that external events have unique names so that code is portable across backends.
+
 ### Invest in stress testing
 
 As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.

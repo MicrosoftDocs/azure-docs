@@ -175,7 +175,7 @@ To resolve the issue:
    
    - Download the [PsExec tool](/sysinternals/downloads/psexec).
    - Use the tool to access the System user context and determine whether the proxy address is configured. 
-   - If the proxy is configured, open IE in a system user context using the PsExec tool.
+   - If the proxy is configured, open Internet Explorer in a system user context using the PsExec tool.
   
      **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 

@@ -176,7 +176,8 @@ The following example demonstrates the use of a self-asserted technical profile 
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
 ```
-
+> [!NOTE]
+> When you collect the password claim value in the self-asserted technical profile, that value is only available within the same technical profile or within a validation technical profiles that are referenced by that same self-asserted technical profile. When execution of that self-asserted technical profile completes, and moves to another technical profile, the password's value is lost. Consequently, password claim can only be stored in the orchestration step in which it is collected.
 ### Output claims sign-up or sign-in page
 
 In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element that specifies a `unifiedssp` or `unifiedssd` page type:

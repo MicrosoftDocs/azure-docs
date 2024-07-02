@@ -104,7 +104,8 @@ az aks create \
     --name $CLUSTER_NAME \
     --node-count 1 \
     --network-plugin azure \
-    --network-policy azure
+    --network-policy azure \
+    --generate-ssh-keys
 ```
 
 ### Create an AKS cluster with Azure Network Policy Manager enabled - Windows Server 2022 (preview)
@@ -117,7 +118,7 @@ In this section, you create a cluster with Windows node pools and Azure Network 
 
 #### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the `aks-preview` extension, run the following command:
 
@@ -177,7 +178,8 @@ az aks create \
     --node-count 1 \
     --windows-admin-username $WINDOWS_USERNAME \
     --network-plugin azure \
-    --network-policy azure
+    --network-policy azure \
+    --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster. By default, your cluster is created with only a Linux node pool. If you want to use Windows node pools, you can add one. Here's an example:
@@ -215,7 +217,8 @@ az aks create \
     --node-count 1 \
     --windows-admin-username $WINDOWS_USERNAME \
     --network-plugin azure \
-    --network-policy calico
+    --network-policy calico \
+    --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster. By default, your cluster is created with only a Linux node pool. If you want to use Windows node pools, you can add one. For example:

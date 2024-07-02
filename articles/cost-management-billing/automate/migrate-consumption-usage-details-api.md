@@ -250,6 +250,6 @@ For more information, see [Understand usage details fields](understand-usage-det
 | unitPrice | unitPrice |
 | exchangeRatePricingToBilling | exchangeRatePricingToBilling |
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

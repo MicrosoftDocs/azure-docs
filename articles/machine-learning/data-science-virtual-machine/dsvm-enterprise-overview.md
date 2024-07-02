@@ -14,7 +14,7 @@ ms.date: 04/10/2024
 ---
 
 # Data Science Virtual Machine-based team analytics and AI environment 
-The [Data Science Virtual Machine](overview.md) (DSVM) provides a rich environment on the Azure platform, with prebuilt software for artificial intelligence (AI) and data analytics.
+The [Data Science Virtual Machine (DSVM)](overview.md) provides a rich environment on the Azure platform, with prebuilt software for artificial intelligence (AI) and data analytics.
 
 Traditionally, the DSVM has been used as an individual analytics desktop. This shared, prebuilt analytics environment boosts productivity for scientists. As large analytics teams plan environments for their data scientists and AI developers, one recurring theme is a shared development and experimentation analytics infrastructure. This infrastructure is managed consistent with enterprise IT policies that also facilitate collaboration and consistency across the data science and analytics teams.
 

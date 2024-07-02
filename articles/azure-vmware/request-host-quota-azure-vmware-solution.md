@@ -53,7 +53,7 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
-Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
+Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from Partner Center.
 
 >[!IMPORTANT] 
 >Azure VMware Solution service does not provide multi-tenancy support. Hosting partners requiring it are not supported. 
@@ -74,7 +74,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 1. After you configure the Azure plan and you have the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) in place for the subscription, you'll request the quota for your Azure plan subscription. 
 
-   1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of** (AOBO) procedure.
+   1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of (AOBO)** procedure.
    
    1. Select **CSP** to access the **Customers** area.
    

@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -171,43 +171,6 @@ You can modify a scale to expand the set of zones over which to spread VM instan
 > This feature is intended for stateless workloads on Virtual Machine Scale Sets. Scale sets with stateful workloads or used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
 
 This feature can be used with API version 2023-03-01 or greater.
-
-### Enable your subscription to use zonal expansion feature
-
-You must register for four feature flags on your subscription:
-
-### [Azure CLI](#tab/cli-1)
-
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name VmssAllowRegionalToZonalMigration
-az feature register --namespace Microsoft.Compute --name VmssAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name VmssFlexAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name VmssFlexAllowRegionalToZonalMigration
-```
-
-You can check the registration status of each feature by using:
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name \<feature-name\>
-```
-
-### [Azure PowerShell](#tab/powershell-1)
-
-
-```powershell
-Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssFlexAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssFlexAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
-```
-
-You can check the registration status of each feature by using:
-
-```powershell
-Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
-```
----
 
 ### Expand scale set to use availability zones
 You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availability zones supported by the region. For regions that support zones, the minimum number of zones is 3.

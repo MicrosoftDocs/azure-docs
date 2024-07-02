@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.topic: conceptual
-ms.date: 07/01/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---

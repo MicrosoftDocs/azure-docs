@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/13/2023
+ms.date: 06/30/2024
 ms.custom: linux-related-content
 ms.topic: conceptual
 ---
@@ -80,7 +80,7 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 > To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
 
 #### [Python 2](#tab/python-2)
-- Red Hat, CentOS, Oracle:
+- Red Hat, Oracle:
 
 ```bash
    sudo yum install -y python2
@@ -102,7 +102,7 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 
 #### [Python 3](#tab/python-3)
 
-- Red Hat, CentOS, Oracle:
+- Red Hat, Oracle:
 
 ```bash
    sudo yum install -y python3
@@ -191,7 +191,7 @@ The next table shows the data collection frequency for the types of changes supp
 | Windows registry | 50 minutes |
 | Windows file | 30 minutes |
 | Linux file | 15 minutes |
-| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
+| Windows services | 10 minutes to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |

@@ -25,19 +25,20 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
-|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
-|                   | Send inline images                                                                                                        | ❌ |
-|                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
-|                   | Send file attachments                                                                                                        | ❌ |
-|                   | Send and receive Giphy                                                                                              | ❌ |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                   | ✔️ |
+|                   | Send inline images                                                                                                  | ❌ |
+|                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)             | ✔️ |
+|                   | Send file attachments                                                                                               | ❌ |
+|                   | Receive Giphy                                                                                                       | ✔️ |
 |                   | Send messages with high priority                                                                                    | ❌ |
 |                   | Receive messages with high priority                                                                                 | ✔️ |
-|                   | Send and receive Loop components                                                                                    | ❌ |
-|                   | Send and receive Emojis                                                                                             | ❌ |
-|                   | Send and receive Stickers                                                                                           | ❌ |
-|                   | Send and receive Teams messaging extensions                                                                         | ❌ |
+|                   | Receive link to Loop components                                                                                     | ❌ |
+|                   | Send and receive Emojis                                                                                             | ✔️ |
+|                   | Send and receive Stickers                                                                                           | ✔️ |
+|                   | Send and receive adaptive cards                                                                                     | ❌ |
 |                   | Use typing indicators                                                                                               | ✔️ |
 |                   | Read receipt                                                                                                        | ❌ |
+|                   | Render response to chat message                                                                                     | ✔️ |
 |                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
 |                   | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                                         | ✔️*|
@@ -173,8 +174,6 @@ This article describes which capabilities Azure Communication Services SDKs supp
 When Teams external users leave the meeting, or the meeting ends, they can no longer exchange new chat messages nor access messages sent and received during the meeting. 
 
 \* Azure Communication Services provides developer tools to integrate Microsoft Teams Data Loss Prevention compatible with Microsoft Teams. For more information, see [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md).
-
-\*\* Inline image and file attachment support are available in the Chat SDK for JavaScript and C# only.
 
 ## Server capabilities
 

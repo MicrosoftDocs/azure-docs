@@ -49,11 +49,11 @@ See [About Gateway SKUs](about-gateway-skus.md) article for the latest informati
 
 ## <a name="vpntype"></a>VPN types
 
-Azure supports two different VPN types for VPN gateways: policy-based and route-based. Route-based VPN gateways are built on a different platform than policy-based VPN gateways. This results in different gateway specifications.
+Azure supports two different VPN types for VPN gateways: policy-based and route-based. Route-based VPN gateways are built on a different platform than policy-based VPN gateways. This results in different gateway specifications. In most cases, you'll create a route-based VPN gateway.
 
-In most cases, you'll create a route-based VPN gateway. Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2. If you already have a policy-based gateway, you aren't required to upgrade your gateway to route-based.
+Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2. As of Oct 1, 2023, you can't create a policy-based VPN gateway through the Azure portal, only route-based gateways are available. If you want to create a policy-based gateway, use PowerShell or CLI.
 
-If you want to create a policy-based gateway, use PowerShell or CLI. As of Oct 1, 2023, you can't create a policy-based VPN gateway through Azure portal, only route-based gateways are available. 
+If you already have a policy-based gateway, you aren't required to change your gateway to route-based unless you want to use a configuration that requires a route-based gateway, such as point-to-site. You can't convert a policy-based gateway to route-based. You must delete the existing gateway, and then create a new gateway as route-based.
 
 [!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
 

@@ -7,9 +7,9 @@ items:
     - name: What is the FHIR service?
       href: overview.md
     - name: FHIR service autoscale
-      href: fhir-service-autoscale.md
+      href: autoscale.md
     - name: FHIR REST API capabilities
-      href: fhir-rest-api-capabilities.md
+      href: rest-api-capabilities.md
     - name: Versioning policy and history management
       href: fhir-versioning-policy-and-history-management.md
     - name: Migration from Azure API for FHIR
@@ -83,22 +83,22 @@ items:
     - name: $convert-data
       items: 
         - name: $convert-data overview
-          href: overview-of-convert-data.md
+          href: convert-data-overview.md
         - name: Configure settings for $convert-data
-          href: configure-settings-convert-data.md
+          href: convert-data-configuration.md
         - name: Transform HL7v2 data to FHIR R4
-          href: convert-data-with-azure-data-factory.md
+          href: convert-data-azure-data-factory.md
         - name: Troubleshoot $convert-data
-          href: troubleshoot-convert-data.md
-        - name: FAQ - $convert-data
-          href: frequently-asked-questions-convert-data.md
+          href: convert-data-troubleshoot.md
+        - name: $convert-data FAQ
+          href: convert-data-faq.md
     - name: $export
       items: 
         - name: Configure settings for export
           href: configure-export-data.md
         - name: Export FHIR data
           href: export-data.md
-        - name: De-identified export
+        - name: Export deidentified data
           href: de-identified-export.md
     - name: $import
       expanded: false
