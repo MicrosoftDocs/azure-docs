@@ -4,19 +4,19 @@ description: This article explains how to view and create scheduled analytics ru
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 07/02/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 ---
-# Create a custom analytics rule from scratch
+# Create a scheduled analytics rule from scratch
 
 You’ve set up [connectors and other means of collecting activity data](connect-data-sources.md) across your digital estate. Now you need to dig through all that data to detect patterns of activity and discover activities that don’t fit those patterns and that could represent a security threat.
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
 
-This article walks you through the **Analytics rule wizard** and explains all the available options. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for Microsoft Sentinel users who aren't also Microsoft Defender subscribers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
+This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for Microsoft Sentinel users who aren't also Microsoft Defender subscribers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -24,31 +24,25 @@ This article walks you through the **Analytics rule wizard** and explains all th
 
 - You must have the Microsoft Sentinel Contributor role, or any other role or set of permissions that includes write permissions on your Log Analytics workspace and its resource group.
 
+- You should have at least a basic familiarity with data science and analysis and the Kusto Query Language.
+
+- You should familiarize yourself with the analytics rule wizard and all the configuration options that are available. For more information, see [Scheduled analytics rules in Microsoft Sentinel](scheduled-rules-overview.md).
+
 ## Design and build your query
 
 Before you do anything else, you should design and build a query in Kusto Query Language (KQL) that your rule will use to query one or more tables in your Log Analytics workspace.
 
-1. Determine a data source that you want to search to detect unusual or suspicious activity. Find the name of the Log Analytics table into which data from that source is ingested. You can find the table name on the page of the data connector for that source. Use this table name (or a function based on it) as the basis for your query.
+1. Determine a data source, or a set of data sources, that you want to search to detect unusual or suspicious activity. Find the name of the Log Analytics table into which data from those sources is ingested. You can find the table name on the page of the data connector for that source. Use this table name (or a function based on it) as the basis for your query.
 
 1. Decide what kind of analysis you want this query to perform on the table. This decision will determine which commands and functions you should use in the query.
 
 1. Decide which data elements (fields, columns) you want from the query results. This decision will determine how you structure the output of the query.
 
-### Best practices for analytics rule queries
+1. Build and test your queries in the **Logs** screen. When you’re satisfied, save the query for use in your rule.
 
-- It's recommended to use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
-
-- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
-
-- Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
-
-- When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
-
-   `project field1 = column_ifexists("field1","")`
+For some helpful tips for building Kusto queries, see [Best practices for analytics rule queries](scheduled-rules-overview.md#best-practices-for-analytics-rule-queries).
 
 For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
-
-Build and test your queries in the **Logs** screen. When you’re satisfied, save the query for use in your rule.
 
 ## Create your analytics rule
 
@@ -159,8 +153,7 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 1. <a name="alert-threshold"></a>**Set the threshold for creating alerts.**
 
    Use the **Alert threshold** section to define the sensitivity level of the rule.
-   - To set a minimum threshold, set **Generate alert when number of query results** to **Is greater than**, and enter the minimum number of events that need to be found over the time period of the query for the rule to generate an alert. 
-   - This is a required field, so if you don’t want to set a threshold&mdash;that is, if you want to trigger the alert for even a single event in a given time period&mdash;enter `0` in the number field.
+   - To set a minimum threshold, set **Generate alert when number of query results** to **Is greater than**, and enter the minimum number of events that need to be found over the time period of the query for the rule to generate an alert.  If you don’t want to set a threshold, enter `0` in the number field.
 
 1. **Set event grouping settings.** 
 
@@ -177,7 +170,7 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
 1. **Simulate the results of the query and logic settings.**
 
-   To see what your rule results would look like if it had been running on your current data, select **Test with current data** in the **Results simulation** area. Microsoft Sentinel simulates running the rule 50 times on the current data, using the defined schedule, and shows you a graph of the results (log events). If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the time period defined by the settings in the **Query scheduling** section.
+   In the **Results simulation** area, select **Test with current data** to see what your rule results would look like if it had been running on your current data. Microsoft Sentinel simulates running the rule 50 times on the current data, using the defined schedule, and shows you a graph of the results (log events). If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the time period defined by the settings in the **Query scheduling** section.
 
 1. Select **Next: Incident settings**.
 
@@ -192,7 +185,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
    - If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
 
      > [!IMPORTANT]
-     > If you onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, and this rule is querying and creating alerts from Microsoft 365 or Microsoft Defender sources, you must set this setting to **Disabled**.
+     > If you onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, leave this setting **Enabled**.
 
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 
@@ -200,15 +193,15 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
    In the **Alert grouping** section, if you want a single incident to be generated from a group of up to 150 similar or recurring alerts (see note), set **Group related alerts, triggered by this analytics rule, into incidents** to **Enabled**, and set the following parameters.
 
-   1. **Limit the group to alerts created within the selected time frame**: Determine the time frame within which the similar or recurring alerts will be grouped together. All of the corresponding alerts within this time frame will collectively generate an incident or a set of incidents (depending on the grouping settings below). Alerts outside this time frame will generate a separate incident or set of incidents.
+   1. **Limit the group to alerts created within the selected time frame**: Set the time frame within which the similar or recurring alerts are grouped together. Alerts outside this time frame generate a separate incident or set of incidents.
 
-   1. **Group alerts triggered by this analytics rule into a single incident by**: Choose the basis on which alerts will be grouped together:
+   1. **Group alerts triggered by this analytics rule into a single incident by**: Choose how alerts are grouped together:
 
       | Option | Description |
       | ------- | ---------- |
       | **Group alerts into a single incident if all the entities match** | Alerts are grouped together if they share identical values for each of the mapped entities (defined in the [Set rule logic](#define-the-rule-logic) tab above). This is the recommended setting. |
       | **Group all alerts triggered by this rule into a single incident** | All the alerts generated by this rule are grouped together even if they share no identical values. |
-      | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the mapped entities, alert details, and custom details selected from the respective drop-down lists.<br><br>You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses, or if you want to group alerts that match a specific entity and severity.<br><br>**Note**: When you select this option, you must have at least one entity type or field selected for the rule. Otherwise, the rule validation will fail and the rule won't be created. |
+      | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the mapped entities, alert details, and custom details selected from the respective drop-down lists. |
 
    1. **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
 

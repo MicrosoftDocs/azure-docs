@@ -4,7 +4,7 @@ description: Understand how scheduled analytics rules work in Microsoft Sentinel
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 05/27/2024
+ms.date: 07/02/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -84,7 +84,7 @@ For more information on maximizing your coverage of the MITRE ATT&CK threat land
 
 **Status:** When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, you have two options:
 - Select **Disabled**, and the rule will be added to your **Active rules** tab. You can enable it from there when you need it.
-- Schedule the rule to first run at a specific date and time. This method is currently in PREVIEW. See [Schedule and scope the query](link) later on in this article.
+- Schedule the rule to first run at a specific date and time. This method is currently in PREVIEW. See [Query scheduling](#query-scheduling) later on in this article.
 
 ### *Set rule logic* tab
 
