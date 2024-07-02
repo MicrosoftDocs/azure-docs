@@ -92,7 +92,7 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
   2. An existing policy assignment is modified.
   3. A new Azure Load Testing resource is created in a scope with existing policies.
 
-- The policy evaluation of existing components in an Azure Load Testing resource may take up to one hour (one averagee) or up to two hours before compliance results are viewable in the portal.
+- The policy evaluation of existing components in an Azure Load Testing resource may take up to one hour (one average) or up to two hours before compliance results are viewable in the portal.
 
 - If the compliance results show up as "Not Started" it may be due to the following reasons:
   - The policy evaluation is not completed. Initial evaluation latency can take up to two hours.
