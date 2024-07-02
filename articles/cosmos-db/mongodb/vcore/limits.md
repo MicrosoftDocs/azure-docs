@@ -11,7 +11,7 @@ ms.date: 06/27/2024
 
 # Service Limits in Azure Cosmos DB for MongoDB vCore
 
-This document provides an overview of the service limits for Azure Cosmos DB for MongoDB vCore.
+This document outlines the current hard and soft limits for Azure Cosmos DB for MongoDB vCore. Many of these limitations are temporary and will evolve over time as the service continues to improve. If any of these limits are an issue for your organization, please reach out to Microsoft support for assistance.
 
 ## Query and Execution Limits
 
