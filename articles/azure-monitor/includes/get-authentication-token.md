@@ -20,7 +20,7 @@ Resources include:
 
 
 ## [REST](#tab/rest)
-
+### Get a token using a REST request
 Use the following REST API call to get a token.
 This request uses a client ID and client secret to authenticate the request. The client ID and client secret are obtained when you register your application with Microsoft Entra ID. For more information, see [Register an App to request authorization tokens and work with APIs](/azure/azure-monitor/logs/api/register-app-for-token?tabs=portal)
 
@@ -49,7 +49,7 @@ The response body appears in the following format:
 ```
 
 ## [CLI](#tab/cli)
-### Get a token Azure CLI
+### Get a token using Azure CLI
 To get a token using CLI, you can use the following command
 
 ```bash
