@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 # OS Images Supported with Remote NVMe
 
 > [!NOTE]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The following lists provide up-to-date information on which OS images are tagged as NVMe supported. These lists will be updated when new OS images are made available with remote NVMe support.
 
