@@ -90,8 +90,8 @@ Refresh release notes for:
 - Improved network connectivity testing: The Storage Mover agent now utilizes the Azure ARC CLI tool (azcmagent) and a curl GET command to verify the ARC and Storage Mover endpoints with the 'Test Network Connectivity' option in the agent console. 
 - A new option, 'Test Network Connectivity Verbosely' can help diagnose local network problems more easily.
 - Improved user experience to error conditions during agent registration and unregistration processes.
-- Since Storage Mover depends on Azure ARC and an Entra ID Managed Identity, additional safeguards are added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, anas well as the Azure Arc Private Link Scope (if applicable) is in the same Azure region.
-- Improved instructions during agent registration when leveraging private networking.
+- Since Storage Mover depends on Azure ARC and an Entra ID Managed Identity, extra safeguards are added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, anas well as the Azure Arc Private Link Scope (if applicable) is in the same Azure region.
+- Improved instructions during agent registration when using private networking.
 - Security improvements and bug fixes.
 
 ## 2023 December 1
@@ -119,13 +119,13 @@ Major refresh release notes for:
 - Agent version: 2.0.358
 
 ### Migration scenarios
-- Migrating your SMB shares to Azure file shares has become generally available.
+- Migrating your SMB shares to Azure file shares became generally available.
 - The Storage Mover agent is now supported on VMware ESXi 6.7 hypervisors, as a public preview.
 - Migrating NFS shares to Azure Data Lake Gen2 storage is now available as a public preview.
 
 ### Service
 
-- Migrations from NFS shares to Azure storage accounts with the hierarchical namespace service feature (HNS) enabled, are now supported and automatically leverage the ADLS Gen2 REST APIs for migration. This allows the migration of files and folders in a Data Lake compliant way. Full fidelity is preserved in just the same way as with the previously existing blob container migration path. 
+- Migrations from NFS shares to Azure storage accounts with the hierarchical namespace service feature (HNS) enabled, are now supported and automatically apply the ADLS Gen2 REST APIs for migration. This API allows the migration of files and folders in a Data Lake compliant way. Full fidelity is preserved in just the same way as with the previously existing blob container migration path. 
 - [Error codes and messages](status-code.md) have been improved.
 
 ### Agent
@@ -255,5 +255,5 @@ To access copy logs on the agent:
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
 1. Select option `3) Service and job status`
 1. Select option `2) Job summary`
-1. A list of jobs that have run on the agent is shown. Copy the ID in the format `Job definition id: Job run id` that represents the job you want to retrieve the copy logs for. You can confirm you've selected the right job by looking at the details of your selected job by pasting it into menu option `3) Job details`
+1. A list of jobs that previously ran on the agent is shown. Copy the ID in the format `Job definition id: Job run id` that represents the job you want to retrieve the copy logs for. You can confirm the selection of the correct job by looking at the details of your selected job by pasting it into menu option `3) Job details`
 1. Retrieve the copy logs by selecting option `4) Job copylogs` and providing the same ID from the previous step.
