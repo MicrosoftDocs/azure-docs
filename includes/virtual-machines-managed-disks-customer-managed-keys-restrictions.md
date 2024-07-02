@@ -23,3 +23,6 @@
 - Managed disks currently or previously encrypted using Azure Disk Encryption can't be encrypted using customer-managed keys.
 - Can only create up to 5000 disk encryption sets per region per subscription.
 - For information about using customer-managed keys with shared image galleries, see [Preview: Use customer-managed keys for encrypting images](../articles/virtual-machines/image-version-encryption.md).
+- The encryption can be enabled on existing virtual machine scale sets. However, only new VMs created after enabling the encryption are automatically encrypted.
+- Existing VMs must be deallocated and reallocated in order to be encrypted.
+
