@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 07/02/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---

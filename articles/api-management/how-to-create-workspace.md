@@ -24,7 +24,7 @@ Follow the steps in this article to:
 * Configure the workspace gateway network access settings
 * Assign users to the workspace
 
-::: zone-pivot="public-inbound-private-outbound, private-inbound-private-outbound, public""
+::: zone-pivot="public-inbound-private-outbound, private-inbound-private-outbound, public"
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.

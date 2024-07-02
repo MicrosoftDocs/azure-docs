@@ -22,7 +22,19 @@ In API Management, *workspaces* allow decentralized API development teams to man
 
 ## Federated API management with workspaces
 
-Add information and diagrams about federated API management with workspaces.
+Workspaces add first-class support for a *federated model* of managing APIs in API Management, in addition to already supported centralized and siloed models. See the following diagram and explanation for a comparison of these models.
+
+
+|Model|Diagram  |
+|---------|---------|
+|In the **centralized** model, organizations use a single API Management service shared among multiple API teams. This setup lacks separation of permissions, workflows, and API runtime, requiring the central platform team to resolve conflicts and manage API deployments. The platform team can become a bottleneck for successful API programs, and issues or misconfigurations can lead to platform-wide outages because the API gateway is a single point of failure.     |   :::image type="content" source="media/workspaces-overview/centralized.png" alt-text="Diagram of the centralized model of Azure API Management." border="false":::      |
+|Recognizing the challenges of a centralized model, many organizations have adopted a **siloed** API management model, where each API team owns and operates its own API Management service. However, this approach can lead to internal proliferation of services, leading to difficulties to maintain infrastructure, increased costs, and fragmented and ineffective API governance and discovery.     |  :::image type="content" source="media/workspaces-overview/siloed.png" alt-text="Diagram of the siloed model of Azure API Management." border="false":::       |
+|With workspaces, organizations implement a **federated** approach to API management, combining the advantages of the siloed and centralized models while avoiding their drawbacks. Each workspace within an API Management service is dedicated to an API team, which manages and publishes APIs independently. APIs from each workspace are deployed to separate gateways, enhancing fault tolerance and security at runtime. The platform team manages administrative access to each workspace. They can also enforce API behavior through runtime policies applied across workspaces, aggregate logs and metrics in a single monitoring solution, and implement organizational chargeback to specific teams. The developer portal offers a unified API discovery and onboarding experience for internal and external users.     |  :::image type="content" source="media/workspaces-overview/federated.png" alt-text="Diagram of the federated model of Azure API Management." border="false":::       |
+ 
+
+ 
+ 
+
 
 ## Example scenario overview
 
@@ -74,59 +86,56 @@ The following resources can be managed in workspaces.
 
 ## Workspace gateway
 
-Each workspace has a dedicated API gateway for use by the workspace collaborators, with the same core functionality as the gateway built-into your API Management service. The workspace gateway provides runtime isolation by routing API traffic only to the backend services for the workspace's APIs. The workspace gateway is a top-level Azure resource that you can manage independently of the API Management instance and its default gateway and gateways for other workspaces.
+Each workspace has a dedicated API gateway for use by the workspace collaborators, with the same core functionality as the gateway built-into your API Management service. The workspace gateway provides runtime isolation by routing API traffic only to the backend services for the workspace's APIs. 
 
-Key features and constraints of workspace gateways are in the following sections. For a detailed comparison of API Management gateways, see [API Management gateways](api-management-gateways-overview.md).
+The workspace gateway is a top-level Azure resource that's managed independently of the API Management instance and gateways for other workspaces. Key features and constraints of workspace gateways are in the following sections. For a detailed comparison of API Management gateways, see [API Management gateways](api-management-gateways-overview.md).
 
 ### Gateway configuration
 
-Each gateway is configured with a default hostname for API traffic in the format `<workspace-name>.gateway.<region>.azure-api.net`. 
+Each workspace gateway is configured with a default hostname for API traffic in the format `<workspace-name>.gateway.<region>.azure-api.net`. Currently, custom hostnames aren't supported for workspace gateways.
 
 ### Network isolation
 
-A workspace gateway can be configured in a private virtual network to isolate inbound and/or outbound traffic. If configured, the workspace gateway must use a dedicated subnet in the virtual network. 
+A workspace gateway can optionally be configured in a private virtual network to isolate inbound and/or outbound traffic. If configured, the workspace gateway must use a dedicated subnet in the virtual network. 
 
 > [!NOTE]
 > * The network configuration of a workspace gateway is independent of the network configuration of the API Management instance.
-> * The network configuration of a workspace gateway can't be changed after the workspace is created.
+> * The network configuration of a workspace gateway can only be set up when the gateway is created and can't be changed later.
 
 ### Scale capacity
 
-Control gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. 
-
-> [!NOTE]
-> Currently, autoscale isn't supported in a managed workspace gateway
+Manage gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. 
 
 ### Monitoring and logging
 
-Monitor the workspace gateway with Azure Monitor and log data to Azure Monitor Logs.
-
-
-
-* Validate client certificates 
+* **Azure Monitor logs** - Monitor the workspace gateway by logging data to Azure Monitor logs and sending data to a Log Analytics workspace. Workspace gateway logs are separate from the service-level logs sent to Azure Monitor and can be accessed from the workspace's blade in the Azure portal.
+* **Application Insights logging** - Enable Application Insights logging specifically for your workspace gateway and configure logging settings for the APIs in your workspace.
 
 ### Regional availability
 
 Workspace gateways need to be in the same Azure region and subscription as the API Management service. Currently, workspace gateways are available in a subset of the regions where API Management is available.
 
 ### Gateway constraints
+The following constraints currently apply to workspace gateways:
 
 * A gateway can be associated only with one workspace
 * A workspace can't be associated with a self-hosted gateway
 * Workspace gateways don't support inbound private endpoints
-* Workspace gateways can't currently be assigned custom hostnames
+* Workspace gateways can't be assigned custom hostnames
 * APIs in workspaces aren't covered by Defender for APIs
 * Workspace gateways don't support the API Management service's credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
-* Workspace gateways currently don't support GraphQL APIs and WebSocket APIs
+* Workspace gateways don't support GraphQL APIs and WebSocket APIs
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Workspace gateways don't support CA certificates
+* Workspace gateways don't support autoscaling
+* Workspace gateways don't support managed identities
 
 ## RBAC roles for workspaces
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
-Workspace members must be assigned roles (or equivalent permissions using custom roles) scoped to the API Management service, the workspace, and (if configured) the workspace gateway. The service-scoped role enables referencing certain service-level resources from workspace-level resources. For example, organize a user into a workspace-level group to control API and product visibility.  
+To manage APIs and other resources in the workspace, workspace members must be assigned roles (or equivalent permissions using custom roles) scoped to the API Management service, the workspace, and the workspace gateway. The service-scoped role enables referencing certain service-level resources from workspace-level resources. For example, organize a user into a workspace-level group to control API and product visibility.  
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
@@ -144,7 +153,7 @@ Certain features of API Management aren't available in workspaces or have constr
     > All resources in an API Management service (for example, APIs, products, tags, or subscriptions) need to have unique names, even if they are located in different workspaces. There can't be any resources of the same type and with the same Azure resource name in the same workspace, in other workspaces, or on the service level.
     > 
 
-* **Managed identity** - You can't use service-level managed identities in a workspace. 
+* **Managed identity** - To enhance the security of your API Management instance and workspaces, you can't use service-level managed identities in a workspace. 
 
 * **Developer portal** - Workspaces are an administrative concept and aren't surfaced as such to developer portal consumers, including through the developer portal UI and the underlying API. However, APIs and products can be published from a workspace to the developer portal.  
 
@@ -152,7 +161,7 @@ Certain features of API Management aren't available in workspaces or have constr
     > Specifying API authorization server information (for example, for the developer portal) isn't supported in workspaces.
     >    
 
-* **Deleting a workspace** - Deleting a workspace deletes all its child resources (APIs, products, and so on) and its associated gateway.
+* **Deleting a workspace** - Deleting a workspace deletes all its child resources (APIs, products, and so on) and its associated gateway. It doesn't delete the API Management instance or other workspaces.
     
 
 ## Related content
