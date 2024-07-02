@@ -157,6 +157,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 In the application folder, open VS Code:
+
 ```Console
 code .
 ```
@@ -214,7 +215,56 @@ Azure App service supports multiple methods to deploy your application code to A
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 4 - Browse to the app
+## 4 - Configure startup script
+
+Based on the presence of certain files in your deployment, App Service automatically detects whether your app is a Django or Flask app and performs default steps to run your app. For apps based on other web frameworks like FastAPI, you need to configure a startup script for App Service to run your app; otherwise, App Service runs a default read-only app located in the *opt/defaultsite* folder. For details on how App Service runs Python apps, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
+
+### [Flask](#tab/flask)
+
+App Service automatically detects the presence of a Flask app. No additional configuration is needed.
+
+### [Django](#tab/django)
+
+App Service automatically detects the presence of a Django app. No additional configuration is needed.
+
+### [FastAPI](#tab/fastapi)
+
+For FastAPI you must configure a custom startup command for App Service to run your app.
+
+### [Azure CLI](#tab/azure-cli)
+
+First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
+
+```azurecli
+az webapp config set \
+    --startup-file "python main.py" \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+Next, restart the web app using the [az webapp restart](/cli/azure/webapp#az-webapp-restart) command.
+
+```azurecli
+az webapp restart \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+### [VS Code](#tab/vscode-aztools)
+
+Use Azure CLI or the Azure portal to configure the startup command.
+
+### [Azure portal](#tab/azure-portal)
+
+First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *python main.py*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
+
+Next, restart the web app. Select the app's **Overview** page on the left menu. On the top menu, select **Restart**.
+
+---
+
+---
+
+## 5 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
 
@@ -226,7 +276,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 5 - Stream logs
+## 6 - Stream logs
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
