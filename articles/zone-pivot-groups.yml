@@ -3409,3 +3409,16 @@ groups:
     title: JavaScript
   - id: platform-server
     title: Server
+# Owner: craigshoemaker
+- id: swa-web-framework
+  title: Web Framework
+  prompt: Choose which web framework you are using
+  pivots:
+  - id: vanilla-js
+    title: No Framework (Vanilla JS)
+  - id: angular
+    title: Angular
+  - id: react
+    title: React
+  - id: vue
+    title: Vue
