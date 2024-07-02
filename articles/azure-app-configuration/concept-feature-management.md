@@ -88,5 +88,7 @@ Azure App Configuration provides a centralized repository for feature flags. You
 
 ## Next steps
 
+To get a full feature rundown of .NET feature management library, see the following resource.
+
 > [!div class="nextstepaction"]
-> [Add feature flags to an ASP.NET Core web app](./quickstart-feature-flag-aspnet-core.md)  
+> [.NET Feature Management](./feature-management-dotnet-reference.md) 

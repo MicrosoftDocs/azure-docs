@@ -496,4 +496,12 @@ Any edit to a variant feature flag generates a new version of the experimentatio
 
 ## Next step
 
+To learn more about experimentation, see the following resources.
+
+> [!div class="nextstepaction"]
 > [Experimentation](./concept-experimentation.md)
+
+To get a full feature rundown of `Microsoft.FeatureManagement` package, see the following doc.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

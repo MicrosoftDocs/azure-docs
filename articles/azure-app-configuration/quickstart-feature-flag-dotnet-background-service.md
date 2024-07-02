@@ -176,7 +176,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET console apps](./quickstart-feature-flag-dotnet.md)
+> [Use feature flags in .NET/.NET framework console apps](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
@@ -185,3 +185,8 @@ To learn more about managing feature flags in Azure App Configuration, continue 
 
 > [!div class="nextstepaction"]
 > [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
+
+To get a full feature rundown of `Microsoft.FeatureManagement` package, see the following doc.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

@@ -1,5 +1,5 @@
 ---
-title: "Use Azure App Configuration to manage feature flags"
+title: Use Azure App Configuration to manage feature flags
 titleSuffix: Azure App Configuration
 description: In this quickstart, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
@@ -143,5 +143,18 @@ Feature flags created with the Feature manager are stored as regular key-values.
 
 ## Next steps
 
+To learn how to use feature flags in your applications, continue to the following quickstarts.
+
 > [!div class="nextstepaction"]
-> [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+> [.NET/.NET Framework Console App](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [.NET Background Service](./quickstart-feature-flag-dotnet-background-service.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+To get a full feature rundown of .NET feature management library, see the following resource.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)
