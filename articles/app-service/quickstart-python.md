@@ -232,7 +232,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="9-29" highlight="11,24,27":::
+:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="9-29" highlight="3,16,19":::
 
 ### [Django](#tab/django)
 
@@ -240,7 +240,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [FastAPI](#tab/fastapi)
 
-:::code language="python" source="~/msdocs-python-fastapi-webapp-quickstart/main.py" range="11-31" highlight="14,26,29":::
+:::code language="python" source="~/msdocs-python-fastapi-webapp-quickstart/main.py" range="12-30" highlight="3,15,18":::
 
 ---
 
