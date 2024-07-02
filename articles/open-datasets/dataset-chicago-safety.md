@@ -64,7 +64,6 @@ Reference here for the terms of use for this dataset resource. Email [dataportal
 
 | Name | Data type | Values (sample) | Description |
 |-|-|-|-|
-
 | Creation Date | Floating Timestamp | 10/9/2017 | Request creation date |
 | Status | Text | Completed - Dup | Request status |
 | Completion Date | Floating Timestamp | 10/11/2017 | Request completion date |
@@ -83,6 +82,8 @@ Reference here for the terms of use for this dataset resource. Email [dataportal
 
 Preview
 
+| Creation Date | Status | Completion Date | Service Request Number | Type of Service Request | Street Address | ZIP Code | X Coordinate | Y Coordinate | Ward | Police District | Community Area | Latitude | Longitude | Location |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 | 10/9/2017 | Completed - Dup | 10/11/2017 | 17-06773249 | Street Lights - All/Out | 2826 N TALMAN AVE | 60618 | 1158230.158 | 1918676.902 | 33 | 14 | 21 | 41.93259686594802 | -87.69393551 | (41.932596865948, -87.693935514475) |
 | 10/11/2017 | Completed | 10/11/2017 | 17-06816558 | Street Lights - All/Out | 6200 S LAKE SHORE DR | 60637 | 1190863.778 | 1864244.283 | 5 | 3 | 42 | 41.78250135027194 | -87.57577731 | (41.782501350272, -87.575777307852) |
 | 3/20/2014 | Completed - Dup | 8/4/2017 | 14-00400272 | Street Lights - All/Out | 5730 N KINGSDALE AVE | 60646 | 1143691.393 | 1937640.891 | 39 | 17 | 12 | 41.984920748899164 | -87.74688744 | (41.984920748899, -87.746887444765) |
@@ -94,6 +95,8 @@ Preview
 
 311 Service Requests - Pot Holes Reported - Historical
 
+| Name | Data type | Values (sample) | Description |
+|-|-|-|-|
 | Creation Date | Floating Timestamp | 4/25/2018 | Request creation date |
 | Status | Text | Completed | Request status |
 | Completion Date | Floating Timestamp | 4/26/2018 | Request completion date |
@@ -110,21 +113,26 @@ Preview
 | Police District | Number | 8 | Police District number |
 | Community Area | Number | 56 | Community Area number |
 | SSA | Number | 26 |  |
-| latitude | double | 1,622 | 41.80014700738077 | This is the latitude value. Lines of latitude are parallel to the equator. |
-| longitude | double | 1,806 | 87.7492147421616 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
+| Latitude | double | 1,622 | 41.80014700738077 | This is the latitude value. Lines of latitude are parallel to the equator. |
+| Longitude | double | 1,806 | -87.7492147421616 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
+| Location | Location | (41.80014700738077, -87.7492147421616) | Combined latitude and longitude values for the address |
 
 Preview
 
-6/13/2012 | Completed | 6/18/2012 | 12-01071965 | Pot Hole in Street | Dispatch Crew | Pothole Patched | 14 | 7040 N FRANCISCO AVE | 60645 | 1155793.815 | 1946654.94 | 50 | 24 | 2 |  | 42.0096087 | -87.70227538 | (42.009608698109, -87.702275384338) |
-6/15/2017 | Completed | 6/29/2017 | 17-03958579 | Pothole in Street | Final Outcome | WM Sewer Cave In Inspection Transfer Outcome | 0 | 4216 W CORTEZ ST | 60651 | 1148081.734 | 1906667.21 | 37 | 11 | 23 |  | 41.89994838998482 | -87.73187935 | (41.899948389985, -87.731879353699) |
-1/13/2014 | Completed | 1/24/2014 | 14-00052283 | Pot Hole in Street | Final Outcome | Pothole Patched | 5 | 1200 S CANAL ST | 60607 | 1173311.531 | 1894981.335 | 2 | 1 | 28 |  | 41.86717512472001 | -87.63937581 | (41.86717512472, -87.639375812581) |
-10/13/2015 | Completed | 11/24/2015 | 15-05364068 | Pothole in Street | Final Outcome | Pothole Patched | 3 | 6318 N WESTERN AVE | 60659 | 1159171.947 | 1941877.852 | 50 | 24 | 2 | 43 | 41.996507559859445 | -87.68999022 | (41.996507559859, -87.689990223964) |
-2/23/2014 | Completed | 4/8/2014 | 14-00256448 | Pot Hole in Street | Final Outcome | Pothole Patched | 12 | 6800 N KEDZIE AVE | 60645 | 1153845.564 | 1944905.48 | 50 | 0 | 2 |  | 42.004746892817465 | -87.70949265 | (42.004746892817, -87.709492653059) |
-10/16/2015 | Completed | 11/24/2015 | 15-05416322 | Pothole in Street | Final Outcome | CDOT Asphalt Top Off Restoration Transfer Outcome | 0 | 6430 N KEDZIE AVE | 60645 | 1153862.527 | 1942457.906 | 50 | 0 | 2 | 43 | 41.998328665333965 | -87.70950507 | (41.998328665334, -87.7095050747) |
-4/1/2013 | Completed | 7/30/2013 | 13-00360362 | Pot Hole in Street | Final Outcome | Pothole Patched | 40 | 3738 N TRIPP AVE | 60641 | 1147334.393 | 1924509.895 | 38 | 17 | 16 |  | 41.94928712004567 | -87.73398704 | (41.949287120046, -87.733987044713) |
+| Creation Date | Status | Completion Date | Service Request Number | Type of Service Request | Current Activity | Most Recent Action | Number of Potholes Filled on Block | Street Address | ZIP Code | X Coordinate | Y Coordinate | Ward | Police District | Community Area | SSA | Latitude | Longitude | Location |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| 6/13/2012 | Completed | 6/18/2012 | 12-01071965 | Pot Hole in Street | Dispatch Crew | Pothole Patched | 14 | 7040 N FRANCISCO AVE | 60645 | 1155793.815 | 1946654.94 | 50 | 24 | 2 |  | 42.0096087 | -87.70227538 | (42.009608698109, -87.702275384338) |
+| 6/15/2017 | Completed | 6/29/2017 | 17-03958579 | Pothole in Street | Final Outcome | WM Sewer Cave In Inspection Transfer Outcome | 0 | 4216 W CORTEZ ST | 60651 | 1148081.734 | 1906667.21 | 37 | 11 | 23 |  | 41.89994838998482 | -87.73187935 | (41.899948389985, -87.731879353699) |
+| 1/13/2014 | Completed | 1/24/2014 | 14-00052283 | Pot Hole in Street | Final Outcome | Pothole Patched | 5 | 1200 S CANAL ST | 60607 | 1173311.531 | 1894981.335 | 2 | 1 | 28 |  | 41.86717512472001 | -87.63937581 | (41.86717512472, -87.639375812581) |
+| 10/13/2015 | Completed | 11/24/2015 | 15-05364068 | Pothole in Street | Final Outcome | Pothole Patched | 3 | 6318 N WESTERN AVE | 60659 | 1159171.947 | 1941877.852 | 50 | 24 | 2 | 43 | 41.996507559859445 | -87.68999022 | (41.996507559859, -87.689990223964) |
+| 2/23/2014 | Completed | 4/8/2014 | 14-00256448 | Pot Hole in Street | Final Outcome | Pothole Patched | 12 | 6800 N KEDZIE AVE | 60645 | 1153845.564 | 1944905.48 | 50 | 0 | 2 |  | 42.004746892817465 | -87.70949265 | (42.004746892817, -87.709492653059) |
+| 10/16/2015 | Completed | 11/24/2015 | 15-05416322 | Pothole in Street | Final Outcome | CDOT Asphalt Top Off Restoration Transfer Outcome | 0 | 6430 N KEDZIE AVE | 60645 | 1153862.527 | 1942457.906 | 50 | 0 | 2 | 43 | 41.998328665333965 | -87.70950507 | (41.998328665334, -87.7095050747) |
+| 4/1/2013 | Completed | 7/30/2013 | 13-00360362 | Pot Hole in Street | Final Outcome | Pothole Patched | 40 | 3738 N TRIPP AVE | 60641 | 1147334.393 | 1924509.895 | 38 | 17 | 16 |  | 41.94928712004567 | -87.73398704 | (41.949287120046, -87.733987044713) |
 
 Sanitation Code Complaints
 
+| Name | Data type | Values (sample) | Description |
+|-|-|-|-|
 | Creation Date | Floating Timestamp | 9/17/2017 | Request creation date |
 | Status | Text | Completed | Request status |
 | Completion Date | Floating Timestamp | 10/11/2017 | Request completion date |
@@ -138,11 +146,14 @@ Sanitation Code Complaints
 | Ward | Number | 13 | Ward Number value |
 | Police District | Number | 8 | Police District number |
 | Community Area | Number | 65 | Community Area number |
-| latitude | double | 1,622 | 41.77787022898461 | This is the latitude value. Lines of latitude are parallel to the equator. |
-| longitude | double | 1,806 | -87.73372735 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
+| Latitude | double | 1,622 | 41.77787022898461 | This is the latitude value. Lines of latitude are parallel to the equator. |
+| Longitude | double | 1,806 | -87.73372735 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
+| Location | Location | (41.932596865948, -87.693935514475) | Combined latitude and longitude values for the address |
 
 Preview
 
+| Creation Date | Status | Completion Date | Service Request Number | Type of Service Request | What is the Nature of this Code Violation? | Street Address | ZIP Code | X Coordinate | Y Coordinate | Ward | Police District | Community Area | Latitude | Longitude | Location |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 | 9/17/2017 | Completed | 10/11/2017 | 17-06208608 | Sanitation Code Violation | Overflowing carts | 6327 S KENNETH AVE | 60629 | 1147796.475 | 1862216.771 | 13 | 8 | 65 | 41.77787022898461 | -87.73372735 | (41.777870228985, -87.733727348463) |
 | 10/5/2017 | Completed | 10/11/2017 | 17-06678788 | Sanitation Code Violation | Garbage in alley | 3020 W MONTROSE AVE | 60618 | 1155359.487 | 1929084.561 | 33 | 17 | 14 | 41.961214454744535 | -87.70420422 | (41.961214454745, -87.704204220358) |
 | 8/21/2017 | Completed | 10/11/2017 | 17-05591233 | Sanitation Code Violation | Garbage in yard | 1500 S DAMEN AVE | 60608 | 1163279.962 | 1892714.436 | 28 | 12 | 28 | 41.86124902532175 | -87.67610892 | (41.861249025322, -87.676108920835) |
