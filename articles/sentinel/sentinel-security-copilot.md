@@ -55,22 +55,29 @@ Increase your prompt accuracy by configuring a Microsoft Sentinel workspace as t
 
    :::image type="content" source="media/sentinel-security-copilot/configure-default-sentinel-workspace.png" alt-text="Screenshot of the plugin personalization options for the Microsoft Sentinel plugin.":::
 
-When you create prompts designed to access the other workspaces, specify the workspace name in your prompt.
-
-   Example prompt:
-
-   `What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?`
+> [!TIP]
+> Specify the workspace in your prompt when it doesn't match the configured default.
+> 
+> Example: `What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?`
 
 ### Integrate Microsoft Sentinel with Copilot in Defender
 
-Use the unified security operations platform with your Microsoft Sentinel data for an embedded Copilot for Security experience. Microsoft Sentinel's new and improved capabilities in the Defender portal allows Copilot in Defender to serve up many of its capabilities with Microsoft Sentinel data.
+Use the unified security operations platform with your Microsoft Sentinel data for an embedded Copilot for Security experience. Microsoft Sentinel's unified incidents in the Defender portal allow Copilot in Defender to use its capabilities with Microsoft Sentinel data.
 
-Example:
+For example:
+
+- The [SAP (Preview) solution]() is installed in your workspace for Microsoft Sentinel.
+- The near real-time rule [**SAP - (Preview) File Downloaded From a Malicious IP Address**](sentinel/sap/sap-solution-security-content.md#data-exfiltration) triggers an alert, creating a Microsoft Sentinel incident.
+- [Microsoft Sentinel was added to the unified security operations platform](/defender-xdr/microsoft-sentinel-onboard).
+- Microsoft Sentinel incidents are now unified with Defender XDR incidents.
+- Use Copilot in Microsoft Defender for incident summary, guided responses and incident reports.
+
+:::image type="content" source="media/sentinel-security-copilot/sentinel-incident-copilot-in-defender-example.png" lightbox="media/sentinel-security-copilot/sentinel-incident-copilot-in-defender-example.png" alt-text="Screenshot of Microsoft Sentinel incident from Defender portal with Copilot embedded experience.":::
 
 For more information, see the following resources:
 
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md#new-and-improved-capabilities).
-- [Copilot in Microsoft Defender XDR](/defender-xdr/security-copilot-in-microsoft-365-defender)
+- [Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 
 ### Integrate Microsoft Sentinel with Copilot for Security in advanced hunting
 
