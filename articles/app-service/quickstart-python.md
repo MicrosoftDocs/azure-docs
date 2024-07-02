@@ -229,13 +229,13 @@ App Service automatically detects the presence of a Django app. No additional co
 
 ### [Azure CLI](#tab/azure-cli/fastapi)
 
-For FastAPI, you must configure a custom startup command for App Service to run your app.
+For FastAPI, you must configure a custom startup command for App Service to run your app. Set the following command to start Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
 
 First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
 ```azurecli
 az webapp config set \
-    --startup-file "python main.py" \
+    --startup-file "gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app" \
     --name $APP_SERVICE_NAME \
     --resource-group $RESOURCE_GROUP_NAME
 ```
@@ -270,9 +270,9 @@ App Service automatically detects the presence of a Django app. No additional co
 
 #### [Azure portal](#tab/azure-portal/fastapi)
 
-For FastAPI, you must configure a custom startup command for App Service to run your app.
+For FastAPI, you must configure a custom startup command for App Service to run your app. Set the following command to start Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
 
-First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *python main.py*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
+First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
 
 Next, restart the web app. Select the app's **Overview** page on the left menu. On the top menu, select **Restart**.
 
