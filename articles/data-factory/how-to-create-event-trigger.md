@@ -83,11 +83,11 @@ The following table provides an overview of the schema elements that are related
 
 | JSON element | Description | Type | Allowed values | Required |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| scope | The Azure Resource Manager resource ID of the storage account. | String | Azure Resource Manager ID | Yes |
+| scope | The Azure Resource Manager resource ID of the storage account. | String | Azure Resource Manager ID | Yes. |
 | events | The type of events that cause this trigger to fire. | Array    | `Microsoft.Storage.BlobCreated`, `Microsoft.Storage.BlobDeleted` | Yes, any combination of these values. |
 | `blobPathBeginsWith` | The blob path must begin with the pattern provided for the trigger to fire. For example, `/records/blobs/december/` only fires the trigger for blobs in the `december` folder under the `records` container. | String   | | Provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
 | `blobPathEndsWith` | The blob path must end with the pattern provided for the trigger to fire. For example, `december/boxes.csv` only fires the trigger for blobs named `boxes` in a `december` folder. | String   | | Provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
-| `ignoreEmptyBlobs` | Whether or not zero-byte blobs triggers a pipeline run. By default, this is set to `true`. | Boolean | true or false | No |
+| `ignoreEmptyBlobs` | Whether or not zero-byte blobs triggers a pipeline run. By default, this is set to `true`. | Boolean | true or false | No. |
 
 ## Examples of storage event triggers
 
