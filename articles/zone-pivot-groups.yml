@@ -3387,6 +3387,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: kgremban
+- id: iot-hub-howto-c2d-1
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
 # Owner: micahvivion
 - id: acs-errorcodes-client-server
   title: Code and subcode errors

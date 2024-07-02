@@ -34,16 +34,6 @@ The model belongs to the Phi-3 model family, and the Mini version comes in two v
 
 The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
-# [Phi-3-medium](#tab/phi-3-medium)
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly-available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which denote the context length (in tokens) that each model variant can support.
-
-- Phi-3-medium-4k-Instruct
-- Phi-3-medium-128k-Instruct
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
 # [Phi-3-small](#tab/phi-3-small)
 
 Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly-available websites data, with a focus on high quality and reasoning-dense properties.
@@ -54,6 +44,16 @@ The model belongs to the Phi-3 model family, and the Small version comes in two 
 - Phi-3-small-128k-Instruct
 
 The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+# [Phi-3-medium](#tab/phi-3-medium)
+Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly-available websites data, with a focus on high quality and reasoning-dense properties.
+
+The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K, which denote the context length (in tokens) that each model variant can support.
+
+- Phi-3-medium-4k-Instruct
+- Phi-3-medium-128k-Instruct
+
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 ---
 
