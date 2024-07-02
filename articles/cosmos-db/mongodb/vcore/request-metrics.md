@@ -1,6 +1,6 @@
 ---
 title: Monitor request metrics in Azure Cosmos DB for MongoDB 
-description: Learn how to monitor memory or CPU usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are expensive.
+description: Discover how to monitor memory or CPU usage for operations in Azure Cosmos DB. Account owners can identify resource-intensive operations.
 ms.service:  cosmos-db
 ms.topic: how-to
 ms.author: khelanmodi
