@@ -8,13 +8,9 @@ ms.topic: how-to
 ms.date: 01/04/2024
 ---
 
-# Test workflows with mock data in Azure Logic Apps (Preview)
+# Test workflows with mock data in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
-
-> [!NOTE]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To test your workflows without actually calling or accessing live apps, data, services, or systems, you can set up and return mock values from actions. For example, you might want to test different action paths based on various conditions, force errors, provide specific message response bodies, or even try skipping some steps. Setting up mock data testing on an action doesn't run the action, but returns the mock data instead.
 

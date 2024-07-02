@@ -110,6 +110,8 @@
   items:
     - name: Solution accelerators
       href: ../../solutions.md?pivots=api-mongodb
-    - name: AI-Enhanced Advertisement Generation
+    - name: AI agent
+      href: ../../ai-agents.md
+    - name: AI-enhanced advertisement generation
       href: ai-advertisement-generation.md
       
