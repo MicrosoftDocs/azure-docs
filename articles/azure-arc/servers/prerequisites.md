@@ -66,7 +66,7 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 | Windows Server 2008 R2 SP1 | 1.39 [Download](https://aka.ms/AzureConnectedMachineAgent-1.39)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
 | CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
 
-### Connecting new limited support servers.
+### Connect new limited support servers
 
 To connect a new server running a Limited Support operating system to Azure Arc, you will need to make some adjustments to the onboarding script.
 
