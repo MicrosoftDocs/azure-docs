@@ -240,7 +240,7 @@ except HttpResponseError as ex:
         raise ex
 ```
 
-# [JavaScript](#tab/python)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 try {
