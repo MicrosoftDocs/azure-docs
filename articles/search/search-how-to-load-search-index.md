@@ -51,7 +51,7 @@ In the Azure portal, use the [import wizards](search-import-data-portal.md) to c
 
 ## Use the REST APIs
 
-[Documents - Index](/rest/api/searchservice/documents) is the REST API for importing data into a search index. REST APIs are useful for inital proof-of-concept testing, where you can test indexing workflows without having to write a lot of code. The `@search.action` parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
+[Documents - Index](/rest/api/searchservice/documents) is the REST API for importing data into a search index. REST APIs are useful for initial proof-of-concept testing, where you can test indexing workflows without having to write much code. The `@search.action` parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
 
 [**Quickstart: Text search using REST**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and the first HotelId value has been altered to avoid overwriting an existing document.
 
