@@ -180,6 +180,29 @@ az containerapp env telemetry data-dog set \
 # [Terraform](#tab/terraform)
 
 ```hcl
+resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
+  name      = azurerm_container_app_environment.managed_environment.name
+  parent_id = azurerm_resource_group.resource_group.id
+  type      = "Microsoft.App/managedEnvironments@2023-11-02-preview"
+  body = jsonencode({
+    properties = {
+      openTelemetryConfiguration = {
+        destinationsConfiguration = {
+          dataDogConfiguration = {
+            site = "<YOUR_DATADOG_SUBDOMAIN>.datadoghq.com"
+            key = "<YOUR_DATADOG_KEY>"
+          }
+        }
+        tracesConfiguration = {
+          destinations = ["dataDog"]
+        }
+        metricsConfiguration = {
+          destinations = ["dataDog"]
+        }
+      }
+    }
+  })
+}
 ```
 
 ---
@@ -253,6 +276,48 @@ az containerapp env telemetry otlp add \
 # [Terraform](#tab/terraform)
 
 ```hcl
+resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
+  name      = azurerm_container_app_environment.managed_environment.name
+  parent_id = azurerm_resource_group.resource_group.id
+  type      = "Microsoft.App/managedEnvironments@2023-11-02-preview"
+  body = jsonencode({
+    properties = {
+      openTelemetryConfiguration = {
+        destinationsConfiguration = {
+          otlpConfigurations = [
+            {
+              name = "otlp1"
+              endpoint = "ENDPOINT_URL_1"
+              insecure = false
+              headers = "api-key-1=key"
+            },
+            {
+              name = "otlp2"
+              endpoint = "ENDPOINT_URL_2"
+              insecure = true
+            }
+          ]
+        }
+        logsConfiguration = { 
+          destinations = [
+            "otlp2"
+          ]
+        },
+        tracesConfiguration = {
+          destinations = [
+            "otlp1",
+            "otlp2"
+          ]
+        },
+        metricsConfiguration = {
+          destinations = [
+            "otlp1"
+          ]
+        }
+      }
+    }
+  })
+}
 ```
 
 ---
