@@ -28,7 +28,7 @@ In this article, learn the steps for defining a schema for the index and pushing
 
 + A stable index location. Moving an existing index to a different search service isn't supported out-of-the-box. Revisit application requirements and make sure that your existing search service (capacity and location), are sufficient for your needs.
 
-+ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you're experimenting on the Free tier, you can only have three indexes at any given time. Within the index itself, there are [limits on vectors](search-limits-quotas-capacity.md#vector-index-size-limits) and [index limits](search-limits-quotas-capacity#index-limits) on the number of simple and complex fields.
++ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you're experimenting on the Free tier, you can only have three indexes at any given time. Within the index itself, there are [limits on vectors](search-limits-quotas-capacity.md#vector-index-size-limits) and [index limits](search-limits-quotas-capacity.md#index-limits) on the number of simple and complex fields.
 
 ## Document keys
 
@@ -62,7 +62,7 @@ Use this checklist to assist the design decisions for your search index.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
-1. For vector fields, specify a vector search configuration and the algorithms used for creating navigation paths and filling the embedding space. For more information, see [Add vector fields](vector-search-how-to-create.md).
+1. For vector fields, specify a vector search configuration and the algorithms used for creating navigation paths and filling the embedding space. For more information, see [Add vector fields](vector-search-how-to-create-index.md).
 
    Vector fields have extra properties that nonvector fields don't have, such as which algorithms to use and vector compression.
 
@@ -229,6 +229,6 @@ To minimize churn in the design process, the following table describes which ele
 Use the following links to become familiar with loading an index with data, or extending an index with a synonyms map.
 
 + [Data import overview](search-what-is-data-import.md)
-+ [Add vector fields](vector-search-how-to-create.md)
++ [Add vector fields](vector-search-how-to-create-index.md)
 + [Load documents](search-how-to-load-search-index.md) 
 + [Synonym maps](search-synonyms.md)
