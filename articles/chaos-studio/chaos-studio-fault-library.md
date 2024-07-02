@@ -24,9 +24,11 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | Compute capacity loss, resource pressure                    |
 | Windows, Linux      | [Kill Process](#kill-process)                                               | Dependency disruption                                       |
 | Windows             | [Pause Process](#pause-process)                                             | Dependency disruption, service disruption                   |
-| Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
-| Windows, Linux      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
-| Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows (TCP/UDP only), Linux (outbound only)      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
+| Windows (TCP/UDP only), Linux (outbound only)      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
+| Windows (TCP/UDP only), Linux (outbound only)      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
+| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
 | Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
 | Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
@@ -34,8 +36,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)               | General system stress testing                               |
 | Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
 | Windows             | [DiskIO Pressure](#disk-io-pressure)                                        | Disk I/O performance degradation                            |
-| Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
-| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
+
 
 ## App Service
 
@@ -165,8 +166,8 @@ These actions are building blocks for constructing effective experiments. Use th
 |-|-|
 | Capability name | NetworkDisconnect-1.1 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux |
-| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
+| Supported OS types | Windows, Linux (outbound traffic only) |
+| Description | Blocks network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
 | | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
@@ -220,6 +221,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 * The agent-based network faults currently only support IPv4 addresses.
 * The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
 * When running on Windows, the network disconnect fault currently only works with TCP or UDP packets.
+* When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 ### Network Disconnect (Via Firewall)
 
@@ -1595,11 +1597,11 @@ Currently, a maximum of 4 process names can be listed in the processNames parame
 
 | Property | Value |
 |-|-|
-| Capability name | SecurityRule-1.0 |
+| Capability name | SecurityRule-1.0, SecurityRule-1.1 |
 | Target type | Microsoft-NetworkSecurityGroup |
 | Description | Enables manipulation or rule creation in an existing Azure network security group (NSG) or set of Azure NSGs, assuming the rule definition is applicable across security groups. Useful for: <ul><li>Simulating an outage of a downstream or cross-region dependency/nondependency.<li>Simulating an event that's expected to trigger a logic to force a service failover.<li>Simulating an event that's expected to trigger an action from a monitoring or state management service.<li>Using as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
+| Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0, urn:csci:microsoft:networkSecurityGroup:securityRule/1.1 |
 | Fault type | Continuous. |
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
