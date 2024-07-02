@@ -53,7 +53,7 @@ Deferred messages won't be purged and moved to the dead-letter queue after they 
 
 ## Errors while processing subscription rules
 
-If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which not all message types have subscribers.
+If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment where you have message types that are sent to the topic, which don't have subscribers, as this may result in a large load of DLQ messages. As such, ensure that all messages sent to the topic have at least one matching subscription.
 
 ## Application-level dead-lettering
 
