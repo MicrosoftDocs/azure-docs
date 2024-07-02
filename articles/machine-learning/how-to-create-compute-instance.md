@@ -429,7 +429,7 @@ As an administrator, you can create a compute instance on behalf of a data scien
 * [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Microsoft Entra admin center.
 
 To further enhance security, when you create a compute instance on behalf of a data scientist and assign the instance to them, single sign on (SSO) will be disabled.
-The assigned to user needs to enable SSO on compute instance themselves after the compute is assigned to them.
+The assigned to user needs to enable SSO on compute instance themselves after the compute is assigned to them by updating the SSO setting on the compute instance.
 
 ## Assign managed identity
 
