@@ -197,7 +197,7 @@ When you add session hosts using the Azure portal, the default security type is 
 ## Azure confidential computing virtual machines
 
 Azure Virtual Desktop support for [Azure confidential computing](../confidential-computing/overview.md) virtual machines ensures a user's virtual desktop is encrypted in memory, protected in use, and backed by a hardware root of trust. Deploying confidential virtual machines with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS.
-Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the CPU that can't be read from software. For more information, see the [Azure confidential computing overview](../confidential-computing/overview.md).
+Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the CPU that can't be read from software. For more information, including the VM sizes available, see the [Azure confidential computing overview](../confidential-computing/overview.md).
 
 The following operating systems are supported for use as session hosts with confidential virtual machines on Azure Virtual Desktop, for versions that are in active support. For support dates, see [Microsoft Lifecycle Policy](/lifecycle/).
 
