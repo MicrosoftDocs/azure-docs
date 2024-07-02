@@ -26,8 +26,6 @@ This article shows two options for using the Azure CLI to add APIs to your API c
     
 After importing API definitions or APIs from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
-> [!VIDEO https://www.youtube.com/embed/SuGkhuBUV5k]
-
 ## Prerequisites
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
@@ -236,14 +234,14 @@ In the following command, substitute the names of your API center, your API cent
 #! /bin/bash
 az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> \
-    --apim-apis *  
+    --apim-apis '*'  
 ```
 
 ```azurecli
 # PowerShell syntax
 az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> `
-    --apim-apis *  
+    --apim-apis '*'  
 ```
 
 > [!NOTE]
@@ -253,13 +251,13 @@ az apic import-from-apim --service-name <api-center-name> --resource-group <reso
 
 Specify an API to import using its name from the API Management instance. 
 
-In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. In `<api-name>`, specify an API name from the API Management instance.
+In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Pass an API name such as `petstore-api` using the`--apim-apis` parameter. 
 
 ```azurecli
 #! /bin/bash
 import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> \
-    --apim-apis <api-name>    
+    --apim-apis 'petstore-api'        
 ```
 
 
@@ -267,9 +265,8 @@ import-from-apim --service-name <api-center-name> --resource-group <resource-gro
 # PowerShell syntax
 import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> `
-    --apim-apis <api-name>    
+    --apim-apis 'petstore-api'    
 ```
-
 
 > [!NOTE]
 > Specify an API name using the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
