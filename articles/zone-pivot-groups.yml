@@ -3409,3 +3409,14 @@ groups:
     title: JavaScript
   - id: platform-server
     title: Server
+# Owner: dlepow
+- id: workspace-gateway-network
+  title: Network configuration
+  prompt: Choose your network configuration
+  pivots:
+  - id: public
+    title: Public inbound and outbound 
+  - id: public-inbound-private-outbound
+    title: Private outbound only
+  - id: private-inbound-private-outbound
+    title: Private inbound and outbound

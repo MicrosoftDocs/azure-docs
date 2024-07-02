@@ -10,7 +10,7 @@ ms.custom:
 zone_pivot_groups: workspace-gateway-network
 ---
 
-# Create and manage a workspace
+# Create and manage a workspace in Azure API Management
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
@@ -37,21 +37,21 @@ Follow the steps in this article to:
     > [!IMPORTANT]
     > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace. 
 
-
 ::: zone pivot="public-inbound-private-outbound"
-## Configure subnet delegation
-Configure subnet delegation to enable the desired access:
-* For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**
-*  The subnet can't have another delegation configured.
+
+## Prepare the subnet
+###  Delegate the subnet
+For public inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service. The subnet can't have another delegation configured.  In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
+
+
 ::: zone-end
 
 ::: zone pivot="private-inbound-private-outbound"
-## Configure subnet delegation
-Configure subnet delegation to enable the desired access:
-* For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. 
-* The subnet can't have another delegation configured.        
+## Prepare the subnet
+### Delegate the subnet
+For private inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironment** service.  The subnet can't have another delegation configured. The subnet can't have another delegation configured. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/hostingEnvironment**.        
        
-
+::: zone-end
 ## Create a workspace - portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
@@ -129,7 +129,7 @@ To manage the workspace gateway, workspace users should also be assigned the **O
 
 Depending on their role in the workspace, users might have permissions to create APIs, products, subscriptions, and other resources, or they might have read-only access to some or all of them.
 
-To get started managing, protecting, and publishing APIs in a workspaces, see the following guidance.
+To get started managing, protecting, and publishing APIs in a workspace, see the following guidance.
 
 
 |Resource  |Guide  |
