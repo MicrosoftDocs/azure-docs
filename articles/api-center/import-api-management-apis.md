@@ -251,7 +251,7 @@ az apic import-from-apim --service-name <api-center-name> --resource-group <reso
 
 Specify an API to import using its name from the API Management instance. 
 
-In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Pass an API name such as `petstore-api` using the`--apim-apis` parameter. 
+In the following command, substitute the names of your API center, your API center's resource group, your API Management instance, and your instance's resource group. Pass an API name such as `petstore-api` using the `--apim-apis` parameter. 
 
 ```azurecli
 #! /bin/bash
