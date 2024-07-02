@@ -78,6 +78,7 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 | --- | --- | :---: | :---: |
 | Basic | 1 | Burstable | Standard_B1s |
 | Basic | 2 | Burstable | Standard_B2s |
+| General Purpose | 2 | GeneralPurpose | Standard_D2ds_v4 |
 | General Purpose | 4 | GeneralPurpose | Standard_D4ds_v4 |
 | General Purpose | 8 | GeneralPurpose | Standard_D8ds_v4 |
 | General Purpose | 16 | GeneralPurpose | Standard_D16ds_v4 |
