@@ -23,6 +23,8 @@ Other support matrices are available:
 
 ## Vault support
 
+Recovery Services vault and Backup vault are both supported in Azure Backup, and target the backup and restore of different datasources. You need to create the appropriate vault based on the datasource type that you want to protect. You can read further in [FAQ - What are the various vaults supported for backup and restore?](./backup-azure-backup-faq.yml#what-are-the-various-vaults-supported-for-backup-and-restore-)
+
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 
 The following table describes the features of Recovery Services vaults:
