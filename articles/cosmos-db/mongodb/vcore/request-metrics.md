@@ -1,6 +1,6 @@
 ---
-title: Monitor the throughput usage of an operation in Azure Cosmos DB
-description: Learn how to monitor the throughput or request unit usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are taking more request units.
+title: Monitor request metrics in Azure Cosmos DB for MongoDB 
+description: Learn how to monitor memory or CPU usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are expensive.
 ms.service:  cosmos-db
 ms.topic: how-to
 ms.author: khelanmodi
@@ -39,7 +39,7 @@ It delivers:
 
 1. Next select the **Memory percent** metric from the list of available metrics. In this example, let's select **Memory percent** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   :::image type="content" source="./media/monitor/monitor-metrics-memory-percent.png" alt-text="Choose a metric from the Azure portal" border="true":::
+   :::image type="content" source="./media/monitor/monitor-metric-memory-percent.png" alt-text="Choose a metric from the Azure portal" border="true":::
 
 ## Filters for memory request duration
 
