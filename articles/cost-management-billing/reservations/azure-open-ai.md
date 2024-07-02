@@ -1,25 +1,25 @@
 ---
-title: Save costs with Microsoft Azure OpenAI reservations
-description: Learn about how to save costs with Microsoft Azure OpenAI reservations.
+title: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
+description: Learn about how to save costs with Microsoft Azure OpenAI Service Provisioned Reservations.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: concept-article
-ms.date: 06/18/2024
+ms.date: 07/02/2024
 ms.author: banders
-# customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI reservations and buy one.
+# customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
 
-# Save costs with Microsoft Azure OpenAI reservations
+# Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 
-You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI reservations.
+You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations.
 
 To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and then add the Azure OpenAI SKU to your cart. Then you choose the quantity of provisioned throughput units that you want to purchase.
 
 When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the pay-as-you-go rates.
 
-A reservation applies to provisioned deployments only and doesn't include other offerings such as standard deployments or fine tuning. Azure OpenAI reservations also don't guarantee capacity availability. To ensure capacity availability, the recommended best practice is to create your deployments before you buy your reservation.
+A reservation applies to provisioned deployments only and doesn't include other offerings such as standard deployments or fine tuning. Azure OpenAI Service Provisioned Reservations also don't guarantee capacity availability. To ensure capacity availability, the recommended best practice is to create your deployments before you buy your reservation.
 
 When the reservation expires, Azure OpenAI deployments continue to run but are billed at the pay-as-you-go rate.
 
@@ -32,7 +32,7 @@ You can buy an Azure OpenAI reservation in the [Azure portal](https://portal.azu
 - You must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). If the setting is disabled, you must be an EA Admin to enable it.
 - Direct Enterprise customers can update the **Reserved Instances** policy settings in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the **Policies** menu to change settings.
-- For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure OpenAI reservations.
+- For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure OpenAI Service Provisioned Reservations.
 
 For more information about how enterprise customers and pay-as-you-go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md) and [Understand Azure reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md).
 
@@ -67,7 +67,7 @@ For example, assume that your total consumption of provisioned throughput units 
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md). However, Exchanges aren't allowed for Azure OpenAI reservations.
+You can cancel or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md). However, Exchanges aren't allowed for Azure OpenAI Service Provisioned Reservations.
 
 If you want to request a refund for your Azure OpenAI reservation, you can do so by following these steps:
 
@@ -107,7 +107,7 @@ The following examples show how the Azure OpenAI reservation discount applies, d
 
 ## Increase the size of an Azure OpenAI reservation
 
-If you want to increase the size of your Azure OpenAI reservation, you can buy more Azure OpenAI reservations using the preceding steps.
+If you want to increase the size of your Azure OpenAI reservation, you can buy more Azure OpenAI Service Provisioned Reservations using the preceding steps.
 
 ## Related content
 
