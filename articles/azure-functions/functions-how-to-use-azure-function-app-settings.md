@@ -36,7 +36,7 @@ These settings are stored encrypted. For more information, see [App settings sec
 
 You can manage app settings from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage app settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings).
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 To view your app settings, see [Get started in the Azure portal](#get-started-in-the-azure-portal).
 
@@ -93,7 +93,7 @@ Azure Functions supports deploying project code to your function app by using FT
 
 To get the credentials required for FTPS deployment, use one of these methods:
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 You can get the FTPS publishing credentials in the Azure portal by downloading the publishing profile for your function app.
 
@@ -142,7 +142,7 @@ The following values indicate the plan type:
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
 | [Dedicated (App Service)](dedicated-plan.md) | Various | Various |
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 1. To determine the type of plan used by your function app, see the **App Service Plan** in the **Overview** page of the function app in the [Azure portal](https://portal.azure.com).
 
@@ -193,7 +193,7 @@ You can migrate a function app between a Consumption plan and a Premium plan on 
 
 You can migrate your plan using these tools:
 
-### [Portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 You can use the [Azure portal](https://portal.azure.com) to switch to a different plan.
 
@@ -353,7 +353,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. For more information, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get your access keys.
 
-### [Portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal, then search for and select **Function App**.
 
@@ -402,7 +402,7 @@ Consider these limitations when you develop your functions in the [Azure portal]
 + In-portal editing is supported only for functions that were created or last modified in the Azure portal.
 + In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
 + In-portal editing isn't supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).
-+ When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the Azure portal. In this case, just continue using [local development](functions-develop-local.md).
++ When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
@@ -442,7 +442,7 @@ Files in the root of the app, such as function.proj or extensions.csproj need to
 
 Function apps run in the Azure App Service platform, which maintains them. As such, your function apps have access to most of the features of Azure's core web hosting platform. When you use the [Azure portal](https://portal.azure.com), the left pane is where you access the many features of the App Service platform that you can use in your function apps.
 
-The following matrix indicates portal feature support by hosting plan and operating system:
+The following matrix indicates Azure portal feature support by hosting plan and operating system:
 
 | Feature | Consumption plan | Premium plan  | Dedicated plan |
 | --- | --- | --- | --- |
@@ -468,7 +468,7 @@ The App Service editor is an advanced in-portal editor that you can use to modif
 
 ![Screenshot that shows the App Service editor.](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-We recommend that you consider developing your functions on your local computer. When you develop locally and publish to Azure, your project files are read-only in the portal. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
+We recommend that you consider developing your functions on your local computer. When you develop locally and publish to Azure, your project files are read-only in the Azure portal. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 ### <a name="console"></a>Console
 
@@ -492,7 +492,7 @@ When you use a source control solution to develop and maintain your functions co
 
 To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints on your function app.
 
-#### [Portal](#tab/portal)
+#### [Azure portal](#tab/azure-portal)
 
 When you configure the **Allowed origins** list for your function app, the `Access-Control-Allow-Origin` header is automatically added to all responses from HTTP endpoints in your function app.
 
