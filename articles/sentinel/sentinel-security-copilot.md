@@ -23,91 +23,82 @@ Microsoft Copilot for Security is a platform that helps you defend your organiza
 
 Together with the iterative processing of other sophisticated Copilot for Security sources you enable, your Microsoft Sentinel incidents and data provide wider visibility into threats and their context for your organization.
 
+For more information on Copilot for Security, see the following articles:
+- [Get started with Microsoft Copilot for Security](/copilot/security/get-started-security-copilot)
+- [Understand authentication in Microsoft Copilot for Security](/copilot/security/authentication)
+
+## Integrate Microsoft Sentinel with Copilot for Security
+
+Microsoft Sentinel provides two plugins to integrate with Copilot for Security:
+- **Microsoft Sentinel (Preview)**
+- **Natural language to KQL for Microsoft Sentinel (Preview)**.
+
 > [!IMPORTANT]
 > The "Microsoft Sentinel" and "Natural Language to KQL for Microsoft Sentinel" plugins are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-For more information on Copilot for Security, see the following articles:
-- [Get started with Microsoft Copilot for Security](/security-copilot/get-started-security-copilot)
-- [Understand authentication in Microsoft Copilot for Security](/security-copilot/authentication)
+### Configure a default Microsoft Sentinel workspace
 
-## Microsoft Sentinel integration with Copilot for Security
-
-Microsoft Sentinel integrates with Copilot for Security in the following ways:
-- There are two Copilot for Security plugins, **Microsoft Sentinel (Preview)** and **Natural language to KQL for Microsoft Sentinel (Preview)**.
-- Part of the embedded experience of Copilot in Microsoft Defender includes Microsoft Sentinel unified data.
-
-These integration features combined are called, **Copilot in Microsoft Sentinel**.
-
-Copilot for Security doesn't have an embedded experience in the Microsoft Sentinel Azure portal or the Microsoft Sentinel section in the Microsoft Defender portal. However, Microsoft Sentinel features are available in the Microsoft Defender portal with the unified security operations platform. So, [Copilot in Microsoft Defender XDR](/defender-xdr/security-copilot-in-microsoft-365-defender) provides some access to Microsoft Sentinel data with its integration experience.
-
-For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md#new-and-improved-capabilities).
-
-Example: (to be added)
-
-## Microsoft Sentinel plugins
-
-Copilot in Microsoft Sentinel has the following capabilities in the standalone experience.
-
-From the **Microsoft Sentinel (Preview)** plugin:
-- Get Microsoft Sentinel incidents
-- List Microsoft Sentinel workspaces
-
-The **Natural language to KQL for Microsoft Sentinel (Preview)** plugin generates and runs KQL hunting queries using Microsoft Sentinel data.
-
->[!NOTE]
-> In the [unified Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender), you can prompt Copilot for Security to generate advanced hunting queries for both Defender XDR and Microsoft Sentinel tables. Not all Microsoft Sentinel tables are currently supported, but support for these tables can be expected in the future.
-
-To view these capabilities in Copilot, select the **Prompts** :::image type="icon" source="media/sentinel-security-copilot/prompts.png"::: icon in the prompt bar and select **See all system capabilities**. Scroll down to the section for Microsoft Sentinel and Natural language to KQL.
-
-For more information, see [Copilot for Security in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).
-
-### Enable the Microsoft Sentinel plugins in Copilot
+Increase your prompt accuracy by configuring a Microsoft Sentinel workspace as the default.
 
 1. Navigate to Copilot for Security at [https://securitycopilot.microsoft.com/](https://securitycopilot.microsoft.com/).
 
 1. Open **Sources** :::image type="icon" source="media/sentinel-security-copilot/sources.png"::: in the prompt bar.
 
-1. On the **Manage plugins** page, set the **Microsoft Sentinel (Preview)** toggle to **On**.
+1. On the **Manage plugins** page, set the toggle to **On**
 
-1. Optionally, set the **Natural language to KQL for Microsoft Sentinel (Preview)** toggle to **On**.
+1. Select the gear icon on the Microsoft Sentinel (Preview) plugin.
 
-### Configure a default Microsoft Sentinel workspace
-
-If you have access to multiple Microsoft Sentinel workspaces, increase your prompt accuracy by configuring one of them as the default.
-
-1. On the **Manage plugins** page, select the gear icon on the Microsoft Sentinel (Preview) plugin.
-
-   :::image type="content" source="media/sentinel-security-copilot/sentinel-plugin.png" alt-text="Screenshot of the personalization selection gear icon for the Microsoft Sentinel plugin.":::
+   :::image type="content" source="media/sentinel-security-copilot/sentinel-plugins.png" alt-text="Screenshot of the personalization selection gear icon for the Microsoft Sentinel plugin.":::
 
 1. Configure the default workspace name.
 
    :::image type="content" source="media/sentinel-security-copilot/configure-default-sentinel-workspace.png" alt-text="Screenshot of the plugin personalization options for the Microsoft Sentinel plugin.":::
 
-1. When you create prompts designed to access the nondefault workspace, specify the workspace ID in your prompt.
+When you create prompts designed to access the other workspaces, specify the workspace name in your prompt.
 
    Example prompt:
 
    `What are the top 5 high priority Sentinel incidents in workspace "soc-sentinel-workspace"?`
 
-### Improve your Microsoft Sentinel prompts
+### Integrate Microsoft Sentinel with Copilot in Defender
+
+Use the unified security operations platform with your Microsoft Sentinel data for an embedded Copilot for Security experience. Microsoft Sentinel's new and improved capabilities in the Defender portal allows Copilot in Defender to serve up many of its capabilities with Microsoft Sentinel data.
+
+Example:
+
+For more information, see the following resources:
+
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md#new-and-improved-capabilities).
+- [Copilot in Microsoft Defender XDR](/defender-xdr/security-copilot-in-microsoft-365-defender)
+
+### Integrate Microsoft Sentinel with Copilot for Security in advanced hunting
+
+The Natural language to KQL for Microsoft Sentinel (Preview) plugin generates and runs KQL hunting queries using Microsoft Sentinel data. This capability is available in the standalone experience and the advanced hunting section of the Microsoft Defender portal.
+
+> [!NOTE]
+> In the unified Microsoft Defender portal, you can prompt Copilot for Security to generate advanced hunting queries for both Defender XDR and Microsoft Sentinel tables. Not all Microsoft Sentinel tables are currently supported, but support for these tables can be expected in the future.
+
+For more information, see [Copilot for Security in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).
+
+## Improve your Microsoft Sentinel prompts
 
 Consider the **Microsoft Sentinel incident investigation** promptbook as a starting point for creating effective prompts. This promptbook delivers a report about a specific incident, along with related alerts, reputation scores, users, and devices.
 
-| Prompt guidance | prompt |
+| Guidance | Prompt |
 |---|---|
-|Nudge Copilot to provide human readable information instead of responding with object IDs. | `Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.`|
-| Copilot knows who you are. Use the "me" pronoun to find incidents related to you. The following prompt targets incidents assigned to you. | `What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.` |
-| When you narrow a prompt response down to a single incident, Copilot knows the context.| `Tell me about the entities associated with that incident.`|
-| Copilot is good at summarizing. A useful way to summarize the prompts and responses so far for a specific audience. | `Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`|
+|Nudge Copilot to provide human readable information instead of responding with object IDs. |`Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.`|
+|Copilot knows who you are. Use the "me" pronoun to find incidents related to you. The following prompt targets incidents assigned to you. |`What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.` |
+|When you narrow a prompt response down to a single incident, Copilot knows the context.|`Tell me about the entities associated with that incident.`|
+|Copilot is good at summarizing. A useful way to summarize the prompts and responses so far for a specific audience. |`Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`|
 
 For more prompt guidance and samples, see the following resources:
 
 - [Using promptbooks](/copilot/security/using-promptbooks)
-- [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot)
+- [Prompting in Microsoft Copilot for Security](/copilot/security/prompting-security-copilot)
 - [Rod Trent's Copilot for Security Prompt Library](https://github.com/rod-trent/Copilot-for-Security/tree/main/Prompts)
 
-### Related articles
+## Related articles
 
 - [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 - [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
