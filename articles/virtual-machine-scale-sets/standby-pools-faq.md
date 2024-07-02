@@ -29,7 +29,7 @@ Standby pools is a powerful feature for accelerating your time to scale-out and 
 Standby pools is only supported on Virtual Machine Scale Sets with Flexible Orchestration.
 
 ### Does using a standby pool guarantee capacity? 
-Using a standby pool with deallocated instances does not guarantee capacity. When starting the deallocated VM, there needs to be enough capacity in the region your instances are deployed in to start the machines. If using running VMs in your pool, those VMs are already allocated and consuming compute capacity. When the VM moves from the standby pool to the Virtual Machine Scale Set, it does not release the compute resources and does not require any additional allocation of resoures. 
+Using a standby pool with deallocated instances does not guarantee capacity. When starting the deallocated virtual machine, there needs to be enough capacity in the region your instances are deployed in to start the machines. If using running virtual machines in your pool, those virtual machines are already allocated and consuming compute capacity. When the virtual machine moves from the standby pool to the Virtual Machine Scale Set, it does not release the compute resources and does not require any additional allocation of resoures. 
 
 ### How long can my standby pool name be? 
 A standby pool can be anywhere between 3 and 24 characters. For more information, see [Resource naming restrictions for Azure resources](..//azure-resource-manager/management/resource-name-rules.md)
