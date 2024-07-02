@@ -26,7 +26,7 @@ Use Azure policy to manage your load testing resources in scenarios like:
 
 When enforcing a policy, you can determine its [effect](../governance/policy/policy-glossary.md#effect) over the resulting evaluation. Each policy definition allows you to choose one of multiple [effects](../governance/policy/concepts/effect-basics.md). Therefore, policy enforcement may behave differently depending on the type of operation you are evaluating. In general, the effects for policies that integrate with Azure Load Testing include:
 
-- [**Audit**](../governance/policy/concepts/effects.md#audit): When the effect of a policy is set to `Audit`, the policy doesn't cause any breaking changes to your environment. The policy alerts you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope. Components are marked as noncompliant in the policy compliance dashboard. The `Audit` value is default if no policy effect is selected.
+- [**Audit**](../governance/policy/concepts/effects.md#audit): When the effect of a policy is set to `Audit`, the policy doesn't cause any breaking changes to your environment. The policy alerts you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope. Components are marked as noncompliant in the policy compliance dashboard. The `Audit` value is default if no policy effect is selected. 
 
 - [**Deny**](../governance/policy/concepts/effects.md#deny): When the effect of a policy is set to `Deny`, the policy blocks the creation of a new test run that doesn't comply with the policy definition. Existing noncompliant test runs and resources are not affected. The 'Audit' capabilities continue to operate.
 
@@ -34,7 +34,7 @@ When enforcing a policy, you can determine its [effect](../governance/policy/pol
 
 ## Built-in policy definitions
 
-Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../governance/policy/samples/built-in-policies#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
+Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../governance/policy/samples/built-in-policies.md#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
 
 ## Enable and manage a load testing policy
 
@@ -83,19 +83,20 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 
     ![Screenshot that shows the Parameters tab where you can specify the policy effect.](media/how-to-use-azure-policy/select-policy-effect.png)
 
-## Feature Limitations
+## Feature limitations
 
-Assigning a policy with a "deny" effect may take from 30 mins (on average) or up to one hour to start denying the creation of non-compliant resources. The delay refers to following scenarios:
-1. A new policy is assigned.
-2. An existing policy assignment is modified.
-3. A new Azure Load Testing resource is created in a scope with existing policies.
+- The **Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network** policy is only applicable for load tests that are triggered after the policy assignment. If the "audit" effect is selected, the Azure Load Testing resources with load test runs that are violating the policy will be shown as noncompliant. To remediate, delete the test runs that are violating the policy and reassign the policy. 
 
-The policy evaluation of existing components in an Azure Load Testing resource may take up to one hour (one averagee) or up to two hours before compliance results are viewable in the portal.
+- Assigning a policy with a "deny" effect may take from 30 mins (on average) or up to one hour to start denying the creation of non-compliant resources. The delay refers to following scenarios:
+  1. A new policy is assigned.
+  2. An existing policy assignment is modified.
+  3. A new Azure Load Testing resource is created in a scope with existing policies.
 
-If the compliance results show up as "Not Started" it may be due to the following reasons:
+- The policy evaluation of existing components in an Azure Load Testing resource may take up to one hour (one averagee) or up to two hours before compliance results are viewable in the portal.
 
-- The policy evaluation is not completed. Initial evaluation latency can take up to two hours.
-- There are no Azure Load Testing resources in the scope of the policy assignment.
+- If the compliance results show up as "Not Started" it may be due to the following reasons:
+  - The policy evaluation is not completed. Initial evaluation latency can take up to two hours.
+  - There are no Azure Load Testing resources in the scope of the policy assignment.
 
 ## Next Steps
 
