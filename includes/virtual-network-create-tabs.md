@@ -5,7 +5,7 @@
  author: asudbring
  ms.service: virtual-network
  ms.topic: include
- ms.date: 08/23/2023
+ ms.date: 07/01/2024
  ms.author: allensu
  ms.custom: include file
 ---
@@ -39,13 +39,12 @@ The following procedure creates a virtual network with a resource subnet.
 
     | Setting | Value |
     |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-1**. |
-    | Starting address | Leave the default of **10.0.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
 
-    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet rename and configuration.":::
+1. Leave the rest of the settings as their defaults. Select **Save**.
+
+    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet rename and configuration." lightbox="./media/virtual-network-create/address-subnet-space.png":::
 
 1. Select **Save**.
 
