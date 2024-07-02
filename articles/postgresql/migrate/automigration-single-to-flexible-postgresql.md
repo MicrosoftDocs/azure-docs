@@ -98,9 +98,9 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 
 Here's the info you need to know post automigration:
 
-1) The server parameters in Flexible server are tuned to the community standards. If you want to retain the same server parameter values as your Single server, you can log in via Powershell and run this [script](https://github.com/hariramt/automigration/blob/main/copy-server-parameters.ps1) to copy the parameter values.
-2) To enable [query perf insights](../flexible-server/concepts-query-performance-insight.md), you need to enable query store on the Flexible server which isn't enabled by default
-3) If [High Availability](../../reliability/reliability-postgresql-flexible-server.md) is needed, you can enable it with zero downtime.
+- The server parameters in Flexible server are tuned to the community standards. If you want to retain the same server parameter values as your Single server, you can log in via PowerShell and run this [script](https://github.com/hariramt/automigration/blob/main/copy-server-parameters.ps1) to copy the parameter values.
+- To enable [query perf insights](../flexible-server/concepts-query-performance-insight.md), you need to enable query store on the Flexible server which isn't enabled by default
+- If [High Availability](../../reliability/reliability-postgresql-flexible-server.md) is needed, you can enable it with zero downtime.
 
 ## Frequently Asked Questions (FAQs)
 
@@ -119,9 +119,13 @@ Here's the info you need to know post automigration:
 - Configure service health alerts to receive automigration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
 - Check the automigration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
 
-**Q. How can I defer the scheduled migration?​**
+**Q. How can I defer the scheduled migration of my Single server?​**
 
 **A.** You can review the migration schedule by navigating to the Overview page of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Overview page of your single server instance on the Azure portal. You can reschedule the migration by selecting another migration window within a month. The migration details will be locked seven days before the scheduled migration window after which you're unable to reschedule. This automigration can be deferred monthly until 30 March 2025.
+
+**Q. How can I opt out of a scheduled automigration of my Single server?​**
+
+**A.** If you wish to opt out of the automigration, you can raise a support ticket for this purpose.
 
 **Q. What username and connection string would be supported for the migrated Flexible Server? ​​**
 
@@ -129,7 +133,7 @@ Here's the info you need to know post automigration:
 
 **Q. I see a pricing difference on my potential move from postgresql Basic Single Server to postgresql Flexible Server??​**
 
-**A.** Few servers might see a small price revision after migration as the minimum storage limit on both offerings is different (5 GiB on Single Server and 32 GiB on Flexible Server). Storage cost (0.1$/GB on Single Server and 0.12$/GB on Flexible Server) for Flexible Server is marginally higher than Single Server. Any price increase is offset through better throughput and performance compared to Single Server.
+**A.** Few servers might see a small price revision after migration as the minimum storage limit on both offerings is different (5 GiB on Single Server and 32 GiB on Flexible Server). Storage cost for Flexible Server is marginally higher than Single Server. Any price increase is offset through better throughput and performance compared to Single Server. For more information on Flexible server pricing, click [here](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/)
 
 ## Related content
 
