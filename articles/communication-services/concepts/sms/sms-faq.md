@@ -98,8 +98,6 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ## Alphanumeric sender ID
-> [!IMPORTANT]
-> Effective **November 30, 2023**, unregistered alphanumeric sender IDs sending messages to Australia and Italy phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
 
 > [!IMPORTANT]
 > Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
@@ -124,9 +122,6 @@ We recommend waiting for 10 minutes before you start sending messages for best r
 Alphanumeric sender ID replacement with a number may occur when a certain wireless carrier does not support alphanumeric sender ID. This is done to ensure high delivery rate.  
 
 ## Toll-Free Verification
-
-> [!IMPORTANT]
-> Effective **November 8, 2023**, unverified toll-free numbers sending messages to US phone numbers will have its traffic **blocked**. At this time, there is no change to limits on sending from pending TFNs. To unblock the traffic, a verification application needs to be submitted and be in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
 
 > [!IMPORTANT]
 > Effective **January 31, 2024**, only fully verified toll-free numbers will be able to send traffic. Unverified toll-free numbers sending messages to US and CA phone numbers will have its traffic **blocked**. 
@@ -161,10 +156,6 @@ New limits are as follows:
 
 #### SMS to Canadian phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
-
-### What do the different application statuses (verified and unverified) mean? 
-- **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content is blocked but the number is not automatically blocked.
-- **Unverified:** Unverified numbers have either 1) not submitted a verification application, 2) have submitted the verification application and are waiting for a decision, or 3) have had their application denied. These numbers will not be able to send any SMS traffic.
 
 ### What happens after I submit the toll-free verification form?
 
