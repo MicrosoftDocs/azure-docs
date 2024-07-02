@@ -27,24 +27,24 @@ In this quickstart, you use the operations experience web UI to create your asse
 
 Complete [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md) before you begin this quickstart.
 
-To sign in to the operations experience web UI, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
+To sign in to the operations experience, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
 
 ## What problem will we solve?
 
 The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data processor pipelines.
 
-## Sign into the operations experience web UI
+## Sign into the operations experience
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience web UI. Navigate to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience. Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
-> You must use a work or school account to sign in to the operations experience web UI. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
+> You must use a work or school account to sign in to the operations experience. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
 
 ## Select your site
 
 After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the portal, an instance represents a cluster where you deployed Azure IoT Operations.
 
-:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience web UI.":::
+:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 ## Select your instance
 
@@ -63,7 +63,7 @@ To add an asset endpoint:
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
-    :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience web UI.":::
+    :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the operations experience.":::
 
 1. Enter the following endpoint information:
 
@@ -121,7 +121,7 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 ## Manage your assets
 
-After you select your instance in operations experience web UI, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
+After you select your instance in operations experience, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
 
 :::image type="content" source="media/quickstart-add-assets/create-asset-empty.png" alt-text="Screenshot of Azure IoT Operations empty asset list.":::
 
@@ -250,7 +250,7 @@ aio-opc-asset-discovery-wzlnj                   1/1     Running     0           
 ```
 
 > [!TIP]
-> There's currently a known issue where the Akri discovery handler pod might not start. If you encounter this issue, see [Troubleshoot Akri services](../troubleshoot/known-issues.md#azure-iot-akri-preview).
+> There's currently a known issue where the Akri discovery handler pod might not start. If you encounter this issue, see [Troubleshoot Akri services](../troubleshoot/known-issues.md#akri-services).
 
 To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services:
 

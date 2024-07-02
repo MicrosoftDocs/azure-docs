@@ -1,6 +1,6 @@
 ---
 title: Configure a pipeline HTTP endpoint source stage
-description: Configure a pipeline source stage to read data from an HTTP endpoint for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
+description: Configure a pipeline source stage to read data from an HTTP endpoint for processing. The source stage is the first stage in a data processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,11 +12,11 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure an HTTP endpoint source stage so that I can read messages from an HTTP endpoint for processing.
 ---
 
-# Configure an HTTP endpoint source stage in an Azure IoT Data Processor Preview pipeline
+# Configure an HTTP endpoint source stage in a data processor pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The HTTP endpoint source stage lets you read data from an HTTP endpoint at a user-defined interval. The stage has an optional request body and receives a response from the endpoint.
+The source stage is the first and required stage in a data processor pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The HTTP endpoint source stage lets you read data from an HTTP endpoint at a user-defined interval. The stage has an optional request body and receives a response from the endpoint.
 
 In the source stage, you define:
 
@@ -26,7 +26,7 @@ In the source stage, you define:
 
 ## Prerequisites
 
-- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
+- A deployed instance of the data processor that includes the optional data processor component.
 - An HTTP endpoint with all necessary raw data available is operational and reachable.
 
 ## Configure the HTTP endpoint source
@@ -69,11 +69,11 @@ To learn more about secrets, see [Manage secrets for your Azure IoT Operations P
 | ----- | ----------- | -------- | ------- | ------- |
 | Partition type | The type of partitioning to be used: Partition `ID` or Partition `Key` | Required | `ID` | `ID` |
 | Partition expression | The [jq expression](../process-data/concept-jq-expression.md) to use on the incoming message to compute the partition `ID` or partition `Key` | Required | `0` | `.payload.header` |
-| Number of partitions| The number of partitions in a Data Processor pipeline. | Required | `1` | `1` |
+| Number of partitions| The number of partitions in a data processor pipeline. | Required | `1` | `1` |
 
 The source stage applies the partitioning expression to the incoming message to compute the partition `ID` or `Key`.
 
-Data Processor adds additional metadata to the incoming message. See [Data Processor message structure overview](concept-message-structure.md) to understand how to correctly specify the partitioning expression that runs on the incoming message. By default, the partitioning expression is set to `0` with the **Partition type** as `ID` to send all the incoming data to a single partition.
+The data processor adds additional metadata to the incoming message. See [Data processor message structure overview](concept-message-structure.md) to understand how to correctly specify the partitioning expression that runs on the incoming message. By default, the partitioning expression is set to `0` with the **Partition type** as `ID` to send all the incoming data to a single partition.
 
 For recommendations and to learn more, see [What is partitioning?](../process-data/concept-partitioning.md).
 

@@ -43,7 +43,7 @@ You need to allow the MQ extension on your cluster to connect to your Microsoft 
 > [!TIP]
 > If you need to find the unique name assigned to your MQ extension, run the following command in your Codespaces terminal to list your cluster extensions: `az k8s-extension list --resource-group <your-resource-group-name> --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o table`
 
-Navigate to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi). To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
+Browse to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi). To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
 
 1. Select **Workspaces** in the left navigation bar, then select **New workspace**:
 

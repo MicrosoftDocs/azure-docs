@@ -64,7 +64,7 @@ When completing the steps, you need to:
 
 ### Verification
 
-Once the Azure Arc enablement of the level 3 cluster is complete, navigate to your resource group in the Azure portal. You should see a **Kubernetes - Azure Arc** resource with the name you specified.
+Once the Azure Arc enablement of the level 3 cluster is complete, go to your resource group in the Azure portal. You should see a **Kubernetes - Azure Arc** resource with the name you specified.
 
 1. Open the resource overview page. 
 1. Verify **status** of the cluster is **online**.

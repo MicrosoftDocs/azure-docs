@@ -1,6 +1,6 @@
 ---
-title: Data Processor configuration patterns
-description: Understand the common patterns such as path, batch, templates, retry, and duration that you use to configure Azure IoT Data Processor pipeline stages.
+title: Data processor configuration patterns
+description: Understand the common patterns such as path, batch, templates, retry, and duration that you use to configure data processor pipeline stages.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,7 +12,7 @@ ms.date: 02/13/2024
 #CustomerIntent: As an operator I want to understand common configuration patterns so I can configure a pipeline to process my data.
 ---
 
-# What are configuration patterns in Azure IoT Data Processor Preview?
+# What are configuration patterns in the data processor?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -23,7 +23,7 @@ Several types of configuration are common to multiple pipeline stages. This arti
 Several pipeline stages use a path to identify a location in the [message](concept-message-structure.md) where data should be read from or written to. To define these locations, you use a `Path` field that uses jq syntax:
 
 - A path is defined as a string in the UI, and uses the [jq](concept-jq-path.md) syntax.
-- A path is defined relative to the root of the Data Processor message. The path `.` refers to the entire message.
+- A path is defined relative to the root of the data processor message. The path `.` refers to the entire message.
 - All paths start with `.`.
 - Each segment of path can be:
   - `.<identifier>` for an alphanumeric object key such as `.topic`.
@@ -104,7 +104,7 @@ Duration is a string value with the following format `<number><char><number><cha
 
 Several stages require you to define a string with a mix of dynamic and static values. These stages use _template_ values.
 
-Data Processor templates use [Mustache syntax](https://mustache.github.io/mustache.5.html) to define dynamic values in strings.
+Data processor templates use [Mustache syntax](https://mustache.github.io/mustache.5.html) to define dynamic values in strings.
 
 The dynamic system values available for use in templates are:
 
@@ -232,6 +232,6 @@ Currently, you can define _batch_ based on time. To define batching, you need to
 
 ## Related content
 
-- [Data Processor messages](concept-message-structure.md)
+- [Data processor messages](concept-message-structure.md)
 - [Supported formats](concept-supported-formats.md)
 - [What is partitioning?](concept-partitioning.md)

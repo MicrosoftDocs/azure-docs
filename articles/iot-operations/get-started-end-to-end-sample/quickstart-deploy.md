@@ -121,7 +121,7 @@ It can take several minutes for the deployment to complete. Continue running the
 
 To view your cluster on the Azure portal, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that contains your cluster.
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your cluster.
 
 1. From the **Overview** of the resource group, select the name of your cluster.
 

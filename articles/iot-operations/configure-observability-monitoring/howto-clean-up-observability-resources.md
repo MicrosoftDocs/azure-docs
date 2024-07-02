@@ -17,7 +17,7 @@ This article shows how to clean up the observability resources in your cluster w
 
 To uninstall the observability resources, complete the following steps.
 
-1. Navigate to the resource group where you installed the shared resources, and delete the following resources:
+1. Browse to the resource group where you installed the shared resources, and delete the following resources:
 
     - Azure Monitor Workspace
     - Azure Managed Grafana
@@ -28,7 +28,7 @@ To uninstall the observability resources, complete the following steps.
     
     :::image type="content" source="media/howto-clean-up-observability-resources/shared-resource-delete.png" alt-text="Screenshot that lists a set of shared resources."  lightbox="media/howto-clean-up-observability-resources/shared-resource-delete-expanded.png":::
 
-1. Navigate to the resource group where your cluster is located (if different from the resource group for the previous resources). Delete the following resources: 
+1. Browse to the resource group where your cluster is located (if different from the resource group for the previous resources). Delete the following resources: 
 
     - The data collection endpoint
     - The two data collection rules (one ends with "logsDataCollectionRule" and the other ends with "metricsDataCollectionRule")

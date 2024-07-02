@@ -1,6 +1,6 @@
 ---
-title: Data Processor jq path expressions
-description: Understand the jq path expressions used by Azure IoT Data Processor to reference parts of a message.
+title: Data processor jq path expressions
+description: Understand the jq path expressions used by the data processor to reference parts of a message.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -12,22 +12,22 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand how to reference parts of a message so that I can configure pipeline stages.
 ---
 
-# What are jq path expressions in Azure IoT Data Processor Preview?
+# What are jq path expressions in the data processor?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Many pipeline stages in Azure IoT Data Processor Preview make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
+Many pipeline stages in the data processor make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
 
 - Locate a piece of information in a message.
 - Identify where to place a piece of information into a message.
 
 Both cases use the same syntax and specify locations relative to the root of the message structure.
 
-The jq paths supported by Data Processor are syntactically correct for [jq](https://jqlang.github.io/jq/), but have simplified semantics to make the them easier to use and to help reduce errors in the Data Processor pipleline. In particular, Data Processor doesn't use the `?` syntax to suppress errors for misaligned data structures. Those errors are automatically suppressed for you when working with paths.
+The jq paths supported by the data processor are syntactically correct for [jq](https://jqlang.github.io/jq/), but have simplified semantics to make the them easier to use and to help reduce errors in the data processor pipeline. In particular, the data processor doesn't use the `?` syntax to suppress errors for misaligned data structures. Those errors are automatically suppressed for you when working with paths.
 
 Examples of data access within a data processor pipeline include the `inputPath` in the [aggregate](howto-configure-aggregate-stage.md) and [last known value](howto-configure-lkv-stage.md) stages. Use the data access pattern whenever you need to access some data within a data processor message.
 
-Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the [aggregate](howto-configure-aggregate-stage.md) and [last known value](howto-configure-lkv-stage.md) pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the Data Processor message.
+Data update uses the same syntax as data access, but there are some special behaviors in specific update scenarios. Examples of data update within a data processor pipeline include the `outputPath` in the [aggregate](howto-configure-aggregate-stage.md) and [last known value](howto-configure-lkv-stage.md) pipeline stages. Use the data update pattern whenever you need to place the result of an operation into the data processor message.
 
 > [!NOTE]
 > A data processor message contains more than just the body of your message. A data processor message includes any properties and metadata that you sent and other relevant system information. The primary payload containing the data sent into the processing pipeline is placed in a `payload` field at the root of the message. This is why many of the examples in this guide include paths that start with `.payload`.
@@ -538,5 +538,5 @@ The result is:
 
 ## Related content
 
-- [What is jq in Data Processor pipelines?](concept-jq.md)
+- [What is jq in data processor pipelines?](concept-jq.md)
 - [jq expressions](concept-jq-expression.md)

@@ -1,6 +1,6 @@
 ---
 title: Upload MQTT data to Microsoft Fabric lakehouse
-description: Learn how to upload MQTT data from the edge to a Fabric lakehouse using Azure IoT MQ
+description: Learn how to upload MQTT data from the edge to a Fabric lakehouse using the MQTT broker
 author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
@@ -10,11 +10,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to learn how to send MQTT data from the edge to a lakehouse in the cloud.
 ---
 
-# Upload MQTT data from Azure IoT MQ Preview to Microsoft Fabric lakehouse
+# Upload MQTT data from the MQTT broker to Microsoft Fabric lakehouse
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you send MQTT data from Azure IoT MQ Preview directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. IoT MQ's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
+In this walkthrough, you send MQTT data from the MQTT broker directly to a Microsoft Fabric OneLake lakehouse. MQTT payloads are in the JSON format and automatically encoded into the Delta Lake format before uploading the lakehouse. This means data is ready for querying and analysis in seconds thanks to Microsoft Fabric's native support for the Delta Lake format. The MQTT broker's data lake connector is configured with the desired batching behavior as well as enriching the output with additional metadata.
 
 Azure IoT Operations Peview - enabled by Azure Arc can be deployed with the Azure CLI, Azure portal or with infrastructure-as-code (IaC) tools. This tutorial uses the IaC method using the Bicep language.
 
@@ -34,7 +34,7 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 ## Deploy base edge resources
 
-IoT MQ resources can be deployed as regular Azure resources as they have Azure Resource Provider (RP) implementations. First, deploy the base broker resources. Run this command in your Codespace terminal:
+The MQTT broker resources can be deployed as regular Azure resources as they have Azure Resource Provider (RP) implementations. First, deploy the base broker resources. Run this command in your Codespace terminal:
 
 ```azurecli
 
@@ -54,22 +54,22 @@ az deployment group create --name az-resources \
 
 The template deploys:
 
-* [IoT MQ Arc extension](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L124)
-* [IoT MQ Broker and child resources](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L191)
+* [MQTT broker Arc extension](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L124)
+* [MQTT broker Broker and child resources](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployBaseResources.bicep#L191)
 
-From the deployment JSON outputs, note the name of the IoT MQ extension. It should look like *mq-resource-group-name*.
+From the deployment JSON outputs, note the name of the MQTT broker extension. It should look like *mq-resource-group-name*.
 
 ## Set up Microsoft Fabric resources
 
 Next, create and set up the required Fabric resources.
 
-### Create a Fabric workspace and give access to Azure IoT MQ Preview
+### Create a Fabric workspace and give access to the MQTT broker
 
-Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to IoT MQ's extension identity in the **Add people** sidebar.
+Create a new workspace in Microsoft Fabric, select **Manage access** from the top bar, and give **Contributor** access to the MQTT broker's extension identity in the **Add people** sidebar.
 
 :::image type="content" source="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png" alt-text="Screenshot showing adding contributor to workspace and grant access." lightbox="media/tutorial-upload-mqtt-lakehouse/mq-workspace-contributor.png":::
 
-That's all the steps you need to do start sending data from IoT MQ.
+That's all the steps you need to do start sending data from the MQTT broker.
 
 ### Create a new lakehouse
 
@@ -85,7 +85,7 @@ The URL should look like *https:\/\/xyz\.dfs\.fabric\.microsoft\.com*.
 
 ## Simulate MQTT messages 
 
-Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client. Run the following command in the Codespace terminal:
+Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client. Run the following command in the Codespace terminal:
 
 ```bash
 kubectl apply -f tutorials/mq-onelake-upload/simulate-data.yaml
@@ -116,10 +116,10 @@ az deployment group create --name dl-resources \
 
 The template deploys:
 
-* [IoT MQ data lake connector to Microsoft Fabric](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L21)
+* [MQTT broker data lake connector to Microsoft Fabric](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L21)
 * [Data lake connector topic map](https://github.com/Azure-Samples/explore-iot-operations/blob/a57e3217a93f3478cb2ee1d85acae5e358822621/tutorials/mq-onelake-upload/deployDatalakeConnector.bicep#L56)
 
-The data lake connector uses the IoT MQ's system-assigned managed identity to write data to the lakehouse. No manual credentials are needed.
+The data lake connector uses the MQTT broker's system-assigned managed identity to write data to the lakehouse. No manual credentials are needed.
 
 The topic map provides the mapping between the JSON fields in the MQTT payload and the Delta table columns. It also defines the batch size of the uploads to the lakehouse and built-in enrichments the data like a receive timestamp and topic name.
 
@@ -131,8 +131,8 @@ In about a minute, you should see the MQTT payload along with the enriched field
 
 The data is now available in Fabric for cleaning, creating reports, and further analysis.
 
-In this walkthrough, you learned how to upload MQTT messages from IoT MQ directly to a Fabric lakehouse.
+In this walkthrough, you learned how to upload MQTT messages from the MQTT broker directly to a Fabric lakehouse.
 
 ## Next steps
 
-[Bridge MQTT data between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+[Bridge MQTT data between the MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
