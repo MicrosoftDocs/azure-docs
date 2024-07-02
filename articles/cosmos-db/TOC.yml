@@ -9,8 +9,6 @@
       href: faq.yml
     - name: Try Azure Cosmos DB free
       href: try-free.md
-    - name: Azure AI Advantage free trial
-      href: ai-advantage.md
     - name: Choose an API
       href: choose-api.md
     - name: Distributed NoSQL
@@ -18,7 +16,7 @@
     - name: Distributed relational
       href: distributed-relational.md
     - name: Integrated vector databases
-      expanded: true
+      expanded: false
       items:
       - name: What is a vector database
         href: vector-database.md
@@ -27,7 +25,7 @@
       - name: Vector database in Azure Cosmos DB for MongoDB
         href: mongodb/vcore/vector-search.md
       - name: Related concepts
-        expanded: true
+        expanded: false
         items:
         - name: Vector search overview
           href: gen-ai/vector-search-overview.md
@@ -39,6 +37,13 @@
           href: gen-ai/distance-functions.md
         - name: kNN vs ANN
           href: gen-ai/knn-vs-ann.md
+    - name: Unified AI database
+        expanded: false
+        items:
+        - name: AI agent
+          href: ai-agents.md
+        - name: Azure AI Advantage free trial
+          href: ai-advantage.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB
