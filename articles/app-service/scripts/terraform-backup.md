@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Windows web app with a backup using Terraform'
 description: In this quickstart, you create an Azure Windows web app with a backup schedule and a .NET application stack.
 ms.topic: quickstart
-ms.date: 06/25/2024
+ms.date: 07/02/2024
 ms.custom: devx-track-terraform
 ms.service: app-service
 author: msangapu-msft
@@ -42,16 +42,16 @@ In Azure App Service, you can make on-demand custom backups or configure schedul
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-app-service-backup/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-app-service-backup/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-app-service-backup/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-app-service-backup/outputs.tf":::
 
 ## Initialize Terraform
 
