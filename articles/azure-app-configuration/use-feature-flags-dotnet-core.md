@@ -106,7 +106,8 @@ When a feature flag has multiple filters, the filter list is traversed in order 
 The feature manager supports *appsettings.json* as a configuration source for feature flags. The following example shows how to set up feature flags in a JSON file:
 
 ```JSON
-{"FeatureManagement": {
+{
+    "FeatureManagement": {
         "FeatureA": true, // Feature flag set to on
         "FeatureB": false, // Feature flag set to off
         "FeatureC": {
