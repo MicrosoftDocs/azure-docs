@@ -18,7 +18,7 @@ This document outlines the current hard and soft limits for Azure Cosmos DB for 
 ### MongoDB Execution Limits
 - Maximum transaction lifetime: 30 seconds.
 - Cursor lifetime: 10 minutes. Note: A cursorNotFound error might occur if the cursor exceeds its lifetime.
-- Default query execution limit: 120 seconds. This can be overridden on a per-query basis using `maxTimeMS`.
+- Default query execution limit: 120 seconds. This can be overridden on a per-query basis using `maxTimeMS` in the respective MongoDB driver.
 #### Example:
 ```javascript
 db.collection.find({ field: "value" }).maxTimeMS(5000)
