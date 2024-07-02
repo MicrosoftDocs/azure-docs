@@ -12,9 +12,6 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-conten
 ---
 # Automatic Guest Patching for Azure Virtual Machines and Scale Sets
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Enabling automatic guest patching for your Azure Virtual Machines (VMs) and Scale Sets (VMSS) helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
@@ -30,15 +27,15 @@ Automatic VM guest patching has the following characteristics:
 
 ## How does automatic VM guest patching work?
 
-If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as configured. Please note, the rebootSetting parameter on the VM Model takes precedence over settings in another system, such as [Maintenance Configuration](https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-configurations#guest). 
 
 The VM is assessed periodically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
 Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the platform will automatically assess and apply patches (if required) during the next periodic assessment (usually within a few days) when the VM is powered on.
 
-Definition updates and other patches not classified as *Critical* or *Security* won't be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
+Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
-For IaaS VMs, customers can choose to configure VMs to enable automatic VM guest patching. This will limit the blast radius of VMs getting the updated patch and do an orchestrated update of the VMs. The service also provides [health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) to detect issues any issues with the update.
+Enabling Automatic Guest Patching on single-instance VMs or VM Scale Set Flexible allows the Azure platform to update your fleet in phases. This follows Azure's [Safe Deployment Practices](https://azure.microsoft.com/en-us/blog/advancing-safe-deployment-practices/) and reduces the impact radius if any issues are identified with the latest update. [Health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) is recommended for single instance VMs and required for Flexible Scale Sets to detect issues any issues with the update.
 
 ### Availability-first Updates
 
@@ -378,7 +375,7 @@ Example request body for Linux:
 ```json
 {
   "maximumDuration": "PT1H",
-  "rebootSetting": "IfRequired",
+  "Setting": "IfRequired",
   "linuxParameters": {
     "classificationsToInclude": [
       "Critical",
