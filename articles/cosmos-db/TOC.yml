@@ -36,7 +36,7 @@
           href: gen-ai/distance-functions.md
         - name: kNN vs ANN
           href: gen-ai/knn-vs-ann.md
-    - name: Unified AI database
+    - name: Generative AI
       items:
         - name: AI agent
           href: ai-agents.md

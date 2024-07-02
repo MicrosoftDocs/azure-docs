@@ -43,6 +43,8 @@ There are also several companies offering extended support for CentOS 7, which m
 - OpenLogic: [Enterprise Linux Support](https://www.openlogic.com/solutions/enterprise-linux-support/centos)
 - TuxCare: [Extended Lifecycle Support](https://docs.tuxcare.com/extended-lifecycle-support/)
 
+- CIQ: [CIQ Bridge - Extending the life of CentOS 7](https://ciq.com/products/ciq-bridge/)
+
 See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for details on Azure endorsed distributions and images.
 
 ## CentOS compatible distributions
@@ -56,7 +58,8 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for detai
 
 > [!CAUTION]
 > If you perform an in-place major version update following a migration (e.g. CentOS 7 -> RHEL 7 -> RHEL 8) there will be a disconnection between the data plane and the **[control plane](/azure/architecture/guide/multitenant/considerations/control-planes)** of the virtual machine (VM). Azure capabilities such as **[Auto guest patching](/azure/virtual-machines/automatic-vm-guest-patching)**, **[Auto OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)**, **[Hotpatching](/windows-server/get-started/hotpatch?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json)**, and **[Azure Update Manager](/azure/update-manager/overview)** won't be available. To utilize these features, it's recommended to create a new VM using your preferred operating system instead of performing an in-place upgrade.
-> > [!NOTE]
+
+> [!NOTE]
 > - “Binary compatible” (Application Binary Interface or ABI) means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
 - For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
 - For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
