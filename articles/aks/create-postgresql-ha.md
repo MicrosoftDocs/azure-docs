@@ -27,7 +27,7 @@ export SUFFIX=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-z0-9' | fold -w 8 | head -
 export LOCAL_NAME="cnpg"
 export TAGS="owner=user"
 export RESOURCE_GROUP_NAME="rg-${LOCAL_NAME}-${SUFFIX}"
-export PRIMARY_CLUSTER_REGION="eastus"
+export PRIMARY_CLUSTER_REGION="westus3"
 export AKS_PRIMARY_CLUSTER_NAME="aks-primary-${LOCAL_NAME}-${SUFFIX}"
 export AKS_PRIMARY_MANAGED_RG_NAME="rg-${LOCAL_NAME}-primary-aksmanaged-${SUFFIX}"
 export AKS_PRIMARY_CLUSTER_FED_CREDENTIAL_NAME="pg-primary-fedcred1-${LOCAL_NAME}-${SUFFIX}"
@@ -45,9 +45,10 @@ export MY_PUBLIC_CLIENT_IP=$(dig +short myip.opendns.com @resolver3.opendns.com)
 
 ## Install required extensions
 
-The `k8s-extension` and `amg` extensions provide more functionality for managing Kubernetes clusters and querying Azure resources. Install these extensions using the following [`az extension add`][az-extension-add] commands:
+The `aks-preview`, `k8s-extension` and `amg` extensions provide more functionality for managing Kubernetes clusters and querying Azure resources. Install these extensions using the following [`az extension add`][az-extension-add] commands:
 
 ```azurecli-interactive
+az extension add --upgrade --name aks-preview --yes --allow-preview true
 az extension add --upgrade --name k8s-extension --yes --allow-preview false
 az extension add --upgrade --name amg --yes --allow-preview false
 ```
@@ -127,14 +128,16 @@ The CNPG operator automatically generates a service account called *postgres* th
     Please check user permissions for blob storage and if necessary elevate your role to `Storage Blob Data Owner`:
 
     ```azurecli-interactive
-    az role assignment list --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID -o table
-    
-    export USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment list --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID --output table
+
+    export USER_ID=$(az ad signed-in-user show --query id --output tsv)
 
     az role assignment create \
         --assignee-object-id $USER_ID \
+        --assignee-principal-type User \
         --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID \
-        --role "Storage Blob Data Owner"
+        --role "Storage Blob Data Owner" \
+        --output tsv
     ```    
 
 ## Assign RBAC to storage accounts
@@ -226,10 +229,10 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
 1. Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    export SYSTEM_NODE_POOL_VMSKU="Standard_D2s_v3"
+    export SYSTEM_NODE_POOL_VMSKU="standard_d2s_v3"
     export USER_NODE_POOL_NAME="postgres"
-    export USER_NODE_POOL_VMSKU="Standard_D4s_v3"
-
+    export USER_NODE_POOL_VMSKU="standard_d4s_v3"
+    
     az aks create \
         --name $AKS_PRIMARY_CLUSTER_NAME \
         --tags $TAGS \
@@ -254,10 +257,12 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
         --grafana-resource-id $GRAFANA_RESOURCE_ID \
         --api-server-authorized-ip-ranges $MY_PUBLIC_CLIENT_IP \
         --tier standard \
-        --zones 1 2 3
+        --kubernetes-version $AKS_CLUSTER_VERSION \
+        --zones 1 2 3 \
+        --output table
     ```
 
-1. Add a user node pool to the AKS cluster using the [`az aks nodepool add`][az-aks-node-pool-add] command.
+2. Add a user node pool to the AKS cluster using the [`az aks nodepool add`][az-aks-node-pool-add] command.
 
     ```azurecli-interactive
     az aks nodepool add \
@@ -269,7 +274,8 @@ You also add a user node pool to the AKS cluster to host the PostgreSQL cluster.
         --max-count 6 \
         --node-vm-size $USER_NODE_POOL_VMSKU \
         --zones 1 2 3 \
-        --labels workload=postgres
+        --labels workload=postgres \
+        --output table
     ```
 
 > [!NOTE]
@@ -284,10 +290,11 @@ In this section, you get the AKS cluster credentials, which serve as the keys th
     ```azurecli-interactive
     az aks get-credentials \
         --resource-group $RESOURCE_GROUP_NAME \
-        --name $AKS_PRIMARY_CLUSTER_NAME
+        --name $AKS_PRIMARY_CLUSTER_NAME \
+        --output none
      ```
 
-1. Create the namespace for the CNPG controller manager services, the PostgreSQL cluster, and its related services by using the [`kubectl create namespace`][kubectl-create-namespace] command.
+2. Create the namespace for the CNPG controller manager services, the PostgreSQL cluster, and its related services by using the [`kubectl create namespace`][kubectl-create-namespace] command.
 
     ```azurecli-interactive
     kubectl create namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
@@ -305,10 +312,11 @@ The Azure Monitor workspace for Managed Prometheus and Azure Managed Grafana are
         --addon monitoring \
         --name $AKS_PRIMARY_CLUSTER_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
-        --workspace-resource-id $ALA_RESOURCE_ID
+        --workspace-resource-id $ALA_RESOURCE_ID \
+        --output table
     ```
 
-1. Validate that Managed Prometheus is scraping metrics and Container insights is ingesting logs from the AKS cluster by inspecting the DaemonSet using the [`kubectl get`][kubectl-get] command and the [`az aks show`][az-aks-show] command.
+2. Validate that Managed Prometheus is scraping metrics and Container insights is ingesting logs from the AKS cluster by inspecting the DaemonSet using the [`kubectl get`][kubectl-get] command and the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
     kubectl get ds ama-metrics-node \
@@ -362,7 +370,7 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
     echo $AKS_PRIMARY_CLUSTER_NODERG_NAME
     ```
 
-1. Create the public IP address using the [`az network public-ip create`][az-network-public-ip-create] command.
+2. Create the public IP address using the [`az network public-ip create`][az-network-public-ip-create] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_PUBLICIP_NAME="$AKS_PRIMARY_CLUSTER_NAME-pip"
@@ -372,7 +380,8 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
         --name $AKS_PRIMARY_CLUSTER_PUBLICIP_NAME \
         --sku Standard \
         --zone 1 2 3 \
-        --allocation-method static
+        --allocation-method static \
+        --output table
     ```
 
 1. Get the newly created public IP address using the [`az network public-ip show`][az-network-public-ip-show] command.
@@ -387,18 +396,18 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
     echo $AKS_PRIMARY_CLUSTER_PUBLICIP_ADDRESS
     ```
 
-1. Get the resource ID of the node resource group using the [`az group show`][az-group-show] command.
+2. Get the resource ID of the node resource group using the [`az group show`][az-group-show] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_NODERG_NAME_SCOPE=$(az group show --name \
         $AKS_PRIMARY_CLUSTER_NODERG_NAME \
-        --query id \ 
+        --query id \
         --output tsv)
 
     echo $AKS_PRIMARY_CLUSTER_NODERG_NAME_SCOPE
     ```
 
-1. Assign the "Network Contributor" role to the UAMI object ID using the node resource group scope using the [`az role assignment create`][az-role-assignment-create] command.
+3. Assign the "Network Contributor" role to the UAMI object ID using the node resource group scope using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create \
@@ -420,7 +429,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
     helm repo add cnpg https://cloudnative-pg.github.io/charts
     ```
 
-1. Upgrade the CNPG Helm repo and install it on the AKS cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
+2. Upgrade the CNPG Helm repo and install it on the AKS cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
     ```azurecli-interactive
     helm upgrade --install cnpg \
@@ -430,7 +439,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
         cnpg/cloudnative-pg
     ```
 
-1. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
+3. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get deployment \
@@ -449,7 +458,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
         https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.23/releases/cnpg-1.23.1.yaml
     ```
 
-1. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
+2. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get deployment \
