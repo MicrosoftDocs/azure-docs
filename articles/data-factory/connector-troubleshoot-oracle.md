@@ -46,7 +46,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - 3DES112 
         - DES
         
-    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity.
+    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity. To add them, you need to upgrade to Oracle 19c or higher.
         - SHA256 
         - SHA384 
         - SHA512
