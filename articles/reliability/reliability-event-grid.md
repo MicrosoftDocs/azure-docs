@@ -1,17 +1,17 @@
 ---
-title: Reliability in Azure Event Grid
-description: Find out about reliability in Azure Event Grid
+title: Reliability in Azure Event Grid and Event Grid namespacess
+description: Find out about reliability in Azure Event Grid and Event Grid namespaces
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: virtual-machines
-ms.date: 07/18/2023
+ms.date: 07/02/2024
 ---
  
-# Reliability in Azure Event Grid
+# Reliability in Azure Event Grid and Event Grid namespaces
 
-This article contains detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+This article contains detailed information on Event Grid and Event Grid namespaces regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
@@ -21,7 +21,10 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
+
 Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones.  When there's a regional failure in one of the availability zones, Event Grid resources **automatically failover** to another availability zone without human intervention. Currently, it isn't possible for you to control (enable or disable) this feature. When an existing region starts supporting availability zones, existing Event Grid resources are automatically failed over to take advantage of this feature. No customer action is required. 
+
+**Azure Event Grid namespaces** also achieve intra-region high availability using availability zones. 
 
  
 ### Prerequisites
