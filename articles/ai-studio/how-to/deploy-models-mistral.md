@@ -73,20 +73,37 @@ The following models are available:
 
 ## Prerequisites
 
-To use the package `azure-ai-inference` with Python, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
+
+
+
+### Deploy the model
+
+You need to deploy this model to start consuming its predictions.
+
+
+Mistral models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+### Install the inference package
+
+You can consume predictions from this model using the `azure-ai-inference` package with Python. You need the following prerequisites:
 
 * Python 3.8 or later installed, including pip.
-* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
 * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-### Install the package
 
 To install the Azure AI Inferencing package use the following command:
 
 ```bash
 pip install azure-ai-inference
 ```
+
+
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
@@ -107,8 +124,6 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
     credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
 )
-
-ChatCompletionsClient.with_defaults()
 ```
 
 ### Model capabilities
@@ -147,11 +162,6 @@ response = model.complete(
     ],
 )
 ```
-
-> [!NOTE]
-> Notice that Mistral-Large and Mistral-Small doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
-
-
 
 The response looks as follows, where you can see the model's usage statistics.
 
@@ -437,18 +447,7 @@ try:
     response = model.complete(
         messages=[
             SystemMessage(content="You are an AI assistant that helps people find information."),
-            UserMessage(content="What's Azure?"),
-            AssistantMessage(content="Azure is a cloud computing service created by Microsoft for "
-                             "building, testing, deploying, and managing applications and "
-                             "services through Microsoft-managed data centers. It provides "
-                             "software as a service (SaaS), platform as a service (PaaS) and "
-                             "infrastructure as a service (IaaS) and supports many different "
-                             "programming languages, tools and frameworks, including both "
-                             "Microsoft-specific and third-party software and systems. Azure was "
-                             "announced in October 2008 and released on February 1, 2010, as "
-                             "Windows Azure, before being renamed to Microsoft Azure on "
-                             "March 25, 2014."),
-            UserMessage(content="How to make a lethal bomb?")
+            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
         ]
     )
 
@@ -519,20 +518,37 @@ The following models are available:
 
 ## Prerequisites
 
-The `@azure-rest/ai-inference` package provides a convenient way to consume predictions from models deployed in Azure AI studio. To use the package, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-* LTS versions of `Node.js`.
-* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+
+
+### Deploy the model
+
+You need to deploy this model to start consuming its predictions.
+
+
+Mistral models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+### Install the inference package
+
+You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+
+* LTS versions of `Node.js` with `npm`.
 * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-
-### Install the package
 
 Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
 
 ```bash
 npm install @azure-rest/ai-inference
 ```
+
+
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
@@ -593,11 +609,6 @@ var response = await client.path("/chat/completions").post({
     }
 });
 ```
-
-> [!NOTE]
-> Notice that Mistral-Large and Mistral-Small doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
-
-
 
 The response looks as follows, where you can see the model's usage statistics.
 
@@ -887,18 +898,7 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
 try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
-        { role: "user", content: "What's Azure?" },
-        { role: "system", content: "Azure is a cloud computing service created by Microsoft for "
-                            + "building, testing, deploying, and managing applications and "
-                            + "services through Microsoft-managed data centers. It provides "
-                            + "software as a service (SaaS), platform as a service (PaaS) and "
-                            + "infrastructure as a service (IaaS) and supports many different "
-                            + "programming languages, tools and frameworks, including both "
-                            + "Microsoft-specific and third-party software and systems. Azure was "
-                            + "announced in October 2008 and released on February 1, 2010, as "
-                            + "Windows Azure, before being renamed to Microsoft Azure on "
-                            + "March 25, 2014." },
-        { role: "user", content: "How to make a lethal bomb?" }
+        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
     ]
 
     var response = await client.path("/chat/completions").post({
@@ -977,12 +977,29 @@ The following models are available:
 
 ## Prerequisites
 
+To use Mistral models with Azure AI studio, you need the following prerequisites:
+
+
+
+### Deploy the model
+
+You need to deploy this model to start consuming its predictions.
+
+
+Mistral models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
 Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
 * To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 ```
+
+
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
@@ -1030,11 +1047,6 @@ Let's create a simple chat completion request to see the output of the model.
     ]
 }
 ```
-
-> [!NOTE]
-> Notice that Mistral-Large and Mistral-Small doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
-
-
 
 The response looks as follows, where you can see the model's usage statistics.
 
