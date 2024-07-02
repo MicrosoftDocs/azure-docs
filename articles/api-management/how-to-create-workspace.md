@@ -1,6 +1,6 @@
 ---
 title: Set up a workspace in Azure API Management
-description: Learn how to create a workspace in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
+description: Learn how to create a workspace and a workspace gateway in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
 author: dlepow
 ms.topic: how-to
 ms.service: api-management
@@ -24,14 +24,14 @@ Follow the steps in this article to:
 * Configure the workspace gateway network access settings
 * Assign users to the workspace
 
-::: zone-pivot "public-inbound-private-outbound,private-inbound-private-outbound,public""
+::: zone-pivot="public-inbound-private-outbound, private-inbound-private-outbound, public""
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API  Management instance is deployed, or equivalent permissions to create resources in the resource group.
 ::: zone-end
 
-::: zone-pivot "public-inbound-private-outbound,private-inbound-private-outbound"
+::: zone-pivot="public-inbound-private-outbound, private-inbound-private-outbound"
 * An Azure virtual network and subnet to isolate the workspace gateway.
     * The virtual network must be in the same region and Azure subscription as the API Management instance.
     * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
@@ -48,9 +48,11 @@ Follow the steps in this article to:
 ###  Delegate the subnet
 For public inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service. The subnet can't have another delegation configured.  In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
 
+:::image type="content" source="media/how-to-create-workspace/delegate-external.png" alt-text="Screenshot of delegation for external VNet in the portal.":::
+
 ### Configure NSG rules
 
-Configure the following inbound network security group rules in the gateway subnet to filter traffic to your workspace gateway.  Set the priority of these rules higher than that of the default rules.    
+A network security group must be attached to the subnet used for access to the gateway. Configure the following inbound network security group rules to filter traffic to your workspace gateway.  Set the priority of these rules higher than that of the default rules.    
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
 |------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
@@ -64,9 +66,11 @@ Configure the following inbound network security group rules in the gateway subn
 ### Delegate the subnet
 For private inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironment** service.  The subnet can't have another delegation configured. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/hostingEnvironment**.      
 
+:::image type="content" source="media/how-to-create-workspace/delegate-internal.png" alt-text="Screenshot of delegation for internal VNet in the portal.":::
+
 ### Configure NSG rules
 
-Configure the following inbound network security group rules in the gateway subnet to filter traffic to your workspace gateway. Set the priority of these rules higher than that of the default rules.
+A network security group must be attached to the subnet used for access to the gateway. Configure the following inbound network security group rulesto filter traffic to your workspace gateway. Set the priority of these rules higher than that of the default rules.
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
 |------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
