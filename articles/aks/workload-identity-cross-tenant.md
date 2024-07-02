@@ -4,13 +4,13 @@ description: Learn how to configure cross-tenant workload identity on Azure Kube
 author: schaffererin
 ms.topic: article
 ms.subservice: aks-security
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 ms.author: schaffererin
 ---
 
 # Configure cross-tenant workload identity on Azure Kubernetes Service (AKS)
 
-In this article, you learn how to configure cross-tenant workload identity on Azure Kubernetes Service (AKS). Cross-tenant workload identity allows you to access resources in another tenant from your AKS cluster. In this example, you will create an Azure Service Bus in one tenant and send messages to it from a workload running in an AKS cluster in another tenant.
+In this article, you learn how to configure cross-tenant workload identity on Azure Kubernetes Service (AKS). Cross-tenant workload identity allows you to access resources in another tenant from your AKS cluster. In this example, you create an Azure Service Bus in one tenant and send messages to it from a workload running in an AKS cluster in another tenant.
 
 For more information on workload identity, see the [Workload identity overview][workload-identity-overview].
 
@@ -19,26 +19,32 @@ For more information on workload identity, see the [Workload identity overview][
 * ***Two Azure subscriptions***, each in a separate tenant. In this article, we refer to these as *Tenant A* and *Tenant B*.
 * Azure CLI installed on your local machine. If you don't have the Azure CLI installed, see [Install the Azure CLI][install-azure-cli].
 * Bash shell environment. This article uses Bash shell syntax.
+* You need to have the following subscription details:
 
-In order to complete the steps in this article, you need to have the following information:
+  * *Tenant A* tenant ID
+  * *Tenant A* subscription ID
+  * *Tenant B* tenant ID
+  * *Tenant B* subscription ID
 
-* *Tenant A* tenant ID
-* *Tenant A* subscription ID
-* *Tenant B* tenant ID
-* *Tenant B* subscription ID
+> [!IMPORTANT]
+> Make sure you stay within the same terminal window for the duration of this article to retain the environment variables you set. If you close the terminal window, you need to set the environment variables again.
 
 ## Configure resources in Tenant A
 
 In *Tenant A*, you create an AKS cluster with workload identity and OIDC issuer enabled. You use this cluster to deploy an application that attempts to access resources in *Tenant B*.
 
-1. Log into your *Tenant A* subscription using the [`az login`][az-login-interactively] command and pass in the tenant ID of *Tenant A*.
+### Log in to Tenant A
+
+1. Log in to your *Tenant A* subscription using the [`az login`][az-login-interactively] command.
 
     ```azurecli-interactive
+    # Set environment variable
     TENANT_A_ID=<tenant-id>
+
     az login --tenant $TENANT_A_ID
     ```
 
-1. Ensure you are working with the correct subscription in *Tenant A* by using the [`az account set`][az-account-set] command.
+1. Ensure you're working with the correct subscription in *Tenant A* using the [`az account set`][az-account-set] command.
 
     ```azurecli-interactive
     # Set environment variable
@@ -47,6 +53,8 @@ In *Tenant A*, you create an AKS cluster with workload identity and OIDC issuer 
     # Log in to your Tenant A subscription
     az account set --subscription $TENANT_A_SUBSCRIPTION_ID
     ```
+
+### Create resources in Tenant A
 
 1. Create a resource group in *Tenant A* to host the AKS cluster using the [`az group create`][az-group-create] command.
 
@@ -62,7 +70,7 @@ In *Tenant A*, you create an AKS cluster with workload identity and OIDC issuer 
 1. Create an AKS cluster in *Tenant A* with workload identity and OIDC issuer enabled using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    # Set environment variables
+    # Set environment variable
     CLUSTER_NAME=<cluster-name>
 
     # Create an AKS cluster
@@ -74,7 +82,9 @@ In *Tenant A*, you create an AKS cluster with workload identity and OIDC issuer 
       --generate-ssh-keys
     ```
 
-1. Get the OIDC issuer URL from the cluster in *Tenant A* using the [`az aks show`][az-aks-show] command.
+### Get OIDC issuer URL from AKS cluster
+
+* Get the OIDC issuer URL from the cluster in *Tenant A* using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
     OIDC_ISSUER_URL=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --query "oidcIssuerProfile.issuerUrl" --output tsv)
@@ -84,20 +94,24 @@ In *Tenant A*, you create an AKS cluster with workload identity and OIDC issuer 
 
 In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it permissions to read and write messages to the service bus, and establish the trust between the managed identity and the AKS cluster in *Tenant A*.
 
+### Log in to Tenant B
+
 1. Log out of your *Tenant A* subscription using the [`az logout`][az-logout] command.
 
     ```azurecli-interactive
     az logout
     ```
 
-1. Log into your *Tenant B* subscription using the [`az login`][az-login-interactively] command and pass in the tenant ID of *Tenant B*.
+1. Log in to your *Tenant B* subscription using the [`az login`][az-login-interactively] command.
 
     ```azurecli-interactive
+    # Set environment variable
     TENANT_B_ID=<tenant-id>
+
     az login --tenant $TENANT_B_ID
     ```
 
-1. Ensure you are working with the correct subscription in *Tenant A* by using the [`az account set`][az-account-set] command.
+1. Ensure you're working with the correct subscription in *Tenant B* using the [`az account set`][az-account-set] command.
 
     ```azurecli-interactive
     # Set environment variable
@@ -106,6 +120,8 @@ In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it
     # Log in to your Tenant B subscription
     az account set --subscription $TENANT_B_SUBSCRIPTION_ID
     ```
+
+### Create resources in Tenant B
 
 1. Create a resource group in *Tenant B* to host the managed identity using the [`az group create`][az-group-create] command.
 
@@ -117,10 +133,11 @@ In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it
     # Create a resource group
     az group create --name $RESOURCE_GROUP --location $LOCATION
     ```
+
 1. Create a service bus and queue in *Tenant B* using the [`az servicebus namespace create`][az-servicebus-namespace-create] and [`az servicebus queue create`][az-servicebus-queue-create] commands.
 
     ```azurecli-interactive
-    # Set a unique name for the servicebus
+    # Set environment variable
     SERVICEBUS_NAME=sb-crosstenantdemo-$RANDOM
 
     # Create a new service bus namespace and and return the service bus hostname
@@ -141,12 +158,15 @@ In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it
 1. Create a user-assigned managed identity in *Tenant B* using the [`az identity create`][az-identity-create] command.
 
     ```azurecli-interactive
-    # Set user-assigned managed identity name
+    # Set environment variable
     IDENTITY_NAME=${SERVICEBUS_NAME}-identity
 
     # Create a user-assigned managed identity
     az identity create --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME
     ```
+
+### Get resource IDs and assign permissions in Tenant B
+
 1. Get the principal ID of the managed identity in *Tenant B* using the [`az identity show`][az-identity-show] command.
 
     ```azurecli-interactive
@@ -178,7 +198,7 @@ In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it
       --output tsv)
     ```
 
-6. Assign the managed identity in *Tenant B* permissions to read and write service bus messages using the [`az role assignment create`][az-role-assignment-create] command.
+1. Assign the managed identity in *Tenant B* permissions to read and write service bus messages using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create \
@@ -203,11 +223,13 @@ In this section, you create the federated identity credential needed to establis
       --subject system:serviceaccount:default:myserviceaccount
     ```
 
-`--subject system:serviceaccount:default:myserviceaccount` is the name of the Kubernetes service account that you will create later in *Tenant A*. When your application pod makes authentication requests, this value is sent to Microsoft Entra ID as the `subject` in the authorization request. Microsoft Entra ID determines eligibility based on whether this value matches what you set when you created the federated identity credential, so it's important to ensure the value matches.
+`--subject system:serviceaccount:default:myserviceaccount` is the name of the Kubernetes service account that you create in *Tenant A* later in the article. When your application pod makes authentication requests, this value is sent to Microsoft Entra ID as the `subject` in the authorization request. Microsoft Entra ID determines eligibility based on whether this value matches what you set when you created the federated identity credential, so it's important to ensure the value matches.
 
 ## Deploy application to send messages to Azure Service Bus queue
 
 In this section, you deploy an application to your AKS cluster in *Tenant A* that sends messages to the Azure Service Bus queue in *Tenant B*.
+
+### Log in to Tenant A and get AKS credentials
 
 1. Log out of your *Tenant B* subscription using the [`az logout`][az-logout] command.
 
@@ -215,23 +237,25 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     az logout
     ```
 
-1. Log into your *Tenant A* subscription using the [`az login`][az-login-interactively] command and pass in the tenant ID of *Tenant A*.
+1. Log in to your *Tenant A* subscription using the [`az login`][az-login-interactively] command.
 
     ```azurecli-interactive
     az login --tenant $TENANT_A_ID
     ```
 
-1. Ensure you are working with the correct subscription in *Tenant A* by using the [`az account set`][az-account-set] command.
+1. Ensure you're working with the correct subscription in *Tenant A* using the [`az account set`][az-account-set] command.
 
     ```azurecli-interactive
     az account set --subscription $TENANT_A_SUBSCRIPTION_ID
     ```
 
-1. Get the cluster credentials for the AKS cluster in *Tenant A* using the [`az aks get-credentials`][az-aks-get-credentials] command.
+1. Get the credentials for the AKS cluster in *Tenant A* using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME
     ```
+
+### Create Kubernetes resources to send messages to Azure Service Bus queue
 
 1. Create a new Kubernetes ServiceAccount in the `default` namespace and pass in the client ID of your managed identity in *Tenant B* to the `kubectl apply` command. The client ID is used to authenticate the pod to the Azure Service Bus.
 
@@ -246,7 +270,7 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     EOF
     ```
 
-4. Create a new Kubernetes Job in the `default` namespace to send 100 messages to your Azure Service Bus queue. The Pod template is configured to use workload identity and the service account you created in the previous step. Also note that the `AZURE_TENANT_ID` environment variable is set to the tenant ID of *Tenant B*. This is required as workload identity defaults to the tenant of the AKS cluster, so you need to explicitly set the tenant ID of *Tenant B*.
+1. Create a new Kubernetes Job in the `default` namespace to send 100 messages to your Azure Service Bus queue. The Pod template is configured to use workload identity and the service account you created in the previous step. Also note that the `AZURE_TENANT_ID` environment variable is set to the tenant ID of *Tenant B*. This is required as workload identity defaults to the tenant of the AKS cluster, so you need to explicitly set the tenant ID of *Tenant B*.
 
     ```azurecli-interactive
     kubectl apply -f - <<EOF
@@ -280,7 +304,9 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     EOF
     ```
 
-5. Verify that the pod is configured correctly to interact with the Azure Service Bus queue in *Tenant B* by checking the status of the pod using the `kubectl describe pod` command.
+## Verify the deployment
+
+1. Verify that the pod is correctly configured to interact with the Azure Service Bus queue in *Tenant B* by checking the status of the pod using the `kubectl describe pod` command.
 
     ```azurecli-interactive
     # Get the dynamically generated pod name
@@ -290,7 +316,7 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     kubectl describe pod $POD_NAME | grep AZURE_TENANT_ID
     ```
 
-6. Check the logs of the pod to see if the application was able to send messages across tenants using the `kubectl logs` command.
+1. Check the logs of the pod to see if the application was able to send messages across tenants using the `kubectl logs` command.
 
     ```azurecli-interactive
     kubectl logs $POD_NAME
@@ -304,6 +330,50 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     Adding message to batch: Hello World!
     Adding message to batch: Hello World!
     Sent 100 messages
+    ```
+
+## Clean up resources
+
+After you verify that the deployment is successful, you can clean up the resources to avoid incurring Azure costs.
+
+### Delete resources in Tenant A
+
+1. Log in to your *Tenant A* subscription using the [`az login`][az-login-interactively] command.
+
+    ```azurecli-interactive
+    az login --tenant $TENANT_A_ID
+    ```
+
+1. Ensure you're working with the correct subscription in *Tenant A* using the [`az account set`][az-account-set] command.
+
+    ```azurecli-interactive
+    az account set --subscription $TENANT_A_SUBSCRIPTION_ID
+    ```
+
+1. Delete the Azure resource group and all resources in it using the [`az group delete`][az-group-delete] command.
+
+    ```azurecli-interactive
+    az group delete --name $RESOURCE_GROUP --yes --no-wait
+    ```
+
+### Delete resources in Tenant B
+
+1. Log in to your *Tenant B* subscription using the [`az login`][az-login-interactively] command.
+
+    ```azurecli-interactive
+    az login --tenant $TENANT_B_ID
+    ```
+
+1. Ensure you're working with the correct subscription in *Tenant B* using the [`az account set`][az-account-set] command.
+
+    ```azurecli-interactive
+    az account set --subscription $TENANT_B_SUBSCRIPTION_ID
+    ```
+
+1. Delete the Azure resource group and all resources in it using the [`az group delete`][az-group-delete] command.
+
+    ```azurecli-interactive
+    az group delete --name $RESOURCE_GROUP --yes --no-wait
     ```
 
 ## Next steps
@@ -327,9 +397,9 @@ In this article, you learned how to configure cross-tenant workload identity on 
 [az-identity-show]: /cli/azure/identity#az_identity_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [az-aks-federated-identity-add]: /cli/azure/aks/federated-identity#az_aks_federated_identity_add
-[az-provider-show]: /cli/azure/provider#az_provider_show
-[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-servicebus-namespace-create]: cli/azure/servicebus/namespace?view=azure-cli-latest#az-servicebus-namespace-create
 [az-servicebus-namespace-show]: cli/azure/servicebus/namespace?view=azure-cli-latest#az-servicebus-namespace-show
 [az-servicebus-queue-create]: cli/azure/servicebus/queue?view=azure-cli-latest#az-servicebus-queue-create
+[az-group-delete]: /cli/azure/group#az_group_delete
+
