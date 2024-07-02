@@ -13,7 +13,7 @@ ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdi
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-In this quickstart, you'll deploy a Python web app (Django or Flask) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
+In this quickstart, you deploy a Python web app (Django or Flask) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 
@@ -229,9 +229,9 @@ App Service automatically detects the presence of a Django app. No additional co
 
 ### [FastAPI](#tab/fastapi)
 
-For FastAPI you must configure a custom startup command for App Service to run your app.
+For FastAPI, you must configure a custom startup command for App Service to run your app.
 
-#### [Azure CLI](#tab/fastapi/azure-cli)
+#### [Azure CLI](#tab/azure-cli/fastapi)
 
 First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
@@ -250,11 +250,11 @@ az webapp restart \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
-#### [VS Code](#tab/fastapi/vscode-aztools)
+#### [VS Code](#tab/vscode-aztools/fastapi)
 
 Use Azure CLI or the Azure portal to configure the startup command.
 
-#### [Azure portal](#tab/fastapi/azure-portal)
+#### [Azure portal](#tab/azure-portal/fastapi)
 
 First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *python main.py*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
 
