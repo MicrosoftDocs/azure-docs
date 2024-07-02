@@ -75,9 +75,17 @@ The API indicates how developers can consume predictions for the following modal
 
 ### Inference SDK support
 
-You can use streamlined inference clients in the language of your choice to consume predictions from models running the API.
+You can use streamlined inference clients in the language of your choice to consume predictions from models running the Azure AI model inference API.
 
-# [REST](#tab/python)
+# [Python](#tab/python)
+
+Install the package `azure-ai-inference` using your package manager, like pip:
+
+```bash
+pip install azure-ai-inference
+```
+
+Then, you can use the package to consume the model. The following example shows how to create a client to consume chat completions:
 
 ```python
 import os
@@ -90,7 +98,15 @@ model = ChatCompletionsClient(
 )
 ```
 
-# [REST](#tab/javascript)
+# [JavaScript](#tab/javascript)
+
+Install the package `@azure-rest/ai-inference` using npm:
+
+```bash
+npm install @azure-rest/ai-inference
+```
+
+Then, you can use the package to consume the model. The following example shows how to create a client to consume chat completions:
 
 ```javascript
 import ModelClient from "@azure-rest/ai-inference";
@@ -114,7 +130,6 @@ POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 ```
-
 ---
 
 ### Extensibility
@@ -125,7 +140,7 @@ By setting a header `extra-parameters: allow`, the API will attempt to pass any 
 
 The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API:
 
-# [REST](#tab/python)
+# [Python](#tab/python)
 
 ```python
 response = model.complete(
@@ -139,7 +154,7 @@ response = model.complete(
 )
 ```
 
-# [REST](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 var messages = [
@@ -196,7 +211,7 @@ The Azure AI Model Inference API indicates a general set of capabilities but eac
 
 The following example shows the response for a chat completion request indicating the parameter `reponse_format` and asking for a reply in `JSON` format. In the example, since the model doesn't support such capability an error 422 is returned to the user. 
 
-# [REST](#tab/python)
+# [Python](#tab/python)
 
 ```python
 from azure.ai.inference.models import ChatCompletionsResponseFormat
@@ -225,7 +240,7 @@ except HttpResponseError as ex:
         raise ex
 ```
 
-# [REST](#tab/python)
+# [JavaScript](#tab/python)
 
 ```javascript
 try {
@@ -311,7 +326,7 @@ The Azure AI model inference API supports [Azure AI Content Safety](../concepts/
 
 The following example shows the response for a chat completion request that has triggered content safety. 
 
-# [REST](#tab/python)
+# [Python](#tab/python)
 
 ```python
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
@@ -337,7 +352,7 @@ except HttpResponseError as ex:
         raise ex
 ```
 
-# [REST](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 try {
@@ -407,3 +422,7 @@ __Response__
 }
 ```
 ---
+
+## Getting started
+
+The Azure AI Model Inference API is currently supported in certain models deployed as [Serverless API endpoints](../how-to/deploy-models-serverless.md) and Managed Online Endpoints. Deploy any of the [supported models](#availability) and use the exact same code to consume their predictions.
