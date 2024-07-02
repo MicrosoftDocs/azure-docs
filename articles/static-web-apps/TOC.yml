@@ -13,7 +13,7 @@
       - name: Build your first static web app
         expanded: true
         items:
-          - name: Web framework
+          - name: Web frameworks
             href: deploy-web-framework.md
           - name: Developer tools
             items:
@@ -24,12 +24,14 @@
                   displayName: github, devops
                 - name: Azure CLI
                   href: get-started-cli.md
-- name: Your first app
+- name: Scenarios
   items:
-  - name: Web framework
-    href: deploy-web-framework.md
-  - name: Add authentication
-    href: add-authentication.md
+  - name: Build site with a web framework
+    items:
+    - name: 1 - Pick a web framework
+      href: deploy-web-framework.md
+    - name: 2 - Add authentication
+      href: add-authentication.md
 - name: Frameworks & libraries
   items:
   - name: Overview
