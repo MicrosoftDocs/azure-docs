@@ -56,8 +56,12 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
-          - text: Monitor diagnostics logs
-            url: how-to-monitor-diagnostics-logs.md
+            - linkListType: concept
+              links:
+              - text: Monitor metrics
+                url: request-metrics.md
+              - text: Monitor diagnostics logs
+                url: how-to-monitor-diagnostics-logs.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
