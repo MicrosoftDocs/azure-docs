@@ -230,7 +230,7 @@ The following two representations of a bandwidth limit schedule are equivalent:
 }
 ```
 > [!NOTE]
-> Time spans not covered by an entry in the schedule allow the agent to utilize all available bandwidth. During these times, it is likely that an agent doesn't utilize all available bandwidth. You can find more details about that in the performance article, section: "[Why migration performance varies](performance-targets.md#why-migration-performance-varies)".
+> Time spans not covered by an entry in the schedule allow the agent to utilize available bandwidth. During these times, it is likely that an agent doesn't utilize all available bandwidth. You can find more details about that in the performance article, section: "[Why migration performance varies](performance-targets.md#why-migration-performance-varies)".
 
 ## Next steps
 
