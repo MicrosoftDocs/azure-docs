@@ -15,7 +15,7 @@ ms.custom: template-concept, engagement-fy23
 The networking services in Azure provide various networking capabilities that can be used together or separately. Select any of the following key capabilities to learn more about them:
 - [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, NAT Gateway, Azure DNS, Peering service, Azure Virtual Network Manager, Route Server, and Azure Bastion.
 - [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Load Balancer, Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
-- [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
+- [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
 - [**Network monitoring**](#monitor): Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 ## <a name="connect"></a>Connectivity services
@@ -182,12 +182,6 @@ The following picture shows an Internet-facing multi-tier application that utili
 The following diagram shows url path-based routing with Application Gateway.
 
 :::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Application Gateway example":::
-
-### <a name="cdn"></a>Content Delivery Network
-
-[Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md). offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.
-
-:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
 
 ## <a name="monitor"></a>Network monitoring services
 
