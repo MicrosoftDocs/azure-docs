@@ -201,10 +201,12 @@ sections:
             If you are using VMSS, we recommend enabling Automatic OS image upgrades so that the latest image published by image publishers is automatically applied to your scale set or VMSS without manual user intervention. Learn how to enable [Automatic OS Image Upgrade](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade?toc=/azure/virtual-machines/toc.json) 
 
       - question: What happens when a paid Marketplace image with the Purchase Plan Information is deprecated?
+        answer:
           If you are using a Paid Marketplace Image, when the image is deprecated attempting to restore the VM from backups can fail for images with Plan information once the image is removed or deprecated from the marketplace. We recommend creating new VMs and migrating your workload to that image if you are using a Paid Marketplace Image with Plan Information. 
           If the VM Image is Free (does not require plan info), you will be able to continue using the single VM and should be able to restore from backups. Note that this only impacts single VMs and not VMSS workloads.
       
       - question: What happens when a free Marketplace image is deprecated?
+        answer:
           There is no impact to existing VM or VMSS workloads when a free Marketplace Image is deprecated. However, you cannot create new VMs or VMSS workloads from a deprecated free Marketplace Image.
 
       - question: Are all image versions lower than the indicated version also deprecated? 
