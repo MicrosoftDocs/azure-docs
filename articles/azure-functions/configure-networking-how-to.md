@@ -91,6 +91,9 @@ You should now route your function app's traffic to go through the virtual netwo
 
     * In the same page, check the box for **Content storage** under **Configuration routing**.
 
+> [!IMPORTANT]
+> If multiple Function Apps in the same App Service Plan use the same Azure Files account with the same credentials, they should also all use the same value for content share routing to ensure that traffic is consistently routed through the intended network. A mismatch in settings may result in traffic being routed through public networks, resulting in access being blocked by storage account network rules.
+
 ### 4. Update application settings
 
 Finally, you need to update your application settings to point at the new secure storage account.
