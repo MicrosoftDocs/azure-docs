@@ -44,9 +44,9 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
     apiVersion: v1
     kind: ConfigMap
     metadata:
-      name: cnpg-controller-manager-config
+        name: cnpg-controller-manager-config
     data:
-      ENABLE_AZURE_PVC_UPDATES: 'true'
+        ENABLE_AZURE_PVC_UPDATES: 'true'
     EOF
     ```
 
@@ -61,10 +61,11 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
         https://prometheus-community.github.io/helm-charts
     ```
 
-1. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
+2. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
     ```azurecli-interactive
     helm upgrade --install \
+        --namespace $PG_NAMESPACE \
         -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/kube-stack-config.yaml \
         prometheus-community \
         prometheus-community/kube-prometheus-stack \
@@ -74,7 +75,7 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
 Verify that the pod monitor is created.
 
 ```azurecli-interactive
-kubectl -n $PG_NAMESPACE \
+kubectl --namespace $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.monitoring.coreos.com \
     $PG_PRIMARY_CLUSTER_NAME \
@@ -91,11 +92,11 @@ In this section, you create a federated identity credential for PostgreSQL backu
     export AKS_PRIMARY_CLUSTER_OIDC_ISSUER="$(az aks show \
         --name $AKS_PRIMARY_CLUSTER_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
-        --query "oidcIssuerProfile.issuerUrl" 
+        --query "oidcIssuerProfile.issuerUrl" \
         --output tsv)"
-        ```
+    ```
 
-1. Create a federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+2. Create a federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
     az identity federated-credential create \
@@ -182,7 +183,6 @@ The following table outlines the key properties set in the YAML deployment manif
             requests:
               storage: 2Gi
           storageClassName: managed-csi-premium
-          volumeMode: Filesystem
     
       walStorage:
         size: 2Gi
@@ -193,7 +193,6 @@ The following table outlines the key properties set in the YAML deployment manif
             requests:
               storage: 2Gi
           storageClassName: managed-csi-premium
-          volumeMode: Filesystem
     
       monitoring:
         enablePodMonitor: true
@@ -204,6 +203,8 @@ The following table outlines the key properties set in the YAML deployment manif
     
       postgresql:
         parameters:
+          shared_buffers: "256MB"
+          effective_cache_size: "512MB"
           # max_worker_processes: 64
         pg_hba:
           - host all all all scram-sha-256
@@ -263,7 +264,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
 If you are using Azure Monitor for Managed Prometheus, you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
 
 ```azurecli-interactive
-cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f apply -f -
+cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -f -
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
@@ -279,12 +280,13 @@ spec:
       cnpg.io/cluster: ${PG_PRIMARY_CLUSTER_NAME}
   podMetricsEndpoints:
     - port: metrics
+EOF
 ```
 
 Verify that the pod monitor is created (note the difference in the group name).
 
 ```azurecli-interactive
-kubectl -n $PG_NAMESPACE \
+kubectl --namespace $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.azmonitoring.coreos.com \
     $PG_PRIMARY_CLUSTER_NAME \
@@ -381,8 +383,7 @@ In this section, you create a table and insert some data into the app database t
 1. Validate that the PostgreSQL cluster can access the Azure storage account specified in the CNPG Cluster CRD and that `Working WAL archiving` reports as `OK` using the following command:
 
     ```azurecli-interactive
-    kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace 
-    $PG_NAMESPACE
+    kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
 
     # Example output
     
@@ -674,7 +675,7 @@ You also retrieve the following endpoints from the Cluster IP service:
         cnpg.io/instanceRole: primary
         cnpg.io/podRole: instance
       loadBalancerSourceRanges:
-      - "$MY_PUBLIC_CLIENT_IP/31"
+      - "$MY_PUBLIC_CLIENT_IP/32"
     EOF
     
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -f -
@@ -697,7 +698,7 @@ You also retrieve the following endpoints from the Cluster IP service:
         cnpg.io/instanceRole: replica
         cnpg.io/podRole: instance
       loadBalancerSourceRanges:
-      - "$MY_PUBLIC_CLIENT_IP/31"
+      - "$MY_PUBLIC_CLIENT_IP/32"
     EOF
     ```
 
@@ -712,7 +713,10 @@ You also retrieve the following endpoints from the Cluster IP service:
         --context $AKS_PRIMARY_CLUSTER_NAME \
         --namespace $PG_NAMESPACE
 
-    export AKS_PRIMARY_CLUSTER_ALB_DNSNAME="${AKS_PRIMARY_CLUSTER_PG_DNSPREFIX}.${PRIMARY_CLUSTER_REGION}.cloudapp.azure.com"
+    export AKS_PRIMARY_CLUSTER_ALB_DNSNAME="$(az network public-ip show \
+            --resource-group $AKS_PRIMARY_CLUSTER_NODERG_NAME \
+            --name $AKS_PRIMARY_CLUSTER_PUBLICIP_NAME \
+            --query "dnsSettings.fqdn" --output tsv)"
 
     echo $AKS_PRIMARY_CLUSTER_ALB_DNSNAME
     ```
@@ -781,7 +785,12 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 1. Delete the primary pod using the [`kubectl delete`][kubectl-delete] command.
 
     ```azurecli-interactive
-    kubectl delete pod pg-primary-cnpg-sryti1qf-1 --grace-period=1 --namespace $PG_NAMESPACE
+    PRIMARY_POD=$(kubectl get pod \
+        --namespace $PG_NAMESPACE \
+        --no-headers \
+        -o custom-columns=":metadata.name" \
+        -l role=primary)
+    kubectl delete pod $PRIMARY_POD --grace-period=1 --namespace $PG_NAMESPACE
     ```
 
 1. Validate that the `pg-primary-cnpg-sryti1qf-2` pod instance is now the primary using the following command:
