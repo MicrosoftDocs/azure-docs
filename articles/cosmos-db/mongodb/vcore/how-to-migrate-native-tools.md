@@ -157,13 +157,18 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 
     ```bash
     mongorestore \ 
-       --db <database-name> \
-       --collection <collection-name> \
        --ssl \
        --uri <target-connection-string> \
        <dump-directory>/<database-name>/<collection-name>.bson
     ```
+> [!NOTE]  
+> You can also restore a specific collection or collections from the dump/ directory. For example, the following operation restores a single collection from corresponding data files in the dump/ directory:
 
+    ```bash
+    mongorestore \
+       --nsInclude=test.purchaseorders dump/
+    ```
+    
 1. Monitor the terminal output from *mongoimport*. The output prints lines of text to the terminal with updates on the restore operation's status.
 
 ---
