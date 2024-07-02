@@ -96,7 +96,7 @@ including creating, modifying, and deleting resources related to Nexus Infrastru
 > One solution would be to create a custom role with the below actions to be assigned to
 > the user in conjunction with the Oerator Nexus Infrastructure Contributor role.
 
-#### Ancillary Oerator Nexus Infrastructure Contributor Actions
+#### Ancillary Operator Nexus Infrastructure Contributor Actions
 
 | Actions                                                             | Description                                                                                                         |
 |---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
