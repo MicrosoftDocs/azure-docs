@@ -32,7 +32,7 @@ Indexing isn't a background process. A search service will balance indexing and 
 
 For more information, see [Data import strategies](search-what-is-data-import.md).
 
-## Load documents using the Azure portal
+## Use the Azure portal
 
 In the Azure portal, use the Import wizards to create and load indexes in a seamless workflow. If you want to load an existing index, choose an alternative approach.
 
@@ -44,9 +44,9 @@ In the Azure portal, use the Import wizards to create and load indexes in a seam
 
 If indexers are already defined, you can [reset and run an indexer](search-howto-run-reset-indexers.md) from the Azure portal, which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
 
-## Load documents using the REST APIs
+## Use the REST APIs
 
-[Documents - Index (REST)](/rest/api/searchservice/documents) is the means by which you can import data into a search index through the REST APIs. The `@search.action` parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
+[Documents - Index](/rest/api/searchservice/documents) is the REST API for importing data into a search index. REST APIs are useful for inital proof-of-concept testing, where you can test indexing workflows without having to write a lot of code. The `@search.action` parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
 
 [**Quickstart: Text search using REST**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and the first HotelId value has been altered to avoid overwriting an existing document.
 
@@ -86,7 +86,7 @@ If indexers are already defined, you can [reset and run an indexer](search-howto
 
 When the document key or ID is new, **null** becomes the value for any field that is unspecified in the document. For actions on an existing document, updated values replace the previous values. Any fields that weren't specified in a "merge" or "mergeUpload" are left intact in the search index.
 
-## Load documents using the Azure SDKs
+## Use the Azure SDKs
 
 Programmability is provided in the following Azure SDKs.
 
@@ -137,7 +137,7 @@ Code samples include:
 
 The Azure SDK for Java provides the following APIs for simple and bulk document uploads into an index:
 
-+ [indexactiontype enumerator](/java/api/com.azure.search.documents.models.indexactiontype?view=azure-java-stable)
++ [indexactiontype enumerator](/java/api/com.azure.search.documents.models.indexactiontype)
 + [SearchIndexingBufferedSender](/java/api/com.azure.search.documents.searchclientbuilder.searchindexingbufferedsenderbuilder)
 
 Code samples include:

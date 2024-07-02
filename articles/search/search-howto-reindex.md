@@ -30,10 +30,10 @@ Incremental indexing and synchronizing an index against changes in source data i
 
    | Action | Effect |
    |--------|--------|
-   | `delete` | emoves the entire document from the index. If you want to remove an individual field, use `merge` instead, setting the field in question to null. Deleted documents and fields don't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and through APIs. |
-   | `merge` | Updates a document that already exists, and fails a document that can't be found. Merge replaces existing values. For this reason, be sure to check for collection fields that contain multiple values, such as fields of type `Collection(Edm.String)`. For example, if a `tags` field starts with a value of `["budget"]` and you execute a merge with `["economy", "pool"]`, the final value of the `tags` field is `["economy", "pool"]`. It won't be `["budget", "economy", "pool"]`. |
-   | `mergeOrUpload` | Behaves like `merge` if the document exists, and `upload` if the document is new. This is the most common action for incremental updates. |
-   | `upload` | Similar to an "upsert" where the document is inserted if it's new, and updated or replaced if it exists. If the document is missing values that the index requires, the document field's value is set to null. |
+   | delete | emoves the entire document from the index. If you want to remove an individual field, use merge instead, setting the field in question to null. Deleted documents and fields don't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and through APIs. |
+   | merge | Updates a document that already exists, and fails a document that can't be found. Merge replaces existing values. For this reason, be sure to check for collection fields that contain multiple values, such as fields of type `Collection(Edm.String)`. For example, if a `tags` field starts with a value of `["budget"]` and you execute a merge with `["economy", "pool"]`, the final value of the `tags` field is `["economy", "pool"]`. It won't be `["budget", "economy", "pool"]`. |
+   | mergeOrUpload | Behaves like merge if the document exists, and upload if the document is new. This is the most common action for incremental updates. |
+   | upload | Similar to an "upsert" where the document is inserted if it's new, and updated or replaced if it exists. If the document is missing values that the index requires, the document field's value is set to null. |
 
 1. Post the update.
 
@@ -47,15 +47,15 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 + For merging, avoid listing fields that contain content you want to preserve. For example, if you populated vector fields, but only need to update a few nonvector fields, the payload should list just those fields you want to update. Specifying an empty field overwrites the existing value with a null value.
 
-+ [Indexers](search-indexer-overview.md) are designed for incremental indexing. If you can use an indexer, and if the data source supports change tracking, you can run the indexer on a recurring schedule to add, update, and delete an index so that it's synchronized to your external data.
++ [Indexers automate incremental indexing](search-indexer-overview.md). If you can use an indexer, and if the data source supports change tracking, you can run the indexer on a recurring schedule to add, update, and delete an index so that it's synchronized to your external data.
 
 ## Change an index schema
 
 The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query executions.
 
 + Add a new field
-+ Set the **retrievable** attribute on an existing field
-+ Update **searchAnalyzer** on a field having an existing **indexAnalyzer**
++ Set the `retrievable` attribute on an existing field
++ Update `searchAnalyzer` on a field having an existing `indexAnalyzer`
 + Add a new analyzer definition in an index (which can be applied to new fields)
 + Add, update, or delete scoring profiles
 + Add, update, or delete CORS settings
@@ -65,13 +65,16 @@ The index schema defines the physical data structures created on the search serv
 The order of operations is:
 
 1. [Get the index definition](/rest/api/searchservice/indexes/get).
+
 1. Revise the schema with updates from the previous list.
-1. [Post the update](/rest/api/searchservice/indexes/create-or-update).
-1. [Load the index](/rest/api/searchservice/documents).
 
-When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure AI Search.
+1. [Update index](/rest/api/searchservice/indexes/create-or-update).
 
-There should be no query disruptions during the update, but query results will change as the updates take effect.
+1. [Index documents](/rest/api/searchservice/documents).
+
+When you update the index schema, existing documents in the index are given a null value for the new field. On the next index documents job, values from external source data replace the nulls added by Azure AI Search.
+
+There should be no query disruptions during the updates, but query results will change as the updates take effect.
 
 ## Drop and rebuild an index
 

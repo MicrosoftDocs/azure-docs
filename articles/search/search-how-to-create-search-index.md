@@ -230,5 +230,6 @@ Use the following links to become familiar with loading an index with data, or e
 
 + [Data import overview](search-what-is-data-import.md)
 + [Add vector fields](vector-search-how-to-create-index.md)
-+ [Load documents](search-how-to-load-search-index.md) 
++ [Load documents](search-how-to-load-search-index.md)
++ [Update an index](search-howto-reindex.md)
 + [Synonym maps](search-synonyms.md)
