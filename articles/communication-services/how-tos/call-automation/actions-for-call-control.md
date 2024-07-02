@@ -18,9 +18,6 @@ Call Automation uses a REST API interface to receive requests for actions and pr
 
 Call Automation supports various other actions to manage call media and recording that have separate guides.
 
-> [!NOTE]
-> Call Automation currently doesn't support [Rooms](../../concepts/rooms/room-concept.md) calls.
-
 As a prerequisite, we recommend you to read these articles to make the most of this guide:
 
 1. Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
@@ -168,6 +165,125 @@ The response provides you with CallConnection object that you can use to take fu
 1. `CallConnected` event notifying that the call has been established with the callee.
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 ![Sequence diagram for placing an outbound call.](media/make-call-flow.png)
+
+## Connect to a call
+
+You can connect to a call using a call locator. When connecting a call, it's necessary to provide a callback url. Communication Services post all subsequent events about this call to that url.
+
+Currently, we have 3 different CallLocators：
+
+Connecting to a call using ServerCallLocator
+### [csharp](#tab/csharp)
+
+```csharp
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
+CallLocator serverCallLocator = new ServerCallLocator("<ServerCallId>");
+ConnctCallResult response = await client.ConnectAsync(serverCallLocator, callbackUri);
+```
+
+### [Java](#tab/java)
+
+```java
+String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
+CallLocator serverCallLocator =  new ServerCallLocator("<ServerCallId>");
+ConnectCallResult response = client.connectCall(serverCallLocator, callbackUri).block();
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const serverCallLocator = { kind: "serverCallLocator", id: "<serverCallId>" };
+const response = await client.connectCall(serverCallLocator, callbackUri);
+```
+
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+server_call_locator = ServerCallLocator("<server_call_id>")
+call_connection_properties = client.connect_call(call_locator=server_call_locator, callback_url=callback_uri)
+```
+
+-----
+
+Connecting to a call using GroupCallLocator
+### [csharp](#tab/csharp)
+
+```csharp
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
+CallLocator groupCallLocator = new GroupCallLocator("<GroupCallId>");
+ConnctCallResult response = await client.ConnectAsync(groupCallLocator, callbackUri);
+```
+
+### [Java](#tab/java)
+
+```java
+String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
+CallLocator groupCallLocator =  new GroupCallLocator("<GroupCallId>");
+ConnectCallResult response = client.connectCall(groupCallLocator, callbackUri).block();
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const groupCallLocator = { kind: "groupCallLocator", id: "<groupCallId>" };
+const response = await client.connectCall(groupCallLocator, callbackUri);
+```
+
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+group_call_locator = GroupCallLocator("<group_call_id>")
+call_connection_properties = client.connect_call(call_locator=group_call_locator, callback_url=callback_uri)
+```
+
+-----
+
+Connecting to a call using RoomCallLocator
+### [csharp](#tab/csharp)
+
+```csharp
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
+CallLocator roomCallLocator = new GroupCallLocator("<RoomId>");
+ConnctCallResult response = await client.ConnectAsync(roomCallLocator, callbackUri);
+```
+
+### [Java](#tab/java)
+
+```java
+String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
+CallLocator roomCallLocator =  new RoomCallLocator("<RoomId>");
+ConnectCallResult response = client.connectCall(roomCallLocator, callbackUri).block();
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const roomCallLocator = { kind: "roomCallLocator", id: "<RoomId>" };
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const response = await client.connectCall(roomCallLocator, callbackUri);
+```
+
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+room_call_locator = RoomCallLocator("<room_id>")
+call_connection_properties = client.connect_call(call_locator=room_call_locator, callback_url=callback_uri)
+```
+
+-----
+
+The response provides you with CallConnection object that you can use to take further actions on this call once it's connected. Once it connects to the call, two events are published to the callback endpoint you provided earlier:
+
+1. `CallConnected` event notifying that you have connected to the call.
+2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
+
+![Sequence diagram for connecting to call.](media/connect-call-flow.png)
+
 
 ## Answer an incoming call
 
