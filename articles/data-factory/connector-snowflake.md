@@ -329,7 +329,7 @@ If your sink data store and format meet the criteria described in this section, 
         "typeProperties": {
             "source": {
                 "type": "SnowflakeV2Source",
-                "sqlReaderQuery": "SELECT * FROM MYTABLE",
+                "query": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -382,7 +382,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         "typeProperties": {
             "source": {
                 "type": "SnowflakeV2Source",               
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "query": "SELECT * FROM MyTable",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "storageIntegration": "< Snowflake storage integration name >"                    
@@ -673,7 +673,6 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | :----------- | :------- |
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
-| Multiple SQL statements execution in Script activity is not supported currently. To execute multiple SQL statements, divide the query into several script blocks. | Support multiple SQL statements execution in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
 
 ## Related content
