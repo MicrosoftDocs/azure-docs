@@ -466,6 +466,8 @@
       href: data-connectors/corelight-connector-exporter.md
     - name: Cortex XDR - Incidents
       href: data-connectors/cortex-xdr-incidents.md
+    - name: CrowdStrike Falcon Adversary Intelligence (using Azure Functions)
+      href: data-connectors/crowdstrike-falcon-adversary-intelligence.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
