@@ -44,19 +44,21 @@ For fewer limitations or more data source options, try a code-base approach. See
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ For data, use either an [Azure Storage account](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). For Azure Storage, use a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
++ For data, use either [Azure Blob storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). 
 
-+ For vectorization, have an Azure AI services multiservice account or [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments.
+  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use ADLS Gen2 (a storage account with a hierarchical namespace). ADLS Gen2 isn't supported with this version of the wizard.
+
++ For vectorization, have an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments.
 
   For [multimodal with Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval), create an Azure AI service in SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
 
   You can also use [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
 
-+ Azure AI Search, in the same region as your Azure AI service. We recommend Basic tier or higher.s
++ Azure AI Search, in the same region as your Azure AI service. We recommend Basic tier or higher.
 
 + Role assignments or API keys are required for connections to embedding models and data sources. Instructions for role-based access are provided in this article.
 
-All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security.
+All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here's a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
 

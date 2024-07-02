@@ -49,7 +49,7 @@ sections:
         answer: |
           No, there are no plans to support NVMe disks on Generation 1 VMs. If you think your workload benefits from NVMe performance, you must switch to the Generation 2 VMs. To create a Generation 2 VM, follow the [documented steps](/azure/virtual-machines/generation-2#creating-a-generation-2-vm). If you try to use a Generation 1 VM image, either you won't be able to select an NVMe-capable VM, or you'll get this error message: "The selected image is not supported for NVMe. See supported VM images." 
       - question: |
-          What happens if the OS that I use is not tagged as NVMe supported?
+          What happens if the OS that I use isn't tagged as NVMe supported?
         answer: |
           You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that's tagged as NVMe. If you use an untagged image, a SCSI-based VM is created, and the VM might not perform as you intended. Be sure to follow all the [instructions](/azure/virtual-machines/enable-nvme-interface).
           
@@ -82,6 +82,10 @@ sections:
           1. Verify that the feature is enabled by going to the **Review and Create** tab and confirming that the **Disk controller type** value is **NVMe**.
 
              :::image type="content" source="./media/enable-nvme/azure-portal-3.png" alt-text="Screenshot of the area for reviewing and verifying advanced features for a virtual machine, including the NVMe feature.":::
+      - question: |
+          Can VMs configured with Trusted Launch move from SCSI to NVMe?
+        answer: |
+          No, VMs configured with Trusted Launch can't move from SCSI to NVMe.
 
   - name: Azure storage performance with NVMe disks
     questions:

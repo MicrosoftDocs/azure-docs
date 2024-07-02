@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 # Supported OS images for remote NVMe
 
 > [!NOTE]
-> This article references CentOS, a Linux distribution that's nearing the end of support. Consider your use and plan accordingly. For more information, see the [guidance for CentOS end of support](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that reached the end of support. Consider your use and plan accordingly. For more information, see the [guidance for CentOS end of support](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The following lists provide up-to-date information on which OS images are tagged as supported for remote NVM Express (NVMe).
 
