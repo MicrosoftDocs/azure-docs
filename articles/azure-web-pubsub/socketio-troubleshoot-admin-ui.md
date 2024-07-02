@@ -8,6 +8,7 @@ ms.date: 07/02/2024
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
+
 # Azure Socket.IO Admin UI
 
 [Socket.IO Admin UI](https://socket.io/docs/v4/admin-ui/) is a website tool developed by Socket.IO official team and it can be used to have an overview of the state of your Socket.IO deployment. See how it works and explore its advanced usage in [Socket.IO Admin UI Doc](https://socket.io/docs/v4/admin-ui/).
