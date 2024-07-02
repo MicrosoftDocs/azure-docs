@@ -607,5 +607,7 @@
       href: bicep-error-bcp033.md
     - name: BCP035
       href: bicep-error-bcp035.md
+    - name: BCP072
+      href: bicep-error-bcp072.md
   - name: Azure CLI
     href: /cli/azure/resource

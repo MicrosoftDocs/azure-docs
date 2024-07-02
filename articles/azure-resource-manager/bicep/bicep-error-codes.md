@@ -62,7 +62,7 @@ If you need more information about a particular warning or error code, select th
 | BCP053     | The type "{type}" does not contain property "{badProperty}". Available properties include {ToQuotedString(availableProperties)}. |
 | BCP054     | The type "{type}" does not contain any properties. |
 | BCP055     | Cannot access properties of type "{wrongType}". An "{LanguageConstants.Object}" type is required. |
-| BCP056     | The reference to name "{name}" is ambiguous because it exists in namespaces {ToQuotedString(namespaces)}. The reference must be fully-qualified. |
+| BCP056     | The reference to name "{name}" is ambiguous because it exists in namespaces {ToQuotedString(namespaces)}. The reference must be fully qualified. |
 | BCP057     | The name "{name}" does not exist in the current context. |
 | BCP059     | The name "{name}" is not a function. |
 | BCP060     | The "variables" function is not supported. Directly reference variables by their symbolic names. |
@@ -159,7 +159,7 @@ If you need more information about a particular warning or error code, select th
 | BCP153     | Expected a resource or module declaration after the decorator. |
 | BCP154     | Expected a batch size of at least {limit} but the specified value was "{value}". |
 | BCP155     | The decorator "{decoratorName}" can only be attached to resource or module collections. |
-| BCP156     | The resource type segment "{typeSegment}" is invalid. Nested resources must specify a single type segment, and optionally can specify an api version using the format "&lt;type>@&lt;apiVersion>". |
+| BCP156     | The resource type segment "{typeSegment}" is invalid. Nested resources must specify a single type segment, and optionally can specify an API version using the format "&lt;type>@&lt;apiVersion>". |
 | BCP157     | The resource type cannot be determined due to an error in the containing resource. |
 | BCP158     | Cannot access nested resources of type "{wrongType}". A resource type is required. |
 | BCP159     | The resource "{resourceName}" does not contain a nested resource named "{identifierName}". Known nested resources are: {ToQuotedString(nestedResourceNames)}. |
@@ -217,9 +217,9 @@ If you need more information about a particular warning or error code, select th
 | BCP214     | The Template Spec module alias "{aliasName}" in the {BuildBicepConfigurationClause(configFileUri)} is in valid. The "subscription" property cannot be null or undefined. |
 | BCP215     | The Template Spec module alias "{aliasName}" in the {BuildBicepConfigurationClause(configFileUri)} is in valid. The "resourceGroup" property cannot be null or undefined. |
 | BCP216     | The OCI artifact module alias "{aliasName}" in the {BuildBicepConfigurationClause(configFileUri)} is invalid. The "registry" property cannot be null or undefined. |
-| BCP217     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The subscription ID "{subscriptionId}" in is not a GUID. |
+| BCP217     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The subscription ID "{subscriptionId}" is not a GUID. |
 | BCP218     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The resource group name "{resourceGroupName}" exceeds the maximum length of {maximumLength} characters. |
-| BCP219     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The resource group name "{resourceGroupName}" is invalid. Valid characters are alphanumeric, unicode charaters, ".", "_", "-", "(", or ")", but the resource group name cannot end with ".". |
+| BCP219     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The resource group name "{resourceGroupName}" is invalid. Valid characters are alphanumeric, unicode characters, ".", "_", "-", "(", or ")", but the resource group name cannot end with ".". |
 | BCP220     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The Template Spec name "{templateSpecName}" exceeds the maximum length of {maximumLength} characters. |
 | BCP221     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The Template Spec name "{templateSpecName}" is invalid. Valid characters are alphanumeric, ".", "_", "-", "(", or ")", but the Template Spec name cannot end with ".". |
 | BCP222     | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The Template Spec version "{templateSpecVersion}" exceeds the maximum length of {maximumLength} characters. |
@@ -305,7 +305,7 @@ If you need more information about a particular warning or error code, select th
 | BCP385       | Using resource-derived types requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.ResourceDerivedTypes)}". |
 | BCP386       | The decorator "{decoratorName}" may not be used on statements whose declared type is a reference to a resource-derived type. |
 | BCP387       | Indexing into a type requires an integer greater than or equal to 0. |
-| BCP388       | Cannot access elements of type "{wrongType}" by index. An tuple type is required. |
+| BCP388       | Cannot access elements of type "{wrongType}" by index. A tuple type is required. |
 | BCP389       | The type "{wrongType}" does not declare an additional properties type. |
 | BCP390       | The array item type access operator ('[*]') can only be used with typed arrays. |
 | BCP391       | Type member access is only supported on a reference to a named type. |
