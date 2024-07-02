@@ -8,22 +8,23 @@ ms.date: 07/02/2024
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
+# Azure Socket.IO Admin UI
 
 [Socket.IO Admin UI](https://socket.io/docs/v4/admin-ui/) is a website tool developed by Socket.IO official team and it can be used to have an overview of the state of your Socket.IO deployment. See how it works and explore its advanced usage in [Socket.IO Admin UI Doc](https://socket.io/docs/v4/admin-ui/).
 
 [Azure Socket.IO Admin UI](https://github.com/Azure/azure-webpubsub/tree/main/tools/azure-socketio-admin-ui) is a customized version of it for Azure Socket.IO. 
 
-# Deploy the website
+## Deploy the website
 Azure Socket.IO Admin UI doesn't have a hosted version so far. Users should host the website by themselves. 
 
 The static website files could be either downloaded from release or built from source code:
 
-## Download the released version
+### Download the released version
 1. Download the released zip file such as `azure-socketio-admin-ui-0.1.0.zip` from [release page](https://github.com/Azure/azure-webpubsub/releases)
 
 2. Extract the zip file
 
-## Build from source code
+### Build from source code
 1. Clone the repository 
     ```bash
     git clone https://github.com/Azure/azure-webpubsub.git
@@ -47,7 +48,7 @@ The static website files could be either downloaded from release or built from s
 
 4. Visit `http://localhost:8080` in browser
 
-# Service-side
+## Service-side
 1. install the `@socket.io/admin-ui` package:
 
     ```bash
@@ -78,7 +79,7 @@ The static website files could be either downloaded from release or built from s
     httpServer.listen(3000);
     ```
 
-# Client Side
+## Client Side
 1. Visit `http://localhost:8080` in browser.
 
 2. You should see the following modal:
