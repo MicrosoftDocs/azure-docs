@@ -89,15 +89,15 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
-  * Python 3.8 or later installed, including pip.
-  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+    * Python 3.8 or later installed, including pip.
+    * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+    * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+  
+      To install the Azure AI Inferencing package use the following command:
 
-    To install the Azure AI Inferencing package use the following command:
-
-    ```bash
-    pip install azure-ai-inference
-    ```
+      ```bash
+      pip install azure-ai-inference
+      ```
 
 
 
@@ -683,7 +683,6 @@ Models deployed with the Azure AI model inference API can be consumed using any 
 
 * To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-```
 
 
 
@@ -961,7 +960,7 @@ The following example shows how to handle events when the model detects harmful 
 Here are some additional reference: 
 
 * [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
-* [Deploy models as serverless APIs](how-to/deploy-models-serverless.md)
+* [Deploy models as serverless APIs](deploy-models-serverless.md)
 * [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
 * [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
 * [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)

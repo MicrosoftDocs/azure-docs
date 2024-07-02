@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 (vision) family of language models with Azure AI studio
+title: How to use Phi-3 family of language models with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Phi-3 (vision) family of small language models with Azure AI Studio.
+description: Learn how to use Phi-3 family of small language models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/02/2024
@@ -695,7 +695,6 @@ Models deployed with the Azure AI model inference API can be consumed using any 
 
 * To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
-```
 
 
 
@@ -1049,7 +1048,7 @@ The response looks as follows, where you can see the model's usage statistics:
 Here are some additional reference: 
 
 * [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
-* [Deploy models as serverless APIs](how-to/deploy-models-serverless.md)
+* [Deploy models as serverless APIs](deploy-models-serverless.md)
 * [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
 * [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
 * [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
