@@ -118,8 +118,24 @@ The CNPG operator automatically generates a service account called *postgres* th
     az storage container create \
         --name $PG_STORAGE_BACKUP_CONTAINER_NAME \
         --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
-        --auth-mode login > /dev/null
+        --auth-mode login
     ```
+
+    > [!NOTE]
+    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'.` 
+
+    Please check user permissions for blob storage and if necessary elevate your role to `Storage Blob Data Owner`:
+
+    ```azurecli-interactive
+    az role assignment list --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID -o table
+    
+    export USER_ID=$(az ad signed-in-user show --query id -o tsv)
+
+    az role assignment create \
+        --assignee-object-id $USER_ID \
+        --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID \
+        --role "Storage Blob Data Owner"
+    ```    
 
 ## Assign RBAC to storage accounts
 
