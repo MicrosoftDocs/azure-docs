@@ -47,7 +47,7 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 Once you have created your managed identity or service principal and assigned **Monitoring Metrics Publisher** permissions, you can get an authorization token by using the following methods.
 When requesting a token specify `resource: https://monitoring.azure.com`.
 
-[!INCLUDE [Get a token](../includes/get-a-token.md)]
+[!INCLUDE [Get a token](../includes/get-authentication-token.md)]
 
 Save the access token from the response for use in the following HTTP requests.
 
