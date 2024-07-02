@@ -578,6 +578,8 @@
       items:
       - name: Troubleshoot errors
         href: migrate/migration-service/troubleshoot-error-codes-premigration.md
+  - name: Automigration from Azure Database for PostgreSQL - Single Server to Flexible Server
+    href: migrate/automigration-single-to-flexible-postgresql.md
   - name: Migrate data with pg_dump
     href: migrate/how-to-migrate-using-dump-and-restore.md
   - name: Minimal-downtime migration with DMS
