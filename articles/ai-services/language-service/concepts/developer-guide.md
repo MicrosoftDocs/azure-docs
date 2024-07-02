@@ -121,7 +121,7 @@ It additionally enables you to use the following features, without creating any 
 * [Conversation summarization](../summarization/quickstart.md?pivots=rest-api&tabs=conversation-summarization)
 * [Personally Identifiable Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=rest-api#examples)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/2023-04-01/conversation-analysis-runtime) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language) for additional information.
 
 
 ### Text analysis authoring API

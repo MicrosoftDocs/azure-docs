@@ -13,9 +13,13 @@ ms.author: banders
 
 # Buy an Azure savings plan
 
-Azure savings plans help you save money by committing to an hourly spend for one-year or three-year plans for Azure compute resources. Before you enter a commitment to buy a savings plan, review the following sections to prepare for your purchase.
+Azure savings plans help you save money by committing to an hourly spend for one-year or three-year plans for Azure compute resources. 
 
-Only one savings plan is offered. It applies to all compute services listed at [Charges covered by savings plan](savings-plan-compute-overview.md#charges-covered-by-savings-plan).
+You can pay for savings plans with monthly payments. Unlike an up front purchase, where you pay the full amount, the monthly payment option divides the total cost of the savings plan into 12 or 36 equal payments. The total cost of upfront and monthly savings plans is the same.
+
+If a savings plan is purchased by using a Microsoft Customer Agreement, your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
+Before you enter a commitment to buy a savings plan, review the following sections to prepare for your purchase.
+
 
 ## Prerequisites
 
@@ -62,54 +66,12 @@ Permission needed to purchase varies by the type of account that you have:
 
 The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/10000000-0000-0000-0000-000000000000` format.
 
-## Cancel, exchange, or refund savings plans
 
-You can't cancel, exchange, or refund savings plans.
+## View savings plan purchases and payments
+To learn more about viewing savings plan purchases and payments, visit [view savings plan purchases](view-transactions.md#view-savings-plan-purchases-in-the-azure-portal) and [view savings plan purchases](view-transactions.md#view-payments-made), respectively.
 
-### Buy savings plans with monthly payments
-
-You can pay for savings plans with monthly payments. Unlike an up front purchase where you pay the full amount, the monthly payment option divides the total cost of the savings plan evenly over each month of the term. The total cost of upfront and monthly savings plans is the same. You don't pay any extra fees when you choose to pay monthly.
-
-If a savings plan is purchased by using a Microsoft Customer Agreement, your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
-
-## View payments made
-
-You can view payments that were made by using APIs, usage data, and cost analysis. For savings plans paid for monthly, the frequency value is shown as **recurring** in the usage data and the Savings Plan Charges API. For savings plans paid upfront, the value is shown as **onetime**.
-
-Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only savings plans, apply a filter for **Savings Plan**.
-
-:::image type="content" source="./media/buy-savings-plan/cost-analysis-savings-plan-costs.png" alt-text="Screenshot that shows saving plan costs in cost analysis." lightbox="./media/buy-savings-plan/cost-analysis-savings-plan-costs.png" :::
-
-## Reservation trade-ins and refunds
-
-Unlike reservations, you can't return or exchange savings plans.
-
-You can trade in one or more reservations for a savings plan. When you trade in reservations, the hourly commitment of the new savings plan must be greater than the leftover payments that are canceled for the returned reservations. There are no other limits or fees for trade-ins. You can trade in a reservation that gets paid for upfront to purchase a new savings plan that gets billed monthly. However, the lifetime value of the new savings plan must be greater than the prorated value of the reservations traded in.
-
-## Savings plan notifications
-
-Depending on how you pay for your Azure subscription, email savings plan notifications are sent to the following users in your organization. Notifications are sent for various events, such as:
-
-- Purchase
-- Upcoming savings plan expiration: 30 days before
-- Expiry: 30 days before
-- Renewal
-- Cancellation
-- Scope change
-
-For customers with Enterprise Agreement subscriptions:
-
-- Notifications are sent to Enterprise Agreement administrators and Enterprise Agreement notification contacts.
-- The Azure RBAC owner of the savings plan receives all notifications.
-
-For customers with Microsoft Customer Agreement subscriptions:
-
-- The purchaser receives a purchase notification.
-- The Azure RBAC owner of the savings plan receives all notifications.
-
-For Microsoft Partner Agreement partners:
-
-- Notifications are sent to the partner.
+## Cancellations, exchanges and trade-ins
+Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
 ## Need help?
 

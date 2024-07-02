@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 author: guywi-ms
 ms.author: guywild
-ms.date: 12/13/2023
+ms.date: 05/20/2024
 ---
 
 # Enable VM insights by using PowerShell
@@ -14,13 +14,11 @@ This article describes how to enable VM insights on Azure virtual machines by us
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
 
-This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and, if necessary, the Dependency Agent to enable VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets.
-
-[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
-  
+This script installs VM extensions for Azure Monitoring Agent (AMA) and, if necessary, the Dependency Agent to enable VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets.
 
 > [!NOTE]
 > Azure Monitor Agent is supported from version 1.10.1.
+
 ## Prerequisites
 
 You need to:
@@ -48,11 +46,7 @@ For a list of the script's argument details and example usage, run `Get-Help`.
 Get-Help Install-VMInsights.ps1 -Detailed
 ```
 
-Use the script to enable VM insights using Azure Monitoring Agent and Dependency Agent, or Log Analytics Agent.
-
-
-
-### [Azure Monitor Agent](#tab/AMA)
+Use the script to enable VM insights using Azure Monitoring Agent and Dependency Agent.
 
 When you enable VM insights using Azure Monitor Agent, the script associates a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) to the VM/Virtual Machine Scale Set. The UAMI settings are passed to the Azure Monitor Agent extension.   
 
@@ -134,102 +128,6 @@ Skipped : 0
 Failed : 0
 VMSS Instance Upgrade Failures : 0
 ```    
-
-
-### [Log Analytics Agent](#tab/LogAnalyticsAgent)
-
-
-Required Arguments:
-+ `-WorkspaceId <String>` Log Analytics WorkspaceID (GUID). 
-+ `-WorkspaceKey <String>` Log Analytics Workspace primary or secondary key. 
-
-Optional Arguments:   
-+ `-ReInstall [<SwitchParameter>]` Trigger removal of existing Log analytics extension and reinstallation to migrate log analytics workspaces with Legacy Agent (Linux) - OMSAgent. 
-+ `-Name <String>` Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription or resource group are onboarded. Use wildcards to specify multiple VMs or Virtual Machine Scale Sets.
-+ `- ResourceGroup <String>` Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription are onboarded. Use wildcards to specify multiple resource groups.
-+ `-PolicyAssignmentName <String>` Only include VMs associated with this policy. When the PolicyAssignmentName parameter is specified, the VMs part of the parameter SubscriptionId are considered. 
-+ `-TriggerVmssManualVMUpdate [<SwitchParameter>]` Trigger the update of VM instances in a scale set whose upgrade policy is set to Manual. 
-+ `-WhatIf [<SwitchParameter>]` Get info about expected effect of the commands in the script.         
-+ `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
-+ `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
- 
-The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](/powershell/module/microsoft.powershell.core/about/about_wildcards). 
-
-
-Example:
-
-```powershell
-Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> `
--WorkspaceKey \<WorkspaceKey\> `
--SubscriptionId \<SubscriptionId\> `
--ResourceGroup \<ResourceGroup\>   
-
-Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> `
--WorkspaceKey \<WorkspaceKey\> `
--SubscriptionId \<SubscriptionId\> `
--ResourceGroup \<ResourceGroup\> `
--ReInstall 
-```     
-
-
-Use the following command to enable VM insights using Log Analytics Agent and Dependency Agent.
-
-
-```powershell
-$WorkspaceId = "<GUID>"
-$WorkspaceKey = "<Key>"
-$SubscriptionId = "<GUID>"
-
-Install-VMInsights.ps1 -WorkspaceId $WorkspaceId `
--WorkspaceKey $WorkspaceKey `
--SubscriptionId $SubscriptionId `
--WorkspaceRegion <region>
-```
-The output has the following format:
-
-```powershell 
-Getting list of VMs or virtual machine scale sets matching criteria specified
-
-VMs or virtual machine scale sets matching criteria:
-
-db-ws-1 VM running
-db-ws2012 VM running
-
-This operation will install the Log Analytics and Dependency agent extensions on the previous two VMs or virtual machine scale sets.
-VMs in a non-running state will be skipped.
-Extension will not be reinstalled if already installed. Use -ReInstall if desired, for example, to update workspace.
-
-Confirm
-Continue?
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-
-db-ws-1 : Deploying DependencyAgentWindows with name DAExtension
-db-ws-1 : Successfully deployed DependencyAgentWindows
-db-ws-1 : Deploying MicrosoftMonitoringAgent with name MMAExtension
-db-ws-1 : Successfully deployed MicrosoftMonitoringAgent
-db-ws2012 : Deploying DependencyAgentWindows with name DAExtension
-db-ws2012 : Successfully deployed DependencyAgentWindows
-db-ws2012 : Deploying MicrosoftMonitoringAgent with name MMAExtension
-db-ws2012 : Successfully deployed MicrosoftMonitoringAgent
-
-Summary:
-
-Already onboarded: (0)
-
-Succeeded: (4)
-db-ws-1 : Successfully deployed DependencyAgentWindows
-db-ws-1 : Successfully deployed MicrosoftMonitoringAgent
-db-ws2012 : Successfully deployed DependencyAgentWindows
-db-ws2012 : Successfully deployed MicrosoftMonitoringAgent
-
-Connected to different workspace: (0)
-
-Not running - start VM to configure: (0)
-
-Failed: (0)
-```
-
----
 
 Check your VM/Virtual Machine Scale Set in Azure portal to see if the extensions are installed or use the following command:
 

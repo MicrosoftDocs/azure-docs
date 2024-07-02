@@ -61,7 +61,8 @@ The following limitations apply when you create AKS clusters that support multip
         --vm-set-type VirtualMachineScaleSets \
         --node-count 2 \
         --generate-ssh-keys \
-        --load-balancer-sku standard
+        --load-balancer-sku standard \
+        --generate-ssh-keys
     ```
 
     It takes a few minutes to create the cluster.

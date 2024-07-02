@@ -74,7 +74,7 @@ You must choose the name of the custom header when you [deploy Azure Communicati
 
 You must then use the [Provisioning API](provisioning-platform.md) to configure each number with the contents of the custom header.
 
-In November 2023, custom header configuration is available for all communications services except Teams Phone Mobile.
+In November 2023, custom header configuration is available for Microsoft Teams Direct Routing, Operator Connect, and Zoom Phone Cloud Peering.
 
 ## October 2023
 

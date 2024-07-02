@@ -1,11 +1,11 @@
 ---
-title: Create monitoring alerts for Azure Files
-description: Use Azure Monitor to create alerts on throttling, capacity, and egress. Learn how to create an alert on high server latency.
+title: Monitor Azure Files by creating alerts
+description: Learn how to use Azure Monitor to create alerts on metrics and logs for Azure Files. Monitor throttling, capacity, and egress. Create an alert on high server latency.
 author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 05/08/2024
 ms.author: kendownie
 ms.custom: monitoring
 ---
@@ -19,6 +19,7 @@ This article shows you how to create alerts on throttling, capacity, egress, and
 For more information about alert types and alerts, see [Monitor Azure Files](storage-files-monitoring.md#alerts).
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |

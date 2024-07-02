@@ -5,10 +5,8 @@ description: Learn about the tools, behaviors, and approaches for analyzing quer
 author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 06/06/2024
 ---
 
 # Analyze performance in Azure AI Search
@@ -29,7 +27,7 @@ To isolate the effects of a distributed service architecture, try testing on ser
 
 ## Use resource logging
 
-The most important diagnostic tool at an administrator's disposal is [resource logging](monitor-azure-cognitive-search.md). Resource logging is the collection of operational data and metrics about your search service. Resource logging is enabled through [Azure Monitor](../azure-monitor/overview.md). There are costs associated with using Azure Monitor and storing data, but if you enable it for your service, it can be instrumental in investigating performance issues.
+The most important diagnostic tool at an administrator's disposal is [resource logging](monitor-azure-cognitive-search.md#azure-monitor-resource-logs). Resource logging is the collection of operational data and metrics about your search service. Resource logging is enabled through [Azure Monitor](../azure-monitor/overview.md). There are costs associated with using Azure Monitor and storing data, but if you enable it for your service, it can be instrumental in investigating performance issues.
 
 The following image shows the chain of events in a query request and response. Latency can occur at any one of them, whether during a network transfer, processing of content in the app services layer, or on a search service. A key benefit of resource logging is that activities are logged from the search service perspective, which means that the log can help you determine if the performance issue is due to problems with the query or indexing, or some other point of failure.
 
@@ -37,9 +35,7 @@ The following image shows the chain of events in a query request and response. L
 
 Resource logging gives you options for storing logged information. We recommend using [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) so that you can execute advanced Kusto queries against the data to answer many questions about usage and performance. 
 
-On your search service portal pages, you can enable logging through **Diagnostic settings**, and then issue Kusto queries against Log Analytics by choosing **Logs**. For more information about setting up, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
-
-:::image type="content" source="media/search-performance/perf-log-menu-options.png" alt-text="Logging menu options" border="true":::
+On your search service portal pages, you can enable logging through **Diagnostic settings**, and then issue Kusto queries against Log Analytics by choosing **Logs**. To learn how to send resource logs to a Log Analytics workspace where you can analyze them with log queries, see [Collect and analyze resource logs from an Azure resource](/azure/azure-monitor/essentials/tutorial-resource-logs).
 
 ## Throttling behaviors
 

@@ -4,7 +4,7 @@ description: Learn how to install Jupyter Notebook locally on your computer and 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/23/2023
+ms.date: 06/14/2024
 ---
 
 # Install Jupyter Notebook on your computer and connect to Apache Spark on HDInsight

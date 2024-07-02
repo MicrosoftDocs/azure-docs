@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/16/2024
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -15,7 +15,7 @@ ms.reviewer: micflan
 
 This article helps you better understand Azure cost and usage data included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
-Cost Management includes all usage and purchases, including commitment discounts (i.e., reservations and savings plans) and third-party offerings, for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Microsoft Online Services Agreement (MOSA) accounts only include usage from Azure and Marketplace services with applicable commitment discounts applied but do not include Marketplace or commitment discounts purchases. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure.
+Cost Management includes all usage and purchases, including commitment discounts (that is, reservations and savings plans) and third-party offerings, for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Microsoft Online Services Agreement (MOSA) accounts only include usage from Azure and Marketplace services with applicable commitment discounts applied but don't include Marketplace or commitment discounts purchases. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure.
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -55,7 +55,6 @@ The following offers aren't supported yet:
 
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
-| **Azure Germany** | Azure Germany pay-as-you-go | Pay-as-you-go_2014-09-01 | MS-AZR-DE-0003P |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -74,11 +73,9 @@ The following offers aren't supported yet:
 
 For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
 
-### Determine your offer type
+### View billing account
 
-If you're unable to view data for a particular subscription, you can verify whether this subscription is included in the list of supported offers. To validate an Azure subscription is supported, sign in to the Azure portal. Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, select the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
-
-:::image type="content" border="true" source="./media/understand-cost-mgt-data/offer-and-offer-id.png" alt-text="Screenshot showing the Subscription Overview tab with Offer and Offer ID.":::
+Your billing account type, and subscriptions created under it, is based on your Azure offer. If you want to view the properties of your billing account, including its offer ID information, see [Check the type of your account](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 ## Costs included in Cost Management
 
@@ -173,6 +170,6 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P)
 
-## Next steps
+## Related content
 
 - If you didn't complete the first quickstart for Cost Management, read it at [Start analyzing costs](./quick-acm-cost-analysis.md).

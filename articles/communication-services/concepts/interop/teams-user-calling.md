@@ -123,7 +123,7 @@ The following list presents the set of features that are currently available in 
 |                   | Transfer a call to a user                                                                                           |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Be transferred to a user or call                                                                                     |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Transfer a call to a call                                                                                            |   ✔️      | ✔️ | ✔️ | ✔️ |
-|                   | Transfer a call to Voicemail                                                                                         |   ❌      | ❌ | ❌ | ❌ |
+|                   | Transfer a call to Voicemail                                                                                         |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Be transferred to voicemail                                                                                           |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Merge ongoing calls                                                                                                  |   ❌      | ❌ | ❌ | ❌ |
 |                   | Does start a call and add user operations honor shared line configuration                                            |   ✔️      | ✔️ | ✔️ | ✔️ |

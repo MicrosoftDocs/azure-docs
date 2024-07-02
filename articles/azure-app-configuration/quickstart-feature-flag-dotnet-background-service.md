@@ -3,7 +3,7 @@ title: Quickstart for adding feature flags to .NET background service
 titleSuffix: Azure App Configuration
 description: A quickstart for adding feature flags to .NET background services and managing them in Azure App Configuration
 services: azure-app-configuration
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet

@@ -6,8 +6,9 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -15,7 +16,7 @@ author: lgayhardt
 
 # Prompt tool for flows in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The prompt flow Prompt tool offers a collection of textual templates that serve as a starting point for creating prompts. These templates, based on the [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) template engine, facilitate the definition of prompts. The tool proves useful when prompt tuning is required before the prompts are fed into the large language model (LLM) in the prompt flow.
 
@@ -96,4 +97,3 @@ Welcome to Bing! Hello there! Please select an option from the menu below: 1. Vi
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-

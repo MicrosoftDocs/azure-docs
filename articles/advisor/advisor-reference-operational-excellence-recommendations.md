@@ -743,7 +743,7 @@ Learn more about [Volume - Azure NetApp Files AZ Volume SDK version recommendati
 
 The minimum SDK version of 2022-05-01 is recommended for the Azure NetApp Files Cross Zone Replication feature, to enable you to replicate volumes across availability zones within the same region.
 
-Learn more about [Volume - Azure NetApp Files Cross Zone Replication SDK recommendation (Cross Zone Replication SDK recommendation)](https://aka.ms/anf-sdkversion).
+Learn more about [Volume - Azure NetApp Files Cross Zone Replication SDK recommendation](https://aka.ms/anf-sdkversion).
 
 ### Volume Encryption using Customer Managed Keys with Azure Key Vault SDK Recommendation
 
@@ -761,7 +761,7 @@ Learn more about [Capacity Pool - Azure NetApp Files Cool Access SDK version rec
 
 The minimum SDK version of 2022-xx-xx is recommended for automation of large volume creation, resizing and deletion.
 
-Learn more about [Volume - Large Volumes SDK Recommendation (Large Volumes SDK Recommendation)](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
+Learn more about [Volume - Large Volumes SDK Recommendation](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
 
 ### Prevent hitting subscription limit for maximum storage accounts
 

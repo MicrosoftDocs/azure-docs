@@ -64,6 +64,9 @@ az afd origin create --enabled-state Enabled \
 
 1. Once approved, it will take a few minutes for the connection to fully establish. You can now access your storage account from Azure Front Door Premium. Direct access to the storage account from the public internet gets disabled after private endpoint gets enabled.
 
+> [!NOTE]
+> If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
+
 ## Next steps
 
 Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).

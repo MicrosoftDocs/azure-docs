@@ -4,8 +4,10 @@ titleSuffix: Azure AI Studio
 description: Learn how to use images in prompt flow.
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 2/26/2024
+ms.date: 5/21/2024
 ms.reviewer: jinzhong
 ms.author: lagayhar
 author: lgayhardt
@@ -13,7 +15,7 @@ author: lgayhardt
 
 # Process images in prompt flow
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Multimodal Large Language Models (LLMs), which can process and interpret diverse forms of data inputs, present a powerful tool that can elevate the capabilities of language-only systems to new heights. Among the various data types, images are important for many real-world applications. The incorporation of image data into AI systems provides an essential layer of visual understanding. 
 

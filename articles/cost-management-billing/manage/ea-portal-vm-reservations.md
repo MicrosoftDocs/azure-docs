@@ -46,7 +46,7 @@ For information about pricing, see [Linux Virtual Machines Pricing](https://azur
 
 ### Reservation prices
 
-If you’ve negotiated reduced reservation prices, currently the only way to view the discounted prices is in the purchase reservation purchase experience.
+If you’ve negotiated reduced reservation prices, you can view the discounted prices in the purchase reservation purchase experience, Retail Prices API or the price sheet.
 
 The prices for reservations aren't necessarily the same between retail rates and EA. They could be the same, but if you’ve negotiated a discount, the rates will differ.
 
@@ -106,7 +106,7 @@ In scenarios where Azure EA customers have used all their Azure Prepayment, rese
 
 You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-## Next steps
+## Related content
 
 - For more information about Azure reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 - To learn more about enterprise reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).

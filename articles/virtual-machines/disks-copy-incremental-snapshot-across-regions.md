@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 06/06/2024
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -39,7 +39,7 @@ The following script copies an incremental snapshot from one region to another:
 subscriptionId=<yourSubscriptionID>
 resourceGroupName=<yourResourceGroupName>
 targetSnapshotName=<name>
-sourceSnapshotResourceId=<sourceSnapshotResourceId>
+sourceSnapshotName=<name>
 targetRegion=<validRegion>
 
 sourceSnapshotId=$(az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [id] -o tsv)

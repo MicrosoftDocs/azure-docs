@@ -91,7 +91,6 @@ You can either [grant access to your key vault for the identity after cluster cr
 
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command with the following parameters:
 
-    * `--enable-managed-identity`: Enables managed identity for the cluster.
     * `--enable-windows-gmsa`: Enables GMSA for the cluster.
     * `--gmsa-dns-server`: The IP address of the DNS server.
     * `--gmsa-root-domain-name`: The root domain name of the DNS server.
@@ -107,10 +106,10 @@ You can either [grant access to your key vault for the identity after cluster cr
         --network-plugin azure \
         --load-balancer-sku standard \
         --windows-admin-username $WINDOWS_USERNAME \
-        --enable-managed-identity \
         --enable-windows-gmsa \
         --gmsa-dns-server $DNS_SERVER \
-        --gmsa-root-domain-name $ROOT_DOMAIN_NAME
+        --gmsa-root-domain-name $ROOT_DOMAIN_NAME \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]

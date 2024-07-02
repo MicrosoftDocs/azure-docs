@@ -19,6 +19,6 @@ The following table shows the support status for different Packet Core releases 
 
 | Release | Support Status |
 |---------|----------------|
-| AP5GC 2403 | Supported until AP5GC 2407 is released |
-| AP5GC 2310 | Supported until AP5GC 2404 is released |
-| AP5GC 2308 and earlier | Out of Support |
+| AP5GC 2404 | Supported until AP5GC 2411 is released |
+| AP5GC 2403 | Supported until AP5GC 2408 is released |
+| AP5GC 2310 and earlier | Out of Support |

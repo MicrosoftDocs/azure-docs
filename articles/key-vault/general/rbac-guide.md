@@ -5,10 +5,10 @@ services: key-vault
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: mbaldwin
-
 ---
 
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control
@@ -50,7 +50,7 @@ More about Azure Key Vault management guidelines, see:
 | --- | --- | --- |
 | Key Vault Administrator| Perform all data plane operations on a key vault and  all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault Reader | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Key Vault Certificates Officer | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Key Vault Certificates Officer | Perform any action on the certificates of a key vault, excluding reading the secret and key portions, and managing permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 | Key Vault Certificate User | Read entire certificate contents including secret and key portion. Only works for key vaults that use the 'Azure role-based access control' permission model. | db79e9a7-68ee-4b58-9aeb-b90e7c24fcba |
 | Key Vault Crypto Officer | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
 | Key Vault Crypto Service Encryption User | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
@@ -75,12 +75,12 @@ The new Azure RBAC permission model for key vault provides alternative to the va
 
 You must have an Azure subscription. If you don't, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator),or [Owner](../../role-based-access-control/built-in-roles.md#owner).
+To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator),or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
 ### Enable Azure RBAC permissions on Key Vault
 
 > [!NOTE]
-> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
+> Changing permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
 
 1. Enable Azure RBAC permissions on new key vault:
 

@@ -19,13 +19,12 @@ Many applications log information to text or JSON files instead of standard logg
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region.
-
-    For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
 - JSON text must be contained in a single row for proper ingestion. The JSON body (file) format is not supported.
+  
+- Optionally a Data Collection Endpoint if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
 - A Virtual Machine, Virtual Machine Scale Set, Arc-enabled server on-premises or Azure Monitoring Agent on a Windows on-premises client that writes logs to a text or JSON file.
     
@@ -47,10 +46,11 @@ The table created in the script has two columns:
 
 - `TimeGenerated` (datetime) [Required]
 - `RawData` (string) [Optional if table schema provided]
-- 'FilePath' (string) [Optional]
+- `FilePath` (string) [Optional]
+- `Computer` (string) [Optional]
 - `YourOptionalColumn` (string) [Optional]
 
-The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
+The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' or 'Computer' to either stream is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
 
 Your column names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
 
@@ -77,8 +77,12 @@ $tableParams = @'
                                 "name": "FilePath",
                                 "type": "String"
                        },
-                      {
-                                "name": `"YourOptionalColumn",
+                       {
+                                "name": "Computer",
+                                "type": "String"
+                       },
+                       {
+                                "name": "YourOptionalColumn",
                                 "type": "String"
                      }
               ]

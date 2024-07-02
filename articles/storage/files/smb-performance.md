@@ -1,15 +1,15 @@
 ---
-title: SMB performance - Azure Files
-description: Learn about different ways to improve performance for premium SMB Azure file shares, including SMB Multichannel and metadata caching.
+title: Improve SMB Azure file share performance
+description: Learn about ways to improve performance and throughput for premium SMB Azure file shares, including SMB Multichannel and metadata caching.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Improve SMB Azure file share performance
+# Improve performance for SMB Azure file shares
 
 This article explains how you can improve performance for premium SMB Azure file shares, including using SMB Multichannel and metadata caching (preview).
 

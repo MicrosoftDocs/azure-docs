@@ -192,15 +192,15 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
     ![Quickstart Function debugging in VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-1. Paste the URL for the HTTP request into your browser's address bar. The following image shows the response indicating that the feature flag `Beta` is disabled. 
+1. Paste the URL for the HTTP request into your browser's address bar. The following image shows the response indicating that the feature flag *Beta* is disabled. 
 
     ![Quickstart Function feature flag disabled](./media/quickstarts/functions-launch-ff-disabled.png)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created.
 
-1. Select **Feature manager**, and change the state of the **Beta** key to **On**.
+1. Select **Feature manager**, and change the state of the *Beta* key to **On**.
 
-1. Refresh the browser a few times. When the refresh interval time window passes, the page will change to indicate the feature flag `Beta` is turned on, as shown in the image below.
+1. Refresh the browser a few times. When the refresh interval time window passes, the page will change to indicate the feature flag *Beta* is turned on, as shown in the image below.
  
     ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-ff-enabled.png)
 

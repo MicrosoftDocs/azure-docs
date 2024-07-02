@@ -640,7 +640,7 @@ DTML device models are JSON documents that you can create in a text editor. Howe
 
 To learn more, see [Define a new IoT device type in your Azure IoT Central application](../iot-central/core/howto-set-up-template.md).
 
-There's a DTDL authoring extension for VS Code.
+There's a DTDL authoring extension for VS Code that supports both DTDL v2 and DTDL v3.
 
 To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
 

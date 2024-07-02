@@ -60,7 +60,7 @@ To complete this tutorial, you must have:
 
 :::zone-end
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Add a managed identity
 
@@ -124,7 +124,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     }
     ```
 
-1. Open the *Program.cs* file and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
+1. Open the *Program.cs* file and add a reference to the `Azure.Identity` namespace:
 
     ```csharp-interactive
     using Azure.Identity;
