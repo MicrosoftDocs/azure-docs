@@ -21,10 +21,9 @@ This article shows you how to set up and configure an OpenTelemetry agent for yo
 
 ## Configure an OpenTelemetry agent
 
-OpenTelemetry agents live within your container app environment. You configure agent settings via an ARM template or Bicep calls to the environment, or through the CLI.
+OpenTelemetry agents live within your container app environment. You configure agent settings via an ARM template or Bicep calls to the environment, or through the CLI, or through Terraform (via the [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
 
 Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has specific configuration requirements.
-
 
 ## Prerequisites
 
