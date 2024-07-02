@@ -43,11 +43,13 @@ To use a hosted spatial dataset as a reference layer:
 1. Navigate to the **Format** pane.
 1. Expand the **Reference Layer** section.
 1. Select **URL** from the **Type** drop-down list.
-1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial dataset with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension.
+1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial dataset with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension. Once the link to the hosted file is added to the reference layer, the URL appears in the **Enter a URL** field. To remove the data from the visual simply delete the URL.
 
-    :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when hosting a file control.":::
+    :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when using 'Enter a URL' input control.":::
 
-Once the link to the hosted file is added to the reference layer, the URL appears in the **Enter a URL** field. To remove the data from the visual simply delete the URL.
+1. Alternatively, you can create a dynamic URL using Data Analysis Expressions ([DAX]) based on fields, variables or other programmatic elements. By utilizing [DAX], the URL will dynamically change based on filters, selections, or other user interactions and configurations. Please refer to [Expression-based titles in Power BI Desktop] for more details.
+
+    :::image type="content" source="./media/power-bi-visual/reference-layer-hosted-dax.png" alt-text="Screenshot showing the reference layers section when using DAX for the URL input.":::
 
 ---
 
@@ -124,3 +126,5 @@ Add more context to the map:
 [supported style properties]: spatial-io-add-simple-data-layer.md#default-supported-style-properties
 [Add a tile layer]: power-bi-visual-add-tile-layer.md
 [Show real-time traffic]: power-bi-visual-show-real-time-traffic.md
+[DAX]: https://learn.microsoft.com/dax/
+[Expression-based titles in Power BI Desktop] https://learn.microsoft.com/power-bi/create-reports/desktop-conditional-format-visual-titles
