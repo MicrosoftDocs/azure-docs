@@ -145,7 +145,7 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
         - The allowed range for both of these parameters is from **5 minutes** to **14 days**.
 
-        - The query interval must be shorter than or equal to the lookback period. If it's shorter, the query periods will overlap and this may cause some duplication of results. The rule validation will not allow you to set an interval longer than the lookback period, though, as that would result in gaps in your coverage.
+        - The query interval must be shorter than or equal to the lookback period. 
 
     1. Set **Start running**:
 
@@ -155,28 +155,6 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
         | **At specific time** (Preview) | Set a date and time for the rule to first run, after which it will run at the interval set in the **Run query every** setting. |
 
         - The **start running** time must be between 10 minutes and 30 days after the rule creation (or enablement) time.
-
-        - The line of text under the **Start running** setting (with the information icon at its left) summarizes the current query scheduling and lookback settings.
-
-            :::image type="content" source="media/create-analytics-rules/advanced-scheduling.png" alt-text="Screenshot of advanced scheduling toggle and settings.":::
-
-       # [Azure portal](#tab/azure-portal)
-
-       :::image type="content" source="media/create-analytics-rules/set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Azure portal.":::
-
-       # [Defender portal](#tab/defender-portal)
-
-       :::image type="content" source="media/create-analytics-rules/defender-set-rule-logic-contd.png" alt-text="Screenshot of continuation of rule logic screen of analytics rule wizard in the Defender portal.":::
-
-       ---
-
-   > [!NOTE]
-   >
-   > **Ingestion delay**
-   >
-   > To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
-   >
-   > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
 1. <a name="alert-threshold"></a>**Set the threshold for creating alerts.**
 
@@ -193,21 +171,13 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
    | **Group&nbsp;all&nbsp;events into a single alert**<br>(default) | The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. This single alert summarizes all the events returned in the query results. |
    | **Trigger an alert for each event** | The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. |
 
-   Analytics rules can generate up to 150 alerts. If **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns *more than 150 events*, the first 149 events will each generate a unique alert (for 149 alerts), and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated if **Event grouping** had been set to **Group all events into a single alert**.
-
 1. **Temporarily suppress rule after an alert is generated.** 
 
-   In the **Suppression** section, you can turn the **Stop running query after alert is generated** setting **On** if, once you get an alert, you want to suspend the operation of this rule for a period of time exceeding the query interval. If you turn this on, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
+   To suppress a rule beyond its next run time if an alert is generated, turn the **Stop running query after alert is generated** setting **On**. If you turn this on, set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
 1. **Simulate the results of the query and logic settings.**
 
-   In the **Results simulation** area, select **Test with current data** and Microsoft Sentinel will show you a graph of the results (log events) the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the defined time period, which is determined by the settings in the **Query scheduling** section.
-
-   Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
-
-   :::image type="content" source="media/create-analytics-rules/results-simulation.png" alt-text="Results simulation screenshots":::
-
-   If you see that your query would trigger too many or too frequent alerts, you can experiment with the settings in the [**Query scheduling**](#schedule-and-scope-the-query) and [**Alert threshold**](#alert-threshold) sections and select **Test with current data** again.
+   To see what your rule results would look like if it had been running on your current data, select **Test with current data** in the **Results simulation** area. Microsoft Sentinel simulates running the rule 50 times on the current data, using the defined schedule, and shows you a graph of the results (log events). If you modify the query, select **Test with current data** again to update the graph. The graph shows the number of results over the time period defined by the settings in the **Query scheduling** section.
 
 1. Select **Next: Incident settings**.
 
@@ -223,6 +193,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
      > [!IMPORTANT]
      > If you onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, and this rule is querying and creating alerts from Microsoft 365 or Microsoft Defender sources, you must set this setting to **Disabled**.
+
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 
 1. <a name="alert-grouping"></a>**Set alert grouping settings.**
