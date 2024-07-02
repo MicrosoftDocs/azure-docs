@@ -3415,7 +3415,7 @@ groups:
   prompt: Choose which web framework you are using
   pivots:
   - id: vanilla-js
-    title: No Framework (Vanilla JS)
+    title: No framework (vanilla JavaScript)
   - id: angular
     title: Angular
   - id: react
