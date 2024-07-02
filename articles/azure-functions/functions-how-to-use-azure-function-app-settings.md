@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 07/02/2024
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ---
@@ -26,7 +26,7 @@ To view the app settings in your function app, follow these steps:
 
 2. In the left pane of your function app, expand **Settings**, select **Environment variables**, and then select the **App settings** tab.
 
-    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Screen shot that how to select the App settings page in a function app.":::
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Screen shot that how to select the App settings page in a function app." lightbox="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png":::
 
 ## <a name="settings"></a>Work with application settings
 
@@ -34,7 +34,7 @@ In addition to the predefined app settings used by Azure Functions, you can crea
 
 These settings are stored encrypted. For more information, see [App settings security](security-concepts.md#application-settings).
 
-You can manage app settings from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage app settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
+You can manage app settings from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage app settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings).
 
 ### [Azure portal](#tab/portal)
 
@@ -46,7 +46,7 @@ The **App settings** tab maintains settings that are used by your function app:
 
 1. To add a setting, select **+ Add**, and then enter the **Name** and **Value** of the new key-value pair.
 
-   :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png" alt-text="Screen shot that shows the App settings page in a function app.":::
+   :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png" alt-text="Screen shot that shows the App settings page in a function app." lightbox="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -144,11 +144,11 @@ The following values indicate the plan type:
 
 ### [Azure portal](#tab/portal)
 
-To determine the type of plan used by your function app, see the **App Service Plan** in the **Overview** page of the function app in the [Azure portal](https://portal.azure.com).
+1. To determine the type of plan used by your function app, see the **App Service Plan** in the **Overview** page of the function app in the [Azure portal](https://portal.azure.com).
 
-To see the pricing tier, select the name of the **App Service Plan**, and then select **Settings > Properties** from the left pane.
+   ![Screenshot that shows the App Service Plan link on the Overview page of a function app.](./media/functions-scale/function-app-overview-portal.png)
 
-![Screenshot that shows the App Service Plan link on the Overview page of a function app.](./media/functions-scale/function-app-overview-portal.png)
+1. To see the pricing tier, select the name of the **App Service Plan**, and then select **Settings > Properties** from the left pane.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -444,7 +444,7 @@ Function apps run in the Azure App Service platform, which maintains them. As su
 
 The following matrix indicates portal feature support by hosting plan and operating system:
 
-| Feature | Consumption plan | Premium plan  | Dedicated plan | 
+| Feature | Consumption plan | Premium plan  | Dedicated plan |
 | --- | --- | --- | --- |
 | [Advanced tools (Kudu)](#kudu) | Windows: ✔ <br/>Linux: **X** | ✔ | ✔|
 | [App Service editor](#editor) | Windows: ✔ <br/>Linux: **X**   | Windows: ✔ <br/>Linux: **X** | Windows: ✔ <br/>Linux: **X**|
@@ -464,17 +464,17 @@ For more information about how to work with App Service settings, see [Configure
 
 ### <a name="editor"></a>App Service editor
 
-![Screenshot that shows the App Service editor.](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
+The App Service editor is an advanced in-portal editor that you can use to modify JSON configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This editor enables you to integrate with the Git repository, run and debug code, and modify function app settings. This editor provides an enhanced development environment for your functions compared with the built-in function editor.
 
-The App Service editor is an advanced in-portal editor that you can use to modify JSON configuration files and code files alike. Choosing this option launches a separate browser tab with a basic editor. This editor enables you to integrate with the Git repository, run and debug code, and modify function app settings. This editor provides an enhanced development environment for your functions compared with the built-in function editor.  
+![Screenshot that shows the App Service editor.](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
 We recommend that you consider developing your functions on your local computer. When you develop locally and publish to Azure, your project files are read-only in the portal. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 ### <a name="console"></a>Console
 
-![Screenshot that shows the function app console.](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
-
 The in-portal console is an ideal developer tool when you prefer to interact with your function app from the command line. Common commands include directory and file creation and navigation, as well as executing batch files and scripts.
+
+![Screenshot that shows the function app console.](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
 When developing locally, we recommend using the [Azure Functions Core Tools](functions-run-local.md) and the [Azure CLI].
 
