@@ -16,6 +16,9 @@ ms.date: 6/18/2024
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
 
+## Release" July 2024
+* Support for [Azure Policy built-in definitions](concepts-security.md#azure-policy-support)
+  
 ## Release: June 2024
 * Support for new [minor versions](concepts-supported-versions.md) 16.3, 15.7, 14.12, 13.15, and 12.19 <sup>$</sup>
 * General availability of [IOPS scaling](./concepts-storage.md#iops-scaling) on Azure Database for PostgreSQL flexible server.
