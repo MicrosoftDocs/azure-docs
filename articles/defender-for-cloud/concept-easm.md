@@ -28,6 +28,7 @@ The intergartion with Defender EASM is included with the Defender CSPM plan and 
 While [Defender CSPM](concept-cloud-security-posture-management.md) includes some external attack surface management capabilities, it doesn't include the full EASM solution. Instead, it provides detection of internet accessible assets via Defender for Cloud recommendations and attack paths.
 
 ## Related content
+- [Detect exposed IP addresses](detect-exposed-ip-addresses.md)
 - [Cloud security explorer and attack paths](concept-attack-path.md) in Defender for Cloud.
 - [Defender EASM overview](../external-attack-surface-management/overview.md).
 - [Deploy Defender for EASM](../external-attack-surface-management/deploying-the-defender-easm-azure-resource.md).
