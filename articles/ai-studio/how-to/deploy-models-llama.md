@@ -30,7 +30,7 @@ The Meta Llama family of models includes the following models:
 
 
 
-# [Meta-Llama-3](#tab/Meta-Llama-3)
+# [Meta Llama-3](#tab/meta-llama-3)
 
 Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8 and 70B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
 
@@ -42,7 +42,7 @@ The following models are available:
 
 
 
-# [Meta-Llama-2](#tab/Meta-Llama-2)
+# [Meta Llama-2](#tab/meta-llama-2)
 
 Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
 
@@ -313,7 +313,7 @@ The Meta Llama family of models includes the following models:
 
 
 
-# [Meta-Llama-3](#tab/Meta-Llama-3)
+# [Meta Llama-3](#tab/meta-llama-3)
 
 Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8 and 70B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
 
@@ -325,7 +325,7 @@ The following models are available:
 
 
 
-# [Meta-Llama-2](#tab/Meta-Llama-2)
+# [Meta Llama-2](#tab/meta-llama-2)
 
 Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
 
@@ -618,7 +618,7 @@ The Meta Llama family of models includes the following models:
 
 
 
-# [Meta-Llama-3](#tab/Meta-Llama-3)
+# [Meta Llama-3](#tab/meta-llama-3)
 
 Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8 and 70B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
 
@@ -630,7 +630,7 @@ The following models are available:
 
 
 
-# [Meta-Llama-2](#tab/Meta-Llama-2)
+# [Meta Llama-2](#tab/meta-llama-2)
 
 Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
 
