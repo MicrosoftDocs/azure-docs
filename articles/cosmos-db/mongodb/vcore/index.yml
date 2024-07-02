@@ -94,7 +94,3 @@ landingContent:
         links:
           - text: AI-Enhanced Advertisement Generation
             url: ai-advertisement-generation.md
-      - linkListType: sample
-        links:
-          - text: RAG application with Langchain
-            url: rag-food-app.md
