@@ -14,17 +14,15 @@ ms.date: 07/01/2024
 
 # Create an index in Azure AI Search
 
-In Azure AI Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
-
-In this article, learn the steps for defining a schema for the index and pushing it to a search service. Creating an index establishes the physical data structures on your search service. Once the index exists, [**load the index**](search-what-is-data-import.md) as a separate task. 
+In this article, learn the steps for defining a schema for a [**search index**](search-what-is-an-index.md) and pushing it to a search service. Creating an index establishes the physical data structures on your search service. Once the index exists, [**load the index**](search-what-is-data-import.md) as a separate task. 
 
 ## Prerequisites
 
-+ Write permissions as a [**Search Service Contributor**](search-security-rbac.md). If you're using key-based authentication provide an [admin API key](search-security-api-keys.md) on the request.
++ Write permissions as a [**Search Service Contributor**](search-security-rbac.md) or an [admin API key](search-security-api-keys.md) for key-based authentication.
 
 + An understanding of the data you want to index. A search index is based on external content that you want to make searchable. Searchable content is stored as fields in an index. You should have a clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable (see the [schema checklist](#schema-checklist) for guidance).
 
-  You must also have a unique field in source data that can be used as the [document key (or ID)](#document-keys) in the index.
++ You must also have a unique field in source data that can be used as the [document key (or ID)](#document-keys) in the index.
 
 + A stable index location. Moving an existing index to a different search service isn't supported out-of-the-box. Revisit application requirements and make sure that your existing search service (capacity and location), are sufficient for your needs.
 
@@ -50,7 +48,11 @@ Use this checklist to assist the design decisions for your search index.
 
 1. Identify a [document key](#document-keys). A document key is an index requirement. It's a single string field and it's populated from a source data field that contains unique values. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key because it uniquely identifies each blob in the container.
 
-1. Identify the fields in your data source that contribute searchable content in the index. Searchable nonvector content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized. Searchable vector content can be images or text (in any language) that exists as a mathematical representation. You can use narrow data types or vector compression to make vector fields smaller.
+1. Identify the fields in your data source that contribute searchable content in the index.
+
+   Searchable nonvector content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized. 
+
+   Searchable vector content can be images or text (in any language) that exists as a mathematical representation. You can use narrow data types or vector compression to make vector fields smaller.
 
    [Field attribute assignments](search-what-is-an-index.md#index-attributes) determine both search behaviors and the physical representation of your index on the search service. Determining how fields should be specified is an iterative process for many customers. To speed up iterations, start with sample data so that you can drop and rebuild easily.
 

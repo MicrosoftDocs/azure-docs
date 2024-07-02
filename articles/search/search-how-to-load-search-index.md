@@ -34,19 +34,20 @@ For more information, see [Data import strategies](search-what-is-data-import.md
 
 ## Use the Azure portal
 
-In the Azure portal, use the Import wizards to create and load indexes in a seamless workflow. If you want to load an existing index, choose an alternative approach.
+In the Azure portal, use the [import wizards](search-import-data-portal.md) to create and load indexes in a seamless workflow. If you want to load an existing index, choose an alternative approach.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. On the Overview page, select **Import data** or **Import and vectorize data** on the command bar to create and populate a search index. 
 
-   You can follow these links to review the workflow: [Quickstart: Create an Azure AI Search index](search-get-started-portal.md) and [Quickstart: Integrated vectorization (preview)](search-get-started-portal-import-vectors.md).
-
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
+
+    You can follow these links to review the workflow: [Quickstart: Create an Azure AI Search index](search-get-started-portal.md) and [Quickstart: Integrated vectorization (preview)](search-get-started-portal-import-vectors.md).
 
 1. After the wizard is finished, use [Search Explorer](search-explorer.md) to check for results.
 
-If indexers are already defined, you can [reset and run an indexer](search-howto-run-reset-indexers.md) from the Azure portal, which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
+> [!TIP]
+> The import wizards create and run indexers. If indexers are already defined, you can [reset and run an indexer](search-howto-run-reset-indexers.md) from the Azure portal, which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
 
 ## Use the REST APIs
 
@@ -89,6 +90,8 @@ If indexers are already defined, you can [reset and run an indexer](search-howto
    | merge | Updates a document that already exists, and fails a document that can't be found. Merge replaces existing values. For this reason, be sure to check for collection fields that contain multiple values, such as fields of type `Collection(Edm.String)`. For example, if a `tags` field starts with a value of `["budget"]` and you execute a merge with `["economy", "pool"]`, the final value of the `tags` field is `["economy", "pool"]`. It won't be `["budget", "economy", "pool"]`. |
    | mergeOrUpload | Behaves like merge if the document exists, and upload if the document is new. This is the most common action for incremental updates. |
    | upload | Similar to an "upsert" where the document is inserted if it's new, and updated or replaced if it exists. If the document is missing values that the index requires, the document field's value is set to null. |
+
+1. Send the request.
 
 1. [Look up the documents](/rest/api/searchservice/documents/get) you just added as a validation step:
 
@@ -159,8 +162,6 @@ Code samples include:
 + Be sure to check the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repo for code examples showing how to index vector fields.
 
 ---
-
-Internally during indexing, each vector field is populated with embeddings in an internal vector index, and each nonvector field's inverted index is populated with all of the unique, tokenized words from each document. Each field is associated with a document key that determines the logical structure of the document. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Documents - Index](/rest/api/searchservice/documents) operation, the terms and document ID list are updated accordingly. For more information about inverted indexes, see [Full text search in Azure AI Search](search-lucene-query-architecture.md).
 
 ## See also
 
