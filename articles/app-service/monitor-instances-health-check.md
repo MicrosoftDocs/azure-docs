@@ -177,7 +177,7 @@ The Health check requests are sent to your site internally, so the request won't
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 
-On Windows App Service, the Health check requests are sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and can't be sent over HTTP**S** at this time.
+On Windows and Linux App Service, the Health check requests are sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP.
 
 ### Is Health check following the application code configured redirects between the default domain and the custom domain?
 
