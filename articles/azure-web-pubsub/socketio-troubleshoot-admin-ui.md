@@ -49,7 +49,7 @@ The static website files could be either downloaded from release or built from s
 
 4. Visit `http://localhost:8080` in browser
 
-## Service-side
+## Update server-side code
 1. install the `@socket.io/admin-ui` package:
 
     ```bash
@@ -80,11 +80,11 @@ The static website files could be either downloaded from release or built from s
     httpServer.listen(3000);
     ```
 
-## Client Side
+## Open Admin UI website
 1. Visit `http://localhost:8080` in browser.
 
 2. You should see the following modal:
 
-:::image type="content" source="./media/socketio-troubleshoot-admin-ui/admin-ui-homepage-modal.png" alt-text="Modal of Socket.IO Admin UI Homepage.":::
+:::image type="content" source="./media/socketio-troubleshoot-admin-ui/admin-ui-homepage-modal.png" alt-text="Screenshot of modal on Socket.IO Admin UI homepage.":::
 
 3. Fill in your service endpoint and hub name.
