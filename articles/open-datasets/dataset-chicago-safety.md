@@ -113,8 +113,8 @@ Preview
 | Police District | Number | 8 | Police District number |
 | Community Area | Number | 56 | Community Area number |
 | SSA | Number | 26 |  |
-| Latitude | double | 1,622 | 41.80014700738077 | This is the latitude value. Lines of latitude are parallel to the equator. |
-| Longitude | double | 1,806 | -87.7492147421616 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
+| Latitude | double | 41.80014700738077 | This is the latitude value. Lines of latitude are parallel to the equator. |
+| Longitude | double | -87.7492147421616 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
 | Location | Location | (41.80014700738077, -87.7492147421616) | Combined latitude and longitude values for the address |
 
 Preview
@@ -146,8 +146,8 @@ Sanitation Code Complaints
 | Ward | Number | 13 | Ward Number value |
 | Police District | Number | 8 | Police District number |
 | Community Area | Number | 65 | Community Area number |
-| Latitude | double | 1,622 | 41.77787022898461 | This is the latitude value. Lines of latitude are parallel to the equator. |
-| Longitude | double | 1,806 | -87.73372735 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
+| Latitude | double | 41.77787022898461 | This is the latitude value. Lines of latitude are parallel to the equator. |
+| Longitude | double | -87.73372735 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
 | Location | Location | (41.932596865948, -87.693935514475) | Combined latitude and longitude values for the address |
 
 Preview
