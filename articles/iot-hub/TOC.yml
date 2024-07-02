@@ -295,22 +295,8 @@
     - name: Develop
       items:
         - name: Send cloud-to-device messages
-          items:
-            - name: .NET
-              displayName: cloud-to-device messages, C2D, csharp, C#
-              href: c2d-messaging-dotnet.md
-            - name: Python
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-python.md
-            - name: Node.js
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-node.md
-            - name: Java
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-java.md
-            - name: iOS
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-ios.md
+          displayName: cloud-to-device messages
+          href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
           items:
             - name: .NET

@@ -225,6 +225,16 @@ To build the container images and push them to ACR, make sure the environment va
 > [!div class="nextstepaction"]
 > [Prepare to deploy the EDW workload to Azure][eks-edw-prepare]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+- Ken Kilty | Principal TPM
+- Russell de Pina | Principal TPM
+- Jenny Hayes | Senior Content Developer
+- Carol Smith | Senior Content Developer
+- Erin Schaffer | Content Developer 2
+
 <!-- LINKS -->
 [map-aws-to-azure]: ./eks-edw-rearchitect.md#map-aws-services-to-azure-services
 [storage-queue-data-contributor]: ../role-based-access-control/built-in-roles.md#storage
