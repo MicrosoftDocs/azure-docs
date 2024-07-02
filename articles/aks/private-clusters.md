@@ -58,7 +58,7 @@ Create a private cluster with default basic networking using the [`az aks create
 ```azurecli-interactive
 az aks create \
     --name <private-cluster-name> \
-    --resource-group-name <private-cluster-resource-group> \
+    --resource-group <private-cluster-resource-group> \
     --load-balancer-sku standard \
     --enable-private-cluster \
     --generate-ssh-keys

@@ -218,7 +218,7 @@ Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 
-##### [Java-Native](#tab/java-native)
+##### [Java Native](#tab/java-native)
 
 Several automatic instrumentations are enabled through configuration changes; no code changes are required
 

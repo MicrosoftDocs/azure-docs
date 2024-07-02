@@ -26,7 +26,7 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Ja
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 

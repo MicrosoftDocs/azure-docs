@@ -163,7 +163,7 @@ This section contains the release notes for the `Microsoft.ApplicationInsights.S
 
 For bug reports and feedback, [open an issue on GitHub](https://github.com/microsoft/ApplicationInsights-SnapshotCollector).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### [1.4.6](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.6)
 A point release to address a regression when using .NET 8 applications.
