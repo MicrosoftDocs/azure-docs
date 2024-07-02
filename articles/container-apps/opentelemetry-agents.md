@@ -54,7 +54,7 @@ The following table shows you what type of data you can send to each destination
 
 ## Azure Monitor Application Insights
 
-The only configuration detail required from Application Insights is the connection string. Once you have the connection string, you can configure the agent via your container app's ARM template or with Azure CLI commands.
+The only configuration detail required from Application Insights is the connection string. Once you have the connection string, you can configure the agent via your container app's ARM template, with Azure CLI commands or Terraform.
 
 # [ARM template](#tab/arm)
 
@@ -89,6 +89,38 @@ az containerapp env telemetry app-insights set \
   --connection-string <YOUR_APP_INSIGHTS_CONNECTION_STRING> \
   --enable-open-telemetry-traces true \
   --enable-open-telemetry-logs true
+```
+
+# [Terraform](#tab/terraform)
+
+```hcl
+resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
+  name      = azurerm_container_app_environment.managed_environment.name
+  parent_id = azurerm_resource_group.resource_group.id
+  type      = "Microsoft.App/managedEnvironments@2023-11-02-preview"
+  body = jsonencode({
+    properties = {
+      appInsightsConfiguration = {
+        connectionString = azurerm_application_insights.applicationinsights.connection_string
+      }
+      appLogsConfiguration = {
+        destination = "log-analytics"
+        logAnalyticsConfiguration = {
+          customerId = azurerm_log_analytics_workspace.workspace.workspace_id
+          sharedKey  = azurerm_log_analytics_workspace.workspace.primary_shared_key
+        }
+      }
+      openTelemetryConfiguration = {
+        tracesConfiguration = {
+          destinations = ["appInsights"]
+        }
+        logsConfiguration = {
+          destinations = ["appInsights"]
+        }
+      }
+    }
+  })
+}
 ```
 
 ---
