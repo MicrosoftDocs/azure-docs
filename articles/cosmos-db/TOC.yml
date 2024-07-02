@@ -37,7 +37,7 @@
         - name: kNN vs ANN
           href: gen-ai/knn-vs-ann.md
     - name: Unified AI database
-        items:
+      items:
         - name: AI agent
           href: ai-agents.md
         - name: Azure AI Advantage free trial
