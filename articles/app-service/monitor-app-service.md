@@ -23,6 +23,8 @@ App Service provides built-in diagnostics logging to assist with debugging apps.
 
 You can also use Azure Health check to monitor App Service instances. For more information, see [Monitor App Service instances using Health check](monitor-instances-health-check.md).
 
+If you're using ASP.NET Core, ASP.NET, Java, Node.js, or Python, we recommend [enabling observability with Application Insights](/azure/azure-monitor/app/opentelemetry-enable). To learn more about observability experiences offered by Application Insights, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
+
 ### Monitoring scenarios
 
 The following table lists monitoring methods to use for different scenarios.
