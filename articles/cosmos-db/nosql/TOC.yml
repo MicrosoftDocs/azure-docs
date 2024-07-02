@@ -164,6 +164,82 @@
     - name: Azure Cosmos DB resource model
       displayName: collection, document
       href: ../resource-model.md
+    - name: Back up and restore
+      items:
+        - name: Back up and restore introduction
+          href: ../online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+            - name: Continuous backup - Introduction
+              href: ../continuous-backup-restore-introduction.md
+            - name: Restore
+              items:
+                - name: Restore into a new account
+                  items:
+                    - name: Continuous backup - Resource model
+                      href: ../continuous-backup-restore-resource-model.md
+                    - name: Continuous backup - FAQ
+                      href: ../continuous-backup-restore-frequently-asked-questions.yml
+                    - name: Latest restorable timestamp
+                      href: ../latest-restore-timestamp-continuous-backup.md
+                    - name: Auditing restore action with continuous backup
+                      href: ../audit-restore-continuous.md
+                - name: Restore in the same account
+                  items:
+                    - name: Introduction
+                      href: ../restore-in-account-continuous-backup-introduction.md
+                    - name: Resource model
+                      href: ../restore-in-account-continuous-backup-resource-model.md
+                    - name: FAQ
+                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
+        - name: Periodic backup
+          items:
+            - name: Introduction
+              href: ../periodic-backup-restore-introduction.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
+    - name: Containers and items
+      items:
+        - name: Getting started with SQL query
+          displayName: sql query, query basics
+          href: query/getting-started.md
+        - name: Indexing overview
+          displayName: range, spatial
+          href: ../index-overview.md
+        - name: Time to live
+          displayName: delete, delete data, ttl
+          href: time-to-live.md
+        - name: Unique key constraints
+          href: ../unique-keys.md
+        - name: Transactions and optimistic concurrency control
+          href: database-transactions-optimistic-concurrency.md
+        - name: Attachments
+          href: ../attachments.md
+    - name: Global distribution
+      items:
+        - name: Global distribution overview
+          displayName: replication, replicate, geo distribution
+          href: ../distribute-data-globally.md
+        - name: Consistency levels
+          displayName: session, consistency prefix, strong, eventual, bounded staleness
+          href: ../consistency-levels.md
+        - name: High availability
+          items:
+            - name: High availability and reliability
+              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Proactive resiliency
+              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Multi-region writes
+              items:
+                - name: Understanding multi-region writes
+                  href: ../multi-region-writes.md
+                - name: Conflict resolution
+                  displayName: last write wins, custom, multi-region writes, multi-master
+                  href: ../conflict-resolution-policies.md
+        - name: Global distribution - under the hood
+          href: ../global-dist-under-the-hood.md
     - name: Modeling and partitioning
       items:
         - name: Model document data
@@ -241,23 +317,6 @@
               href: ../priority-based-execution.md
             - name: Priority-based execution FAQ
               href: ../priority-based-execution-faq.yml
-    - name: Containers and items
-      items:
-        - name: Getting started with SQL query
-          displayName: sql query, query basics
-          href: query/getting-started.md
-        - name: Indexing overview
-          displayName: range, spatial
-          href: ../index-overview.md
-        - name: Time to live
-          displayName: delete, delete data, ttl
-          href: time-to-live.md
-        - name: Unique key constraints
-          href: ../unique-keys.md
-        - name: Transactions and optimistic concurrency control
-          href: database-transactions-optimistic-concurrency.md
-        - name: Attachments
-          href: ../attachments.md
     - name: Change feed
       items:
         - name: Change feed overview
@@ -275,6 +334,8 @@
           href: change-feed-functions.md
         - name: Change feed (pull model)
           href: change-feed-pull-model.md
+    - name: Emulator
+      href: ../emulator.md
     - name: Integrated cache
       items:
         - name: Dedicated gateway overview
@@ -283,6 +344,8 @@
           href: ../integrated-cache.md
         - name: Integrated cache FAQ
           href: ../integrated-cache-faq.md
+    - name: Integrated vector database
+      href: ../vector-search.md
     - name: Analytics with Azure Synapse Link
       items:
         - name: Azure Synapse Link for Azure Cosmos DB
@@ -301,65 +364,6 @@
           href: ../analytical-store-change-data-capture.md
         - name: Time travel (preview)
           href: ../synapse-link-time-travel.md
-    - name: Back up and restore
-      items:
-        - name: Back up and restore introduction
-          href: ../online-backup-and-restore.md
-        - name: Continuous backup
-          items:
-            - name: Continuous backup - Introduction
-              href: ../continuous-backup-restore-introduction.md
-            - name: Restore
-              items:
-                - name: Restore into a new account
-                  items:
-                    - name: Continuous backup - Resource model
-                      href: ../continuous-backup-restore-resource-model.md
-                    - name: Continuous backup - FAQ
-                      href: ../continuous-backup-restore-frequently-asked-questions.yml
-                    - name: Latest restorable timestamp
-                      href: ../latest-restore-timestamp-continuous-backup.md
-                    - name: Auditing restore action with continuous backup
-                      href: ../audit-restore-continuous.md
-                - name: Restore in the same account
-                  items:
-                    - name: Introduction
-                      href: ../restore-in-account-continuous-backup-introduction.md
-                    - name: Resource model
-                      href: ../restore-in-account-continuous-backup-resource-model.md
-                    - name: FAQ
-                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
-        - name: Periodic backup
-          items:
-            - name: Introduction
-              href: ../periodic-backup-restore-introduction.md
-            - name: Storage redundancy
-              href: ../periodic-backup-storage-redundancy.md
-            - name: Request data restore
-              href: ../periodic-backup-request-data-restore.md
-    - name: Global distribution
-      items:
-        - name: Global distribution overview
-          displayName: replication, replicate, geo distribution
-          href: ../distribute-data-globally.md
-        - name: Consistency levels
-          displayName: session, consistency prefix, strong, eventual, bounded staleness
-          href: ../consistency-levels.md
-        - name: High availability
-          items:
-            - name: High availability and reliability
-              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
-            - name: Proactive resiliency
-              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
-            - name: Multi-region writes
-              items:
-                - name: Understanding multi-region writes
-                  href: ../multi-region-writes.md
-                - name: Conflict resolution
-                  displayName: last write wins, custom, multi-region writes, multi-master
-                  href: ../conflict-resolution-policies.md
-        - name: Global distribution - under the hood
-          href: ../global-dist-under-the-hood.md
     - name: Security
       items:
         - name: Security overview
@@ -397,16 +401,14 @@
           href: ../data-residency.md
     - name: Optimize your Azure Cosmos DB costs
       href: ../optimize-costs.yml
+    - name: Network bandwidth
+      href: ../network-bandwidth.md
     - name: Jupyter notebooks
       items:
         - name: Overview
           href: ../notebooks-overview.md
         - name: FAQ
           href: ../notebooks-faq.yml
-    - name: Emulator
-      href: ../emulator.md
-    - name: Network bandwidth
-      href: ../network-bandwidth.md
 - name: How to
   items:
     - name: Configure vector database capabilities

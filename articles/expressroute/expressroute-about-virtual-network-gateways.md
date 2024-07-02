@@ -119,7 +119,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > [!IMPORTANT]
 > * Throughput and control plane capacity may be half compared to connectivity to non-private-endpoint resources.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
-> * Customers need to ensure their on-premises configuration/router/firewall are correctly configured to ensure that packets for the IP 5-tuple transits via a single next hop (Microsoft Enterprise Edge router - MSEE) unless there is a maintenance event. If a customer's on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then the customer will experience connectivity issues.
+> * Customers need to ensure their on-premises configuration, including router & firewall settings are correctly setup to ensure that packets for the IP 5-tuple transits via a single next hop (Microsoft Enterprise Edge router - MSEE) unless there is a maintenance event. If a customer's on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then the customer will experience connectivity issues.
 
 ### Private endpoint connectivity and planned maintenance events
 
