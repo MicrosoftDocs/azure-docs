@@ -49,5 +49,7 @@ public BlobServiceClient GetBlobServiceClient(string accountName)
 }
 ```
 
-You can also register a service client for [dependency injection](/dotnet/azure/sdk/dependency-injection) in a .NET app. To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](../../articles/storage/blobs/storage-blob-client-management.md).
+You can register a service client for [dependency injection](/dotnet/azure/sdk/dependency-injection) in a .NET app.
+
+You can also create client objects for specific [containers](../../articles/storage/blobs/storage-blob-client-management.md#create-a-blobcontainerclient-object) or [blobs](../../articles/storage/blobs/storage-blob-client-management.md#create-a-blobclient-object). To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](../../articles/storage/blobs/storage-blob-client-management.md).
 
