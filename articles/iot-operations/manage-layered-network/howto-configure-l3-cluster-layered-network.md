@@ -273,10 +273,10 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 >[!IMPORTANT]
 > These steps are for AKS Edge Essentials only.
 
-After you've deployed Azure IoT Operations to your cluster, enable inbound connections to Azure IoT MQ Preview broker and configure port forwarding:
+After you've deployed Azure IoT Operations to your cluster, enable inbound connections to MQTT broker and configure port forwarding:
 1. Enable a firewall rule for port 8883:
     ```powershell
-    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
     ```
 1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
     ```cmd

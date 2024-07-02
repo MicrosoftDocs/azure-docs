@@ -1,6 +1,6 @@
 ---
-title: Configure Azure IoT MQ authorization
-description: Configure Azure IoT MQ authorization using BrokerAuthorization.
+title: Configure MQTT broker authorization
+description: Configure MQTT broker authorization using BrokerAuthorization.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -12,11 +12,11 @@ ms.date: 11/21/2023
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
 
-# Configure Azure IoT MQ Preview authorization
+# Configure MQTT broker authorization
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure Azure IoT MQ Preview to use one or multiple authorization policies with the *BrokerAuthorization* resource.
+Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure MQTT broker to use one or multiple authorization policies with the *BrokerAuthorization* resource.
 
 You can set to one *BrokerAuthorization* for each listener. Each *BrokerAuthorization* resource contains a list of rules that specify the principals and resources for the authorization policies.
 
@@ -170,7 +170,7 @@ To learn more with an example, see [Set up Authorization Policy with Dapr Client
 
 ## Distributed state store
 
-Azure IoT MQ Broker provides a distributed state store (DSS) that clients can use to store state. The DSS can also be configured to be highly available.
+MQTT broker provides a distributed state store (DSS) that clients can use to store state. The DSS can also be configured to be highly available.
 
 To set up authorization for clients that use the DSS, provide the following permissions:
 

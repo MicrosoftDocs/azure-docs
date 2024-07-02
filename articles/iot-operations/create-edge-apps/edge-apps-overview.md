@@ -1,6 +1,6 @@
 ---
 title: Develop highly available distributed applications
-description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
+description: Learn how to develop highly available distributed applications that work with MQTT broker.
 author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
@@ -12,11 +12,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ---
 
-# Develop highly available applications with Azure IoT MQ Preview
+# Develop highly available applications with MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Creating a highly available application using Azure IoT MQ Preview involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. Azure IoT MQ features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
+Creating a highly available application using MQTT broker involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. MQTT broker features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
 
 The following sections explain the settings and features that contribute to a robust, zero message loss, and distributed application.
 
@@ -26,7 +26,7 @@ Both publishers and subscribers should use [QoS-1](https://docs.oasis-open.org/m
 
 ## Session type and Clean-Session flag
 
-To ensure zero message loss, set the [clean-start](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901039) flag to false when connecting to the Azure IoT MQ MQTT broker. This setting informs the broker to maintain the session state for the client, preserving subscriptions and unacknowledged messages between connections. If the client disconnects and later reconnects, it resumes from where it left off, receiving any unacknowledged QoS-1 messages through [message delivery retry](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901238). If configured, IoT MQ expires the client session if the client doesn't reconnect within the *Session Expiry Interval* The default is one day.
+To ensure zero message loss, set the [clean-start](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901039) flag to false when connecting to the MQTT broker. This setting informs the broker to maintain the session state for the client, preserving subscriptions and unacknowledged messages between connections. If the client disconnects and later reconnects, it resumes from where it left off, receiving any unacknowledged QoS-1 messages through [message delivery retry](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901238). If configured, IoT MQ expires the client session if the client doesn't reconnect within the *Session Expiry Interval* The default is one day.
 
 ## Receive-Max in multithreaded applications
 

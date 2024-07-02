@@ -1,6 +1,6 @@
 ---
 title: Configure TLS with automatic certificate management to secure MQTT communication
-description: Configure TLS with automatic certificate management to secure MQTT communication between the Azure IoT MQ MQTT broker and client.
+description: Configure TLS with automatic certificate management to secure MQTT communication between the MQTT broker and client.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---
 
-# Configure TLS with automatic certificate management to secure MQTT communication in Azure IoT MQ Preview
+# Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -39,7 +39,7 @@ With automatic certificate management, you use cert-manager to manage the TLS se
 
 ## Create an Issuer for the TLS server certificate
 
-The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [external](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively supported issuers. Azure IoT MQ Preview can be used with any type of cert-manager issuer.
+The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [external](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively supported issuers. MQTT broker can be used with any type of cert-manager issuer.
 
 > [!IMPORTANT]
 > During initial deployment, Azure IoT Operations is installed with a default Issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer with Azure IoT Operations](#default-root-ca-and-issuer-with-azure-iot-operations-preview). The steps below are only required if you want to use a different issuer.

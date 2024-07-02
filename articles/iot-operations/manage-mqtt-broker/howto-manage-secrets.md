@@ -1,6 +1,6 @@
 ---
 title: Manage secrets using Azure Key Vault or Kubernetes secrets
-description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ.
+description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets in MQTT broker.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -12,11 +12,11 @@ ms.date: 04/22/2024
 #CustomerIntent: As an operator, I want to configure IoT MQ to use Azure Key Vault or Kubernetes secrets so that I can securely manage secrets.
 ---
 
-# Manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ Preview
+# Manage secrets using Azure Key Vault or Kubernetes secrets in MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage secrets for your Azure IoT MQ Preview distributed MQTT broker instead of Kubernetes secrets. This article shows you how to set up Key Vault for your broker and use it to manage secrets.
+You can use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage secrets for your MQTT broker Preview distributed MQTT broker instead of Kubernetes secrets. This article shows you how to set up Key Vault for your broker and use it to manage secrets.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ The `keyVault` field is available wherever Kubernetes secrets (`secretName`) are
 | vaultCaChainSecret | Yes, when using certificate chain | Specifies the certificate chain in the Azure Key Vault. |
 | vaultCaChainSecret.name | Yes | Specifies the name of the certificate chain. |
 | vaultCaChainSecret.version | No | Specifies the version of the certificate chain. |
-| username | No | Used only for Event Hubs Kafka connector, see [Send and receive messages between Azure IoT MQ and Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md). |
+| username | No | Used only for Event Hubs Kafka connector, see [Send and receive messages between MQTT broker and Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md). |
 
 The type of secret you're using determines which of the following fields you can use:
 

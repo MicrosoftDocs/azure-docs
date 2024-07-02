@@ -88,4 +88,4 @@ Follow the steps in [Quickstart: Run Azure IoT Operations Preview in Github Code
 Once IoT Operations is deployed, you can try the following quickstarts. The Azure IoT Operations in your level 3 cluster works as described in the quickstarts.
 
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](../get-started-end-to-end-sample/quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
