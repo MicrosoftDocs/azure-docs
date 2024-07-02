@@ -212,7 +212,7 @@ In the portal, click on the **Promote** icon, and follow the instructions in the
 
 Execute the Azure CLI command to initiate the promotion. The **Force** property is optional, and defaults to **false**.
 
-```cli
+```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2023-01-01-preview --body "{'properties': {'PrimaryLocation': '<newPrimaryocation>', 'api-version':'2023-01-01-preview', 'Force':'false'}}"
 ```
 
