@@ -311,7 +311,9 @@
     - name: Build interactive reports with Azure Monitor workbooks
       displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
       href: custom-dashboards-azure-workbooks.md
-      items: null
+    - name: Assign access to workload owners
+      displayName: assign access, aws, gcp, connector, permissions, identity, security
+      href: assign-access-to-workload.md
     - name: Cloud security posture
       items:
         - name: Review cloud security posture

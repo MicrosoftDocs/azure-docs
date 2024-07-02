@@ -53,6 +53,16 @@ In AWS, you can choose between on-demand compute (more expensive but no eviction
 > [!div class="nextstepaction"]
 > [Refactor application code for AKS][eks-edw-refactor]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+- Ken Kilty | Principal TPM
+- Russell de Pina | Principal TPM
+- Jenny Hayes | Senior Content Developer
+- Carol Smith | Senior Content Developer
+- Erin Schaffer | Content Developer 2
+
 <!-- LINKS -->
 [competing-consumers]: /azure/architecture/patterns/competing-consumers
 [kubernetes]: https://kubernetes.io/
