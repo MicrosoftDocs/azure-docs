@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 06/24/2024
+ms.date: 07/02/2024
 ms.topic: how-to
 ---
 
@@ -105,6 +105,9 @@ The **Service menu behavior** section lets you choose how items in [service menu
 
 - **Collapsed**: Groups of commands in service menus will appear collapsed. You can still manually select any top-level item to display the commands within that menu group.
 - **Expanded**: Groups of commands in service menus will appear expanded. You can still manually select any top-level item to collapse that menu group.
+
+> [!NOTE]
+> We're in the process of rolling out the **Service menu behavior** settings option to all customers. If you don't see this section, check back soon. We'll remove this note after all customers have this option in their portal settings.
 
 ### Choose a theme or enable high contrast
 
