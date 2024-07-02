@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan.
 ms.topic: overview
-ms.date: 06/20/2024
+ms.date: 06/26/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,12 +25,13 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [General Availability of Checkov IaC Scanning in Defender for Cloud](#general-availability-of-checkov-iac-scanning-in-defender-for-cloud) | June 24, 2024 | July 2024 |
 | [Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation](#reminder-of-the-deprecation-scope-of-adaptive-recommendations-as-of-mma-deprecation) | June 20, 2024 | August 2024 |
 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
 | [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
-| [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
-| [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
-| [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | May 2024 |
+| [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | August 2024 |
+| [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | July 2024 |
+| [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | July 2024 |
 | [Deprecation of fileless attack alerts](#deprecation-of-fileless-attack-alerts) | April 18, 2024 | May 2024 |
 | [Change in CIEM assessment IDs](#change-in-ciem-assessment-ids) | April 16.2024 | May 2024 |
 | [Deprecation of encryption recommendation](#deprecation-of-encryption-recommendation) | April 3, 2024 | May 2024 |
@@ -38,7 +39,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
 | [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
-| [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
@@ -48,6 +48,19 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## General Availability of Checkov IaC Scanning in Defender for Cloud
+
+**Announcement date: June 24, 2024**
+
+**Estimated date for change: July 2024**
+
+The Checkov integration for infrasturcture-as-code (IaC) scanning through [MSDO](azure-devops-extension.yml) will be released for General Availability (GA) in July 2024. As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
+
+Security findings from Checkov will be represented as recommendations for both Azure DevOps and GitHub repositories under the assessments: "Azure DevOps repositories should have infrastructure as code findings resolved" and "GitHub repositories should have infrastructure as code findings resolved." 
+
+To learn more about DevOps security in Defender for Cloud, see the [DevOps Security Overview](defender-for-devops-introduction.md).
+To learn how to manually configure Checkov in MSDO today, see the [Azure DevOps](azure-devops-extension.yml) or [GitHub](github-action.md) documentation.
 
 ## Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation
 
@@ -107,19 +120,19 @@ Will be applied to the following recommendations:
 
 **Announcement date: May 1, 2024**
 
-**Estimated date for change: June 2024**
+**Estimated date for change: August 2024**
 
 As part of the [MMA deprecation and the Defender for Servers updated deployment strategy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), all Defender for Servers security features will be provided via a single agent (MDE), or via agentless scanning capabilities, and without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA).
 
 The new version of File Integrity Monitoring (FIM) over Microsoft Defender for Endpoint (MDE) allows you to meet compliance by monitoring critical files and registries in real-time, auditing changes, and detecting suspicious file content alterations.
 
-As part of this release, FIM experience over AMA will no longer be available through the Defender for Cloud portal beginning May 30th. For more information, see [File Integrity Monitoring experience - changes and migration guidance](prepare-deprecation-log-analytics-mma-agent.md#file-integrity-monitoring-experience---changes-and-migration-guidance).
+As part of this release, FIM experience over AMA will no longer be available through the Defender for Cloud portal beginning August 2024. For more information, see [File Integrity Monitoring experience - changes and migration guidance](prepare-deprecation-log-analytics-mma-agent.md#file-integrity-monitoring-experience---changes-and-migration-guidance).
 
 ## Deprecation of system update recommendations
 
 **Announcement date: May 1, 2024**
 
-**Estimated date for change: May 2024**
+**Estimated date for change: July 2024**
 
 As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), the following recommendations that rely on those agents are set for deprecation:
 
@@ -132,7 +145,7 @@ The new recommendations based on Azure Update Manager integration [are Generally
 
 **Announcement date: May 1, 2024**
 
-**Estimated date for change: May 2024**
+**Estimated date for change: July 2024**
 
 As part of the [MMA deprecation and the Defender for Servers updated deployment strategy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), all Defender for Servers security features will be provided via a single agent (MDE), or via agentless scanning capabilities, and without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA).
 
@@ -145,8 +158,6 @@ As part of this, and in a goal to reduce complexity, the following recommendatio
 | Auto provisioning of the Log Analytics agent should be enabled on subscriptions | MMA enablement      |
 | Log Analytics agent should be installed on virtual machines  | MMA enablement      |
 | Log Analytics agent should be installed on Linux-based Azure Arc-enabled machines | MMA enablement      |
-| Guest Configuration extension should be installed on machines | GC  enablement      |
-| Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity | GC  enablement      |
 | Adaptive application controls for defining safe applications should be enabled on your machines | AAC                 |
 | Adaptive application controls for defining safe applications should be enabled on your machines | AAC  |
 
@@ -275,14 +286,6 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | March 2024 |
 
 Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
-
-## Change in pricing for multicloud container threat detection
-
-**Announcement date: January 30, 2024**
-
-**Estimated date for change: April 2024**
-
-When [multicloud container threat detection](support-matrix-defender-for-containers.md) moves to GA, it will no longer be free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Enforcement of Defender CSPM for Premium DevOps Security Value
 

@@ -71,6 +71,7 @@ To achieve the optimal performance promised by this feature, certain conditions 
 
  - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
  - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the [custom maintenance window](how-to-maintenance-portal.md#specify-maintenance-schedule-options) feature to schedule maintenance during off-peak hours.
+ - **Downtime Guarantees：** While we strive to keep the maintenance downtime as low as possible, we do not guarantee that it will always be less than 60 seconds in all circumstances. Various factors, such as high workload or specific server configurations, can lead to longer downtime. In the worst-case scenario, downtime might be similar to that of a standalone server.
 
 ## Maintenance reschedule (Public preview)
 

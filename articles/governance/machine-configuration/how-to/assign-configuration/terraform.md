@@ -77,4 +77,4 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 <!-- Link reference definitions -->
 [01]: https://www.terraform.io/
 [02]: /azure/developer/terraform/get-started-windows-powershell
-[03]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_configuration_policy_assignment
+[03]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_virtual_machine_configuration_assignment

@@ -110,7 +110,7 @@ dependencies {
         public static void main(String[] args) {
             String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");;
             String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
-            String deploymentOrModelId = "gpt-35-turbo";
+            String deploymentOrModelId = "gpt-35-turbo"; //Change to match your deployment name
     
           OpenAIClient client = new OpenAIClientBuilder()
                 .endpoint(endpoint)

@@ -1839,7 +1839,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | privateLinkScopes / privateEndpointConnections | No | No |
 > | privateLinkScopes / scopedResources | No | No |
 > | rollbackToLegacyPricingModel | No | No |
-> | scheduledqueryrules | Yes | Yes |
+> | scheduledqueryrules | Yes | No |
 > | scheduledqueryrules / networkSecurityPerimeterAssociationProxies | No | No |
 > | scheduledqueryrules / networkSecurityPerimeterConfigurations | No | No |
 > | topology | No | No |
@@ -2013,10 +2013,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | registries / models / versions | No | No |
 > | virtualclusters | Yes | Yes |
 > | workspaces | Yes | Yes |
-> | workspaces / batchEndpoints | Yes | No |
+> | workspaces / batchEndpoints | Yes | Yes |
 > | workspaces / batchEndpoints / deployments | Yes | Yes |
-> | workspaces / batchEndpoints / deployments / jobs | No | No |
-> | workspaces / batchEndpoints / jobs | No | No |
+> | workspaces / batchEndpoints / deployments / jobs | No | Yes |
+> | workspaces / batchEndpoints / jobs | No | Yes |
 > | workspaces / codes | No | No |
 > | workspaces / codes / versions | No | No |
 > | workspaces / components | No | No |
@@ -2038,9 +2038,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / onlineEndpoints / deployments | Yes | Yes |
 > | workspaces / schedules | No | No |
 > | workspaces / services | No | No |
-
-> [!NOTE]
-> Workspace tags don't propagate to compute clusters and compute instances. It is not supported with tracking cost at cluster/batch endpoint level.
 
 ## Microsoft.Maintenance
 
@@ -3440,4 +3437,3 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Next steps
 
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
-
