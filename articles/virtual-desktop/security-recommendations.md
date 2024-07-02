@@ -72,7 +72,7 @@ The following table summarizes our recommendations for each scenario.
 
 | Trust level scenario                                 | Recommended solution                |
 |------------------------------------------------------|-------------------------------------|
-| Users from one organization with standard privileges | Use a Windows Enterprise multi-session OS. |
+| Users from one organization with standard privileges | Use a Windows Enterprise multi-session operating system (OS). |
 | Users require administrative privileges             | Use a personal host pool and assign each user their own session host.         |
 | Users from different organizations connecting        | Separate Azure tenant and Azure subscription         |
 
@@ -190,17 +190,14 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Trusted launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+Trusted launch are Azure VMs with enhanced security features aimed to protect against persistent attack techniques such as bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. It allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers, and also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
-Trusted launch protects against advanced and persistent attack techniques. This feature also allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers. Trusted launch also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
-
-When you add session hosts using the Azure portal, the security type automatically changes to **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
+When you add session hosts using the Azure portal, the default security type is **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
 
 ## Azure confidential computing virtual machines
 
 Azure Virtual Desktop support for [Azure confidential computing](../confidential-computing/overview.md) virtual machines ensures a user's virtual desktop is encrypted in memory, protected in use, and backed by a hardware root of trust. Deploying confidential virtual machines with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS.
-
-These virtual machines are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure confidential computing overview](../confidential-computing/overview.md).
+Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the CPU that can't be read from software. For more information, see the [Azure confidential computing overview](../confidential-computing/overview.md).
 
 The following operating systems are supported for use as session hosts with confidential virtual machines on Azure Virtual Desktop, for versions that are in active support. For support dates, see [Microsoft Lifecycle Policy](/lifecycle/).
 
@@ -213,9 +210,9 @@ The following operating systems are supported for use as session hosts with conf
 
 You can create session hosts using confidential virtual machines when you [deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
 
-## OS disk encryption
+## Operating system disk encryption
 
-Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the Confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration). You can enable confidential compute encryption when you create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
+Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration). You can enable confidential compute encryption when you create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 ## Secure Boot
 
