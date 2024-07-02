@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/21/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---

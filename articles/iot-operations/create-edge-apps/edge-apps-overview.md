@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ---

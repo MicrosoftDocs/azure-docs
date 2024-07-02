@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 04/22/2024
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---

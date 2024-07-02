@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: reference
-ms.date: 12/12/2023
+ms.date: 07/02/2024
 
 # CustomerIntent: As an operator, I want to understand what MQTT specifications are supported by MQTT broker so that I can configure my MQTT client to connect to MQTT broker.
 ---

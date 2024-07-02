@@ -488,7 +488,7 @@ batching:
   maxBytes: 1024
 ```
 
-This means that messages are sent either when there are 100 messages in the buffer, or when there are 1024 bytes in the buffer, or when 1000 milliseconds elapses since the last send, whichever comes first.
+This means that messages are sent either when there are 100 messages in the buffer, or when there are 1,024 bytes in the buffer, or when 1,000 milliseconds elapses since the last send, whichever comes first.
 
 ### Partition handling strategy
 

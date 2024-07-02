@@ -6,7 +6,7 @@ ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
-ms.date: 1/31/2024
+ms.date: 07/02/2024
 ---
 
 # Deploy Dapr pluggable components

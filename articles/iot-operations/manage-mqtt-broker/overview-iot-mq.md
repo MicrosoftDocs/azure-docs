@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use MQTT broker to publish and subscribe MQTT topics.
 ---

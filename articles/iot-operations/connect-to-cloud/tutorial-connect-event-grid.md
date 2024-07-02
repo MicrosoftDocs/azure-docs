@@ -6,7 +6,7 @@ ms.subservice: azure-mqtt-broker
 ms.custom: devx-track-azurecli
 ms.author: patricka
 ms.topic: tutorial
-ms.date: 04/22/2024
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
@@ -19,7 +19,7 @@ In this tutorial, you learn how to configure IoT MQ for bi-directional MQTT brid
 
 ## Prerequisites
 
-* [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 
 ## Set environment variables
 

@@ -225,7 +225,7 @@ The `tls` field defines the TLS configuration for the remote or local broker con
 TLS encryption support is available for both remote and local broker connections.
 
 - For remote broker connection: if TLS is enabled, a trusted CA certificate should be specified as a Kubernetes *ConfigMap* reference. If not, the TLS handshake is likely to fail unless the remote endpoint is widely trusted A trusted CA certificate is already in the OS certificate store. For example, Event Grid uses widely trusted CA root so specifying isn't required.
-- For local (MQTT broker) broker connection: if TLS is enabled for MQTT broker broker listener, CA certificate that issued the listener server certificate should be specified as a Kubernetes *ConfigMap* reference.
+- For local (MQTT broker) broker connection: if TLS is enabled for MQTT broker's broker listener, CA certificate that issued the listener server certificate should be specified as a Kubernetes *ConfigMap* reference.
 
 When specifying a trusted CA is required, create a *ConfigMap* containing the public potion of the CA and specify the configmap name in the `trustedCaCertificateConfigMap` property. For example:
 
@@ -376,7 +376,7 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge MQTT broker with [Azure Event Grid's MQTT broker feature](../../event-grid/mqtt-overview.md).
 
-For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between MQTT broker Preview and Azure Event Grid](tutorial-connect-event-grid.md).
+For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between MQTT broker and Azure Event Grid](tutorial-connect-event-grid.md).
 
 ### Connect to Event Grid MQTT broker with managed identity
 
@@ -405,7 +405,7 @@ If `bridgeInstances` is set higher than `1`, configure the Event Grid MQTT broke
 
 If using managed identity isn't possible, keep the per-connection limits for Event Grid MQTT broker in mind when designing your setup. At the time of publishing, the limit is 100 messages/second each direction for a connection. To increase the MQTT bridge throughput, use shared subscriptions to increase the number of clients serving each route.
 
-## Bridge from another broker to MQTT broker Preview
+## Bridge from another broker to MQTT broker
 
 MQTT broker is a compliant MQTT broker and other brokers can bridge to it with the appropriate authentication and authorization credentials. For example, see MQTT bridge documentation for [HiveMQ](https://www.hivemq.com/docs/bridge/4.8/enterprise-bridge-extension/bridge-extension.html), [VerneMQ](https://docs.vernemq.com/configuring-vernemq/bridge), [EMQX](https://docs.emqx.com/en/enterprise/latest/data-integration/data-bridge-mqtt.html), and [Mosquitto](https://mosquitto.org/man/mosquitto-conf-5.html).
 

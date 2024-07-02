@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 05/06/2024
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure MQTT broker so that I can send data from MQTT broker to Data Lake Storage.
 ---
@@ -16,7 +16,7 @@ ms.date: 05/06/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use the data lake connector to send data from MQTT broker Preview broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2), Microsoft Fabric OneLake, and Azure Data Explorer. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
+You can use the data lake connector to send data from MQTT broker to a data lake, like Azure Data Lake Storage Gen2 (ADLSv2), Microsoft Fabric OneLake, and Azure Data Explorer. The connector subscribes to MQTT topics and ingests the messages into Delta tables in the Data Lake Storage account.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ You can use the data lake connector to send data from MQTT broker Preview broker
     - Azure Data Explorer cluster:
       - Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=full).
 
-- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+- An IoT MQ MQTT broker. For more information on how to deploy an IoT MQ MQTT broker, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 ## Configure to send data to Microsoft Fabric OneLake using managed identity
 

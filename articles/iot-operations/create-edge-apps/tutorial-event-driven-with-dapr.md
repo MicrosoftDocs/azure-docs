@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 11/13/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
@@ -29,7 +29,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 * IoT MQ Dapr components installed - [Install IoT MQ Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
