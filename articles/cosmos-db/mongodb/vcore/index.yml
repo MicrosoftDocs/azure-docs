@@ -56,10 +56,8 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
-            - linkListType: concept
-              links:
-              - text: Monitor diagnostics logs
-                url: how-to-monitor-diagnostics-logs.md
+          - text: Monitor diagnostics logs
+            url: how-to-monitor-diagnostics-logs.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
@@ -96,3 +94,7 @@ landingContent:
         links:
           - text: AI-Enhanced Advertisement Generation
             url: ai-advertisement-generation.md
+      - linkListType: sample
+        links:
+          - text: RAG application with Langchain
+            url: rag-food-app.md
