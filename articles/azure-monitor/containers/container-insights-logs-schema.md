@@ -30,7 +30,7 @@ The following table highlights the key differences between using ContainerLogV2 
 | Querying | Requires multiple join operations with inventory tables for standard queries. | Includes additional pod and container metadata to reduce query complexity and join operations. |
 | Multiline | Not supported, multiline entries are split into multiple rows. | Support for multiline logging to allow consolidated, single entries for multiline output. |
 
-<sup>1</sup> If `LogMessage` is valid JSON and has a key named `level`, its value will be used. Otherwise, regex based keyword matching is used to infer `LogLevel` from `LogMessage`. This inference may results in some misclassifications.
+<sup>1</sup> If `LogMessage` is valid JSON and has a key named `level`, its value will be used. Otherwise, regex based keyword matching is used to infer `LogLevel` from `LogMessage`. This inference may results in some misclassifications. `LogLevel` is a string field with a health value such as `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`, `TRACE`, or `UNKNOWN`.
 
 <sup>2</sup> `KubernetesMetadata` is an optional column that is enabled with [Kubernetes metadata](). The value of this field is JSON with the fields `podLabels`, `podAnnotations`, `podUid`, `Image`, `ImageTag`, and `Image repo`.
 
@@ -38,6 +38,7 @@ The following table highlights the key differences between using ContainerLogV2 
 
 >[!NOTE]
 > [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming `LogMessage` is not valid JSON. For best performance, emit container logs in JSON format.
+
 
 ## Enable the ContainerLogV2 schema
 Enable the **ContainerLogV2** schema for a cluster either using the cluster's [Data Collection Rule (DCR)](./container-insights-data-collection-configure.md#configure-data-collection-using-dcr) or [ConfigMap](./container-insights-data-collection-configure.md#configure-data-collection-using-configmap). If both settings are enabled, the ConfigMap takes precedence. The `ContainerLog` table is used only when both the DCR and ConfigMap are explicitly set to off.
@@ -83,11 +84,6 @@ The following screenshots show multi-line logging for Go exception stack trace:
 **Python stack trace**
 
 :::image type="content" source="./media/container-insights-logging-v2/multi-line-enabled-python.png" lightbox="./media/container-insights-logging-v2/multi-line-enabled-python.png" alt-text="Screenshot that shows Multi-line enabled for Python.":::
-
-
-
-- **Enhanced ContainerLogV2 schema with log level:** Users can now assess application health based on color coded severity levels such as CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE, or UNKNOWN. It’s a crucial tool for incident response and proactive monitoring. By visually distinguishing severity levels, users can quickly pinpoint affected resources. The color-coded system streamlines the investigation process and allows users to drill down even further by selecting the panel for an explore experience for further debugging. However, it’s important to note that this functionality is only applicable when using Grafana. If you’re using Log Analytics Workspace, the LogLevel is simply another column in the ContainerLogV2 table.
-
 
 
 

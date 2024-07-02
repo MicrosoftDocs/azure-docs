@@ -27,19 +27,108 @@ Select the option to open the query in Log Analytics where you can perform more 
 
 
 
+
 ## Filtering options
 Once you've analyzed your collected data and determined if there's any data that you're collecting that you don't require, use the guidance in [Configure and filter log collection in Container insights](./container-insights-data-collection-configure.md) to filter any data that you don't want to collect. This includes selecting from a set of predefined cost configurations and filtering out specific namespaces that you don't require.
 
+### Filter tables
+
+- DCR
+  - Cost presets
+  - Streams
+
+### Filter by namespace
+
+- DCR
+- ConfigMap
+
+### Annotation filtering
+
+- ConfigMap
+
 ## Transformations
-[Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. Add a transformation to the DCR created by Container insights to perform any additional filtering that you cannot perform with the standard options. This includes filtering data using more detailed logic, removing columns in the data that you don't require, or even sending data to multiple tables. 
+[Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. Add a transformation to the Container insights DCR to perform any additional filtering that you cannot perform with the standard options. This includes filtering data using more detailed logic, removing columns in the data that you don't require, or even sending data to multiple tables. 
+
+For example, you may want to use a transformation to filter on the `LogLevel` column of the `ContainerLogV2` table to only include `ERROR` or `CRITICAL` log entries. These are the entries that you use for alerting and identifying issues in the cluster. Collecting and storing other levels such as `INFO` and `DEBUG` generate cost without significant value.
+
+You can filter out these records using the following log query in the transformation. The table name `source` is used here since this represents the incoming stream in the DCR.
+
+```kusto
+source | where LogLevel in ('ERROR', 'CRITICAL')
+```
+
+:::image type="content" source="media/container-insights-cost/transformation-sample.png" lightbox="media/container-insights-cost/transformation-sample.png" alt-text="Diagram that shows filtering container logs using a transformation.":::
+
+The following sample shows this transformation added to the Container insights DCR.
+
+```kusto
+{
+    "properties": {
+        "location": "eastus2",
+        "kind": "Linux",
+        "dataSources": {
+            "syslog": [],
+            "extensions": [
+                {
+                    "streams": [
+                        "Microsoft-ContainerLogV2",
+                        "Microsoft-KubeEvents",
+                        "Microsoft-KubePodInventory"
+                    ],
+                    "extensionName": "ContainerInsights",
+                    "extensionSettings": {
+                        "dataCollectionSettings": {
+                            "interval": "1m",
+                            "namespaceFilteringMode": "Off",
+                            "enableContainerLogV2": true
+                        }
+                    },
+                    "name": "ContainerInsightsExtension"
+                }
+            ]
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "name": "ciworkspace"
+                }
+            ]
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Microsoft-KubeEvents",
+                    "Microsoft-KubePodInventory"
+                ],
+                "destinations": [
+                    "ciworkspace"
+                ],
+            },
+            {
+                "streams": [
+                    "Microsoft-ContainerLogV2"
+                ],
+                "destinations": [
+                    "ciworkspace"
+                ],
+                "transformKql": "source | where LogLevel in ('ERROR', 'CRITICAL')"
+            }
+        ],
+    },
+}
+```
 
 
-See [Data transformations in Container insights](./container-insights-transformations.md)
 
-## Configure Basic Logs
-[Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you primarily use for debugging, troubleshooting, and auditing. [ContainerLogV2 ](container-insights-logs-schema.md) can be configured for basic logs.
+## Configure Log Analytics workspace tiers
 
+[Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you primarily use for debugging, troubleshooting, and auditing. Tables configured for basic logs offer a significant cost discount for data ingestion in exchange for a cost for log queries. You can reduce your monitoring cost for container logs by configuring [ContainerLogV2](container-insights-logs-schema.md) for basic logs if you query the data infrequently.
 
+If you only use a subset of container logs regularly, you can use a transformation to send data to different tables. In the example above, only records with a `LogLevel` of `ERROR` or `CRITICAL` are collected. An alternate strategy instead of not collecting these records at all is to save them to an alternate table configured for basic logs. 
+
+:::image type="content" source="media/container-insights-cost/transformation-sample-basic-logs.png" lightbox="media/container-insights-cost/transformation-sample-basic-logs.png" alt-text="Diagram that shows filtering container logs using a transformation that sends some data to analytics table and other data to basic logs.":::
 
 
 ## Next steps

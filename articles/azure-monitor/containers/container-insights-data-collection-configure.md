@@ -403,7 +403,7 @@ After a few minutes, the `KubernetesMetadata` column should be included with any
 
 
 ### Install Grafana dashboard
-The Kubernetes Logs Metadata Grafana dashboard displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN and also reports on Log Volume, Log Rate, Log Records, Logs. You can get time-sensitive analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. It also provides a detailed breakdown by computer, pod, and container, which enables in-depth analysis and pinpointed troubleshooting.​ In the new Logs table experience, you can view in depth details and zoom into critical details.
+The Kubernetes Logs Metadata Grafana dashboard displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN and also reports on Log Volume, Log Rate, Log Records, Logs. You can get time-sensitive analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. It also provides a detailed breakdown by computer, pod, and container, which enables in-depth analysis and pinpointed troubleshooting.​ By visually distinguishing severity levels, you can quickly pinpoint affected resources, view in depth details, and zoom into critical details. 
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=15c1c297-9e96-47bf-a31e-76056d026bd1]
 
