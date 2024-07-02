@@ -13,7 +13,9 @@ ai-usage: ai-assisted
 
 Microsoft Defender for Cloud's integration with Defender External Attack Surface Management (EASM) allows organizations to improve their security posture while reducing the potential risk of being attacked by exploring their external attack surface.
 
-Security teams can utilize the cloud security explorer and the attack path analysis, to understand the potential attack paths that an attacker could use to reach their critical assets. The cloud security explorer allows you to build queries that can proactively hunt for security risks in your environments. while the attack path analysis provides a visual representation of the attack paths that an attacker could use to reach your critical assets.
+Security teams can use the cloud security explorer to build queries and proactively hunt for security risks in their environments. Additionally, they can use the attack path analysis to visualize the potential attack paths that an attacker could use to reach their critical assets. 
+
+The cloud security explorer allows you to build queries that can proactively hunt for security risks in your environments. While the attack path analysis provides a visual representation of the attack paths that an attacker could use to reach your critical assets.
 
 ## Prerequisites
 
