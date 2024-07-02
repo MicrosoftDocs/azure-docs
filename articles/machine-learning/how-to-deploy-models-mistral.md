@@ -66,7 +66,7 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
 - An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
-    > The pay-as-you-go model deployment offering for eligible models in the Mistral family is only available in workspaces created in the **East US 2** and **Sweden Central** regions. For _Mistral Large_, the pay-as-you-go offering is also available in the **France Central** region.
+    > The pay-as-you-go model deployment offering for eligible models in the Mistral family is only available in workspaces created in the **East US 2** and **Sweden Central** regions.
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -77,7 +77,7 @@ The following steps demonstrate the deployment of Mistral Large, but you can use
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2**, **Sweden Central**, or **France Central** region.
+1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. Choose the model (Mistral-large) that you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
