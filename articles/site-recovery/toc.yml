@@ -102,7 +102,7 @@
     - name: Move Azure VMs between Government & Public regions
       href: region-move-cross-geos.md
     - name: Move a vault to a different region
-      href: move-vaults-across-regions.md      
+      href: ../operational-excellence/relocation-site-recovery.md?toc=/azure/site-recovery/toc.json
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
