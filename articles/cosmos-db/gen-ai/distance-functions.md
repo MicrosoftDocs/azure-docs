@@ -29,6 +29,7 @@ Cosine similarity measures the cosine of the angle between two vectors projected
 Two vectors are multiplied to return a single number. It combines the two vectors' magnitudes, as well as the cosine of the angle between them, showing how much one vector goes in the direction of another.
 
 ## Related content
+- [VectorDistance system function](../nosql/query/vectordistance.md) in Azure Cosmos DB NoSQL
 - [What is a vector database?](../vector-database.md)
 - [Vector database in Azure Cosmos DB NoSQL](../nosql/vector-search.md)
 - [Vector database in Azure Cosmos DB for MongoDB](../mongodb/vcore/vector-search.md)
