@@ -1,5 +1,5 @@
 ---
-title: AI agents
+title: AI agent
 description: Learn about key concepts for agents and step through the implementation of an AI agent memory system.
 author: wmwxwa
 ms.author: wangwilliam
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 06/26/2024
 ---
 
-# AI agents
+# AI agent
 
 AI agents are designed to perform specific tasks, answer questions, and automate processes for users. These agents vary widely in complexity. They range from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can run complex workflows autonomously.
 
 This article provides conceptual overviews and detailed implementation samples for AI agents.
 
-## Features and types of AI agents
+## What are AI agents?
 
 Unlike standalone large language models (LLMs) or rule-based software/hardware systems, AI agents have these common features:
 
@@ -71,19 +71,19 @@ A multi-agent system provides the following advantages over a copilot or a singl
 
 Complex reasoning and planning are the hallmark of advanced autonomous agents. Popular frameworks for autonomous agents incorporate one or more of the following methodologies (with links to arXiv archive pages) for reasoning and planning:
 
-- [Self-ask](https://arxiv.org/abs/2210.03350)
+- [Self-Ask](https://arxiv.org/abs/2210.03350)
 
   Improve on chain of thought by having the model explicitly ask itself (and answer) follow-up questions before answering the initial question.
 
-- [Reason and act](https://arxiv.org/abs/2210.03629)
+- [Reason and Act (ReAct)](https://arxiv.org/abs/2210.03629)
 
   Use LLMs to generate both reasoning traces and task-specific actions in an interleaved manner. Reasoning traces help the model induce, track, and update action plans, along with handling exceptions. Actions allow the model to connect with external sources, such as knowledge bases or environments, to gather additional information.
 
-- [Plan and solve](https://arxiv.org/abs/2305.04091)
+- [Plan and Solve](https://arxiv.org/abs/2305.04091)
 
   Devise a plan to divide the entire task into smaller subtasks, and then carry out the subtasks according to the plan. This approach mitigates the calculation errors, missing-step errors, and semantic misunderstanding errors that are often present in zero-shot chain-of-thought prompting.
 
-- [Reflect and self-critique](https://arxiv.org/abs/2303.11366)
+- [Reflect/Self-critique](https://arxiv.org/abs/2303.11366)
 
   Use *reflexion* agents that verbally reflect on task feedback signals. These agents maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials.
 
@@ -98,7 +98,7 @@ For advanced and autonomous planning and execution workflows, [AutoGen](https://
 > [!TIP]
 > The [implementation sample](#implementation-sample) later in this article shows how to build a simple multi-agent system by using one of the popular frameworks and a unified agent memory system.
 
-### Memory system for AI agents
+### AI agent memory system
 
 The prevalent practice for experimenting with AI-enhanced applications from 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, you can use an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a [pure vector database](vector-database.md#integrated-vector-database-vs-pure-vector-database) for embedding management.
 
@@ -134,7 +134,7 @@ Currently, LLM-powered applications often use [retrieval-augmented generation](v
 
 For example, if the task is to write code, vector search might not be able to retrieve the syntax tree, file system layout, code summaries, or API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, vector search might not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
-Weaving together a web of standalone in-memory, relational, and vector databases (as described [earlier](#memory-system-for-ai-agents)) is not an optimal solution for the varied data types. This approach might work for prototypical agent systems. However, it adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+Weaving together a web of standalone in-memory, relational, and vector databases (as described [earlier](#ai-agent-memory-system)) is not an optimal solution for the varied data types. This approach might work for prototypical agent systems. However, it adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 A robust memory system should have the following characteristics.
 
@@ -162,7 +162,7 @@ At the same time, the memory system must allow agents to preserve their own pers
 
 ## Building a robust AI agent memory system
 
-The preceding characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together disparate in-memory, relational, and vector databases (as described [earlier](#memory-system-for-ai-agents)) might work for early-stage AI-enabled applications. However, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+The preceding characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together disparate in-memory, relational, and vector databases (as described [earlier](#ai-agent-memory-system)) might work for early-stage AI-enabled applications. However, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 In place of all the standalone databases, Azure Cosmos DB can serve as a unified solution for AI agent memory systems. Its robustness successfully [enabled OpenAI's ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it's the world's first globally distributed [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service that offers a serverless mode. AI agents built on top of Azure Cosmos DB offer speed, scale, and simplicity.
 
