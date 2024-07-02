@@ -72,9 +72,7 @@ Turning on resource logs and sending them to Azure Monitor logs is highly recomm
 
 [!INCLUDE [resource-logs](./includes/resource-logs.md)]
 
-## Resource logs schema
-
-[!INCLUDE [resource-logs-schema](./includes/resource-logs-schema.md)]
+All logs are stored in JSON format. To learn about the schema for resource logs, see [Resource logs schema](monitor-azure-stream-analytics-reference.md#resource-logs-schema).
 
 ## Next steps
 

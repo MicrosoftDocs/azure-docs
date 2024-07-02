@@ -57,7 +57,9 @@ The following table lists the metrics available for the Microsoft.StreamAnalytic
 ### Supported resource logs for Microsoft.StreamAnalytics/streamingjobs
 [!INCLUDE [microsoft-streamanalytics-streamingjobs-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-streamanalytics-streamingjobs-logs-include.md)]
 
-For the resource logs schema and properties for data errors and events, see [Resource logs schema](stream-analytics-job-diagnostic-logs.md#resource-logs-schema).
+### Resource logs schema
+
+[!INCLUDE [resource-logs-schema](./includes/resource-logs-schema.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
