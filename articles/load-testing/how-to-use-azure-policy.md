@@ -64,14 +64,14 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
     ![Screenshot that shows the Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network policy.](media/how-to-use-azure-policy/select-policy.png)
   
 1. Select the subscription where you want the policy to be applied.
-   
-	    You can choose to restrict the scope to only a single resource group within a subscription.
-	    
-	    If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list.
-	    
-	    Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 
-    ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
+	- You can choose to restrict the scope to only a single resource group within a subscription.
+	    
+	- If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list.
+	    
+	- Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
+
+![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
 
 1. To specify the policy effect, select the parameters tab at the top of the screen.
 	
