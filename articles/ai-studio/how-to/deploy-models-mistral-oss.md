@@ -46,7 +46,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x7B-Instruct](#tab/mistral-7b-instruct)
+# [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
@@ -87,17 +87,21 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+### Deploy the model
 
-    * Python 3.8 or later installed, including pip.
-    * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-    * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+### Install the inference package
+
+Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+
+* Python 3.8 or later installed, including pip.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
   
-      To install the Azure AI Inferencing package use the following command:
+To install the Azure AI Inferencing package use the following command:
 
-      ```bash
-      pip install azure-ai-inference
-      ```
+```bash
+pip install azure-ai-inference
+```
 
 
 
@@ -331,7 +335,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x7B-Instruct](#tab/mistral-7b-instruct)
+# [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
@@ -372,17 +376,21 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-1. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+### Deploy the model
 
-  * LTS versions of `Node.js` with `npm`.
-  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+### Install the inference package
 
-    Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
 
-    ```bash
-    npm install @azure-rest/ai-inference
-    ```
+* LTS versions of `Node.js` with `npm`.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+```bash
+npm install @azure-rest/ai-inference
+```
 
 
 
@@ -638,7 +646,7 @@ The following models are available:
 
 
 
-# [Mixtral-8x7B-Instruct](#tab/mistral-7b-instruct)
+# [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
@@ -679,7 +687,11 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+### Deploy the model
+
+### Use the Azure AI model inference API
+
+Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
 * To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
@@ -954,6 +966,21 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ::: zone-end
+
+## More inference examples
+
+| **Sample Type**       | **Sample Notebook**                             |
+|---------------=======-|----------------------------------------|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
+| LangChain             | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
+| Mistral AI            | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
+| LiteLLM               | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) | 
+
+
+
+
+## Cost and quotas
 
 ## Additional resources
 

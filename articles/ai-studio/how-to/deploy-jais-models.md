@@ -1,286 +1,809 @@
 ---
-title: How to deploy JAIS models with Azure AI Studio
-titleSuffix: Azure AI Studio
-description: Learn how to deploy JAIS models with Azure AI Studio.
-manager: scottpolly
+title: How to use Jais family of language models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Jais family of small language models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
-ms.reviewer: haelhamm
-ms.author: ssalgado
-author: ssalgadodev
+ms.date: 07/02/2024
+ms.reviewer: kritifaujdar
+reviewer: fkriti
+ms.author: mopeakande
+author: msakande
 ms.custom: references_regions, build-2024
+zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to deploy JAIS with Azure AI Studio
+# How to use Jais family of language models with Azure AI studio
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
-
-In this article, you learn how to use Azure AI Studio to deploy the JAIS model as serverless APIs with pay-as-you-go token-based billing.
-
-The JAIS model is available in [Azure AI Studio](https://ai.azure.com) with pay-as-you-go token based billing with Models as a Service. 
-
-You can find the JAIS model in the [Model Catalog](model-catalog.md) by filtering on the JAIS collection.
-
-### Prerequisites
-
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions will not work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for JAIS is only available with hubs created in these regions:
-
-     * East US
-     * East US 2
-     * North Central US
-     * South Central US
-     * West US
-     * West US 3
-     * Sweden Central
-
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
-- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
-
-
-### JAIS 30b Chat
+In this guide, you will learn about Jais models and how to use them with Azure AI studio.
 
 JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
 
-*Context length:* JAIS supports a context length of 8K.
-
-*Input:* Model input is text only.
-
-*Output:* Model generates text only.
-
-## Deploy as a serverless API
+* **Context length:** JAIS supports a context length of 8K.
+* **Input:** Model input is text only.
+* **Output:** Model generates text only.
 
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
-
-The previously mentioned JAIS 30b Chat model can be deployed as a service with pay-as-you-go billing and is offered by Core42 through the Microsoft Azure Marketplace. Core42 can change or update the terms of use and pricing of this model.
 
 
-### Create a new deployment
 
-To create a deployment:
+::: zone pivot="programming-language-python"
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the left sidebar.
-1. Search for *JAIS* and select the model _Jais-30b-chat_.
+## Prerequisites
 
-    :::image type="content" source="../media/deploy-monitor/jais/jais-search.png" alt-text="A screenshot showing a model in the model catalog." lightbox="../media/deploy-monitor/jais/jais-search.png":::
+To use Jais models with Azure AI studio, you need the following prerequisites:
 
-2.  Select **Deploy** to open a serverless API deployment window for the model.
 
-    :::image type="content" source="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/jais/jais-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the model your project must be in the East US 2 or Sweden Central region.
-1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
+### Deploy the model
 
-    :::image type="content" source="../media/deploy-monitor/jais/jais-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/jais/jais-marketplace-terms.png":::
+Jais models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
 
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
-    :::image type="content" source="../media/deploy-monitor/jais/jais-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/jais/jais-existing-subscription.png":::
 
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
+### Install the inference package
 
-    :::image type="content" source="../media/deploy-monitor/jais/jais-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/jais/jais-deployment-name.png":::
+Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
-1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#chat-api-reference-for-jais-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
+* Python 3.8 or later installed, including pip.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+  
+To install the Azure AI Inferencing package use the following command:
 
-To learn about billing for the JAIS models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for JAIS models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service)
-
-### Consume the JAIS 30b Chat model as a service
-
-These models can be consumed using the chat API.
-
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
-
-1. Find and select the deployment you created.
-
-1. Copy the **Target** URL and the **Key** value.
-
-For more information on using the APIs, see the [reference](#chat-api-reference-for-jais-deployed-as-a-service) section.
-
-## Chat API reference for JAIS deployed as a service
-
-### v1/chat/completions
-
-#### Request
-```
-    POST /v1/chat/completions HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
+```bash
+pip install azure-ai-inference
 ```
 
-#### v1/chat/completions request schema
-
-JAIS 30b Chat accepts the following parameters for a `v1/chat/completions` response inference call:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `messages` | `array` | `None` | Text input for the model to respond to. |
-| `max_tokens` | `integer` | `None` | The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, generates tokens until end of sequence. |
-| `temperature` | `float` | `0.3` | Controls randomness in the model. Lower values make the model more deterministic and higher values make the model more random. |
-| `top_p` | `float` |`None`|The cumulative probability of parameter highest probability vocabulary tokens to keep for nucleus sampling, defaults to null.|
-| `top_k` | `integer` |`None`|The number of highest probability vocabulary tokens to keep for top-k-filtering, defaults to null.|
 
 
-A System or User Message supports the following properties:
+## Working with chat-completions
 
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=system` or `role=user`. |
-|`content` |`string` |Required |Text input for the model to respond to. |
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
-
-An Assistant Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=assistant`|
-|`content` |`string` |Required |The contents of the assistant message. |
+First, let's create a client to consume the model.
 
 
-#### v1/chat/completions response schema
 
-The response payload is a dictionary with the following fields:
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.core.credentials import AzureKeyCredential
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | A unique identifier for the completion. |
-| `choices` | `array` | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
-| `model` | `string` | The model_id used for completion. |
-| `object` | `string` | chat.completion. |
-| `usage` | `object` | Usage statistics for the completion request. |
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
+)
+```
 
-The `choices` object is a dictionary with the following fields:
+### Model capabilities
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `index` | `integer` | Choice index. |
-| `messages` or `delta` | `string` | Chat completion result in messages object. When streaming mode is used, delta key is used. |
-| `finish_reason` | `string` | The reason the model stopped generating tokens. |
-
-The `usage` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens` | `integer` | Total tokens. |
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
 
 
-#### Examples
 
-##### Arabic
-Request:
+```python
+model.get_model_info()
+```
 
-```json
-    "messages": [
-        {
-        "role": "user",
-        "content": "ما هي الأماكن الشهيرة التي يجب زيارتها في الإمارات؟"
-        }
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "jais-30b-chat",
+    "model_type": "chat-completions",
+    "model_provider_name": "G42"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
+
+```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+)
+```
+
+The response looks as follows, where you can see the model's usage statistics.
+
+
+```python
+print("Response:", response.choices[0].message.content)
+print("Model:", response.model)
+print("Usage:", response.usage)
+```
+
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```python
+result = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    temperature=0,
+    top_p=1,
+    max_tokens=2048,
+)
+```
+
+To visualize the output, let's define a helper function to print the stream.
+
+
+```python
+def print_stream(result):
+    """
+    Prints the chat completion with streaming. Some delay is added to simulate 
+    a real-time conversation.
+    """
+    import time
+    for update in result:
+        print(update.choices[0].delta.content, end="")
+        time.sleep(0.05)
+```
+
+Responses look as follows when using streaming:
+
+
+
+```python
+print_stream(result)
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```python
+from azure.ai.inference.models import ChatCompletionsResponseFormat
+
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    presence_penalty="0.1",
+    frequency_penalty="0.8",
+    max_tokens=2048,
+    stop=["<|endoftext|>"],
+    temperature=0,
+    top_p=1,
+    response_format={ "type": ChatCompletionsResponseFormat.TEXT },
+)
+```
+
+> [!WARNING]
+> Notice that Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```python
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    model_extras={
+        "logprobs": True
+    }
+)
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```python
+from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+
+try:
+    response = model.complete(
+        messages=[
+            SystemMessage(content="You are an AI assistant that helps people find information."),
+            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+        ]
+    )
+
+    print(response.choices[0].message.content)
+
+except HttpResponseError as ex:
+    if ex.status_code == 400:
+        response = json.loads(ex.response._content.decode('utf-8'))
+        if isinstance(response, dict) and "error" in response:
+            print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
+        else:
+            raise ex
+    else:
+        raise ex
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-javascript"
+
+## Prerequisites
+
+To use Jais models with Azure AI studio, you need the following prerequisites:
+
+
+
+### Deploy the model
+
+Jais models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+### Install the inference package
+
+You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+
+* LTS versions of `Node.js` with `npm`.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+```bash
+npm install @azure-rest/ai-inference
+```
+
+
+
+## Working with chat-completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model.
+
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+);
+```
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+```javascript
+await client.path("info").get()
+```
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "jais-30b-chat",
+    "model_type": "chat-completions",
+    "model_provider_name": "G42"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+});
+```
+
+The response looks as follows, where you can see the model's usage statistics.
+
+
+```javascript
+if (isUnexpected(response)) {
+    throw response.body.error;
+}
+
+console.log(response.body.choices[0].message.content);
+console.log(response.body.model);
+console.log(response.body.usage);
+```
+
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+}).asNodeStream();
+```
+
+Responses look as follows when using streaming:
+
+
+
+```javascript
+var stream = response.body;
+if (!stream) {
+    throw new Error("The response stream is undefined");
+}
+
+if (response.status !== "200") {
+    throw new Error(`Failed to get chat completions: ${response.body.error}`);
+}
+
+var sses = createSseStream(stream);
+
+for await (const event of sses) {
+    if (event.data === "[DONE]") {
+        return;
+    }
+    for (const choice of (JSON.parse(event.data)).choices) {
+        console.log(choice.delta?.content ?? "");
+    }
+}
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        presence_penalty = "0.1",
+        frequency_penalty = "0.8",
+        max_tokens = 2048,
+        stop =["<|endoftext|>"],
+        temperature = 0,
+        top_p = 1,
+        response_format = { "type": "text" },
+    }
+});
+```
+
+> [!WARNING]
+> Notice that Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    headers: {
+        "extra-params": "passthrough"
+    },
+    body: {
+        messages: messages,
+        logprobs: true
+    }
+});
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```javascript
+try {
+    var messages = [
+        { role: "system", content: "You are an AI assistant that helps people find information." },
+        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
     ]
-```
 
-Response:
-
-```json
-    {
-        "id": "df23b9f7-e6bd-493f-9437-443c65d428a1",
-        "choices": [
-            {
-                "index": 0,
-                "finish_reason": "stop",
-                "message": {
-                    "role": "assistant",
-                    "content": "هناك العديد من الأماكن المذهلة للزيارة في الإمارات! ومن أشهرها برج خليفة في دبي وهو أطول مبنى في العالم ، ومسجد الشيخ زايد الكبير في أبوظبي والذي يعد أحد أجمل المساجد في العالم ، وصحراء ليوا في الظفرة والتي تعد أكبر صحراء رملية في العالم وتجذب الكثير من السياح لتجربة ركوب الجمال والتخييم في الصحراء. كما يمكن للزوار الاستمتاع بالشواطئ الجميلة في دبي وأبوظبي والشارقة ورأس الخيمة، وزيارة متحف اللوفر أبوظبي للتعرف على تاريخ الفن والثقافة العالمية"
-                }
-            }
-        ],
-        "created": 1711734274,
-        "model": "jais-30b-chat",
-        "object": "chat.completion",
-        "usage": {
-            "prompt_tokens": 23,
-            "completion_tokens": 744,
-            "total_tokens": 767
+    var response = await client.path("/chat/completions").post({
+        body: {
+            messages: messages,
+        }
+    });
+    
+    console.log(response.body.choices[0].message.content)
+}
+catch (error) {
+    if (error.status_code == 400) {
+        var response = JSON.parse(error.response._content)
+        if (response.error) {
+            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`)
+        }
+        else
+        {
+            throw error
         }
     }
+}
 ```
 
-##### English
-Request:
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-rest"
+
+## Prerequisites
+
+To use Jais models with Azure AI studio, you need the following prerequisites:
+
+
+
+### Deploy the model
+
+Jais models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+
+
+
+### Use the Azure AI model inference API
+
+Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+
+
+## Working with chat-completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model.
+
+
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "jais-30b-chat",
+    "model_type": "chat-completions",
+    "model_provider_name": "G42"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
 
 ```json
+{
     "messages": [
         {
-        "role": "user",
-        "content": "List the emirates of the UAE."
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
         }
     ]
+}
 ```
 
-Response:
+The response looks as follows, where you can see the model's usage statistics.
+
 
 ```json
-    {
-        "id": "df23b9f7-e6bd-493f-9437-443c65d428a1",
-        "choices": [
-            {
-                "index": 0,
-                "finish_reason": "stop",
-                "message": {
-                    "role": "assistant",
-                    "content": "The seven emirates of the United Arab Emirates are: Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al-Quwain, Fujairah, and Ras Al Khaimah."
-                }
-            }
-        ],
-        "created": 1711734274,
-        "model": "jais-30b-chat",
-        "object": "chat.completion",
-        "usage": {
-            "prompt_tokens": 23,
-            "completion_tokens": 60,
-            "total_tokens": 83
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "jais-30b-chat",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
         }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
     }
+}
 ```
 
-##### More inference examples
+#### Streaming content
 
-| **Sample Type**       | **Sample Notebook**                             |
-|----------------|----------------------------------------|
-| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/jais/webrequests-sample) |
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/jais/openaisdk) |
-| LiteLLM | [litellm.ipynb](https://aka.ms/jais/litellm-sample) |
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
+```
+
+Responses look as follows when using streaming:
+
+
+
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "jais-30b-chat",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "role": "assistant",
+                "content": ""
+            },
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}
+```
+
+The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
+
+
+
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "jais-30b-chat",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "content": ""
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "presence_penalty": 0.1,
+    "frequency_penalty": 0.8,
+    "max_tokens": 2048,
+    "stop": ["<|endoftext|>"],
+    "temperature" :0,
+    "top_p": 1,
+    "response_format": { "type": "text" }
+}
+```
+
+> [!WARNING]
+> Notice that Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "logprobs": true
+}
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI assistant that helps people find information."
+        },
+                {
+            "role": "user",
+            "content": "What's Azure?"
+        },
+                {
+            "role": "assistant",
+            "content": "Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools and frameworks, including both Microsoft-specific and third-party software and systems. Azure was announced in October 2008 and released on February 1, 2010, as Windows Azure, before being renamed to Microsoft Azure on March 25, 2014."
+        },
+        {
+            "role": "user",
+            "content": "How to make a lethal bomb?"
+        }
+    ]
+}
+```
+
+```json
+{
+    "error": {
+        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
+        "type": null,
+        "param": "prompt",
+        "code": "content_filter",
+        "status": 400
+    }
+}
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+::: zone-end
 
 ## Cost and quotas
 
-### Cost and quota considerations for models deployed as a service
+### Cost and quota considerations for Jais family of models deployed as a service
 
-JAIS 30b Chat is deployed as a service are offered by Core42 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Jais models deployed as a serverless API are offered by G42 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](../how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see monitor costs for models offered throughout the Azure Marketplace.
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
-## Content filtering
 
-Models deployed as a service with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
-## Next steps
+## Additional resources
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+Here are some additional reference: 
+
+* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Deploy models as serverless APIs](deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
+

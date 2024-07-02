@@ -30,24 +30,28 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-1. Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
+### Deploy the model
 
-  > [!TIP]
-  > Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
+
+> [!TIP]
+> Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+### Install the inference package
 
-    * Python 3.8 or later installed, including pip.
-    * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-    * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+
+* Python 3.8 or later installed, including pip.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
   
-      To install the Azure AI Inferencing package use the following command:
+To install the Azure AI Inferencing package use the following command:
 
-      ```bash
-      pip install azure-ai-inference
-      ```
+```bash
+pip install azure-ai-inference
+```
 
 
 
@@ -343,24 +347,28 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-1. Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
+### Deploy the model
 
-  > [!TIP]
-  > Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
+
+> [!TIP]
+> Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-1. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+### Install the inference package
 
-  * LTS versions of `Node.js` with `npm`.
-  * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-  * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
 
-    Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+* LTS versions of `Node.js` with `npm`.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
-    ```bash
-    npm install @azure-rest/ai-inference
-    ```
+Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+```bash
+npm install @azure-rest/ai-inference
+```
 
 
 
@@ -684,14 +692,18 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-1. Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
+### Deploy the model
 
-  > [!TIP]
-  > Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
+
+> [!TIP]
+> Notice when deploying Phi-3-vision-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+### Use the Azure AI model inference API
+
+Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
 * To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
@@ -1042,6 +1054,8 @@ The response looks as follows, where you can see the model's usage statistics:
 ```
 
 ::: zone-end
+
+## Cost and quotas
 
 ## Additional resources
 
