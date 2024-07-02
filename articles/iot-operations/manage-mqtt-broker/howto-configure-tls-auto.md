@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/01/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -110,8 +110,6 @@ kubectl get secret test-ca -n azure-iot-operations -o json | jq -r '.data["tls.c
 ```
 
 This certificate must be distributed and trusted by all clients. For example, use `--cafile` flag for a mosquitto client.
-
-You can use Azure Key Vault to manage secrets for IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).
 
 ### Create issuer based on CA certificate
 
