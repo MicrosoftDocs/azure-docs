@@ -50,10 +50,9 @@ az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID -
 For more information, see [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli.md).
 -->
 
-## Manually add Azure Key Vault secrets
+## Manually add SAP data connector agent Azure Key Vault secrets
 
-Use the following script to manually add SAP system secrets to your Azure Key Vault. Make sure to replace the placeholders with your own system ID and the credentials you want to add:
-
+Use the following script to manually add SAP system secrets to your key vault. Make sure to replace the placeholders with your own system ID and the credentials you want to add:
 
 ```azurecli
 #Add Abap username
@@ -107,51 +106,51 @@ az keyvault secret set \
 
 For more information, see the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
 
-<!--left off here-->
 ## Perform an expert / custom installation
 
 This procedure describes how to deploy the Microsoft Sentinel for SAP data connector using an expert or custom installation, such as when installing on-premises.
 
-We recommend that you perform this procedure after you have a key vault ready with your SAP credentials.
+**Prerequisites:** Azure Key Vault is the recommended method to store your authentication credentials and configuration data. We recommend that you perform this procedure only after you have a key vault ready with your SAP credentials.
 
 **To deploy the Microsoft Sentinel for SAP data connector**:
 
-1. On your on-premises machine, download the latest SAP NW RFC SDK from the [SAP Launchpad site](https://support.sap.com) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**.
+1. Download the latest SAP NW RFC SDK from the [SAP Launchpad site](https://support.sap.com) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**, and save it to your data connector agent machine.
 
     > [!NOTE]
     > You'll need your SAP user sign-in information in order to access the SDK, and you must download the SDK that matches your operating system.
     >
     > Make sure to select the **LINUX ON X86_64** option.
 
-1. On your on-premises machine, create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
+1. On your same machine, create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
 
-1. Clone the Microsoft Sentinel solution GitHub repository onto your on-premises machine, and copy Microsoft Sentinel solution for SAP applications solution **systemconfig.ini** file into your new folder.
+1. Clone the Microsoft Sentinel solution GitHub repository onto your on-premises machine, and copy Microsoft Sentinel solution for SAP applications solution **systemconfig.json** file into your new folder.
 
     For example:
 
     ```bash
     mkdir /home/$(pwd)/sapcon/<sap-sid>/
     cd /home/$(pwd)/sapcon/<sap-sid>/
-    wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.ini 
+    wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.json 
     cp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
     ```
 
-1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide. For more information, see [Manually configure the Microsoft Sentinel for SAP data connector](#manually-configure-the-microsoft-sentinel-for-sap-data-connector).
+1. Edit the **systemconfig.json** file as needed, using the embedded comments as a guide.
 
-    To test your configuration, you may want to add the user and password directly to the **systemconfig.ini** configuration file. While we recommend that you use [Azure Key vault](#add-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.ini** file.
+    Define the following configurations using the instructions in the **systemconfig.json** file:
 
-1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
-
-1. Define the following configurations using the instructions in the **systemconfig.ini** file:
-
+    - The logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.json** file.
     - Whether to include user email addresses in audit logs
     - Whether to retry failed API calls
     - Whether to include cexal audit logs
     - Whether to wait an interval of time between data extractions, especially for large extractions
 
+    For more information, see [Manually configure the Microsoft Sentinel for SAP data connector](#manually-configure-the-microsoft-sentinel-for-sap-data-connector) and [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+    To test your configuration, you may want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use [Azure Key vault](#add-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
+
     For more information, see [SAL logs connector configurations](#sal-logs-connector-settings).
 
-1. Save your updated **systemconfig.ini** file in the **sapcon** directory on your machine.
+1. Save your updated **systemconfig.json** file in the **sapcon** directory on your machine.
 
 1. If you have chosen to use an **env.list** file for your credentials, create a temporary **env.list** file with the required credentials. Once your Docker container is running correctly, make sure to delete this file.
 
@@ -206,9 +205,10 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
 ## Manually configure the Microsoft Sentinel for SAP data connector
 
-The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation).
+The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the procedures in this section to manually configure data connector settings. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md), or [Systemconfig.ini file reference](reference-systemconfig.md) for legacy systems.
 
-The following code shows a sample **systemconfig.ini** file:
+<!--do we need this if we have the references?
+The following code shows a sample **systemconfig.json** file: 
 
 ```python
 [Secrets Source]
@@ -264,10 +264,11 @@ javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
 javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
 javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
+-->
 
 ### Define the SAP logs that are sent to Microsoft Sentinel
 
-Add the following code to the Microsoft Sentinel solution for SAP applications **systemconfig.ini** file to define the logs that are sent to Microsoft Sentinel.
+Add the following code to the Microsoft Sentinel solution for SAP applications **systemconfig.json** file to define the logs that are sent to Microsoft Sentinel.
 
 For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference (public preview)](sap-solution-log-reference.md).
 
@@ -297,7 +298,7 @@ JAVAFilesLogs = False
 
 ### SAL logs connector settings
 
-Add the following code to the Microsoft Sentinel for SAP data connector **systemconfig.ini** file to define other settings for SAP logs ingested into Microsoft Sentinel.
+Add the following code to the Microsoft Sentinel for SAP data connector **systemconfig.json** file to define other settings for SAP logs ingested into Microsoft Sentinel.
 
 For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-installation).
 
@@ -348,7 +349,7 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 
 ### Configuring User Master data collection
 
-To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.ini** file with a `True`/`False` statement for each table. 
+To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.json** file with a `True`/`False` statement for each table. 
 
 For example:
 
@@ -373,51 +374,11 @@ PAHI_FULL = True
 
 For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
 
-## Next steps
+## Deploy a data connector agent container using a configuration file
 
-After you have your SAP data connector installed, you can add the SAP-related security content.
-
-For more information, see [Deploy the SAP solution](deploy-sap-security-content.md).
-
-For more information, see:
-
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Microsoft Sentinel solution for SAP applications detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Microsoft Sentinel solution for SAP applications logs reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
-
----
-title: Deploy and configure the SAP data connector agent container with a configuration file | Microsoft Sentinel
-description: This article describes how to deploy the container that hosts the SAP data connector agent with a configuration file as part of the Microsoft Sentinel Solution for SAP.
-author: batamig
-ms.author: bagol
-ms.topic: how-to
-ms.custom: devx-track-azurecli
-ms.date: 05/28/2024
-#customerIntent: As a security operator, I want to deploy the container that hosts the SAP data connector agent with a configuration file, since we're unable to use , so that I can ingest SAP data into Microsoft Sentinel.
----
-
-# Deploy and configure the SAP data connector agent container with a configuration file
-
-Key Vault is the recommended method to store your authentication credentials and configuration data.
-
-If you are prevented from using Azure Key Vault, you can use a configuration file instead.
-
-## Prerequisites
-
-
-## Create a virtual machine and configure access to your credentials
+Azure Key Vault is the recommended method to store your authentication credentials and configuration data. If you are prevented from using Azure Key Vault, this procedure describes how you can deploy the data connector agent container using a configuration file instead.
 
 1. Create a virtual machine on which to deploy the agent.
-1. Continue with deploying the data connector agent using the configuration file. For more information, see [Deploy the data connector agent](#deploy-the-data-connector-agent) and [Command line options](#command-line-options).
-
-The configuration file is generated during the agent deployment. For more information, see:
-
-- [Systemconfig.json file reference](reference-systemconfig-json.md) (for versions deployed June 22 or later).
-- [Systemconfig.ini file reference](reference-systemconfig.md) (for agent versions deployed before June 22, 2023).
-
-## [Deploy with a configuration file](#tab/deploy-cli-config-file)
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
@@ -434,7 +395,7 @@ The configuration file is generated during the agent deployment. For more inform
     ./sapcon-sentinel-kickstart.sh --keymode cfgf
     ```
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. Supply additional parameters to the script as needed to minimize the number of prompts or to customize the container deployment. For more information, see the [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -449,7 +410,6 @@ The configuration file is generated during the agent deployment. For more inform
     ```
 
     You'll use the name of the docker container in the next step.
-
 
 1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
@@ -468,25 +428,38 @@ The configuration file is generated during the agent deployment. For more inform
 
     1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
-    ```bash
-    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+        ```bash
+        az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
 
-    az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Reader" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
-    ```
+        az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Reader" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
+        ```
 
-    Replace placeholder values as follows:
+        Replace placeholder values as follows:
 
-    |Placeholder  |Value  |
-    |---------|---------|
-    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or application name, depending on whether you're using a managed identity or a registered application. <br><br>Copy the value of the **Object ID** field to use with your copied command.      |
-    |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
-    |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
-    |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
-    |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-file).      |
-
+        |Placeholder  |Value  |
+        |---------|---------|
+        |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or application name, depending on whether you're using a managed identity or a registered application. <br><br>Copy the value of the **Object ID** field to use with your copied command.      |
+        |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
+        |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
+        |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
+        |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-file).      |
 
 1. Run the following command to configure the Docker container to start automatically.
 
     ```bash
     docker update --restart unless-stopped <container-name>
     ```
+
+The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM. You can use this file to update the configuration of your SAP data connector agent.
+
+Earlier versions of the deployment script, released before June 2023, generated a **systemconfig.ini** file instead. For more information, see:
+
+- [Systemconfig.json file reference](reference-systemconfig-json.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md) (legacy)
+
+## Related content
+
+For more information, see:
+
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
