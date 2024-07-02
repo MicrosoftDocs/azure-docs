@@ -1,694 +1,1324 @@
 ---
-title: How to deploy Cohere Command models with Azure AI Studio
-titleSuffix: Azure AI Studio
-description: Learn how to deploy Cohere Command models with Azure AI Studio.
-manager: scottpolly
+title: How to use Cohere Command family of language models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Cohere Command family of small language models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
-ms.reviewer: shubhiraj
+ms.date: 07/02/2024
+ms.reviewer: kritifaujdar
+reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, build-2024
+zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to deploy Cohere Command models with Azure AI Studio
+# How to use Cohere Command family of language models with Azure AI studio
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+In this guide, you will learn about Cohere Command models and how to use them with Azure AI studio.
 
-In this article, you learn how to use Azure AI Studio to deploy the Cohere Command models as serverless APIs with pay-as-you-go token-based billing.
+Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
 
-Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). These models are available as serverless APIs with pay-as-you-go token-based billing. You can browse the Cohere family of models in the [model catalog](model-catalog.md) by filtering on the Cohere collection.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Context length:** Command R and Command R+ support a context length of 128K.
+* **Input:** Models input text only.
+* **Output:** Models generate text only.
 
-## Cohere Command models 
+::: zone pivot="programming-language-python"
 
-In this section, you learn about the two Cohere Command models that are available in the model catalog:
+## Prerequisites
 
-* Cohere Command R 
-* Cohere Command R+
+To use the package `azure-ai-inference` with Python, you need the following prerequisites:
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
+* Python 3.8 or later installed, including pip.
+* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
-- **Model Architecture:** Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+### Install the package
 
-- **Languages covered:** The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+To install the Azure AI Inferencing package use the following command:
 
-    Pre-training data additionally included the following 13 languages: Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+```bash
+pip install azure-ai-inference
+```
 
-- **Context length:** Command R and Command R+ support a context length of 128K.
 
-- **Input:** Models input text only.
 
-- **Output:** Models generate text only.
+## Working with chat-completions
 
-## Deploy as a serverless API
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
+First, let's create a client to consume the model.
 
-The previously mentioned Cohere models can be deployed as a service with pay-as-you-go billing and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of these models.
 
-### Prerequisites
 
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Cohere Command is only available with hubs created in these regions:
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.core.credentials import AzureKeyCredential
 
-     * East US
-     * East US 2
-     * North Central US
-     * South Central US
-     * West US
-     * West US 3
-     * Sweden Central
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
+)
+
+ChatCompletionsClient.with_defaults()
+```
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+```python
+model.get_model_info()
+```
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "Cohere-command-r",
+    "model_type": "chat-completions",
+    "model_provider_name": "Cohere"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
+
+```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+)
+```
+
+> [!NOTE]
+> Notice that Cohere-command-r and Cohere-command-r-plus doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+
+
+
+The response looks as follows, where you can see the model's usage statistics.
+
+
+```python
+print("Response:", response.choices[0].message.content)
+print("Model:", response.model)
+print("Usage:", response.usage)
+```
+
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```python
+result = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    temperature=0,
+    top_p=1,
+    max_tokens=2048,
+)
+```
+
+To visualize the output, let's define a helper function to print the stream.
+
+
+```python
+def print_stream(result):
+    """
+    Prints the chat completion with streaming. Some delay is added to simulate 
+    a real-time conversation.
+    """
+    import time
+    for update in result:
+        print(update.choices[0].delta.content, end="")
+        time.sleep(0.05)
+```
+
+Responses look as follows when using streaming:
+
+
+
+```python
+print_stream(result)
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```python
+from azure.ai.inference.models import ChatCompletionsResponseFormat
+
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    presence_penalty="0.1",
+    frequency_penalty="0.8",
+    max_tokens=2048,
+    stop=["<|endoftext|>"],
+    temperature=0,
+    top_p=1,
+    response_format={ "type": ChatCompletionsResponseFormat.TEXT },
+)
+```
+
+#### JSON outputs
+
+Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. When using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+
+
+
+```python
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant that always generate responses in JSON format, using."
+                      " the following format: { ""answer"": ""response"" }."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    response_format={ "type": ChatCompletionsResponseFormat.JSON_OBJECT }
+)
+```
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```python
+response = model.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    model_extras={
+        "logprobs": True
+    }
+)
+```
+
+### Tools
+
+Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+
+
+
+```python
+from azure.ai.inference.models import FunctionDefinition, ChatCompletionsFunctionToolDefinition
+
+flight_info = ChatCompletionsFunctionToolDefinition(
+    function=FunctionDefinition(
+        name="get_flight_info",
+        description="Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+        parameters={
+            "type": "object",
+            "properties": {
+                "origin_city": {
+                    "type": "string",
+                    "description": "The name of the city where the flight originates",
+                },
+                "destination_city": {
+                    "type": "string",
+                    "description": "The flight destination city",
+                },
+            },
+            "required": ["origin_city", "destination_city"],
+        },
+    )
+)
+
+tools = [flight_info]
+```
+
+In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+
+
+
+```python
+def get_flight_info(loc_origin: str, loc_destination: str):
+    return { 
+        "info": f"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions."
+    }
+```
+
+> [!NOTE]
+> Cohere-command-r and Cohere-command-r-plus requires tool content to be a key value pair JSON string.
+
+
+
+Let's prompt the model to help us booking flights with the help of this function:
+
+
+
+```python
+messages = [
+    SystemMessage(
+        content="You are a helpful assistant that help users to find information about traveling, how to get"
+                " to places and the different transportations options. You care about the environment and you"
+                " always have that in mind when answering inqueries.",
+    ),
+    UserMessage(
+        content="When is the next flight from Miami to Seattle?",
+    ),
+]
+
+response = model.complete(
+    messages=messages, tools=tools, tool_choice="auto"
+)
+```
+
+You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+
+
+
+```python
+response_message = response.choices[0].message
+tool_calls = response_message.tool_calls
+
+print("Finish reason:", response.choices[0].finish_reason)
+print("Tool call:", tool_calls)
+```
+
+Let's append this message to the chat history:
+
+
+
+```python
+messages.append(
+    response_message
+)
+```
+
+Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+
+
+
+```python
+import json
+from azure.ai.inference.models import ToolMessage
+
+for tool_call in tool_calls:
+
+    # Get the tool details:
+
+    function_name = tool_call.function.name
+    function_args = json.loads(tool_call.function.arguments.replace("\'", "\""))
+    tool_call_id = tool_call.id
+
+    print(f"Calling function `{function_name}` with arguments {function_args}")
+
+    # Call the function defined above using `locals()`, which returns the list of all functions 
+    # available in the scope as a dictionary. Notice that this is just done as a simple way to get
+    # the function callable from its string name. Then we can call it with the corresponding
+    # arguments.
+
+    callable_func = locals()[function_name]
+    function_response = callable_func(**function_args)
+
+    print("->", function_response)
+
+    # Once we have a response from the function and its arguments, we can append a new message to the chat 
+    # history. Notice how we are telling to the model that this chat message came from a tool:
+
+    messages.append(
+        ToolMessage(
+            tool_call_id=tool_call_id,
+            content=json.dumps(function_response)
+        )
+    )
+```
+
+Let's see the response from the model now:
+
+
+
+```python
+response = model.complete(
+    messages=messages,
+    tools=tools,
+)
+```
+
+### Content safety
+
+The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+```python
+from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+
+try:
+    response = model.complete(
+        messages=[
+            SystemMessage(content="You are an AI assistant that helps people find information."),
+            UserMessage(content="What's Azure?"),
+            AssistantMessage(content="Azure is a cloud computing service created by Microsoft for "
+                             "building, testing, deploying, and managing applications and "
+                             "services through Microsoft-managed data centers. It provides "
+                             "software as a service (SaaS), platform as a service (PaaS) and "
+                             "infrastructure as a service (IaaS) and supports many different "
+                             "programming languages, tools and frameworks, including both "
+                             "Microsoft-specific and third-party software and systems. Azure was "
+                             "announced in October 2008 and released on February 1, 2010, as "
+                             "Windows Azure, before being renamed to Microsoft Azure on "
+                             "March 25, 2014."),
+            UserMessage(content="How to make a lethal bomb?")
+        ]
+    )
+
+    print(response.choices[0].message.content)
+
+except HttpResponseError as ex:
+    if ex.status_code == 400:
+        response = json.loads(ex.response._content.decode('utf-8'))
+        if isinstance(response, dict) and "error" in response:
+            print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
+        else:
+            raise ex
+    else:
+        raise ex
+```
+
+::: zone-end
+
+
+::: zone pivot="programming-language-javascript"
+
+## Prerequisites
+
+The `@azure-rest/ai-inference` package provides a convenient way to consume predictions from models deployed in Azure AI studio. To use the package, you need the following prerequisites:
+
+* LTS versions of `Node.js`.
+* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+### Install the package
+
+Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+```bash
+npm install @azure-rest/ai-inference
+```
+
+
+
+## Working with chat-completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model.
+
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+);
+```
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+```javascript
+await client.path("info").get()
+```
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "Cohere-command-r",
+    "model_type": "chat-completions",
+    "model_provider_name": "Cohere"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+});
+```
+
+> [!NOTE]
+> Notice that Cohere-command-r and Cohere-command-r-plus doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+
+
+
+The response looks as follows, where you can see the model's usage statistics.
+
+
+```javascript
+if (isUnexpected(response)) {
+    throw response.body.error;
+}
+
+console.log(response.body.choices[0].message.content);
+console.log(response.body.model);
+console.log(response.body.usage);
+```
+
+#### Streaming content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+}).asNodeStream();
+```
+
+Responses look as follows when using streaming:
+
+
+
+```javascript
+var stream = response.body;
+if (!stream) {
+    throw new Error("The response stream is undefined");
+}
+
+if (response.status !== "200") {
+    throw new Error(`Failed to get chat completions: ${response.body.error}`);
+}
+
+var sses = createSseStream(stream);
+
+for await (const event of sses) {
+    if (event.data === "[DONE]") {
+        return;
+    }
+    for (const choice of (JSON.parse(event.data)).choices) {
+        console.log(choice.delta?.content ?? "");
+    }
+}
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        presence_penalty = "0.1",
+        frequency_penalty = "0.8",
+        max_tokens = 2048,
+        stop =["<|endoftext|>"],
+        temperature = 0,
+        top_p = 1,
+        response_format = { "type": "text" },
+    }
+});
+```
+
+#### JSON outputs
+
+Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. When using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant that always generate responses in JSON format, using."
+        + " the following format: { \"answer\": \"response\" }." },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        response_format: { type: "json_object" }
+    }
+});
+```
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        logprobs: true
+    }
+});
+```
+
+### Tools
+
+Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+
+
+
+```javascript
+const flight_info = {
+    name: "get_flight_info",
+    description: "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+    parameters: {
+        type: "object",
+        properties: {
+            origin_city: {
+                type: "string",
+                description: "The name of the city where the flight originates",
+            },
+            destination_city: {
+                type: "string",
+                description: "The flight destination city",
+            },
+        },
+        required: ["origin_city", "destination_city"],
+    },
+}
+
+const tools = [
+    {
+        type: "function",
+        function: flight_info,
+    },
+];
+```
+
+In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+
+
+
+```javascript
+function get_flight_info(loc_origin, loc_destination) {
+    return {
+        info: "There are no flights available from " + loc_origin + " to " + loc_destination + ". You should take a train, specially if it helps to reduce CO2 emissions."
+    }
+}
+```
+
+> [!NOTE]
+> Cohere-command-r and Cohere-command-r-plus requires tool content to be a key value pair JSON string.
+
+
+
+Let's prompt the model to help us booking flights with the help of this function:
+
+
+
+```javascript
+var result = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        tools: tools,
+        tool_choice: "auto"
+    }
+});
+```
+
+You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+
+
+
+```javascript
+const response_message = response.body.choices[0].message
+const tool_calls = response_message.tool_calls
+
+console.log("Finish reason: " + response.body.choices[0].finish_reason)
+console.log("Tool call: " + tool_calls)
+```
+
+Let's append this message to the chat history:
+
+
+
+```javascript
+messages.push(response_message);
+```
+
+Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+
+
+
+```javascript
+function applyToolCall({ function: call, id }) {
+    // Get the tool details:
+    const tool_params = JSON.parse(call.arguments);
+    console.log("Calling function " + call.name + " with arguments " + tool_params)
+
+    // Call the function defined above using `window`, which returns the list of all functions 
+    // available in the scope as a dictionary. Notice that this is just done as a simple way to get
+    // the function callable from its string name. Then we can call it with the corresponding
+    // arguments.
+    const function_response = tool_params.map(window[call.name]);
+    console.log("-> " + function_response)
+
+    return function_response
+}
+
+for (const tool_call of tool_calls) {
+    var tool_response = tool_call.apply(applyToolCall)
+
+    messages.push(
+        {
+            role: "tool",
+            tool_call_id = tool_call.id,
+            content = tool_response
+        }
+    )
+}
+```
+
+Let's see the response from the model now:
+
+
+
+```javascript
+var result = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        tools: tools,
+    }
+});
+```
+
+### Content safety
+
+The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+```javascript
+try {
+    var messages = [
+        { role: "system", content: "You are an AI assistant that helps people find information." },
+        { role: "user", content: "What's Azure?" },
+        { role: "system", content: "Azure is a cloud computing service created by Microsoft for "
+                            + "building, testing, deploying, and managing applications and "
+                            + "services through Microsoft-managed data centers. It provides "
+                            + "software as a service (SaaS), platform as a service (PaaS) and "
+                            + "infrastructure as a service (IaaS) and supports many different "
+                            + "programming languages, tools and frameworks, including both "
+                            + "Microsoft-specific and third-party software and systems. Azure was "
+                            + "announced in October 2008 and released on February 1, 2010, as "
+                            + "Windows Azure, before being renamed to Microsoft Azure on "
+                            + "March 25, 2014." },
+        { role: "user", content: "How to make a lethal bomb?" }
+    ]
+
+    var response = await client.path("/chat/completions").post({
+        body: {
+            messages: messages,
+        }
+    });
     
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
-
-- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
-
-
-### Create a new deployment
-
-The following steps demonstrate the deployment of Cohere Command R, but you can use the same steps to deploy Cohere Command R+ by replacing the model name.
-
-To create a deployment:
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the left sidebar.
-1. Search for *Cohere*.
-1. Select **Cohere-command-r** to open the Model Details page.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-directly-from-catalog.png"::: 
-
-1. Select **Deploy** to open a serverless API deployment window for the model.
-1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
-
-    1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select **Cohere-command-r**. to open the Model Details page.
- 
-       :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-start-from-project.png"::: 
-
-    1. Select **Confirm** to open a serverless API deployment window for the model.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model as a serverless API." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png":::
-
-1. Select the project in which you want to deploy your model. To deploy the model your project must be in the *EastUS2* or *Sweden Central* region.
-1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/cohere-command/command-r-existing-subscription.png":::
-
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/cohere-command/command-r-deployment-name.png":::
-
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-cohere-models-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
-
-To learn about billing for the Cohere models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for models deployed as a serverless API](#cost-and-quota-considerations-for-models-deployed-as-a-serverless-api).
-
-### Consume the Cohere models as a service
-
-These models can be consumed using the chat API.
-
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
-
-1. Find and select the deployment you created.
-
-1. Copy the **Target** URL and the **Key** value.
-
-2. Cohere exposes two routes for inference with the Command R and Command R+ models. The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere API](#cohere-chat-api).
-
-For more information on using the APIs, see the [reference](#reference-for-cohere-models-deployed-as-a-service) section.
-
-## Reference for Cohere models deployed as a service
-
-Cohere Command R and Command R+ models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere Chat API](#cohere-chat-api) on `/v1/chat`. 
-
-### Azure AI Model Inference API
-
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
-
-### Cohere Chat API
-
-The following contains details about Cohere Chat API.
-
-#### Request
-
-```
-    POST /v1/chat HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
-```
-
-#### v1/chat request schema
-
-Cohere Command R and Command R+ accept the following parameters for a `v1/chat` response inference call:
-
-|Key       |Type   |Default   |Description   |
-|---|---|---|---|
-|`message`   |`string`   |Required   |Text input for the model to respond to.   |
-|`chat_history`   |`array of messages`   |`None`   |A list of previous messages between the user and the model, meant to give the model conversational context for responding to the user's message.    |
-|`documents`   |`array`   |`None `  |A list of relevant documents that the model can cite to generate a more accurate reply. Each document is a string-string dictionary. Keys and values from each document are serialized to a string and passed to the model. The resulting generation includes citations that reference some of these documents. Some suggested keys are "text", "author", and "date". For better generation quality, it's recommended to keep the total word count of the strings in the dictionary to under 300 words. An `_excludes` field (array of strings) can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields still show up in the citation object. The "_excludes" field aren't passed to the model. See [Document Mode](https://docs.cohere.com/docs/retrieval-augmented-generation-rag#document-mode) guide from Cohere docs.    |
-|`search_queries_only`   |`boolean`  |`false`   |When `true`, the response only contains a list of generated search queries, but no search takes place, and no reply from the model to the user's `message` is generated.|
-|`stream`   |`boolean`   |`false`   |When `true`, the response is a JSON stream of events. The final event contains the complete response, and has an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated.|
-|`max_tokens`   |`integer`   |None   |The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, generates tokens until end of sequence.|
-|`temperature`   |`float`   |`0.3`   |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2.   |
-|`p`   |`float`   |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
-|`k`   |`float`   |`0`   |Specify the number of token choices the model uses to generate the next token. If both p and k are enabled, p acts after k. Min value is 0, max value is 500.|
-|`prompt_truncation`   |`enum string`   |`OFF`   |Accepts `AUTO_PRESERVE_ORDER`, `AUTO`, `OFF`. Dictates how the prompt is constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` are dropped to construct a prompt that fits within the model's context length limit. During this process, the order of the documents and chat history are preserved. With `prompt_truncation` set to "OFF", no elements are dropped.|
-|`stop_sequences`  |`array of strings`  |`None`  |The generated text is cut at the end of the earliest occurrence of a stop sequence. The sequence is included the text.  |   
-|`frequency_penalty`   |`float`   |`0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
-|`presence_penalty`   |`float`   |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
-|`seed`   |`integer`   |`None`   |If specified, the backend makes a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism can't be guaranteed.|
-|`return_prompt`   |`boolean `  |`false `  |Returns the full prompt that was sent to the model when `true`.   |
-|`tools`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of available tools (functions) that the model might suggest invoking before producing a text response. When `tools` is passed (without `tool_results`), the `text` field in the response is `""` and the `tool_calls` field in the response is populated with a list of tool calls that need to be made. If no calls need to be made, the `tool_calls` array is empty.|
-|`tool_results`   |`array of objects`   |`None`   |_Field is subject to changes._ A list of results from invoking tools recommended by the model in the previous chat turn. Results are used to produce a text response and is referenced in citations. When using `tool_results`, `tools` must be passed as well. Each tool_result contains information about how it was invoked, and a list of outputs in the form of dictionaries. Cohere's unique fine-grained citation logic requires the output to be a list. In case the output is just one item, for example, `{"status": 200}`, still wrap it inside a list.   |
-
-The `chat_history` object requires the following fields:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`role`   |`enum string`   |Takes `USER`, `SYSTEM`, or `CHATBOT`.   |
-|`message`   |`string`   |Text contents of the message.   |
-
-The `documents` object has the following optional fields:
-
-|Key       |Type   |Default| Description   |
-|---|---|---|---|
-|`id`   |`string`   |`None` |Can be supplied to identify the document in the citations. This field isn't passed to the model.   |
-|`_excludes`   |`array of strings`   |`None`| Can be optionally supplied to omit some key-value pairs from being shown to the model. The omitted fields still show up in the citation object. The `_excludes` field isn't passed to the model.   |
-
-#### v1/chat response schema
-
-Response fields are fully documented on [Cohere's Chat API reference](https://docs.cohere.com/reference/chat). The response object always contains: 
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`response_id`   |`string`   |Unique identifier for chat completion.   |
-|`generation_id`   |`string`   |Unique identifier for chat completion, used with Feedback endpoint on Cohere's platform.   |
-|`text`   |`string`   |Model's response to chat message input.    |
-|`finish_reason`   |`enum string`   |Why the generation was completed. Can be any of the following values: `COMPLETE`, `ERROR`, `ERROR_TOXIC`, `ERROR_LIMIT`, `USER_CANCEL` or `MAX_TOKENS`   |
-|`token_count`   |`integer`   |Count of tokens used.   |
-|`meta`   |`string`   |API usage data, including current version and billable tokens.   |
-
-<br/>
-
-#### Documents
-If `documents` are specified in the request, there are two other fields in the response:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`documents `  |`array of objects`   |Lists the documents that were cited in the response.   |
-|`citations`   |`array of objects`   |Specifies which part of the answer was found in a given document.    |
-
-`citations` is an array of objects with the following required fields:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`start`   |`integer`   |The index of text that the citation starts at, counting from zero. For example, a generation of `Hello, world!` with a citation on `world` would have a start value of `7`. This is because the citation starts at `w`, which is the seventh character.   |
-|`end`   |`integer`   |The index of text that the citation ends after, counting from zero. For example, a generation of `Hello, world!` with a citation on `world` would have an end value of `11`. This is because the citation ends after `d`, which is the eleventh character.   |
-|`text`   |`string`   |The text of the citation. For example, a generation of `Hello, world!` with a citation of `world` would have a text value of `world`.   |
-|`document_ids`   |`array of strings`   |Identifiers of documents cited by this section of the generated reply.   |
-
-#### Tools
-If `tools` are specified and invoked by the model, there's another field in the response:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`tool_calls `  |`array of objects`   |Contains the tool calls generated by the model. Use it to invoke your tools.   |
-
-`tool_calls` is an array of objects with the following fields:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`name`  |`string`   |Name of the tool to call.   |
-|`parameters`   |`object`   |The name and value of the parameters to use when invoking a tool. |
-
-#### Search_queries_only
-If `search_queries_only=TRUE` is specified in the request, there are two other fields in the response:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`is_search_required`  |`boolean`   |Instructs the model to generate a search query.   |
-|`search_queries`   |`array of objects`   |Object that contains a list of search queries. |
-
-`search_queries` is an array of objects with the following fields:
-
-|Key       |Type   |Description   |
-|---|---|---|
-|`text`  |`string`   |The text of the search query.   |
-|`generation_id`   |`string`   |Unique identifier for the generated search query. Useful for submitting feedback. |
-
-#### Examples
-
-##### Chat - Completions
-The following example is a sample request call to get chat completions from the Cohere Command model. Use when generating a chat completion.
-
-Request:
-
-```json
-    {
-        "chat_history": [
-            {"role":"USER", "message": "What is an interesting new role in AI if I don't have an ML background"},
-            {"role":"CHATBOT", "message": "You could explore being a prompt engineer!"}
-        ],
-        "message": "What are some skills I should have"
-    }
-```
-
-Response:
-
-```json
-    {
-        "response_id": "09613f65-c603-41e6-94b3-a7484571ac30",
-        "text": "Writing skills are very important for prompt engineering. Some other key skills are:\n- Creativity\n- Awareness of biases\n- Knowledge of how NLP models work\n- Debugging skills\n\nYou can also have some fun with it and try to create some interesting, innovative prompts to train an AI model that can then be used to create various applications.",
-        "generation_id": "6d31a57f-4d94-4b05-874d-36d0d78c9549",
-        "finish_reason": "COMPLETE",
-        "token_count": {
-            "prompt_tokens": 99,
-            "response_tokens": 70,
-            "total_tokens": 169,
-            "billed_tokens": 151
-        },
-        "meta": {
-            "api_version": {
-                "version": "1"
-            },
-            "billed_units": {
-                "input_tokens": 81,
-                "output_tokens": 70
-            }
+    console.log(response.body.choices[0].message.content)
+}
+catch (error) {
+    if (error.status_code == 400) {
+        var response = JSON.parse(error.response._content)
+        if (response.error) {
+            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`)
+        }
+        else
+        {
+            throw error
         }
     }
+}
 ```
 
-##### Chat - Grounded generation and RAG capabilities
+::: zone-end
 
-Command R and Command R+ are trained for RAG via a mixture of supervised fine-tuning and preference fine-tuning, using a specific prompt template. We introduce that prompt template via the `documents` parameter. The document snippets should be chunks, rather than long documents, typically around 100-400 words per chunk. Document snippets consist of key-value pairs. The keys should be short descriptive strings. The values can be text or semi-structured.
 
-Request:
+::: zone pivot="programming-language-rest"
+
+## Prerequisites
+
+Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+
+* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+```
+
+
+
+## Working with chat-completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model.
+
+
+
+### Model capabilities
+
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
+
+
+The response looks as follows.
+
+
+```console
+{
+    "model_name": "Cohere-command-r",
+    "model_type": "chat-completions",
+    "model_provider_name": "Cohere"
+}
+```
+
+### Working with chat completions
+
+Let's create a simple chat completion request to see the output of the model.
+
 
 ```json
-    {
-    "message": "Where do the tallest penguins live?",
-    "documents": [
+{
+    "messages": [
         {
-        "title": "Tall penguins",
-        "snippet": "Emperor penguins are the tallest."
+            "role": "system",
+            "content": "You are a helpful assistant."
         },
         {
-        "title": "Penguin habitats",
-        "snippet": "Emperor penguins only live in Antarctica."
+            "role": "user",
+            "content": "How many languages are in the world?"
         }
     ]
-    }
+}
 ```
 
-Response:
+> [!NOTE]
+> Notice that Cohere-command-r and Cohere-command-r-plus doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+
+
+
+The response looks as follows, where you can see the model's usage statistics.
+
 
 ```json
-    {
-        "response_id": "d7e72d2e-06c0-469f-8072-a3aa6bd2e3b2",
-        "text": "Emperor penguins are the tallest species of penguin and they live in Antarctica.",
-        "generation_id": "b5685d8d-00b4-48f1-b32f-baebabb563d8",
-        "finish_reason": "COMPLETE",
-        "token_count": {
-            "prompt_tokens": 615,
-            "response_tokens": 15,
-            "total_tokens": 630,
-            "billed_tokens": 22
-        },
-        "meta": {
-            "api_version": {
-                "version": "1"
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "Cohere-command-r",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
             },
-            "billed_units": {
-                "input_tokens": 7,
-                "output_tokens": 15
-            }
-        },
-        "citations": [
-            {
-                "start": 0,
-                "end": 16,
-                "text": "Emperor penguins",
-                "document_ids": [
-                    "doc_0"
-                ]
-            },
-            {
-                "start": 69,
-                "end": 80,
-                "text": "Antarctica.",
-                "document_ids": [
-                    "doc_1"
-                ]
-            }
-        ],
-        "documents": [
-            {
-                "id": "doc_0",
-                "snippet": "Emperor penguins are the tallest.",
-                "title": "Tall penguins"
-            },
-            {
-                "id": "doc_1",
-                "snippet": "Emperor penguins only live in Antarctica.",
-                "title": "Penguin habitats"
-            }
-        ]
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
     }
+}
 ```
 
-##### Chat - Tool Use
+#### Streaming content
 
-If invoking tools or generating a response based on tool results, use the following parameters. 
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-Request:
+To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+
+
 
 ```json
-    {
-        "message":"I'd like 4 apples and a fish please",
-        "tools":[
-            {
-                "name":"personal_shopper",
-                "description":"Returns items and requested volumes to purchase",
-                "parameter_definitions":{
-                    "item":{
-                        "description":"the item requested to be purchased, in all caps eg. Bananas should be BANANAS",
-                        "type": "str",
-                        "required": true
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
+```
+
+Responses look as follows when using streaming:
+
+
+
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Cohere-command-r",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "role": "assistant",
+                "content": ""
+            },
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}
+```
+
+The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
+
+
+
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Cohere-command-r",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "content": ""
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
+
+#### Parameters
+
+Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "presence_penalty": 0.1,
+    "frequency_penalty": 0.8,
+    "max_tokens": 2048,
+    "stop": ["<|endoftext|>"],
+    "temperature" :0,
+    "top_p": 1,
+    "response_format": { "type": "text" }
+}
+```
+
+#### JSON outputs
+
+Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. When using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that always generate responses in JSON format, using the following format: { \"answer\": \"response\" }"
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "response_format": { "type": "json_object" }
+}
+```
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718727522,
+    "model": "Cohere-command-r",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "{\"answer\": \"There are approximately 7,117 living languages in the world today, according to the latest estimates. However, this number can vary as some languages become extinct and others are newly discovered or classified.\"}",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 39,
+        "total_tokens": 87,
+        "completion_tokens": 48
+    }
+}
+```
+
+### Extra parameters
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "logprobs": true
+}
+```
+
+### Tools
+
+Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+
+
+
+```json
+{
+    "type": "function",
+    "function": {
+        "name": "get_flight_info",
+        "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "origin_city": {
+                    "type": "string",
+                    "description": "The name of the city where the flight originates"
+                },
+                "destination_city": {
+                    "type": "string",
+                    "description": "The flight destination city"
+                }
+            },
+            "required": [
+                "origin_city",
+                "destination_city"
+            ]
+        }
+    }
+}
+```
+
+In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+
+
+
+> [!NOTE]
+> Cohere-command-r and Cohere-command-r-plus requires tool content to be a key value pair JSON string.
+
+
+
+Let's prompt the model to help us booking flights with the help of this function:
+
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries"
+        },
+        {
+            "role": "user",
+            "content": "When is the next flight from Miami to Seattle?"
+        }
+    ],
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "get_flight_info",
+                "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "origin_city": {
+                            "type": "string",
+                            "description": "The name of the city where the flight originates"
+                        },
+                        "destination_city": {
+                            "type": "string",
+                            "description": "The flight destination city"
+                        }
                     },
-                    "quantity":{
-                        "description": "how many of the items should be purchased",
-                        "type": "int",
-                        "required": true
-                    }
+                    "required": [
+                        "origin_city",
+                        "destination_city"
+                    ]
                 }
             }
-        ],
-        
-    "tool_results": [
-        {
-        "call": {
-            "name": "personal_shopper",
-            "parameters": {
-                "item": "Apples",
-                "quantity": 4
-            },
-            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
-        },
-        "outputs": [
-            {
-            "response": "Sale completed"
-            }
-        ]
-        },
-        {
-        "call": {
-            "name": "personal_shopper",
-            "parameters": {
-            "item": "Fish",
-            "quantity": 1
-            },
-            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
-        },
-        "outputs": [
-            {
-            "response": "Sale not completed"
-            }
-        ]
         }
     ]
-    }
+}
 ```
 
-Response:
+You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+
+
 
 ```json
-    {
-        "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
-        "text": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
-        "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
-        "chat_history": [
-            {
-                "message": "I'd like 4 apples and a fish please",
-                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
-                "generation_id": "a4c5da95-b370-47a4-9ad3-cbf304749c04",
-                "role": "User"
-            },
-            {
-                "message": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
-                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
-                "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
-                "role": "Chatbot"
-            }
-        ],
-        "finish_reason": "COMPLETE",
-        "token_count": {
-            "prompt_tokens": 644,
-            "response_tokens": 31,
-            "total_tokens": 675,
-            "billed_tokens": 41
-        },
-        "meta": {
-            "api_version": {
-                "version": "1"
-            },
-            "billed_units": {
-                "input_tokens": 10,
-                "output_tokens": 31
-            }
-        },
-        "citations": [
-            {
-                "start": 5,
-                "end": 23,
-                "text": "completed the sale",
-                "document_ids": [
-                    ""
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726007,
+    "model": "Cohere-command-r",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "",
+                "tool_calls": [
+                    {
+                        "id": "abc0dF1gh",
+                        "type": "function",
+                        "function": {
+                            "name": "get_flight_info",
+                            "arguments": "{\"origin_city\": \"Miami\", \"destination_city\": \"Seattle\"}",
+                            "call_id": null
+                        }
+                    }
                 ]
             },
-            {
-                "start": 113,
-                "end": 132,
-                "text": "currently no stock.",
-                "document_ids": [
-                    ""
-                ]
-            }
-        ],
-        "documents": [
-            {
-                "response": "Sale completed"
-            }
-        ]
+            "finish_reason": "tool_calls",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 190,
+        "total_tokens": 226,
+        "completion_tokens": 36
     }
+}
 ```
 
-Once you run your function and received tool outputs, you can pass them back to the model to generate a response for the user.
+Let's append this message to the chat history:
 
-Request:
+
+
+Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+
+
+
+Let's see the response from the model now:
+
+
 
 ```json
-    {
-        "message":"I'd like 4 apples and a fish please",
-        "tools":[
-            {
-                "name":"personal_shopper",
-                "description":"Returns items and requested volumes to purchase",
-                "parameter_definitions":{
-                    "item":{
-                        "description":"the item requested to be purchased, in all caps eg. Bananas should be BANANAS",
-                        "type": "str",
-                        "required": true
-                    },
-                    "quantity":{
-                        "description": "how many of the items should be purchased",
-                        "type": "int",
-                        "required": true
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries"
+        },
+        {
+            "role": "user",
+            "content": "When is the next flight from Miami to Seattle?"
+        },
+        {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+                {
+                    "id": "abc0DeFgH",
+                    "type": "function",
+                    "function": {
+                        "name": "get_flight_info",
+                        "arguments": "{\"origin_city\": \"Miami\", \"destination_city\": \"Seattle\"}",
+                        "call_id": null
                     }
                 }
-            }
-        ],
-        
-    "tool_results": [
-        {
-        "call": {
-            "name": "personal_shopper",
-            "parameters": {
-                "item": "Apples",
-                "quantity": 4
-            },
-            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
-        },
-        "outputs": [
-            {
-            "response": "Sale completed"
-            }
-        ]
+            ]
         },
         {
-        "call": {
-            "name": "personal_shopper",
-            "parameters": {
-            "item": "Fish",
-            "quantity": 1
-            },
-            "generation_id": "cb3a6e8b-6448-4642-b3cd-b1cc08f7360d"
-        },
-        "outputs": [
-            {
-            "response": "Sale not completed"
+            "role": "tool",
+            "content": "{ \"info\": \"There are no flights available from Miami to Seattle. You should take a train, specially if it helps to reduce CO2 emissions.\" }",
+            "tool_call_id": "abc0DeFgH" 
+        }
+    ],
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+            "name": "get_flight_info",
+            "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+            "parameters":{
+                "type": "object",
+                "properties": {
+                    "origin_city": {
+                        "type": "string",
+                        "description": "The name of the city where the flight originates"
+                    },
+                    "destination_city": {
+                        "type": "string",
+                        "description": "The flight destination city"
+                    }
+                },
+                "required": ["origin_city", "destination_city"]
             }
-        ]
+            }
         }
     ]
-    }
+}
 ```
 
-Response:
+### Content safety
+
+The Azure AI model inference API supports Azure AI Content Safety. When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
 
 ```json
-    {
-        "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
-        "text": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
-        "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
-        "chat_history": [
-            {
-                "message": "I'd like 4 apples and a fish please",
-                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
-                "generation_id": "a4c5da95-b370-47a4-9ad3-cbf304749c04",
-                "role": "User"
-            },
-            {
-                "message": "I've completed the sale for 4 apples. \n\nHowever, there was an error regarding the fish; it appears that there is currently no stock.",
-                "response_id": "fa634da2-ccd1-4b56-8308-058a35daa100",
-                "generation_id": "f567e78c-9172-4cfa-beba-ee3c330f781a",
-                "role": "Chatbot"
-            }
-        ],
-        "finish_reason": "COMPLETE",
-        "token_count": {
-            "prompt_tokens": 644,
-            "response_tokens": 31,
-            "total_tokens": 675,
-            "billed_tokens": 41
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI assistant that helps people find information."
         },
-        "meta": {
-            "api_version": {
-                "version": "1"
-            },
-            "billed_units": {
-                "input_tokens": 10,
-                "output_tokens": 31
-            }
+                {
+            "role": "user",
+            "content": "What's Azure?"
         },
-        "citations": [
-            {
-                "start": 5,
-                "end": 23,
-                "text": "completed the sale",
-                "document_ids": [
-                    ""
-                ]
-            },
-            {
-                "start": 113,
-                "end": 132,
-                "text": "currently no stock.",
-                "document_ids": [
-                    ""
-                ]
-            }
-        ],
-        "documents": [
-            {
-                "response": "Sale completed"
-            }
-        ]
-    }
+                {
+            "role": "assistant",
+            "content": "Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools and frameworks, including both Microsoft-specific and third-party software and systems. Azure was announced in October 2008 and released on February 1, 2010, as Windows Azure, before being renamed to Microsoft Azure on March 25, 2014."
+        },
+        {
+            "role": "user",
+            "content": "How to make a lethal bomb?"
+        }
+    ]
+}
 ```
-
-##### Chat - Search queries
-If you're building a RAG agent, you can also use Cohere's Chat API to get search queries from Command. Specify `search_queries_only=TRUE` in your request.
-
-
-Request:
 
 ```json
-    {
-    "message": "Which lego set has the greatest number of pieces?",
-    "search_queries_only": true
+{
+    "error": {
+        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
+        "type": null,
+        "param": "prompt",
+        "code": "content_filter",
+        "status": 400
     }
+}
 ```
 
-Response:
+::: zone-end
 
-```json
-    {
-        "response_id": "5e795fe5-24b7-47b4-a8bc-b58a68c7c676",
-        "text": "",
-        "finish_reason": "COMPLETE",
-        "meta": {
-            "api_version": {
-                "version": "1"
-            }
-        },
-        "is_search_required": true,
-        "search_queries": [
-            {
-                "text": "lego set with most pieces",
-                "generation_id": "a086696b-ad8e-4d15-92e2-1c57a3526e1c"
-            }
-        ]
-    }
-```
+## Additional resources
 
-##### More inference examples
+Here are some additional reference: 
 
-| **Package**       | **Sample Notebook**                             |
-|----------------|----------------------------------------|
-| CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
-| CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
-| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
-| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Deploy models as serverless APIs](how-to/deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
 
-##### Retrieval Augmented Generation (RAG) and tool use samples
-**Description** | **Package** | **Sample Notebook**
---|--|--
-Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
-Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
-Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
-Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
-Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
-
-## Cost and quotas
-
-### Cost and quota considerations for models deployed as a serverless API
-
-Cohere models deployed as a serverless API with pay-as-you-go billing are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
-
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
-
-For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
-
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
-
-## Content filtering
-
-Models deployed as a serverless API with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
-
-## Related content
-
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

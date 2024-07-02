@@ -1,11 +1,10 @@
 ---
-title: How to deploy Phi-3 family of small language models with Azure AI Studio
-titleSuffix: Azure AI Studio
-description: Learn how to deploy Phi-3 family of small language models with Azure AI Studio.
-manager: scottpolly
+title: How to use Phi-3 family of language models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Phi-3 family of small language models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 07/02/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -16,7 +15,10 @@ zone_pivot_groups: azure-ai-model-catalog-samples
 
 # How to use Phi-3 family of language models with Azure AI studio
 
-Learn how to use Phi-3 with Azure AI studio to build and deploy machine learning models.
+In this guide, you will learn about Phi-3 models and how to use them with Azure AI studio.
+
+The Phi-3 family of SLMs is a collection of instruction-tuned generative text models. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across various language, reasoning, coding, and math benchmarks.
+
 
 
 
@@ -24,7 +26,7 @@ Learn how to use Phi-3 with Azure AI studio to build and deploy machine learning
 
 ## Phi-3 family of models
 
-You can browse the Phi-3 family of models in the [Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview) by filtering on the Microsoft collection.
+The Phi-3 family of models includes the following models:
 
 
 
@@ -37,8 +39,10 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-- Phi-3-mini-4k-Instruct 
+- Phi-3-mini-4k-Instruct
 - Phi-3-mini-128k-Instruct
+
+
 
 # [Phi-3-medium](#tab/Phi-3-medium)
 
@@ -52,6 +56,8 @@ The following models are available:
 - Phi-3-medium-4k-Instruct
 - Phi-3-medium-128k-Instruct
 
+
+
 # [Phi-3-small](#tab/Phi-3-small)
 
 The Phi-3 Small is a 7B parameters, lightweight, state-of-the-art open model trained with the Phi-3 datasets that includes both synthetic data and the filtered publicly available websites data with a focus on high-quality and reasoning dense properties. The model belongs to the Phi-3 family with the Small version in two variants 8K and 128K which is the context length (in tokens) that it can support.
@@ -64,17 +70,33 @@ The following models are available:
 - Phi-3-small-4k-Instruct
 - Phi-3-small-128k-Instruct
 
+
+
 ---
+
+
 
 ## Prerequisites
 
-Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+To use the package `azure-ai-inference` with Python, you need the following prerequisites:
+
+* Python 3.8 or later installed, including pip.
+* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+### Install the package
+
+To install the Azure AI Inferencing package use the following command:
+
+```bash
+pip install azure-ai-inference
+```
 
 
 
-Once deployed successfully, you should be assigned for an API endpoint and a security key for inference.
-
-For more information, you should consult Azure's official documentation here for model deployment and inference.
+> [!TIP]
+> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
@@ -99,9 +121,29 @@ model = ChatCompletionsClient(
 ChatCompletionsClient.with_defaults()
 ```
 
+When deploying the model to a self-hosted online endpoint with **Entra ID** support, you can use the following code snippet to create a client.
+
+
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import DefaultAzureCredential
+
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=DefaultAzureCredential(),
+)
+```
+
+> [!NOTE]
+> Serverless API endpoints do not support using Entra ID for authentication by the moment.
+
+
+
 ### Model capabilities
 
-The `azure-ai-inference` package allows calling the `/info` endpoint which returns information about the model deployed behind the endpoint.
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
 
 
 ```python
@@ -113,9 +155,9 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "mistral-large",
-    "model_type": "completion",
-    "model_provider_name": "Mistral"
+    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_type": "chat-completions",
+    "model_provider_name": "Microsoft"
 }
 ```
 
@@ -281,7 +323,7 @@ except HttpResponseError as ex:
 
 ## Phi-3 family of models
 
-You can browse the Phi-3 family of models in the [Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview) by filtering on the Microsoft collection.
+The Phi-3 family of models includes the following models:
 
 
 
@@ -294,7 +336,8 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-Phi-3-mini-4k-Instruct and Phi-3-mini-128k-Instruct
+- Phi-3-mini-4k-Instruct
+- Phi-3-mini-128k-Instruct
 
 
 
@@ -307,7 +350,8 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-Phi-3-medium-4k-Instruct and Phi-3-medium-128k-Instruct
+- Phi-3-medium-4k-Instruct
+- Phi-3-medium-128k-Instruct
 
 
 
@@ -320,7 +364,8 @@ The model has underwent a post-training process that incorporates both supervise
 
 The following models are available:
 
-Phi-3-small-4k-Instruct and Phi-3-small-128k-Instruct
+- Phi-3-small-4k-Instruct
+- Phi-3-small-128k-Instruct
 
 
 
@@ -330,13 +375,25 @@ Phi-3-small-4k-Instruct and Phi-3-small-128k-Instruct
 
 ## Prerequisites
 
-Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+The `@azure-rest/ai-inference` package provides a convenient way to consume predictions from models deployed in Azure AI studio. To use the package, you need the following prerequisites:
+
+* LTS versions of `Node.js`.
+* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+
+### Install the package
+
+Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+
+```bash
+npm install @azure-rest/ai-inference
+```
 
 
 
-Once deployed successfully, you should be assigned for an API endpoint and a security key for inference.
-
-For more information, you should consult Azure's official documentation here for model deployment and inference.
+> [!TIP]
+> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
@@ -359,9 +416,29 @@ const client = new ModelClient(
 );
 ```
 
+When deploying the model to a self-hosted online endpoint with **Entra ID** support, you can use the following code snippet to create a client.
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { DefaultAzureCredential }  from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new DefaultAzureCredential()
+);
+```
+
+> [!NOTE]
+> Serverless API endpoints do not support using Entra ID for authentication by the moment.
+
+
+
 ### Model capabilities
 
-The `azure-ai-inference` package allows calling the `/info` endpoint which returns information about the model deployed behind the endpoint.
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
 
 
 ```javascript
@@ -373,9 +450,9 @@ The response looks as follows.
 
 ```console
 {
-    "model_name": "mistral-large",
-    "model_type": "completion",
-    "model_provider_name": "Mistral"
+    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_type": "chat-completions",
+    "model_provider_name": "Microsoft"
 }
 ```
 
@@ -560,7 +637,7 @@ catch (error) {
 
 ## Phi-3 family of models
 
-You can browse the Phi-3 family of models in the [Model Catalog](https://learn.microsoft.com/azure/ai-studio/how-to/model-catalog-overview) by filtering on the Microsoft collection.
+The Phi-3 family of models includes the following models:
 
 
 
@@ -573,7 +650,8 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-Phi-3-mini-4k-Instruct and Phi-3-mini-128k-Instruct
+- Phi-3-mini-4k-Instruct
+- Phi-3-mini-128k-Instruct
 
 
 
@@ -586,7 +664,8 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-Phi-3-medium-4k-Instruct and Phi-3-medium-128k-Instruct
+- Phi-3-medium-4k-Instruct
+- Phi-3-medium-128k-Instruct
 
 
 
@@ -599,7 +678,8 @@ The model has underwent a post-training process that incorporates both supervise
 
 The following models are available:
 
-Phi-3-small-4k-Instruct and Phi-3-small-128k-Instruct
+- Phi-3-small-4k-Instruct
+- Phi-3-small-128k-Instruct
 
 
 
@@ -609,13 +689,17 @@ Phi-3-small-4k-Instruct and Phi-3-small-128k-Instruct
 
 ## Prerequisites
 
-Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
+Models deployed with the Azure AI model inference API can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+
+* An foundational model deployed in Azure AI studio that supports the [Azure AI model inference API](https://aka.ms/azureai/modelinference). See the [documentation of the inference API](https://aka.ms/azureai/modelinference) for instructions about about which models are available and how to deploy them.
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+```
 
 
 
-Once deployed successfully, you should be assigned for an API endpoint and a security key for inference.
-
-For more information, you should consult Azure's official documentation here for model deployment and inference.
+> [!TIP]
+> Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
@@ -627,9 +711,18 @@ First, let's create a client to consume the model.
 
 
 
+When deploying the model to a self-hosted online endpoint with **Entra ID** support, you can use the following code snippet to create a client.
+
+
+> [!NOTE]
+> Serverless API endpoints do not support using Entra ID for authentication by the moment.
+
+
+
 ### Model capabilities
 
-The `azure-ai-inference` package allows calling the `/info` endpoint which returns information about the model deployed behind the endpoint.
+The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+
 
 
 The response looks as follows.
@@ -872,6 +965,9 @@ The Azure AI model inference API supports Azure AI Content Safety. When using de
 
 Here are some additional reference: 
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Deploy models as serverless APIs](how-to/deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
+
