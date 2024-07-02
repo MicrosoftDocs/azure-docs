@@ -90,7 +90,7 @@ To delete a filter, select the trash can icon in that filter's row. You can't de
 The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme. 
 The **Startup views** section lets you set options for what you see when you first sign in to the Azure portal.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
+:::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" lightbox="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
 ### Portal menu behavior
 
