@@ -161,7 +161,7 @@ Cause: Cannot init EAL: Permission denied
 Failover configuration of either the `net_failsafe` or `net_vdev_netvsc` poll-mode-drivers isn't recommended for high performance on Azure. The netvsc configuration with DPDK version 20.11 or higher may give better results. For optimal performance, ensure your Linux kernel, rdma-core, and DPDK packages meet the listed requirements for DPDK and MANA.
 
 ### Version mismatch for rdma-core
-Mismatches in rdma-core and the linux kernel can occur anytime; often they are occur when a user is building some combination of rdma-core, DPDK, and the linux kernel from source. This type of version mismatch can cause a failed probe of the MANA virtual function (VF).
+Mismatches in rdma-core and the linux kernel can occur anytime; often they occur when a user is building some combination of rdma-core, DPDK, and the linux kernel from source. This type of version mismatch can cause a failed probe of the MANA virtual function (VF).
 
 ```log
 EAL: Probe PCI driver: net_mana (1414:ba) device: 7870:00:00.0 (socket 0)
