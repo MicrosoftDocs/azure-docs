@@ -83,8 +83,6 @@ items:
         href: manage-mqtt-broker/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
-      - name: Manage secrets
-        href: manage-mqtt-broker/howto-manage-secrets.md
       - name: Connect to cloud services
         items:
         - name: Connect to MQTT or Event Grid

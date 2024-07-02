@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 6/27/2023
+ms.date: 07/01/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -189,8 +189,6 @@ spec:
 
 It might take a few minutes for the changes to take effect.
 
-You can use Azure Key Vault to manage secrets for MQTT broker instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).
-
 ## X.509 client certificate
 
 ### Prerequisites
@@ -241,8 +239,6 @@ kubectl create secret generic x509-attributes --from-file=x509Attributes.toml -n
 ```
 
 To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
-
-Like with username-password authentication, you can use Azure Key Vault to manage this secret for instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-broker/howto-manage-secrets.md).
 
 ### Enable X.509 client authentication
 
