@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Connect to OpenAI from Azure Functions in Visual Studio Code'
 description: Learn how to connect Azure Functions to OpenAI by adding an output binding to your Visual Studio Code project.
-ms.date: 5/30/2024
+ms.date: 07/02/2024
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru
@@ -22,7 +22,7 @@ This article shows you how to use Visual Studio Code to connect Azure OpenAI to 
 > * Enable your function app to connect to OpenAI.
 > * Add OpenAI bindings to your HTTP triggered function.
 
-## Prerequisites
+## 0. Prerequisites
 :::zone pivot="programming-language-csharp"  
 * Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md).
 :::zone-end  
@@ -44,7 +44,9 @@ This article shows you how to use Visual Studio Code to connect Azure OpenAI to 
 * Obtain access to Azure OpenAI in your Azure subscription. If you haven't already been granted access, complete [this form](https://aka.ms/oai/access) to request access.
 :::zone pivot="programming-language-csharp"  
 * Install [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
-:::zone-end  
+:::zone-end
+* The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
+ 
 ## 1. Create your Azure OpenAI resources
 
 The following steps show how to create an Azure OpenAI data model in the Azure portal. 
@@ -101,16 +103,17 @@ To deploy a model, follow these steps:
 
 1. After the deployment completes, navigate to the Azure OpenAI resource page in the Azure portal, and select **Click here to view endpoints** under **Essentials**. Copy the **endpoint** URL and the **keys**. Save these values, you need them later.
 
-## 3. Update application settings
-
 Now that you have the credentials to connect to your model in Azure OpenAI, you need to set these access credentials in application settings.
 
-1. In Visual Studio Code, open the code project you created when you completed the [previous article](./create-first-function-vs-code-csharp.md) and add these values to the local.settings.json file:
+## 3. Update application settings
 
+1. In Visual Studio Code, open the code project you created when you completed the [previous article](./create-first-function-vs-code-csharp.md), open the local.settings.json file in the project root folder, and update the `AzureWebJobsStorage` setting to `UseDevelopmentStorage=true`. You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an existing Azure Storage account instead of `UseDevelopmentStorage=true`. 
+
+1. In the local.settings.json file, add these settings values:
 
     + **`AZURE_OPENAI_ENDPOINT`**: required by the binding extension. Set this value to the endpoint of the Azure OpenAI resource you created earlier.
     + **`AZURE_OPENAI_KEY`**: required by the binding extension. Set this value to the key for the Azure OpenAI resource.
-    + **`CHAT_MODEL_DEPLOYMENT_NAME`**: used to define the input binding. Set this value to `gpt-3.5-turbo`, unless you used a different name for your model deployment.
+    + **`CHAT_MODEL_DEPLOYMENT_NAME`**: used to define the input binding. Set this value to the name you chose for your model deployment.
 
 1. Save the file. When you deploy to Azure, you must also add these settings to your function app. 
 
@@ -196,24 +199,24 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 1. In the new `whois.js` code file, replace the contents of the file with this code:
 
     ```javascript
-    const { app } = require('@azure/functions');
-
-    const openAICompletionInput = app.generic({
-        prompt: 'Who is {name}?',
-        maxTokens: '100',
-        type: 'textCompletion',
-        model: '%CHAT_MODEL_DEPLOYMENT_NAME%'
-    });
-    app.http('whois', {
-        methods: ['GET'],
-        route: 'whois/{name}',
-        authLevel: 'anonymous',
-        extraInputs: [openAICompletionInput],
-        handler: async (request, context) => {
-            var response = context.extraInputs.get(openAICompletionInput);
-            return { body: response.content.trim() };
-        }
-    });
+   const { app, input } = require("@azure/functions");
+    
+   const openAICompletionInput = input.generic({
+       prompt: 'Who is {name}?',
+       maxTokens: '100',
+       type: 'textCompletion',
+       model: '%CHAT_MODEL_DEPLOYMENT_NAME%'
+   });
+   app.http('whois', {
+       methods: ['GET'],
+       route: 'whois/{name}',
+       authLevel: 'anonymous',
+       extraInputs: [openAICompletionInput],
+       handler: async (request, context) => {
+           var response = context.extraInputs.get(openAICompletionInput);
+           return { body: response.content.trim() };
+       }
+   });
     ```
   
 :::zone-end  
@@ -249,10 +252,13 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
 ## 6. Run the function
 
-<!--- 1. Install and start Azurite for local development storage. For instructions on how to work with Azurite: https://learn.microsoft.com/azure/storage/common/storage-use-azurite
--->
+1. In a Terminal window, run the following command to start the Azurite storage emulator in a separate process:
 
-1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools.
+   ```cmd
+   start azurite
+   ```
+
+1. Press <kbd>F5</kbd> to start the function app project and Core Tools in debug mode.
 
 1. With the Core Tools running, send a GET request to the `whois` endpoint function, with a name in the path, like this URL: 
 
@@ -272,7 +278,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 ## 9. Deploy to Azure
 -->
 
-## Clean up resources
+## 7. Clean up resources
 
 In Azure, *resources* refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
 
