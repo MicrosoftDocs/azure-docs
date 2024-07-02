@@ -82,28 +82,28 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+1. Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
 
   > [!TIP]
   > Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-#. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+1. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
 
 
 
-#. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+1. Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
 
   * Python 3.8 or later installed, including pip.
   * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
   * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
-  To install the Azure AI Inferencing package use the following command:
+    To install the Azure AI Inferencing package use the following command:
 
-  ```bash
-  pip install azure-ai-inference
-  ```
+    ```bash
+    pip install azure-ai-inference
+    ```
 
 
 
@@ -263,7 +263,7 @@ response = model.complete(
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting. You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -387,28 +387,28 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+1. Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
 
   > [!TIP]
   > Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-#. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+1. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
 
 
 
-#. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+1. You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
 
   * LTS versions of `Node.js` with `npm`.
   * To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
   * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
-  Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+    Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
 
-  ```bash
-  npm install @azure-rest/ai-inference
-  ```
+    ```bash
+    npm install @azure-rest/ai-inference
+    ```
 
 
 
@@ -580,7 +580,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting. You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -597,6 +597,9 @@ var messages = [
 ];
 
 var response = await client.path("/chat/completions").post({
+    headers: {
+        "extra-params": "passthrough"
+    },
     body: {
         messages: messages,
         logprobs: true
@@ -711,14 +714,14 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
-#. You can deploy this model to our managed inference solution which allow you to cosutomize and control all the details about how this model is served.
+1. Deploy the model to our managed inference solution which allow you to customize and control all the details about how this model is served.
 
   > [!TIP]
   > Notice when deploying Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-medium-4k-Instruct, Phi-3-medium-128k-Instruct and Phi-3-small-128k-Instruct to Self-hosted Online Endpoints you need to ensure you have enough quota in your subscription. You can always use our temporary quota access to have an endpoint working for 7 days.
 
 
 
-#. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+1. Phi-3 models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
 
 
 
@@ -924,7 +927,7 @@ Explore additional parameters that can be indicated in the inference client. For
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting. You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
