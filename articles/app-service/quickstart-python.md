@@ -219,19 +219,17 @@ Having issues? Refer first to the [Troubleshooting guide](./configure-language-p
 
 Based on the presence of certain files in your deployment, App Service automatically detects whether your app is a Django or Flask app and performs default steps to run your app. For apps based on other web frameworks like FastAPI, you need to configure a startup script for App Service to run your app; otherwise, App Service runs a default read-only app located in the *opt/defaultsite* folder. For details on how App Service runs Python apps, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
 
-### [Flask](#tab/flask)
+### [Azure CLI](#tab/azure-cli/flask)
 
 App Service automatically detects the presence of a Flask app. No additional configuration is needed.
 
-### [Django](#tab/django)
+### [Azure CLI](#tab/azure-cli/django)
 
 App Service automatically detects the presence of a Django app. No additional configuration is needed.
 
-### [FastAPI](#tab/fastapi)
+### [Azure CLI](#tab/azure-cli/fastapi)
 
 For FastAPI, you must configure a custom startup command for App Service to run your app.
-
-#### [Azure CLI](#tab/azure-cli/fastapi)
 
 First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
@@ -250,17 +248,33 @@ az webapp restart \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
-#### [VS Code](#tab/vscode-aztools/fastapi)
+### [VS Code](#tab/vscode-aztools/flask)
+
+App Service automatically detects the presence of a Flask app. No additional configuration is needed.
+
+### [VS Code](#tab/vscode-aztools/django)
+
+App Service automatically detects the presence of a Django app. No additional configuration is needed.
+
+### [VS Code](#tab/vscode-aztools/fastapi)
 
 Use Azure CLI or the Azure portal to configure the startup command.
 
+### [Azure portal](#tab/azure-portal/flask)
+
+App Service automatically detects the presence of a Flask app. No additional configuration is needed.
+
+### [Azure portal](#tab/azure-portal/django)
+
+App Service automatically detects the presence of a Django app. No additional configuration is needed.
+
 #### [Azure portal](#tab/azure-portal/fastapi)
+
+For FastAPI, you must configure a custom startup command for App Service to run your app.
 
 First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *python main.py*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
 
 Next, restart the web app. Select the app's **Overview** page on the left menu. On the top menu, select **Restart**.
-
----
 
 ---
 
