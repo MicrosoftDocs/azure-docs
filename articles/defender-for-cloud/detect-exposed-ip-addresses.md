@@ -63,7 +63,7 @@ Using the cloud security explorer, you can detect exposed IP addresses in your c
 
 1. Select **Search**.
 
-    :::image type="content" source="media/detect-exposed-ip-addresses/search-results.jpg" alt-text="Screenshot that shows the fully built query and where the search button is located." lightbox="media/detect-exposed-ip-addresses/search-results.jpg":::
+    :::image type="content" source="media/detect-exposed-ip-addresses/search-results.png" alt-text="Screenshot that shows the fully built query and where the search button is located." lightbox="media/detect-exposed-ip-addresses/search-results.png":::
 
 1. Select a result to review the findings.
 
