@@ -12,7 +12,7 @@ ms.date: 07/02/2024
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
 ---
 
-# Test connectivity to MQTT broker Preview with MQTT clients
+# Test connectivity to MQTT broker with MQTT clients
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
