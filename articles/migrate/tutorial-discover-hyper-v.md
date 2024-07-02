@@ -188,7 +188,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) |  a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) | 952e493a63a45f97ecdc0945807d504f4bd2f0f4f8248472b784c3e6bd25eb13 
 
     - For Azure Government:
 
