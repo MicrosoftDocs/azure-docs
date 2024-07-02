@@ -2,7 +2,7 @@
 title: Azure Kubernetes Services (AKS) core concepts
 description: Learn about the core concepts of Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 07/02/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -90,9 +90,9 @@ The following namespaces are created by default in an AKS cluster:
 | *kube-public* | The [kube-public][kubernetes-namespaces] namespace isn't typically used, but can be used for resources to be visible across the whole cluster by any user. |
 | *kube-system* | The [kube-system][kubernetes-namespaces] namespace is used by Kubernetes to manage cluster resources, such as `coredns`, `konnectivity-agent`, and `metrics-server`. |
 
-## Cluster modes and pricing tiers
+## Cluster SKUs and pricing tiers
 
-In AKS, you can create a cluster in one of the following modes: **Automatic (preview)** or **Standard**. AKS Automatic provides a more fully managed experience, managing cluster configuration, including noes, scaling, security, and other preconfigured settings. AKS Standard provides more control over the cluster configuration, including the ability to manage node pools, scaling, and other settings.
+In AKS, you can create a cluster with the **Automatic SKU (preview)** or the **Standard SKU**. AKS Automatic provides a more fully managed experience, managing cluster configuration, including nodes, scaling, security, and other preconfigured settings. AKS Standard provides more control over the cluster configuration, including the ability to manage node pools, scaling, and other settings.
 
 For more information, see [AKS Automatic and Standard feature comparison][automatic-standard] and [Pricing tiers for AKS cluster management][pricing-tiers].
 
@@ -100,7 +100,7 @@ For more information, see [AKS Automatic and Standard feature comparison][automa
 
 For more information, see [Supported Kubernetes versions in AKS][supported-kubernetes-versions].
 
-## Additional resources
+## Next steps
 
 For information on more core concepts for AKS, see the following resources:
 
