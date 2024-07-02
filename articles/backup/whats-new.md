@@ -90,10 +90,10 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
 ## Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available
+
+Azure Backup now allows you to back up the Azure Virtual Machines that use disks with private endpoints (disk access). This support is extended for Virtual Machines that are backed up using Enhanced backup policies, along with the existing support for those that were backed up using Standard backup policies. While initiating the restore operation, you can specify the network access settings required for the restored disks. You can choose to keep the network configuration of the restored disks the same as that of the source disks, specify the access from specific networks only, or allow public access from all networks.
  
-Azure Backup now allows you to back up the Azure Virtual Machines that use disks with private endpoints (disk access). This support is extended for Virtual Machines that are backed up using Enhanced backup policies, along with the existing support for those that were backed up using Standard backup policies. While initiating the restore operation, you can specify the network access settings required for the restored disks. You can choose to keep the network configuration of the restored disks to be the same as the source disks, specify access from specific networks only, or allow public access from all networks.
- 
-For more information: see [Assign network access settings during restore](backup-azure-arm-restore-vms.md#assign-network-access-settings-during-restore).
+For more information, see [Assign network access settings during restore](backup-azure-arm-restore-vms.md#assign-network-access-settings-during-restore).
 
 ## Migration of Azure VM backups from standard to enhanced policy (preview)
 

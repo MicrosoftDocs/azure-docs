@@ -207,7 +207,7 @@ To enable disk access on restored disks during [VM restore](#choose-a-vm-restore
  :::image type="content" source="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png" alt-text="Screenshot shows the access configuration options for restored disks." lightbox="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png":::
 
 ?[!Note]
->The option to choose the network configuration of the restored disks (to be the same as the source disks) or specify access from specific networks is currently not available from Azure PowerShell/ Azure CLI. 
+>The option to choose the network configuration of the restored disks the same as that of the source disks or specify the access from specific networks only is currently not available from Azure PowerShell/ Azure CLI.
 
 ## Cross Region Restore
 
