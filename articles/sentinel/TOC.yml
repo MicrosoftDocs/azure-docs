@@ -168,14 +168,12 @@
           href: sap/deployment-attack-disrupt.md
         - name: Optional deployment steps
           items:
-          - name: Deploy SAP connector manually
+          - name: Deploy with expert options
             href: sap/sap-solution-deploy-alternate.md
           - name: Collect SAP HANA audit logs
             href: sap/collect-sap-hana-audit-logs.md
           - name: Configure SAP audit log monitoring rules
             href: sap/configure-audit-log-rules.md
-          - name: Select SAP ingestion profile
-            href: sap/select-ingestion-profiles.md 
         - name: SAP security content reference
           href: sap/sap-solution-security-content.md
         - name: SAP deployment reference
@@ -196,6 +194,8 @@
             href: sap/reference-systemconfig-json.md
           - name: Systemconfig.ini file reference
             href: sap/reference-systemconfig.md
+          - name: Sample SAP ingestion profiles
+            href: sap/select-ingestion-profiles.md 
       - name: SAP BTP solution
         items:
         - name: Overview
