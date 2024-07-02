@@ -66,8 +66,6 @@ To retrieve the text of those queries collected by query store, you need to log 
 Using the PostgreSQL client of your choice, access the `azure_sys` database where query store data is stored. 
 Once connected, query the `query_store.query_texts_view view` to retrieve the desired query text.
 
-In the example shown below, we utilize Azure Cloud Shell and the `psql` tool to accomplish this task:
-
 :::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-query-text.png" alt-text="Screenshot of retrieving the Query Text.":::
 
 ### Retrieving the name of a user or role
@@ -77,6 +75,12 @@ To retrieve the username, you can query the `pg_roles` view or use the query sho
 
 ```sql
 SELECT 'UserID'::regrole;
+```
+
+In the following example you would be retrieving the name of the user or role whose identifier is 24776.
+
+```sql
+SELECT '24776'::regrole;
 ```
 
 :::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-username.png" alt-text="Screenshot of retrieving the Username.":::
