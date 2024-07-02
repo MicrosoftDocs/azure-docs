@@ -165,7 +165,6 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
 }
 ```
 
-
 # [Azure CLI](#tab/azure-cli)
 
 Before you run this command, replace placeholders surrounded by `<>` with your values.
@@ -176,6 +175,11 @@ az containerapp env telemetry data-dog set \
   --key <YOUR_DATADOG_KEY> \
   --enable-open-telemetry-traces true \
   --enable-open-telemetry-metrics true
+```
+
+# [Terraform](#tab/terraform)
+
+```hcl
 ```
 
 ---
@@ -246,6 +250,11 @@ az containerapp env telemetry otlp add \
   --enable-open-telemetry-logs true
 ```
 
+# [Terraform](#tab/terraform)
+
+```hcl
+```
+
 ---
 
 | Name | Description |
@@ -274,9 +283,8 @@ To configure an agent, use the `destinations` array to define which agents your 
 - You can only set up one Application Insights and Datadog endpoint each at a time.
 - While you can define more than one OTLP-configured endpoint, each one must have a distinct name.
 
-
-The following example shows how to use an OTLP endpoint named `customDashboard`. It sends:
--  traces to app insights and `customDashboard`
+The following example ARM template shows how to use an OTLP endpoint named `customDashboard`. It sends:
+- traces to app insights and `customDashboard`
 - logs to app insights and `customDashboard`
 - metrics to DataDog and `customDashboard`
 
@@ -308,6 +316,7 @@ The following example shows how to use an OTLP endpoint named `customDashboard`.
     }
   }
 }
+```
 
 ## Example OpenTelemetry configuration
 
