@@ -207,8 +207,8 @@
       - name: Investigating risks with security explorer/attack paths
         displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer
         href: concept-attack-path.md
-      - name: Integration with Defender EASM
-        displayName: EASM, attack surface management
+      - name: External attack surface management (EASM)
+        displayName: EASM, attack surface management, integration
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
@@ -424,6 +424,9 @@
         - name: Build queries with cloud security explorer
           displayName: queries, security explorer, explorer, templates, query
           href: how-to-manage-cloud-security-explorer.md
+        - name: Detect exposed IP addresses
+          displayName: exposed, ip, addresses, easm
+          href: detect-exposed-ip-addresses.md
     - name: Built-in security protections
       items:
         - name: Use Purview to protect sensitive data
