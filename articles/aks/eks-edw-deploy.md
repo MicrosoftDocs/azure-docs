@@ -43,7 +43,7 @@ The script records the state of the deployment in a file called `deploy.state`, 
 
 As the script executes the commands to configure the infrastructure for the workflow, it checks that each command executes successfully. If any issues occur, an error message is displayed, and the execution stops.
 
-The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following command:
+The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following commands:
 
 ```bash
 mkdir ./logs
@@ -282,6 +282,16 @@ For more information on developing and running applications in AKS, see the foll
 - [Install existing applications with Helm in AKS][helm-aks]
 - [Deploy and manage a Kubernetes application from Azure Marketplace in AKS][k8s-aks]
 - [Deploy an application that uses OpenAI on AKS][openai-aks]
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+- Ken Kilty | Principal TPM
+- Russell de Pina | Principal TPM
+- Jenny Hayes | Senior Content Developer
+- Carol Smith | Senior Content Developer
+- Erin Schaffer | Content Developer 2
 
 <!-- LINKS -->
 [eks-edw-overview]: ./eks-edw-overview.md

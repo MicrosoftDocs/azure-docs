@@ -12,7 +12,7 @@ ms.date: 06/03/2024
 ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
 ---
 
-# Connect to Azure AI Search using role-based access controls
+# Connect to Azure AI Search using roles
 
 Azure provides a global authentication and [role-based authorization system](../role-based-access-control/role-assignments-portal.yml) for all services running on the platform. In Azure AI Search, you can assign Azure roles for:
 

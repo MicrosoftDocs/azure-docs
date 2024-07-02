@@ -422,14 +422,14 @@
     items:
     - name: Configure network access
       href: service-configure-firewall.md
-    - name: Authenticate with keys
-      href: search-security-api-keys.md
     - name: Enable role-based access
       href: search-security-enable-roles.md
     - name: Assign roles (users)
       href: search-security-rbac.md
     - name: Assign roles (apps)
       href: keyless-connections.md
+    - name: Authenticate with keys
+      href: search-security-api-keys.md
     - name: Outbound connections
       items:
       - name: Configure a managed identity
