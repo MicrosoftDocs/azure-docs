@@ -43,9 +43,9 @@ It delivers:
 
 ## Filters for memory request duration
 
-You can also filter metrics and get the charts displayed by a specific **CollectionName**, **DatabaseName**, **Operation**, and **StatusCode**. The **Add filter** and **Apply splitting** options allows you to filter the usage and group the metrics.
+1. You can also filter metrics and get the charts displayed by a specific **CollectionName**, **DatabaseName**, **Operation**, and **StatusCode**. The **Add filter** and **Apply splitting** options allows you to filter the usage and group the metrics.
 
-If you want to see the usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chart like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
+1. If you want to see the usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chart like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
 
    :::image type="content" source="./media/monitor/monitor-metrics-filtering.png" alt-text="Azure Cosmos DB memory request duration for all operations by the collection in Azure monitor" border="true":::
 
