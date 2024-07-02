@@ -7,6 +7,7 @@ ms.service: api-management
 ms.author: danlep
 ms.date: 06/24/2024
 ms.custom:
+zone_pivot_groups: workspace-gateway-network
 ---
 
 # Create and manage a workspace
@@ -20,24 +21,36 @@ Set up a [workspace](workspaces-overview.md) to enable a decentralized API devel
 Follow the steps in this article to:
 
 * Create an API Management workspace and a dedicated workspace gateway using the Azure portal
-* Optionally, isolate the workspace gateway in an Azure virtual network
+* Configure the workspace gateway network access settings
 * Assign users to the workspace
 
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* (Optional) An Azure virtual network and subnet to isolate the workspace gateway.
+::: zone-pivot "public-inbound-private-outbound,private-inbound-private-outbound"
+* An Azure virtual network and subnet to isolate the workspace gateway.
     * The virtual network must be in the same region and Azure subscription as the API Management instance.
     * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
-    * Configure subnet delegation to enable the desired access:
-        * For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**
-        * For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. 
-        
-        The subnet can't have another delegation configured.
+::: zone-end
 
     > [!IMPORTANT]
     > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace. 
+
+
+::: zone pivot="public-inbound-private-outbound"
+## Configure subnet delegation
+Configure subnet delegation to enable the desired access:
+* For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**
+*  The subnet can't have another delegation configured.
+::: zone-end
+
+::: zone pivot="private-inbound-private-outbound"
+## Configure subnet delegation
+Configure subnet delegation to enable the desired access:
+* For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. 
+* The subnet can't have another delegation configured.        
+       
 
 ## Create a workspace - portal
 
