@@ -88,8 +88,8 @@ The following two types of errors are classified as **user errors**:
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
 | ------------------- | ----------------- | --- | --- | --- | --- | 
-|Replication Lag Duration| No | Seconds | Average | The offset in seconds between the latest action on the primary and the secondary regions. | |
-|Replication Lag Count | No | Count | Average | The offset in number of operations between the latest action on the primary and the secondary regions. | |
+|Replication Lag Duration| No | Seconds | Max | The offset in seconds between the latest action on the primary and the secondary regions. | |
+|Replication Lag Count | No | Count | Max | The offset in number of operations between the latest action on the primary and the secondary regions. | |
 
 ## Metric dimensions
 
