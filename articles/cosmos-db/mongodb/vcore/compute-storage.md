@@ -7,7 +7,7 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 06/30/2024
 ---
 
 # Compute and storage configurations for Azure Cosmos DB for MongoDB vCore clusters
@@ -81,7 +81,7 @@ In MongoDB, *the working set* refers to the portion of your data that is frequen
 
 To define and understand your MongoDB database working set, consider the following components:
 
-1. Frequently accessed data: This includes documents that are regularly read or updated by your application.
+1. Frequently accessed data: This data include documents that your application reads or updates regularly.
 1. Indexes: Indexes that are used in query operations also form part of the working set because they need to be loaded into memory to ensure fast access.
 1. Application Usage Patterns: Analyzing the usage patterns of your application can help identify which parts of your data are accessed most frequently.
 
@@ -94,28 +94,28 @@ Determining the right compute and storage configuration for your MongoDB workloa
 1. **Understand your workload**
     - **Data volume**: Estimate the total size of your data, including indexes.
     - **Read/write ratio**: Determine the ratio of read operations to write operations.
-    - **Query patterns**: Analyze the types of queries your application performs. For instande, simple reads, complex aggregations.
+    - **Query patterns**: Analyze the types of queries your application performs. For instance, simple reads, complex aggregations.
     - **Concurrency**: Assess the number of concurrent operations your database needs to handle.
 
 2. **Monitor current performance**
-    - **Resource utilization**: Use MongoDB monitoring tools to track CPU, memory, disk I/O, and network usage before you move your MongoDB workload to Azure and [monitoring metrics](./how-to-monitor-diagnostics-logs.md) once you start running your MongoDB workload on an Azure Cosmos DB for MongoDB vCore cluster.
+    - **Resource utilization**: Use MongoDB monitoring tools to track CPU, memory, disk I/O, and network usage before you move your MongoDB workload to Azure and [monitoring metrics](./how-to-monitor-diagnostics-logs.md) and MongoDB monitoring tools once you start running your MongoDB workload on an Azure Cosmos DB for MongoDB vCore cluster.
     - **Performance metrics**: Monitor key performance metrics such as latency, throughput, and cache hit ratios.
     - **Bottlenecks**: Identify any existing performance bottlenecks, such as high CPU usage, memory pressure, or slow disk I/O.
 
 3. **Estimate resource requirements**
     - **Memory**: Ensure that your [working set](#working-set-and-memory-considerations) (frequently accessed data and indexes) fits into RAM. If your working set size exceeds available memory, consider adding more RAM or optimizing your data model.
-    - **CPU**: Choose a CPU configuration that can handle your query load and concurrency requirements. CPU-intensive workloads may require additional cores. Use 'CPU percent' metric with 'Max' aggregation on your Azure Cosmos DB for MongoDB vCore cluster to see historical compute usage patterns.
+    - **CPU**: Choose a CPU configuration that can handle your query load and concurrency requirements. CPU-intensive workloads may require more cores. Use 'CPU percent' metric with 'Max' aggregation on your Azure Cosmos DB for MongoDB vCore cluster to see historical compute usage patterns.
     - **Storage IOPS**: Select storage with sufficient IOPS to handle your read and write operations. Use 'IOPS' metric with 'Max' aggregation on your cluster to see historical storage IOPS usage.
     - **Network**: Ensure adequate network bandwidth to handle data transfer between your application and the database, especially for distributed setups. Make sure you configured host for your MongoDB application to support [accelerated networking](../../../virtual-network/accelerated-networking-overview.md) technologies such as SR-IOV.
     
 4. **Scale appropriately**
     - **Vertical scaling**: Scale compute / RAM up and down and scale storage up. 
         - Compute: Increase the vCore / RAM on a cluster if your workload requires temporary increase or is often crossing over 90% of CPU utilization for prolonged periods. 
-        - Make sure you have appropriate data retention in your MongoDB database to avoid unneccessary storage use. Monitor storage usage by setting alerts on the 'Storage percent' and/or 'Storage used' metrics with 'Max' aggregation. Consider increase storage as your workload size crosses 70% usage.
+        - Make sure you have appropriate data retention in your MongoDB database. Retention allows you to avoid unnecessary storage use. Monitor storage usage by setting alerts on the 'Storage percent' and/or 'Storage used' metrics with 'Max' aggregation. Consider increase storage as your workload size crosses 70% usage.
     - **Horizontal scaling**: Consider using multiple shards for your cluster  to distribute your data across multiple MongoDB nodes for performance gains and better capacity management as your workload grows. This is especially useful for large datasets (over 2-4 TiB) and high-throughput applications.
     
-6. **Test and tterate**
-    - **Benchmarking**: Perform measurement for the most frequently used queries with different configurations to determine the impact on performance. Use CPU/RAM and IOPS metrics as well as application-level benchmarking.
+6. **Test and iterate**
+    - **Benchmarking**: Perform measurement for the most frequently used queries with different configurations to determine the impact on performance. Use CPU/RAM and IOPS metrics and application-level benchmarking.
     - **Load testing**: Conduct load testing to simulate production workloads and validate the performance of your chosen configuration.
     - **Continuous monitoring**: Continuously monitor your MongoDB deployment and adjust resources as needed based on changing workloads and usage patterns.
     
@@ -123,7 +123,7 @@ By systematically evaluating these factors and continuously monitoring and adjus
 
 ### Considerations for storage
 
-Deciding on the appropriate storage size for your MongoDB workload involves several considerations to ensure optimal performance and scalability. Here’re considerations for the storage size in Azure Cosmos DB for MongoDB vCore:
+Deciding on the appropriate storage size for your MongoDB workload involves several considerations to ensure optimal performance and scalability. Here are considerations for the storage size in Azure Cosmos DB for MongoDB vCore:
 
 1. **Estimate data size:**
    - Calculate the expected size of your MongoDB data. Consider:
@@ -132,7 +132,7 @@ Deciding on the appropriate storage size for your MongoDB workload involves seve
      - **Document size and structure:** Understand your data schema and document sizes, as they affect storage efficiency.
 
 2. **Factor in indexes:**
-   - MongoDB uses **[indexes](./indexing.md)** for efficient querying. Indexes consume additional disk space.
+   - MongoDB uses **[indexes](./indexing.md)** for efficient querying. Indexes consume extra disk space.
    - Estimate the size of indexes based on:
      - **Number of indexes**.
      - **Size of indexed fields**.
@@ -144,12 +144,12 @@ Deciding on the appropriate storage size for your MongoDB workload involves seve
 
 4. **Future growth and scalability:**
    - Plan for future data growth and scalability needs.
-   - Allocate additional disk space beyond current needs to accommodate growth without frequent disk expansions.
+   - Allocate more disk space beyond current needs to accommodate growth without frequent storage expansions.
 
 5. **Example calculation**:
    - Suppose your initial data size is 500 GiB.
    - With indexes, it might grow to 700 GiB.
-   - If you anticipate doubling the data in 2 years, plan for 1.4 TiB (700 GiB * 2).
+   - If you anticipate doubling the data in two years, plan for 1.4 TiB (700 GiB * 2).
    - Add a buffer for overhead, growth, and operational needs.
    - You might want to start with 1 TiB storage today and upscale it to 2 TiB once its size grows over 800 GiB.
 
