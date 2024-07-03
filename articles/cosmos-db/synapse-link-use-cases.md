@@ -35,7 +35,7 @@ Manufacturers are onboarding to cloud-native  technologies to break out of const
 
 The following architecture shows the power of using Azure Cosmos DB as the cloud-native operational database in supply chain analytics:
 
-:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Real-time analytics for Azure Cosmos DB in supply chain" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Diagram of real-time analytics for Azure Cosmos DB in supply chain." border="false":::
 
 Based on previous architecture, you can achieve the following use cases:
 
@@ -45,7 +45,7 @@ Based on previous architecture, you can achieve the following use cases:
 
   * Query operational data from Azure Cosmos DB by using native integration with Apache Spark pools in  Microsoft Fabric or Azure Synapse Analytics. You can query the data  in an interactive notebook or scheduled remote jobs without complex data engineering.
 
-  * Build  Machine Learning (ML) models with Spark ML algorithms and Azure ML integration in Microsoft Fabric or Azure Synapse Analytics.
+  * Build  Machine Learning (ML) models with Spark ML algorithms and Azure Machine Learning (AML) integration in Microsoft Fabric or Azure Synapse Analytics.
 
   * Write back the results after model inference into Azure Cosmos DB for operational near-real-time scoring.
 
@@ -71,7 +71,7 @@ The following is some guidance for data integration for batch & streaming data i
 
 Retailers today must build secure and scalable e-commerce solutions that meet the demands of both customers and business. These e-commerce solutions need to engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service. Azure Cosmos DB along with the latest Synapse Link for Azure Cosmos DB allows retailers to generate personalized recommendations for customers in real time. They use low-latency and tunable consistency settings for immediate insights as shown in the following architecture:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Cosmos DB in real-time personalization" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Diagram of Azure Cosmos DB in real-time personalization." border="false":::
 
 * **Prepare & train predictive pipeline:** You can generate insights over the operational data across your business units or customer segments using Fabric or Synapse Spark and machine learning models. This translates to personalized delivery to target customer segments, predictive end-user experiences, and targeted marketing to fit your end-user requirements.
 )
@@ -81,7 +81,7 @@ Industrial IOT innovations have drastically reduced downtimes of machinery and i
 
 The following is an architecture using the cloud native HTAP capabilities in IoT predictive maintenance:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Cosmos DB in IOT predictive maintenance" border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Diagram of Azure Cosmos DB in IOT predictive maintenance." border="false" :::
 
 * **Prepare & train predictive pipeline:** The historical operational data from IoT device sensors could be used to train predictive models such as anomaly detectors. These anomaly detectors are then deployed back to the edge for real-time monitoring. Such a virtuous loop allows for continuous retraining of the predictive models.
 
