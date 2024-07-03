@@ -49,7 +49,7 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 + For updating the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
 
-+ For merging inline changes into string collection, provide the entire value. Recall the `tags` field example from the previous section. New values overwrite the old values, and there is no merging at the field content level.
++ For merging inline changes into string collection, provide the entire value. Recall the `tags` field example from the previous section. New values overwrite the old values, and there's no merging at the field content level.
 
 Here's a [REST API example](search-get-started-rest.md) demonstrating these tips:
 

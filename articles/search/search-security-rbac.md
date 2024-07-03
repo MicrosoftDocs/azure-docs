@@ -277,7 +277,7 @@ This approach assumes Visual Studio Code with a REST client extension.
    az account get-access-token --query accessToken --output tsv
    ```
 
-1. In a new text file in Visual Studio Code, paste in these variables:
+1. Paste these variables in a new text file in Visual Studio Code.
 
    ```http
    @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
@@ -285,7 +285,7 @@ This approach assumes Visual Studio Code with a REST client extension.
    @token = PASTE-YOUR-TOKEN-HERE
    ```
 
-1. Paste in and then send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can send a query. You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
+1. Paste and then send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can send a query. You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
 
    ```http
    POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
@@ -380,7 +380,7 @@ If you're already a Contributor or Owner of your search service, you can present
    Get-AzAccessToken -ResourceUrl https://search.azure.com
    ```
 
-1. In a new text file in Visual Studio Code, paste in these variables:
+1. Paste these variables into a new text file in Visual Studio Code.
 
    ```http
    @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
@@ -538,7 +538,7 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 1. See [Create or update Azure custom roles using the REST API](../role-based-access-control/custom-roles-rest.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
+1. Copy or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
 
 ### [**Azure CLI**](#tab/custom-role-cli)
 
@@ -546,7 +546,7 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 1. See [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
+1. See the PowerShell tab for JSON syntax.
 
 ---
 
