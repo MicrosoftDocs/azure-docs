@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/03/2024
+ms.date: 07/08/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -133,7 +133,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
-   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
+   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. <br><br>**Note**: By default, Standard logic apps use a connection string to access your Azure Storage account. However, after you create your Standard logic app, you can [set up a user-assigned managed identity instead to authenticate access from your logic app to your storage account](#set-up-managed-identity-storage). |
 
 1. On the **Networking** tab, you can leave the default options for this example.
 
@@ -386,6 +386,50 @@ For a stateful workflow, you can review the trigger history for each run, includ
 ## Resubmit workflow run with same inputs
 
 For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
+
+<a named="set-up-managed-identity-storage"></a>
+
+## Set up managed identity access to your storage account
+
+By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
+
+1. From your storage account, get the URIs for the Blob, Queue, and Table services by following these steps:
+
+   1. In the Azure portal, go to your storage account. On the storage account menu, under **Settings**, select **Endpoints**.
+
+   1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
+
+1. If you haven't already, [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+
+1. From your user-assigned identity, get the resource ID by following these steps:
+
+   1. On the user-assigned managed identity menu, under **Settings**, select **Properties**.
+
+   1. From the **Id** property, copy and save the resource ID.
+
+1. Go to your Standard logic app. On the logic app menu, select **Overview**.
+
+1. On the **Overview** page toolbar, select **Stop**.
+
+1. On the logic app menu, under **Settings**, select **Environment variables**.
+
+1. On the **App settings** tab, select **Add** to add the following app settings and values:
+
+   | App setting | Value |
+   |-------------|-------|
+   | **AzureWebJobsStorage_managedIdentityResourceId** | The resource ID for your user-assigned managed identity |
+   | **AzureWebJobsStorage_blobServiceUri** | The Blob service URI for your storage account |
+   | **AzureWebJobsStorage_queueServiceUri** | The Queue service URI for your storage account |
+   | **AzureWebJobsStorage_tableServiceUri** | The Table service URI for your storage account |
+   | **AzureWebJobsStorage_credential** | **managedIdentity** |
+
+1. On the **App settings** tab, delete the app setting named **AzureWebJobsStorage**, which is set to the connection string associated with your storage account.
+
+1. When you finish, select **Apply** to save your changes, which restarts your logic app.
+
+   Your changes might take several moments to take effect. If necessary, on your logic app menu, select **Overview**, and on the toolbar, select **Refresh**.
+
+
 
 <a name="enable-run-history-stateless"></a>
 
