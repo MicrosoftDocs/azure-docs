@@ -429,7 +429,9 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    Your changes might take several moments to take effect. If necessary, on your logic app menu, select **Overview**, and on the toolbar, select **Refresh**.
 
+   The following message might appear, but it isn't an error and doesn't affect your logic app:
 
+   **"AzureWebjobsStorage" app setting is not present.**
 
 <a name="enable-run-history-stateless"></a>
 
