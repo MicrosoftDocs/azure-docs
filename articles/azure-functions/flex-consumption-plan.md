@@ -58,6 +58,14 @@ When deciding on which instance memory size to use with your apps, here are some
 + The default concurrency of HTTP triggers depends on the instance memory size. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
 + Available CPUs and network bandwidth are provided proportional to a specific instance size.
 
+## Per-function scaling
+
+Concurrency is a key factor that determines how Flex Consumption function apps scale. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
+
+This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
+
+In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances, and all Blob (Event Grid) functions are grouped and scale together in the same instances. All other functions in the app are scaled individually into their own instances.
+
 ## Always ready instances
 
 Flex Consumption includes an _always ready_ feature that lets you choose instances that are always running and assigned to each of your per-function scale groups or functions. This is a great option for scenarios where you need to have a minimum number of instances always ready to handle requests, for example, to reduce your application's cold start latency. The default is 0 (zero).
@@ -65,14 +73,6 @@ Flex Consumption includes an _always ready_ feature that lets you choose instanc
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
-
-## Per-function scaling
-
-Concurrency is a key factor that determines how Flex Consumption function apps scale. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
-
-This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
-
-In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances. All other functions in the app are scaled individually.
 
 ## Concurrency
 

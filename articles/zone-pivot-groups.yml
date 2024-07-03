@@ -3279,6 +3279,19 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: eihaugho
+- id: energy-data-services-gcz-options
+  title: Energy Data Services
+  prompt: Choose a deployment option
+  pivots:
+  - id: energy-data-services-gcz-aks
+    title: Azure Kubernetes Service
+  - id: energy-data-services-gcz-windows
+    title: Windows
+  - id: energy-data-services-gcz-apim-portal
+    title: Azure portal
+  - id: energy-data-services-gcz-apim-cli
+    title: Azure CLI
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
@@ -3387,6 +3400,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: kgremban
+- id: iot-hub-howto-c2d-1
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
 # Owner: micahvivion
 - id: acs-errorcodes-client-server
   title: Code and subcode errors
