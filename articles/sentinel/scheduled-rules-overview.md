@@ -76,29 +76,17 @@ For more information on maximizing your coverage of the MITRE ATT&CK threat land
 - Select **Disabled**, and the rule will be added to your **Active rules** tab. You can enable it from there when you need it.
 - Schedule the rule to first run at a specific date and time. This method is currently in PREVIEW. See [Query scheduling](#query-scheduling) later on in this article.
 
-### *Set rule logic* tab
+### Rule query
 
-In this tab you decide what information is in the alerts created by this rule, and how the information is organized. This configuration has follow-on effects on what the resulting incidents look like, and how easy or difficult they are to investigate, remediate, and resolve. It's important to make your alerts as rich in information as possible, and to make that information easily accessible.
-
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/set-rule-logic-1.png" alt-text="Screenshot of first half of set rule logic tab in the analytics rule wizard in the Azure portal.":::
-
-# [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/create-analytics-rules/defender-set-rule-logic-1.png" alt-text="Screenshot of first half of set rule logic tab in the analytics rule wizard in the Defender portal.":::
-
----
-
-#### Rule query
+This is the essence of the rule: you decide what information is in the alerts created by this rule, and how the information is organized. This configuration has follow-on effects on what the resulting incidents look like, and how easy or difficult they are to investigate, remediate, and resolve. It's important to make your alerts as rich in information as possible, and to make that information easily accessible.
 
 View or input the Kusto query that analyzes the raw log data. If you're creating a rule from scratch, it's a good idea to plan and design your query before opening this wizard. You can build and test queries in the **Logs** page.
 
 Everything you type into the rule query window is instantly validated, so you find out right away if you make any mistakes.
 
-##### Best practices for analytics rule queries
+**Best practices for analytics rule queries**
 
-- It's recommended to use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
+- We recommend you use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
 
 - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation, as a single function can replace dozens of lines of code.
 
@@ -110,7 +98,7 @@ Everything you type into the rule query window is instantly validated, so you fi
 
 For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
 
-#### Alert enhancement
+### Alert enhancement
 
 If you want your alerts to surface their findings so that they can be immediately visible in incidents, and tracked and investigated appropriately, use the alert enhancement configuration to surface all the important information in the alerts.
 
@@ -122,19 +110,19 @@ There are three types of alert enhancements you can configure:
 - Custom details
 - Alert details (also known as dynamic content)
 
-##### Entity mapping
+#### Entity mapping
 
 Entities are the players on either side of any attack story. Identifying all the entities in an alert is essential for detecting and investigating threats. To ensure that Microsoft Sentinel identifies the entities in your raw data, you must map the entity types recognized by Microsoft Sentinel onto fields in your query results. This mapping integrates the identified entities into the [*Entities* field in your alert schema](security-alert-schema.md).
 
 To learn more about entity mapping, and to get complete instructions, see [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md).
 
-##### Custom details
+#### Custom details
 
 By default, only the alert entities and metadata are visible in incidents without drilling down into the raw events in the query results. To give other fields from your query results immediate visibility in your alerts and incidents, define them as **custom details**. Microsoft Sentinel integrates these custom details into the [*ExtendedProperties* field in your alerts](security-alert-schema.md), causing them to be displayed up front in your alerts, and in any incidents created from those alerts.
 
 To learn more about surfacing custom details, and to get complete instructions, see [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md).
 
-##### Alert details
+#### Alert details
 
 This setting allows you to customize otherwise-standard alert properties according to the content of various fields in each individual alert. These customizations are integrated into the [*ExtendedProperties* field in your alerts](security-alert-schema.md). For example, you can customize the alert name or description to include a username or IP address featured in the alert.
 
@@ -143,7 +131,7 @@ To learn more about customizing alert details, and to get complete instructions,
 > [!NOTE]
 > In the unified security operations platform, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
 
-#### Query scheduling
+### Query scheduling
 
 The following parameters determine how often your scheduled rule will run, and what time period it will examine each time it runs.
 
@@ -177,7 +165,7 @@ The **Start running** setting, now in PREVIEW, allows you to create a rule with 
 >
 > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
-#### Alert threshold
+### Alert threshold
 
 Many types of security events are normal or even expected in small numbers, but are a sign of a threat in larger numbers. Different scales of large numbers can mean different kinds of threats. For example, two or three failed sign-in attempts in the space of a minute is a sign of a user not remembering a password, but fifty in a minute could be a sign of a human attack, and a thousand is probably an automated attack.
 
@@ -185,7 +173,7 @@ Depending on what kind of activity your rule is trying to detect, you can set a 
 
 The threshold can also be set to a maximum number of results, or an exact number.
 
-#### Event grouping
+### Event grouping
 
 There are two ways to handle the grouping of **events** into **alerts**:
 
@@ -197,11 +185,11 @@ Analytics rules can generate up to 150 alerts. If **Event grouping** is set to *
 
 The **Trigger an alert for each event** setting might cause an issue where query results appear to be missing or different than expected. For more information on this scenario, see [Troubleshooting analytics rules in Microsoft Sentinel | Issue: No events appear in query results](troubleshoot-analytics-rules.md#issue-no-events-appear-in-query-results).
 
-#### Suppression
+### Suppression
 
 If you want this rule to stop working for a period of time after it generates an alert, turn the **Stop running query after alert is generated** setting **On**. Then, you must set **Stop running query for** to the amount of time the query should stop running, up to 24 hours.
 
-#### Results simulation
+### Results simulation
 
 The analytics rule wizard allows you to test its efficacy by running it on the current data set. When you run the test, the **Results simulation** window shows you a graph of the results the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, you can run the test again to update the graph. The graph shows the number of results over the defined time period, which is determined by the query schedule you defined.
 
@@ -211,33 +199,9 @@ Here's what the results simulation might look like for the query in the screensh
 
 If you see that your query would trigger too many or too-frequent alerts, you can experiment with the scheduling and threshold settings and run the simulation again.
 
-# [Azure portal](#tab/azure-portal)
+### Incident settings
 
-:::image type="content" source="media/create-analytics-rules/set-rule-logic-2.png" alt-text="Screenshot of second half of set rule logic tab in the analytics rule wizard in the Azure portal.":::
-
-# [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/create-analytics-rules/defender-set-rule-logic-2.png" alt-text="Screenshot of second half of set rule logic tab in the analytics rule wizard in the Defender portal.":::
-
----
-
-### *Incident settings* tab
-
-Built in to your analytics rule configuration is what happens next, after an alert is created.
-
-There are two decisions to make here. Choose whether Microsoft Sentinel turns alerts into actionable incidents, and whether and how alerts are grouped together in incidents.
-
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/incident-settings-tab.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Azure portal.":::
-
-# [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/create-analytics-rules/defender-incident-settings.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Defender portal.":::
-
----
-
-#### Incident settings
+Choose whether Microsoft Sentinel turns alerts into actionable incidents.
 
 Incident creation is enabled by default. Microsoft Sentinel creates a single, separate incident from each alert generated by the rule.
 
@@ -252,9 +216,9 @@ If you want a single incident to be created from a group of alerts, instead of o
 
 <a name="alert-grouping"></a>
 
-#### Alert grouping
+### Alert grouping
 
-By default, Microsoft Sentinel creates an incident for every alert generated. You have the option of grouping several alerts together into a single incident instead.
+Choose whether how alerts are grouped together in incidents. By default, Microsoft Sentinel creates an incident for every alert generated. You have the option of grouping several alerts together into a single incident instead.
 
 The incident is created only after all the alerts have been generated. All of the alerts are added to the incident immediately upon its creation.
 
@@ -278,7 +242,7 @@ There are a few options to consider when grouping alerts:
 
     The option to reopen closed incidents is **not available** if you onboarded Microsoft Sentinel to the unified security operations platform.
 
-### *Automated response* tab
+### Automated response
 
 Microsoft Sentinel lets you set automated responses to occur when:
 - An alert is generated by this analytics rule.
@@ -298,56 +262,6 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 - For more information about when to use the **incident created trigger**, the **incident updated trigger**, or the **alert created trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary).
 
 - Under the **Alert automation (classic)** heading, you might see a list of playbooks configured to run automatically using an old method due to be **deprecated in March 2026**. You can't add anything to this list. Any playbooks listed here should have automation rules created, based on the **alert created trigger**, to invoke the playbooks. After you've done that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**. See [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md) for full instructions.
-
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
-
-# [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/create-analytics-rules/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
-
----
-
-### Validation and creation
-
-The final tab of the analytics rule wizard runs a background validation on the entire configuration and issues warnings for any improperly configured parameters. When the validation has passed, complete the wizard, creating the rule.
-
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/review-and-create-tab.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Azure portal.":::
-
-# [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/create-analytics-rules/defender-review-and-create.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Defender portal.":::
-
----
-
-## View the rule and its output
-
-**View the rule definition:**
-
-- You can find your newly created scheduled rule in the table under the **Active rules** tab on the **Analytics** page. From this list you can enable, disable, or delete each rule.
-
-- If you onboarded Microsoft Sentinel to the unified security operations platform, the **Analytics** page can be found in the Defender portal under the **Microsoft Sentinel > Configuration** menu.
-
-**View the results of the rule:**
-
-# [Azure portal](#tab/azure-portal)
-
-- To view the results of the analytics rules you create in the Azure portal, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
-
-# [Defender portal](#tab/defender-portal)
-
-- To view the results of the analytics rules you create in the Defender portal, expand **Investigation & response** in the navigation menu, then **Incidents & alerts**. View incidents on the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md). View individual alerts on the **Alerts** page.
-
----
-
-**Tune the rule:**
-- You can update the rule query to exclude false positives. For more information, see [Handle false positives in Microsoft Sentinel](false-positives.md).
-
-> [!NOTE]
-> Alerts generated in Microsoft Sentinel are available through [Microsoft Graph Security](/graph/security-concept-overview). For more information, see the [Microsoft Graph Security alerts documentation](/graph/api/resources/security-api-overview).
 
 ## Next steps
 
