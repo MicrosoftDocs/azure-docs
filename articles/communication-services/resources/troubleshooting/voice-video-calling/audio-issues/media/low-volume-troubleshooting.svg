@@ -215,7 +215,7 @@
 						x="12.17" dy="1.2em" class="st4">of the system is low</tspan></text>		</g>
 		<g id="shape22-33" v:mID="22" v:groupContext="shape" v:layerMember="0" transform="translate(28.8465,-147.618)">
 			<title>Decision.22</title>
-			<desc>The volume setting of apps volume mixer is low (if the settin...</desc>
+			<desc>The volume setting of app’s volume mixer is low (if the setti...</desc>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1033" v:cal="0"/>
@@ -245,9 +245,10 @@
 			<v:textRect cx="52.4409" cy="514.699" width="87.41" height="50.3065"/>
 			<path d="M0 514.7 L52.44 481.16 L104.88 514.7 L52.44 548.24 L0 514.7 Z" class="st2"/>
 			<text x="13.56" y="499.7" class="st3" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>The volume setting <tspan
-						x="21.26" dy="1.2em" class="st4">of apps volume </tspan><tspan x="28.18" dy="1.2em" class="st4">mixer is low<v:newlineChar/></tspan><tspan
-						x="11.25" dy="1.2em" class="st4">(if the setting exists)</tspan></text>		</g>
-		<g id="shape25-40" v:mID="25" v:groupContext="shape" v:layerMember="0" transform="translate(206.366,-265.093)">
+						x="20.01" dy="1.2em" class="st4">of app</tspan><tspan class="st4" v:langID="1033">’</tspan>s volume <tspan
+						x="28.18" dy="1.2em" class="st4">mixer is low<v:newlineChar/></tspan><tspan x="11.25" dy="1.2em"
+						class="st4">(if the setting exists)</tspan></text>		</g>
+		<g id="shape25-41" v:mID="25" v:groupContext="shape" v:layerMember="0" transform="translate(206.366,-265.093)">
 			<title>Process.25</title>
 			<desc>Adjust system volume</desc>
 			<v:custProps>
@@ -279,7 +280,7 @@
 			<rect x="0" y="505.717" width="70.8661" height="42.5197" class="st5"/>
 			<text x="7" y="523.98" class="st3" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>Adjust system <tspan
 						x="20.28" dy="1.2em" class="st4">volume</tspan></text>		</g>
-		<g id="shape27-45" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(206.366,-159.896)">
+		<g id="shape27-46" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(206.366,-159.896)">
 			<title>Process.27</title>
 			<desc>Adjust browser volume setting</desc>
 			<v:custProps>
@@ -311,7 +312,7 @@
 			<rect x="0" y="505.717" width="70.8661" height="42.5197" class="st5"/>
 			<text x="4.56" y="523.98" class="st3" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>Adjust browser <tspan
 						x="5.23" dy="1.2em" class="st4">volume setting</tspan></text>		</g>
-		<g id="shape1002-50" v:mID="1002" v:groupContext="shape" v:layerMember="0" transform="translate(32.7441,-28.8465)">
+		<g id="shape1002-51" v:mID="1002" v:groupContext="shape" v:layerMember="0" transform="translate(32.7441,-28.8465)">
 			<title>Process.1002</title>
 			<desc>Check the audio output device / select other audio output dev...</desc>
 			<v:custProps>
@@ -345,7 +346,7 @@
 			<text x="15.89" y="506.31" class="st3" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>Check the audio <tspan
 						x="4.36" dy="1.2em" class="st4">output device / select </tspan><tspan x="9.81" dy="1.2em" class="st4">other audio output </tspan><tspan
 						x="35.42" dy="1.2em" class="st4">device</tspan></text>		</g>
-		<g id="shape1004-57" v:mID="1004" v:groupContext="shape" v:layerMember="1" transform="translate(129.831,-408.405)">
+		<g id="shape1004-58" v:mID="1004" v:groupContext="shape" v:layerMember="1" transform="translate(129.831,-408.405)">
 			<title>Dynamic connector.1004</title>
 			<desc>Always low</desc>
 			<v:userDefs>
@@ -357,7 +358,7 @@
 			<rect v:rectContext="textBkgnd" x="15.5503" y="549.324" width="45.4351" height="12.0001" class="st8"/>
 			<text x="15.55" y="558.32" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Always <tspan
 						class="st4" v:langID="4105">low</tspan></text>		</g>
-		<g id="shape1005-65" v:mID="1005" v:groupContext="shape" v:layerMember="1" transform="translate(74.2008,-372.406)">
+		<g id="shape1005-66" v:mID="1005" v:groupContext="shape" v:layerMember="1" transform="translate(74.2008,-372.406)">
 			<title>Dynamic connector.1005</title>
 			<desc>Not always low</desc>
 			<v:userDefs>
@@ -366,10 +367,10 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="7.08661" cy="574.482" width="72.05" height="20.0036"/>
 			<path d="M7.09 548.24 L7.09 592.69" class="st6"/>
-			<rect v:rectContext="textBkgnd" x="-23.8022" y="568.483" width="61.7778" height="12.0001" class="st10"/>
+			<rect v:rectContext="textBkgnd" x="-23.8022" y="568.483" width="61.7778" height="12.0001" class="st8"/>
 			<text x="-23.8" y="577.48" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Not always <tspan
 						class="st4" v:langID="4105">low</tspan></text>		</g>
-		<g id="shape1006-73" v:mID="1006" v:groupContext="shape" v:layerMember="1" transform="translate(133.728,-279.266)">
+		<g id="shape1006-74" v:mID="1006" v:groupContext="shape" v:layerMember="1" transform="translate(133.728,-279.266)">
 			<title>Dynamic connector.1006</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -380,7 +381,7 @@
 			<path d="M0 541.15 L64.6 541.15" class="st6"/>
 			<rect v:rectContext="textBkgnd" x="29.4389" y="535.151" width="13.7598" height="12.0001" class="st8"/>
 			<text x="29.44" y="544.15" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape1007-80" v:mID="1007" v:groupContext="shape" v:layerMember="1" transform="translate(74.2008,-252.791)">
+		<g id="shape1007-81" v:mID="1007" v:groupContext="shape" v:layerMember="1" transform="translate(74.2008,-252.791)">
 			<title>Dynamic connector.1007</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -391,7 +392,7 @@
 			<path d="M7.09 548.24 L7.09 578.29" class="st6"/>
 			<rect v:rectContext="textBkgnd" x="1.22233" y="561.286" width="11.7285" height="12.0001" class="st8"/>
 			<text x="1.22" y="570.29" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="shape1008-87" v:mID="1008" v:groupContext="shape" v:layerMember="1" transform="translate(74.2008,-147.618)">
+		<g id="shape1008-88" v:mID="1008" v:groupContext="shape" v:layerMember="1" transform="translate(74.2008,-147.618)">
 			<title>Dynamic connector.1008</title>
 			<desc>No</desc>
 			<v:userDefs>
@@ -400,9 +401,9 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="7.08661" cy="580.694" width="50" height="20.0036"/>
 			<path d="M7.09 548.24 L7.09 605.11" class="st6"/>
-			<rect v:rectContext="textBkgnd" x="1.22233" y="574.694" width="11.7285" height="12.0001" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="1.22233" y="574.694" width="11.7285" height="12.0001" class="st10"/>
 			<text x="1.22" y="583.69" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
-		<g id="shape1011-94" v:mID="1011" v:groupContext="shape" v:layerMember="1" transform="translate(133.728,-174.069)">
+		<g id="shape1011-95" v:mID="1011" v:groupContext="shape" v:layerMember="1" transform="translate(133.728,-174.069)">
 			<title>Dynamic connector.1011</title>
 			<desc>Yes</desc>
 			<v:userDefs>
@@ -413,7 +414,7 @@
 			<path d="M0 541.15 L64.6 541.15" class="st6"/>
 			<rect v:rectContext="textBkgnd" x="29.4389" y="535.151" width="13.7598" height="12.0001" class="st8"/>
 			<text x="29.44" y="544.15" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
-		<g id="shape1012-101" v:mID="1012" v:groupContext="shape" transform="translate(96.2356,-420.094)">
+		<g id="shape1012-102" v:mID="1012" v:groupContext="shape" transform="translate(96.2356,-420.094)">
 			<title>Sheet.1012</title>
 			<desc>❶</desc>
 			<v:userDefs>
@@ -423,7 +424,7 @@
 			<v:textRect cx="11.4809" cy="542.237" width="22.97" height="12"/>
 			<rect x="0" y="536.237" width="22.9618" height="12" class="st11"/>
 			<text x="3.51" y="545.84" class="st12" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>❶</text>		</g>
-		<g id="shape1013-104" v:mID="1013" v:groupContext="shape" transform="translate(96.3779,-309.543)">
+		<g id="shape1013-105" v:mID="1013" v:groupContext="shape" transform="translate(96.3779,-309.543)">
 			<title>Sheet.1013</title>
 			<desc>❸</desc>
 			<v:userDefs>
@@ -433,7 +434,7 @@
 			<v:textRect cx="11.4809" cy="542.237" width="22.97" height="12"/>
 			<rect x="0" y="536.237" width="22.9618" height="12" class="st11"/>
 			<text x="3.51" y="545.84" class="st12" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>❸</text>		</g>
-		<g id="shape1014-107" v:mID="1014" v:groupContext="shape" transform="translate(254.833,-422.929)">
+		<g id="shape1014-108" v:mID="1014" v:groupContext="shape" transform="translate(254.833,-422.929)">
 			<title>Sheet.1014</title>
 			<desc>❷</desc>
 			<v:userDefs>
@@ -443,7 +444,7 @@
 			<v:textRect cx="11.4809" cy="542.237" width="22.97" height="12"/>
 			<rect x="0" y="536.237" width="22.9618" height="12" class="st11"/>
 			<text x="3.51" y="545.84" class="st12" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>❷</text>		</g>
-		<g id="shape1015-110" v:mID="1015" v:groupContext="shape" transform="translate(255.118,-309.543)">
+		<g id="shape1015-111" v:mID="1015" v:groupContext="shape" transform="translate(255.118,-309.543)">
 			<title>Sheet.1015</title>
 			<desc>❹</desc>
 			<v:userDefs>
@@ -453,7 +454,7 @@
 			<v:textRect cx="11.4809" cy="542.237" width="22.97" height="12"/>
 			<rect x="0" y="536.237" width="22.9618" height="12" class="st11"/>
 			<text x="3.51" y="545.84" class="st12" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>❹</text>		</g>
-		<g id="shape1016-113" v:mID="1016" v:groupContext="shape" transform="translate(254.27,-202.693)">
+		<g id="shape1016-114" v:mID="1016" v:groupContext="shape" transform="translate(254.27,-202.693)">
 			<title>Sheet.1016</title>
 			<desc>❻</desc>
 			<v:userDefs>
@@ -463,7 +464,7 @@
 			<v:textRect cx="11.4809" cy="542.237" width="22.97" height="12"/>
 			<rect x="0" y="536.237" width="22.9618" height="12" class="st11"/>
 			<text x="3.51" y="545.84" class="st12" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>❻</text>		</g>
-		<g id="shape1018-116" v:mID="1018" v:groupContext="shape" transform="translate(96.3779,-202.693)">
+		<g id="shape1018-117" v:mID="1018" v:groupContext="shape" transform="translate(96.3779,-202.693)">
 			<title>Sheet.1018</title>
 			<desc>❺</desc>
 			<v:userDefs>
@@ -473,7 +474,7 @@
 			<v:textRect cx="11.4809" cy="542.237" width="22.97" height="12"/>
 			<rect x="0" y="536.237" width="22.9618" height="12" class="st11"/>
 			<text x="3.51" y="545.84" class="st12" v:langID="4105"><v:paragraph v:horizAlign="1"/><v:tabList/>❺</text>		</g>
-		<g id="shape1019-119" v:mID="1019" v:groupContext="shape" transform="translate(99.2126,-88.4409)">
+		<g id="shape1019-120" v:mID="1019" v:groupContext="shape" transform="translate(99.2126,-88.4409)">
 			<title>Sheet.1019</title>
 			<desc>❼</desc>
 			<v:userDefs>
