@@ -1,22 +1,22 @@
 ---
 title: Use MQTTnet to develop distributed application workloads
-description: Develop distributed applications that talk with Azure IoT MQ using MQTTnet.
+description: Develop distributed applications that talk with MQTT broker using MQTTnet.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
-#CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with Azure IoT MQ.
+#CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with MQTT broker.
 ---
 
-# Use MQTTnet to develop distributed application workloads that connect to Azure IoT MQ Preview
+# Use MQTTnet to develop distributed application workloads that connect to MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token and MQTTnet to connect to Azure IoT MQ Preview. You should use service account tokens to connect to in-cluster clients.
+[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token and MQTTnet to connect to MQTT broker. You should use service account tokens to connect to in-cluster clients.
 
 ## Sample code
 
@@ -126,5 +126,5 @@ To run the sample, follow the instructions in its [README](https://github.com/Az
 
 ## Related content
 
-- [Azure IoT MQ overview](../manage-mqtt-broker/overview-iot-mq.md)
-- [Develop with Azure IoT MQ](edge-apps-overview.md)
+- [MQTT broker overview](../manage-mqtt-broker/overview-iot-mq.md)
+- [Develop with MQTT broker](edge-apps-overview.md)

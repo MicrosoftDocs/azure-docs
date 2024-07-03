@@ -67,7 +67,7 @@ items:
           href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
     - name: Manage MQTT broker
       items:
-      - name: Azure IoT MQ overview
+      - name: MQTT broker overview
         href: manage-mqtt-broker/overview-iot-mq.md
       - name: Configure core MQTT broker settings
         href: manage-mqtt-broker/howto-configure-availability-scale.md
@@ -83,8 +83,6 @@ items:
         href: manage-mqtt-broker/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
-      - name: Manage secrets
-        href: manage-mqtt-broker/howto-manage-secrets.md
       - name: Connect to cloud services
         items:
         - name: Connect to MQTT or Event Grid
@@ -235,13 +233,13 @@ items:
         items:
         - name: Azure IoT Data Processor
           href: /rest/api/iotdataprocessor 
-        - name: Azure IoT MQ
+        - name: MQTT broker
           href: /rest/api/iotmq
         - name: Azure IoT Orchestrator
           href: /rest/api/iotorchestrator
       - name: Available metrics for observability
         items:
-        - name: Azure IoT MQ
+        - name: MQTT broker
           href: reference/observability-metrics-mq.md
         - name: Azure IoT Akri
           href: reference/observability-metrics-akri.md

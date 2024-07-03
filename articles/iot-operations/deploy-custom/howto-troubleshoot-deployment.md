@@ -18,7 +18,7 @@ ms.date: 11/02/2023
 
 If you need to troubleshoot a deployment, you can find error details in the Azure portal to understand which resources failed or succeeded and why.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that contains your Arc-enabled cluster.
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Arc-enabled cluster.
 
 1. Select **Deployments** under **Settings** in the navigation menu.
 

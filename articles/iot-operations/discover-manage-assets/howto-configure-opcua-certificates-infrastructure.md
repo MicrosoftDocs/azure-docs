@@ -1,6 +1,6 @@
 ---
 title: Configure OPC UA certificates
-description:  How to configure and manage the OPC UA certificates trust relationship in the context of OPC UA Broker
+description:  How to configure and manage the OPC UA certificates trust relationship in the context of the connector for OPC UA
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
@@ -8,18 +8,18 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/15/2024
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how to manage the OPC UA Certificates in the context of OPC UA Broker.
+# CustomerIntent: As an industrial edge IT or operations user, I want to to understand how to manage the OPC UA Certificates in the context of the connector for OPC UA.
 ---
 
-# Configure OPC UA certificates infrastructure for Azure IoT OPC UA Broker Preview
+# Configure OPC UA certificates infrastructure for the connector for OPC UA
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to configure the OPC UA certificates infrastructure for Azure IoT OPC UA Broker. This configuration lets you determine which OPC UA servers you trust to securely establish a session with.
+In this article, you learn how to configure the OPC UA certificates infrastructure for the connector for OPC UA. This configuration lets you determine which OPC UA servers you trust to securely establish a session with.
 
-Based on the [OPC UA specification](https://reference.opcfoundation.org/), OPC UA Broker acts as a single OPC UA application when it establishes secure communications with OPC UA servers. Azure IoT OPC UA Broker uses the same application instance certificate for all secure channels it opens to your OPC UA servers.
+Based on the [OPC UA specification](https://reference.opcfoundation.org/), the connector for OPC UA acts as a single OPC UA application when it establishes secure communications with OPC UA servers. The connector for OPC UA uses the same application instance certificate for all secure channels it opens to your OPC UA servers.
 
-To learn more, see [OPC UA certificates infrastructure for Azure IoT OPC UA Broker Preview](overview-opcua-broker-certificates-management.md).
+To learn more, see [OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md).
 
 ## Prerequisites
 
@@ -27,13 +27,13 @@ A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operati
 
 ## Configure a self-signed application instance certificate
 
-The default deployment of the OPC UA Broker installs all the resources needed by [cert-manager](https://cert-manager.io/) to create an OPC UA compliant self-signed certificate. This certificate is stored in the `aio-opc-opcuabroker-default-application-cert` secret. This secret is mapped into all the OPC UA connector pods and acts as the OPC UA client application instance certificate. `cert-manager` handles the automatic renewal of this application instance certificate.
+The default deployment of the connector for OPC UA installs all the resources needed by [cert-manager](https://cert-manager.io/) to create an OPC UA compliant self-signed certificate. This certificate is stored in the `aio-opc-opcuabroker-default-application-cert` secret. This secret is mapped into all the connector for OPC UA pods and acts as the OPC UA client application instance certificate. `cert-manager` handles the automatic renewal of this application instance certificate.
 
-This configuration is typically sufficient for compliant and secure communication between your OPC UA servers and OPC UA Broker in a demonstration or exploration environment. For a production environment, use enterprise grade application instance certificates in your deployment.
+This configuration is typically sufficient for compliant and secure communication between your OPC UA servers and the connector for OPC UA in a demonstration or exploration environment. For a production environment, use enterprise grade application instance certificates in your deployment.
 
 ## Configure the trusted certificates list
 
-To connect to an asset, first you need to establish the application authentication mutual trust. For OPC UA Broker, complete the following steps:
+To connect to an asset, first you need to establish the application authentication mutual trust. For the connector for OPC UA, complete the following steps:
 
 1. Get the OPC UA server application's instance certificate as a file. These files typically have a .der or .crt extension. This is the public key only.
 
@@ -45,7 +45,7 @@ To connect to an asset, first you need to establish the application authenticati
     For a DER encoded certificate in a file such as *./my-server.der*, run the following command:
 
     ```azcli
-    # Upload my-server.der OPC UA Server's certificate as secret to Azure Key Vault
+    # Upload my-server.der OPC UA server's certificate as secret to Azure Key Vault
     az keyvault secret set \
       --name "my-server-der" \
       --vault-name <your-azure-key-vault-name> \
@@ -57,7 +57,7 @@ To connect to an asset, first you need to establish the application authenticati
     For a PEM encoded certificate in a file such as *./my-server.crt*, run the following command:
 
     ```azcli
-    # Upload my-server.crt OPC UA Server's certificate as secret to Azure Key Vault
+    # Upload my-server.crt OPC UA server's certificate as secret to Azure Key Vault
     az keyvault secret set \
       --name "my-server-crt" \
       --vault-name <your-azure-key-vault-name> \
@@ -117,7 +117,7 @@ To connect to an asset, first you need to establish the application authenticati
     > [!NOTE]
     > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
-If your OPC UA Server uses a certificate issued by a certificate authority (CA), you can trust the CA by adding its public key certificate to OPC UA Broker trusted certificates list. The OPC UA Broker instance now automatically trusts all the servers that use a valid certificate issued by the CA. Therefore, you don't need to explicitly add the OPC UA server's certificate to the OPC UA Broker trusted certificates list.
+If your OPC UA server uses a certificate issued by a certificate authority (CA), you can trust the CA by adding its public key certificate to the connector for OPC UA trusted certificates list. The connector for OPC UA now automatically trusts all the servers that use a valid certificate issued by the CA. Therefore, you don't need to explicitly add the OPC UA server's certificate to the connector for OPC UA trusted certificates list.
 
 To trust a CA, complete the following steps:
 
@@ -232,7 +232,7 @@ If your OPC UA server uses a certificate issued by a certificate authority (CA),
 
 1. Trust the OPC UA server's application instance certificate by following the first three steps in the previous section.
 
-1. Besides the certificate itself, OPC UA Broker needs the CA certificate to properly validate the issuer chain of the OPC UA server's certificate. Add the CA certificate and its certificate revocation list (CRL) to a separate list called `aio-opc-ua-broker-issuer-list`.
+1. Besides the certificate itself, connector for OPC UA needs the CA certificate to properly validate the issuer chain of the OPC UA server's certificate. Add the CA certificate and its certificate revocation list (CRL) to a separate list called `aio-opc-ua-broker-issuer-list`.
 
     1. Save the CA certificate and the CRL in Azure Key Vault as secrets.
 
@@ -339,9 +339,9 @@ If your OPC UA server uses a certificate issued by a certificate authority (CA),
 
 ## Configure your OPC UA server
 
-To complete the configuration of the application authentication mutual trust, you need to configure your OPC UA server to trust the OPC UA Broker's application instance certificate:
+To complete the configuration of the application authentication mutual trust, you need to configure your OPC UA server to trust the connector for OPC UA application instance certificate:
 
-1. To extract OPC UA Broker's certificate into a `opcuabroker.crt` file, run the following command:
+1. To extract the connector for OPC UA certificate into a `opcuabroker.crt` file, run the following command:
 
     ```bash
     kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcuabroker.crt
@@ -363,7 +363,7 @@ To complete the configuration of the application authentication mutual trust, yo
 
 ## Configure an enterprise grade application instance certificate
 
-For production environments, you can configure OPC UA Broker to use an enterprise grade application instance certificate. Typically, an enterprise certificate authority (CA) issues this certificate and you need the CA certificate to your configuration. Often, there's a hierarchy of CAs and you need to add the complete validation chain of CAs to your configuration.
+For production environments, you can configure the connector for OPC UA to use an enterprise grade application instance certificate. Typically, an enterprise certificate authority (CA) issues this certificate and you need the CA certificate to your configuration. Often, there's a hierarchy of CAs and you need to add the complete validation chain of CAs to your configuration.
 
 The following example references the following items:
 
@@ -376,12 +376,12 @@ The following example references the following items:
 | _enterprise-grade-ca-1.der_   | File that contains the enterprise grade CA certificate public key. |
 | _enterprise-grade-ca-1.crl_   | The CA's certificate revocation list (CRL) file. |
 
-Like the previous examples, you use Azure Key Vault to store the certificates and CRLs. You then configure the `SecretProviderClass` custom resources in the connected cluster to project the certificates and CRLs into the OPC UA Broker pods. To configure the enterprise grade application instance certificate, complete the following steps:
+Like the previous examples, you use Azure Key Vault to store the certificates and CRLs. You then configure the `SecretProviderClass` custom resources in the connected cluster to project the certificates and CRLs into the connector for OPC UA pods. To configure the enterprise grade application instance certificate, complete the following steps:
 
 1. Save the certificates and the CRL in Azure Key Vault as secrets by using the following commands:
 
    ```azcli
-    # Upload OPC UA Broker public key certificate as secret to Azure Key Vault
+    # Upload the connector for OPC UA public key certificate as secret to Azure Key Vault
     az keyvault secret set \
       --name "opcuabroker-certificate-der" \
       --vault-name <your-azure-key-vault-name> \
@@ -389,7 +389,7 @@ Like the previous examples, you use Azure Key Vault to store the certificates an
       --encoding hex \
       --content-type application/pkix-cert
 
-    # Upload OPC UA Broker private key certificate as secret to Azure Key Vault
+    # Upload connector for OPC UA private key certificate as secret to Azure Key Vault
     az keyvault secret set \
       --name "opcuabroker-certificate-pem" \
       --vault-name <your-azure-key-vault-name> \
@@ -474,7 +474,7 @@ Like the previous examples, you use Azure Key Vault to store the certificates an
               objectEncoding: hex
     ```
 
-1. Update the OPC UA Broker deployment to use the new `SecretProviderClass` source for application instance certificates by using the following command:
+1. Update the connector for OPC UA deployment to use the new `SecretProviderClass` source for application instance certificates by using the following command:
 
     ```azcli
     az k8s-extension update \
@@ -490,4 +490,4 @@ Like the previous examples, you use Azure Key Vault to store the certificates an
         --config securityPki.applicationUri=<applicationUri>
     ```
 
-Now that the OPC UA Broker uses the enterprise certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers it needs to connect to.
+Now that the connector for OPC UA uses the enterprise certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers it needs to connect to.

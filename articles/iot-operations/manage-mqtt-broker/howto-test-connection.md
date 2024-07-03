@@ -1,24 +1,24 @@
 ---
 title: Test connectivity to IoT MQ with MQTT clients
-description: Learn how to use common and standard MQTT tools to test connectivity to Azure IoT MQ in a nonproduction environment.
+description: Learn how to use common and standard MQTT tools to test connectivity to MQTT broker in a nonproduction environment.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 03/18/2024
+ms.date: 07/02/2024
 
-#CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my Azure IoT MQ broker correctly.
+#CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
 ---
 
-# Test connectivity to Azure IoT MQ Preview with MQTT clients
+# Test connectivity to MQTT broker with MQTT clients
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article shows different ways to test connectivity to Azure IoT MQ Preview with MQTT clients in a nonproduction environment.
+This article shows different ways to test connectivity to MQTT broker with MQTT clients in a nonproduction environment.
 
-By default, Azure IoT MQ Preview:
+By default, MQTT broker:
 
 - Deploys a [TLS-enabled listener](howto-configure-brokerlistener.md) on port 8883 with *ClusterIp* as the service type. *ClusterIp* means that the broker is accessible only from within the Kubernetes cluster. To access the broker from outside the cluster, you must configure a service of type *LoadBalancer* or *NodePort*.
 
@@ -26,8 +26,8 @@ By default, Azure IoT MQ Preview:
 
 > [!CAUTION]
 > For production scenarios, you should use TLS and service accounts authentication to secure your IoT solution. For more information, see:
-> - [Configure TLS with automatic certificate management to secure MQTT communication in Azure IoT MQ Preview](./howto-configure-tls-auto.md)
-> - [Configure authentication in Azure IoT MQ Preview](./howto-configure-authentication.md)
+> - [Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker](./howto-configure-tls-auto.md)
+> - [Configure authentication in MQTT broker](./howto-configure-authentication.md)
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) using port forwarding or a virtual switch with Azure Kubernetes Services Edge Essentials.
 
 Before you begin, [install or configure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to IoT MQ with MQTT clients in a nonproduction environment.

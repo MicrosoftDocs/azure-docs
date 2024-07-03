@@ -1,17 +1,17 @@
 ---
 title: Configure MQTT bridge between IoT MQ and Azure Event Grid
-description: Learn how to configure Azure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS.
+description: Learn how to configure MQTT broker for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS.
 author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.custom: devx-track-azurecli
 ms.author: patricka
 ms.topic: tutorial
-ms.date: 04/22/2024
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid
+# Tutorial: Configure MQTT bridge between MQTT broker and Azure Event Grid
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to configure IoT MQ for bi-directional MQTT brid
 
 ## Prerequisites
 
-* [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 
 ## Set environment variables
 
@@ -85,9 +85,9 @@ az eventgrid namespace topic-space create \
 
 By using the `#` wildcard in the topic template, you can publish to any topic under the `telemetry` topic space. For example, `telemetry/temperature` or `telemetry/humidity`.
 
-## Give Azure IoT MQ Preview access to the Event Grid topic space
+## Give MQTT broker access to the Event Grid topic space
 
-Using `az k8s-extension show`, find the principal ID for the Azure IoT MQ Arc extension. The command stores the principal ID in a variable for later use.
+Using `az k8s-extension show`, find the principal ID for the MQTT broker Arc extension. The command stores the principal ID in a variable for later use.
 
 ```azurecli
 export PRINCIPAL_ID=$(az k8s-extension show \
@@ -342,7 +342,7 @@ Here, you see the messages are published to the local IoT MQ broker to the `tuto
 
 ## Check Event Grid metrics to verify message delivery
 
-You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, navigate to the Event Grid namespace you created. Under **Metrics** > **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local IoT MQ broker.
+You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, go to the Event Grid namespace you created. Under **Metrics** > **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local IoT MQ broker.
 
 :::image type="content" source="media/tutorial-connect-event-grid/event-grid-metrics.png" alt-text="Screenshot of the metrics view in Azure portal to show successful MQTT messages.":::
 

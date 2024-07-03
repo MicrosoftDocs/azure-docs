@@ -7,13 +7,68 @@ author: jejackson
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
-ms.date: 06/06/2024
+ms.date: 07/01/2024
 ms.author: jejackson
 ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## June 2024 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 24-06 | 5039217 | Latest Cumulative Update(LCU) | [6.72] | Jun 11, 2024 |
+| Rel 24-06 | 5039227 | Latest Cumulative Update(LCU) | [7.42] | Jun 11, 2024 |
+| Rel 24-06 | 5039214 | Latest Cumulative Update(LCU) | [5.96] | Jun 11, 2024 |
+| Rel 24-06 | 5036626 | .NET Framework 3.5 Security and Quality Rollup | [2.152] | May 14, 2024 |
+| Rel 24-06 | 5036607 | .NET Framework 4.7.2 Cumulative Update LKG | [2.152] | Apr 9, 2024 |
+| Rel 24-06 | 5036627 | .NET Framework 3.5 Security and Quality Rollup LKG |[4.132] | May 14, 2024 |
+| Rel 24-06 | 5036606 | .NET Framework 4.7.2 Cumulative Update LKG |[4.132] | Apr 9, 2024 |
+| Rel 24-06 | 5036624 | .NET Framework 3.5 Security and Quality Rollup LKG | [3.140] | May 14, 2024 |
+| Rel 24-06 | 5036605 | .NET Framework 4.7.2 Cumulative Update LKG | [3.140] | Apr 9, 2024 |
+| Rel 24-06 | 5036604 | . NET Framework Dot Net | [6.72] | Apr 9, 2024 |
+| Rel 24-06 | 5036613 | .NET Framework 4.8 Security and Quality Rollup LKG | [7.42] | Apr 9, 2024 |
+| Rel 24-06 | 5039289 | Monthly Rollup | [2.152] | Jun 11, 2024 |
+| Rel 24-06 | 5039260 | Monthly Rollup | [3.140] | Jun 11, 2024 |
+| Rel 24-06 | 5039294 | Monthly Rollup | [4.132] | Jun 11, 2024 |
+| Rel 24-06 | 5039342 | Servicing Stack Update | [3.140] | Jun 11, 2024 |
+| Rel 24-06 | 5039340 | Servicing Stack Update | [4.132] | Jun 11, 2024 |
+| Rel 24-06 | 5039334 | Servicing Stack Update | [5.96] | Jun 11, 2024 |
+| Rel 24-06 | 5039339 | Servicing Stack Update LKG | [2.152] | Jun 11, 2024 |
+| Rel 24-06 | 5039335 | Servicing Stack Update | [7.42] | Jun 11, 2024 |
+| Rel 24-06 | 5039343 | Servicing Stack Update | [6.72] | Jun 11, 2024 |
+| Rel 24-06 | 4494175 | January '20 Microcode | [5.96] | Sep 1, 2020 |
+| Rel 24-06 | 4494175 | January '20 Microcode | [6.72] | Sep 1, 2020 |
+
+[5039217]: https://support.microsoft.com/kb/5039217
+[5039227]: https://support.microsoft.com/kb/5039227
+[5039214]: https://support.microsoft.com/kb/5039214
+[5036626]: https://support.microsoft.com/kb/5036626
+[5036607]: https://support.microsoft.com/kb/5036607
+[5036627]: https://support.microsoft.com/kb/5036627
+[5036606]: https://support.microsoft.com/kb/5036606
+[5036624]: https://support.microsoft.com/kb/5036624
+[5036605]: https://support.microsoft.com/kb/5036605
+[5036604]: https://support.microsoft.com/kb/5036604
+[5036613]: https://support.microsoft.com/kb/5036613
+[5039289]: https://support.microsoft.com/kb/5039289
+[5039260]: https://support.microsoft.com/kb/5039260
+[5039294]: https://support.microsoft.com/kb/5039294
+[5039342]: https://support.microsoft.com/kb/5039342
+[5039340]: https://support.microsoft.com/kb/5039340
+[5039334]: https://support.microsoft.com/kb/5039334
+[5039339]: https://support.microsoft.com/kb/5039339
+[5037960]: https://support.microsoft.com/kb/5037960
+[5039335]: https://support.microsoft.com/kb/5039335
+[4494175]: https://support.microsoft.com/kb/4494175
+[2.152]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.140]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.132]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.96]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.72]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.42]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## May 2024 Guest OS
 

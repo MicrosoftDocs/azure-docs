@@ -1,6 +1,6 @@
 ---
 title: Publish data to an MQTT broker from a pipeline
-description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers using Azure IoT Data Processor.
+description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers using the data processor.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -13,15 +13,15 @@ ms.date: 10/09/2023
 ---
 
 
-# Publish data to an MQTT broker using Azure IoT Data Processor Preview
+# Publish data to an MQTT broker using the data processor
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an Azure IoT MQ Preview instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
+Use the _MQ_ destination to publish processed messages to an MQTT broker, such as an MQTT broker instance, on the edge. The data processor connects to an MQTT broker by using MQTT v5.0. The destination publishes messages to the MQTT broker as the stage receives them. The MQ destination doesn't support batching.
 
 ## Prerequisites
 
-To configure and use a destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
+To configure and use a destination pipeline stage, you need a deployed instance of the data processor that includes the optional data processor component.
 
 ## Configure the destination stage
 
@@ -29,7 +29,7 @@ The MQ destination stage JSON configuration defines the details of the stage. To
 
 | Field | Type | Description | Required | Default | Example |
 | --- | --- | --- | --- | --- | --- |
-| Name | String | A name to show in the Data Processor UI.  | Yes | -  | `MQTT broker output` |
+| Name | String | A name to show in the data processor UI.  | Yes | -  | `MQTT broker output` |
 | Description | String | A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
 | Broker | String | The broker address.  | Yes | - | `mqtt://mqttEndpoint.cluster.local:1111` |
 | Authentication | String | The authentication details to connect to MQTT broker. `None`/`Username/Password`/`Service account token (SAT)`  | Yes | `Service account token (SAT)` | `Username/Password` |
@@ -41,7 +41,7 @@ The MQ destination stage JSON configuration defines the details of the stage. To
 
 | Retry | [Retry](concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 
-<sup>1</sup>Data format: Use Data Processor's built-in serializer to serialize your messages to the following [Formats](concept-supported-formats.md) before it publishes messages to the MQTT broker:
+<sup>1</sup>Data format: Use the data processor's built-in serializer to serialize your messages to the following [Formats](concept-supported-formats.md) before it publishes messages to the MQTT broker:
 
 - `Raw`
 - `JSON`

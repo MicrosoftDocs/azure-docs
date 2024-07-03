@@ -12,21 +12,21 @@ ms.date: 09/28/2023
 #CustomerIntent: As an operator, I want understand how I can partition my data into multiple pipeline instances so that I can improve throughput and reduce latency.
 ---
 
-# What is partitioning in Azure IoT Data Processor Preview?
+# What is partitioning in the data processor?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In an Azure IoT Data Processor Preview pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the [last known value](howto-configure-lkv-stage.md) and [aggregate](howto-configure-aggregate-stage.md) stages, process data.
+In a data processor pipeline, partitioning divides incoming data into separate partitions to enable data parallelism. Data parallelism improves throughput and reduces latency. Partitioning also affects how pipeline stages, such as the [last known value](howto-configure-lkv-stage.md) and [aggregate](howto-configure-aggregate-stage.md) stages, process data.
 
 
 ## Partitioning concepts
 
-Data Processor uses two partitioning concepts:
+The data processor uses two partitioning concepts:
 
 - Physical partitions that correspond to actual data streams within the system.
 - Logical partitions that correspond to conceptual data streams that are processed together.
 
-A Data Processor pipeline exposes partitions as logical partitions to the user. The underlying system maps these logical partitions onto physical partitions.
+A data processor pipeline exposes partitions as logical partitions to the user. The underlying system maps these logical partitions onto physical partitions.
 
 To specify a partitioning strategy for a pipeline, you provide two pieces of information:
 
@@ -49,7 +49,7 @@ Partitioning configuration includes:
 | Type | The type of logical partitioning to be used: Partition `id` or Partition `key`. | Yes | `key` | `key` |
 | Expression | The jq expression to execute against the incoming message to compute Partition `id` or Partition `key`. | Yes | N/A | `.topic` |
 
-You provide a [jq expression](concept-jq-expression.md) that applies to the entire message that arrives in the Data Processor pipeline to generate the partition key or partition ID. The output of this query mustn't exceed 128 characters.
+You provide a [jq expression](concept-jq-expression.md) that applies to the entire message that arrives in the data processor pipeline to generate the partition key or partition ID. The output of this query mustn't exceed 128 characters.
 
 ## Partitioning types
 
@@ -85,6 +85,6 @@ When you're choosing a partitioning strategy for your pipeline:
 
 ## Related content
 
-- [Data Processor messages](concept-message-structure.md)
+- [Data processor messages](concept-message-structure.md)
 - [Supported formats](concept-supported-formats.md)
 - [What are configuration patterns?](concept-configuration-patterns.md)

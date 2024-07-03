@@ -1,6 +1,6 @@
 ---
-title: Data Processor jq expressions
-description: Understand the jq expressions used by Azure IoT Data Processor to operate on messages in the pipeline.
+title: Data processor jq expressions
+description: Understand the jq expressions used by the data processor to operate on messages in the pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-processor
@@ -9,10 +9,10 @@ ms.custom:
   - ignite-2023
 ms.date: 09/07/2023
 
-#CustomerIntent: As an operator, I want to understand the jq expressions used by Data Processor so that I can configure my pipeline stages.
+#CustomerIntent: As an operator, I want to understand the jq expressions used by the data processor so that I can configure my pipeline stages.
 ---
 
-# What are jq expressions in Azure IoT Data Processor Preview?
+# What are jq expressions in the data processor?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -2029,9 +2029,9 @@ true
 
 ## Time utilities
 
-jq doesn't support time as a native type. However, some formats accepted and emitted by Data Processor do support time as a native type. These types are typically represented by using Go's `time.Time` type.
+jq doesn't support time as a native type. However, some formats accepted and emitted by the data processor do support time as a native type. These types are typically represented by using Go's `time.Time` type.
 
-To enable you to interact with these values from jq, Data Processor provides module with a set of functions that let you:
+To enable you to interact with these values from jq, the data processor provides module with a set of functions that let you:
 
 - Convert between native time, ISO 8601 strings, and numeric Unix timestamps.
 - Perform various time-specific operations on all of these types.
@@ -2094,7 +2094,7 @@ The `util` module currently includes the `uuid` function that returns a new, ran
 
 ## Binary manipulation
 
-jq is designed to work with data that can be represented as JSON. However, Azure IoT Data Processor Preview pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
+jq is designed to work with data that can be represented as JSON. However, data processor pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with the data processor contains a package designed to help you process binary data. It lets you:
 
 - Convert back and forth between binary and other formats such as base64 and integer arrays.
 - Use built-in functions to read numeric and string values from a binary message.
@@ -2103,11 +2103,11 @@ jq is designed to work with data that can be represented as JSON. However, Azure
 > [!IMPORTANT]
 > You can't use any built-in jq functions or operators that modify a binary value. This means no concatenation with `+`, no `map` operating against the bytes, and no mixed assignments with binary values such as `|=`, `+=`, `//=`. You can use the standard assignment (`==`). If you try to use binary data with an unsupported operation, the system throws a `jqImproperBinaryUsage` error. If you need to manipulate your binary data in custom ways, consider using one of the following functions to convert it to base64 or an integer array for your computation, and then converting it back to binary.
 
-The following sections describe the binary support in the Data Processor jq engine.
+The following sections describe the binary support in the data processor jq engine.
 
 ### The `binary` module
 
-All of the binary support in the Data Processor jq engine is specified in a `binary` module that you can import.
+All of the binary support in the data processor jq engine is specified in a `binary` module that you can import.
 
 Import the module at the beginning of your query in one of two ways:
 
@@ -2429,5 +2429,5 @@ The following JSON shows the output from the previous jq expression:
 
 ## Related content
 
-- [What is jq in Data Processor pipelines?](concept-jq.md)
+- [What is jq in data processor pipelines?](concept-jq.md)
 - [jq paths](concept-jq-path.md)

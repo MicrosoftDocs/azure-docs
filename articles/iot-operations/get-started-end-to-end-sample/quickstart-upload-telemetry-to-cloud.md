@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Send telemetry from your assets to the cloud"
-description: "Quickstart: Use the data lake connector for MQ to send asset telemetry to a Microsoft Fabric lakehouse."
+description: "Quickstart: Use the data lake connector for the MQTT broker to send asset telemetry to a Microsoft Fabric lakehouse."
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
@@ -12,11 +12,11 @@ ms.date: 04/19/2024
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Power BI.
 ---
 
-# Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ Preview
+# Quickstart: Send asset telemetry to the cloud using the data lake connector for the MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you use the data lake connector for Azure IoT MQ to forward telemetry from your OPC UA assets to a Microsoft Fabric lakehouse for storage and analysis.
+In this quickstart, you use the data lake connector for the MQTT broker to forward telemetry from your OPC UA assets to a Microsoft Fabric lakehouse for storage and analysis.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ To learn more, see [Microsoft Fabric > About tenant settings](/fabric/admin/tena
 
 ## What problem will we solve?
 
-To use a tool such as Power BI to analyze your OPC UA data, you need to send the data to a cloud-based storage service. The data lake connector for Azure IoT MQ subscribes to MQTT topics and ingests the messages into Delta tables in a Microsoft Fabric lakehouse. The next quickstart shows you how to use Power BI to analyze the data in the lakehouse.
+To use a tool such as Power BI to analyze your OPC UA data, you need to send the data to a cloud-based storage service. The data lake connector for the MQTT broker subscribes to MQTT topics and ingests the messages into Delta tables in a Microsoft Fabric lakehouse. The next quickstart shows you how to use Power BI to analyze the data in the lakehouse.
 
 ## Grant access to your Microsoft Fabric workspace
 
@@ -43,7 +43,7 @@ You need to allow the MQ extension on your cluster to connect to your Microsoft 
 > [!TIP]
 > If you need to find the unique name assigned to your MQ extension, run the following command in your Codespaces terminal to list your cluster extensions: `az k8s-extension list --resource-group <your-resource-group-name> --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o table`
 
-Navigate to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi). To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
+Browse to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi). To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
 
 1. Select **Workspaces** in the left navigation bar, then select **New workspace**:
 
@@ -92,7 +92,7 @@ Your codespace comes with the following sample connector configuration file, `/w
    kubectl apply -f samples/quickstarts/datalake-connector.yaml
    ```
 
-After a short time, the data from your MQ broker begins to populate the table in your lakehouse. You may need refresh the lakehouse page to see the data.
+After a short time, the data from your MQTT broker begins to populate the table in your lakehouse. You may need refresh the lakehouse page to see the data.
 
 :::image type="content" source="media/quickstart-upload-telemetry-to-cloud/lakehouse-preview.png" alt-text="Screenshot that shows data from the pipeline appearing in the lakehouse table.":::
 
@@ -101,7 +101,7 @@ After a short time, the data from your MQ broker begins to populate the table in
 
 ## How did we solve the problem?
 
-In this quickstart, you used the data lake connector for Azure IoT MQ to ingest the data into a Microsoft Fabric lakehouse in the cloud. In the next quickstart, you use Power BI to analyze the data in the lakehouse.
+In this quickstart, you used the data lake connector for the MQTT broker to ingest the data into a Microsoft Fabric lakehouse in the cloud. In the next quickstart, you use Power BI to analyze the data in the lakehouse.
 
 ## Clean up resources
 

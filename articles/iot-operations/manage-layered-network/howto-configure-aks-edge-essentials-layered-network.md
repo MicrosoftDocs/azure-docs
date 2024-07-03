@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ---
@@ -64,7 +64,7 @@ When completing the steps, you need to:
 
 ### Verification
 
-Once the Azure Arc enablement of the level 3 cluster is complete, navigate to your resource group in the Azure portal. You should see a **Kubernetes - Azure Arc** resource with the name you specified.
+Once the Azure Arc enablement of the level 3 cluster is complete, go to your resource group in the Azure portal. You should see a **Kubernetes - Azure Arc** resource with the name you specified.
 
 1. Open the resource overview page. 
 1. Verify **status** of the cluster is **online**.
@@ -88,4 +88,4 @@ Follow the steps in [Quickstart: Run Azure IoT Operations Preview in Github Code
 Once IoT Operations is deployed, you can try the following quickstarts. The Azure IoT Operations in your level 3 cluster works as described in the quickstarts.
 
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](../get-started-end-to-end-sample/quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
