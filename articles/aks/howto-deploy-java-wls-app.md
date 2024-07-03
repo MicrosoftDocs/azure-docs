@@ -74,7 +74,6 @@ The following steps show you how to find the WebLogic Server on AKS offer and fi
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where AKS is available, see [AKS region availability](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 1. Under **Credentials for WebLogic**, leave the default value for **Username for WebLogic Administrator**.
 1. Fill in `wlsAksCluster2022` for the **Password for WebLogic Administrator**. Use the same value for the confirmation and **Password for WebLogic Model encryption** fields.
-1. Scroll to the bottom of the **Basics** pane and notice the helpful links for documentation, community support, and how to report problems.
 1. Select **Next**.
 
 The following steps show you how to start the deployment process.
