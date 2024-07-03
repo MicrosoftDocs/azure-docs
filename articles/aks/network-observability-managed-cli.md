@@ -294,5 +294,3 @@ the AKS cluster and the other resources created in this article with the followi
 In this how-to article, you learned how to set up AKS Network Observability for your AKS cluster.
 
 - For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
-
-- If you're interested in more granular Network Observability and other advanced features, see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
