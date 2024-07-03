@@ -30,7 +30,7 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 
 ### Create pre and post events while creating a new schedule maintenance configuration
 
-**Azure portal**
+To create pre and post events while creating a new schedule maintenance configuration using Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
 2. Under **Manage**, select **Machines**.
