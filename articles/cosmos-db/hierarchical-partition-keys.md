@@ -15,23 +15,38 @@ ms.custom: build-2023
 
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-Azure Cosmos DB distributes your data across logical and physical partitions based on your partition keys to support horizontal scaling. By using hierarchical partition keys (also called *subpartitoning*), you can configure up to a three-level hierarchy for your partition keys to further optimize data distribution and for a higher level of  scaling.
+Azure Cosmos DB distributes your data across logical and physical partitions based on your partition keys to support horizontal scaling. By using hierarchical partition keys (also called *subpartitoning*), you can configure up to a three-level hierarchy for your partition keys to further optimize data distribution and for a higher level of scaling.
 
-If you use synthetic keys today or if you have scenarios in which partition keys can exceed 20 GB of data, subpartitioning can help. If you use this feature, logical partition key prefixes can exceed 20 GB and 10,000 request units per second (RU/s). Queries by prefix are efficiently routed to the subset of partitions that hold the data.
+If you use synthetic keys today, have scenarios in which partition keys can exceed 20 GB of data, or would like to ensure that each tenant's document maps to its own logical partition, subpartitioning can help. If you use this feature, logical partition key prefixes can exceed 20 GB and 10,000 request units per second (RU/s). Queries by prefix are efficiently routed to the subset of partitions that hold the data.
 
-## Choose your hierarchical partition keys
+## Choosing your hierarchical partition keys
 
-If you have multitenant applications, we recommend that you use hierarchical partition keys. Hierarchical partitions allow you to scale beyond the logical partition key limit of 20 GB. If your current partition key or if a single partition key is frequently reaching 20 GB, hierarchical partitions are a great choice for your workload.
+If you have multitenant applications and currently isolate tenants by partition key, hierarchical partitions might benefit you. Hierarchical partitions allow you to scale beyond the logical partition key limit of 20 GB, and are a good solution if you'd like to ensure each of your tenants' documents can scale infinitely. If your current partition key or if a single partition key is frequently reaching 20 GB, hierarchical partitions are a great choice for your workload.
 
-When you choose your hierarchical partition keys, it's important to keep the following general partitioning concepts in mind:
+However, depending on the nature of your workload and how cardinal your first level key is, there can be some tradeoffs which we cover in depth in our hierarchical partition scenarios page. 
 
-- For *all* containers, *each level* of the full path (starting with the *first level*) of your hierarchical partition key should:
+When you choose each level of your hierarchical partition key, it's important to keep the following general partitioning concepts in mind and understand how each one can affect your workload:
 
-  - **Have a high cardinality**. The first, second, and third (if applicable) keys of the hierarchical partition should all have a wide range of possible values.
-  - **Spread request unit (RU) consumption and data storage evenly across all logical partitions**. This spread ensures even RU consumption and storage distribution across your physical partitions.
+- For **all** containers, **each level** of the full path (starting with the **first level**) of your hierarchical partition key should:
 
-- For *large, read-heavy workloads*, we recommend that you choose hierarchical partition keys that appear frequently in your queries. For example, a workload that frequently runs queries to filter out specific user sessions in a multitenant application can benefit from hierarchical partition keys of `TenantId`, `UserId`, and `SessionId`, in that order. Queries can be efficiently routed to only the relevant physical partitions by including the partition key in the filter predicate. For more information about choosing partition keys for read-heavy workloads, see the [partitioning overview](partitioning-overview.md).
+  - **Have a high cardinality**. The first, second, and third (if applicable) keys of the hierarchical partition should all have a wide range of possible values. 
+    
+    - Having poor cardinality at the first level of the hierarchical partition key will limit all of your write operations at the time of ingestion to just one physical partition. For example, suppose your first level key is on `TenantId` and only have 5 unique tenants. Each of these tenants' operations will be scoped to just one physical partition, limiting your throughput consumption to just what is on that one physical partition. This is because hierarchical partitions optimize for all documents with the same first-level key to be colloacted on the same physical partition to avoid full-fanout queries.
+        
+  - **Spread request unit (RU) consumption and data storage evenly across all logical partitions**. This spread ensures even RU consumption and storage distribution across your physical partitions. 
+    
+    - If you choose a first level key that seems to have high cardinality like `UserId`, but in practice your workload performs operations on just one specific `UserId`, then you are likely to run into a hot partition as all of your operations will be scoped to just one physical partition. This is because while hierarchical partition keys ensure unique logical partitions for every combination of key-level values, everything with the same first-level key will be collocated onto the same physical partition.
+        
+- **Read-heavy workloads:** We recommend that you choose hierarchical partition keys that appear frequently in your queries. 
 
+  - For example, a workload that frequently runs queries to filter out specific user sessions in a multitenant application can benefit from hierarchical partition keys of `TenantId`, `UserId`, and `SessionId`, in that order. Queries can be efficiently routed to only the relevant physical partitions by including the partition key in the filter predicate. For more information about choosing partition keys for read-heavy workloads, see the [partitioning overview](partitioning-overview.md).
+    
+- **Write-heavy workloads:** We recommend using a high cardinal value for the **first-level** of your hierarchical partition key. High cardinality means that the first-level key (and subsequent levels as well) has at least thousands of unique values and more unique values than the number of your physical partitions. 
+
+  - To ensure that your workload can accommodate writes for all documents with the same first-level key, consider using item ID as a second or third level key. 
+  
+  - If your first level does not have high cardinality and you are hitting the 20 GB logical partition limit on your partition key today, we suggest using a synthetic partition key instead of a hierarchical partition key.
+  
 ## Example use case
 
 Suppose you have a multitenant scenario in which you store event information for users in each tenant. The event information might have event occurrences including but not limited to sign-in, clickstream, or payment events.
