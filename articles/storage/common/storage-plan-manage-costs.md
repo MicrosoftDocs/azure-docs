@@ -130,8 +130,40 @@ If your account does not have the hierarchical namespace feature enabled, but yo
 
 Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
 
+These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
+
+- [Map of AzCopy v10 commands to Azure Blob Storage REST operations](storage-ref-azcopy-map-commands-to-rest-operations.md)
+- [Map of NFS 3.0 commands to Azure Blob Storage REST operations for Azure Blob Storage](network-file-system-protocol-map-commands-to-rest-operations.md)
+- [Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage](storage-ref-azcopy-map-commands-to-rest-operations.md)
+
 To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
+### Features that incur costs
+
+You are not billed for enabling features on your account. Instead, you are billed for using them. There are only three features that incur a passive charge after you enable them.
+
+- SFTP support incurs an hourly charge after it is enabled. [Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing).
+- Encryption scopes incur a monthly charge after it is enabled. [Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes).
+- Blob index tags incur a monthly charge after you apply at least one tag. [Learn more](../blobs/storage-manage-find-blobs.md?tabs=azure-portal#pricing).
+
+Some activities can lead to unexpected charges. See [Avoid billing surprises](#avoid-billing-surprises) for a list of those activities. 
+
+The following features incur a cost as you use them:
+
+| Feature | Charges |
+|---|----|
+| Blob Inventory | **Write** operations to add inventory files<br><br>**Read** operations to read inventory files<br><br>A charge for the number of objects scanned<br><br><br><br>The cost of storing reports.[Learn more](../blobs/blob-inventory.md#pricing-and-billing) |
+| Change feed | **Write** operations to add records<br><br>**Read** operations to read records<br><br>The cost of storing change feed records |
+| Blob index | **Other** operations to add records<br><br>**List and Create Container** operations to find blobs by using tags<br><br>The cost of storing tags as metadata<br><br>[Learn more](../blobs/storage-manage-find-blobs.md#pricing) |
+| Last access time tracking | **Other** operations to update to the last access time objects<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
+| Lifecycle management | **Write** operations to set objects to a cooler tier<br><br>**Read** operations to set objects to a warmer tier<br><br>[Learn more](../blobs/lifecycle-management-overview#regional-availability-and-pricing) |
+| Soft delete | **Write** transactions to undelete soft-deleted objects<br><br><br><br>The cost to store soft-deleted objects<br><br>[Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing) |
+| Versioning | The cost to store versions<br><br>[Learn more](../blobs/versioning-overview.md#pricing-and-billing) |
+| Snapshots | The cost of storing snapshots<br><br>[Learn more](../blobs/snapshots-overview.md#pricing-and-billing) |
+| Point-in-time restore | **Point-in time restore Data Processed** charge based on the amount of change feed data processed for the restore<br><br>[Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing) |
+| Object replication | Read operations to read data from the source account and to read change feed records<br><br>Write operations to write data to the destination account and to write change feed records<br><br>The cost of network egress<br><br>The cost of storage at the destination<br><br>[Learn more](../blobs/object-replication-overview.md#billing) |
+| Query acceleration | **Query Acceleration - Data Scanned** charge based on the amount of data scanned to complete a query<br><br>**Query Acceleration - Data Returned** charge based on the amount of data returned to the caller<br><br>[Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
+ 
 ### Using Azure Prepayment with Azure Blob Storage
 
 You can pay for Azure Blob Storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
