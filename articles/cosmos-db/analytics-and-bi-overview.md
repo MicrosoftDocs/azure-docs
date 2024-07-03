@@ -13,7 +13,9 @@ ms.date: 07/01/2024
 
 Azure Cosmos DB offers various options to enable large-scale analytics and BI reporting on your operational data.
 
-To get meaningful insights on your Azure Cosmos DB data, you may need to query across multiple partitions, collections, or databases. In some cases, you may need to combine this data with other data sources in your organization such as Azure SQL Database, Azure Data Lake Storage Gen2 etc. You may also need to query with aggregate functions such as sum, count etc. Such queries need heavy computational power, which likely consumes more request units (RUs) and as a result, these queries may potentially impact your mission critical workload performance. To isolate transactional workloads from the performance impact of complex analytical queries, database data is ingested nightly to a central location using complex Extract-Transform-Load (ETL) pipelines. Such ETL-based analytics are complex, costly with delayed insights on business data.
+To get meaningful insights on your Azure Cosmos DB data, you may need to query across multiple partitions, collections, or databases. In some cases, you may need to combine this data with other data sources in your organization such as Azure SQL Database, Azure Data Lake Storage Gen2 etc. You may also need to query with aggregate functions such as sum, count etc. Such queries need heavy computational power, which likely consumes more request units (RUs) and as a result, these queries may potentially impact your mission critical workload performance. 
+
+To isolate transactional workloads from the performance impact of complex analytical queries, database data is ingested nightly to a central location using complex Extract-Transform-Load (ETL) pipelines. Such ETL-based analytics are complex, costly with delayed insights on business data.
 
 Azure Cosmos DB addresses these challenges by providing no-ETL, cost-effective analytics offerings. 
 
