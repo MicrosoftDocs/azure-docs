@@ -130,4 +130,7 @@ The following list details the admin component properties you can configure for 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to a managed Admin for Spring](java-admin.md)
-> [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)
+
+## Related content
+
+- [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)
