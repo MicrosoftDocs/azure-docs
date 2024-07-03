@@ -9,7 +9,7 @@ ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
-# Create your first durable function in PowerShell
+# Quickstart: Create your first durable function in PowerShell
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
@@ -35,7 +35,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project. 
 
-1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     ![Create function](media/quickstart-js-vscode/functions-create-project.png)
 
@@ -52,7 +52,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
-A package.json file is also created in the root folder.
+A *package.json* file is also created in the root folder.
 
 ### Configure function app to use PowerShell 7
 
@@ -134,7 +134,7 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function app from Visual Studio Code.
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/run.ps1*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/run.ps1*). Select F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
     > [!NOTE]
     > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
@@ -147,7 +147,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select subscription | *name of your subscription* | Select your Azure subscription |
+    | **Select subscription** | *name of your subscription* | Select your Azure subscription |
     | Select a storage account | Create a new storage account |  |
     | Enter the name of the new storage account | *unique name* | Name of the storage account to create |
     | Select a resource group | *unique name* | Name of the resource group to create |
@@ -182,7 +182,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     }
     ```
 
-1. To stop debugging, press **Shift + F5** in VS Code.
+1. To stop debugging, select Shift+F5 in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -192,13 +192,15 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format:
 
-2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
+   `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
-## Next steps
+1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
 You have used Visual Studio Code to create and publish a PowerShell durable function app.
+
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

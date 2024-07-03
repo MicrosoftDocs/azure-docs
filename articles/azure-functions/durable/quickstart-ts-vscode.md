@@ -10,7 +10,7 @@ ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete, devx
 zone_pivot_groups: functions-nodejs-model
 ---
 
-# Create your first durable function in TypeScript
+# Quickstart: Create your first durable function in TypeScript
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
@@ -27,40 +27,56 @@ To complete this tutorial:
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
 ::: zone pivot="nodejs-model-v3"
+
 * Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension
+
 ::: zone-end
+
 ::: zone pivot="nodejs-model-v4"
+
 * Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension version `1.10.4` or above.
+
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
+
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+
 ::: zone-end
+
 ::: zone pivot="nodejs-model-v4"
+
 * Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5382` or above.
+
 ::: zone-end
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
 ::: zone pivot="nodejs-model-v3"
+
 * Make sure that you have version 16.x+ of [Node.js](https://nodejs.org/) installed.
+
 ::: zone-end
-::: zone pivot="nodejs-model-v4" 
+
+::: zone pivot="nodejs-model-v4"
+
 * Make sure that you have version 18.x+ of [Node.js](https://nodejs.org/) installed.
+
 ::: zone-end
+
 * Make sure that you have [TypeScript](https://www.typescriptlang.org/) v4.x+ installed.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project. 
+In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd + Shift + P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or <kbd>Ctrl/Cmd + Shift + P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     ![Screenshot of the Visual Studio Code command palette. The command titled "Azure Functions: Create New Project..." is highlighted.](media/quickstart-js-vscode/functions-create-project.png)
 
-2. Choose an empty folder location for your project and choose **Select**.
+1. Choose an empty folder location for your project and choose **Select**.
 
 ::: zone pivot="nodejs-model-v3"
 3. Following the prompts, provide the following information:
@@ -75,7 +91,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-3. Following the prompts, provide the following information:
+1. Following the prompts, provide the following information:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -101,10 +117,10 @@ To use the V4 programming model, you need to install the preview `v3.x` version 
 1. Use the *View* menu or <kbd>Ctrl + Shift + `</kbd> to open a new terminal in VS Code.
 
 ::: zone pivot="nodejs-model-v3"
-2. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
+1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-2. Install the `durable-functions` npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
+1. Install the `durable-functions` npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
 ::: zone-end
 
 ## Creating your functions
@@ -198,16 +214,16 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 ::: zone pivot="nodejs-model-v3"
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.ts*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.ts*). Select F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-1. To test your function, set a breakpoint in the `hello` activity function code (*src/functions/hello.ts*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `hello` activity function code (*src/functions/hello.ts*). Select F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 ::: zone-end
 
  > [!NOTE]
  > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
-2. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
+1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
 
     ![Screenshot of a Visual Studio Code alert window. The window says "In order to debug, you must select a storage account for internal use by the Azure Functions runtime." The button titled "Select storage account" is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
 
@@ -221,12 +237,12 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     | Select a resource group | *unique name* | Name of the resource group to create |
     | Select a location | *region* | Select a region close to you |
 
-4. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
+1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
     ![Screenshot of the Visual Studio code terminal panel. The terminal shows the output of running an Durable Functions app locally. The table titled "terminal" and the URL of the HTTP starter function are highlighted.](media/quickstart-js-vscode/functions-f5.png)
 
 ::: zone pivot="nodejs-model-v3"
-5. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
 5. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
@@ -234,11 +250,12 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-6. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
+1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
 
-   The request queries the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
+   The request queries the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like:
 
     ::: zone pivot="nodejs-model-v3"
+
     ```json
     {
         "name": "HelloOrchestrator",
@@ -255,8 +272,10 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
         "lastUpdatedTime": "2020-03-18T21:54:54Z"
     }
     ```
+
     ::: zone-end
     ::: zone pivot="nodejs-model-v4"
+
     ```json
     {
         "name": "helloOrchestrator",
@@ -273,9 +292,10 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
         "lastUpdatedTime": "2023-02-13T23:02:25Z"
     }
     ```
+
     ::: zone-end
 
-7. To stop debugging, press **Shift + F5** in VS Code.
+1. To stop debugging, select **Shift + F5** in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -291,15 +311,16 @@ After you've verified that the function runs correctly on your local computer, i
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
+
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/helloOrchestrator`
 ::: zone-end
 
-2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
+1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
-## Next steps
+## Next step
 
 You have used Visual Studio Code to create and publish a JavaScript durable function app.
 

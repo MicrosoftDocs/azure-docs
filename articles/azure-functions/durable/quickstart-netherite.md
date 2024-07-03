@@ -8,7 +8,7 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Configure Durable Functions with the Netherite storage provider
+# Quickstart: Configure Durable Functions with the Netherite storage provider
 
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends", for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
@@ -24,10 +24,11 @@ Migration of [Task Hub data](durable-functions-task-hubs.md) across storage prov
 The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it.
 
 In particular, this quickstart assumes that you have already:
+
 1. Created an Azure Functions project on your local machine.
-2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
-3. Configured the project for local debugging.
-4. Learned how to deploy an Azure Functions project to Azure.
+1. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
+1. Configured the project for local debugging.
+1. Learned how to deploy an Azure Functions project to Azure.
 
 If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
@@ -45,6 +46,7 @@ If this isn't the case, we suggest you start with one of the following articles,
 You need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
 
 The Extension package to install depends on the .NET worker you are using:
+
 - For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
 - For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
 
@@ -95,7 +97,6 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 
 The snippet above is just a *minimal* configuration. Later, you may want to consider [other parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
 
-
 ## Test locally
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
@@ -126,8 +127,8 @@ You need to set up an Event Hubs namespace to run Netherite on Azure. You can al
 Follow [these steps](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) to create an Event Hubs namespace on the Azure portal. When creating the namespace, you may be prompted to:
 
 1. Choose a *resource group*: Use the same resource group as the Function app.
-2. Choose a *plan* and provision *throughput units*. Select the defaults, this setting can be changed later.
-3. Choose the *retention* time: Select the default, this setting has no effect on Netherite.
+1. Choose a *plan* and provision *throughput units*. Select the defaults, this setting can be changed later.
+1. Choose the *retention* time: Select the default, this setting has no effect on Netherite.
 
 #### Obtain the Event Hubs connection string
 

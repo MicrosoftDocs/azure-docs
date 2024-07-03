@@ -8,7 +8,7 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Configure Durable Functions with the Microsoft SQL Server (MSSQL) storage provider
+# Quickstart: Configure Durable Functions with the Microsoft SQL Server (MSSQL) storage provider
 
 Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a Durable Functions app to utilize the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
@@ -24,9 +24,10 @@ Migration of [Task Hub data](durable-functions-task-hubs.md) across storage prov
 The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
 
 In particular, this quickstart assumes that you have already:
+
 1. Created an Azure Functions project on your local machine.
-2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
-3. Configured the project for local debugging.
+1. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
+1. Configured the project for local debugging.
 
 If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 

@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-dotnet
 ---
 
-# Create your first Durable Function in C#
+# Quickstart: Create your first Durable Function in C#
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
@@ -186,11 +186,11 @@ The Azure Functions template creates a project that can be published to a functi
 
 1. In Visual Studio, select **New** > **Project** from the **File** menu.
 
-2. In the **Create a new project** dialog, search for `functions`, choose the **Azure Functions** template, and then select **Next**.
+1. In the **Create a new project** dialog, search for `functions`, choose the **Azure Functions** template, and then select **Next**.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-project.png" alt-text="Screenshot of new project dialog in Visual Studio.":::
 
-3. Enter a **Project name** for your project, and select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
+1. Enter a **Project name** for your project, and select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
 
 4. Under **Additional information**, use the settings specified in the table that follows the image.
 
@@ -228,11 +228,11 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 > [!NOTE]
 > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
-2. Copy the URL of your function from the Azure Functions runtime output.
+1. Copy the URL of your function from the Azure Functions runtime output.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-debugging.png" alt-text="Screenshot of Azure local runtime.":::
 
-3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
+1. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-status.png" alt-text="Screenshot of the browser window with statusQueryGetUri called out.":::
 
@@ -278,7 +278,7 @@ You must have a function app in your Azure subscription before publishing your p
 
     `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart`
 
-2. Paste this new URL for the HTTP request into your browser's address bar. You must get the same status response as before when using the published app.
+1. Paste this new URL for the HTTP request into your browser's address bar. You must get the same status response as before when using the published app.
 
 ## Next steps
 
