@@ -143,7 +143,7 @@ All redundancy configurations support immutable storage. For more information ab
 
 ## Recommended blob types
 
-Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write is stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
+Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write is stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
 
 ## Immutable storage with blob soft delete
 
