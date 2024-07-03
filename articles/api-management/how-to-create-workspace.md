@@ -24,7 +24,7 @@ Follow the steps in this article to:
 * Configure the workspace gateway network access settings
 * Assign users to the workspace
 
-:::zone-pivot="public,public-inbound-private-outbound,private-inbound-private-outbound"
+:::zone-pivot="public"
 
 ## Prerequisites
 
@@ -33,6 +33,11 @@ Follow the steps in this article to:
 :::zone-end
 
 :::zone-pivot="public-inbound-private-outbound,private-inbound-private-outbound"
+
+## Prerequisites
+
+* An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
+* **Owner** or **Contributor** role on the resource group where the API  Management instance is deployed, or equivalent permissions to create resources in the resource group.
 * An Azure virtual network and subnet to isolate the workspace gateway.
     * The virtual network must be in the same region and Azure subscription as the API Management instance.
     * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
