@@ -417,11 +417,11 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    | App setting | Value |
    |-------------|-------|
-   | **AzureWebJobsStorage_managedIdentityResourceId** | The resource ID for your user-assigned managed identity |
-   | **AzureWebJobsStorage_blobServiceUri** | The Blob service URI for your storage account |
-   | **AzureWebJobsStorage_queueServiceUri** | The Queue service URI for your storage account |
-   | **AzureWebJobsStorage_tableServiceUri** | The Table service URI for your storage account |
-   | **AzureWebJobsStorage_credential** | **managedIdentity** |
+   | **AzureWebJobsStorage__managedIdentityResourceId** | The resource ID for your user-assigned managed identity |
+   | **AzureWebJobsStorage__blobServiceUri** | The Blob service URI for your storage account |
+   | **AzureWebJobsStorage__queueServiceUri** | The Queue service URI for your storage account |
+   | **AzureWebJobsStorage__tableServiceUri** | The Table service URI for your storage account |
+   | **AzureWebJobsStorage__credential** | **managedIdentity** |
 
 1. On the **App settings** tab, delete the app setting named **AzureWebJobsStorage**, which is set to the connection string associated with your storage account.
 
