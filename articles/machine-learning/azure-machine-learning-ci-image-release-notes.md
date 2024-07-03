@@ -33,15 +33,15 @@ SDK （azureml-core): `1.56.0`
 
 Python: `3.9`
 CUDA: `12.2`
-CUDnn==9.1.1
+CUDnn==`9.1.1`
 Nvidia Driver: `535.171.04`
 PyTorch: `1.13.1`
 TensorFlow: `2.15.0`
 
-autokeras==1.0.16
-keras=2.15.0
-ray==2.2.0
-docker version==24.0.9-1
+autokeras==`1.0.16`
+keras=`2.15.0`
+ray==`2.2.0`
+docker version==`24.0.9-1`
 
 ## Feb 16, 2024
 Version: `24.01.30`
