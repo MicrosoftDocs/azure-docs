@@ -55,7 +55,8 @@ This section shows you how to create a storage event trigger within the Azure Da
 
     * `Blob path begins with`: The blob path must start with a folder path. Valid values include `2018/` and `2018/april/shoes.csv`. This field can't be selected if a container isn't selected.
     * `Blob path begins with`: The blob path must end with a file name or extension. Valid values include `shoes.csv` and `.csv`. Container and folder names, when specified, must be separated by a `/blobs/` segment. For example, a container named `orders` can have a value of `/orders/blobs/2018/april/shoes.csv`. To specify a folder in any container, omit the leading `/` character. For example, `april/shoes.csv` triggers an event on any file named `shoes.csv` in a folder called `april` in any container.
-    * Note that `Blob path begins with` and `Blob path ends with` are the only pattern matching allowed in a storage event trigger. Other types of wildcard matching aren't supported for the trigger type.
+   
+    Note that `Blob path begins with` and `Blob path ends with` are the only pattern matching allowed in a storage event trigger. Other types of wildcard matching aren't supported for the trigger type.
 
 1. Select whether your trigger responds to a **Blob created** event, a **Blob deleted** event, or both. In your specified storage location, each event triggers the Data Factory and Azure Synapse Analytics pipelines associated with the trigger.
 
