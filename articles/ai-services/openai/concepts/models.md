@@ -14,7 +14,7 @@ recommendations: false
 
 # Azure OpenAI Service models
 
-Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region and cloud. For Azure Government model availability, please refer to [Azure Government OpenAI Service](../../../../azure-government/compare-azure-government-global-azure.md#azure-ai-services-openai-service).
+Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region and cloud. For Azure Government model availability, please refer to [Azure Government OpenAI Service](../../../azure-government/compare-azure-government-global-azure.md#azure-ai-services-openai-service).
 
 | Models | Description |
 |--|--|
