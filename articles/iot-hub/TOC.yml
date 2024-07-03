@@ -299,6 +299,9 @@
           href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
           items:
+            - name: New version
+              displayName: file upload, upload files, csharp, C#
+              href: how-to-file-upload.md
             - name: .NET
               displayName: file upload, upload files, csharp, C#
               href: file-upload-dotnet.md
