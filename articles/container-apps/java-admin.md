@@ -151,7 +151,7 @@ Now that you have an existing environment, you can create your container app and
 
     ```azurecli
     az role definition create --role-definition '{
-        "Name": "Java Component Dashboard Access",
+        "Name": "<ROLE_NAME>",
         "IsCustom": true,
         "Description": "Can access managed Java Component dashboards in managed environments",
         "Actions": [
@@ -180,9 +180,13 @@ Now that you have an existing environment, you can create your container app and
     ```azurecli
     az role assignment create \
       --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
-      --role "Java Component Dashboard Access" \
+      --role "<ROLE_NAME>" \
       --scope $ENVIRONMENT_ID
     ```
+
+> [!NOTE]
+> <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal.
+> <ROLE_NAME> is the name you assigned in step 1.
 
 1. Get the URL of the Admin for Spring dashboard.
 
