@@ -1,5 +1,5 @@
 ---
-title: "Setup Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
+title: "Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
 description: Get started with AKS Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
@@ -10,12 +10,12 @@ ms.date: 06/20/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Setup Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
+# Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster.
 Network Observability enables a centralized platform for monitoring application and network health.
 Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported.
-In this article, learn how to enable Network Observability and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
+In this article, learn how to set up Network Observability and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
 
 For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
@@ -27,14 +27,14 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 
 - Minimum version of **Azure CLI** required for the steps in this article is **2.44.0**. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-### Create Cluster
+## Create cluster
 
 > [!NOTE]
->For Kubernetes version 1.29 or higher, Network Observability is included in clusters with Azure Managed Prometheus. Metric scraping is defined via the [AMA metrics profile](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
+>For Kubernetes version >= 1.29, Network Observability is included in clusters with Azure Managed Prometheus. Metric scraping is defined via the [AMA metrics profile](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
 >
 >For lower Kubernetes versions, extra steps are required to enable Network Observability.
 
-#### [**Kubernetes version >= 1.29**](#tab/newer-k8s-versions)
+### [**Kubernetes version >= 1.29**](#tab/newer-k8s-versions)
 
 #### Create a resource group
 
@@ -85,7 +85,7 @@ az aks create \
     --pod-cidr 192.168.0.0/16
 ```
 
-#### [**Kubernetes version < 1.29**](#tab/older-k8s-versions)
+### [**Kubernetes version < 1.29**](#tab/older-k8s-versions)
 
 #### Install the `aks-preview` Azure CLI extension
 
@@ -137,13 +137,13 @@ az group create \
     --location eastus
 ```
 
-#### Create or Update an AKS cluster
+#### Create or Update AKS cluster
 
 The following examples each create or update an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group.
 
 ##### Example 1: **Non-Cilium**
 
-###### Create Cluster
+###### Create cluster
 
 Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a non-Cilium AKS cluster with Network Observability.
 
@@ -159,7 +159,7 @@ az aks create \
     --enable-network-observability
 ```
 
-###### Update Existing Cluster
+###### Update Existing cluster
 
 Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability for an existing non-Cilium cluster.
 
@@ -190,7 +190,7 @@ az aks create \
 
 ---
 
-## Azure managed Prometheus and Grafana
+## Set up Azure managed Prometheus and Grafana
 
 Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
 
@@ -248,6 +248,12 @@ az aks update \
     --grafana-resource-id $grafanaId
 ```
 
+## Get cluster credentials
+
+```azurecli-interactive
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
+```
+
 ## Visualize using Grafana
 
 > [!NOTE]
@@ -268,7 +274,7 @@ az aks update \
     ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
     ```
 
-1. Navigate to your Grafana instance in your web browser.
+1. Navigate to your Grafana instance in a web browser.
 
 1. We have created a sample dashboard. It can be found under **Dashboards > Azure Managed Prometheus > Kubernetes / Networking / Clusters**.
 
