@@ -23,6 +23,8 @@ Kubernetes Fleet provides resource placement capability that can make scheduling
 
 [!INCLUDE [preview-callout](./includes/preview/preview-callout.md)]
 
+This article discusses creating cluster resource placements, which can be done via Azure CLI or the Azure portal. For more, see [Propagate resources from a Fleet hub cluster to member clusters](./quickstart-resource-propagation.md).
+
 ## Prerequisites
 
 * Read the [resource propagation conceptual overview](./concepts-resource-propagation.md) to understand the concepts and terminology used in this quickstart.
