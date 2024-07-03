@@ -229,7 +229,7 @@ App Service automatically detects the presence of a Django app. No additional co
 
 ### [Azure CLI](#tab/azure-cli/fastapi)
 
-For FastAPI, you must configure a custom startup command for App Service to run your app. Set the following command to start Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
+For FastAPI, you must configure a custom startup command for App Service to run your app. The following command starts Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
 
 First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
@@ -270,7 +270,7 @@ App Service automatically detects the presence of a Django app. No additional co
 
 #### [Azure portal](#tab/azure-portal/fastapi)
 
-For FastAPI, you must configure a custom startup command for App Service to run your app. Set the following command to start Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
+For FastAPI, you must configure a custom startup command for App Service to run your app. The following command starts Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
