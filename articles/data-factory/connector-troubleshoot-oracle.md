@@ -52,7 +52,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - SHA512
     
         >[!Note]  
-        >The recommended data integrity algorithms SHA256, SHA384 and SHA512 are not available with Oracle legacy releases which have reached the end of life. Please upgrade to Oracle 19c or higher which has long-term support. 
+        >The recommended data integrity algorithms SHA256, SHA384 and SHA512 are available for Oracle 19c or higher. 
     
 ## Error code: UserErrorFailedToConnectOdbcSource
 
