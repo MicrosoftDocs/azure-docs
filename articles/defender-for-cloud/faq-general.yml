@@ -7,7 +7,7 @@ metadata:
   ms.author: dacurwin
   manager: raynew
   ms.topic: faq
-  ms.date: 05/22/2024
+  ms.date: 07/03/2024
 title: Common questions - General questions
 summary: |
 
@@ -375,11 +375,11 @@ sections:
           
           The included permissions allow Microsoft Defender for Cloud to deliver the selected security features through the created connector in Defender for Cloud. The permissions also allow Defender for Cloud to continuously monitor all accounts that might be added using the auto-provisioning service.
           
-          Defender for Cloud is capable of identifying the creation of new master accounts and can leverage the granted permissions to automatically provision an equivalent member security connector for each member account.
+          Defender for Cloud is capable of identifying the creation of new management accounts and can leverage the granted permissions to automatically provision an equivalent member security connector for each member account.
           
           This feature is available for organizational onboarding only and allows Defender for Cloud to create connectors for newly added accounts. The feature also allows Defender for Cloud to edit all member connectors when the management account is edited, delete all member accounts when the management account is deleted, and remove specific member account if the corresponding account is removed.
 
-          A separate stack must be deployed specifically for the master account.
+          A separate stack must be deployed specifically for the management account.
                 
 additionalContent: |
 
