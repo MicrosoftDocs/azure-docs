@@ -22,8 +22,8 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 
 1. **Schedule maintenance configuration** - You can create Pre and post events for a schedule maintenance configuration in Azure Update Manager. For more information, see [schedule updates using maintenance configurations](scheduled-patching.md).
 1. **Action to be performed in the pre or post event** - You can use the [Event handlers](../event-grid/event-handlers.md) (Endpoints) supported by Event Grid to define actions or tasks. Here are examples on how to create Azure Automation Runbooks via Webhooks and Azure Functions. Within these Event handlers/Endpoints, you must define the actions that should be performed as part of pre and post events. 
-    1. **Webhook** - Create a PowerShell 7.2 Runbook. [Learn more](../automation/automation-runbook-types.md#powershell-runbooks) and link the Runbook to a webhook. [Learn more](../automation/automation-webhooks.md).
-    1. **Azure Function** - Create an Azure Function. [Learn more](../azure-functions/functions-create-function-app-portal.md).
+    1. **Webhook** - [Create a PowerShell 7.2 Runbook](../automation/automation-runbook-types.md#powershell-runbooks) and [link the Runbook to a webhook](../automation/automation-webhooks.md).
+    1. **Azure Function** - [Create an Azure Function](../azure-functions/functions-create-function-app-portal.md).
 1. **Pre and post event** - You can follow the steps shared in the following section to create a pre and post event for schedule maintenance configuration. To learn more about the terms used in the Basics tab of Event Grid, see [Event Grid](../event-grid/concepts.md) terms.
 
 ## Create a pre and post event
