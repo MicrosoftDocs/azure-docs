@@ -82,7 +82,7 @@ The following steps show you how to start the deployment process.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/configure-single-sign-on.png" alt-text="Screenshot of the Azure portal that shows the configured SSO pane." lightbox="media/howto-deploy-java-wls-app/configure-single-sign-on.png":::
 
-1. Follow the steps in the info box starting with **Before moving forward, you must accept the Oracle Standard Terms and Restrictions.**
+1. Make sure you note the steps in the info box starting with **Before moving forward, you must accept the Oracle Standard Terms and Restrictions.**
 
 1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images.**. If the account has a support entitlement, select **Patched WebLogic Server Images**. Otherwise, select **General WebLogic Server Images**.
 
