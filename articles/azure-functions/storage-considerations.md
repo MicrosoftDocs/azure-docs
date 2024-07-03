@@ -87,6 +87,10 @@ To limit the potential impact of any broadly scoped storage permissions, conside
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
+### Consistent routing through virtual networks
+
+Multiple function apps hosted in the same plan can also use the same storage account for the Azure Files content share (defined by `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`). When this storage account is also secured by a virtual network, all of these apps should also use the same value for `vnetContentShareEnabled` (formerly `WEBSITE_CONTENTOVERVNET`) to guarantee that traffic is routed consistently through the intended virtual network. A mismatch in this setting between apps using the same Azure Files storage account might result in traffic being routed through public networks, which causes access to be blocked by storage account network rules.
+
 ## Working with blobs 
 
 A key scenario for Functions is file processing of files in a blob container, such as for image processing or sentiment analysis. To learn more, see [Process file uploads](./functions-scenarios.md#process-file-uploads). 
