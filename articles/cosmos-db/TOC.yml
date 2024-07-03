@@ -36,10 +36,12 @@
           href: gen-ai/distance-functions.md
         - name: kNN vs ANN
           href: gen-ai/knn-vs-ann.md
-    - name: Unified AI database
+    - name: Generative AI
       items:
         - name: AI agent
           href: ai-agents.md
+        - name: Real-time custom content generation
+          href: mongodb/vcore/ai-advertisement-generation.md    
         - name: Azure AI Advantage free trial
           href: ai-advantage.md
 - name: NoSQL
