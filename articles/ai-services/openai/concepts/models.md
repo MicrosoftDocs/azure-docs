@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 07/01/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -34,7 +34,7 @@ GPT-4o is the latest model from OpenAI. GPT-4o integrates text and images in a s
 
 GPT-4o is available for **standard** and **global-standard** model deployment.
 
-You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability-preview) region where the model is available.
+You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability) region where the model is available.
 
 When your resource is created, you can [deploy](../how-to/create-resource.md#deploy-a-model) the GPT-4o model. If you are performing a programmatic deployment, the **model** name is `gpt-4o`, and the **version** is `2024-05-13`.
 
@@ -164,7 +164,7 @@ You need to speak with your Microsoft sales/account team to acquire provisioned 
 
 For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
 
-### Global standard model availability (preview)
+### Global standard model availability
 
 **Supported models:**
 
