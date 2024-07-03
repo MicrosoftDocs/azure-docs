@@ -654,7 +654,7 @@ To learn more about the supported runtimes that this control checks for the supp
 
 ### [Management ports of EC2 instances should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9b26b102-ccde-4697-aa30-f0621f865f99)
 
-**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more.](just-in-time-access-usage.md)
+**Description**: Microsoft Defender for Cloud identified some overly permissive inbound rules for management ports in your network. Enable just-in-time access control to protect your Instances from internet-based brute-force attacks. [Learn more](just-in-time-access-usage.yml).
 
 **Severity**: High
 

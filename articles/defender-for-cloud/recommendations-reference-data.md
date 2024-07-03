@@ -60,8 +60,6 @@ Manage encryption at rest of your Azure Machine Learning workspace data with cus
 **Severity**: Low
 
 
-
-#
 ### [Azure SQL Database should be running TLS version 1.2 or newer](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/8e9a37b9-2828-4c8f-a24e-7b0ab0e89c78)
 
 **Description**: Setting TLS version to 1.2 or newer improves security by ensuring your Azure SQL Database can only be accessed from clients using TLS 1.2 or newer. Using versions of TLS less than 1.2 is not recommended since they have well documented security vulnerabilities.
@@ -324,7 +322,7 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 ### [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link)
 
-**Description**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](../private-link/). (Related policy: Cognitive Services should use private link).
+**Description**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Azure Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](../private-link/private-link-overview). (Related policy: Cognitive Services should use private link).
 
 **Severity**: Medium
 

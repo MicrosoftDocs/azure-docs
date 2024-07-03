@@ -3593,7 +3593,6 @@ The following two recommendations were deprecated and the changes might result i
 
 We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
 
-Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
 
 ### Azure Defender for SQL on machine tile removed from Azure Defender dashboard
 
@@ -3790,9 +3789,7 @@ When you're reviewing the details of a recommendation, it's often helpful to be 
 
 Use this link to view the policy definition and review the evaluation logic.
 
-If you're reviewing the list of recommendations on our [Security recommendations reference guide](recommendations-reference.md), you'll also see links to the policy definition pages:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Azure Security Center recommendations reference page." lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 ### SQL data classification recommendation no longer affects your secure score
 
@@ -4024,8 +4021,6 @@ When you define a continuous export, set the export frequency:
 
 Learn more about the full capabilities of this feature in [Continuously export Security Center data](continuous-export.md).
 
-<<<<<<< HEAD
-=======
 ## December 2020
 
 Updates in December include:
@@ -4338,7 +4333,7 @@ Learn more about [Azure Firewall](https://azure.microsoft.com/services/azure-fir
 
 The recommendation **Authorized IP ranges should be defined on Kubernetes Services** now has a quick fix option.
 
-For more information about this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
+
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option.":::
 
@@ -4800,7 +4795,7 @@ The recommendations also include the quick fix capability.
 >
 > For example, if you don't have any Azure Kubernetes Service clusters in your subscription and you enable the threat protection, no charges will be incurred. If, in the future, you add a cluster on the same subscription, it will automatically be protected and charges will begin at that time.
 
-Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
+
 
 Learn more about [threat protection in Azure Security Center](azure-defender.md).
 
@@ -4810,14 +4805,6 @@ As part of the continuous investments in the container security domain, we are h
 
 To improve the clarity and guidance regarding Azure Security Center's container security capabilities, we've also refreshed the container security documentation pages.
 
-Learn more about Security Center's container security in the following articles:
-
-- [Overview of Security Center's container security features](defender-for-containers-introduction.md)
-- [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
-- [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
-- [How-to scan your registries and harden your Docker hosts](defender-for-containers-introduction.md)
-- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-for-containers---kubernetes-clusters)
-- [Security recommendations for containers](recommendations-reference.md#compute-recommendations)
 
 ### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
 
@@ -4831,7 +4818,6 @@ The adaptive application controls feature has received two significant updates:
 
   - Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with a known executable, automatically generated folder names, etc.).
 
-[Learn more about adaptive application controls](adaptive-application-controls.md).
 
 ### Six policies for SQL advanced data security deprecated
 
@@ -4890,7 +4876,7 @@ These new recommendations will appear in the same four security controls as the 
 
 The recommendations also include the Quick fix capability to accelerate the deployment process.
 
-Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#compute-recommendations) table.
+
 
 Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](./faq-data-collection-agents.yml#what-is-the-log-analytics-agent-).
 
@@ -4923,7 +4909,6 @@ The "implement security best practices" security control now includes the follow
 
 An existing recommendation, **Internet-facing virtual machines should be protected with network security groups**, didn't distinguish between internet-facing and non-internet facing VMs. For both, a high-severity recommendation was generated if a VM wasn't assigned to a network security group. This new recommendation separates the non-internet-facing machines to reduce the false positives and avoid unnecessary high-severity alerts.
 
-Learn more in the [Network recommendations](recommendations-reference.md#networking-recommendations) table.
 
 ### New policies for enabling threat protection and advanced data security
 
@@ -5102,9 +5087,7 @@ Examples of identity and access recommendations include:
 
 If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
 
-Learn more about [identity and access recommendations](recommendations-reference.md#identity-and-access-recommendations).
 
-Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 ## March 2020
 
@@ -5174,7 +5157,7 @@ Two security recommendations related to web applications are being deprecated:
 
 These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
 
-Learn more about [security recommendations](recommendations-reference.md).
+
 
 ## February 2020
 
@@ -5245,7 +5228,6 @@ This operation will allow you to select the resources you want to apply the reme
 
 Quick fix is generally available today customers as part of the Security Center recommendations page.
 
-See which recommendations have quick fix enabled in the [reference guide to security recommendations](recommendations-reference.md).
 
 ### Scan container images for vulnerabilities (preview)
 
@@ -5361,7 +5343,7 @@ In order to simplify remediation of security misconfigurations and help you to q
 
 This operation will allow you to select the resources you want to apply the remediation to and launch a remediation action that will configure the setting on your behalf.
 
-See which recommendations have quick fix enabled in the [reference guide to security recommendations](recommendations-reference.md).
+
 
 ### Cross-tenant management
 
@@ -5375,7 +5357,6 @@ Security Center now supports cross-tenant management scenarios as part of Azure 
 
 Azure Security Center (ASC) has launched new networking recommendations and improved some existing ones. Now, using Security Center ensures even greater networking protection for your resources.
 
-[Learn more about network recommendations](recommendations-reference.md#networking-recommendations).
 
 ## June 2019
 
@@ -5383,5 +5364,4 @@ Azure Security Center (ASC) has launched new networking recommendations and impr
 
 One of the biggest attack surfaces for workloads running in the public cloud are connections to and from the public Internet. Our customers find it hard to know which Network Security Group (NSG) rules should be in place to make sure that Azure workloads are only available to required source ranges. With this feature, Security Center learns the network traffic and connectivity patterns of Azure workloads and provides NSG rule recommendations, for Internet facing virtual machines. This helps our customer better configure their network access policies and limit their exposure to attacks.
 
-[Learn more about adaptive network hardening](adaptive-network-hardening.md).
->>>>>>> 256b73bc103f6acb7e25794072fd71a81c58cdde
+
