@@ -18,7 +18,7 @@ This article explains how to update an existing index in Azure AI Search with sc
 
 During active development, it's common to drop and rebuild indexes when you're iterating over index design. Most developers work with a small representative sample of their data so that reindexing goes faster.
 
-For large schema changes on applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime and using an [index alias](search-how-to-alias.md) to avoid changing your application code.
+For schema changes on applications already in production, we recommend creating and testing a new index that runs side by side an existing index. Use an [index alias](search-how-to-alias.md) to swap in the new index while avoiding changes your application code.
 
 ## Update content
 
@@ -69,7 +69,7 @@ POST {{baseUrl}}/indexes/hotels-vector-quickstart/docs/search.index?api-version=
             {
             "@search.action": "mergeOrUpload",
             "HotelId": "1",
-            "Description": "I'm changing the description and city for Secret Point Hotel, and keeping everything else."
+            "Description": "Change the description and city for Secret Point Hotel. Keep everything else."
             "Address": {
                 "City": "Miami"
                 }
@@ -157,7 +157,7 @@ The Azure portal provides index size and vector index size. You can check these 
 
 Azure AI Search supports document-level operations so that you can look up, update, and delete a specific document in isolation. The following example shows how to delete a document. 
 
-Recall that deleted documents don't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and through APIs.
+Deleting a document doesn't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and API mertrics.
 
 1. Identify which field is the document key. In the portal, you can view the fields of each index. Document keys are string fields and are denoted with a key icon to make them easier to spot.
 
