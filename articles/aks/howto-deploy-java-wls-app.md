@@ -59,7 +59,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 The following steps show you how to find the WebLogic Server on AKS offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **WebLogic Server on AKS**.
+1. In the search bar at the top of the Azure portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **WebLogic Server on AKS**.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/marketplace-search-results.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/howto-deploy-java-wls-app/marketplace-search-results.png":::
 
@@ -130,7 +130,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WebLogic Server on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of WDT model that built in the container image. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later.
-1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster. This lets you use `kubectl` to administer the cluster.
+1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster.
 
 The other values in the outputs are beyond the scope of this article, but are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs).
 
@@ -220,7 +220,7 @@ The steps in this section show you how to build an auxiliary image. This image i
 
 - The *Model in Image* model files
 - Your application
-- The JDBC driver archive file
+- The Java Database Connectivity (JDBC) driver archive file
 - The WebLogic Deploy Tooling installation
 
 An *auxiliary image* is a Docker container image containing your app and configuration. The WebLogic Kubernetes Operator combines your auxiliary image with the `domain.spec.image` in the AKS cluster that contains the WebLogic Server, JDK, and operating system. For more information about auxiliary images, see [Auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/) in the Oracle documentation.
@@ -453,7 +453,7 @@ Use the following steps to build the image:
    => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
    ```
 
-1. If you have successfully created the image, then it should now be in your local machine's Docker repository. You can verify the image creation by using the following command:
+1. If you successfully created the image, then it should now be in your local machine's Docker repository. You can verify the image creation by using the following command:
 
    ```text
    docker images model-in-image:WLS-v1
@@ -466,7 +466,7 @@ Use the following steps to build the image:
    model-in-image   WLS-v1    76abc1afdcc6   2 hours ago   8.61MB
    ```
 
-   After the image is created, it should have the WDT executables in */auxiliary/weblogic-deploy*, and WDT model, property, and archive files in */auxiliary/models*. Use the following command on the Docker image to verify this result:
+   After the image is created, it should have the WDT executables in */auxiliary/weblogic-deploy*, and WDT model, property, and archive files in */auxiliary/models*. Use the following command to run the image:
 
    ```bash
    docker run -it --rm model-in-image:WLS-v1 find /auxiliary -maxdepth 2 -type f -print
@@ -573,7 +573,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
 1. Use the following commands to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*.
 
-   In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Be sure to enclose the value of the `DB_` variables in single quotes to prevent the shell from interfering with the values.
+   In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Enclose the value of the `DB_` variables in single quotes to prevent the shell from interfering with the values.
 
    ```bash
    export DB_CONNECTION_STRING='<example-jdbc:sqlserver://server-name.database.windows.net:1433;database=wlsaksquickstart0125>'
