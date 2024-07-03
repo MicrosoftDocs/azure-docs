@@ -691,7 +691,7 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
-            - name: Basic Network Observability
+            - name: Network Observability
               href: network-observability-managed-cli.md
             - name: Advanced Network Observability - Azure managed Prometheus and Grafana
               href: advanced-network-observability-cli.md
