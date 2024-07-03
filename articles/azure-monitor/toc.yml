@@ -1547,7 +1547,7 @@ items:
       href: essentials/resource-logs-schema.md
     - name: Activity log schema
       href: essentials/activity-log-schema.md
-  - name: Azure Monitor Log store
+  - name: Azure Monitor Logs
     items:
     - name: Logs tables reference
       href: /azure/azure-monitor/reference/
