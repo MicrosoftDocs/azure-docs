@@ -697,7 +697,7 @@ az webapp connection create sql --connection defaultConnector --resource-group <
 az sql server update --enable-public-network false
 ```
 
-By default, they command `az webapp connection create sql --client-type dotnet --system-identity --config-connstr` does the following:
+By default, the command `az webapp connection create sql --client-type dotnet --system-identity --config-connstr` does the following:
 
 - Sets your user as the Entra ID administrator of the SQL database server.
 - Create a system-assigned managed identity and grants it access to the database.
