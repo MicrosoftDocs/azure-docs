@@ -19,7 +19,7 @@ This quickstart describes how you can create an Azure Payment HSM using the [Az.
 
 ## Prerequisites
 
-[!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -44,7 +44,7 @@ You can continue with this quick start if the "RegistrationState" of both comman
     Set-AzContext -Subscription "<subscription-id>"
     ```
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 - You must install the Az.DedicatedHsm PowerShell module:
 

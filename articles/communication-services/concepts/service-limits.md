@@ -1,7 +1,7 @@
 ---
 title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
-description: Learn how to
+description: Learn how to handle service limits.
 author: tophpalmer
 manager: sundraman
 services: azure-communication-services
@@ -17,7 +17,7 @@ ms.subservice: data
 This document explains the limitations of Azure Communication Services APIs and possible resolutions.
 
 ## Throttling patterns and architecture
-When you hit service limitations, you will receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
+When you hit service limitations, you receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
@@ -25,15 +25,20 @@ When you hit service limitations, you will receive an HTTP status code 429 (Too 
 
 You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through a request to Azure Support.
 
-1.  Go to Azure portal
-1.  Select Help+Support
-1.  Click on Create new support request
-1.  In the Problem description, please choose **Issue type** as **Technical** and add in the details.
+1. Open the [Azure portal](https://ms.portal.azure.com/) and sign in.
+2. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+3. Click **Create new support request**.
+4. In the **Describe your issue** text box, enter `Technical` then click **Go**. 
+5. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)** then click **Next**.
+6. At the Problem description, choose the **Issue type**, **Subscription**, and **Quota type** then click **Next**.
+7. Review any **Recommended solution** if available, then click **Next**.
+8. Add **Additional details** as needed, then click **Next**.
+9. At **Review + create** check the information, make changes as needed, then click **Create**.
   
 You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Acquiring phone numbers
-Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
+Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The following limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
 
 | Operation | Scope | Timeframe | Limit (number of requests) |
 |---|--|--|--|
@@ -63,7 +68,7 @@ We recommend acquiring identities and tokens before creating chat threads or sta
 For more information, see the [identity concept overview](./authentication.md) page.
 
 ## SMS
-When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you're hitting the service limitations, and your messages will be queued to be sent once the number of requests is below the threshold.
+When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you're hitting the service limitations, and your messages are queued to be sent once the number of requests is below the threshold.
 
 Rate Limits for SMS:
 
@@ -80,7 +85,8 @@ If you have requirements that exceed the rate-limits, submit [a request to Azure
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Email
-There is a limit on the number of email messages you can send. If you exceed the below limits on your subscription, your requests will be rejected. You can attempt these requests again, after the Retry-After time has passed. Please take necessary action and request to raise the sending volume limits if needed.
+
+You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the Retry-After time passes. Take action before reaching the limit by requesting to raise your sending volume limits if needed.
 
 ### Rate Limits 
 
@@ -109,8 +115,25 @@ There is a limit on the number of email messages you can send. If you exceed the
 |Number of recipients in Email|50 |
 |Total email request size (including attachments) |10 MB |
 
+### Send attachments larger than 10 MB
+
+To email file attachments up to 30 MB, complete a [support request](../support.md).
+
+If you need to send email file attachments larger than 30 MB, you can use this alternative solution. Store the files in an Azure Blob Storage account and include a link to the files in your email. You can secure the files with a Shared Access Signature (SAS). SAS provides secure delegated access to resources in your storage account. By using SAS, you have granular control over how clients can access your data.
+ 
+Benefits of using an Azure Blob Storage account:
+
+ - You can handle large scale files.
+ - You can use SAS keys to precisely manage file access.
+
+For more information, see:
+
+ - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+ - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
+
 ### Action to take
-This sandbox setup is to help developers start building the application. Once you have established a sender reputation by sending mails, you can request to increase the sending volume limits. Submit a [support request](https://azure.microsoft.com/support/create-ticket/) to raise your desired email sending limit if you require sending a volume of messages exceeding the rate limits. Email quota increase requests are not automatically approved. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse when determining approval status.
+
+To increase your email quota, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md).
 
 > [!NOTE]
 > Email quota increase requests may take up to 72 hours to be evaluated and approved, especially for requests that come in on Friday afternoon.
@@ -131,59 +154,68 @@ This sandbox setup is to help developers start building the application. Once yo
 ### Rate Limits
 
 | **Operation** | **Scope** | **Limit per 10 seconds** | **Limit per minute** |
-|--|--|--|--|
-|Create chat thread|per User|10|-|
-|Delete chat thread|per User|10|-|
-|Update chat thread|per Chat thread|5|-|
-|Add participants / remove participants|per Chat thread|10|30|
-|Get chat thread / List chat threads|per User|50|-|
-|Get chat message|per User per chat thread|50|-|
-|Get chat message|per Chat thread|250|-|
-|List chat messages|per User per chat thread|50|200|
-|List chat messages|per Chat thread|250|400|
-|Get read receipts (20 participant limit**) |per User per chat thread|5|-|
-|Get read receipts (20 participant limit**) |per Chat thread|100|-|
-|List chat thread participants|per User per chat thread|10|-|
-|List chat thread participants|per Chat thread|250|-|
-|Send message / update message / delete message|per Chat thread|10|30|
-|Send read receipt|per User per chat thread|10|30|
-|Send typing indicator|per User per chat thread|5|15|
-|Send typing indicator|per Chat thread|10|30|
+| --- | --- | --- | --- |
+| Create chat thread | per User | 10 | - |
+| Delete chat thread | per User | 10 | - |
+| Update chat thread | per Chat thread | 5 | - |
+| Add participants / remove participants | per Chat thread | 10 | 30 |
+| Get chat thread / List chat threads | per User | 50 | - |
+| Get chat message | per User per chat thread | 50 | - |
+| Get chat message | per Chat thread | 250 | - |
+| List chat messages | per User per chat thread | 50 | 200 |
+| List chat messages | per Chat thread | 250 | 400 |
+| Get read receipts (20 participant limit\*) | per User per chat thread | 5 | - |
+| Get read receipts (20 participant limit\*) | per Chat thread | 100 | - |
+| List chat thread participants | per User per chat thread | 10 | - |
+| List chat thread participants | per Chat thread | 250 | - |
+| Send message / update message / delete message | per Chat thread | 10 | 30 |
+| Send read receipt | per User per chat thread | 10 | 30 |
+| Send typing indicator | per User per chat thread | 5 | 15 |
+| Send typing indicator | per Chat thread | 10 | 30 |
 
 > [!NOTE] 
-> ** Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
+> \* Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
-Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 
 
-Beginning in CY24 Q1, customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected, but customers can opt for a 90-day retention period if desired.
+Azure Communication Services stores chat messages according to the retention policy you set when you create a chat thread.
+
+[!INCLUDE [public-preview-notice.md](../includes/public-preview-include-document.md)]
+
+You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread).
+Alternatively, you can choose not to set a retention policy on a chat thread.
+
+If you have strict compliance needs, we recommend that you delete chat threads using the API [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
 
 > [!NOTE] 
-> Accidentally deleted messages are not recoverable by the system.
+> If you accidentally deleted messages, they can't be recovered by the system. Additionally, if you submit a support request for a deleted chat thread after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, open a support ticket as quickly as possible within the 30 day window after you created a thread so we can assist you.
 
 ## Voice and video calling
 
 ### PSTN Call limitations
 
-| **Name**         | **Scope** |  Limit  |
-|--|--|--|
-|Default number of outbound concurrent calls |per Number | 2 
+| **Name** | **Scope** | Limit |
+| --- | --- | --- |
+| Default number of outbound* concurrent calls | per Number | 2 |
+
+> [!NOTE] 
+> \* No limits on inbound concurrent calls. You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the outbound concurrent calls limit, which is reviewed by our vetting team.
 
 ### Call maximum limitations
 
-| **Name**         | Limit  |
-|--|--|
-|Number of participants | 350 
+| **Name** | Limit |
+| --- | --- |
+| Number of participants | 350 |
 
 ### Calling SDK streaming support
 The Communication Services Calling SDK supports the following streaming configurations:
 
-| Limit                                                         | Web                         | Windows/Android/iOS        |
-| ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Maximum # of outgoing local streams that you can send simultaneously**     | one video or one screen sharing | one video + one screen sharing |
-| **Maximum # of incoming remote streams that you can render simultaneously** | 9 videos + one screen sharing | 9 videos + one screen sharing |
+| Limit | Web | Windows/Android/iOS |
+| --- | --- | --- |
+| **Maximum # of outgoing local streams that you can send simultaneously** | one video or one screen sharing | one video + one screen sharing |
+| **Maximum # of incoming remote streams that you can render simultaneously** | nine videos + one screen sharing | nine videos + one screen sharing |
 
-While the Calling SDK will not enforce these limits, your users may experience performance degradation if they're exceeded.
+The Calling SDK doesn't enforce these limits, but your users might experience performance degradation if you exceed these limits.
 
 ### Calling SDK timeouts
 
@@ -202,10 +234,10 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ### Action to take
 
-For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
+For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase some of the limits, pending review by our vetting team.
 
 ## Job Router
-When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests will be dropped until the token of bucket to handle requests is replenished after a certain time.
+When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests fail until the token of bucket to handle requests is replenished after a certain time.
 
 Rate Limits for Job Router:
 
@@ -222,7 +254,7 @@ Using a Teams interoperability scenario, you'll likely use some Microsoft Graph 
 Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 
 ### Action to take
-When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the ```Retry-After``` response header. Backing off requests using the ```Retry-After``` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
+When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the `Retry-After` response header. Backing off requests using the `Retry-After` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
 You can find more information on Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 

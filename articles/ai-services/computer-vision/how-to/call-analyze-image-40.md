@@ -8,8 +8,8 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 08/01/2023
-ms.custom: references_regions, devx-track-python, devx-track-extended-java, devx-track-js
+ms.date: 06/01/2024
+ms.custom:  devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-computer-vision
 ---
 
@@ -55,6 +55,5 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
     - [C#](https://aka.ms/azsdk/image-analysis/samples/csharp)
     - [Python](https://aka.ms/azsdk/image-analysis/samples/python)
     - [Java](https://aka.ms/azsdk/image-analysis/samples/java)
-    - [JavaScript](https://aka.ms/azsdk/image-analysis/samples/js)
-    
+    - [JavaScript](https://aka.ms/azsdk/image-analysis/samples/js)   
 * See the [REST API reference](https://aka.ms/vision-4-0-ref) to learn more about the API functionality.

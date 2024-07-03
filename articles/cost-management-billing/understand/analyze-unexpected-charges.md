@@ -162,6 +162,6 @@ Try the following steps:
 
 If used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - Learn about how to [Optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).

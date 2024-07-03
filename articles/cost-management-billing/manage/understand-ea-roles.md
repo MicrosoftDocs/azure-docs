@@ -241,7 +241,7 @@ The Enterprise Administrator always sees usage details based on the organization
 
 You set the Enterprise admin role and view charges policies in the Azure portal. The Azure role-based-access-control (RBAC) role can be updated with information at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-## Next steps
+## Related content
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
 - [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)

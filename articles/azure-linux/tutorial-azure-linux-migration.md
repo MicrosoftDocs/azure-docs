@@ -73,7 +73,7 @@ There are several settings that can block the OS SKU migration request. To ensur
 
 #### Install the `aks-preview` extension
 
-[!INCLUDE [preview features callout](../aks/includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Install the `aks-preview` extension using the `az extension add` command.
 

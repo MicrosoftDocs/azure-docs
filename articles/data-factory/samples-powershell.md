@@ -8,7 +8,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Azure PowerShell samples for Azure Data Factory

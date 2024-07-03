@@ -1,15 +1,15 @@
 ---
-title: Planning for an Azure Files deployment
-description: Understand how to plan for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file shares on-premises with Azure File Sync.
+title: Plan for an Azure Files deployment
+description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS Azure file share, or cache SMB Azure file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/06/2024
+ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Planning for an Azure Files deployment
+# Plan to deploy Azure Files
 
 You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Deployment considerations will differ based on which option you choose.
 
@@ -130,9 +130,9 @@ Azure Files has a multi-layered approach to ensuring your data is backed up, rec
 
 ### Soft delete
 
-Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
+Soft delete is a storage-account level setting that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
 
-Soft delete is enabled by default for new storage accounts from January 2021 onward, and we recommend leaving it on for most SMB file shares. If you have a workflow where share deletion is common and expected, you might decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
+Soft delete is enabled by default for new storage accounts. If you have a workflow where share deletion is common and expected, you might decide to have a short retention period or not have soft delete enabled at all.
 
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
@@ -155,12 +155,11 @@ Defender for Storage detects known malware, such as ransomware, viruses, spyware
 Defender for Storage doesn't access the storage account data and doesn't impact its performance. You can [enable Microsoft Defender for Storage](../common/azure-defender-storage-configure.md) at the subscription level (recommended) or the resource level.
 
 ## Storage tiers
+
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-#### Limitations
-[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
-
 ## Redundancy
+
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).

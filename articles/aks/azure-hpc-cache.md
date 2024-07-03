@@ -28,7 +28,7 @@ ms.date: 02/13/2024
 
 ### Install the `hpc-cache` Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the hpc-cache extension, run the following command:
 

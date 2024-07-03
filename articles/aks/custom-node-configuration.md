@@ -113,7 +113,7 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 ### [Windows node pools](#tab/windows-node-pools)
 
 ```azurecli
-az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./windowskubeletconfig.json
+az aks nodepool add --name mynp1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./windowskubeletconfig.json
 ```
 
 ---

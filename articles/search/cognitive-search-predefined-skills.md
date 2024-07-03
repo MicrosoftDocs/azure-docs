@@ -7,6 +7,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
 ms.date: 10/28/2023
 ---
@@ -41,6 +42,7 @@ Skills that call the Azure AI are billed at the pay-as-you-go rate when you [att
 | [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | This skill uses a pretrained model to translate the input text into various languages for normalization or localization use cases. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | This skill uses an image detection algorithm to identify the content of an image and generate a text description. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) |
+| [Microsoft.Skills.Vision.VectorizeSkill](cognitive-search-skill-vision-vectorize.md) | Multimodal image and text vectorization. | Azure AI services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) |
 
 ## Azure OpenAI skills
 

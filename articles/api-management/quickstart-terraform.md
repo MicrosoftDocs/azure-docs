@@ -42,7 +42,7 @@ In this article, you learn how to:
 
 - For Azure PowerShell:
 
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 
 ## Implement the Terraform code

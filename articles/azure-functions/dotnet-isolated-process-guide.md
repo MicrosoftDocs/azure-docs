@@ -311,11 +311,42 @@ To write to an output binding, you must apply an output binding attribute to the
 
 ### Multiple output bindings
 
-The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example from an HTTP trigger writes to both the HTTP response and a queue output binding:
+The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example is an HTTP-triggered function using [ASP.NET Core integration](#aspnet-core-integration) which writes to both the HTTP response and a queue output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+```csharp
+public class MultipleOutputBindings
+{
+    private readonly ILogger<MultipleOutputBindings> _logger;
 
-The response from an HTTP trigger is always considered an output, so a return value attribute isn't required.
+    public MultipleOutputBindings(ILogger<MultipleOutputBindings> logger)
+    {
+        _logger = logger;
+    }
+
+    [Function("MultipleOutputBindings")]
+    public MyOutputType Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
+    {
+        _logger.LogInformation("C# HTTP trigger function processed a request.");
+        var myObject = new MyOutputType
+        {
+            Result = new OkObjectResult("C# HTTP trigger function processed a request."),
+            MessageText = "some output"
+        };
+        return myObject;
+    }
+
+    public class MyOutputType
+    {
+        [HttpResult]
+        public IActionResult Result { get; set; }
+
+        [QueueOutput("myQueue")]
+        public string MessageText { get; set; }
+    }
+}
+```
+
+When using custom return types for multiple output bindings with ASP.NET Core integration, you must add the `[HttpResult]` attribute to the property that provides the result. The `HttpResult` attribute is available when using [SDK 1.17.3-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.17.3-preview2) along with [version 3.2.0 or later of the HTTP extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.2.0) and [version 1.3.0 or later of the ASP.NET Core extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.3.0).
 
 ### SDK types
 

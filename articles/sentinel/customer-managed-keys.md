@@ -82,7 +82,7 @@ Add an access policy that allows Azure Cosmos DB to access the Azure Key Vault i
 
 Follow the instructions here to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with an Azure Cosmos DB principal. 
 
-:::image type="content" source="../cosmos-db/media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="../cosmos-db/media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/add-access-policy-principal.png" lightbox="~/reusable-content/ce-skilling/azure/media/cosmos-db/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
 
 ### Step 4: Onboard the workspace to Microsoft Sentinel via the onboarding API
 

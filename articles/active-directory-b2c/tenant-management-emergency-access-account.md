@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: tutorial
-ms.date: 01/11/2024
+ms.date: 06/21/2024
 ms.custom: b2c-docs-improvements
 ms.reviewer: yoelh
 ms.author: kengaderdus
@@ -31,6 +31,8 @@ When you configure these accounts, the following requirements need to be met:
 - Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts.
 
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.
+
+- The emergency access accounts should be properly excluded from restrictive conditional access policies.
 
 ## Prerequisites 
 

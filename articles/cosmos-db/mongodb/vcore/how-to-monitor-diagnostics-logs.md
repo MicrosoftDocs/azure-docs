@@ -15,7 +15,7 @@ ms.date: 10/31/2023
 
 # Monitor Azure Cosmos DB for MongoDB vCore diagnostics logs with Azure Monitor
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 Azure's diagnostic logs are essential to capture Azure resource logs for an Azure Cosmos DB for MongoDB vCore account. These logs furnish detailed and frequent insights into the operations for resources with the account.
 

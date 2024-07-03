@@ -2,7 +2,7 @@
 title: Threat intelligence report
 description: This page helps you to use Microsoft Defender for Cloud threat intelligence reports during an investigation to find more information about security alerts
 ms.topic: how-to
-ms.date: 01/08/2023
+ms.date: 05/30/2024
 ---
 
 # Microsoft Defender for Cloud threat intelligence report
@@ -39,7 +39,7 @@ This type of information is useful during the incident response process. Such as
 1. From Defender for Cloud's menu, open the **Security alerts** page.
 1. Select an alert.
 
-    The alerts details page opens with more details about the alert. For example, the **Ransomware indicators detected** alert details page:
+    The alerts details page opens with more details about the alert.
 
     :::image type="content" source="media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png" alt-text="Ransomware indicators detected alert details page." lightbox="media/threat-intelligence-reports/ransomware-indicators-detected-link-to-threat-intel-report.png":::
 

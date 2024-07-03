@@ -42,7 +42,7 @@ For a list of available metrics for App Service, see [App Service monitoring dat
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md#resource-logs).
 
-[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
+[!INCLUDE [audit log categories tip](./includes/azure-monitor-log-category-groups-tip.md)]
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 

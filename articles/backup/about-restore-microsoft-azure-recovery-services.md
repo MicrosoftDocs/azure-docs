@@ -3,9 +3,10 @@ title: Restore options with Microsoft Azure Recovery Services (MARS) agent
 description: Learn about the restore options available with the Microsoft Azure Recovery Services (MARS) agent.
 ms.reviewer: mepand
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 05/31/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 # About restore using the Microsoft Azure Recovery Services (MARS) agent 
 
@@ -45,7 +46,7 @@ To use this feature:
 
 4. To restore backup data for an alternate server from the secondary region, you need to download the *Secondary Region vault credential* from the Azure portal.
 
-   :::image type="content" source="./media/about-restore-microsoft-azure-recovery-services/download-vault-credentials-for-cross-region-restore.png" alt-text="Screenshot shows how to download vault credentials for secondary region.":::
+   :::image type="content" source="./media/about-restore-microsoft-azure-recovery-services/download-vault-credentials-for-cross-region-restore.png" alt-text="Screenshot shows how to download vault credentials for secondary region." lightbox="./media/about-restore-microsoft-azure-recovery-services/download-vault-credentials-for-cross-region-restore.png":::
 
 5. To automate recovery from secondary region for audit or compliance drills, [use this command](backup-client-automation.md#cross-region-restore). 
 

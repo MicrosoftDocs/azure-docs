@@ -5,8 +5,8 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/24/2024
-ms.custom: MVC, engagement-fy23
+ms.date: 03/20/2024
+ms.custom: MVC, engagement-fy24
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure

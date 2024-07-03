@@ -23,11 +23,11 @@ To set the environment variable for your key and endpoint, open a console window
 #### [Windows](#tab/windows)
 
 ```console
-setx VISION_KEY your-key
+setx VISION_KEY <your_key>
 ```
 
 ```console
-setx VISION_ENDPOINT your-endpoint
+setx VISION_ENDPOINT <your_endpoint>
 ```
 
 After you add the environment variables, you may need to restart any running programs that will read the environment variables, including the console window.
@@ -35,11 +35,11 @@ After you add the environment variables, you may need to restart any running pro
 #### [Linux](#tab/linux)
 
 ```bash
-export VISION_KEY=your-key
+export VISION_KEY=<your_key>
 ```
 
 ```bash
-export VISION_ENDPOINT=your-endpoint
+export VISION_ENDPOINT=<your_endpoint>
 ```
 
 After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.

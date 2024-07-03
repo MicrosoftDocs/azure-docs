@@ -10,7 +10,7 @@ ms.date: 12/11/2023
 
 A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and organized view of your cloud resources. This quickstart shows how to deploy an Azure Resource Manager template (ARM template) to create a dashboard. The example dashboard shows the performance of a virtual machine (VM), along with some static information and links.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal, where you can edit the details (such as the VM used in the dashboard) before you deploy.
 

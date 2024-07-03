@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 03/18/2024
 ms.service: azure-migrate
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 
 ---
 
 # Tutorial: Build a business case or assess servers using an imported CSV file
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 

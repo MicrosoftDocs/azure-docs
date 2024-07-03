@@ -36,7 +36,7 @@ Containers enable you to run the Key Phrase Extraction APIs in your own environm
 
 ## Host computer requirements and recommendations
 
-[!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 The following table describes the minimum and recommended specifications for the available Key Phrase Extraction containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
@@ -58,7 +58,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase:latest
 ```
 
-[!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## Run the container with `docker run`
 
@@ -92,7 +92,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-[!INCLUDE [Running multiple containers on the same host](../../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## Query the container's prediction endpoint
 
@@ -102,7 +102,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 
 ## Run the container disconnected from the internet
@@ -111,7 +111,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
@@ -123,7 +123,7 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 The Key Phrase Extraction containers send billing information to Azure, using a _Key Phrase Extraction_ resource on your Azure account. 
 
-[!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 \
 ## Summary
 

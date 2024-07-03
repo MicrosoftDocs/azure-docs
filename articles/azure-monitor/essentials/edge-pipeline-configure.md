@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/25/2024
 ms.author: bwren
 author: bwren
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configuration of Azure Monitor edge pipeline
