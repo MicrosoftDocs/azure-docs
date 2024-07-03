@@ -23,7 +23,7 @@ When you report an issue, providing important call information can help us quick
 
 You can get this information from [https://portal.azure.com](https://portal.azure.com).
 
-:::image type="content" source="./media/get-acs-resource-id.png" alt-text="Screenshot of getting ACS resource ID.":::
+:::image type="content" source="./media/get-azure-communication-services-resource-id.png" alt-text="Screenshot of getting ACS resource ID." lightbox="./media/get-azure-communication-services-resource-id.png":::
 
 ## How to get call ID and participant ID
 The participant ID is important when there are multiple users in the same call.
