@@ -1,16 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/virtual-network/deploy-container-networking-docker-windows.md",
-      "redirect_url": "/previous-versions/azure/virtual-network/deploy-container-networking-docker-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-network/virtual-network-service-endpoint-policies-cli.md",
-      "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-service-endpoint-policies-cli",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
       "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
       "redirect_document_id": false
