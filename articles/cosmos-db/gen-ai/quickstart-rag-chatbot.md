@@ -22,7 +22,6 @@ At the end, we will create a simple UX using Gradio to allow users to type in qu
 **Important Note**: This sample requires you to have Azure Cosmos DB for NoSQL and Azure OpenAI accounts set up. To get started, visit:
 - [Azure Cosmos DB for NoSQL Python Quickstart](../nosql/quickstart-python.md)
 - [Azure Cosmos DB for NoSQL Vector Search](../nosql/vector-search.md)
-- [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/)
 - [Azure OpenAI](../../ai-services/openai/toc.yml)
 
 ### 1. Install Required Packages
