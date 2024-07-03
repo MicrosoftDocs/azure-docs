@@ -159,7 +159,7 @@ Now that you have an existing environment, you can create your container app and
 
     ```azurecli
     az role definition create --role-definition '{
-        "Name": "Java Component Dashboard Access",
+        "Name": "<your-role-name>",
         "IsCustom": true,
         "Description": "Can access managed Java Component dashboards in managed environments",
         "Actions": [
@@ -168,8 +168,8 @@ Now that you have an existing environment, you can create your container app and
         "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
     }'
     ```
-    Please replace the `AssignableScopes` value with your subscription id.
-    
+    Please replace the `AssignableScopes` value with your subscription id. And provide a value for `<your-role-name>` as the name of the role definition.
+
 1. Assign the Custom Role to your accound on managed environment resource.
 
     Get the resource id of the managed environment:
@@ -185,9 +185,12 @@ Now that you have an existing environment, you can create your container app and
     ```azurecli
         az role assignment create \
         --assignee <user-or-service-principal-id> \
-        --role "Java Component Dashboard Access" \
+        --role "<your-role-name>" \
         --scope $ENVIRONMENT_ID
     ```
+> [!NOTE]
+> <user-or-service-principal-id> usually should be the identity that you use to access Azure Portal.
+> <your-role-name> is the name you assigned in step 1.
 
 1. Get the URL of the Eureka Server for Spring dashboard.
 
