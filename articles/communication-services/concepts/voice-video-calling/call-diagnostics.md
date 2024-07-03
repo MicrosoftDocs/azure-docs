@@ -224,7 +224,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 - **How do I use Copilot in Azure (preview) in Call Diagnostics?**
 
-  - Your organization needs to manage access to [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md). Once your organization has access to Copilot for Azure (preview), the Call Diagnostics interface will include the option to 'Diagnose with Copilot' in the Search, Overview, and Issues tabs. 
+  - Your organization needs to manage access to [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md). Once your organization has access to Copilot in Azure (preview), the Call Diagnostics interface will include the option to 'Diagnose with Copilot' in the Search, Overview, and Issues tabs. 
   - Leverage Copilot for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot detailed information from Call Diagnostics will help it enhance analysis, identify issues, and identify fixes. Be aware that this Copilot iteration lacks programmatic access to your call details.
 
 <!-- 1. If Teams participants join a call, how will they display in Call
