@@ -293,8 +293,26 @@ kubectl --namespace $PG_NAMESPACE \
     -o yaml
 ```
 
+#### Option A - Azure Monitor Workspace
+
 Once you have deployed the Postgres cluster and the pod monitor, you can view the metrics using the Azure portal in an Azure Monitor workspace.
 ![Azure Monitor Metrics](./media/deploy-postgresql-ha/cnpg-prom-metrics.png)
+
+#### Option B - Managed Grafana
+Alternatively, Once you have deployed the Postgres cluster and pod monitors, you can create a metrics dashboard on the Managed Grafana instance created by the deployment script to visualize the metrics exported to the Azure Monitor workspace. You can access the Managed Grafana via the Azure portal. Navigate to the Managed Grafana instance created by the deployment script and click on the Endpoint link as shown here:
+![Azure Managed Grafana Instance](./media/deploy-postgresql-ha/cnpg-graf-1.png)
+
+Clicking on the Endpoint link will cause a new browser window to open where you can create dashboards on the Managed Grafana instance. Following the instructions to [configure an Azure Monitor data source](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/grafana-plugin#configure-an-azure-monitor-data-source-plug-in), you can then add visualizations to create a dashboard of metrics from the Postgres cluster. After setting up the data source connection, from the main menu, click the Data sources option and you should see a set of data source options for the data source connection as shown here:
+![Data Source Options](./media/deploy-postgres-ha/cnpg-graf-2.png)
+
+On the Managed Prometheus option, click the option to build a dashboard to open the dashboard editor. Once the 
+editor window opens, click the Add visualization option then click the Managed Prometheus option to browse the metrics from the Postgres cluster. Once you have selected the metric you want to visualize, click the Run queries button to fetch the data for the visualization as shown here:
+![Dashboard](./media/deploy-postgres-ha/cnpg-graf-3.png)
+
+Click the Save button to add the panel to your dashboard. You can add other panels by clicking the Add button in the dashboard editor and repeating this process to visualize other metrics. Adding the metrics visualizations, you should have something that looks like this:
+![Dashboard](./media/deploy-postgres-ha/cnpg-graf-4.png)
+
+Click the Save icon to save your dashboard.
 
 ## Inspect the deployed PostgreSQL cluster
 
