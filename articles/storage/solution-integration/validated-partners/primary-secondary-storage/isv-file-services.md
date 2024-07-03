@@ -199,7 +199,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Terraform driven automated deployment, and scaling
 - Automated data tiering, and snapshots to Azure blob storage
 - Supports POSIX, NFS, SMB, and S3 protocols
-- Encryption in flight
+- Supports data encryption in flight, and at rest
 
 **XenData**
 - The Azure Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 
