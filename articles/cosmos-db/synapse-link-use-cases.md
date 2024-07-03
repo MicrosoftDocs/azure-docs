@@ -16,7 +16,7 @@ Azure Cosmos DB provides various analytics options for no-ETL, near real-time an
 * Mirroring Azure Cosmos DB in Microsoft Fabric
 * Azure Synapse Link for Azure Cosmos DB
 
-To learn more about these options, see ["Analytics and BI on your Azure Cosmos DB data."](analytics-and-business-imtelligence-overview.md)
+To learn more about these options, see ["Analytics and BI on your Azure Cosmos DB data."](analytics-and-business-intelligence-overview.md)
 
 > [!IMPORTANT]
 > Mirroring Azure Cosmos DB in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
