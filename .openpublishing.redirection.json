@@ -3973,6 +3973,11 @@
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         },
         {
+            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
+            "redirect_url": "/azure/aks/network-observability-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
             "redirect_url": "/azure/orbital/initiate-licensing",
             "redirect_document_id": false
