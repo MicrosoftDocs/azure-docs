@@ -10,12 +10,12 @@ ms.date: 05/11/2024
 zone_pivot_groups: energy-data-services-gcz-options
 ---
 
-> [!IMPORTANT]
-> While the Geospatial Consumption Zone (GCZ) service is a graduated service in the OSDU Forum, it has limitations in terms of security and usage. We will deploy some additional services and policies to secure the environment, but encourage you to follow the service's development on the [OSDU Gitlab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/wikis/home).
-
 # Deploy Geospatial Consumption Zone
 
 This guide shows you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
+
+> [!IMPORTANT]
+> While the Geospatial Consumption Zone (GCZ) service is a graduated service in the OSDU Forum, it has limitations in terms of security and usage. We will deploy some additional services and policies to secure the environment, but encourage you to follow the service's development on the [OSDU Gitlab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/wikis/home).
 
 ## Description
 
@@ -26,7 +26,7 @@ The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced ma
 To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID. The App Registration is to authenticate the GCZ APIs with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
 
 1. See [Create an App Registration in Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
-1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](/how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
+1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](./how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
 
 ## Setup
 
