@@ -5,7 +5,7 @@ author: maulikshah23
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 07/03/2024
 ms.author: maulikshah
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
@@ -33,9 +33,9 @@ The VM is assessed periodically every few days and multiple times within any 30-
 
 Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the platform will automatically assess and apply patches (if required) during the next periodic assessment (usually within a few days) when the VM is powered on.
 
-Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
+Definition updates and other patches not classified as *Critical* or *Security* won't be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
-Enabling Automatic Guest Patching on single-instance VMs or VM Scale Set Flexible allows the Azure platform to update your fleet in phases. Phased deployment follows Azure's [Safe Deployment Practices](https://azure.microsoft.com/en-us/blog/advancing-safe-deployment-practices/) and reduces the impact radius if any issues are identified with the latest update. [Health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) is recommended for single instance VMs and required for Flexible Scale Sets to detect issues any issues with the update.
+Enabling Automatic Guest Patching on single-instance VMs or Virtual Machine Scale Sets in Flexible orchestration mode allows the Azure platform to update your fleet in phases. Phased deployment follows Azure's [Safe Deployment Practices](https://azure.microsoft.com/en-us/blog/advancing-safe-deployment-practices/) and reduces the impact radius if any issues are identified with the latest update. [Health monitoring](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) is recommended for single instance VMs and required for Virtual Machine Scale Sets in Flexible orchestration mode to detect issues any issues with the update.
 
 ### Availability-first Updates
 
@@ -273,7 +273,7 @@ When automatic VM guest patching is enabled for a VM, a VM extension of type `Mi
 
 It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. The extension is also installed and updated during off-peak hours for the VM. If the VM's off-peak hours end before enablement can be completed, the enablement process will resume during the next available off-peak time.
 
-The platform will make periodic patching configuration calls to ensure alignment when model changes are detected on IaaS VMs or VMSS Flexible orchestration. Certain model changes such as, but not limited to, updating assessment mode, patch mode, and extension update may trigger a patching configuration call.
+The platform will make periodic patching configuration calls to ensure alignment when model changes are detected on IaaS VMs or scale sets in Flexible orchestration. Certain model changes such as, but not limited to, updating assessment mode, patch mode, and extension update may trigger a patching configuration call.
 
 Automatic updates are disabled in most scenarios, and patch installation is done through the extension going forward. The following conditions apply.
 - If a Windows VM previously had Automatic Windows Update turned on through the AutomaticByOS patch mode, then Automatic Windows Update is turned off for the VM when the extension is installed.
