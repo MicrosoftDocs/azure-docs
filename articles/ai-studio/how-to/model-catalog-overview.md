@@ -52,7 +52,7 @@ Features | Managed compute | serverless API (pay-as-you-go)
 Deployment experience and billing |  Model weights are deployed to dedicated Virtual Machines with Managed Online Endpoints. The managed online endpoint, which can have one or more deployments, makes available a REST API for inference. You're billed for the Virtual Machine core hours used by the deployments.  | Access to models is through a deployment that provisions an API to access the model. The API provides access to the model hosted and managed by Microsoft, for inference. This mode of access is referred to as "Models as a Service".   You're billed for inputs and outputs to the APIs, typically in tokens; pricing information is provided before you deploy.  
 | API authentication   | Keys and Microsoft Entra ID authentication.| Keys only.  
 Content safety | Use Azure Content Safety service APIs.  | Azure AI Content Safety filters are available integrated with inference APIs. Azure AI Content Safety filters may be billed separately.  
-Network isolation | Configure Managed Network. [Learn more.]( configure-managed-network.md)  | 
+Network isolation | Configure Managed Network. [Learn more.]( configure-managed-network.md)  | MaaS endpoint will folllow your hub's PNA flag [Learn more.]()
 
 Model | Managed compute | Serverless API (pay-as-you-go) 
 --|--|--
