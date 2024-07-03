@@ -272,9 +272,10 @@ App Service automatically detects the presence of a Django app. No additional co
 
 For FastAPI, you must configure a custom startup command for App Service to run your app. Set the following command to start Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
 
-First, configure the startup command. Under **Settings**, on the left menu, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, enter *gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app*. Then select **Save** to apply the changes. Wait for the notification that the settings have been updated before proceeding.
-
-Next, restart the web app. Select the app's **Overview** page on the left menu. On the top menu, select **Restart**.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Configure startup command from Azure portal 1](./includes/quickstart-python/configure-startup-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/configure-startup-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to configure the startup command." lightbox="./media/quickstart-python/configure-startup-azure-portal-1.png"::: |
+| [!INCLUDE [Configure startup command from Azure portal 2](./includes/quickstart-python/configure-startup-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/configure-startup-azure-portal-2-240px.png" alt-text="A screenshot of how to reset the web app in the Azure portal." lightbox="./media/quickstart-python/configure-startup-azure-portal-2.png"::: |
 
 ---
 
