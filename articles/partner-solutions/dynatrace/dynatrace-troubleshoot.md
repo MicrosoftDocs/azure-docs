@@ -14,7 +14,7 @@ This document contains information about troubleshooting your solutions that use
 ## Marketplace purchase errors
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
- 
+
 If those options don't solve the problem, contact [Dynatrace support](https://support.dynatrace.com/).
 
 ## Unable to create Dynatrace resource

@@ -1,7 +1,7 @@
 ---
 title: Get support for Azure Native New Relic Service
 description: Learn about support process for Azure Native New Relic Service.
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.date: 06/20/2024
 
