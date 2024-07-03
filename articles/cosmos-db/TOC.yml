@@ -41,7 +41,7 @@
         - name: AI agent
           href: ai-agents.md
         - name: Real-time custom content generation
-          href: ../mongodb/vcore/ai-advertisement-generation.md    
+          href: mongodb/vcore/ai-advertisement-generation.md    
         - name: Azure AI Advantage free trial
           href: ai-advantage.md
 - name: NoSQL
