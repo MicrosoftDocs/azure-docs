@@ -1,17 +1,17 @@
 ---
 title: Get support for Azure Native New Relic Service
-description: Learn about support process for Azure Native New Relic Service.
+description: This article shows you how to get support when using Azure Native New Relic Service with the Azure Cloud.
 ms.topic: how-to
 
-ms.date: 06/20/2024
-
+ms.date: 07/03/2024
+#customer intent: As an implementer of New Relic on the Azure Cloud, I want to file a support request so that I can get unblocked.
 ---
 
 # Get support for Azure Native New Relic Service
 
 In this article, you learn how to contact support when working with an Azure Native New Relic Service resource. Before contacting support, see [Fix common errors](new-relic-troubleshoot.md).
 
-## Contact support
+## How to contact support
 
 1. In the Azure portal, go to the resource.
 1. On the left pane, under **Support + troubleshooting**, select **New Support Request**.
@@ -19,7 +19,7 @@ In this article, you learn how to contact support when working with an Azure Nat
 
 :::image type="content" source="media/new-relic-troubleshoot/new-relic-support.png" alt-text="Screenshot that shows the pane for a New Relic support request.":::
 
-## Next steps
+## Related content
 
 - [Manage Azure Native New Relic Service](new-relic-how-to-manage.md)
 - Get started with Azure Native New Relic Service on

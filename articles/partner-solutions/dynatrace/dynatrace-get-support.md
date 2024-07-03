@@ -1,15 +1,17 @@
 ---
 title: Get support for Azure Native Dynatrace Service
-description: This article provides information about support process for Dynatrace for Azure 
+description: This article shows you how to get support when using Azure Native Dynatrace Service on the Azure Cloud.
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 07/03/2024
+
+#customer intent: As an implementer of Dynatrace on the Azure Cloud, I want to file a support request so that I can get unblocked.
 ---
 
 # Get support for Azure Native Dynatrace Service
 
 In this article, you learn how to contact support when working with an Azure Native Dynatrace Service resource. Before contacting support, see [Fix common errors](dynatrace-troubleshoot.md).
 
-## Contact support
+## How to contact support
 
 1. In the Azure portal, go to your Dynatrace resource.
 
@@ -19,7 +21,7 @@ In this article, you learn how to contact support when working with an Azure Nat
 
 :::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support request selected in resource menu.":::
 
-## Next steps
+## Related content
 
 - Learn about [managing your instance](dynatrace-how-to-manage.md) of Dynatrace.
 - Get started with Azure Native Dynatrace Service on
