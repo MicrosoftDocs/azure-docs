@@ -18,13 +18,13 @@ The retirement of Azure Guest OS Families 2, 3, and 4 was announced in July 2024
 - **Windows Server 2008 R2:** December 2024 
 - **Windows Server 2012 and Windows Server 2012 R2:** February 2025 
 
-If you have questions, visit the [Microsoft Q&A question page for Cloud Services](/answers/topics/azure-cloud-services.html) or [contact Azure support](https://azure.microsoft.com/support/options/).
+If you have questions, visit the [Microsoft question page for Cloud Services](/answers/topics/azure-cloud-services.html) or [contact Azure support](https://azure.microsoft.com/support/options/).
 
 ## Are you affected?
 
 Your Cloud Services or [Cloud Services Extended Support](../cloud-services-extended-support/overview.md) are affected if any one of the following applies:
 
-1. You have a value of "osFamily = "2", "3", or "4" explicitly specified in the `ServiceConfiguration.cscfg` file for your Cloud Service.
+1. You have a value of `osFamily` = `2`, `3`, or `4` explicitly specified in the `ServiceConfiguration.cscfg` file for your Cloud Service.
 1. The Azure portal lists your Guest Operating System family value as *Windows Server 2008 R2*, *Windows Server 2012*, or *Windows Server 2012 R2*. 
 
 To find which of your cloud services are running which OS Family, you can run the following script in Azure PowerShell, though you must [set up Azure PowerShell](/powershell/azure/) first.
@@ -39,7 +39,7 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Your cloud services will be impacted by this retirement if the `osFamily` column in the script output is empty or contains a "2", "3", or "4". 
+Your cloud services are impacted by this retirement if the `osFamily` column in the script output is empty or contains a `2`, `3`, or `4`. 
 
 ## Recommendations
 
