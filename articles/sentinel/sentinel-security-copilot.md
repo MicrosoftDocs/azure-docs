@@ -97,7 +97,7 @@ Consider the **Microsoft Sentinel incident investigation** promptbook as a start
 |Nudge Copilot to provide human readable information instead of responding with object IDs. |`Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.`|
 |Copilot knows who you are. Use the "me" pronoun to find incidents related to you. The following prompt targets incidents assigned to you. |`What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.` |
 |When you narrow a prompt response down to a single incident, Copilot knows the context.|`Tell me about the entities associated with that incident.`|
-|Copilot is good at summarizing. A useful way to summarize the prompts and responses so far for a specific audience. |`Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`|
+|Copilot is good at summarizing. Describe a specific audience you want the prompts and responses summarized for. |`Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.`|
 
 For more prompt guidance and samples, see the following resources:
 
