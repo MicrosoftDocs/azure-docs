@@ -84,7 +84,7 @@ The following steps show you how to start the deployment process.
 
 1. Make sure you note the steps in the info box starting with **Before moving forward, you must accept the Oracle Standard Terms and Restrictions.**
 
-1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images.**. If the account has a support entitlement, select **Patched WebLogic Server Images**. Otherwise, select **General WebLogic Server Images**.
+1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images**. If the account has a support entitlement, select **Patched WebLogic Server Images**. Otherwise, select **General WebLogic Server Images**.
 
 1. Leave the value in **Select desired combination of WebLogic Server...** at its default value. You have a broad range of choices for WebLogic Server, JDK, and OS version.
 
