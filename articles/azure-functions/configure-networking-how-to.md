@@ -93,6 +93,9 @@ You're now ready to route your function app's traffic to go through the virtual 
 
 1. Enable [content share routing](../app-service/overview-vnet-integration.md#content-share) to enable your function app to communicate with your new storage account through its virtual network. In the same page as the previous step, under **Configuration routing**, select **Content storage**.
 
+> [!IMPORTANT]
+> If multiple Function Apps in the same App Service Plan use the same Azure Files account with the same credentials, they should also all use the same value for content share routing to ensure that traffic is consistently routed through the intended network. A mismatch in settings may result in traffic being routed through public networks, resulting in access being blocked by storage account network rules.
+
 ### 4. Update application settings
 
 Finally, you need to update your application settings to point to the new secure storage account:
