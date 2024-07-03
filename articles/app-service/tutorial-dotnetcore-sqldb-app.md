@@ -26,6 +26,7 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 > * Provision and deploy by using Azure Developer CLI
+> * Use passwordless SQL connectivity by using a managed identity
 
 ## Prerequisites
 
@@ -182,7 +183,7 @@ The creation wizard generated connection strings for the SQL database and the Re
 :::row-end:::
 
 > [!TIP]
-> The SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
+> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
 
 ## 3. Deploy sample code
 
@@ -481,6 +482,9 @@ The AZD template you use generated the connectivity variables for you already as
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
+> [!TIP]
+> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
+
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 4. Modify sample code and redeploy
@@ -648,6 +652,7 @@ After you configure diagnostic logs, the app is restarted. You might need to ref
 - [How do I connect to the Azure SQL Database server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-azure-sql-database-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [How do I debug errors during the GitHub Actions deployment?](#how-do-i-debug-errors-during-the-github-actions-deployment)
+- [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
 - [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
 - [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
