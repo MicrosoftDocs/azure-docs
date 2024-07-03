@@ -15,11 +15,14 @@ This article covers how to silently install the Azure File Sync agent using defa
 ## Silent installation that uses default settings
 To run a silent installation for a new agent installation that uses the default settings, run the following command at an elevated command prompt:
 
+```
 msiexec /i packagename.msi /qb /l*v AFSInstaller.log
-
+```
 For example, to install the Azure File Sync agent for Windows Server 2016, run the following command:
 
+```
 msiexec /i StorageSyncAgent_WS2016.msi /qb /l*v AFSInstaller.log
+```
 
 > [!NOTE]
 > Use the /qb switch to display restart prompts (if required), agent update, and server registration screens. To suppress the screens and automatically restart the server (if required), use the /qn switch.
@@ -29,11 +32,15 @@ To run a silent installation that uses custom settings, use the parameters that 
 
 For example, to run a silent installation by using custom proxy settings, run the following command:
 
+```
 msiexec /i StorageSyncAgent_WS2016.msi USE_CUSTOM_PROXY_SETTINGS=1 PROXY_ADDRESS=10.0.0.1 PROXY_PORT=80 PROXY_AUTHREQUIRED_FLAG=1 PROXY_USERNAME=username  PROXY_PASSWORD=password /qb /l*v AFSInstaller.log
+```
 
 For example, to run a silent installation by using an unattend answer file, run the following command:
 
+```
 msiexec /i StorageSyncAgent_WS2016.msi UNATTEND_ANSWER_FILE=c:\agent\unattend.ini /qb /l*v AFSInstaller.log
+```
 
 The unattend answer file should have the following format:
 
