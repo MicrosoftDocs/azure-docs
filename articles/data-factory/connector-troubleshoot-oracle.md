@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 05/27/2024
+ms.date: 07/02/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -46,10 +46,13 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         - 3DES112 
         - DES
         
-    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity.
+    - The following algorithms are deemed as secure by OpenSSL, and will be sent along to the server for OAS (Oracle Advanced Security) data integrity. 
         - SHA256 
         - SHA384 
         - SHA512
+    
+        >[!Note]  
+        >The recommended data integrity algorithms SHA256, SHA384 and SHA512 are available for Oracle 19c or higher. 
     
 ## Error code: UserErrorFailedToConnectOdbcSource
 
