@@ -383,6 +383,16 @@
           href: deploy-container-azure-pipelines.md
         - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
+- name: WebJobs
+  items:
+    - name: Create WebJobs
+      href: webjobs-create.md
+    - name: Develop WebJobs using VS
+      href: webjobs-dotnet-deploy-vs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md          
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
@@ -449,16 +459,6 @@
           href: manage-create-arc-environment.md
         - name: Create app on Azure Arc
           href: quickstart-arc.md
-    - name: WebJobs
-      items:
-        - name: Create WebJobs
-          href: webjobs-create.md
-        - name: Develop WebJobs using VS
-          href: webjobs-dotnet-deploy-vs.md
-        - name: Get started with WebJobs SDK
-          href: webjobs-sdk-get-started.md
-        - name: Use WebJobs SDK
-          href: webjobs-sdk-how-to.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples
