@@ -22,6 +22,7 @@ This article lists significant changes to Azure Monitor documentation.
 ## June 2024
 
 |Subservice | Article | Description |
+|---|---|---|
 |Agents|[Azure Monitor Agent Migration Helper workbook](agents/azure-monitor-agent-migration-helper-workbook.md)|Guidance for using the AMA migration workbook.|
 |Agents|[Migrate to Azure Monitor Agent from Log Analytics agent](agents/azure-monitor-agent-migration.md)|Refreshed guidance for migrating to Azure Monitor Agent.|
 |Alerts|[Action groups](alerts/action-groups.md)|Added list of supported roles to which action groups can send emails.|
