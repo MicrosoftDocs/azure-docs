@@ -45,7 +45,7 @@ Near-zero downtime scaling is a feature designed to minimize downtime when you m
 
 Typically, this process could take anywhere between 2 to 10 minutes with regular scaling. With the new near-zero downtime scaling feature, this duration is reduced to less than 30 seconds. This reduction in downtime during scaling resources improves the overall availability of your database instance.
 
-### How it works
+### How this thing works
 
 When you update your Azure Database for PostgreSQL flexible server instance in scaling scenarios, we create a new copy of your server (VM) with the updated configuration. We synchronize it with your current one, and switch to the new copy with a 30-second interruption. Then we retire the old server. The process occurs all at no extra cost to you. 
 
