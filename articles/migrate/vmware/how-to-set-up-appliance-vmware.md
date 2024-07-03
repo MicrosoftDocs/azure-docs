@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 04/19/2024
+ms.date: 06/20/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
@@ -34,6 +34,9 @@ To set up the appliance by using an OVA template, you'll complete these steps, w
 
 > [!NOTE]
 > OVA templates are not available for soverign clouds.
+
+> [!NOTE]
+> Do not clone or create a VM template out of an appliance deployed using OVA template. This scenario is unsupported and may result in deployment failures within the Migrate Service.
 
 1. Provide an appliance name and generate a project key in the portal.
 1. Download an OVA template file, and import it to vCenter Server. Verify that the OVA is secure.
@@ -82,7 +85,7 @@ Before you deploy the OVA file, verify that the file is secure:
 
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
 
 #### Create the appliance server
 

@@ -50,7 +50,7 @@ Sample source code for the web app is available on [GitHub](https://github.com/m
 > [!NOTE]
 > After February 1, 2024, the web app requires the app startup command to be set to `python3 -m gunicorn app:app`. When updating an app that was published prior to February 1, 2024, you need to manually add the startup command from the **App Service Configuration** page.
 
-We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is [retired](../api-version-deprecation.md#retiring-soon). 
+We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is [retired](../api-version-deprecation.md)
 
 Consider either clicking the **watch** or **star** buttons on the web app's [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT) repo to be notified about changes and updates to the source code.
 

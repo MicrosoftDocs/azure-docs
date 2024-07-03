@@ -139,7 +139,8 @@
         - name: Defender for Cloud support matrices
           displayName: coverage, supported platforms, cloud services, roles, permissions
           href: support-matrix-defender-for-cloud.md
-        - name: Defender for Cloud cloud support
+        - name: Defender for Cloud cloud support matrices
+          displayName: matrices, gov, government, 21via, net, support
           href: support-matrix-cloud-environment.md
         - name: Defender for Servers support matrices
           displayName: coverage, machines, windows, linux, multicloud, supported features,
@@ -310,7 +311,9 @@
     - name: Build interactive reports with Azure Monitor workbooks
       displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
       href: custom-dashboards-azure-workbooks.md
-      items: null
+    - name: Assign access to workload owners
+      displayName: assign access, aws, gcp, connector, permissions, identity, security
+      href: assign-access-to-workload.md
     - name: Cloud security posture
       items:
         - name: Review cloud security posture
@@ -743,9 +746,6 @@
       - name: Kubeaudit events in advanced hunting
         displayName: k8s, containers
         href: kubeaudit-events-advanced-hunting.md
-      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
-        displayName: ACR, registry, images, qualys
-        href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Defender for Kubernetes (deprecated)
         displayName: clusters, k8s, aks
         href: defender-for-kubernetes-introduction.md

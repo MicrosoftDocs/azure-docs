@@ -36,7 +36,7 @@ az account set --subscription <subscription id>
 
 If you have not already created a server, refer to this [quickstart](quickstart-create-server-database-azure-cli.md) to create one.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Scale compute and storage
 

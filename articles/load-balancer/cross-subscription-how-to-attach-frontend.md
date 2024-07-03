@@ -8,7 +8,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: mbender
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Attach a cross-subscription frontend to an Azure Load Balancer
