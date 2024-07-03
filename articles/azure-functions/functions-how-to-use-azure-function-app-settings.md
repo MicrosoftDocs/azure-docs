@@ -209,7 +209,7 @@ You can use Azure PowerShell commands to manually create a new plan, switch your
 
 Choose the direction of the migration for your app on Windows.
 
-### [Consumption-to-Premium](#tab/to-premium/portal)
+### [Consumption-to-Premium](#tab/to-premium/azure-portal)
 
 1. In the Azure portal, navigate to your Consumption plan app and choose **Change App Service plan** under **App Service plan**.
 
@@ -217,7 +217,7 @@ Choose the direction of the migration for your app on Windows.
 
 For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 
-### [Premium-to-Consumption](#tab/to-consumption/portal)
+### [Premium-to-Consumption](#tab/to-consumption/azure-portal)
 
 1. In the Azure portal, navigate to your Premium plan app and choose **Change App Service plan** under **App Service plan**.
 
