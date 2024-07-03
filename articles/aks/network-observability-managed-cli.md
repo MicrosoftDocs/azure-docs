@@ -187,7 +187,7 @@ az aks create \
 
 ---
 
-## Set up Azure managed Prometheus and Grafana
+## Azure managed Prometheus and Grafana
 
 Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
 
