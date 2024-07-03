@@ -47,7 +47,7 @@ To use a hosted spatial dataset as a reference layer:
 
     :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when using the 'Enter a URL' input control.":::
 
-1. Alternatively, you can create a dynamic URL using Data Analysis Expressions ([DAX]) based on fields, variables or other programmatic elements. By utilizing [DAX], the URL will dynamically change based on filters, selections, or other user interactions and configurations. Please refer to [Expression-based titles in Power BI Desktop] for more details.
+1. Alternatively, you can create a dynamic URL using Data Analysis Expressions ([DAX]) based on fields, variables or other programmatic elements. By utilizing DAX, the URL will dynamically change based on filters, selections, or other user interactions and configurations. For more information, see [Expression-based titles in Power BI Desktop].
 
     :::image type="content" source="./media/power-bi-visual/reference-layer-hosted-dax.png" alt-text="Screenshot showing the reference layers section when using DAX for the URL input.":::
 
