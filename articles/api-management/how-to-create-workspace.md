@@ -116,7 +116,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 Depending on their role in the workspace, users might have permissions to create APIs, products, subscriptions, and other resources, or they might have read-only access to some or all of them.
 
-To get started managing, protecting, and publishing APIs in a workspaces, see the following guidance.
+To get started managing, protecting, and publishing APIs in a workspace, see the following guidance.
 
 
 |Resource  |Guide  |
