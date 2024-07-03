@@ -136,7 +136,7 @@ Content-Type: application/json
 
 The Azure AI Model Inference API specifies a set of modalities and parameters that models can subscribe to. However, some models may have further capabilities that the ones the API indicates. On those cases, the API allows the developer to pass them as extra parameters in the payload.
 
-By setting a header `extra-parameters: allow`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
+By setting a header `extra-parameters: pass-through`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
 
 The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API:
 
@@ -163,6 +163,7 @@ var messages = [
 ];
 
 var response = await client.path("/chat/completions").post({
+    "extra-parameters": "pass-through",
     body: {
         messages: messages,
         safe_mode: true
@@ -178,7 +179,7 @@ __Request__
 POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
-extra-parameters: allow
+extra-parameters: pass-through
 ```
 
 ```JSON
