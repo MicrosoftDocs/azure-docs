@@ -31,7 +31,7 @@ The solution provides a centralized data platform that eliminates the need for c
 
 ## Opaque Gateway
 
-Organizations need a privacy-preserving AI solution that bridges the gap between protecting privacy and realizing the full potential of LLMs. To protect privacy throughout the stages of a generative AI lifecycle, strict data security techniques must be implemented to securely and efficiently perform all security-critical operations that directly touch a model and all confidential data used for training and inference.
+Organizations need a privacy-preserving AI solution that bridges the gap between protecting privacy and realizing the full potential of LLMs (Large Language Models). To protect privacy throughout the stages of a generative AI lifecycle, strict data security techniques must be implemented to securely and efficiently perform all security-critical operations that directly touch a model and all confidential data used for training and inference.
 
 Opaque Gateway serves as a privacy layer around your LLM of choice. With Opaque Gateway, you can securely and provably sanitize LLM prompts seamlessly to hide sensitive data from external parties and LLM providers. Opaque’s Confidential Computing technology ensures that no third party, not even Opaque Gateway, gets any visibility into the underlying prompt or data being sanitized.
 
