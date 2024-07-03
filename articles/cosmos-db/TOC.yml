@@ -41,7 +41,7 @@
     - name: Generative AI
       items:
         - name: Quickstart - build a RAG chatbot
-          href: gen-ai/quickstart.md
+          href: gen-ai/quickstart-rag-chatbot.md
         - name: AI agent
           href: ai-agents.md
         - name: Real-time custom content generation
