@@ -488,6 +488,63 @@ The following libraries are included in the Distro.
 - [ASP.NET Core](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore)
 - [SQL](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.sqlclient)
 
+#### Customizing Instrumentation Libraries
+
+The Azure Monitor Distro includes .NET OpenTelemetry instrumentation for [ASP.NET Core](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/), [HttpClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/), and [SQLClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient).
+You can customize these included instrumentations or manually add additional instrumentation on your own using the OpenTelemetry API.
+
+Here are some examples of how to customize the instrumentation:
+
+##### Customizing AspNetCoreTraceInstrumentationOptions
+
+```C#
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
+builder.Services.Configure<AspNetCoreTraceInstrumentationOptions>(options =>
+{
+    options.RecordException = true;
+    options.Filter = (httpContext) =>
+    {
+        // only collect telemetry about HTTP GET requests
+        return HttpMethods.IsGet(httpContext.Request.Method);
+    };
+});
+```
+
+##### Customizing HttpClientTraceInstrumentationOptions
+
+```C#
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
+builder.Services.Configure<HttpClientTraceInstrumentationOptions>(options =>
+{
+    options.RecordException = true;
+    options.FilterHttpRequestMessage = (httpRequestMessage) =>
+    {
+        // only collect telemetry about HTTP GET requests
+        return HttpMethods.IsGet(httpRequestMessage.Method.Method);
+    };
+});
+```
+
+##### Customizing SqlClientInstrumentationOptions
+
+While the [SQLClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) instrumentation is still in beta, we have vendored it within our package.
+Once it reaches a stable release, it will be included as a standard package reference.
+Until then, for customization of the SQLClient instrumentation, manually add the OpenTelemetry.Instrumentation.SqlClient package reference to your project and utilize its public API.
+
+```
+dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
+```
+
+```C#
+builder.Services.AddOpenTelemetry().UseAzureMonitor().WithTracing(builder =>
+{
+    builder.AddSqlClientInstrumentation(options =>
+    {
+        options.SetDbStatementForStoredProcedure = false;
+    });
+});
+```
+
 ### [ASP.NET](#tab/net)
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
@@ -971,10 +1028,6 @@ This section is for customers who use telemetry initializers or processors, or w
 
 ### How do the SDK API's map to OpenTelemetry concepts?
 
-#### How do Application Insights telemetry types map to OpenTelemetry?
-
-#### How do Application Insights sampling concepts map to OpenTelemetry?
-
 [OpenTelemetry](https://opentelemetry.io/) is a vendor neutral observability framework. There are no Application Insights APIs in the OpenTelemetry SDK or libraries. Before migrating, it's important to understand some of OpenTelemetry's concepts.
 
 * In Application Insights, all telemetry was managed through a single `TelemetryClient` and `TelemetryConfiguration`. In OpenTelemetry, each of the three telemetry signals (Traces, Metrics, and Logs) has its own configuration. You can manually create telemetry via the .NET runtime without external libraries. For more information, see the .NET guides on [distributed tracing](/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs), [metrics](/dotnet/core/diagnostics/metrics), and [logging](/dotnet/core/extensions/logging).
@@ -987,11 +1040,7 @@ With OpenTelemetry, you can write a [Processor](https://opentelemetry.io/docs/co
 
 * Application Insights used `TelemetryProcessors` to filter telemetry. An OpenTelemetry [Processor](https://opentelemetry.io/docs/collector/configuration/#processors) can also be used to apply filtering rules on a specific signal.
 
-* Application Insights offered multiple options to configure sampling.
-Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling.
-Currently only Traces (Requests and Dependencies) can be sampled.
-
-##### Understanding Telemetry DataTypes
+### How do Application Insights telemetry types map to OpenTelemetry?
 
 This table maps Application Insights data types to OpenTelemetry concepts and their .NET implementations.
 
@@ -1010,11 +1059,17 @@ The following documents provide more information.
 - [Application Insights telemetry data model](./data-model-complete.md)
 - [OpenTelemetry Concepts](https://opentelemetry.io/docs/concepts/)
 
-##### Telemetry Processors and Initializers
+### How do Application Insights sampling concepts map to OpenTelemetry?
+
+While Application Insights offered multiple options to configure sampling, Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling. Only *Requests* and *Dependencies* (*OpenTelemetry Traces*) can be sampled.
+
+For code samples detailing how to configure sampling, see our guide [Enable Sampling](./opentelemetry-configuration.md#enable-sampling)
+
+### How do Telemetry Processors and Initializers map to OpenTelemetry?
 
 In the Application Insights .NET SDK, use telemetry processors to filter and modify or discard telemetry. Use telemetry initializers to add or modify custom properties. For more information, see the [Azure Monitor documentation](./api-filtering-sampling.md). OpenTelemetry replaces these concepts with activity or log processors, which enrich and filter telemetry.
 
-###### Filtering Traces
+#### Filtering Traces
 
 To filter telemetry data in OpenTelemetry, you can implement an activity processor. This example is equivalent to the Application Insights example for filtering telemetry data as described in [Azure Monitor documentation](./api-filtering-sampling.md?tabs=javascriptwebsdkloaderscript#c). The example illustrates where unsuccessful dependency calls are filtered.
 
@@ -1053,7 +1108,7 @@ public static void Main()
 }
 ```
 
-###### Filtering Logs
+#### Filtering Logs
 
 [`ILogger`](/dotnet/core/extensions/logging)
 implementations have a built-in mechanism to apply [log
@@ -1074,7 +1129,7 @@ builder.AddFilter<OpenTelemetryLoggerProvider>("MyProduct.MyLibrary.MyClass", Lo
 
 For more information, please read the [OpenTelemetry .NET documentation on logs](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/docs/logs/README.md).
 
-###### Adding Custom Properties to Traces
+#### Adding Custom Properties to Traces
 
 In OpenTelemetry, you can use activity processors to enrich telemetry data with more properties. It's similar to using telemetry initializers in Application Insights, where you can modify telemetry properties.
 
@@ -1140,12 +1195,9 @@ public static void Main()
 }
 ```
 
-While Application Insights offered multiple options to configure sampling, Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling.
-Currently only Traces (Requests and Dependencies) can be sampled.
+### How do I manually track telemetry using OpenTelemetry?
 
-For code samples detailing how to configure sampling, see our guide [Enable Sampling](./opentelemetry-configuration.md#enable-sampling)
-
-### Sending Traces - Manual
+#### Sending Traces - Manual
 
 Traces in Application Insights are stored as `RequestTelemetry` and `DependencyTelemetry`. In OpenTelemetry, traces are modeled as `Span` using the `Activity` class.
 
@@ -1292,11 +1344,11 @@ using (var activity = activitySource.StartActivity("CustomOperation", ActivityKi
 }
 ```
 
-### Sending Logs
+#### Sending Logs
 
 Logs in Application Insights are stored as `TraceTelemetry` and `ExceptionTelemetry`.
 
-#### TraceTelemetry
+##### TraceTelemetry
 
 In OpenTelemetry, logging is integrated via the `ILogger` interface. Here's how to migrate `TraceTelemetry`:
 
@@ -1345,7 +1397,7 @@ internal static partial class LoggerExtensions
 }
 ```
 
-#### ExceptionTelemetry
+##### ExceptionTelemetry
 
 Application Insights uses `ExceptionTelemetry` to log exceptions. Here's how to migrate to OpenTelemetry:
 
@@ -1395,7 +1447,7 @@ catch (Exception ex)
 }
 ```
 
-### Sending Metrics
+#### Sending Metrics
 
 Metrics in Application Insights are stored as `MetricTelemetry`. In OpenTelemetry, metrics are modeled as `Meter` from the `System.Diagnostics.DiagnosticSource` package.
 
@@ -1412,9 +1464,9 @@ Migrating from Application Insights to OpenTelemetry involves replacing all Appl
 > **Tip:**
 > The histogram is the most versatile and the closest equivalent to the Application Insights `GetMetric().TrackValue()` API. You can replace Application Insights Metric APIs with Histogram to achieve the same purpose.
 
-### Other Telemetry Types
+#### Other Telemetry Types
 
-#### CustomEvents
+##### CustomEvents
 
 Not supported in OpenTelemetry.
 
@@ -1424,7 +1476,7 @@ Not supported in OpenTelemetry.
 TelemetryClient.TrackEvent()
 ```
 
-#### AvailabilityTelemetry
+##### AvailabilityTelemetry
 
 Not supported in OpenTelemetry.
 
@@ -1434,7 +1486,7 @@ Not supported in OpenTelemetry.
 TelemetryClient.TrackAvailability()
 ```
 
-#### PageViewTelemetry
+##### PageViewTelemetry
 
 Not supported in OpenTelemetry.
 
