@@ -269,23 +269,23 @@ To check the successful delivery of a pre and post event to an endpoint from Eve
 
 #### [Automation Runbooks via Webhooks](#tab/runbooks)
 
-  1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Automation account**.
-  2. In your Automation account, under **Process Automation**, select **Runbooks**.
-  3. Select the pre or post script that is linked to your Webhook in Event Grid.
-  4. In **Overview**, you can view the status of the Runbook job. The trigger time should be approximately 30 minutes before the schedule start time. Once the job is finished, you can come back to the same section to confirm if the status is **Completed**. For example, ensure that the VM has been either powered on or off.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Automation account**.
+1. In your Automation account, under **Process Automation**, select **Runbooks**.
+1. Select the pre or post script that is linked to your Webhook in Event Grid.
+1. In **Overview**, you can view the status of the Runbook job. The trigger time should be approximately 30 minutes before the schedule start time. Once the job is finished, you can come back to the same section to confirm if the status is **Completed**. For example, ensure that the VM has been either powered on or off.
 
-      :::image type="content" source="./media/manage-pre-post-events/automation-runbooks-webhook.png" alt-text="Screenshot that shows how to check the status of runbook job." lightbox="./media/manage-pre-post-events/automation-runbooks-webhook.png":::
+    :::image type="content" source="./media/manage-pre-post-events/automation-runbooks-webhook.png" alt-text="Screenshot that shows how to check the status of runbook job." lightbox="./media/manage-pre-post-events/automation-runbooks-webhook.png":::
     
-    For more information on how to retrieve details from Automation account's activity log and job statuses, see [Manage runbooks in Azure Automation](../automation/automation-runbook-execution.md#jobs).
+   For more information on how to retrieve details from Automation account's activity log and job statuses, see [Manage runbooks in Azure Automation](../automation/automation-runbook-execution.md#jobs).
 
 
 #### [Azure Functions](#tab/functions)
 
-  1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **your Azure Function app.**
-  2. In your Azure Function app, go to the **Overview** page.
-  3. Select the specific **function** from the grid in the **Overview** page.
-  4. Under the **Monitor** column, select **Invocations and more.**
-  5. This will take you to the **Invocations** tab, which displays the execution details and status of the function.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **your Azure Function app.**
+2. In your Azure Function app, go to the **Overview** page.
+3. Select the specific **function** from the grid in the **Overview** page.
+4. Under the **Monitor** column, select **Invocations and more.**
+5. This will take you to the **Invocations** tab, which displays the execution details and status of the function.
 
 To use application insights to monitor executions in Azure functions, refer [here](/azure/azure-functions/functions-monitoring).
 
@@ -296,10 +296,10 @@ To cancel the schedule run, the cancelation API in your pre-event must get trigg
 **To cancel the schedule maintenance run**
 
 #### [Azure portal](#tab/az-portal)
-    1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
-    1. Under **Manage** in the ToC, select **History**.
-    1. Select the **By Maintenance run ID** tab, and select the maintenance run ID for which you want to view the history.
-    1. Select **Cancel schedule update**. This option is enabled for 10 minutes before the start of the maintenance configuration.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
+1. Under **Manage** in the ToC, select **History**.
+1. Select the **By Maintenance run ID** tab, and select the maintenance run ID for which you want to view the history.
+1. Select **Cancel schedule update**. This option is enabled for 10 minutes before the start of the maintenance configuration.
 
 #### [REST API](#tab/rest)
 
@@ -358,7 +358,7 @@ Follow the below steps to view the history of an event created through Azure Fun
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
 2. Under **Manage**, select **History**.
 3. Select the **By Maintenance run ID** tab, and then select the maintenance run ID for which you want to view the status.
-4. Refer to the **Status column** to view the status. If the maintenance run has been canceled, the status will be displayed as **cancelled**. Select the status to view the details.
+4. Refer to the **Status** to view the status. If the maintenance run has been canceled, the status will be displayed as **cancelled**. Select the status to view the details.
 
    :::image type="content" source="./media/manage-pre-post-events/status-canceled-run.png" alt-text="Screenshot that shows the status of canceled run." lightbox="./media/manage-pre-post-events/status-canceled-run.png":::
 
@@ -422,15 +422,15 @@ To delete pre and post events, follow these steps:
 
 #### Event subscription Deletion
 
-    ```rest
+```rest
     DELETE /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
-    ```
+```
 
 #### System topic deletion
     
-    ```rest
+```rest
     DELETE /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>;?api-version=2022-06-15
-    ```
+```
 ---
 
 ## Next steps
