@@ -4,7 +4,7 @@ description: Shows how to quickly stand up WebLogic Server on Azure Kubernetes S
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 07/03/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
@@ -13,12 +13,12 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 This article demonstrates how to:
 
-- Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
-- Stand up a WebLogic Server cluster using the Azure Marketplace offer.
+- Run your Java application on Oracle WebLogic Server (WLS).
+- Stand up a WebLogic Server cluster on AKS using an Azure Marketplace offer.
 - Build the application Docker image to serve as auxiliary image to provide WebLogic Deploy Tooling (WDT) models and applications.
-- Deploy the containerized application to the existing WebLogic Server cluster on AKS with connection to Microsoft Azure SQL.
+- Deploy the containerized application to the WebLogic Server cluster on AKS with connection to Microsoft Azure SQL.
 
-This article uses the Azure Marketplace offer for WebLogic Server to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following resources:
+This article uses the [Azure Marketplace offer for WebLogic Server](https://aka.ms/wlsaks) to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following:
 
 - An Azure Container Registry instance
 - An AKS cluster
@@ -27,11 +27,9 @@ This article uses the Azure Marketplace offer for WebLogic Server to accelerate 
 - A container image including the WebLogic runtime
 - A WebLogic Server cluster without an application
 
-Then, this article introduces building an auxiliary image step by step to update an existing WebLogic Server cluster. The auxiliary image provides application and WDT models.
+Then, the article introduces building an image to update the WebLogic Server cluster. The image provides application and WDT models.
 
-For full automation, you can select your application and configure datasource connection from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks).
-
-For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
+If you prefer a less automated approach to deploying WebLogic on AKS, please refer to the step-by-step guidance included in the official documentation from Oracle for [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on AKS solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
