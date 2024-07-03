@@ -13,7 +13,7 @@ ms.date: 07/01/2024
 
 Azure Cosmos DB offers various options to enable large-scale analytics and BI reporting on your operational data.
 
-To get meaningful insights on your Azure Cosmos DB data, you may need to query across multiple partitions, collections or databases. In some cases, you may need to combine this data with other data sources in your organization such as Azure SQL Database, Azure Data Lake Storage Gen2 etc. You may also need to query with aggregate functions such as sum, count etc. Such queries need heavy computational power, which will likely consume more request units (RUs) and as a result, these queries could potentially impact your mission critical workload performance. To isolate transactional workloads from the performance impact of complex analytical queries, database data is ingested nightly to a central locationm using complex Extract-Transform-Load (ETL) pipelines. Such ETL-based analytics are complex, costly with delayed insights on business data.
+To get meaningful insights on your Azure Cosmos DB data, you may need to query across multiple partitions, collections or databases. In some cases, you may need to combine this data with other data sources in your organization such as Azure SQL Database, Azure Data Lake Storage Gen2 etc. You may also need to query with aggregate functions such as sum, count etc. Such queries need heavy computational power, which likely consumes more request units (RUs) and as a result, these queries msy potentially impact your mission critical workload performance. To isolate transactional workloads from the performance impact of complex analytical queries, database data is ingested nightly to a central location using complex Extract-Transform-Load (ETL) pipelines. Such ETL-based analytics are complex, costly with delayed insights on business data.
 
 Azure Cosmos DB now offers no-ETL, cost effective analytics, to address these challenges. 
 
@@ -27,9 +27,10 @@ Azure Cosmos DB offers no-ETL, near real-time analytics on your data without imp
 
 ### Option 1: Mirroring your Azure Cosmos DB data into Microsoft Fabric
 
-Mirroring enables you to seamlessly bring your Azure Cosmos DB database data into Microsoft Fabric. With no-ETL, yuo can get rich business insights on your Azure Cosmos DB data using Fabric’s built-in analytics, BI and AI capabilities.
+Mirroring enables you to seamlessly bring your Azure Cosmos DB database data into Microsoft Fabric. With no-ETL, you can get rich business insights on your Azure Cosmos DB data using Fabric’s built-in analytics, BI, and AI capabilities.
 
-Your Cosmos DB operational data is incrementally replicated into Fabric OneLake in near real-time. Data in OneLake is stored in open-source Delta Parquet format and made available to all analytical engines in Fabric. With open access, you can use it with various Azure services such as Azure Databricks, Azure HDInsight and more. OneLake also helps unify your data estate for your analytical needs. Mirrored data can be joined with any other data in OneLake, such as Lakehouses, Warehouses or shortcuts. 
+Your Cosmos DB operational data is incrementally replicated into Fabric OneLake in near real-time. Data in OneLake is stored in open-source Delta Parquet format and made available to all analytical engines in Fabric. With open access, you can use it with various Azure services such as Azure Databricks, Azure HDInsight, and more. OneLake also helps unify your data estate for your analytical needs. Mirrored data can be joined with any other data in OneLake, such as Lakehouses, Warehouses or shortcuts. You can also join Azure Cosmos DB data with other mirrored database sources such as Azure SQL Database, Snowflake.
+You can query across Azure Cosmos DB collections or databases mirrored into OneLake. 
 
 With Mirroring in Fabric, you don't need to piece together different services from multiple vendors. Instead, you can enjoy a highly integrated, end-to-end, and easy-to-use product that is designed to simplify your analytics needs.
 You can use T-SQL to run complex aggregate queries and Spark for data exploration. You can seamlessly access the data in notebooks, use data science to build machine learning models, and build Power BI reports using Direct Lake powered by rich Copilot integration.
@@ -38,7 +39,7 @@ You can use T-SQL to run complex aggregate queries and Spark for data exploratio
 
 If you're looking for analytics on your operational data in Azure Cosmos DB, mirroring provides:
 * No-ETL, cost-effective near real-time analytics on Azure Cosmos DB data without impacting your request unit (RU) consumption
-* Ease of bringing data across various sources into Fabric OneLake. You can easily join the data across multiple Azure Cosmos DB collections or databases, Azure SQL Databases, Snowflake or Lakehouses and shortcuts such as Amazon S3, Google Cloud Storage etc. 
+* Ease of bringing data across various sources into Fabric OneLake.
 * Improved query performance of SQL engine handling delta tables, with V-order optimizations
 * Improved cold start time for Spark engine with deep integration with ML/notebooks
 * One-click integration with Power BI with Direct Lake and Copilot
