@@ -36,7 +36,7 @@ db.collection.find({ field: "value" }).maxTimeMS(5000)
 - Maximum size for index path: 256B.
 - Default maximum: 64.
   - Configurable up to: 300 indexes per collection.
-- Sorting is done in memory and does not push down to the index.
+- Sorting is done in memory and doesn't push down to the index.
 - Maximum level of nesting for embedded objects/arrays on index definitions: 6.
 - Background index builds are in preview. To enable, please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for assistance.
   - A single index build can be in progress on the same collection.
@@ -49,18 +49,18 @@ db.collection.find({ field: "value" }).maxTimeMS(5000)
 
 ### Geospatial Indexing Limits
 - No support for BigPolygons.
-- Composite indexes do not support geospatial indexes.
-- `$geoWithin` query does not support polygons with holes.
+- Composite indexes don't support geospatial indexes.
+- `$geoWithin` query doesn't support polygons with holes.
 - The `key` field is required in the `$geoNear` aggregation stage.
 - Indexes are recommended but not required for `$near`, `$nearSphere` query operators, and the `$geoNear` aggregation stage.
 
 ### Text Index Limits
 - Only one text index can be defined on a collection.
-- Supports simple text searches only; advanced search capabilities like regular expression searches are not supported.
-- `hint()` is not supported in combination with a query using `$text` expression.
-- Sort operations cannot use the ordering of the text index.
-- Tokenization for Chinese, Japanese, Korean is not supported yet.
-- Case insensitive tokenization is not supported yet.
+- Supports simple text searches only; advanced search capabilities like regular expression searches aren't supported.
+- `hint()` isn't supported in combination with a query using `$text` expression.
+- Sort operations can't use the ordering of the text index.
+- Tokenization for Chinese, Japanese, Korean isn't supported yet.
+- Case insensitive tokenization isn't supported yet.
 
 ### Vector Search Limits
 - Indexing vectors up to 2,000 dimensions in size.
@@ -92,12 +92,12 @@ The following limitations can be overidden by upgrading a paid tier
 
 ### Cross-Region Replication (Preview)
 - Supported only on single shard (node) vCore clusters.
-- The following configurations are the same on both primary and replica clusters and cannot be changed on the replica cluster:
+- The following configurations are the same on both primary and replica clusters and can't be changed on the replica cluster:
   - Compute configuration
   - Storage and shard count
   - User accounts
-- HA is not supported on replica clusters.
-- Cross-region replication is not available on clusters with burstable compute or Free tier clusters.
+- HA isn't supported on replica clusters.
+- Cross-region replication isn't available on clusters with burstable compute or Free tier clusters.
 
 ## Miscellaneous Limits
 
