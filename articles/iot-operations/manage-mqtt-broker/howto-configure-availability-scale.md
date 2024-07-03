@@ -114,20 +114,6 @@ metadata:
   name: broker
   namespace: azure-iot-operations
 spec:
-  authImage:
-    pullPolicy: Always
-    repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
-    tag: 0.4.0-preview
-  brokerImage:
-    pullPolicy: Always
-    repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
-    tag: 0.4.0-preview
-  healthManagerImage:
-    pullPolicy: Always
-    repository: mcr.microsoft.com/azureiotoperations/dmqtt-operator
-    tag: 0.4.0-preview
-  diagnostics:
-    probeImage: mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview
   memoryProfile: medium
   mode: distributed
   cardinality:
