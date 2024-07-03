@@ -152,6 +152,8 @@ This is the role for publishing gallery artifacts.
 
 This role allows user to share gallery to another subscription/tenant or share it to the public.
 
+[Learn more](/azure/virtual-machines/create-gallery)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
