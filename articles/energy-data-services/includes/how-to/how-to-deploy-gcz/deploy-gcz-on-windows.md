@@ -53,8 +53,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Windows. This deploymen
     For more environment variables, see the [OSDU GitLab documentation](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/deployment/environment_variables.md).
 
 1. Validate the configuration files for the GCZ Provider and Transformer by opening the configuration files in a text editor and updating the values if needed.
-    1. Provider: `C:\gcz\gcz-provider\gcz-provider-core\config\koop-config.json`
-    1. Transformer: `C:\gcz\gcz-transformer-core\config\application.yml`
+    - Provider: `C:\gcz\gcz-provider\gcz-provider-core\config\koop-config.json`
+    - Transformer: `C:\gcz\gcz-transformer-core\config\application.yml`
 
     > [!IMPORTANT]
     > If you make changes to the schemas in the configuration files, you have to make sure that those schemas are represented in both of the configuration files.
