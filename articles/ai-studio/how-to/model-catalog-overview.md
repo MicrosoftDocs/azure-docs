@@ -151,7 +151,14 @@ Phi-3-mini-128k-instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-in
 
 Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) in language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering for individual serverless endpoints when you first deploy a language model or in the deployment details page by clicking the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
 
+### Network isolation for models deployed via Serverless API
 
+Endpoints for models deployed as Serverless APIs follow the public_network_access flag setting of the AI Studio Hub which has the project in which the deployment exists. To secure your MaaS endpoint, disable the public_network_access flag on your AI Studio Hub. Secure inbound communication from a client to your endpoint is possible by using a private endpoint for the hub.
+
+**Limitations:**
+* If you have an AI Studio hub with private endpoint created before July 8, new MaaS endpoints added to projects in this hub will not follow the networking configuration of the hub. New private endpoint and serverless API deployments need to be created. 
+* If you have an AI studio hub with MaaS deployments created before July 8 and you enable private endpoint on this hub, the existing MaaS endpoints will not follow the hub's networking configuration. New serverless API deployments need to be created.
+* Currently On Your Data support for MaaS deployments in private hubs (public_network_access flag disabled) is not available.
 
 ## Next steps
 
