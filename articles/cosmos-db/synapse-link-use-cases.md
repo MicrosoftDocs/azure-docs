@@ -12,11 +12,11 @@ ms.custom: cosmos-db-noetl-realtime-analytics
 # Azure Cosmos DB: No-ETL analytics use cases
 [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
-Azure Cosmos DB provides various analtytics options for no-ETL, near real-time analytics over operational data. You can enable analytics on your Azure Cosmos DB data using following options:
+Azure Cosmos DB provides various analytics options for no-ETL, near real-time analytics over operational data. You can enable analytics on your Azure Cosmos DB data using following options:
 * Mirroring Azure Cosmos DB in Microsoft Fabric
 * Azure Synapse Link for Azure Cosmos DB
 
-To learn more about these options, please see ["Analytics and BI on your Azure Cosmos DB data"](analytics-and-bi-overview.md).
+To learn more about these options, see ["Analytics and BI on your Azure Cosmos DB data."](analytics-and-bi-overview.md)
 
 > [!IMPORTANT]
 > Mirroring Azure Cosmos DB in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
@@ -33,7 +33,7 @@ Research studies show that embedding big data analytics in supply chain operatio
 
 Manufacturers are onboarding to cloud-native  technologies to break out of constraints of legacy Enterprise Resource Planning (ERP) and Supply Chain Management (SCM) systems. With supply chains generating increasing volumes of operational data every minute (order, shipment, transaction data), manufacturers need an operational database. This operational database should scale to handle the data volumes as well as an analytical platform to get to a level of real-time contextual intelligence to stay ahead of the curve.
 
-The following architecture shows the power of leveraging Azure Cosmos DB as the cloud-native operational database in supply chain analytics:
+The following architecture shows the power of using Azure Cosmos DB as the cloud-native operational database in supply chain analytics:
 
 :::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Real-time analytics for Azure Cosmos DB in supply chain" border="false":::
 
@@ -41,9 +41,9 @@ Based on previous architecture, you can achieve the following use cases:
 
 * **Prepare & train predictive pipeline:** Generate insights over the operational data across the supply chain using machine learning translates. This way you can lower inventory, operations costs, and reduce the order-to-delivery times for customers.
 
- Mirroring or Synapse Link allow you to analyze the changing operational data in Azure Cosmos DB without any manual ETL processes. These offerings save you from additional cost, latency, and operational complexity. They enable data engineers and data scientists to build robust predictive pipelines:
+ Mirroring and Synapse Link allow you to analyze the changing operational data in Azure Cosmos DB without any manual ETL processes. These offerings save you from additional cost, latency, and operational complexity. They enable data engineers and data scientists to build robust predictive pipelines:
 
-  * Query operational data from Azure Cosmos DB by leveraging native integration with Apache Spark pools in  Microsoft Fabric or Azure Synapse Analytics. You can query the data  in an interactive notebook or scheduled remote jobs without complex data engineering.
+  * Query operational data from Azure Cosmos DB by using native integration with Apache Spark pools in  Microsoft Fabric or Azure Synapse Analytics. You can query the data  in an interactive notebook or scheduled remote jobs without complex data engineering.
 
   * Build  Machine Learning (ML) models with Spark ML algorithms and Azure ML integration in Microsoft Fabric or Azure Synapse Analytics.
 
@@ -73,19 +73,19 @@ Retailers today must build secure and scalable e-commerce solutions that meet th
 
 :::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Cosmos DB in real-time personalization" border="false":::
 
-* **Prepare & train predictive pipeline:** You can generate insights over the operational data across your business units or customer segments using Fabric or Synapse Spark and machine learning models. This translates to personalized delivery to target customer segments, predictive end-user experiences and targeted marketing to fit your end-user requirements.
+* **Prepare & train predictive pipeline:** You can generate insights over the operational data across your business units or customer segments using Fabric or Synapse Spark and machine learning models. This translates to personalized delivery to target customer segments, predictive end-user experiences, and targeted marketing to fit your end-user requirements.
 )
 ## IOT predictive maintenance
 
 Industrial IOT innovations have drastically reduced downtimes of machinery and increased overall efficiency across all fields of industry. One of such innovations is predictive maintenance analytics for machinery at the edge of the cloud.
 
-The following is an architecture leveraging the cloud native HTAP capabilities in IoT predictive maintenance:
+The following is an architecture using the cloud native HTAP capabilities in IoT predictive maintenance:
 
 :::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Cosmos DB in IOT predictive maintenance" border="false" :::
 
 * **Prepare & train predictive pipeline:** The historical operational data from IoT device sensors could be used to train predictive models such as anomaly detectors. These anomaly detectors are then deployed back to the edge for real-time monitoring. Such a virtuous loop allows for continuous retraining of the predictive models.
 
-* **Operational reporting:** With the growth of digital twin initiatives, companies are collecting vast amounts of operational data from large number of sensors to build a digital copy of each machine. This data powers BI needs to understand trends over historical data in addition to ecent hot data.
+* **Operational reporting:** With the growth of digital twin initiatives, companies are collecting vast amounts of operational data from large number of sensors to build a digital copy of each machine. This data powers BI needs to understand trends over historical data in addition to recent hot data.
 
 ## Related content
 
