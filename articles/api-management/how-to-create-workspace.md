@@ -1,16 +1,15 @@
 ---
 title: Set up a workspace in Azure API Management
-description: Learn how to create a workspace and a workspace gateway in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
+description: Learn how to create a workspace in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
 author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 06/24/2024
 ms.custom:
-zone_pivot_groups: workspace-gateway-network
 ---
 
-# Create and manage a workspace in Azure API Management
+# Create and manage a workspace
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
@@ -21,69 +20,24 @@ Set up a [workspace](workspaces-overview.md) to enable a decentralized API devel
 Follow the steps in this article to:
 
 * Create an API Management workspace and a dedicated workspace gateway using the Azure portal
-* Configure the workspace gateway network access settings
+* Optionally, isolate the workspace gateway in an Azure virtual network
 * Assign users to the workspace
 
-:::zone-pivot="public"
-
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
-* **Owner** or **Contributor** role on the resource group where the API  Management instance is deployed, or equivalent permissions to create resources in the resource group.
-:::zone-end
-
-:::zone-pivot="public-inbound-private-outbound,private-inbound-private-outbound"
-
-## Prerequisites
-
-* An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
-* **Owner** or **Contributor** role on the resource group where the API  Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* An Azure virtual network and subnet to isolate the workspace gateway.
+* **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
+* (Optional) An Azure virtual network and subnet to isolate the workspace gateway.
     * The virtual network must be in the same region and Azure subscription as the API Management instance.
     * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
+    * Configure subnet delegation to enable the desired access:
+        * For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**
+        * For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. 
+        
+        The subnet can't have another delegation configured.
 
     > [!IMPORTANT]
     > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace. 
-
-:::zone-end
-
-
-:::zone pivot="public-inbound-private-outbound"
-
-## Prepare the subnet
-###  Delegate the subnet
-For public inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service. The subnet can't have another delegation configured.  In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
-
-:::image type="content" source="media/how-to-create-workspace/delegate-external.png" alt-text="Screenshot of delegation for external VNet in the portal.":::
-
-### Configure NSG rules
-
-A network security group must be attached to the subnet used for access to the gateway. Configure the following inbound network security group rules to filter traffic to your workspace gateway.  Set the priority of these rules higher than that of the default rules.    
-
-| Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
-|------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
-| */80                          | Inbound            | TCP                | AzureLoadBalancer | Workspace gateway subnet range                           | Allow internal health ping traffic     |
-| */80,443 | Inbound | TCP | Internet | Workspace gateway subnet range | Allow inbound traffic |
-
-:::zone-end
-
-:::zone pivot="private-inbound-private-outbound"
-## Prepare the subnet
-### Delegate the subnet
-For private inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironment** service.  The subnet can't have another delegation configured. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/hostingEnvironment**.      
-
-:::image type="content" source="media/how-to-create-workspace/delegate-internal.png" alt-text="Screenshot of delegation for internal VNet in the portal.":::
-
-### Configure NSG rules
-
-A network security group must be attached to the subnet used for access to the gateway. Configure the following inbound network security group rules to filter traffic to your workspace gateway. Set the priority of these rules higher than that of the default rules.
-
-| Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
-|------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
-| */80                          | Inbound            | TCP                | AzureLoadBalancer | Workspace gateway subnet range                           | Allow internal health ping traffic     |
-| */80,443 | Inbound | TCP | Virtual network | Workspace gateway subnet range | Allow inbound traffic |
-       
-:::zone-end
 
 ## Create a workspace - portal
 
@@ -162,7 +116,7 @@ To manage the workspace gateway, workspace users should also be assigned the **O
 
 Depending on their role in the workspace, users might have permissions to create APIs, products, subscriptions, and other resources, or they might have read-only access to some or all of them.
 
-To get started managing, protecting, and publishing APIs in a workspace, see the following guidance.
+To get started managing, protecting, and publishing APIs in a workspaces, see the following guidance.
 
 
 |Resource  |Guide  |
