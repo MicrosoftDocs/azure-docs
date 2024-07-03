@@ -60,12 +60,12 @@ available to each shard in the cluster.
 Each *compute* configuration has an IOPS limit that depends on the number of vCores. Make sure you select compute configuration for your cluster to fully utilize IOPS in the selected storage.
 
 | Storage size      | Storage IOPS, up to | Min compute tier | Min vCores |
-|-------------------|----------------------------------------|------------|
-| Up to 0.5 TiB     | 3,500†              | M30              | 2 vCores   | 3750
-| 1 TiB             | 5,000               | M40              | 4 vCores   | 6400
-| 2 TiB             | 7,500               | M50              | 8 vCores   | 12800
+|-------------------|---------------------|------------------|------------|
+| Up to 0.5 TiB     | 3,500†              | M30              | 2 vCores   |
+| 1 TiB             | 5,000               | M40              | 4 vCores   |
+| 2 TiB             | 7,500               | M50              | 8 vCores   |
 | 4 TiB             | 7,500               | M50              | 8 vCores   |
-| 8 TiB             | 16,000              | M60              | 16 vCores  | 25600
+| 8 TiB             | 16,000              | M60              | 16 vCores  |
 | 16 TiB            | 18,000              | M60              | 16 vCores  |
 | 32 TiB            | 20,000              | M60              | 16 vCores  |
 
@@ -81,9 +81,9 @@ In MongoDB, *the working set* refers to the portion of your data that is frequen
 
 To define and understand your MongoDB database working set, consider the following components:
 
-1. Frequently accessed data: This data include documents that your application reads or updates regularly.
-1. Indexes: Indexes that are used in query operations also form part of the working set because they need to be loaded into memory to ensure fast access.
-1. Application Usage Patterns: Analyzing the usage patterns of your application can help identify which parts of your data are accessed most frequently.
+1. **Frequently accessed data**: This data include documents that your application reads or updates regularly.
+1. **Indexes**: Indexes that are used in query operations also form part of the working set because they need to be loaded into memory to ensure fast access.
+1. **Application usage patterns**: Analyzing the usage patterns of your application can help identify which parts of your data are accessed most frequently.
 
 By keeping the working set in RAM, you can minimize slower disk I/O operations, thereby improving the performance of your MongoDB database. If you find that your working set exceeds the available RAM, you might consider optimizing your data model, adding more RAM, or using sharding to distribute the data across multiple nodes.
 
@@ -159,7 +159,6 @@ Deciding on storage size involves a combination of estimating current and future
 
 - [See more information about burstable compute](./burstable-tier.md)
 - [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
-- [See the list of monitoring metrics for Azure Cosmos DB for MongoDB vCore clusters](/azure/azure-monitor/reference/supported-metrics/microsoft-documentdb-mongoclusters-metrics.md)
 
 > [!div class="nextstepaction"]
 > [Migration options for Azure Cosmos DB for MongoDB vCore](migration-options.md)
