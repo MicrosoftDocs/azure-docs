@@ -23,7 +23,7 @@ This article helps you understand how scheduled analytics rules are built, and i
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-## Use analytics rule templates
+## Analytics rule templates
 
 The queries in **scheduled rule templates** were written by security and data science experts, either from Microsoft or from the vendor of the solution providing the template.
 
@@ -41,29 +41,19 @@ The rest of this article explains all the possibilities for customizing the conf
 
 ## Analytics rule configuration
 
-This section describes the configuration options available in the analytics rule wizard, giving you the information required to understand how to configure a rule in a given situation.
+This section explains the key considerations you need to take into account before you begin configuring your rules.
 
-### *General* tab: Analytics rule details
+### Analytics rule name and details
 
 The first page of the analytics rule wizard contains the rule’s basic information.
-
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
-
-# [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/create-analytics-rules/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
-
----
 
 **Name:** The name of the rule as it appears in the list of rules and in any rule-based filters. The name must be unique to your workspace.
 
 **Description:** A free-text description of the purpose of the rule.
 
-**ID:** The GUID of the rule as an Azure resource, used in API requests and responses, among other things. This is a read-only field that is displayed when you're editing an existing rule. The GUID is assigned only when the rule is created, so it doesn't show up when creating a new rule, either from a template or from scratch.
+**ID:** The GUID of the rule as an Azure resource, used in API requests and responses, among other things. This GUID is assigned only when the rule is created, so it's displayed only when you're **editing an existing rule**. As it's a read-only field, it's displayed as grayed out and can't be changed. It doesn't yet exist when creating a new rule, either from a template or from scratch.
 
-**Severity:** A rating to give the alerts produced by this rule. The severity of an activity is a product of the calculation of the **likelihood** of the activity’s occurrence and its potential negative **impact**.
+**Severity:** A rating to give the alerts produced by this rule. The severity of an activity is a calculation of the potential negative **impact** of the activity’s occurrence.
 
 | Severity | Description |
 | --- | --- |
