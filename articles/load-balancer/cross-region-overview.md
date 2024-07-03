@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, references_regions
 ---
@@ -29,6 +29,7 @@ The frontend IP configuration of your cross-region load balancer is static and a
 
 > [!NOTE]
 > The backend port of your load balancing rule on cross-region load balancer should match the frontend port of the load balancing rule/inbound nat rule on regional standard load balancer. 
+
 ### Regional redundancy
 
 Configure regional redundancy by seamlessly linking a cross-region load balancer to your existing regional load balancers. 
@@ -82,7 +83,7 @@ It's important to note that floating IP configured on the Azure cross-region Loa
 
 ### Health Probes
 
-Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 5 seconds, given that a user has set up health probes on their regional load balancer.  
+Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 5 seconds, given that health probes are set up on their regional load balancer.  
 
 ## Build cross region solution on existing Azure Load Balancer
 
@@ -118,6 +119,7 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 :::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
 
 #### Participating regions in Azure
+
 * Australia East 
 * Australia Southeast 
 * Central India 

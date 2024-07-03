@@ -49,7 +49,7 @@ To complete this tutorial:
 * Make sure that you have version 18.x+ of [Node.js](https://nodejs.org/) installed.
 ::: zone-end
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project 
 

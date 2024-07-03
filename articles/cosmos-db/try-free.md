@@ -24,6 +24,10 @@ This article walks you through how to create your account, limits, and upgrading
 
 If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
 
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/7EFcxFGRB5Y?si=e7BiJ-JGK7WH79NG]
+
 ## Limits to free account
 
 ### [NoSQL / Cassandra/ Gremlin / Table](#tab/nosql+cassandra+gremlin+table)

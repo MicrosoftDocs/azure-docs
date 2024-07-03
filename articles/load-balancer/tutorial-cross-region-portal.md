@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 01/22/2024
+ms.date: 06/27/2024
 ms.custom: template-tutorial, references_regions
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
@@ -117,7 +117,7 @@ In this section, you create a
 21. Select **Create** in the **Review + create** tab.
 
     > [!NOTE]
-    > Cross region load-balancer can only be deployed in the following home regions: **East US 2, East US, East Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
+    > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](cross-region-overview.md#home-regions-in-azure) for cross region load balancer.
 
 ## Test the load balancer
 
