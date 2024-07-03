@@ -92,11 +92,12 @@ The following steps show you how to start the deployment process.
 
 The following steps make it so the WebLogic Server admin console and the sample app are exposed to the public Internet with a built-in Application Gateway ingress add-on. For a more information, see [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview)
 
-:::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal that shows the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
-
 1. Select **Next** to see the **TLS/SSL** pane.
 1. Select **Next** to see the **Load balancing** pane.
 1. Next to **Load Balancing Options**, select **Application Gateway Ingress Controller**.
+
+:::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal that shows the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
+
 1. Under the **Application Gateway Ingress Controller**, you should see all fields prepopulated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
 1. For **Create ingress for Administration Console**, select **Yes**.
 
