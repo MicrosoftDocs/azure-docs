@@ -7,8 +7,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
-ms.reviewer: larryfr
-ms.date: 9/30/2022
+ms.reviewer: fsolomon
+ms.date: 07/03/2024
 ms.topic: reference
 ---
 
@@ -19,6 +19,29 @@ In this article, learn about Azure Machine Learning compute instance image relea
 Azure Machine Learning checks and validates any machine learning packages that may require an upgrade. Updates incorporate the latest OS-related patches from Canonical as the original Linux OS publisher. In addition to patches applied by the original publisher, Azure Machine Learning updates system packages when updates are available. For details on the patching process, see [Vulnerability Management](./concept-vulnerability-management.md).
 
 Main updates provided with each image version are described in the below sections.
+
+## July 3, 2024
+
+Image Version: `24.06.10`
+SDK Version: `1.56.0`
+
+Issue fixed: Compute Instance 20.04 image build with SDK 1.56.0
+
+Major: Image Version: `24.06.10`
+
+SDK （azureml-core): `1.56.0`
+
+Python: `3.9`
+CUDA: `12.2`
+CUDnn==9.1.1
+Nvidia Driver: `535.171.04`
+PyTorch: `1.13.1`
+TensorFlow: `2.15.0`
+
+autokeras==1.0.16
+keras=2.15.0
+ray==2.2.0
+docker version==24.0.9-1
 
 ## Feb 16, 2024
 Version: `24.01.30`
@@ -32,7 +55,7 @@ Main environment specific updates:
 - N/A
 
 ## June 30, 2023
-Version: `23.06.30` 
+Version: `23.06.30`
 
 Main changes:
 
