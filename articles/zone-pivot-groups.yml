@@ -3279,6 +3279,19 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: eihaugho
+- id: energy-data-services-gcz-options
+  title: Energy Data Services
+  prompt: Choose a deployment option
+  pivots:
+  - id: energy-data-services-gcz-aks
+    title: Azure Kubernetes Service
+  - id: energy-data-services-gcz-windows
+    title: Windows
+  - id: energy-data-services-gcz-apim-portal
+    title: Azure portal
+  - id: energy-data-services-gcz-apim-cli
+    title: Azure CLI
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
@@ -3409,14 +3422,3 @@ groups:
     title: JavaScript
   - id: platform-server
     title: Server
-# Owner: dlepow
-- id: workspace-gateway-network
-  title: Network configuration
-  prompt: Choose your network configuration
-  pivots:
-  - id: public
-    title: Public inbound and outbound 
-  - id: public-inbound-private-outbound
-    title: Private outbound only
-  - id: private-inbound-private-outbound
-    title: Private inbound and outbound

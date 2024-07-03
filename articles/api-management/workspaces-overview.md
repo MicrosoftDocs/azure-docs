@@ -24,11 +24,11 @@ In API Management, *workspaces* allow decentralized API development teams to man
 
 Workspaces add first-class support for a *federated model* of managing APIs in API Management, in addition to already supported centralized and siloed models. See the following table for a comparison of these models.
 
-|Diagram|Model  |
+|Model|Description  |
 |---------|---------|
-|**Centralized**<br/><br/>:::image type="content" source="media/workspaces-overview/centralized.png" alt-text="Diagram of the centralized model of Azure API Management." border="false" lightbox="media/workspaces-overview/centralized.png":::      |API teams work in a single platform without separation of permissions, workflows, or runtime.​<br/><br/>Prioritizes governance over agility and risks bottleneck at API gateway.     | 
-|**Siloed**<br/><br/>:::image type="content" source="media/workspaces-overview/siloed.png"  alt-text="Diagram of the siloed model of Azure API Management." border="false" lightbox="media/workspaces-overview/siloed.png":::       |API teams own and operate in dedicated API Management services.​<br/><br/>Prioritizes agility but complicates governance and discovery.​     |  
-|**Federated**<br/><br/>:::image type="content" source="media/workspaces-overview/federated.png" alt-text="Diagram of the federated model of Azure API Management." border="false" lightbox="media/workspaces-overview/federated.png":::       |API teams own and publish their own APIs in a portion of a shared API Management service. API runtime is isolated from other teams.​ Platform team centrally governs the service and all APIs.<br/><br/>Enables both team agility and platform governance.     |  
+|**Centralized**<br/><br/>:::image type="content" source="media/workspaces-overview/centralized.png" alt-text="Diagram of the centralized model of Azure API Management." border="false" lightbox="media/workspaces-overview/centralized.png":::      |API teams work in a single platform without separation of permissions, workflows, or runtime.​<br/><br/>Prioritizes platform governance over agility and risks bottleneck at API gateway.     | 
+|**Siloed**<br/><br/>:::image type="content" source="media/workspaces-overview/siloed.png"  alt-text="Diagram of the siloed model of Azure API Management." border="false" lightbox="media/workspaces-overview/siloed.png":::       |API teams own and operate in dedicated API Management services.​<br/><br/>Prioritizes team agility but complicates governance and discovery.​     |  
+|**Federated**<br/><br/>:::image type="content" source="media/workspaces-overview/federated.png" alt-text="Diagram of the federated model of Azure API Management." border="false" lightbox="media/workspaces-overview/federated.png":::       |API teams own and publish their own APIs in a portion of a shared API Management service. API runtime is isolated from other teams.​ Platform team centrally governs the service and all APIs.<br/><br/>Enables both team agility and platform governance.     |
  
 ## Example scenario overview
 
