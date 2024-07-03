@@ -155,12 +155,12 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 
 1. Restore the contents of any specific collection into an Azure Cosmos DB for MongoDB vCore account by specifying the collection's specific BSON file. The filename is constructed using this syntax: `<dump-directory>/<database-name>/<collection-name>.bson`.
 
-        ```bash
-        mongorestore \ 
-            --ssl \
-            --uri <target-connection-string> \
-            <dump-directory>/<database-name>/<collection-name>.bson
-        ```
+    ```bash
+    mongorestore \ 
+        --ssl \
+        --uri <target-connection-string> \
+        <dump-directory>/<database-name>/<collection-name>.bson
+    ```
     > [!NOTE]  
         > You can also restore a specific collection or collections from the dump-directory /directory. For example, the following operation restores a single collection from corresponding data files in the dump-directory / directory. ``` mongorestore --nsInclude=test.purchaseorders <dump-directory>/  ```
     
