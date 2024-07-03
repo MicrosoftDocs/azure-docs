@@ -13,23 +13,23 @@ In this article, you learn about fine-tuning [language models][language-models],
 
 ## Pre-trained language models
 
-*Pre-trained language models (PTMs)* offer an accessible way to get started with AI inferencing and are widely used in natural language processing (NLP). PTMS are trained on large-scale text corpora from the internet using deep neural networks and can be fine-tuned on smaller datasets for specific tasks. These models typically consist of billions of parameters, or *weights*, that are learned during the pre-training process.
+*Pre-trained language models (PLMs)* offer an accessible way to get started with AI inferencing and are widely used in natural language processing (NLP). PLMs are trained on large-scale text corpora from the internet using deep neural networks and can be fine-tuned on smaller datasets for specific tasks. These models typically consist of billions of parameters, or *weights*, that are learned during the pre-training process.
 
-PTMs can learn universal language representations that capture the statistical properties of natural language, such as the probability of words or sequences of words occurring in a given context. These representations can be transferred to downstream tasks, such as text classification, named entity recognition, and question answering, by fine-tuning the model on task-specific datasets.
+PLMs can learn universal language representations that capture the statistical properties of natural language, such as the probability of words or sequences of words occurring in a given context. These representations can be transferred to downstream tasks, such as text classification, named entity recognition, and question answering, by fine-tuning the model on task-specific datasets.
 
 ### Pros and cons
 
-The following table lists some pros and cons of using PTMs in your AI and machine learning workflows:
+The following table lists some pros and cons of using PLMs in your AI and machine learning workflows:
 
 | Pros | Cons |
 |------|------|
-| • Speeds up development and deployment. <br> • Improves model accuracy and generalization. <br> • Reduces the need for large labeled datasets. | • Requires large computational resources. <br> • Might not be suitable for all tasks or domains. <br> • Might introduce biases or errors in the output. |
+| • Get started quickly with development and deployment in your machine learning lifecycle. <br> • Avoid heavy compute costs associated with model training.. <br> • Reduces the need to store large, labeled datasets. | • Might provide generalized or outdated responses based on pre-training data sources. <br> • Might not be suitable for all tasks or domains. <br> • Performance can vary depending on inferencing context. |
 
 ## Fine-tuning methods
 
 ### Parameter efficient fine-tuning
 
-*Parameter efficient fine-tuning (PEFT)* is a method for fine-tuning PTMs on small datasets with limited computational resources. PEFT uses a combination of techniques, such as data augmentation, regularization, and transfer learning, to improve the performance of the model on specific tasks. PEFT requires minimal compute resources and flexible quantities of data, making it suitable for low-resource settings. This method allows you to retain most of the weights of the original pre-trained model and update the remaining weights to fit context-specific, labeled data.
+*Parameter efficient fine-tuning (PEFT)* is a method for fine-tuning PLMs on relatively small datasets with limited compute resources. PEFT uses a combination of techniques, like additive and selective methods to update weights, to improve the performance of the model on specific tasks. PEFT requires minimal compute resources and flexible quantities of data, making it suitable for low-resource settings. This method retains most of the weights of the original pre-trained model and updates the remaining weights to fit context-specific, labeled data.
 
 ### Low rank adaptation
 
@@ -47,7 +47,7 @@ In the upcoming open source KAITO release, you can efficiently fine-tune support
 * Host the new adapter layer image in a private container registry.
 * Efficiently pull the image for inferencing with adapter layers in new scenarios.
 
-To learn more about leveraging KAITO with your AKS clusters, see the [KAITO model GitHub repository][kaito-repo].
+For guidance on getting started with fine-tuning on KAITO, see the [Kaito Tuning Workspace API documentation][kaito-fine-tuning]. To learn more about deploying language models with KAITO in your AKS clusters, see the [KAITO model GitHub repository][kaito-repo]. 
 
 ## Next steps
 
@@ -61,3 +61,4 @@ To learn more about containerized AI and machine learning workloads on AKS, see 
 [kaito-repo]: https://github.com/Azure/kaito/tree/main/presets
 [language-models]: ./concepts-ai-ml-language-models.md
 [qlora]: https://huggingface.co/blog/4bit-transformers-bitsandbytes#:~:text=We%20present%20QLoRA%2C%20an%20efficient%20finetuning%20approach%20that,pretrained%20language%20model%20into%20Low%20Rank%20Adapters~%20%28LoRA%29.
+[kaito-fine-tuning]: https://github.com/Azure/kaito/tree/main/docs/tuning
