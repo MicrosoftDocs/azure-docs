@@ -4,7 +4,7 @@ description: Learn how real-time analytics is used in Supply chain analytics, fo
 author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/25/2024
 ms.custom: cosmos-db-noetl-realtime-analytics
 ---
