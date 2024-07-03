@@ -112,7 +112,7 @@ dependencies {
     import java.util.List;
     
    
-    public class GetChatCompletionsSample {
+    public class OpenAIQuickstarte {
 
         public static void main(String[] args) {
             String azureOpenaiKey = Configuration.getGlobalConfiguration().get("AZURE_OPENAI_API_KEY");
