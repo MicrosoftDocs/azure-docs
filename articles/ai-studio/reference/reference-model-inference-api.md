@@ -204,7 +204,7 @@ extra-parameters: pass-through
 ---
 
 > [!TIP]
-> Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
+> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: ignore` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
 
 ### Models with disparate set of capabilities
 
@@ -427,3 +427,27 @@ __Response__
 ## Getting started
 
 The Azure AI Model Inference API is currently supported in certain models deployed as [Serverless API endpoints](../how-to/deploy-models-serverless.md) and Managed Online Endpoints. Deploy any of the [supported models](#availability) and use the exact same code to consume their predictions.
+
+# [Python](#tab/python)
+
+The client library `azure-ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference) to get yourself started.
+
+# [JavaScript](#tab/javascript)
+
+The client library `@azure-rest/ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+
+# [REST](#tab/rest)
+
+Explore the reference section of the Azure AI model inference API to see parameters and options to consume models, including chat completions models, deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+* [Get info](reference-model-inference-info.md): Returns the information about the model deployed under the endpoint.
+* [Text embeddings](reference-model-inference-embeddings.md): Creates an embedding vector representing the input text.
+* [Text completions](reference-model-inference-completions.md): Creates a completion for the provided prompt and parameters.
+* [Chat completions](reference-model-inference-chat-completions.md): Creates a model response for the given chat conversation.
+* [Image embeddings](reference-model-inference-images-embeddings.md): Creates an embedding vector representing the input text and image.
+
+---
