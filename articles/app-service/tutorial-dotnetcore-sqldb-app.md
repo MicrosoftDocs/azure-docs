@@ -687,13 +687,13 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 ### How do I change the SQL Database connection to use a managed identity instead?
 
-The default connection string to the SQL database is managed by Service Connector, with the name *defaultConnector*, and it uses SQL authentication. To replace it with a connection that uses a managed identity, run the following commands in the [cloud shell](https://shell.azure.com):
+The default connection string to the SQL database is managed by Service Connector, with the name *defaultConnector*, and it uses SQL authentication. To replace it with a connection that uses a managed identity, run the following commands in the [cloud shell](https://shell.azure.com) after replacing the placeholders:
 
 ```azurecli-interactive
 az extension add --name serviceconnector-passwordless --upgrade
 az sql server update --enable-public-network true
-az webapp connection delete sql --connection defaultConnector --resource-group <resource-group> --name <app-name> # replace <app-name>
-az webapp connection create sql --connection defaultConnector --resource-group <resource-group> --name <app-name> --target-resource-group msdocs-core-sql-tutorial --server <sql-database-server-name> --database <database-name> --client-type dotnet --system-identity --config-connstr true # replace <app-name>, <sql-database-server-name>, and <database-name>
+az webapp connection delete sql --connection defaultConnector --resource-group <group-name> --name <app-name>
+az webapp connection create sql --connection defaultConnector --resource-group <group-name> --name <app-name> --target-resource-group <group-name> --server <database-server-name> --database <database-name> --client-type dotnet --system-identity --config-connstr true
 az sql server update --enable-public-network false
 ```
 
