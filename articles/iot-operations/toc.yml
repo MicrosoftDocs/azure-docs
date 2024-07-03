@@ -85,6 +85,8 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
       - name: Connect to cloud services
         items:
+        - name: What are dataflows?
+          href: connect-to-cloud/overview-dataflows.md
         - name: Connect to MQTT or Event Grid
           href: connect-to-cloud/howto-configure-mqtt-bridge.md
         - name: Bridge MQTT data between IoT MQ and Azure Event Grid
