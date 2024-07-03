@@ -706,7 +706,9 @@ By default, they command `az webapp connection create sql --client-type dotnet -
 Your app should now have connectivity to the SQL database. For more information, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 > [!TIP]
-> Don't want to enable public network connectivity? You can run it from an [Azure cloud shell that's integrated with your virtual network](../cloud-shell/vnet/deployment.md) if you have the **Owner** role assignment on your subscription.
+> **Don't want to enable public network connection?** You can skip `az sql server update --enable-public-network true` by running the commands from an [Azure cloud shell that's integrated with your virtual network](../cloud-shell/vnet/deployment.md) if you have the **Owner** role assignment on your subscription. 
+> 
+> To grant the identity the required access to the database that's secured by the virtual network, `az webapp connection create sql` needs direct connectivity to the database server.
 
 ### What can I do with GitHub Copilot in my codespace?
 
