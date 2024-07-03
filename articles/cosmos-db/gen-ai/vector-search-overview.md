@@ -26,3 +26,4 @@ Using an integrated vector search feature in a fully featured database ([as oppo
 - Vector [embeddings](vector-embeddings.md)
 - [Distance functions](distance-functions.md)
 - [kNN vs ANN vector search algorithms](knn-vs-ann.md)
+- [Multi-tenancy for Vector Search](../nosql/multi-tenancy-vector-search.md)

@@ -41,7 +41,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 - **Resource Contention:** Shared resources can lead to contention during peak usage.
 - **Limited Isolation:** Logical but not physical isolation, which may not meet stringent security needs.
 
-### Hierarchical Partitioning: Enhanced Data Organization
+#### Hierarchical Partitioning: Enhanced Data Organization
 
 [Hierarchical partitioning](../hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management.
 
@@ -76,6 +76,44 @@ Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed
 3. **Rotate Keys Regularly:** Enhance security by routinely updating your keys.
 
 Using customer-managed keys ensures each tenant's data is encrypted uniquely, providing robust security and compliance.
+
+### Other Isolation Models
+
+#### Container and Database Isolation
+
+In addition to the partition key-per-tenant and account-per-tenant models, Azure Cosmos DB provides other isolation methods such as container isolation and database isolation. These approaches offer varying degrees of performance isolation, though they don't provide the same level of security isolation as the account-per-tenant model.
+
+##### Container Isolation
+
+In the container isolation model, each tenant is assigned a separate container within a shared Cosmos DB account. This model allows for some level of isolation in terms of performance and resource allocation.
+
+**Benefits:**
+- **Better Performance Isolation:** Containers can be allocated specific performance resources, minimizing the impact of one tenant’s workload on another.
+- **Easier Management:** Managing multiple containers within a single account is generally easier than managing multiple accounts.
+- **Cost Efficiency:** Similar to the partition key-per-tenant model, this method reduces the overhead of multiple accounts.
+
+**Drawbacks:**
+- **Limited Security Isolation:** Unlike separate accounts, containers within the same account do not provide physical data isolation. Consequently, this model may not meet stringent security requirements.
+- **Resource Contention:** Heavy workloads in one container can still affect others if resource limits are breached.
+
+##### Database Isolation
+
+The database isolation model assigns each tenant a separate database within a shared Cosmos DB account. This provides enhanced isolation in terms of resource allocation and management.
+
+**Benefits:**
+- **Enhanced Performance:** Separate databases reduce the risk of resource contention, offering better performance isolation.
+- **Flexible Resource Allocation:** Resources can be allocated and managed at the database level, providing tailored performance capabilities.
+- **Centralized Management:** Easier to manage compared to multiple accounts, yet offering more isolation than container-level separation.
+
+**Drawbacks:**
+- **Limited Security Isolation:** Similar to container isolation, having separate databases within a single account does not provide physical data isolation.
+- **Complexity:** Managing multiple databases can be more complex than managing containers, especially as the number of tenants grows.
+
+### Summary of Benefits and Limitations
+
+While container and database isolation models do not offer the same level of security isolation as the account-per-tenant model, they can still be useful for achieving performance isolation and flexible resource management. These methods are particularly beneficial for scenarios where cost efficiency and simplified management are priorities, and stringent security isolation is not a critical requirement.
+
+By carefully evaluating the specific needs and constraints of your multi-tenant application, you can choose the most suitable isolation model in Azure Cosmos DB, balancing performance, security, and cost considerations to achieve the best results for your tenants.
 
 ### Real-World Implementation Considerations
 
