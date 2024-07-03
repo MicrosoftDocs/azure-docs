@@ -9,26 +9,23 @@ ms.date: 06/25/2024
 ms.custom: cosmos-db-noetl-realtime-analytics
 ---
 
-# Azure Cosmos DB: Near real-time analytics use cases
+# Azure Cosmos DB: No-ETL analytics use cases
 [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
-Azure Cosmos DB provides various analtytics options for near real-time analytics over operational data. You can enable near-real time analytics on your Azure Cosmos DB data using following options:
+Azure Cosmos DB provides various analtytics options for no-ETL, near real-time analytics over operational data. You can enable analytics on your Azure Cosmos DB data using following options:
 * Mirroring Azure Cosmos DB in Microsoft Fabric
 * Azure Synapse Link for Azure Cosmos DB
 
-To learn more about these options, please see "Analytics and BI on your Azure Cosmos DB data".
+To learn more about these options, please see ["Analytics and BI on your Azure Cosmos DB data"](analytics-and-bi-overview.md).
 
 > [!IMPORTANT]
 > Mirroring Azure Cosmos DB in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
 
-Near real-time analytics can open up various possibilities for your businesses. Here are three sample scenarios: 
+No-ETL, near real-time analytics can open up various possibilities for your businesses. Here are three sample scenarios: 
 
 * Supply chain analytics, forecasting & reporting
 * Real-time personalization
 * Predictive maintenance, anomaly detection in IOT scenarios
-
-> [!NOTE]
-> Mirroring in Microsoft Fabric and Azure Synapse Link target the scenario where enterprise teams are looking to run near real-time analytics. These analytics are run without ETL over operational data generated across transactional applications built on Azure Cosmos DB. 
 
 ## Supply chain analytics, forecasting & reporting
 
@@ -36,7 +33,7 @@ Research studies show that embedding big data analytics in supply chain operatio
 
 Manufacturers are onboarding to cloud-native  technologies to break out of constraints of legacy Enterprise Resource Planning (ERP) and Supply Chain Management (SCM) systems. With supply chains generating increasing volumes of operational data every minute (order, shipment, transaction data), manufacturers need an operational database. This operational database should scale to handle the data volumes as well as an analytical platform to get to a level of real-time contextual intelligence to stay ahead of the curve.
 
-The following architecture shows the power of leveraging Azure Cosmos DB as the cloud-native operational database and real-time analytics in supply chain analytics:
+The following architecture shows the power of leveraging Azure Cosmos DB as the cloud-native operational database in supply chain analytics:
 
 :::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Real-time analytics for Azure Cosmos DB in supply chain" border="false":::
 
@@ -88,7 +85,7 @@ The following is an architecture leveraging the cloud native HTAP capabilities i
 
 * **Prepare & train predictive pipeline:** The historical operational data from IoT device sensors could be used to train predictive models such as anomaly detectors. These anomaly detectors are then deployed back to the edge for real-time monitoring. Such a virtuous loop allows for continuous retraining of the predictive models.
 
-* **Operational reporting:** With the growth of digital twin initiatives, companies are collecting vast amounts of operational data from large number of sensors to build a digital copy of each machine. This data powers BI needs to understand trends over historical data in addition to real-time applications over recent hot data.
+* **Operational reporting:** With the growth of digital twin initiatives, companies are collecting vast amounts of operational data from large number of sensors to build a digital copy of each machine. This data powers BI needs to understand trends over historical data in addition to ecent hot data.
 
 ## Related content
 
