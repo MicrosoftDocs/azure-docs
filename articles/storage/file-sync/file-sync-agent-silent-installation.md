@@ -28,7 +28,7 @@ msiexec /i StorageSyncAgent_WS2016.msi /qb /l*v AFSInstaller.log
 > Use the /qb switch to display restart prompts (if required), agent update, and server registration screens. To suppress the screens and automatically restart the server (if required), use the /qn switch.
 
 ## Silent installation that uses custom settings
-To run a silent installation that uses custom settings, use the parameters that are documented in the table below.
+To run a silent installation for a new agent installation that uses custom settings, use the parameters that are documented in the table below.
 
 For example, to run a silent installation by using custom proxy settings, run the following command:
 
