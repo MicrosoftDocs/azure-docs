@@ -45,7 +45,7 @@ To use a hosted spatial dataset as a reference layer:
 1. Select **URL** from the **Type** drop-down list.
 1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial dataset with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension. Once the link to the hosted file is added to the reference layer, the URL appears in the **Enter a URL** field. To remove the data from the visual simply delete the URL.
 
-    :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when using 'Enter a URL' input control.":::
+    :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when using the 'Enter a URL' input control.":::
 
 1. Alternatively, you can create a dynamic URL using Data Analysis Expressions ([DAX]) based on fields, variables or other programmatic elements. By utilizing [DAX], the URL will dynamically change based on filters, selections, or other user interactions and configurations. Please refer to [Expression-based titles in Power BI Desktop] for more details.
 
