@@ -1034,7 +1034,7 @@ items:
             href: logs/manage-logs-tables.md
           - name: Select a table plan
             displayName: Basic, Analytics, Auxiliary, cost optimization
-            href: logs/basic-logs-configure.md
+            href: logs/logs-table-plans.md
           - name: Manage data retention
             href: logs/data-retention-archive.md
             displayName: Log retention, log archive, cost optimization

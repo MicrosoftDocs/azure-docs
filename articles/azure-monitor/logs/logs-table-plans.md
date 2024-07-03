@@ -17,11 +17,11 @@ You can use one Log Analytics workspace to store any type of log required for an
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated data trends for **advanced analytics and machine learning** 
 
-Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to configure the plan of a table in your Log Analytics workspace.
+Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to set a table.
 
 ## Select a table plan based on usage needs
 
-The diagram and table below compare the Analytics, Basic, and Auxiliary table plans.
+The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and auxiliary retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
 
 :::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
 
@@ -29,8 +29,8 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 | ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Best for                                               | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch data needed for troubleshooting and incident response. | Low-touch data, such as verbose logs, and data required for auditing and compliance. |
 | Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-table-plan) and DCR-based custom tables | DCR-based custom tables                                      |
-| Log queries                                            | Full query capabilities.                                     | Optimized queries on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
-| Query performance                                      | Fast                                                         | Fast                                                         | Slower                                                       |
+| Log queries                                            | Full query capabilities.                                     | Full Kusto Query Language (KQL) on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
+| Query performance                                      | Fast                                                         | Fast                                                         | Slower<br> Good for auditing. Not optimized for real-time analysis.                                                       |
 | Alerts                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
 | Dashboards                                             | ✅                                                            |     ✅                                                        |                                              ❌               |
 | [Search jobs](../logs/search-jobs.md)                  | ✅                                                            | ✅                                                            | ✅                                                            |
