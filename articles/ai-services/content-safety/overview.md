@@ -134,23 +134,23 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-|Region | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Blocklists |
+|Region | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(full) | Blocklists |
 |---|---|---|---|---|---|---|
-| East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
-| East US 2 | ✅ | | | ✅ | | ✅|
-| West US | | | | | ✅ | |
-| West US 2 | ✅ | | | | |✅ |
-| Central US | ✅ | | | | |✅ |
-| North Central US | ✅ | | | | | ✅|
-| South Central US | ✅ | | | | |✅ |
-| Canada East | ✅ | | | | | ✅|
-| Switzerland North | ✅ | | | | | ✅|
-| Sweden Central | ✅ | | |✅ |✅ | ✅|
-| UK South | ✅ | | | | |✅ |
-| France Central | ✅ | | | | | ✅|
-| West Europe | ✅ | ✅ |✅ | | |✅ |
-| Japan East | ✅ | | | | |✅ |
-| Australia East| ✅ | ✅ | | | | ✅|
+| East US | ✅ | ✅| ✅ |✅ |✅ |✅|✅ |
+| East US 2 | ✅ | | | ✅ | | |✅|
+| West US | | | | | ✅ | | |
+| West US 2 | ✅ | | | |  | |✅ |
+| Central US | ✅ | | | | | |✅ |
+| North Central US | ✅ | | | | | | ✅|
+| South Central US | ✅ | | | | | |✅ |
+| Canada East | ✅ | | | | | | ✅|
+| Switzerland North | ✅ | | | | | | ✅|
+| Sweden Central | ✅ | | |✅ |✅ | | ✅|
+| UK South | ✅ | | | | | |✅ |
+| France Central | ✅ | | | | | | ✅|
+| West Europe | ✅ | ✅ |✅ | | | |✅ |
+| Japan East | ✅ | | | | | |✅ |
+| Australia East| ✅ | ✅ | | | | | ✅|
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
