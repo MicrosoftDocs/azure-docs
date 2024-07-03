@@ -58,7 +58,7 @@ Artifact cache addresses the challenge of pull limits imposed by public registri
 Artifact cache currently supports the following upstream registries:
 
 >[!WARNING]
-> We recommend customers to create and authenticate their own credentials to authenticate their cache rules when sourcing content from Docker Hub.
+> We recommend customers to create and authenticate with their cache rules when sourcing content from Docker Hub.
 
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
