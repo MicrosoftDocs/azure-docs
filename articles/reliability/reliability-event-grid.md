@@ -77,7 +77,7 @@ Event Grid namespace doesn't support cross-region DR. However, you can achieve c
 
 With a client-side failover implementation, you can:
 
-- Implement a** custom (manual or automated) process to replicate namespace, client identities, and other configurations** including CA certificates, client groups, topic spaces, permission bindings, routing, between primary and secondary regions.
+- Implement **a custom (manual or automated) process to replicate namespace**, client identities, and other configurations** including CA certificates, client groups, topic spaces, permission bindings, routing, between primary and secondary regions.
 
 - Implement a **concierge service** that provides clients with primary and secondary endpoints by performing a health check on endpoints. The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques, for example, using Azure Traffic Manager.
 
@@ -106,19 +106,19 @@ You can choose between two failover options, Microsoft-initiated failover and cu
     :::image type="content" source="../event-grid/media/availability-zones-disaster-recovery/configuration-page.png" alt-text="Screenshot showing the Configuration page for an Event Grid custom topic.":::
     
 
-## Disaster recovery failover experience
+### Disaster recovery failover experience
 
 Disaster recovery is measured with two metrics, [Recovery Point Objective (RPO) and Recovery Time Objective (RTO)](./disaster-recovery-overview.md#recovery-objectives).
 
 Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health APIs.
 
-### Recovery point objective (RPO)
+#### Recovery point objective (RPO)
 
 - **Metadata RPO**: zero minutes. For applicable resources, when a resource is created/updated/deleted, the resource definition is synchronously replicated to the geo-pair. When a failover occurs, no metadata is lost.
 
 - **Data RPO**: When a failover occurs, new data is processed from the paired region. As soon as the outage is mitigated for the affected region, the unprocessed events are dispatched from there. If the region recovery required longer time than the [time-to-live](../event-grid/delivery-and-retry.md#dead-letter-events) value set on events, the data could get dropped. To mitigate this data loss, we recommend that you [set up a dead-letter destination](../event-grid/manage-event-delivery.md) for an event subscription. If the affected region is lost and nonrecoverable, there will be some data loss. In the best-case scenario, the subscriber is keeping up with the publishing rate and only a few seconds of data is lost. The worst-case scenario would be when the subscriber isn't actively processing events and with a max time to live of 24 hours, the data loss can be up to 24 hours.
 
-### Recovery time objective (RTO)
+#### Recovery time objective (RTO)
 
 - **Metadata RTO**: Failover decision making is based on factors like available capacity in paired region and can last in the range of 60 minutes or more. Once failover is initiated, within 5 minutes, Event Grid begins to accept create/update/delete calls for topics and subscriptions.
 
@@ -132,7 +132,7 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 
 ## Next steps
 
--[Build your own client-side disaster recovery for Azure Event Grid topics](../event-grid/custom-disaster-recovery-client-side.md).
+- [Build your own client-side disaster recovery for Azure Event Grid topics](../event-grid/custom-disaster-recovery-client-side.md).
 
 - [Reliability in Azure](/azure/reliability/availability-zones-overview)
 
