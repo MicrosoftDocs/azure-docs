@@ -5,6 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
