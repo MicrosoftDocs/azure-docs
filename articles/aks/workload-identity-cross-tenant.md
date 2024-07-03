@@ -4,7 +4,7 @@ description: Learn how to configure cross-tenant workload identity on Azure Kube
 author: schaffererin
 ms.topic: article
 ms.subservice: aks-security
-ms.date: 07/02/2024
+ms.date: 07/03/2024
 ms.author: schaffererin
 ---
 
@@ -142,17 +142,17 @@ In *Tenant B*, you create an Azure Service Bus, a managed identity and assign it
 
     # Create a new service bus namespace and and return the service bus hostname
     SERVICEBUS_HOSTNAME=$(az servicebus namespace create \
-    --name $SERVICEBUS_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --disable-local-auth \
-    --query serviceBusEndpoint \
-    --output tsv | sed -e 's/https:\/\///' -e 's/:443\///')
+      --name $SERVICEBUS_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --disable-local-auth \
+      --query serviceBusEndpoint \
+      --output tsv | sed -e 's/https:\/\///' -e 's/:443\///')
 
     # Create a new queue in the service bus namespace
     az servicebus queue create \
-    --name myqueue \
-    --namespace $SERVICEBUS_NAME \
-    --resource-group $RESOURCE_GROUP
+      --name myqueue \
+      --namespace $SERVICEBUS_NAME \
+      --resource-group $RESOURCE_GROUP
     ```
 
 1. Create a user-assigned managed identity in *Tenant B* using the [`az identity create`][az-identity-create] command.
@@ -257,7 +257,7 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
 
 ### Create Kubernetes resources to send messages to Azure Service Bus queue
 
-1. Create a new Kubernetes ServiceAccount in the `default` namespace and pass in the client ID of your managed identity in *Tenant B* to the `kubectl apply` command. The client ID is used to authenticate the pod to the Azure Service Bus.
+1. Create a new Kubernetes ServiceAccount in the `default` namespace and pass in the client ID of your managed identity in *Tenant B* to the `kubectl apply` command. The client ID is used to authenticate the app in *Tenant A* to the Azure Service Bus in *Tenant B*.
 
     ```azurecli-interactive
     kubectl apply -f - <<EOF
@@ -312,7 +312,7 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     # Get the dynamically generated pod name
     POD_NAME=$(kubectl get po --selector job-name=myproducer -o jsonpath='{.items[0].metadata.name}')
     
-    # Get the tenant ID environment variable
+    # Verify the tenant ID environment variable is set for Tenant B
     kubectl describe pod $POD_NAME | grep AZURE_TENANT_ID
     ```
 
@@ -331,6 +331,9 @@ In this section, you deploy an application to your AKS cluster in *Tenant A* tha
     Adding message to batch: Hello World!
     Sent 100 messages
     ```
+
+> [!NOTE]
+> As an extra verification step, you can go to the [Azure portal][azure-portal] and navigate to the Azure Service Bus queue in *Tenant B* to view the messages that were sent in the Service Bus Explorer.
 
 ## Clean up resources
 
@@ -402,3 +405,5 @@ In this article, you learned how to configure cross-tenant workload identity on 
 [az-servicebus-namespace-show]: /cli/azure/servicebus/namespace#az-servicebus-namespace-show
 [az-servicebus-queue-create]: /cli/azure/servicebus/queue#az-servicebus-queue-create
 [az-group-delete]: /cli/azure/group#az_group_delete
+[azure-portal]: https://portal.azure.com
+
