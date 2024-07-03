@@ -84,7 +84,7 @@ View or input the Kusto query that analyzes the raw log data. If you're creating
 
 Everything you type into the rule query window is instantly validated, so you find out right away if you make any mistakes.
 
-**Best practices for analytics rule queries**
+<a name="best-practices-for-analytics-rule-queries"></a>**Best practices for analytics rule queries**
 
 - We recommend you use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
 
