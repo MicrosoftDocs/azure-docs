@@ -47,9 +47,9 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 + The payload must include the keys or identifiers of every document you want to add, update, or delete.
 
-+ For updating the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
++ To update the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
 
-+ For merging inline changes into string collection, provide the entire value. Recall the `tags` field example from the previous section. New values overwrite the old values, and there's no merging at the field content level.
++ To merge the inline changes into string collection, provide the entire value. Recall the `tags` field example from the previous section. New values overwrite the old values, and there's no merging at the field content level.
 
 Here's a [REST API example](search-get-started-rest.md) demonstrating these tips:
 
@@ -157,7 +157,7 @@ The Azure portal provides index size and vector index size. You can check these 
 
 Azure AI Search supports document-level operations so that you can look up, update, and delete a specific document in isolation. The following example shows how to delete a document. 
 
-Deleting a document doesn't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and API mertrics.
+Deleting a document doesn't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and API metrics.
 
 1. Identify which field is the document key. In the portal, you can view the fields of each index. Document keys are string fields and are denoted with a key icon to make them easier to spot.
 
