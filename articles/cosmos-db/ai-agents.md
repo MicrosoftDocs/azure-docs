@@ -199,8 +199,8 @@ The five available [consistency levels](consistency-levels.md) (from strong to e
 > [!TIP]
 > You can choose from two Azure Cosmos DB APIs to build your AI agent memory system:
 >
-> - Azure Cosmos DB for NoSQL, which provides [three vector search algorithms](nosql/vector-search.md): IVF, HNSW, and DiskANN
-> - vCore-based Azure Cosmos DB for MongoDB, which provides [two vector search algorithms](mongodb/vcore/vector-search.md): IVF and HNSW
+> - Azure Cosmos DB for NoSQL, which offers 99.999% availability guarantee and provides [three vector search algorithms](nosql/vector-search.md): IVF, HNSW, and DiskANN
+> - vCore-based Azure Cosmos DB for MongoDB, which offers 99.995% availability guarantee and provides [two vector search algorithms](mongodb/vcore/vector-search.md): IVF and HNSW (DiskANN is upcoming)
 >
 > For information about the availability guarantees for these APIs, see the [service SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
