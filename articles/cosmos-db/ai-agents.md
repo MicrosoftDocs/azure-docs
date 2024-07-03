@@ -493,7 +493,7 @@ The LLM prompt initially began with the simple statement "You are a helpful and 
 
 #### Agent tools
 
-[Tools](#features-and-types-of-ai-agents) are interfaces that an agent can use to interact with the world, often through function calling.
+[Tools](#what-are-ai-agents) are interfaces that an agent can use to interact with the world, often through function calling.
 
 When you're creating an agent, you must furnish it with a set of tools that it can use. The `@tool` decorator offers the most straightforward approach to defining a custom tool.
 
