@@ -59,7 +59,7 @@ PROXY_PASSWORD=password
 
 **Azure File Sync agent installation parameters**
 | Parameter | Purpose | Values | Default Value |
-|-|-|-|-|
+|-----------|---------|--------|-----------|
 |ACCEPTEULA|Azure File Sync license agreement|0 (Not accepted) or 1 (Accepted)|1|
 |ENABLE_AZUREFILESYNC_FEATURE|Azure File Sync feature installation option|0 (Do not install) or 1 (Install)|1|
 |AGENTINSTALLDIR|Agent installation directory|Local Path|%SYSTEMDRIVE%\Program Files\Azure\StorageSyncAgent|
