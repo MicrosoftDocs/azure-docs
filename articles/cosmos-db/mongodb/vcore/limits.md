@@ -11,7 +11,7 @@ ms.date: 06/27/2024
 
 # Service Limits in Azure Cosmos DB for MongoDB vCore
 
-This document outlines the current hard and soft limits for Azure Cosmos DB for MongoDB vCore. Many of these limitations are temporary and will evolve over time as the service continues to improve. If any of these limits are an issue for your organization, please reach out to Microsoft support for assistance.
+This document outlines the current hard and soft limits for Azure Cosmos DB for MongoDB vCore. Many of these limitations are temporary and will evolve over time as the service continues to improve. If any of these limits are an issue for your organization, please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for assistance.
 
 ## Query and Execution Limits
 
@@ -38,7 +38,7 @@ db.collection.find({ field: "value" }).maxTimeMS(5000)
   - Configurable up to: 300 indexes per collection.
 - Sorting is done in memory and does not push down to the index.
 - Maximum level of nesting for embedded objects/arrays on index definitions: 6.
-- Background index builds are in preview. To enable, please file a support ticket.
+- Background index builds are in preview. To enable, please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for assistance.
   - A single index build can be in progress on the same collection.
   - The number of simultaneous index builds on different collections is configurable (default: 2).
   - Use the `currentOp` command to view the progress of long-running index builds.
@@ -70,13 +70,13 @@ db.collection.find({ field: "value" }).maxTimeMS(5000)
 ## Cluster and Shard Limits
 
 ### Cluster Tier
-- Maximum: M200. Contact support for higher tiers.
+- Maximum: M200. Please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for higher tiers.
 
 ### Shards
-- Maximum: 6 (in preview). Contact support for additional shards.
+- Maximum: 6 (in preview). Please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for additional shards.
 
 ### Secondary Regions
-- Maximum: 1 additional secondary region. Contact support for additional regions.
+- Maximum: 1 additional secondary region. Please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for additional regions.
 
 ### Free Tier Limits
 The following limitations can be overidden by upgrading a paid tier
