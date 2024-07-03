@@ -1,17 +1,17 @@
 ---
-title: Detect exposed IP addresses
+title: Detect internet exposed IP addresses
 description: Learn how to detect exposed IP addresses with cloud security explorer in Microsoft Defender for Cloud to proactively identify security risks.
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 07/03/2024
 ms.author: dacurwin
 author: dcurwin
 ai-usage: ai-assisted
 #customer intent: As a security professional, I want to learn how to detect exposed IP addresses with cloud security explorer in Microsoft Defender for Cloud so that I can proactively identify security risks in my cloud environment and improve my security posture.
 ---
 
-# Detect exposed IP addresses
+# Detect internet exposed IP addresses
 
-Microsoft Defender for Cloud's integration with Defender External Attack Surface Management (EASM) allows organizations to improve their security posture while reducing the potential risk of being attacked by exploring their external attack surface.
+Microsoft Defender for Cloud's integration with Defender External Attack Surface Management (EASM) allows organizations to improve their security posture and reduce the potential risk of attacks by exploring their external attack surface through an outside-in scan of the resources in their environment.
 
 Security teams can use the cloud security explorer to build queries and proactively hunt for security risks in their environments. Additionally, they can use the attack path analysis to visualize the potential attack paths that an attacker could use to reach their critical assets. 
 
@@ -23,9 +23,9 @@ The cloud security explorer allows you to build queries that can proactively hun
 
 - You must [enable the Defender CSPM plan](tutorial-enable-cspm-plan.md).
 
-## Detect exposed IP addresses with the cloud security explorer
+## Detect internet exposed IP addresses with the cloud security explorer
 
-Using the cloud security explorer, you can detect exposed IP addresses in your cloud environment. The cloud security explorer allows you to build queries that can proactively hunt for security risks in your environments.
+The cloud security explorer allows you to build queries, such as an outside-in scan, that can proactively hunt for security risks in your environments, including IP addresses that are exposed to the internet. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

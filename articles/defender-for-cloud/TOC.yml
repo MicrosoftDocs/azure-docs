@@ -424,7 +424,7 @@
         - name: Build queries with cloud security explorer
           displayName: queries, security explorer, explorer, templates, query
           href: how-to-manage-cloud-security-explorer.md
-        - name: Detect exposed IP addresses
+        - name: Detect internet exposed IP addresses
           displayName: exposed, ip, addresses, easm
           href: detect-exposed-ip-addresses.md
     - name: Built-in security protections
