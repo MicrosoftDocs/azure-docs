@@ -163,7 +163,7 @@ Now that you have an existing environment, you can create your container app and
 
     Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
 
-1. Assign the Custom Role to your account on managed environment resource.
+1. Assign the custom role to your account on managed environment resource.
 
     Get the resource id of the managed environment:
 
@@ -175,14 +175,14 @@ Now that you have an existing environment, you can create your container app and
 
 1. Assign the role to the your account.
 
+    Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+
     ```azurecli
     az role assignment create \
     --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
     --role "Java Component Dashboard Access" \
     --scope $ENVIRONMENT_ID
     ```
-
-    Make sure to replace the placeholder in between the `<>` brackets with your user or service principal ID.
 
 1. Get the URL of the Admin for Spring dashboard.
 
@@ -203,8 +203,8 @@ Now that you have an existing environment, you can create your container app and
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-  az group delete \
-    --resource-group $RESOURCE_GROUP
+az group delete \
+  --resource-group $RESOURCE_GROUP
 ```
 
 ## Next steps

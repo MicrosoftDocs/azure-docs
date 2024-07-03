@@ -154,30 +154,31 @@ With the Eureka Server set up, you can now bind other applications to it for ser
         "Actions": [
             "Microsoft.App/managedEnvironments/write"
         ],
-        "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
+        "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>"]
     }'
     ```
 
-    Please replace the `AssignableScopes` value with your subscription id.
-    
+    Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
 
-1. Assign the Custom Role to your accound on managed environment resource.
+1. Assign the custom role to your account on managed environment resource.
 
     Get the resource id of the managed environment.
 
     ```azurecli
-        export ENVIRONMENT_ID=$(az containerapp env show \
-        --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \
-        --query id -o tsv)
+    export ENVIRONMENT_ID=$(az containerapp env show \
+      --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \
+      --query id -o tsv)
     ```
 
 1. Assign the role to the your account.
-    
+
+    Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+
     ```azurecli
-        az role assignment create \
-        --assignee <user-or-service-principal-id> \
-        --role "Java Component Dashboard Access" \
-        --scope $ENVIRONMENT_ID
+    az role assignment create \
+      --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
+      --role "Java Component Dashboard Access" \
+      --scope $ENVIRONMENT_ID
     ```
 
 1. Get the URL of the Admin for Spring dashboard.
@@ -193,14 +194,14 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 1. Get the URL of the Eureka Server for Spring dashboard.
 
     ```azurecli
-        az containerapp env java-component eureka-server-for-spring show \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $EUREKA_COMPONENT_NAME \
-        --query properties.ingress.fqdn -o tsv
+    az containerapp env java-component eureka-server-for-spring show \
+      --environment $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $EUREKA_COMPONENT_NAME \
+      --query properties.ingress.fqdn -o tsv
     ```
 
-    You should be able to access the Admin for Spring dashboard and the Eureka Server for Spring dashboard using the URLs provided. And the container app as well as the Admin for Spring server should be visible in both dashboards like screenshots below: 
+    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you container app is also to you as shown in the following screenshot.
 
     :::image type="content" source="media/java-components/sba.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba.png":::
 
