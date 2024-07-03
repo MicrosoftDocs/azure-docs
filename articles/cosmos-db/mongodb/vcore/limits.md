@@ -79,7 +79,7 @@ db.collection.find({ field: "value" }).maxTimeMS(5000)
 - Maximum: 1 additional secondary region. Please [reach out to our team](mailto:mongodb-feedback@microsoft.com) for additional regions.
 
 ### Free Tier Limits
-The following limitations can be overidden by upgrading a paid tier
+The following limitations can be overridden by upgrading a paid tier
 - Maximum storage: 32GB.
 - Backup / Restore not supported (available in M25+)
 - High availability (HA) not supported (available in M30+)
