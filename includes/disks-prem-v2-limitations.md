@@ -11,6 +11,7 @@ ms.custom:
   - ignite-2023
 ---
 - Premium SSD v2 disks can't be used as an OS disk.
+- Premium SSD v2 disks can't be used with Azure Compute Gallery.
 - Currently, Premium SSD v2 disks are only available in [select regions](/azure/virtual-machines/disks-deploy-premium-v2#regional-availability).
 - Currently, Premium SSD v2 disks can only be attached to zonal VMs.
 - Currently, Azure Government and Azure China don't support [customer-managed keys](/azure/virtual-machines/disk-encryption#customer-managed-keys) for Premium SSD v2 disks.

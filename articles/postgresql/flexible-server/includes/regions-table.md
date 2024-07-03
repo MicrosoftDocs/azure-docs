@@ -2,7 +2,7 @@
 author: akashraokm
 ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 06/19/2024
+ms.date: 06/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include

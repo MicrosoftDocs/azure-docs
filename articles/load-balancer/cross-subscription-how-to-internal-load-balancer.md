@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: mbender
-ms.custom:
+ms.custom: devx-track-azurepowershell
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
 ---
 
@@ -56,7 +56,7 @@ $LB = New-AzLoadBalancer @loadbalancer
  
 $LBinfo = @{
     ResourceGroupName = 'myResourceGroupLB'
-    Name = 'myLoadBalancer’
+    Name = 'myLoadBalancer'
 }
 
 ## Add load balancer frontend configuration and apply to load balancer.

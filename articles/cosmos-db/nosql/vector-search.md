@@ -61,6 +61,17 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 > [!NOTE]  
 > DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp). You'll be contacted by a member of the Azure Cosmos DB team when your resource has been onboarded to use the DiskANN index.
 
+> [!TIP]
+> Alternatively, use the Azure CLI to update the capabilities of your account to support NoSQL vector search.
+>
+> ```azurecli
+> az cosmosdb update \
+>      --resource-group <resource-group-name> \
+>      --name <account-name> \
+>      --capabilities EnableNoSQLVectorSearch
+> ```
+>
+
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
 
@@ -220,3 +231,7 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - [Vector index overview](../index-overview.md#vector-indexes)
 - [Vector index policies](../index-policy.md#vector-indexes)
 - [Manage index](how-to-manage-indexing-policy.md#vector-indexing-policy-examples)
+- Integrations:
+  - [LangChain, Python](https://python.langchain.com/v0.2/docs/integrations/vectorstores/azure_cosmos_db_no_sql/)
+  - [Semantic Kernel, .NET](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBNoSQL)
+  - [Semantic Kernel, Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb_no_sql)

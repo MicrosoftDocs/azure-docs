@@ -21,8 +21,8 @@ This article provides an overview of cross-subscription load balancing with Azur
 ## What is cross-subscription load balancing?
 
 Cross-subscription load balancing allows you to deploy Azure Load Balancer resources across multiple subscriptions. This feature enables you to deploy a load balancer in one subscription and have the frontend IP and backend pool instances in a different subscription. This capability is useful for organizations that have separate subscriptions for networking and application resources.
- 
-:::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept-thumbnail.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources." lightbox="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png":::
+
+:::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources.":::
 
 The table below illustrates some of the possible scenarios cross-subscription load balancing supports. 
 
@@ -65,7 +65,8 @@ With SyncMode configured as “Manual”, backend pool instances aren't synchron
 
 In addition, cross-subscription load balancing is supported for Azure global Load Balancer. With cross-subscription global load balancer, backend regional load balancers can each be located in different subscriptions. Cross-subscription backends on a global load balancer don't need other parameters or changes to the backend pool.
 
-:::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png" alt-text="Diagram of cross subscription global load balancer concept.":::
+:::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept-thumbnail.png" alt-text="Diagram of cross subscription global load balancer concept." lightbox="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png":::
+
 > [!NOTE]
 >  Cross-subscription frontends aren't supported on Azure global Load Balancer today. 
  

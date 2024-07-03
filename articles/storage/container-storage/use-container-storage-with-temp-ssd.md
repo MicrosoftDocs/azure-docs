@@ -1,10 +1,10 @@
 ---
 title: Use Azure Container Storage Preview with temp SSD
-description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod with a generic ephemeral volume.
+description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 06/27/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -13,8 +13,11 @@ ms.custom: references_regions
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with temp SSD as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using temp SSD as its storage.
 
-> [!IMPORTANT]
-> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. You can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from a temp SSD storage pool. If you want to create a persistent volume using Ephemeral Disk, you have to [use local NVMe with volume replication](use-container-storage-with-local-nvme-replication.md).
+## What is Ephemeral Disk?
+
+When your application needs sub-millisecond storage latency and doesn't require data durability, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
+
+There are two types of Ephemeral Disk available: [NVMe](use-container-storage-with-local-disk.md) and temp SSD. NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application requires higher IOPS and throughput than temp SSD, or if your workload requires replication. Replication isn't currently supported for temp SSD.
 
 ## Prerequisites
 
@@ -60,7 +63,7 @@ Follow these steps to create a storage pool using temp SSD.
    apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
-     name: ephemeraldisk
+     name: ephemeraldisk-temp
      namespace: acstor
    spec:
      poolType:
@@ -77,10 +80,10 @@ Follow these steps to create a storage pool using temp SSD.
    When storage pool creation is complete, you'll see a message like:
    
    ```output
-   storagepool.containerstorage.azure.com/ephemeraldisk created
+   storagepool.containerstorage.azure.com/ephemeraldisk-temp created
    ```
    
-   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **ephemeraldisk**.
+   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **ephemeraldisk-temp**.
    
    ```azurecli-interactive
    kubectl describe sp <storage-pool-name> -n acstor
@@ -97,7 +100,7 @@ Run `kubectl get sc` to display the available storage classes. You should see a 
 ```output
 $ kubectl get sc | grep "^acstor-"
 acstor-azuredisk-internal   disk.csi.azure.com               Retain          WaitForFirstConsumer   true                   65m
-acstor-ephemeraldisk        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
+acstor-ephemeraldisk-temp        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
 ```
 
 > [!IMPORTANT]
@@ -137,11 +140,13 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                  type: my-ephemeral-volume
              spec:
                accessModes: [ "ReadWriteOnce" ]
-               storageClassName: "acstor-ephemeraldisk-nvme" # replace with the name of your storage class if different
+               storageClassName: acstor-ephemeraldisk-temp # replace with the name of your storage class if different
                resources:
                  requests:
                    storage: 1Gi
    ```
+
+   When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's temp disk. See [Check node temp disk capacity](#check-node-temp-disk-capacity).
 
 1. Apply the YAML manifest file to deploy the pod.
    
@@ -170,11 +175,27 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 You've now deployed a pod that's using temp SSD as its storage, and you can use it for your Kubernetes workloads.
 
-## Manage storage pools
+## Manage volumes and storage pools
 
-Now that you've created your storage pool, you can expand or delete it as needed.
+In this section, you'll learn how to check the available capacity of ephemeral disk for a single node, and how to expand or delete a storage pool.
 
-## Expand a storage pool
+### Check node temp disk capacity
+
+An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's temp disk.
+
+Run the following command to check the available capacity of temp disk for a single node.
+
+```output
+$ kubectl get diskpool -n acstor
+NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
+ephemeraldisk-temp-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+```
+
+In this example, the available capacity of temp disk for a single node is `75031990272` bytes or 69 GiB.
+
+### Expand a storage pool
 
 You can expand storage pools backed by temp SSD to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
 
@@ -190,7 +211,7 @@ Because a storage pool backed by Ephemeral Disk uses local storage resources on 
 
 1. Run `kubectl get sp -A` and you should see that the capacity of the storage pool has increased.
 
-## Delete a storage pool
+### Delete a storage pool
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 

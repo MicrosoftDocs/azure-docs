@@ -8,7 +8,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: mbender
-ms.custom: 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Attach a cross-subscription backend to an Azure Load Balancer
@@ -48,7 +48,7 @@ $LB = New-AzLoadBalancer @loadbalancer
 
 $LBinfo = @{
     ResourceGroupName = 'resource group B'
-    Name = 'my-lb’
+    Name = 'my-lb'
 }
 
 # Create a public IP address

@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
  
 ms.service: api-management
-ms.topic: conceptual
-ms.date: 03/21/2024
+ms.topic: concept-article
+ms.date: 06/20/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -45,19 +45,24 @@ The v2 tiers are supported in API Management API version **2023-05-01-preview** 
 
 ### Supported regions
 The v2 tiers are available in the following regions:
+* East US 2
 * South Central US
+* North Central US
 * West US
+* West US 2
 * France Central
 * Germany West Central
 * North Europe
 * West Europe
 * UK South
 * UK West
+* Central India
 * Brazil South
 * Australia Central
 * Australia East
 * Australia Southeast
 * East Asia
+* Japan East
 * Southeast Asia
 * Korea Central
 
@@ -87,7 +92,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * CA Certificates
 
 **Developer portal**
-* Delegation of user registration and product subscription
 * Reports
 * Custom HTML code widget and custom widget
 * Self-hosted developer portal
@@ -98,7 +102,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Cipher configuration
 * Client certificate renegotiation
 * Free, managed TLS certificate
-* Request tracing in the test console
 * Requests to the gateway over localhost
 
 ## Resource limits

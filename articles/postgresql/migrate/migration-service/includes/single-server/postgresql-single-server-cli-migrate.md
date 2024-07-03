@@ -94,26 +94,19 @@ The structure of the JSON is:
 
 ```bash
 {
-"properties": {
- "sourceDbServerResourceId":"/subscriptions/<subscriptionId>/resourceGroups/<sourceServerResourceGroup>/providers/Microsoft.DBforPostgreSQL/servers/<sourceServer>",
-"secretParameters": {
-    "adminCredentials":
-    {
-      "sourceServerPassword": "<password>",
-      "targetServerPassword": "<password>"
+  "properties": {
+    "sourceDbServerResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<sourceServerResourceGroup>/providers/Microsoft.DBforPostgreSQL/servers/<sourceServer>",
+    "secretParameters": {
+      "adminCredentials": {
+        "sourceServerPassword": "<password>",
+        "targetServerPassword": "<password>"
+      }
     },
-   "sourceServerUserName": "<username>@<servername>",
-   "targetServerUserName": "<username>"
-},
-
-"dbsToMigrate":
-   [
-   "<db1>","<db2>"
-   ],
-
-"overwriteDbsInTarget":"true"
-
-}
+    "sourceServerUserName": "<username>@<servername>",
+    "targetServerUserName": "<username>",
+    "dbsToMigrate": ["<db1>", "<db2>"],
+    "overwriteDbsInTarget": "true"
+  }
 }
 ```
 
@@ -281,26 +274,19 @@ The structure of the JSON is:
 
 ```bash
 {
-"properties": {
- "sourceDbServerResourceId":"/subscriptions/<subscriptionId>/resourceGroups/<sourceServerResourceGroup>/providers/Microsoft.DBforPostgreSQL/servers/<sourceServer>",
-"secretParameters": {
-    "adminCredentials":
-    {
-      "sourceServerPassword": "<password>",
-      "targetServerPassword": "<password>"
+  "properties": {
+    "sourceDbServerResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<sourceServerResourceGroup>/providers/Microsoft.DBforPostgreSQL/servers/<sourceServer>",
+    "secretParameters": {
+      "adminCredentials": {
+        "sourceServerPassword": "<password>",
+        "targetServerPassword": "<password>"
+      }
     },
-   "sourceServerUserName": "<username>@<servername>",
-   "targetServerUserName": "<username>"
-},
-
-"dbsToMigrate":
-   [
-   "<db1>","<db2>"
-   ],
-
-"overwriteDbsInTarget":"true"
-
-}
+    "sourceServerUserName": "<username>@<servername>",
+    "targetServerUserName": "<username>",
+    "dbsToMigrate": ["<db1>", "<db2>"],
+    "overwriteDbsInTarget": "true"
+  }
 }
 ```
 
