@@ -97,6 +97,8 @@
       href: free-standard-pricing-tiers.md
     - name: Maintain and upgrade an AKS cluster
       href: upgrade.md
+    - name: Resource reservations
+      href: node-resource-reservations.md
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
@@ -294,8 +296,6 @@
       items:
         - name: Cluster nodes
           items:
-            - name: Resource reservations
-              href: node-resource-reservations.md
             - name: Custom node configuration
               href: custom-node-configuration.md
             - name: Abort long running operations

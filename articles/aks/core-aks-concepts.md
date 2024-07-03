@@ -2,7 +2,7 @@
 title: Azure Kubernetes Services (AKS) core concepts
 description: Learn about the core concepts of Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 07/03/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -10,6 +10,14 @@ ms.author: schaffererin
 # Core concepts for Azure Kubernetes Service (AKS)
 
 This article describes core concepts of Azure Kubernetes Service (AKS), a managed Kubernetes service that you can use to deploy and operate containerized applications at scale on Azure.
+
+## What is Kubernetes?
+
+Kubernetes is an open-source container orchestration platform for automating the deployment, scaling, and management of containerized applications. For more information, see the official [Kubernetes documentation][kubernetes-docs].
+
+## What is AKS?
+
+AKS is a managed Kubernetes service that simplifies deploying, managing, and scaling containerized applications using Kubernetes. For more information, see [What is Azure Kubernetes Service (AKS)?][aks-overview]
 
 ## Cluster components
 
@@ -39,7 +47,7 @@ Each AKS cluster has at least one node, which is an Azure virtual machine (VM) t
 
 ### VM size and image
 
-The **Azure VM size** for your nodes defines CPUs, memory, size, and the storage type available, such as high-performance SSD or regular HDD. The VM size you choose depends on the workload requirements and the number of pods you plan to run on each node. For more information, see [Link][add-link].
+The **Azure VM size** for your nodes defines CPUs, memory, size, and the storage type available, such as high-performance SSD or regular HDD. The VM size you choose depends on the workload requirements and the number of pods you plan to run on each node. For more information, see [Supported VM sizes in Azure Kubernetes Service (AKS)][aks-vm-sizes].
 
 In AKS, the **VM image** for your cluster's nodes is based on Ubuntu Linux, [Azure Linux](use-azure-linux.md), or Windows Server 2022. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts, including [Azure reservations][reservation-discounts], are automatically applied.
 
@@ -53,13 +61,11 @@ AKS uses node resources to help the nodes function as part of the cluster. This 
 
 ### OS
 
-AKS supports Ubuntu 22.04 and Azure Linux 2.0 as the node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at node pool creation for Kubernetes versions 1.24 and below.
-
-AKS supports Windows Server 2022 as the default OS for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at node pool creation for Kubernetes versions 1.32 and below. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life and isn't supported in future releases.
+AKS supports Ubuntu 22.04 and Azure Linux 2.0 as the node OS for Linux node pools. For Windows node pools, AKS supports Windows Server 2022 as the default OS. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life and isn't supported in future releases. For more information, see [Windows container considerations in Azure Kubernetes Service (AKS)][windows-considerations].
 
 ### Container runtime
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or OS-specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used on Kubernetes version 1.19 and higher. For Windows Server 2019 and 2022 node pools, `containerd` is generally available and is the only runtime option on Kubernetes version 1.23 and higher. As of May 2023, Docker is retired and no longer supported.
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or OS-specific functionality to run containers on Linux or Windows. For Linux node pools, [`containerd`][containerd] is used on Kubernetes version 1.19 and higher. For Windows Server 2019 and 2022 node pools, [`containerd`][containerd] is generally available and is the only runtime option on Kubernetes version 1.23 and higher.
 
 ## Pods
 
@@ -112,8 +118,6 @@ For information on more core concepts for AKS, see the following resources:
 * [AKS monitoring][monitoring]
 * [AKS backup and recovery][backup-recovery]
 
-For more information on Kubernetes concepts, see the [Kubernetes documentation][kubernetes-docs].
-
 <!---LINKS--->
 [kube-apiserver]: https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver
 [etcd]: https://kubernetes.io/docs/concepts/overview/components/#etcd
@@ -143,3 +147,7 @@ For more information on Kubernetes concepts, see the [Kubernetes documentation][
 [supported-kubernetes-versions]: ./supported-kubernetes-versions.md
 [default-os-disk]: ./concepts-storage.md#default-os-disk-sizing
 [ephemeral-os-disks]: ./concepts-storage.md#ephemeral-os-disk
+[aks-overview]: ./what-is-aks.md
+[containerd]: https://containerd.io/
+[aks-vm-sizes]: ./quotas-skus-regions.md#supported-vm-sizes
+[windows-considerations]: ./windows-vs-linux-containers.md
