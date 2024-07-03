@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Import a Logic App as an API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import a Logic App as an API and test the imported API.
 
 In this article, you learn how to:

@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 02/22/2024
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 
 Resiliency policies proactively prevent, detect, and recover from your container app failures. In this article, you learn how to apply resiliency policies for applications that use Dapr to integrate with different cloud services, like state stores, pub/sub message brokers, secret stores, and more. 
 
-You can configure resiliency policies like retries and timeouts for the following outbound and inbound operation directions via a Dapr component: 
+You can configure resiliency policies like retries, timeouts, and circuit breakers for the following outbound and inbound operation directions via a Dapr component: 
 
 - **Outbound operations:** Calls from the Dapr sidecar to a component, such as:
    - Persisting or retrieving state
@@ -34,6 +34,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 - [Timeouts](#timeouts)
 - [Retries (HTTP)](#retries)
+- [Circuit breakers](#circuit-breakers)
 
 ## Configure resiliency policies
 
@@ -44,7 +45,7 @@ You can choose whether to create resiliency policies using Bicep, the CLI, or th
 The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resiliencyPolicies@2023-08-01-preview' = {
+resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resiliencyPolicies@2023-11-02-preview' = {
   name: 'my-component-resiliency-policies'
   parent: '${componentName}'
   properties: {
@@ -58,7 +59,12 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
             initialDelayInMilliseconds: 1000
             maxIntervalInMilliseconds: 10000
           }
-      } 
+      }
+      circuitBreakerPolicy: {  
+          intervalInSeconds: 15
+          consecutiveErrors: 10
+          timeoutInSeconds: 5     
+      }  
     } 
     inboundPolicy: {
       timeoutPolicy: {
@@ -70,7 +76,12 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
           initialDelayInMilliseconds: 1000
           maxIntervalInMilliseconds: 10000
         }
-      } 
+      }
+      circuitBreakerPolicy: {  
+          intervalInSeconds: 15
+          consecutiveErrors: 10
+          timeoutInSeconds: 5     
+      }  
     }
   }
 }
@@ -125,12 +136,20 @@ outboundPolicy:
       maxIntervalInMilliseconds: 10000
   timeoutPolicy:
     responseTimeoutInSeconds: 15
+  circuitBreakerPolicy:
+    intervalInSeconds: 15
+    consecutiveErrors: 10
+    timeoutInSeconds: 5
 inboundPolicy:
   httpRetryPolicy:
     maxRetries: 3
     retryBackOff:
       initialDelayInMilliseconds: 500
       maxIntervalInMilliseconds: 5000
+  circuitBreakerPolicy:
+    intervalInSeconds: 15
+    consecutiveErrors: 10
+    timeoutInSeconds: 5
 ```
 
 ### Update specific policies
@@ -186,6 +205,9 @@ In the resiliency policy pane, select **Outbound** or **Inbound** to set policie
 :::image type="content" source="media/dapr-component-resiliency/outbound-dapr-resiliency.png" alt-text="Screenshot demonstrating how to set timeout or retry policies for an outbound operation.":::
 
 Click **Save** to save the resiliency policies.
+
+> [!NOTE]
+> Currently, you can only set timeout and retry policies via the Azure portal.
 
 You can edit or remove the resiliency policies by selecting **Edit resiliency**. 
 
@@ -255,6 +277,48 @@ properties: {
 | `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
+
+### Circuit breakers
+
+Define a `circuitBreakerPolicy` to monitor requests causing elevated failure rates and shut off all traffic to the impacted service when a certain criteria is met.
+
+```bicep
+properties: {  
+  outbound: {  
+    circuitBreakerPolicy: {  
+        intervalInSeconds: 15
+        consecutiveErrors: 10
+        timeoutInSeconds: 5     
+    }  
+  },  
+  inbound: {  
+    circuitBreakerPolicy: {  
+        intervalInSeconds: 15
+        consecutiveErrors: 10
+        timeoutInSeconds: 5     
+    }  
+  }  
+}
+```
+
+| Metadata | Required | Description | Example |
+| -------- | --------- | ----------- | ------- |
+| `intervalInSeconds` | No | Cyclical period of time (in seconds) used by the circuit breaker to clear its internal counts. If not provided, the interval is set to the same value as provided for `timeoutInSeconds`. | `15` |
+| `consecutiveErrors` | Yes | Number of request errors allowed to occur before the circuit trips and opens. | `10` |
+| `timeoutInSeconds` | Yes | Time period (in seconds) of open state, directly after failure. | `5` |
+
+#### Circuit breaker process
+
+Specifying `consecutiveErrors` (the circuit trip condition as
+`consecutiveFailures > $(consecutiveErrors)-1`) sets the number of errors allowed to occur before the circuit trips and opens halfway. 
+
+The circuit waits half-open for the `timeoutInSeconds` amount of time, during which the `consecutiveErrors` number of requests must consecutively succeed. 
+- _If the requests succeed,_ the circuit closes. 
+- _If the requests fail,_ the circuit remains in a half-opened state.
+
+If you didn't set any `intervalInSeconds` value, the circuit resets to a closed state after the amount of time you set for `timeoutInSeconds`, regardless of consecutive request success or failure. If you set `intervalInSeconds` to `0`, the circuit never automatically resets, only moving from half-open to closed state by successfully completing `consecutiveErrors` requests in a row.
+
+If you did set an `intervalInSeconds` value, that determines the amount of time before the circuit is reset to closed state, independent of whether the requests sent in half-opened state succeeded or not.
 
 ## Resiliency logs
 

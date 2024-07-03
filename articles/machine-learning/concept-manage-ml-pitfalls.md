@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 author: manashgoswami
-ms.author: magoswam
+ms.author: manashg
 ms.reviewer: ssalgado
 ms.date: 06/15/2023
 ---

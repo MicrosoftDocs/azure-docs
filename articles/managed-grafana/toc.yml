@@ -17,6 +17,8 @@ items:
 - name: Tutorial
   expanded: true
   items:
+  - name: Connect to self-hosted Prometheus through managed private endpoint
+    href: tutorial-mpe-oss-prometheus.md
   - name: Call Grafana APIs programmatically
     href: how-to-api-calls.md
 - name: Concepts
@@ -74,10 +76,10 @@ items:
     items:
     - name: Set up private access
       href: how-to-set-up-private-access.md
-    - name: Connect to a data source privately
-      href: how-to-connect-to-data-source-privately.md
     - name: Use deterministic outbound IPs
       href: how-to-deterministic-ip.md
+    - name: Connect to a data source privately
+      href: how-to-connect-to-data-source-privately.md
   - name: Availability
     expanded: false
     items:
@@ -96,6 +98,8 @@ items:
     href: how-to-migrate.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md
+  - name: Upgrade to Grafana 10
+    href: how-to-upgrade-grafana-10.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
   - name: Known limitations

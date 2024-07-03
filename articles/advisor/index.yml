@@ -46,5 +46,5 @@ landingContent:
           - text: PowerShell
             url: /powershell/module/az.advisor/
           - text: REST API
-            url: /rest/api/advisor/
+            url: /rest/api/advisor/operation-groups
 

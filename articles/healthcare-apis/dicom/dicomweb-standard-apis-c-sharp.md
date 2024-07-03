@@ -234,7 +234,7 @@ _Details:_
 
 ```c#
 string query = $"/studies?StudyInstanceUID={studyInstanceUid}";
-DicomWebResponse response = await client.QueryAsync(query);
+DicomWebResponse response = await client.QueryStudyAsync(query);
 ```
 
 Validates that the response includes one study, and that the response code is OK.
@@ -249,7 +249,7 @@ _Details:_
 
 ```c#
 string query = $"/series?SeriesInstanceUID={seriesInstanceUid}";
-DicomWebResponse response = await client.QueryAsync(query);
+DicomWebResponse response = await client.QuerySeriesAsync(query);
 ```
 
 Validates that the response includes one series, and that the response code is OK.
@@ -264,7 +264,7 @@ _Details:_
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/series?SeriesInstanceUID={seriesInstanceUid}";
-DicomWebResponse response = await client.QueryAsync(query);
+DicomWebResponse response = await client.QueryStudySeriesAsync(studyInstanceUid, query);
 ```
 
 Validates that the response includes one series, and that the response code is OK.
@@ -279,7 +279,7 @@ _Details:_
 
 ```c#
 string query = $"/instances?SOPInstanceUID={sopInstanceUid}";
-DicomWebResponse response = await client.QueryAsync(query);
+DicomWebResponse response = await client.QueryInstancesAsync(query);
 ```
 
 Validates that the response includes one instance, and that the response code is OK.
@@ -294,7 +294,7 @@ _Details:_
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/instances?SOPInstanceUID={sopInstanceUid}";
-DicomWebResponse response = await client.QueryAsync(query);
+DicomWebResponse response = await client.QueryStudyInstanceAsync(studyInstanceUid, query);
 ```
 
 Validates that the response includes one instance, and that the response code is OK.
@@ -305,11 +305,11 @@ This request searches for one or more instances within a single study and single
 
 _Details:_
 
-* GET /studies/{study}/series/{series}instances?SOPInstanceUID={instance}
+* GET /studies/{study}/series/{series}/instances?SOPInstanceUID={instance}
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/series/{seriesInstanceUid}/instances?SOPInstanceUID={sopInstanceUid}";
-DicomWebResponse response = await client.QueryAsync(query);
+DicomWebResponse response = await client.QueryStudySeriesInstanceAsync(studyInstanceUid, seriesInstanceUid, query);
 ```
 
 Validates that the response includes one instance, and that the response code is OK.

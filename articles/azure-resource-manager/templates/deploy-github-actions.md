@@ -1,7 +1,7 @@
 ---
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/23/2023
 ms.custom: github-actions-azure, devx-track-arm-template
 ---
@@ -32,11 +32,11 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ## Configure the GitHub secrets
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add Resource Manager template
 

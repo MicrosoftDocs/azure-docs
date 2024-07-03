@@ -13,9 +13,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 # Quickstart: Create a Front Door using Bicep
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 This quickstart describes how to use Bicep to create a Front Door to set up high availability for a web endpoint.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

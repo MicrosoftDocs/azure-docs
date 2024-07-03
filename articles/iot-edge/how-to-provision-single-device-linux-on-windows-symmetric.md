@@ -1,11 +1,12 @@
 ---
-title: Create and provision an IoT Edge for Linux on Windows device using symmetric keys - Azure IoT Edge | Microsoft Docs
+title: Create and provision an Azure IoT Edge for Linux on Windows device using symmetric keys
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with symmetric keys
 author: PatAltimore
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 11/15/2022
+ms.topic: how-to
+ms.date: 06/03/2024
 ms.author: patricka
 ---
 
@@ -56,7 +57,7 @@ This article covers registering your IoT Edge device and installing IoT Edge for
 
 You're ready to set up your device with its cloud identity and authentication information.
 
-To provision your device using symmetric keys, you will need your device's **connection string**.
+To provision your device using symmetric keys, you need your device's **connection string**.
 
 Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
 
@@ -70,7 +71,7 @@ For more information about the `Provision-EflowVM` command, see [PowerShell func
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 
-1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+1. Sign in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
    ```powershell
    Connect-EflowVm
@@ -109,7 +110,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
     >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 
-When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+When you create a new IoT Edge device, it displays the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
 [!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]

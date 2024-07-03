@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/06/2023
+ms.date: 03/22/2024
 ---
 
 # Parameters in Bicep
@@ -78,6 +78,8 @@ param location string = resourceGroup().location
 You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
+
+However, you can't reference a [variable](./variables.md) as the default value.
 
 ## Decorators
 
@@ -235,8 +237,8 @@ The following example shows a parameter that is an object. The default value sho
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
 
-
 ## Next steps
 
 - To learn about the available properties for parameters, see [Understand the structure and syntax of Bicep files](file.md).
 - To learn about passing in parameter values as a file, see [Create a Bicep parameter file](parameter-files.md).
+- To learn about providing parameter values at deployment, see [Deploy with Azure CLI](./deploy-cli.md), and [Deploy with Azure PowerShell](./deploy-powershell.md).

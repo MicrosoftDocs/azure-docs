@@ -5,15 +5,15 @@ description: Learn about Azure Network Watcher VPN troubleshoot capability and h
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
-ms.topic: conceptual
-ms.date: 02/23/2023
+ms.topic: concept-article
+ms.date: 02/22/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
 ---
 
 # VPN troubleshoot overview
 
-Virtual network gateways provide connectivity between on-premises resources and Azure Virtual Networks. Monitoring virtual network gateways and their connections are critical to ensure communication isn't broken. Azure Network Watcher provides the capability to troubleshoot virtual network gateways and their connections. The capability can be called through the Azure portal, Azure PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
+Virtual network gateways provide connectivity between on-premises resources and Azure Virtual Networks. Monitoring virtual network gateways and their connections are critical to ensure communication isn't broken. Azure Network Watcher VPN troubleshoot provides the capability to troubleshoot virtual network gateways and their connections. VPN troubleshoot can be called through the Azure portal, Azure PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
 
 :::image type="content" source="./media/vpn-troubleshoot-overview/vpn-troubleshoot-azure-portal.png" alt-text="Screenshot of Azure Network Watcher VPN troubleshoot in the Azure portal.":::
 
@@ -39,7 +39,7 @@ The following table lists which gateways and connections are supported with Netw
 
 The preliminary results returned give an overall picture of the health of the resource. Deeper information can be provided for resources as shown in the following section:
 
-The following list is the values returned with the troubleshoot API:
+The following list is the values returned by the VPN troubleshoot API:
 
 * **startTime** - This value is the time the troubleshoot API call started.
 * **endTime** - This value is the time when the troubleshooting ended.
@@ -219,11 +219,10 @@ Elapsed Time            330 sec
 
 ## Considerations 
 
-- Only one VPN troubleshoot operation can be run at a time per subscription. To run another VPN troubleshoot operation, wait for the previous one to complete. Triggering a new operation while a previous one hasn't completed causes the subsequent operations to fail. 
-- CLI Bug: If you're using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
+- Only one VPN troubleshoot operation can be run at a time per subscription. To run another VPN troubleshoot operation, wait for the existing one to complete. Triggering a new operation while a previous one didn't complete causes the subsequent operations to fail. 
+- If you're using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
 
 ## Next step
 
-To learn how to diagnose a problem with a virtual network gateway or gateway connection, see [Diagnose communication problems between virtual networks](diagnose-communication-problem-between-networks.md).
-
-
+> [!div class="nextstepaction"]
+> [Diagnose communication problems between virtual networks](diagnose-communication-problem-between-networks.md)

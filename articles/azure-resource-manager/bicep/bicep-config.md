@@ -3,7 +3,7 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/02/2024
+ms.date: 06/27/2024
 ---
 
 # Configure your Bicep environment
@@ -135,13 +135,13 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 You can enable experimental features by adding the following section to your `bicepconfig.json` file.
 
-Here's an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
+Here's an example of enabling features 'assertions' and 'testFramework`. 
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "compileTimeImports": true,
-    "userDefinedFunctions": true
+    "assertions": true,
+    "testFramework": true
   }
 }
 ```

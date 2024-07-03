@@ -161,7 +161,7 @@ Microsoft Dev Box requires a configured and working Active Directory join, which
 > [!NOTE]
 > Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
 
-[!INCLUDE [attach or remove a network connection.](./includes/attach-remove-network-connections.md)]
+[!INCLUDE [attach or remove a network connection](./includes/attach-remove-network-connections.md)]
 
 ## Related content
 

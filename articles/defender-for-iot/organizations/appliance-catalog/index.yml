@@ -29,6 +29,8 @@ landingContent:
         links:
           - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
             url: hpe-proliant-dl20-plus-enterprise.md
+          - text: HPE ProLiant DL20 Gen11 (4SFF)
+            url: hpe-proliant-dl20-gen-11.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
           - text: Dell PowerEdge R350 
@@ -41,8 +43,12 @@ landingContent:
         links:
           - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-plus-smb.md
+          - text: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
+            url: hpe-proliant-dl20-gen-11-nhp-2lff.md
           - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
             url: ys-techsystems-ys-fit2.md
+          - text: Dell XE4 SFF
+            url: dell-xe4-sff.md
 
   # Card
   - title: Virtual appliances
@@ -51,7 +57,7 @@ landingContent:
         links:
           - text: OT sensor (VMware ESXi)
             url: virtual-sensor-vmware.md
-          - text: OT sensor (Microsoft Hyper-V)
+          - text: OT sensor (Microsoft Hyper-V) Gen 2
             url: virtual-sensor-hyper-v.md
           - text: On-premises management console (VMware ESXi)
             url: virtual-management-vmware.md

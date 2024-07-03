@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 02/27/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro FPGA so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Connect, set up, and activate Azure Stack Edge Pro FPGA 
+# Tutorial: Connect, set up, and activate Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This tutorial describes how you can connect to, set up, and activate your Azure Stack Edge Pro FPGA device by using the local web UI.
 

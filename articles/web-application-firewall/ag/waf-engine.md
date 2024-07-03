@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure WAF engine.
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
-ms.date: 08/25/2023
+ms.date: 03/05/2024
 ms.author: jodowns
 ms.topic: conceptual
 ---
@@ -39,6 +39,7 @@ There are many new features that are only supported in the Azure WAF engine. The
   * WAF IP address ranges per match condition
   * Exclusions limit
 * [Rate-limit Custom Rules](rate-limiting-overview.md)
+* [Inspection Limit & Max Size Enforcement](application-gateway-waf-request-size-limits.md) can be turned on/off independently of each other and the values for each field can be set independently
 
 New WAF features are only released with later versions of CRS on the new WAF engine. 
 

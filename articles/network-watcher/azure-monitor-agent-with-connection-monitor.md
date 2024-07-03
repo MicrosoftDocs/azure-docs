@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 03/12/2024
 
-#Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection using the Connection monitor.
+#Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection with a non-Azure resource using the Connection monitor.
 ---
 
 # Monitor network connectivity using Azure Monitor agent with connection monitor
@@ -61,13 +61,13 @@ To enable the Network Performance Monitor solution for on-premises machines, fol
 
 1. In the Azure portal, go to **Network Watcher**.
 
-1. Under **Monitoring**, select **Network Performance Monitor**. A list of workspaces with Network Performance Monitor solution enabled is displayed, filtered by **Subscriptions**. 
+1. Under **Monitoring**, select **Connection Monitor**.  
 
-1. To add the Network Performance Monitor solution in a new workspace, select **Add NPM**. 
+1. Select **+ Enable Non-Azure**. 
 
 1. In **Enable Non-Azure**, select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
-   After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
+   After you enable the solution, the workspace takes a few minutes to be displayed.
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
@@ -87,6 +87,7 @@ Although this coexistence allows you to begin the transition, there are certain 
 
 * Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space, and network bandwidth.
 
-## Next steps 
+## Next step 
 
-- [Install the Azure Connected Machine agent](connection-monitor-connected-machine-agent.md)
+> [!div class="nextstepaction"]
+> [Install the Azure Connected Machine agent](connection-monitor-connected-machine-agent.md)

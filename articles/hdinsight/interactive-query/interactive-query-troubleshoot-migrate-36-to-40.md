@@ -3,7 +3,7 @@ title: Troubleshoot migration of Hive from 3.6 to 4.0 - Azure HDInsight
 description: Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to 4.0
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/24/2023
+ms.date: 05/10/2024
 ---
 
 # Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to HDInsight 4.0
@@ -79,7 +79,7 @@ It's caused by the difference of WebHCat(Templeton) between HDInsight 3.6 and HD
 
 3. DbNotificationListener is needed only if you use REPL commands and if not, it's safe to remove it.
 
-    :::image type="content" source="./media/apache-hive-40-migration-guide/hive-reduce-internal-table-creation-latency.png" alt-text="Reduce internal table latency in HDInsight 4.0" border="true":::
+    :::image type="content" source="./media/apache-hive-40-migration-guide/hive-reduce-internal-table-creation-latency.png" alt-text="Reduce internal table latency in HDInsight 4.0." border="true":::
 
 ## Change Hive default table location
 
@@ -148,7 +148,7 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks becaus
 
   `org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly`
 
-  :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Set authorization to MetaStoreAuthzAPIAuthorizerEmbedOnly" border="true":::
+  :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Set authorization to MetaStoreAuthzAPIAuthorizerEmbedOnly." border="true":::
 
 ## Unable to query table with OpenCSVSerde
 

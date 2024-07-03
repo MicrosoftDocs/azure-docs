@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -37,7 +37,7 @@ Azure Container Instances supports both types of managed Azure identities: user-
 
 To use a managed identity, the identity must be granted access to one or more Azure service resources (such as a web app, a key vault, or a storage account) in the subscription. Using a managed identity in a running container is similar to using an identity in an Azure VM. See the VM guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -176,6 +176,12 @@ Output:
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
 ```
 
+For Windows containers, metadata server (169.254.169.254) is not available. Run the following or equivalent commands to get an access token.
+
+```console
+curl -G -v %IDENTITY_ENDPOINT% --data-urlencode resource=https://vault.azure.net --data-urlencode principalId=<principal id> -H secret:%IDENTITY_HEADER%
+```
+
 To store the access token in a variable to use in subsequent commands to authenticate, run the following command:
 
 ```bash
@@ -289,6 +295,8 @@ The value of the secret is retrieved:
 "Hello Container Instances"
 ```
 
+For Windows containers, the 'az login' command will not work because the metadata server is unavailable. Additionally, a managed identity token cannot be generated in a Windows VNet container.
+
 ## Enable managed identity using Resource Manager template
 
 To enable a managed identity in a container group using a [Resource Manager template](container-instances-multi-container-group.md), set the `identity` property of the `Microsoft.ContainerInstance/containerGroups` object with a `ContainerGroupIdentity` object. The following snippets show the `identity` property configured for different scenarios. See the [Resource Manager template reference](/azure/templates/microsoft.containerinstance/containergroups). Specify a minimum `apiVersion` of `2018-10-01`.
@@ -327,7 +335,7 @@ On a container group, you can enable both a system-assigned identity and one or 
 
 ```json
 "identity": {
-    "type": "System Assigned, UserAssigned",
+    "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
         "myResourceID1": {
             }

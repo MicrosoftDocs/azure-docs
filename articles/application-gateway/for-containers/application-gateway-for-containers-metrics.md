@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 02/27/2024
 ms.author: greglin
 
 ---
@@ -35,12 +35,16 @@ Use the following steps to view Application Gateway for Containers in the Azure 
 3. Under **Monitoring**, select **Metrics**.
 4. Next to **Chart Title**, enter a title for your metrics view.
 5. **Scope** and **Metric Namespace** are is automatically populated. Under **Metric**, select a metric such as: **Total Requests**. For the **Total Requests** metric, the **Aggregation** is set to **Sum**.
-6. Select **Add filter**. **Property** is set to **Frontend**. Choose the **=** (equals) **Operator**. 
-7. Enter values to use for filtering under **Values**. For example: 
- - **frontend-primary:80** 
- - **ingress-frontend:443**
- - **ingress-frontend:80**
-8. Select the values you want to actively filter from the entries you create. 
+6. Select **Add filter**. **Property** is set to **Frontend**. Choose the **=** (equals) **Operator**.
+7. Enter values to use for filtering under **Values**.
+
+   For example:
+
+   - **frontend-primary:80**
+   - **ingress-frontend:443**
+   - **ingress-frontend:80**
+
+8. Select the values you want to actively filter from the entries you create.
 9. Choose **Apply Splitting**, select **Frontend**, and accept default values for **Limit** and **Sort**. See the following example:
 
   **Total Requests**
@@ -61,9 +65,8 @@ Use the following steps to view Application Gateway for Containers in the Azure 
 
   ![Application Gateway for Containers metrics backend healthy targets](./media/application-gateway-for-containers-metrics/backend-healthy-targets.png)
 
-
 ## Next steps
 
-* [Using Azure Log Analytics in Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
-* [Configure Azure Log Analytics for Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure)
-* [Visualize Azure AI Search Logs and Metrics with Power BI](/azure/search/search-monitor-logs-powerbi)
+- [Using Azure Log Analytics in Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
+- [Configure Azure Log Analytics for Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure)
+- [Visualize Azure AI Search Logs and Metrics with Power BI](/azure/search/search-monitor-logs-powerbi)

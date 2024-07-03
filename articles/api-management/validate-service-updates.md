@@ -10,7 +10,9 @@ ms.author: danlep
 
 # Validate service updates to avoid disruption to your production API Management instances 
 
-*"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable." - Mark Russinovich, CTO, Azure*
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+*"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable."* - Mark Russinovich, CTO, Azure
 
 Microsoft uses a safe deployment practices framework to thoroughly test, monitor, and validate service updates, and then deploy them to Azure regions using a phased approach. Even so, service updates that reach your API Management instances could introduce unanticipated risks to your production workloads and disrupt your API consumers. Learn how you can apply our safe deployment approach to reduce risks by validating the updates before they reach your production API Management environments.
 
@@ -84,7 +86,7 @@ Here are example strategies to use an API Management instance as a canary deploy
 
 * **Deploy duplicate instances in a region** - If your production workload is a Premium tier instance in a specific region, consider deploying a similarly configured instance in a lower tier that receives updates earlier. For example, configure a pre-production instance in the Developer tier to validate updates. 
  
-## Next steps
+## Related content
 
 * Learn [how to monitor](api-management-howto-use-azure-monitor.md) your API Management instance.
 * Learn about other options to [observe](observability.md) your API Management instance.

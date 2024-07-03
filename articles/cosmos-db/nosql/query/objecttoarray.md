@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Converts each field/value pair in a JSON object into an element and then returns
 
 ## Syntax
 
-```sql
+```nosql
 ObjectToArray(<object_expr> [, <string_expr_1>, <string_expr_2>])
 ```
 
@@ -40,19 +41,19 @@ An array of elements with two fields, either `k` and `v` or custom-named fields.
 
 This example demonstrates converting a static object to an array of field/value pairs using the default `k` and `v` identifiers.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/query.sql" highlight="2-5":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/result.json":::
 
 In this example, the field name is updated to use the `name` identifier.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/query.sql" highlight="2-5":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/result.json":::
 
 In this example, the value name is  updated to use the `value` identifier and the field name uses the `key` identifier.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/query.sql" highlight="2-5":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/result.json":::
 
@@ -62,7 +63,7 @@ This final example uses an item within an existing container that stores data us
 
 In this example, the function is used to break up the object into an array item for each field/value pair.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-field/query.sql" highlight="3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-field/query.sql" highlight="3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-field/result.json":::
 

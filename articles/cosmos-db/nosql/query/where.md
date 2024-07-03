@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ The optional ``WHERE`` clause (``WHERE <filter_condition>``) specifies condition
 
 ## Syntax
 
-```sql
+```nosql
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>
 ```
@@ -37,19 +38,19 @@ WHERE <filter_condition>
 
 This first example uses a simple equality query to return a subset of items. The ``=`` operator is used with the ``WHERE`` clause to create a filter based on simple equality.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where/query.sql" highlight="7-8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/where/query.sql" highlight="7-8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where/result.json":::
 
 In this next example, a more complex filter is composed of [scalar expressions](scalar-expressions.md).
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/query.sql" range="1-8" highlight="7-8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/query.sql" range="1-8" highlight="7-8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/result.json":::
 
 In this final example, a property reference to a boolean property is used as the filter.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where-field/query.sql" range="1-8" highlight="7-8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/where-field/query.sql" range="1-8" highlight="7-8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where-field/result.json":::
 
@@ -57,14 +58,15 @@ In this final example, a property reference to a boolean property is used as the
 
 - In order for an item to be returned, an expression specified as a filter condition must evaluate to true. Only the boolean value ``true`` satisfies the condition, any other value: ``undefined``, ``null``, ``false``, a number scalar, an array, or an object doesn't satisfy the condition.
 - If you include your partition key in the ``WHERE`` clause as part of an equality filter, your query automatically filters to only the relevant partitions.
-- You can use the following supported binary operators:  
-  | | Operators |
+- You can use the following supported binary operators:
+  
+  | Operators | Examples |
   | --- | --- |
   | **Arithmetic** | ``+``,``-``,``*``,``/``,``%`` |
-  | **Bitwise** | ``|``, ``&``, ``^``, ``<<``, ``>>``, ``>>>`` *(zero-fill right shift)* |
+  | **Bitwise** | ``\|``, ``&``, ``^``, ``<<``, ``>>``, ``>>>`` *(zero-fill right shift)* |
   | **Logical** | ``AND``, ``OR``, ``NOT`` |
   | **Comparison** | ``=``, ``!=``, ``<``, ``>``, ``<=``, ``>=``, ``<>`` |
-  | **String** |  ``||`` *(concatenate)* |
+  | **String** |  ``\|\|`` *(concatenate)* |
 
 ## Related content
 

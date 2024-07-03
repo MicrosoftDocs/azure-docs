@@ -247,6 +247,6 @@ Now, integrate with your email client.
 
 ## Next steps
 
-- [Auto startup lab virtual machines](devtest-lab-auto-startup-vm.md)
+- [Auto startup lab virtual machines](devtest-lab-auto-startup-vm.yml)
 - [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 - [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md)

@@ -1,6 +1,6 @@
 ---
-title: REST APIs for the Managed Airflow integration runtime
-description: This article documents the REST APIs for the Managed Airflow integration runtime.
+title: REST APIs for the Workflow Orchestration Manager integration runtime
+description: This article documents the REST APIs for the Workflow Orchestration Manager integration runtime.
 ms.service: data-factory
 ms.topic: reference
 author: nabhishek
@@ -8,14 +8,17 @@ ms.author: abnarain
 ms.date: 08/09/2023
 ---
 
-# REST APIs for the Managed Airflow integration runtime
+# REST APIs for the Workflow Orchestration Manager integration runtime
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article documents the REST APIs for the Azure Data Factory Managed Airflow integration runtime.
+> [!NOTE]
+> Workflow Orchestration Manager is powered by Apache Airflow.
+
+This article documents the REST APIs for the Azure Data Factory Workflow Orchestration Manager integration runtime.
 
 > [!NOTE]
-> Managed Airflow for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
+> Workflow Orchestration Manager for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
 
 ## Create a new environment
 
@@ -28,7 +31,7 @@ This article documents the REST APIs for the Azure Data Factory Managed Airflow 
   |Subscription Id     | path        | True        | string        | Subscription identifier        |
   |ResourceGroup Name     |  path       | True        | string        | Resource group name (Regex pattern: ```^[-\w\._\(\)]+$```)        |
   |dataFactoryName     |  path       | True        | string        | Name of the Azure Data Factory instance (Regex pattern: ```^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$```        |
-  |airflowEnvName     | path        | True        | string        | Name of the Managed Airflow environment        |
+  |airflowEnvName     | path        | True        | string        | Name of the Workflow Orchestration Manager environment        |
   |Api-version     | query        | True        | string        | The API version        |
 
 - **Request body (Airflow configuration)**:

@@ -1,6 +1,6 @@
 ---
 title: Required outbound network rules for Azure Managed Instance for Apache Cassandra
-description: Learn what are the required outbound network rules and FQDNs for Azure Managed Instance for Apache Cassandra
+description: Learn what are the required outbound network rules and FQDNs for Azure Managed Instance for Apache Cassandra.
 author: rothja
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
@@ -17,7 +17,10 @@ The Azure Managed Instance for Apache Cassandra service requires certain network
 
 ## Virtual network service tags
 
-If you're using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure SQL Managed Instance for Apache Cassandra function properly.
+> [!TIP]
+> If you use [VPN](use-vpn.md) then you don't need to open any other connection.
+
+If you're using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). The tags in the table are required to make Azure SQL Managed Instance for Apache Cassandra function properly.
 
 | Destination Service Tag                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
@@ -32,14 +35,14 @@ If you're using Azure Firewall to restrict outbound access, we highly recommend 
 | ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
 
 > [!NOTE]
-> In addition to the above, you will also need to add the following address prefixes, as a service tag does not exist for the relevant service:
+> In addition to the tags table, you will also need to add the following address prefixes, as a service tag does not exist for the relevant service:
 > 104.40.0.0/13
 > 13.104.0.0/14
 > 40.64.0.0/10
 
 ## User-defined routes
 
-If you're using a third-party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See sample [bash script](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) to add the required address prefixes in user-defined routes.
+If you're using a non-Microsoft Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See sample [bash script](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) to add the required address prefixes in user-defined routes.
 
 ## Azure Global required network rules
 
@@ -49,7 +52,7 @@ The required network rules and IP address dependencies are:
 |----------------------------------------------------------------------------------|----------|---------|------|
 |snovap\<region\>.blob.core.windows.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration.|
 |\*.store.core.windows.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration.|
-|\*.blob.core.windows.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage to store backups. *Backup feature is being revised and storage name will follow a pattern by GA*|
+|\*.blob.core.windows.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage to store backups. *Backup feature is being revised and a pattern for storage name follows by GA*|
 |vmc-p-\<region\>.vault.azure.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure KeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
 |management.azure.com:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot)|
 |\*.servicebus.windows.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure EventHub | HTTPS | 443 | Required to forward logs to Azure|
@@ -70,7 +73,7 @@ The system uses DNS names to reach the Azure services described in this article 
 
 ## Internal port usage
 
-The following ports are only accessible within the VNET (or peered vnets./express routes). SQL Managed Instance for Apache Cassandra instances do not have a public IP and should not be made accessible on the Internet.
+The following ports are only accessible within the virtual network (or peered vnets./express routes). Azure Managed Instances for Apache Cassandra don't have a public IP and shouldn't be made accessible on the Internet.
 
 | Port | Use |
 | ---- | --- |
@@ -84,5 +87,6 @@ The following ports are only accessible within the VNET (or peered vnets./expres
 
 In this article, you learned about network rules to properly manage the service. Learn more about Azure SQL Managed Instance for Apache Cassandra with the following articles:
 
-* [Overview of Azure SQL Managed Instance for Apache Cassandra](introduction.md)
-* [Manage Azure SQL Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+* [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
+* [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+* [Use a VPN with Azure Managed Instance for Apache Cassandra](use-vpn.md)

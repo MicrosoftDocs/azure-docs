@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 > [!IMPORTANT]
 > **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality will soon be available.
 
-The Run Command feature uses the virtual machine (VM) agent to scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+The Run Command feature uses the virtual machine (VM) agent to execute scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action orientated Run Command](run-command.md): 
 - Support for updated Run Command through ARM deployment template 
@@ -103,7 +103,12 @@ Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -
 `OutputBlobUri` and `ErrorBlobUri` are optional parameters.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>" -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
+Set-AzVMRunCommand -ResourceGroupName "myRg" `
+-VMName "myVM" `
+-RunCommandName "RunCommandName" `
+-SourceScriptUri “<SAS_URI_of_a_storage_blob_with_read_access_or_public_URI>" `
+-OutputBlobUri “<SAS_URI_of_a_storage_append_blob_with_read_add_create_write_access>" `
+-ErrorBlobUri “<SAS_URI_of_a_storage_append_blob_with_read_add_create_write_access>”
 ```
 
 

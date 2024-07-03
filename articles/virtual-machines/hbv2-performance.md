@@ -4,7 +4,7 @@ description: Learn about performance testing results for HBv2-series VM sizes in
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: article
 ms.date: 03/04/2023
 ms.reviewer: cynthn

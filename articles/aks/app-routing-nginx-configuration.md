@@ -25,7 +25,7 @@ To connect to the Kubernetes cluster from your local computer, you use `kubectl`
 Configure kubectl to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
+az aks get-credentials -resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ## Configuration of the NGINX ingress controller
@@ -38,12 +38,6 @@ The application routing add-on uses a Kubernetes [custom resource definition (CR
 ### The default NGINX ingress controller
 
 When you enable the application routing add-on with NGINX, it creates an ingress controller called `default` in the `app-routing-namespace` configured with a public facing Azure load balancer. That ingress controller uses an ingress class name of `webapprouting.kubernetes.azure.com`.
-
-You can modify the configuration of the default ingress controller by editing its configuration.
-
-```bash
-kubectl edit nginxingresscontroller default -n app-routing-system
-```
 
 ### Create another public facing NGINX ingress controller
 
@@ -537,7 +531,7 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [az-group-create]: /cli/azure/group#az-group-create
-[summary-msi]: use-managed-identity.md#summary-of-managed-identities
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities-used-by-aks
 [rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
 [rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [app-routing-add-on-basic-configuration]: app-routing.md
@@ -557,3 +551,4 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create

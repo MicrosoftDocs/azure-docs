@@ -51,7 +51,7 @@ Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScri
         <td><h1 style="font-weight:500;">Microsoft Azure AI Speech SDK JavaScript Quickstart</h1></td>
       </tr>
       <tr>
-        <td align="right"><a href="https://learn.microsoft.com~/articles/ai-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
+        <td align="right"><a href="https://learn.microsoft.com/azure/ai-services/speech-service/overview" target="_blank">Subscription</a>:</td>
         <td><input id="subscriptionKey" type="text" size="40" value="subscription"></td>
       </tr>
       <tr>
@@ -177,7 +177,9 @@ Now, you need to create an `AudioConfig` object that points to your input device
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
 ```
 
-## Initialize a IntentRecognizer
+<a name='initialize-a-intentrecognizer'></a>
+
+## Initialize an IntentRecognizer
 
 Now, let's create the `IntentRecognizer` object using the `SpeechConfig` and `AudioConfig` objects created earlier. Insert this code in the `startIntentRecognizeAsyncButton.addEventListener()` method.
 

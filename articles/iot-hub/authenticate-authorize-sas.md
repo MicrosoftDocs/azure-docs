@@ -358,7 +358,7 @@ Each supported protocol, such as MQTT, AMQP, and HTTPS, transports tokens in dif
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, `{iothubhostname}/{deviceId}` in the Username field, and a SAS token in the Password field. `{iothubhostname}` should be the full CName of the IoT hub (for example, myhub.azure-devices.net).
 
-When using [AMQP](https://www.amqp.org/), IoT Hub supports [SASL PLAIN](https://tools.ietf.org/html/rfc4616) and [AMQP Claims-Based-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
+When using [AMQP](https://www.amqp.org/), IoT Hub supports [SASL PLAIN](https://tools.ietf.org/html/rfc4616) and [AMQP Claims-Based-Security](https://groups.oasis-open.org/higherlogic/ws/public/document?document_id=50506).
 
 If you use AMQP claims-based-security, the standard specifies how to transmit these tokens.
 

@@ -2,6 +2,7 @@
 title: Certificate Rotation in Azure Kubernetes Service (AKS)
 description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 01/19/2023
 ---
@@ -62,7 +63,7 @@ Microsoft maintains all certificates mentioned in this section, except for the c
 * Check the expiration date of the VMAS agent node certificate using the `az vm run-command invoke` command.
 
     ```azurecli-interactive
-    az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+    az vm run-command invoke --resource-group MC_rg_myAKSCluster_region --name vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
     ```
 
 ### Check Virtual Machine Scale Set agent node certificate expiration date
@@ -107,13 +108,13 @@ For any AKS clusters created or upgraded after March 2022, Azure Kubernetes Serv
 1. Connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
+    az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
     ```
 
 2. Rotate all certificates, CAs, and SAs on your cluster using the [`az aks rotate-certs`][az-aks-rotate-certs] command.
 
     ```azurecli-interactive
-    az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
+    az aks rotate-certs --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
     ```
 
     > [!IMPORTANT]
@@ -134,7 +135,7 @@ For any AKS clusters created or upgraded after March 2022, Azure Kubernetes Serv
 4. Update the certificate used by `kubectl` using the [`az aks get-credentials`][az-aks-get-credentials] command with the `--overwrite-existing` flag.
 
     ```azurecli-interactive
-    az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
+    az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
     ```
 
 5. Verify the certificates have been updated using the [`kubectl get`][kubectl-get] command.

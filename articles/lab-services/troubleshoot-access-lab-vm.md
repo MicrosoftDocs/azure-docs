@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: troubleshooting
-ms.date: 12/05/2022
+ms.date: 03/15/2024
 ---
 
 # Troubleshoot accessing lab VMs in Azure Lab Services
@@ -47,10 +47,9 @@ Scenarios might include:
 
 |Scenario|Cause|Resolution|
 |-|-|-|
-|Shutdown lab at OS level |Ending a lab VM session through OS level shutdown |Lab users may start the lab VM at any time without affecting lab connectivity |
-|Network configuration |• Installing a firewall that has outbound rule blocking 443 port <br> • Changing DNS setting, custom DNS solution, can't find our DNS endpoint <br> • Changing DHCP settings or IP address in the VM |Learn more about [supported networking scenarios and topologies for advanced networking](./concept-lab-services-supported-networking-scenarios.md) and review [troubleshooting lab VM connection](./troubleshoot-connect-lab-vm.md) |
+|Lab Services Agent |Disabling the Lab Services agent on the lab VM in any form, including: <br> • Changing system files or folders under C:\WindowsAzure <br> • Modifying services by either starting or stopping the Azure agent |•  If the Lab Services agent is deleted, then the lab VM will need to be [reimaged](./how-to-reset-and-redeploy-vm.md#reimage-a-lab-vm) which deletes data local to that machine. <br> • Students should avoid making changes to any files/folders under C:\WindowsAzure |
 |OS disk full |• Limited disk space prevents the lab VM from starting <br> • A nested virtualization template with a full host disk prevents the lab from publishing|Ensure at least 1 GB of space is available on the primary disk |
-|Lab Services Agent |Disabling the Lab Services agent on the lab VM in any form, including: <br> • Changing system files or folders under C:\WindowsAzure <br> • Modifying services by either starting or stopping the Azure agent |• Check if the idle agent service started, which should be set as a 'Manual' startup task for the VM Agent service to start <br> • If the LabServicesIdleAgent service isn't already running, run a Windows startup task to start it <br> • Students should avoid making changes to any files/folders under C:\WindowsAzure |
+|Network configuration |• Installing a firewall that has outbound rule blocking 443 port <br> • Changing DNS setting, custom DNS solution, can't find our DNS endpoint <br> • Changing DHCP settings or IP address in the VM |Learn more about [supported networking scenarios and topologies for advanced networking](./concept-lab-services-supported-networking-scenarios.md) and review [troubleshooting lab VM connection](./troubleshoot-connect-lab-vm.md) |
 
 If you have questions or need help, review the [Advanced troubleshooting](#advanced-troubleshooting) section.
 

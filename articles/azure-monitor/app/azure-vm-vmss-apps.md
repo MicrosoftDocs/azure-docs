@@ -2,7 +2,7 @@
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure virtual machines and virtual machine scale sets.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/05/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
@@ -38,11 +38,11 @@ We recommend the [Application Insights Java 3.0 agent](./opentelemetry-enable.md
 
 ### [Node.js](#tab/nodejs)
 
-To instrument your Node.js application, use the [SDK](./nodejs.md).
+To instrument your Node.js application, use the [OpenTelemetry Distro](./opentelemetry-enable.md).
 
 ### [Python](#tab/python)
 
-To monitor Python apps, use the [SDK](/previous-versions/azure/azure-monitor/app/opencensus-python).
+To monitor Python apps, use the [OpenTelemetry Distro](./opentelemetry-enable.md).
 
 ---
 
@@ -201,7 +201,7 @@ If your extension deployed successfully but you're unable to see telemetry, it c
 - Conflicting DLLs in an app's bin directory
 - Conflict with IIS shared configuration
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

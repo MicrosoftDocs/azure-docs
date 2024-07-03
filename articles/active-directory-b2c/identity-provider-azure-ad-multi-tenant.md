@@ -36,7 +36,7 @@ This article shows you how to enable sign-in for users using the multitenant end
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 > [!NOTE]
-> In this article, it assumed that **SocialAndLocalAccounts** starter pack is used in the previous steps mentioned in pre-requisite.  
+> In this article, it is assumed that the **SocialAndLocalAccounts** starter pack is used in the previous steps mentioned in the pre-requisite.  
 
 ## Register a Microsoft Entra app
 

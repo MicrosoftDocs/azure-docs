@@ -121,7 +121,7 @@ If you have an existing Grafana environment, then you can continue to use it and
 
 When you enable Container Insights for your Kubernetes cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/log-analytics-agent.md) that sends data to a Log Analytics workspace in Azure Monitor. Container insights collects container stdout/stderr, infrastructure logs, and performance data. All log data is stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)](../logs/log-query-overview.md).
 
-See [Enable Container insights](../containers/container-insights-onboard.md) for prerequisites and configuration options for onboarding your Kubernetes clusters. [Onboard using Azure Policy](container-insights-enable-aks-policy.md) to ensure that all clusters retain a consistent configuration. 
+See [Enable Container insights](../containers/container-insights-onboard.md) for prerequisites and configuration options for onboarding your Kubernetes clusters. [Onboard using Azure Policy](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=policy#enable-container-insights) to ensure that all clusters retain a consistent configuration. 
 
 Once Container insights is enabled for a cluster, perform the following actions to optimize your installation.
 

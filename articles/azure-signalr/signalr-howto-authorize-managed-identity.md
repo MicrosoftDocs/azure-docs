@@ -20,30 +20,23 @@ This article shows how to configure your Azure SignalR Service resource and code
 
 The first step is to configure managed identities.
 
-This example shows you how to configure a system-assigned managed identity on a virtual machine (VM) by using the Azure portal:
+This example shows you how to configure a system-assigned managed identity on an App Service by using the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), search for and select a VM.
-1. Under **Settings**, select **Identity**.
-1. On the **System assigned** tab, switch **Status** to **On**.
+1. Access your app's settings in the [Azure portal](https://portal.azure.com) under the **Settings** group in the left navigation pane.
+   
+1. Select **Identity**.
 
-   ![Screenshot of selections for turning on system-assigned managed identities for a virtual machine.](./media/signalr-howto-authorize-managed-identity/identity-virtual-machine.png)
-1. Select the **Save** button to confirm the change.
+1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-To learn how to create user-assigned managed identities, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
+    ![Screenshot that shows where to switch Status to On and then select Save.](../app-service/media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
-To learn more about configuring managed identities, see one of these articles:
+To learn more how to configure managed identities in other ways for Azure App Service and Azure Functions, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
 
-- [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-- [Configure managed identities for Azure resources on an Azure VM using PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Configure managed identities for Azure resources on an Azure VM using the Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Configure managed identities for Azure resources on an Azure VM using templates](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Configure a VM with managed identities for Azure resources using an Azure SDK](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
-
-To learn how to configure managed identities for Azure App Service and Azure Functions, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+To learn more about configuring managed identities on an Azure VM, see [Configure managed identities on Azure virtual machines (VMs)](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 ## Add role assignments in the Azure portal
 
-The following steps describe how to assign a SignalR App Server role to a system-assigned identity over an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to assign a SignalR App Server role to a system-assigned identity over an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 > [!NOTE]
 > A role can be assigned to any scope, including management group, subscription, resource group, or single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
@@ -71,7 +64,7 @@ The following steps describe how to assign a SignalR App Server role to a system
 
 To learn more about how to assign and manage Azure roles, see these articles:
 
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 - [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Assign Azure roles using the Azure CLI](../role-based-access-control/role-assignments-cli.md)

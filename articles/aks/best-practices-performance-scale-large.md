@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 01/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS)
@@ -49,7 +52,7 @@ You can leverage API Priority and Fairness (APF) to throttle specific clients an
 
 Kubernetes clients are the applications clients, such as operators or monitoring agents, deployed in the Kubernetes cluster that need to communicate with the kube-api server to perform read or mutate operations. It's important to optimize the behavior of these clients to minimize the load they add to the kube-api server and Kubernetes control plane.
 
-AKS doesn't expose control plane and API server metrics via Prometheus or through platform metrics. However, you can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd).
+You can analyze API server traffic and client behavior through Kube Audit logs. For more information, see [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd).
 
 LIST requests can be expensive. When working with lists that might have more than a few thousand small objects or more than a few hundred large objects, you should consider the following guidelines:
 
@@ -84,8 +87,18 @@ Always upgrade your Kubernetes clusters to the latest version. Newer versions co
 
 As you scale your AKS clusters to larger scale points, keep the following feature limitations in mind:
 
-* AKS supports up to a 1,000 node scale in an AKS cluster by default. While AKS doesn't prevent you from scaling further, doing so might result in degraded performance. If you want to scale beyond 1,000 nodes, you can request a limit increase. For more information, see [Best practices for creating and running AKS clusters at scale][run-aks-at-scale].
+* AKS supports scaling up to 5,000 nodes by default for all Standard Tier / LTS clusters. AKS scales your cluster's control plane at runtime based on cluster size and API server resource utilization. If you can't scale up to the supported limit, enable [control plane metrics (Preview)](./monitor-control-plane-metrics.md) with the [Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md) to monitor the control plane. To help troubleshoot scaling performance or reliability issues, see the following resources:
+  * [AKS at scale troubleshooting guide](/troubleshoot/azure/azure-kubernetes/aks-at-scale-troubleshoot-guide) 
+  * [Troubleshoot the Kubernetes control plane](/troubleshoot/azure/azure-kubernetes/troubleshoot-apiserver-etcd)
+
+> [!NOTE]
+> During the operation to scale the control plane, you might encounter elevated API server latency or timeouts for up to 15 minutes. If you continue to have problems scaling to the supported limit, open a [support ticket](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D).
+
 * [Azure Network Policy Manager (Azure npm)][azure-npm] only supports up to 250 nodes.
+* Some AKS node metrics, including node disk usage, node CPU/memory usage, and network in/out, won't be accessible in [azure monitor platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics) after the control plane is scaled up. To confirm if your control plane has been scaled up, look for the configmap 'control-plane-scaling-status'
+```
+kubectl describe configmap control-plane-scaling-status -n kube-system
+```
 * You can't use the Stop and Start feature with clusters that have more than 100 nodes. For more information, see [Stop and start an AKS cluster](./start-stop-cluster.md).
 
 ## Networking
@@ -107,8 +120,11 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 * When running at-scale AKS clusters, use the cluster autoscaler whenever possible to ensure dynamic scaling of node pools based on the demand for compute resources. For more information, see [Automatically scale an AKS cluster to meet application demands][cluster-autoscaler].
 * If you're scaling beyond 1,000 nodes and are *not* using the cluster autoscaler, we recommend scaling in batches of 500-700 nodes at a time. The scaling operations should have a two-minute to five-minute wait time between scale up operations to prevent Azure API throttling. For more information, see [API management: Caching and throttling policies][throttling-policies].
 
-> [!NOTE]
-> You can't use [Azure Network Policy Manager (Azure NPM)][azure-npm] with clusters that have more than 500 nodes.
+## Cluster upgrade considerations and best practices
+
+* When a cluster reaches the 5,000 node limit, cluster upgrades are blocked. This limits prevents an upgrade because there isn't available node capacity to perform rolling updates within the max surge property limit. If you have a cluster at this limit, we recommend [scaling down the cluster](./concepts-scale.md) under 3,000 nodes before attempting a cluster upgrade. This will provide extra capacity for node churn and minimize load on the control plane.
+* When upgrading clusters with more than 500 nodes, it is recommended to use a [max surge configuration](./upgrade-aks-cluster.md#set-max-surge-value) of 10-20% of the node pool's capacity. AKS configures upgrades with a default value of 10% for max surge. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and workload disruption. When you increase the max surge settings, the upgrade process completes faster, but you might experience disruptions during the upgrade process. For more information, see [Customize node surge upgrade][max surge].
+* For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 
 <!-- LINKS - Internal --->
 [run-aks-at-scale]: ./operator-best-practices-run-at-scale.md
@@ -118,6 +134,9 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 [pricing-tiers]: ./free-standard-pricing-tiers.md
 [cluster-autoscaler]: cluster-autoscaler.md
 [azure-npm]: ../virtual-network/kubernetes-network-policies.md
+[cluster upgrades]: upgrade-cluster.md
+[max surge]: upgrade-aks-cluster.md#customize-node-surge-upgrade
 
 <!-- LINKS - External -->
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/
+

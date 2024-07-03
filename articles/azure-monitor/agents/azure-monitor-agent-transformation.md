@@ -61,7 +61,7 @@ To complete this procedure, you need:
     RawData 
     ```
     > [!NOTE]
-    > Information the user should notice even if skimmingQuerying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md#how-transformations-work) after you [add your transformation query to the data collection rule](#apply-the-transformation-to-your-data-collection-rule).
+    > Querying table data in this way doesn't actually modify the data in the table. Azure Monitor applies the transformation in the [data ingestion pipeline](../essentials/data-collection-transformations.md) after you [add your transformation query to the data collection rule](#apply-the-transformation-to-your-data-collection-rule).
 
 1. Format the query into a single line and replace the table name in the first line of the query with the word `source`.
     

@@ -17,7 +17,7 @@ You can use the following resource to learn more about Virtual Networks and the 
 
 - [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md).
 - [Cloud Service (extended support) Definition Schema](schema-csdef-file.md).
-- [Create a Virtual Network](../virtual-network/manage-virtual-network.md).
+- [Create a Virtual Network](../virtual-network/manage-virtual-network.yml).
 
 ## NetworkConfiguration element
 The following example shows the `NetworkConfiguration` element and its child elements.

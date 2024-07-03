@@ -4,7 +4,7 @@ description: Learn how to quickly create an Azure Linux Container Host for AKS c
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, linux-related-content
 ms.editor: schaffererin
 ms.topic: quickstart
 ms.date: 06/27/2023
@@ -21,7 +21,7 @@ Get started with the Azure Linux Container Host using Terraform to deploy an Azu
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - If you haven't already configured Terraform, you can do so using one of the following options:
   - [Azure Cloud Shell with Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)

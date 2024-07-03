@@ -57,7 +57,7 @@ Assigning a user-assigned identity to your Azure Communication Services resource
 
 First, you need to create a user-assigned managed identity resource.
 
-1. Create a user-assigned managed identity resource according to [these instructions](~/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity resource according to [these instructions](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 2. In the left navigation for your app's page, scroll down to the **Settings** group.
 
@@ -161,5 +161,5 @@ For more information on using the golang Management SDK, see [Azure Communicatio
 ## Next steps
 Now that you have learned how to enable Managed Identity with Azure Communication Services. Consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
-- [Managed Identities](~/articles/active-directory/managed-identities-azure-resources/overview.md)
-- [Manage user-assigned managed identities](~/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+- [Managed Identities](/entra/identity/managed-identities-azure-resources/overview)
+- [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)

@@ -1,9 +1,9 @@
 ---
 title: Linter rule - nested deployment template scoping
 description: Linter rule - nested deployment template scoping
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/12/2023
+ms.date: 03/20/2024
 ---
 
 # Linter rule - nested deployment template scoping

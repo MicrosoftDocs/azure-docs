@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: jushiman
-ms.custom: template-how-to, devx-track-azurecli, linux-related-content, devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Delete a VM and attached resources

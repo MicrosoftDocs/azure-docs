@@ -1,9 +1,9 @@
 ---
-title: Providers - Azure IoT Orchestrator
+title: How Azure IoT Orchestrator uses providers and components
 description: Understand how Azure IoT Orchestrator uses providers and components to define resources to deploy to your edge solution
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
@@ -12,9 +12,11 @@ ms.date: 11/02/2023
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# Providers and components
+# Azure IoT Orchestrator Preview - providers and components
 
-Providers are an extensibility model in the Azure IoT Orchestrator service that allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Providers are responsible for executing the actions required to achieve the desired state of a resource.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Providers are an extensibility model in the Azure IoT Orchestrator Preview service that allows it to support deployments and configuration across a wide range of OS platforms and deployment mechanisms. Providers are responsible for executing the actions required to achieve the desired state of a resource.
 
 A provider encapsulates platform specific knowledge and implements a specific capability. In other words, the provider forms an API layer on top of the individual target resources like helm charts, ARC extensions etc., bundles them into a single entity and performs operations like installations, deletions and updates on them. A separate provider to handle each of these target resources.
 

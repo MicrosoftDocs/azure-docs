@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 01/31/2024
+ms.date: 04/23/2024
 ms.author: madsd
 ---
 
@@ -133,7 +133,7 @@ The following sections describe the DNS considerations and configuration that ap
 
 ### DNS configuration to your App Service Environment
 
-If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you might need to configure DNS for it. When you created your App Service Environment, if you selected having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you chose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
+If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, when you create your App Service Environment, if you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
 
 If you want to use your own DNS server, add the following records:
 

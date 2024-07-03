@@ -17,7 +17,7 @@ ms.date: 01/10/2024
 
 A skillset defines operations that generate textual content and structure from documents that contain images or unstructured text. Examples are OCR for images, entity recognition for undifferentiated text, and text translation. A skillset executes after text and images are extracted from an external data source, and after [field mappings](search-indexer-field-mappings.md) are processed.
 
-This article explains how to create a skillset using [REST APIs](/rest/api/searchservice/create-skillset), but the same concepts and steps apply to other programming languages. 
+This article explains how to create a skillset using [REST APIs](/rest/api/searchservice/skillsets/create), but the same concepts and steps apply to other programming languages. 
 
 Rules for skillset definition include:
 
@@ -33,7 +33,7 @@ Indexers drive skillset execution. You need an [indexer](search-howto-create-ind
 
 ## Add a skillset definition
 
-Start with the basic structure. In the [Create Skillset REST API](/rest/api/searchservice/create-skillset), the body of the request is authored in JSON and has the following sections:
+Start with the basic structure. In the [Create Skillset REST API](/rest/api/searchservice/skillsets/create), the body of the request is authored in JSON and has the following sections:
 
 ```json
 {
@@ -269,25 +269,13 @@ Although skill output can be optionally cached for reuse purposes, it's usually 
 
 ## Tips for a first skillset
 
-+ Assemble a representative sample of your content in Blob Storage or another supported data source and run the [**Import data** wizard](search-import-data-portal.md). 
++ Try the [**Import data** wizard](search-import-data-portal.md). 
 
-  The wizard automates several steps that can be challenging the first time around. It defines the skillset, index, and indexer, including field mappings and output field mappings. It will also define projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
+  The wizard automates several steps that can be challenging the first time around. It defines the skillset, index, and indexer, including field mappings and output field mappings. It also defines projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
 
-  After the wizard runs, you can open each object in the Azure portal to view its JSON definition. You can also use [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document.
+  After the wizard runs, you can open each object in the Azure portal to view its JSON definition.
 
-+ Alternatively, you can [import sample Postman collections](https://github.com/Azure-Samples/azure-search-postman-samples) that provide a full articulation of the object definitions required to evaluate a skill.
-
-+ When you're ready to start from scratch on a new skillset, checking preliminary results is important. We recommend a search index for content validation because it's simpler to set up, in comparison to knowledge stores. 
-
-  For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the search index.
-
-  :::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram that shows the person entity as a skill output, indexer field mapping, and index field.":::
-
-  After you run the indexer, use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
-
-  This screenshot shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. You can view the results to decide whether a skill adds value to your solution.
-
-  :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
++ Try [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document and inspect the enriched document that the skillset creates. You can view and modify input and output settings and values. This tutorial is a good place to start: [Tutorial: Debug a skillset using Debug Sessions](cognitive-search-tutorial-debug-sessions.md).
 
 ## Next steps
 

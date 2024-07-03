@@ -4,14 +4,18 @@ description: This article provides the properties and schema for Azure IoT Hub n
 author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
-ms.date: 07/01/2022
+ms.date: 04/10/2024
 ms.service: iot-hub
 services: iot-hub
 ---
 
 # Azure IoT Hub non-telemetry event schemas
 
-This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. To observe non-telemetry events, you must have an appropriate message route configured. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
+This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. 
+
+You can route non-telemetry events using message routing, or reach to non-telemetry events using Azure Event Grid. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md) and [React to IoT Hub events by using Event Grid](./iot-hub-event-grid.md).
+
+The event examples in this article were captured using the `az iot hub monitor-events` Azure CLI command. You may see a subset of properties included in the events that arrive at a message routing endpoint.
 
 ## Available event types
 

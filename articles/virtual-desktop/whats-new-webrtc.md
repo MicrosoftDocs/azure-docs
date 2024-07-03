@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 11/27/2023
+ms.date: 03/25/2024
 ms.author: helohr
 ms.custom: references_regions
 ---
@@ -18,7 +18,19 @@ The following table shows the latest available version of the Remote Desktop Web
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public | 1.45.2310.13001 | [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi) |
+| Public | 1.50.2402.29001 | [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi) |
+
+## Updates for version 1.50.2402.29001
+
+*Published: March 25, 2024*
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1jLHP)
+
+In this release, we made the following changes:
+
+- Fixed an issue that caused Teams audio to not apply remote volume changes or mute when using the new Teams client.
+- Fixed an issue that caused Teams to stop responding when the user tries to use the Give/Take Control feature after sharing their screen through chat.
+- Fixed an issue that caused users to be able to control hidden window regions while application window sharing when using the Give/Take Control feature.
 
 ## Updates for version 1.45.2310.13001
 
@@ -47,8 +59,6 @@ In this release, we've made the following changes:
 
 *Published: March 1, 2023*
 
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWDIg)
-
 In this release, we've made the following change:
 
 - Support for non-Latin characters for window names in the application window share tray.
@@ -56,8 +66,6 @@ In this release, we've made the following change:
 ## Updates for version 1.31.2211.15001 
 
 *Published: January 19, 2023*
-
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5c8Kk)
 
 In this release, we've made the following changes:
 

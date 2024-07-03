@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 01/12/2024
-ms.custom: engagement-fy23
+ms.date: 03/13/2024
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Support matrix for physical server discovery and assessment
@@ -41,7 +41,10 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 
 ## Permissions for Windows servers
 
-For Windows servers, use a domain account for domain-joined servers and a local account for servers that aren't domain joined. You can create the user account in one of the following two ways.
+- For Windows servers, use a domain account for domain-joined servers and a local account for servers that aren't domain joined.
+- For physical discovery, specify the username in Down level format (domain\username) and UPN format (username@domain.com) is not supported.
+
+You can create the user account in one of the following two ways.
 
 ### Option 1
 

@@ -1,13 +1,13 @@
 ---
 title: Manage MCSB in Microsoft Defender for Cloud
 description: Learn how to manage the  MCSB standard in Microsoft Defender for Cloud
-ms.topic: conceptual
-ms.date: 01/25/2022
+ms.topic: how-to
+ms.date: 05/30/2024
 ---
 
 # Manage MCSB recommendations in Defender for Cloud
 
-Microsoft Defender for Cloud assesses resources against [security standards](security-policy-concept.md). By default, when you onboard Azure subscriptions to Defender for Cloud, the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md) is enabled. Defender for Cloud starts assessing the security posture of your resource against controls in the MCSB standard, and issues security recommendations based on the assessments.
+Microsoft Defender for Cloud assesses resources against [security standards](security-policy-concept.md). By default, when you onboard cloud accounts to Defender for Cloud, the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md) is enabled. Defender for Cloud starts assessing the security posture of your resource against controls in the MCSB standard, and issues security recommendations based on the assessments.
 
 This article describes how you can manage recommendations provided by MCSB.
 
@@ -31,14 +31,13 @@ To review which recommendations you can deny and enforce, in the **Security poli
 
 ## Manage recommendation settings
 
-You can enable/disable, deny and enforce recommendations.
-
 > [!NOTE]
-> If a recommendation is disabled, all of its subrecommendations are exempted.
+> - If a recommendation is disabled, all of its subrecommendations are exempted.
+> - **Disabled** and **Deny** effects are available for Azure environment only.
 
 1. In the Defender for Cloud portal, open the **Environment settings** page.
 
-1. Select the subscription or management group for which you want to manage MCSB recommendations.
+1. Select the cloud account or management account for which you want to manage MCSB recommendations.
 
 1. Open the **Security policies** page, and select the MCSB standard. The standard should be turned on.
 

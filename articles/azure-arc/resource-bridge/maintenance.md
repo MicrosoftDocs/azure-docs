@@ -7,19 +7,23 @@ ms.date: 11/03/2023
 
 # Azure Arc resource bridge maintenance operations
 
-To keep your Azure Arc resource bridge deployment online and operational, you might need to perform maintenance operations such as updating credentials or monitoring upgrades.
+To keep your Azure Arc resource bridge deployment online and operational, you need to perform maintenance operations such as updating credentials,  monitoring upgrades and ensuring the appliance VM is online.
 
-To maintain the on-premises appliance VM, the [appliance configuration files generated during deployment](deploy-cli.md#az-arcappliance-createconfig) need to be saved in a secure location and made available on the management machine. The management machine used to perform maintenance operations must meet all of [the Arc resource bridge requirements](system-requirements.md).  
+## Prerequisites
 
-The following sections describe some of the most common maintenance tasks for Arc resource bridge.
+To maintain the on-premises appliance VM, the [appliance configuration files generated during deployment](deploy-cli.md#az-arcappliance-createconfig) need to be saved in a secure location and made available on the management machine. 
+
+The management machine used to perform maintenance operations must meet all of [the Arc resource bridge requirements](system-requirements.md).  
+
+The following sections describe the maintenance tasks for Arc resource bridge.
 
 ## Update credentials in the appliance VM
 
-Arc resource bridge consists of an on-premises appliance VM. The appliance VM [stores credentials](system-requirements.md#user-account-and-credentials) (for example, a user account for VMware vCenter) used to access the control center of the on-premises infrastructure to view and manage on-premises resources.
+Arc resource bridge consists of an on-premises appliance VM. The appliance VM [stores credentials](system-requirements.md#user-account-and-credentials) (for example, a user account for VMware vCenter) used to access the control center of the on-premises infrastructure to view and manage on-premises resources. The credentials used by Arc resource bridge are the same ones provided during deployment of the resource bridge. This allows the resource bridge visibility to on-premises resources for guest management in Azure.
 
-The credentials used by Arc resource bridge are the same ones provided during deployment of the bridge. This allows the bridge visibility to on-premises resources for guest management in Azure.
+If the credentials change, the credentials stored in the Arc resource bridge need to be updated with the [`update-infracredentials` command](/cli/azure/arcappliance/update-infracredentials). This command must be run from the management machine, and it requires a [kubeconfig file](system-requirements.md#kubeconfig). 
 
-If the credentials change, the credentials stored in the Arc resource bridge need to be updated with the [`update-infracredentials` command](/cli/azure/arcappliance/update-infracredentials). This command must be run from the management machine, and it requires a [kubeconfig file](system-requirements.md#kubeconfig).
+Reference: [Arc-enabled VMware - Update the credentials stored in Arc resource bridge](../vmware-vsphere/administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding)
 
 ## Troubleshoot Arc resource bridge
 

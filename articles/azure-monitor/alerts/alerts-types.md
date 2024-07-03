@@ -4,7 +4,7 @@ description: This article explains the different types of Azure Monitor alerts a
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 01/22/2024
+ms.date: 03/10/2024
 ms.custom: template-concept
 ms.reviewer: harelbr
 ---
@@ -72,23 +72,23 @@ You can monitor at scale by applying the same metric alert rule to multiple reso
 
 The platform metrics for these services in the following Azure clouds are supported:
 
-| Service                      | Global Azure | Government | China   |
-|:-----------------------------|:-------------|:-----------|:--------|
-| Virtual machines             | Yes      |Yes     | Yes |
-| SQL Server databases         | Yes      | Yes    | Yes |
-| SQL Server elastic pools     | Yes      | Yes    | Yes |
-| NetApp files capacity pools  | Yes      | Yes    | Yes |
-| NetApp files volumes         | Yes      | Yes    | Yes |
-| Azure Key Vault                   | Yes      | Yes    | Yes |
-| Azure Cache for Redis        | Yes      | Yes    | Yes |
-| Azure Stack Edge devices     | Yes      | Yes    | Yes |
-| Recovery Services vaults     | Yes      | No     | No  |
-| Azure Database for PostgreSQL - Flexible Server     | Yes      | Yes    | Yes |
-| Bare Metal Machines (Operator Nexus)    | Yes      | Yes    | Yes |
-| Storage Appliances (Operator Nexus)    | Yes      | Yes    | Yes |
-| Clusters (Operator Nexus)    | Yes      | Yes    | Yes |
-| Network Devices (Operator Nexus)    | Yes      | Yes    | Yes |
-| Data collection rules    | Yes      | Yes    | Yes |
+| Service           | Resource Provider           | Global Azure | Government | China   |
+|:------------------|:------------|:-------------|:-----------|:--------|
+| Virtual machines |"Microsoft.Compute/virtualMachines"| Yes      |Yes     | Yes |
+| SQL Server databases |"Microsoft.Sql/servers/databases"| Yes      | Yes    | Yes |
+| SQL Server elastic pools |"Microsoft.Sql/servers/elasticpools"| Yes      | Yes    | Yes |
+| NetApp files capacity pools |"Microsoft.NetApp/netAppAccounts/capacityPools"| Yes      | Yes    | Yes |
+| NetApp files volumes |"Microsoft.NetApp/netAppAccounts/capacityPools/volumes"| Yes      | Yes    | Yes |
+| Azure Key Vault |"Microsoft.KeyVault/vaults"| Yes      | Yes    | Yes |
+| Azure Cache for Redis |"Microsoft.Cache/redis"| Yes      | Yes    | Yes |
+| Azure Stack Edge devices |(There is no specific Resource provider for this resource. Because of how Stack edge devices work, **the metrics are retrieved from several resource providers**. You can check this documentation for more details regarding alerts for this resource: [Review alerts on Azure Stack Edge](../../databox-online/azure-stack-edge-alerts.md)) | Yes      | Yes    | Yes |
+| Recovery Services vaults |"Microsoft.RecoveryServices/Vaults"| Yes      | No     | No  |
+| Azure Database for PostgreSQL - Flexible Server |"Microsoft.DBforPostgreSQL/flexibleServers"| Yes      | Yes    | Yes |
+| Bare Metal Machines (Operator Nexus) |"Microsoft.NetworkCloud/bareMetalMachines"| Yes      | Yes    | Yes |
+| Storage Appliances (Operator Nexus) |"Microsoft.NetworkCloud/storageAppliances"| Yes      | Yes    | Yes |
+| Clusters (Operator Nexus) |"Microsoft.NetworkCloud/clusters"| Yes      | Yes    | Yes |
+| Network Devices (Operator Nexus) |Microsoft.NetworkCloud/l2Networks, Microsoft.NetworkCloud/l3Networks| Yes      | Yes    | Yes |
+| Data collection rules |"Microsoft.Insights/datacollectionrules"| Yes      | Yes    | Yes |
 
   > [!NOTE]
   > Multi-resource metric alerts aren't supported for:
@@ -133,7 +133,7 @@ Log search alerts can measure two different things, which can be used for differ
 - **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions.
 - **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.
 
-You can configure if log search alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview. 
+You can configure if log search alerts are [stateful or stateless](alerts-overview.md#alerts-and-state).  
 Note that stateful log search alerts have these limitations:
 - they can trigger up to 300 alerts per evaluation.
 - you can have a maximum of 5000 alerts with the `fired` alert condition.

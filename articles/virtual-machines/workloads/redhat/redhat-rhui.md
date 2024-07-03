@@ -15,7 +15,7 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) allows cloud providers, such as Azure, to:
+[Red Hat Update Infrastructure (RHUI)](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers, such as Azure, to:
 
 - Mirror Red Hat-hosted repository content
 - Create custom repositories with Azure-specific content
@@ -125,7 +125,8 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Add EUS repositories.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install rhui-azure-rhel8-eus
+   wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+   sudo dnf --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
    ```
 
 
@@ -206,7 +207,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install rhui-azure-rhel7
+   sudo yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config install rhui-azure-rhel7
    ```
 
 1. Update your RHEL VM.
@@ -234,7 +235,8 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config' install rhui-azure-rhel8
+   wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+   sudo dnf --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
    ```
 
 1. Update your RHEL VM.

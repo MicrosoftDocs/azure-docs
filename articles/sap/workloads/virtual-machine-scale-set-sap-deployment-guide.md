@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 09/25/2023
+ms.date: 03/20/2024
 ---
 
 # Virtual Machine Scale Sets for SAP workload
@@ -25,7 +25,7 @@ In Azure, [Virtual machine scale sets](../../virtual-machine-scale-sets/overview
 2. For SAP workloads, flexible orchestration of virtual machine scale sets is supported only with FD=1. Currently regional deployment with FD>1 isn't supported for SAP workload.
 3. Deploy each SAP system in a separate flexible scale set.
 4. For SAP NetWeaver, it's recommended to deploy all components of a single SAP system within a single flexible scale set. These components include the database, SAP ASCS/ERS, and SAP application servers.
-5. Different VM SKUs, such as D-Series, E-Series, M-Series, and operating systems, including Windows and various Linux distributions, can be included within a single virtual machine scale set with flexible orchestration.
+5. Different virtual machine (VM) SKUs, such as D-Series, E-Series, M-Series, and operating systems, including Windows and various Linux distributions, can be included within a single virtual machine scale set with flexible orchestration.
 6. When setting up a flexible scale set for SAP workload, `platformFaultDomainCount` can be set to a maximum value of 1. As a result, the virtual machine instances associated with the scale set would be distributed across multiple fault domains on a best effort basis.
 7. You can configure flexible virtual machine scale sets with or without a scaling profile. However, it's recommended to create a flexible virtual machine scale set without a scaling profile.
 8. The standard load balancer is the only supported load balancer for virtual machines deployed in flexible scale set.
@@ -58,8 +58,22 @@ For SBD devices, VMs are manually deployed in each availability zone within the 
 
 For SAP workloads, it's recommended to create a flexible virtual machine scale set without a scaling profile. To create a flexible scale set across availability zones, set the fault domain count to 1 and specify the desired zones.
 
+### [Azure portal](#tab/scaleset-portal)
+
+To set up a virtual machine scale set without scaling profile using Azure portal, proceed as follows -
+
+1. Sign in to [Azure portal](https://portal.azure.com).
+1. Search for **Virtual machine scale set** and select **create** on the corresponding page.
+1. In the basics tab, provide the necessary details:
+    1. Under project details, verify the correct **subscription** and choose **my-resource-group** from the resource group dropdown.
+    1. For scale set details, name your scale set **myVmssFlex**, choose the appropriate **region**, and specify **availability zone** (For example, zone1, zone2, zone3) for your deployment.
+1. Select the **flexible** orchestration mode.
+1. Under the scaling section, select **no scaling profile**.
+1. For the allocation policy, select **max spreading**.
+1. Select **create**.
+
 > [!NOTE]
-> It's not possible to create flexible virtual machine scale set without a scaling profile through the Azure Portal. However, you can use an alternative client to [create a scale set without a scaling profile](../../virtual-machine-scale-sets/virtual-machine-scale-sets-scaling-profile.md?tabs=cli#create-a-scale-set-without-a-scaling-profile).
+> For SAP workload only flexible scale set with FD=1 is supported. So, do not configure scale set with "fixed spreading" as the allocation policy.
 
 ### [Azure CLI](#tab/scaleset-cli)
 

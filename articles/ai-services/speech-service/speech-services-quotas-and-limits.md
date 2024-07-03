@@ -46,7 +46,7 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-| [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
+| [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 100 requests per 10 seconds (600 requests per minute) |
 | Max audio input file size | N/A | 1 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
@@ -58,12 +58,12 @@ The limits in this table apply per Speech resource when you create a custom spee
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-| REST API limit | 300 requests per minute | 300 requests per minute |
+| REST API limit | 100 requests per 10 seconds (600 requests per minute) | 100 requests per 10 seconds (600 requests per minute) |
 | Max number of speech datasets | 2 | 500 |
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
-| Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
+| Max text size when you're using the `text` parameter in the [Models_Create](/rest/api/speechtotext/models/create) API request | 200 KB | 500 KB |
 
 ### Text to speech quotas and limits per resource
 
@@ -86,10 +86,10 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-|REST API limit | Not available for F0 | 50 requests per 5 seconds |
-| Max JSON payload size to create a synthesis job  | N/A | 500 kilobytes |
-| Concurrent active synthesis jobs | N/A | 200 |
-| Max number of text inputs per synthesis job | N/A | 1000 |
+|REST API limit | Not available for F0 | 100 requests per 10 seconds |
+| Max JSON payload size to create a synthesis job  | N/A | 2 megabytes |
+| Concurrent active synthesis jobs | N/A | No limit |
+| Max number of text inputs per synthesis job | N/A | 10000 |
 |Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
 #### Custom neural voice - professional
@@ -115,11 +115,17 @@ The limits in this table apply per Speech resource when you create a personal vo
 | REST API limit (not including speech synthesis) | Not available for F0 | 50 requests per 10 seconds |
 | Max number of transactions per second (TPS) for speech synthesis|Not available for F0  |200 transactions per second (TPS) (default value)  |
 
+#### Batch text to speech avatar 
+
+| Quota | Free (F0)| Standard (S0) |
+|-----|-----|-----|
+| REST API limit  | Not available for F0 | 2 requests per 1 minute  |
+
 #### Real-time text to speech avatar
 
 | Quota | Free (F0)| Standard (S0) |
 |-----|-----|-----|
-| New connections per minute | Not available for F0 | Two new connections per minute |
+| New connections per minute | Not available for F0 | 2 new connections per minute |
 
 #### Audio Content Creation tool
 
@@ -297,3 +303,14 @@ Initiate the increase of the limit for concurrent requests for your resource, or
    - Any other required information.
 1. On the **Review + create** tab, select **Create**.
 1. Note the support request number in Azure portal notifications. You're contacted shortly about your request.
+
+### Text to speech avatar: increase new connections limit
+
+To increase the limit of new connections per minute for text to speech avatar, contact your sales representative to create a [ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with the following information:
+
+- Speech resource URI
+- Requested new limitation to increase to
+- Justification for the increase
+- Starting date for the increase
+- Ending date for the increase
+- Prebuilt avatar or custom avatar

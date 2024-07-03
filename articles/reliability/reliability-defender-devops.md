@@ -3,7 +3,7 @@ title: Reliability in Microsoft Defender for Cloud for DevOps security
 description: Find out about reliability in Defender for DevOps
 author: anaharris-ms
 ms.service: azure
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.date: 10/24/2023
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability

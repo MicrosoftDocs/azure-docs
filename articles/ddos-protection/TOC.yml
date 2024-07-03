@@ -81,8 +81,8 @@
     href: ddos-protection-reference-architectures.md
   - name: Monitoring Azure DDoS Protection 
     href: monitor-ddos-protection-reference.md
-  - name: Business continuity
-    href: ddos-disaster-recovery-guidance.md
+  - name: Reliability
+    href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Fundamental best practices
     href: fundamental-best-practices.md
   - name: Components of a DDoS response strategy

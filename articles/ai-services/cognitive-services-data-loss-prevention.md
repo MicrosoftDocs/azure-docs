@@ -5,7 +5,7 @@ author: gclarkmt
 ms.author: gregc
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 01/20/2024
+ms.date: 03/25/2024
 ms.custom: template-concept
 ---
 
@@ -101,13 +101,6 @@ The following services support data loss prevention configuration:
 * Document Intelligence
 * Speech Service
 * QnA Maker
-
-
-## Limitations
-
-The [Azure OpenAI on your data - text](./openai/concepts/use-your-data.md) data ingestion feature doesn't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following API will fail immediately to prevent potential data loss.
-
-* /extensions/on-your-data/ingestion-jobs
 
 
 ## Next steps

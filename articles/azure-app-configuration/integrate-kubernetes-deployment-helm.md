@@ -208,7 +208,7 @@ Use helm upgrade's **-f** argument to pass in the two configuration files you've
 helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart
 ```
 
-You can also use the **--set** argument for helm upgrade to pass literal key values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk.
+You can also use the **--set** argument for helm upgrade to pass literal key-values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk.
 
 ```powershell
 $secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json

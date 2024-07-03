@@ -9,7 +9,7 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/30/2023
 ms.author: jomore
-ms.custom: fasttrack-new, linux-related-content
+ms.custom: fasttrack-new
 ---
 # Use Private Link in Virtual WAN
 

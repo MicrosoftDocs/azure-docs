@@ -6,7 +6,7 @@ description: Data cleanroom and multi-party data confidential computing solution
 
 services: virtual-machines
 
-author: grbury
+author: kapilv
 
 ms.service: virtual-machines
 
@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 ms.date: 04/20/2023
 
-ms.author: grbury
+ms.author: kapilv
 ---
 
 # Cleanroom and Multi-party Data Analytics

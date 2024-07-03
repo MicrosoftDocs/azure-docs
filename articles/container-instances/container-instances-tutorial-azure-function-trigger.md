@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use an HTTP-triggered Azure function to create a container group

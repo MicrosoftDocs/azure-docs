@@ -1,35 +1,50 @@
 ---
-title: High availability and replication
+title: High availability in Azure Cosmos DB for MongoDB vCore 
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Review replication and high availability concepts in the context of Azure Cosmos DB for MongoDB vCore.
-author: gahl-levy
-ms.author: gahllevy
-ms.reviewer: sidandrews
+description: Learn about availability (HA) of Azure Cosmos DB for MongoDB vCore clusters.
+author: niklarin
+ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 06/20/2024
 ---
 
 # High availability in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-High availability (HA) avoids database downtime by maintaining standby replicas of every shard in a cluster. If a shard goes down, Azure Cosmos DB for MongoDB vCore switches incoming connections from the failed shard to its standby replica.
+In-region high availability (HA) avoids database downtime by maintaining standby replicas
+of every shard in a cluster. If a shard becomes unresponsive for any reason, Azure Cosmos DB for MongoDB vCore
+switches incoming connections from the failed shard to its standby. When failover
+happens promoted shards always have fresh data through synchronous replication.
 
-## How it works
+All primary shards in a cluster are provisioned into one [availability zone (AZ)](../../../reliability/availability-zones-overview.md)
+for better latency between the shards. The standby shards are provisioned into
+another availability zone. 
 
-When HA is enabled, Azure Cosmos DB for MongoDB vCore runs one replica shard for each primary shard in the cluster. The primary and its replica use synchronous replication. The service detects failures on primary shards and fails over to the replica shards with zero data loss. The MongoDB connection string remains the same.
+Even without HA enabled, each node has its own locally
+redundant storage (LRS) with three synchronous replicas maintained by Azure
+Storage service. All three replicas are located in the cluster's Azure region. If there's a single replica failure, Azure Storage service detects it and transparently re-creates failed replica. See metrics [on this page](../../../storage/common/storage-redundancy.md#summary-of-redundancy-options) for LRS storage durability.
 
-When HA is enabled, HA replica shards are provisioned in a different availability zone from their primary shards, if the region supports multiple zones and has available capacity. HA replicas don't receive requests from clients unless their primary shard fails.
+When HA *is* enabled, Azure Cosmos DB for MongoDB vCore runs one standby shard for each primary
+shard in the cluster. Each primary and standby shard has the same compute and storage configuration. 
+The primary and its standby use synchronous replication. This type of replication allows you to always have 
+the same data on the primary and standby shards in your cluster. In a nutshell, our service detects a failure
+on primary shards, and fails over to standby nodes with zero data loss. 
 
-Even without HA enabled, each shard has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, the Azure Storage service detects the failure, and transparently re-creates the relevant data. For LRS storage durability, see metrics on [this page](../../../storage/common/storage-redundancy.md#summary-of-redundancy-options).
+The cluster connection string always stays the same regardless of failovers. That allows the service to abstract changes in physical shards serving requests from applications.
 
-## Configure high availability
+High availability can be enabled at cluster creation time. High availability can also be [enabled and disabled at any time on an existing Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md#enable-or-disable-high-availability). There's no database downtime when high availability is enabled or disabled on an Azure Cosmos DB for MongoDB vCore cluster.
 
-High availability (HA) can be specified when [creating a cluster](quickstart-portal.md) or in the [**Scale** section of an existing cluster](how-to-scale-cluster.md) in the Azure portal.
+## What happens during a failover
+Each shard failover consists of three phases: Unavailability detection, switch to the standby shard, and re-creation of the standby shard. The service performs ongoing monitoring of availability for each primary and standby shard in the cluster by doing periodic health check. When health check reliably indicates that shard became unresponsive and needs to be declared failed, actual failover (switch) to the standby shard is initiated.
 
-## Next steps
+During the switch phase, database reads and writes are redirected to the standby shard. Synchronous replication between each primary and standby shard ensures that the standby shard always have the same set of data as its primary. That allows all failovers to be performed with zero data loss. The switch to standby is done with no downtime for reads. Write operations may require internal service retries during the switch phase. These retries might be seen as write slowness on the application side.
 
-> [!div class="nextstepaction"]
-> [Scale a cluster in Azure Cosmos DB for MongoDB vCore](how-to-scale-cluster.md)
+Once the shard failover is completed, the cluster is fully operational. The last step to return to the original highly available configuration is to re-create the standby shard. This standby shard re-creation is performed without downtime or performance impact on the primary shard. 
+
+## Related content
+
+- [See how to enable high availability in Azure Cosmos DB for MongoDB vCore](./how-to-scale-cluster.md#enable-or-disable-high-availability)
+- [Learn about reliability fundamentals in Azure Cosmos DB for MongoDB vCore](../../../reliability/reliability-cosmos-mongodb.md)

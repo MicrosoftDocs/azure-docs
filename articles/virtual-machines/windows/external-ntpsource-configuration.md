@@ -91,7 +91,7 @@ To check current time source, login to any domain member and from an elevated co
 2. Browse to the Forest and Domain where you want to create the GPO.
 3. Create a new GPO, for example *Clients Time Sync*, in the container *Group Policy Objects*.
 4. Right-click on the newly created GPO and Edit.
-5. Navigate to *Computer Configuration* -> *Preferences* -> Right-click on *Registry* -> *New* -> *Registry Item*
+5. Navigate to *Computer Configuration* -> *Preferences* -> *Windows Settings* -> Right-click on *Registry* -> *New* -> *Registry Item*
 6. In the *New Registry Properties* window set the following values:
     - On **Action:** *Update*
     - On **Hive:** *HKEY_LOCAL_MACHINE*

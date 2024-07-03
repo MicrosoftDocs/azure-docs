@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, devx-track-terraform
 ms.author: ariel
-ms.date: 05/31/2022
+ms.date: 04/23/2024
 ---
 
 # Quickstart: Provision Azure Spring Apps using Terraform

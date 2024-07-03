@@ -69,10 +69,6 @@ You can't use string operators on container metadata, blob metadata and blob ind
 
 If you assign a storage task to a storage account that has a name, which starts with a digit, the storage task assignment fails.
 
-## Storage task assignments fail on some storage accounts in supported regions
-
-Storage tasks are supported on new storage accounts created after the subscription is allow-listed. They might not work on some existing storage accounts even thought those accounts are located in supported regions.
-
 ## Monitoring data doesn't appear unless the storage task and the storage account are in the same resource group
 
 If the storage task and the storage account specified in the task assignment are in different resource groups, the aggregated monitoring data for the storage account doesn't show up correctly in the monitoring tab of the storage task pane.
@@ -103,7 +99,15 @@ Storage accounts that have a hierarchical namespace display location information
 
 ## Slow performance when processing blobs in accounts that have a hierarchical namespace
 
-Storage Actions operate on blobs in a hierarchical namespace-enabled account at a reduced capacity. This is a known issue that is being addressed. This issue reduces the rate at which blobs are processed by storage task run. 
+Storage Actions operate on blobs in a hierarchical namespace-enabled account at a reduced capacity. This is a known issue that is being addressed. This issue reduces the rate at which blobs are processed by storage task run.
+
+## Operating on storage accounts in a private network is unsupported
+
+When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments needs to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
+
+## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
+
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail. 
 
 ## See Also
 

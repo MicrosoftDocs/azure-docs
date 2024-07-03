@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/31/2024
 ms.author: jushiman
 ms.reviewer: mattmcinnes
-ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell, devx-track-terraform
 ---
 
 # Change the size of a virtual machine 

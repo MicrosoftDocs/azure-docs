@@ -28,7 +28,7 @@ Azure Stream Analytics provides a serverless, distributed streaming processing s
 [!INCLUDE [metrics-scenarios](./includes/metrics-scenarios.md)]
 
 ## Get help
-For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try the [Microsoft Q&A page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

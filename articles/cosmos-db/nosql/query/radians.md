@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the corresponding angle in radians for an angle specified in degrees.
 
 ## Syntax
 
-```sql
+```nosql
 RADIANS(<numeric_expr>)  
 ```  
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 The following example returns the radians for various degree values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/radians/query.sql" highlight="2-5":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/radians/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/radians/result.json":::
 

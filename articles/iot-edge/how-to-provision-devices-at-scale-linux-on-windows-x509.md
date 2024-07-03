@@ -1,11 +1,12 @@
 ---
-title: Create and provision IoT Edge devices using X.509 certificates on Linux on Windows - Azure IoT Edge | Microsoft Docs
+title: Create and provision Azure IoT Edge devices using X.509 certificates on Linux on Windows
 description: Use X.509 certificate attestation to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/15/2022
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: how-to
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
@@ -57,7 +58,7 @@ To create test certificates, follow the steps in [Create demo certificates to te
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
+You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
 <!-- Create a DPS enrollment using X.509 certificates H2 and content -->
 [!INCLUDE [iot-edge-create-dps-enrollment-x509.md](includes/iot-edge-create-dps-enrollment-x509.md)]
@@ -95,7 +96,7 @@ You can verify that the group enrollment that you created in device provisioning
 
 ---
 
-1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+1. Sign in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
    ```powershell
    Connect-EflowVm
@@ -133,7 +134,7 @@ You can verify that the group enrollment that you created in device provisioning
     >
     >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
-When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+When you create a new IoT Edge device, it displays the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
 [!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]

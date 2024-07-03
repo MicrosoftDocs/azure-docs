@@ -1,8 +1,8 @@
 ---
-ms.author: dbasantes
-title: Azure Communication Services Call Recording refreshed API quickstart
+ms.author: rahulva
+title: Azure Communication Services Call Recording API quickstart
 titleSuffix: An Azure Communication Services document
-description: Public Preview quickstart for Call Recording APIs
+description: Quickstart for Call Recording APIs
 author: dbasantes
 services: azure-communication-services
 ms.date: 06/12/2023

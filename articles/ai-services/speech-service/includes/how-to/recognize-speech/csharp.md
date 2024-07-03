@@ -45,7 +45,7 @@ You can initialize `SpeechConfig` in a few other ways:
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using the `FromDefaultMicrophoneInput()` method. Then initialize the[`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) object by passing `audioConfig` and `speechConfig`.
+To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using the `FromDefaultMicrophoneInput()` method. Then initialize the [`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) object by passing `speechConfig` and `audioConfig`.
 
 ```csharp
 using System;

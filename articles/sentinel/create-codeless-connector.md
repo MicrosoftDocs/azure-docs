@@ -4,17 +4,13 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 06/26/2024
 ---
-# Create a codeless connector for Microsoft Sentinel (Public preview)
+# Create a codeless connector for Microsoft Sentinel
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
 Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
-
-> [!IMPORTANT]
-> The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 **Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
 
@@ -222,12 +218,21 @@ Deploy your codeless connector as a custom template.
 1. Copy the contents of the ARM [deployment template](#create-the-deployment-template).
 1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
+### Maintain network isolation for logging source
+
+If your logging source requires network isolation, configure an allowlist of public IP addresses used by the CCP.
+
+Azure virtual networks use service tags to define network access controls. For the CCP, that service tag is [**Scuba**](/azure/virtual-network/service-tags-overview#available-service-tags).
+
+To find the current IP range associated with the **Scuba** service tag, see [Use the Service Tag Discovery API](/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api).
+
 ## Verify the codeless connector
 
 View your codeless connector in the data connector gallery. Open the data connector and complete any authentication parameters required to connect. Once successfully connected, the DCR and custom tables are created. View the DCR resource in your resource group and any custom tables from the logs analytics workspace.
 
 >[!NOTE]
 >It may take up to 30 minutes to see data begin ingesting.
+
 
 ## Example
 

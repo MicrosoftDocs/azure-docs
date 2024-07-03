@@ -8,7 +8,7 @@ ms.reviewer: paulyuk
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 10/30/2023
-ms.custom: linux-related-content, references_regions
+ms.custom: references_regions
 # Customer Intent: I'm a developer who wants to use the Dapr extension for Azure Functions in my Dapr-enabled container app
 ---
 

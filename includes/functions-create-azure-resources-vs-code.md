@@ -2,16 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/20/2022
+ms.date: 06/03/2024
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
 In this section, you create a function app and related resources in your Azure subscription.
 
-1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
-
-    ![Create a resource in your Azure subscription](media/functions-publish-project-vscode/function-app-create-resource.png)
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create Function App in Azure...`. 
 
 1. Provide the following information at the prompts:
 

@@ -7,7 +7,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 06/03/2024
 #Customer intent: As a cluster operator or developer, I want to create and manage static IP address resources in Azure that I can use beyond the lifecycle of an individual Kubernetes service deployed in an AKS cluster.
 ---
 
@@ -65,11 +65,53 @@ This article shows you how to create a static public IP address and assign it to
 
 ## Create a service using the static IP address
 
-1. Ensure the cluster identity used by the AKS cluster has delegated permissions to the public IP's resource group using the [`az role assignment create`][az-role-assignment-create] command.
+1. First, determine which type of managed identity your AKS cluster is using, system-assigned or user-assigned. If you're not certain, call the [az aks show][az-aks-show] command and query for the identity's *type* property.
+
+    ```azurecli
+    az aks show \
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --query identity.type \
+        --output tsv       
+    ```
+
+    If the cluster is using a managed identity, the value of the *type* property will be either **SystemAssigned** or **UserAssigned**.
+
+    If the cluster is using a service principal, the value of the *type* property will be null. Consider upgrading your cluster to use a managed identity.
+
+1. If your AKS cluster uses a system-assigned managed identity, then query for the managed identity's principal ID as follows:
 
     ```azurecli-interactive
-    CLIENT_ID=$(az aks show --name myAKSCluster --resource-group myNetworkResourceGroup --query identity.principalId -o tsv)
-    RG_SCOPE=$(az group show --name <node resource group> --query id -o tsv)
+    # Get the principal ID for a system-assigned managed identity.
+    CLIENT_ID=$(az aks show \
+        --name myAKSCluster \
+        --resource-group myNetworkResourceGroup \
+        --query identity.principalId \
+        --output tsv)
+    ```
+
+    If your AKS cluster uses a user-assigned managed identity, then the principal ID will be null. Query for the user-assigned managed identity's client ID instead:
+
+    ```azurecli-interactive
+    # Get the client ID for a user-assigned managed identity.
+    CLIENT_ID=$(az aks show \
+        --name myAKSCluster \
+        --resource-group myNetworkResourceGroup \
+        --query identity.userAssignedIdentities.*.clientId \
+        --output tsv    
+    ```
+
+1. Assign delegated permissions for the managed identity used by the AKS cluster for the public IP's resource group by calling the [`az role assignment create`][az-role-assignment-create] command.
+
+    ```azurecli-interactive
+    # Get the resource ID for the node resource group.
+    RG_SCOPE=$(az group show \
+        --name <node resource group> \
+        --query id \
+        --output tsv)
+
+    # Assign the Network Contributor role to the managed identity,
+    # scoped to the node resource group.
     az role assignment create \
         --assignee ${CLIENT_ID} \
         --role "Network Contributor" \
@@ -79,7 +121,7 @@ This article shows you how to create a static public IP address and assign it to
     > [!IMPORTANT]
     > If you customized your outbound IP, make sure your cluster identity has permissions to both the outbound public IP and the inbound public IP.
 
-2. Create a file named `load-balancer-service.yaml` and copy in the contents of the following YAML file, providing your own public IP address created in the previous step and the node resource group name.
+1. Create a file named `load-balancer-service.yaml` and copy in the contents of the following YAML file, providing your own public IP address created in the previous step and the node resource group name.
 
     > [!IMPORTANT]
     > Adding the `loadBalancerIP` property to the load balancer YAML manifest is deprecating following [upstream Kubernetes](https://github.com/kubernetes/kubernetes/pull/107235). While current usage remains the same and existing services are expected to work without modification, we **highly recommend setting service annotations** instead. To set service annotations, you can either use `service.beta.kubernetes.io/azure-pip-name` for public IP name, or use `service.beta.kubernetes.io/azure-load-balancer-ipv4` for an IPv4 address and `service.beta.kubernetes.io/azure-load-balancer-ipv6` for an IPv6 address, as shown in the example YAML.
@@ -103,7 +145,7 @@ This article shows you how to create a static public IP address and assign it to
     > [!NOTE]
     > Adding the `service.beta.kubernetes.io/azure-pip-name` annotation ensures the most efficient LoadBalancer creation and is highly recommended to avoid potential throttling. 
 
-3. Set a public-facing DNS label to the service using the `service.beta.kubernetes.io/azure-dns-label-name` service annotation. This publishes a fully qualified domain name (FQDN) for your service using Azure's public DNS servers and top-level domain. The annotation value must be unique within the Azure location, so we recommend you use a sufficiently qualified label. Azure automatically appends a default suffix in the location you selected, such as `<location>.cloudapp.azure.com`, to the name you provide, creating the FQDN.
+1. Set a public-facing DNS label to the service using the `service.beta.kubernetes.io/azure-dns-label-name` service annotation. This publishes a fully qualified domain name (FQDN) for your service using Azure's public DNS servers and top-level domain. The annotation value must be unique within the Azure location, so we recommend you use a sufficiently qualified label. Azure automatically appends a default suffix in the location you selected, such as `<location>.cloudapp.azure.com`, to the name you provide, creating the FQDN.
 
     > [!NOTE]
     > If you want to publish the service on your own domain, see [Azure DNS][azure-dns-zone] and the [external-dns][external-dns] project.
@@ -125,13 +167,13 @@ This article shows you how to create a static public IP address and assign it to
         app: azure-load-balancer
     ```
 
-4. Create the service and deployment using the `kubectl apply` command.
+1. Create the service and deployment using the `kubectl apply` command.
 
     ```console
     kubectl apply -f load-balancer-service.yaml
     ```
 
-5. To see the DNS label for your load balancer, use the `kubectl describe service` command.
+1. To see the DNS label for your load balancer, use the `kubectl describe service` command.
 
     ```console
     kubectl describe service azure-load-balancer
@@ -180,7 +222,7 @@ Events:
 
 ## Next steps
 
-For more control over the network traffic to your applications, you may want to [create an ingress controller][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
+For more control over the network traffic to your applications, use the application routing addon for AKS. For more information about the app routing addon, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
@@ -198,3 +240,4 @@ For more control over the network traffic to your applications, you may want to 
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
+

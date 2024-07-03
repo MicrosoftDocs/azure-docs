@@ -6,7 +6,7 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/25/2022
+ms.date: 02/20/2024
 ---
 
 # Azure Key Vault soft-delete overview

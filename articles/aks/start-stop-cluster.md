@@ -2,7 +2,7 @@
 title: Stop and start an Azure Kubernetes Service (AKS) cluster
 description: Learn how to stop and start an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/14/2023
+ms.date: 07/01/2024
 author: palma21
 ---
 
@@ -11,6 +11,9 @@ author: palma21
 You may not need to continuously run your Azure Kubernetes Service (AKS) workloads. For example, you may have a development cluster that you only use during business hours. This means there are times where your cluster might be idle, running nothing more than the system components. You can reduce the cluster footprint by [scaling all `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running.
 
 To better optimize your costs during these periods, you can turn off, or stop, your cluster. This action stops your control plane and agent nodes, allowing you to save on all the compute costs, while maintaining all objects except standalone pods. The cluster state is stored for when you start it again, allowing you to pick up where you left off.
+
+> [!CAUTION]
+> Stopping your cluster deallocates the control plane and releases the capacity. In regions experiencing capacity constraints, customers may be unable to start a stopped cluster. We do not recommend stopping mission critical workloads for this reason.
 
 ## Before you begin
 
@@ -21,6 +24,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
 When using the cluster stop/start feature, the following conditions apply:
 
 - This feature is only supported for Virtual Machine Scale Set backed clusters.
+- You can't stop clusters which use the [Node Autoprovisioning (NAP)](node-autoprovision.md) feature.
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, you can't recover the state. For more information, see the [AKS support policies](support-policies.md).
 - You can only perform start or delete operations on a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
 - If you provisioned PrivateEndpoints linked to private clusters, they need to be deleted and recreated again when starting a stopped AKS cluster.
@@ -96,7 +100,7 @@ When using the cluster stop/start feature, the following conditions apply:
 ## Start an AKS cluster
 
 > [!CAUTION]
-> Don't repeatedly stop and start your clusters. This can result in errors. Once your cluster is stopped, you should wait at least 15-30 minutes before starting it again.
+> After utilizing the start/stop feature on AKS, it is essential to wait 15-30 minutes before restarting your AKS cluster. This waiting period is necessary because it takes several minutes for the relevant services to fully stop. Attempting to restart your cluster during this process can disrupt the shutdown process and potentially cause issues with the cluster or its workloads.
 
 ### [Azure CLI](#tab/azure-cli)
 

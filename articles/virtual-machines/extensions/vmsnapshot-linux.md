@@ -8,7 +8,7 @@ ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 12/17/2018
 ms.author: trinadhk
 ---

@@ -19,15 +19,16 @@ ms.date: 04/27/2023
 - [19:00](/shows/mdc-in-the-field/governance-improvements#time=19m00s) - Learn more about governance
 
 ## Recommended resources
-  - Learn how to [drive your organization to remediate security recommendations with governance](governance-rules.md) 
-  - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
-  - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
-  - For more about [Microsoft Security](https://msft.it/6002T9HQY)
+
+- Learn how to [drive your organization to remediate security recommendations with governance](governance-rules.md)
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+- For more about [Microsoft Security](https://msft.it/6002T9HQY)
 
 - Follow us on social media:
 
-     - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
-     - [Twitter](https://twitter.com/msftsecurity)
+  - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
+  - [Twitter](https://twitter.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

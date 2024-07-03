@@ -29,7 +29,7 @@ Mobility Service supports unauthenticated proxies only. It provides two ways to 
 
 ### Method 1: Auto detection
 
-Mobility Service auto detects the proxy settings from environment settings or IE Settings (Windows Only) during enable replication. 
+Mobility Service auto detects the proxy settings from environment settings or Internet Explorer settings (Windows only) during enable replication. 
 
 - **Windows OS**: During Enable Replication, Mobility Service detects the proxy settings as configured in Internet Explorer for Local System user. To set up proxy for Local System account, an administrator may use `psexec` to launch a command prompt and then Internet Explorer. 
     The proxy settings are configured as environment variables `http_proxy` and `no_proxy`. 

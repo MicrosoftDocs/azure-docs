@@ -185,7 +185,7 @@
           href: howto-monitoring.md
         - name: Create alerts on metrics
           href: howto-alert-on-metric.md
-          dispalyName: alerts
+          displayName: alerts
         - name: Access database logs
           href: howto-logging.md
           displayName: log

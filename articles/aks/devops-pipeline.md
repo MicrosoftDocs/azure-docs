@@ -477,3 +477,4 @@ You're now ready to create a release, which means to start the process of runnin
 1. In the pipeline view, choose the status link in the stages of the pipeline to see the logs and agent output.
 
 ::: zone-end
+

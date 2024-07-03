@@ -4,7 +4,7 @@ description: Learn how to prepare an application for deployment to Azure Spring 
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 04/28/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-spring-apps
@@ -153,7 +153,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version            | End of commercial support |
 |---------------------|---------------------------------|---------------------------|
-| 3.2.x               | 2022.0.3+ also known as Kilburn | 2026-02-23                |
+| 3.2.x               | 2023.0.x also known as Leyton   | 2026-02-23                |
 | 3.1.x               | 2022.0.3+ also known as Kilburn | 2025-08-18                |
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2025-02-24                |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2025-08-24                |
@@ -163,7 +163,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version            | End of support |
 |---------------------|---------------------------------|----------------|
-| 3.2.x               | 2022.0.3+ also known as Kilburn | 2024-11-23     |
+| 3.2.x               | 2023.0.x also known as Leyton   | 2024-11-23     |
 | 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |
@@ -172,6 +172,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 For more information, see the following pages:
 
+* [Version support for Java, Spring Boot, and more](concept-app-customer-responsibilities.md#version-support-for-all-plans)
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
@@ -288,13 +289,13 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 ## See also
 
 * [Analyze application logs and metrics](./diagnostic-services.md)
-* [Set up your Config Server](../basic-standard/how-to-config-server.md)
+* [Set up your Config Server](how-to-config-server.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 
 ## Next steps
 
-In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](../basic-standard/how-to-config-server.md).
+In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](how-to-config-server.md).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 ::: zone-end

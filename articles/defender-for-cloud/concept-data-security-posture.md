@@ -1,5 +1,5 @@
 ---
-title: Data-aware security posture 
+title: Data security posture management
 description: Learn how Defender for Cloud helps improve data security posture in a multicloud environment.
 author: dcurwin
 ms.author: dacurwin
@@ -7,11 +7,11 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 01/28/2024
 ---
-# About data-aware security posture
+# About data security posture management
 
-As digital transformation accelerates, organizations move data to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. The dynamic and complex nature of the cloud has increased data threat surfaces and risks. This causes challenges for security teams around data visibility and protecting the cloud data estate.
+As digital transformation accelerates, organizations move data to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. The dynamic and complex nature of the cloud increases data threat surfaces and risks. This causes challenges for security teams around data visibility and protecting the cloud data estate.
 
-Data-aware security in Microsoft Defender for Cloud helps you to reduce risk to data, and respond to data breaches. Using data-aware security posture you can:
+Data security posture management in Microsoft Defender for Cloud helps you to reduce risk to data, and respond to data breaches. Using data security posture management you can:
 
 - Automatically discover sensitive data resources across multiple clouds.
 - Evaluate data sensitivity, data exposure, and how data flows across the organization.
@@ -20,7 +20,7 @@ Data-aware security in Microsoft Defender for Cloud helps you to reduce risk to 
 
 ## Automatic discovery
 
-Data-aware security posture automatically and continuously discovers managed and shadow data resources across clouds, including different types of objects stores and databases.
+Data security posture management automatically and continuously discovers managed and shadow data resources across clouds, including different types of objects stores and databases.
 
 - Discover sensitive data using the sensitive data discovery extension included in the Defender Cloud Security Posture Management (CSPM) and Defender for Storage plans.
 - In addition, you can discover hosted databases and data flows in Cloud Security Explorer and Attack Paths. This functionality is available in the Defender CSPM plan, and isn't dependent on the sensitive data discovery extension.
@@ -29,9 +29,9 @@ Data-aware security posture automatically and continuously discovers managed and
 
 Defender for Cloud uses smart sampling to discover a selected number of assets in your cloud data stores. Smart sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
 
-## Data security in Defender CSPM
+## Data security posture management in Defender CSPM
 
-Defender CSPM provides visibility and contextual insights into your organizational security posture. The addition of data-aware security posture to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks, distinguishing them from less risky issues.
+Defender CSPM provides visibility and contextual insights into your organizational security posture. The addition of data security posture management to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks, distinguishing them from less risky issues.
 
 ### Attack paths
 
@@ -45,7 +45,7 @@ Cloud Security Explorer helps you identify security risks in your cloud environm
 
 You can use Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multicloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to the internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
 
-## Data security in Defender for Storage
+## Data security posture management in Defender for Storage
 
 Defender for Storage monitors Azure storage accounts with advanced threat detection capabilities. It detects potential data breaches by identifying harmful attempts to access or exploit data, and by identifying suspicious configuration changes that could lead to a breach.
 
@@ -59,17 +59,17 @@ By applying sensitivity information types and Microsoft Purview sensitivity labe
 
 Data sensitivity settings define what's considered sensitive data in your organization. Data sensitivity values in Defender for Cloud are based on:
 
-- **Predefined sensitive information types**: Defender for Cloud uses the built-in sensitive information types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can [modify these defaults](data-sensitivity-settings.md). Of these built-in sensitive information types, there's a subset supported by sensitive data discovery. You can view a [reference list](sensitive-info-types.md) of this subset, which also lists which information types are supported by default.  
+- **Predefined sensitive information types**: Defender for Cloud uses the built-in sensitive information types in [Microsoft Purview](/microsoft-365/compliance/sensitive-information-type-learn-about). This ensures consistent classification across services and workloads. Some of these types are enabled by default in Defender for Cloud. You can [modify these defaults](data-sensitivity-settings.md). Of these built-in sensitive information types, there's a subset supported by sensitive data discovery. You can view a [reference list](sensitive-info-types.md) of this subset, which also lists which information types are supported by default.
 - **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you defined in the Microsoft Purview compliance portal.
 - **Sensitive data thresholds**: In Defender for Cloud, you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
 
 When discovering resources for data sensitivity, results are based on these settings.
 
-When you enable data-aware security capabilities with the sensitive data discovery component in the Defender CSPM or Defender for Storage plans, Defender for Cloud uses algorithms to identify data resources that appear to contain sensitive data. Resources are labeled in accordance with data sensitivity settings.
+When you enable data security posture management capabilities with the sensitive data discovery component in the Defender CSPM or Defender for Storage plans, Defender for Cloud uses algorithms to identify data resources that appear to contain sensitive data. Resources are labeled in accordance with data sensitivity settings.
 
 Changes in sensitivity settings take effect the next time that resources are discovered.
 
 ## Next steps
 
-- [Prepare and review requirements](concept-data-security-posture-prepare.md) for data-aware security posture management.
-- [Understanding data aware security posture - Defender for Cloud in the Field video](episode-thirty-one.md).
+- [Prepare and review requirements](concept-data-security-posture-prepare.md) for data security posture management.
+- [Understanding data security posture management - Defender for Cloud in the Field video](episode-thirty-one.md).

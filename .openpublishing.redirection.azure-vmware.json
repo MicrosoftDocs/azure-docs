@@ -179,6 +179,66 @@
             "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
             "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-api-management.md",
+            "redirect_url": "/azure/azure-vmware/architecture-api-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-design-public-internet-access.md",
+            "redirect_url": "/azure/azure-vmware/architecture-design-public-internet-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-hub-and-spoke.md",
+            "redirect_url": "/azure/azure-vmware/architecture-hub-and-spoke",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-identity.md",
+            "redirect_url": "/azure/azure-vmware/architecture-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-migrate.md",
+            "redirect_url": "/azure/azure-vmware/architecture-migrate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-network-design-considerations.md",
+            "redirect_url": "/azure/azure-vmware/architecture-network-design-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-networking.md",
+            "redirect_url": "/azure/azure-vmware/architecture-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-private-clouds-clusters.md",
+            "redirect_url": "/azure/azure-vmware/architecture-private-clouds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-run-command.md",
+            "redirect_url": "/azure/azure-vmware/using-run-command",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-security-recommendations.md",
+            "redirect_url": "/azure/azure-vmware/security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-storage.md",
+            "redirect_url": "/azure/azure-vmware/architecture-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/concepts-vulnerability-management.md",
+            "redirect_url": "/azure/azure-vmware/vulnerability-management",
+            "redirect_document_id": false
         }
     ]
 }

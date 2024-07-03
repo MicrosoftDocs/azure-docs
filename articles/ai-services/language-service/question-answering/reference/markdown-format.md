@@ -1,5 +1,5 @@
 ---
-title: Markdown format - question answering
+title: Markdown format - custom question answering
 description: Following is the list of markdown formats that you can use your answer text.
 ms.service: azure-ai-language
 ms.author: jboback
@@ -10,7 +10,7 @@ ms.date: 12/19/2023
 
 # Markdown format supported in answer text
 
-Question answering stores answer text as markdown. There are many flavors of markdown. In order to make sure the answer text is returned and displayed correctly, use this reference.
+Custom question answering stores answer text as markdown. There are many flavors of markdown. In order to make sure the answer text is returned and displayed correctly, use this reference.
 
 Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
 
@@ -26,22 +26,22 @@ Following is the list of markdown formats that you can use in your answer text.
 
 |Purpose|Format|Example markdown|
 |--|--|--|
-A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n question answering?`|
+A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n custom question answering?`|
 |Headers from h1 to h6, the number of `#` denotes which header. 1 `#` is the h1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|
-|Italics |`*text*`|`How do I create a bot with *question answering*?`|
-|Strong (bold)|`**text**`|`How do I create a bot with **question answering***?`|
-|URL for link|`[text](https://www.my.com)`|`How do I create a bot with [question answering](https://language.cognitive.azure.com/)?`|
-|*URL for public image|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![question answering](path-to-your-image.png)`|
+|Italics |`*text*`|`How do I create a bot with *custom question answering*?`|
+|Strong (bold)|`**text**`|`How do I create a bot with **custom question answering***?`|
+|URL for link|`[text](https://www.my.com)`|`How do I create a bot with [custom question answering](https://language.cognitive.azure.com/)?`|
+|*URL for public image|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![custom question answering](path-to-your-image.png)`|
 |Strikethrough|`~~text~~`|`some ~~questions~~ questions need to be asked`|
-|Bold and italics|`***text***`|`How can I create a ***question answering**** bot?`|
-|Bold URL for link|`[**text**](https://www.my.com)`|`How do I create a bot with [**question answering**](https://language.cognitive.azure.com/)?`|
-|Italics URL for link|`[*text*](https://www.my.com)`|`How do I create a bot with [*question answering*](https://language.cognitive.azure.com/)?`|
-|Escape markdown symbols|`\*text\*`|`How do I create a bot with \*question answering*\*?`|
+|Bold and italics|`***text***`|`How can I create a ***custom question answering**** bot?`|
+|Bold URL for link|`[**text**](https://www.my.com)`|`How do I create a bot with [**custom question answering**](https://language.cognitive.azure.com/)?`|
+|Italics URL for link|`[*text*](https://www.my.com)`|`How do I create a bot with [*custom question answering*](https://language.cognitive.azure.com/)?`|
+|Escape markdown symbols|`\*text\*`|`How do I create a bot with \*custom question answering*\*?`|
 |Ordered list|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>The preceding example uses automatic numbering built into markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>The preceding example uses explicit numbering.|
 |Unordered list|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|
 |Nested lists|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>You can nest ordered and unordered lists together. The tab, `\t`, indicates the indentation level of the child element.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|
 
-* Question answering doesn't process the image in any way. It is the client application's role to render the image.
+* Custom question answering doesn't process the image in any way. It is the client application's role to render the image.
 
 If you want to add content using update/replace project APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
 

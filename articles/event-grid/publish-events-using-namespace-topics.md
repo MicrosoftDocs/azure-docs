@@ -2,10 +2,10 @@
 title: Publish and consume events using namespace topics
 description: This article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model.
 ms.topic: quickstart
-ms.custom: ignite-2023, devx-track-azurecli
-ms.author: jafernan
-author: jfggdl
-ms.date: 11/15/2023
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
+ms.author: robece
+author: robece
+ms.date: 02/20/2024
 ---
 
 # Publish to namespace topics and consume events in Azure Event Grid
@@ -13,9 +13,9 @@ ms.date: 11/15/2023
 This article provides a quick introduction to pull delivery using the ``curl`` bash shell command to publish, receive, and acknowledge events. Event Grid resources are created using CLI commands. This article is suitable for a quick test of the pull delivery functionality. For sample code using the data plane SDKs, see the [.NET](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
  For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.  
 
@@ -58,7 +58,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 2. Create a namespace. You might want to change the location where it's deployed. 
 
     ```azurecli-interactive
-    az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --location eastus --properties "{}"
+    az eventgrid namespace create -g $resource_group -n $namespace -l eastus
     ```
 
 ## Create a namespace topic
@@ -73,7 +73,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 2. Create your namespace topic:
 
     ```azurecli-interactive
-    az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type topics --name $topic --parent namespaces/$namespace --properties "{}"
+    az eventgrid namespace topic create -g $resource_group -n $topic --namespace-name $namespace 
     ```
 
 ## Create an event subscription
@@ -88,7 +88,7 @@ Create an event subscription setting its delivery mode to *queue*, which support
 2. Create an event subscription to the namespace topic:
 
     ```azurecli-interactive
-    az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type eventsubscriptions --name $event_subscription --parent namespaces/$namespace/topics/$topic --properties "{ \"deliveryConfiguration\":{\"deliveryMode\":\"Queue\",\"queue\":{\"receiveLockDurationInSeconds\":300}} }"
+    az eventgrid namespace topic event-subscription create -g $resource_group --topic-name $topic -n $event_subscription --namespace-name $namespace --delivery-configuration "{deliveryMode:Queue,queue:{receiveLockDurationInSeconds:300,maxDeliveryCount:4,eventTimeToLive:P1D}}"
     ```
 
 ## Send events to your topic
@@ -99,12 +99,12 @@ Now, send a sample event to the namespace topic by following steps in this secti
 1. Get the access keys associated with the namespace you created. You use one of them to authenticate when publishing events. To list your keys, you need the full namespace resource ID first. Get it by running the following command:
 
     ```azurecli-interactive 
-    namespace_resource_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
+    namespace_resource_id=$(az eventgrid namespace show -g $resource_group -n $namespace --query "id" --output tsv)
     ```
 2. Get the first key from the namespace:
 
     ```azurecli-interactive
-    key=$(az resource invoke-action --action listKeys --ids $namespace_resource_id --query "key1" --output tsv)
+    key=$(az eventgrid namespace list-key -g $resource_group --namespace-name $namespace --query "key1" --output tsv)
     ```
 
 ### Publish an event
@@ -112,7 +112,7 @@ Now, send a sample event to the namespace topic by following steps in this secti
 1. Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. The following operations were first available with API version `2023-06-01-preview`.
 
     ```azurecli-interactive
-    publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
+    publish_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
     ```
 2. Create a sample [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) compliant event:
 
@@ -134,7 +134,7 @@ You receive events from Event Grid using an endpoint that refers to an event sub
 1. Compose that endpoint by running the following command:
 
     ```azurecli-interactive
-    receive_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
+    receive_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
     ```
 2. Submit a request to consume the event:
 
@@ -159,7 +159,7 @@ After you receive an event, you pass that event to your application for processi
 3. Proceed with building the string with the acknowledge operation URI:
 
     ```azurecli-interactive
-    acknowledge_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:acknowledge?api-version=2023-06-01-preview
+    acknowledge_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:acknowledge?api-version=2023-06-01-preview
     ```
 4. Finally, submit a request to acknowledge the event received:
 

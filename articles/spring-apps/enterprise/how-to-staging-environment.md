@@ -4,7 +4,7 @@ description: Learn how to use blue-green deployment with Azure Spring Apps
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -169,7 +169,7 @@ Use the following steps to view deployed apps.
 
 1. Select an app to view details.
 
-   :::image type="content" source="media/how-to-staging-environment/app-overview.png" lightbox="media/how-to-staging-environment/app-overview.png" alt-text="Screenshot of details for an app.":::
+   :::image type="content" source="media/how-to-staging-environment/app-overview.png" lightbox="media/how-to-staging-environment/app-overview.png" alt-text="Screenshot of the demo app that shows the Overview page with available settings.":::
 
 1. Open **Deployments** to see all deployments of the app. The grid shows both production and staging deployments.
 

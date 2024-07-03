@@ -2,8 +2,8 @@
 title: Manage roles in Azure Load Testing
 titleSuffix: Azure Load Testing
 description: Learn how to manage access to an Azure load testing resource using Azure role-based access control (Azure RBAC).
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 services: load-testing
 ms.service: load-testing
 ms.topic: how-to 

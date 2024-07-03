@@ -29,7 +29,7 @@ follow the principle of least privilege when granting these permissions.
 1. (Recommended)
    [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Assign Azure role](../../../role-based-access-control/role-assignments-portal.md)
+1. [Assign Azure role](../../../role-based-access-control/role-assignments-portal.yml)
    of **Blueprint Operator** to the account or security group
 
 ## User-assign managed identity
@@ -47,7 +47,7 @@ of permissions.
 1. Grant the user-assigned managed identity any roles or permissions required by the blueprint
    definition for the intended scope.
 
-1. [Assign Azure role](../../../role-based-access-control/role-assignments-portal.md)
+1. [Assign Azure role](../../../role-based-access-control/role-assignments-portal.yml)
    of **Managed Identity Operator** to the account or security group. Scope the role assignment to
    the new user-assigned managed identity.
 

@@ -22,14 +22,19 @@ To get started with the **Search photos with image retrieval** scenario in Visio
 >
 > :::image type="content" source="../media/storage-instructions/subscription.png" alt-text="Screenshot of resource selection.":::
 
+
 ## Create a new storage account
 
 To get started, <a href="https://ms.portal.azure.com/#create/Microsoft.StorageAccount"  title="create a new storage account"  target="_blank">create a new storage account</a>.
 
 :::image type="content" source="../media/storage-instructions/create-storage.png" alt-text="Screenshot of Blob storage creation.":::
 
+Fill in the required parameters to configure your storage account, then select **Review** and **Create**.
 
-Fill in the required parameters to configure your storage account, then select **Review** and **Create**. 
+> [!IMPORTANT]
+> Your storage account must be publicly accessible to be used with Vision Studio. Configure this in the **Networking** tab of the resource creation page.
+>
+> :::image type="content" source="../media/storage-instructions/public-access.png" alt-text="Screenshot of network setting.":::
 
 Once your storage account has been deployed, select **Go to resource** to open the storage account overview. 
 

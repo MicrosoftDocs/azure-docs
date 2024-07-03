@@ -1,33 +1,35 @@
 ---
 services: ai-services
-author: soferreira
-ms.author: soferreira
+author: mrbullwinkle
+ms.author: mbullwin
 ms.service: openai
 ms.topic: include
-ms.date: 1/25/2024
+ms.date: 3/19/2024
 ---
 
 ## Python
 
 ### Prerequisites
 
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 - The following Python libraries: os
 
 ### Set up
 
 Install the OpenAI Python client library with:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```console
-pip install openai==0.28.1
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```console
+pip install openai==0.28.1
 ```
 
 ---
@@ -36,30 +38,59 @@ pip install openai
 
 1. Replace the contents of quickstart.py with the following code. Modify the code to add your deployment name:
 
+# [OpenAI Python 1.x](#tab/python-new)
+
 ```python
-import openai
-import time
-import os
-
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-openai.api_type = "azure"
-openai.api_version = "2023-09-01-preview"
-
-model_name = "whisper"
-deployment_id = "YOUR-DEPLOYMENT-NAME-HERE" #This will correspond to the custom name you chose for your deployment when you deployed a model."
-audio_language="en"
-
-audio_test_file = "./wikipediaOcelot.wav"
-
-result = openai.Audio.transcribe(
-            file=open(audio_test_file, "rb"),            
-            model=model_name,
-            deployment_id=deployment_id
-        )
-
-print(result)
+    import os
+    from openai import AzureOpenAI
+        
+    client = AzureOpenAI(
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+        api_version="2024-02-01",
+        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+    
+    deployment_id = "YOUR-DEPLOYMENT-NAME-HERE" #This will correspond to the custom name you chose for your deployment when you deployed a model."
+    audio_test_file = "./wikipediaOcelot.wav"
+    
+    result = client.audio.transcriptions.create(
+        file=open(audio_test_file, "rb"),            
+        model=deployment_id
+    )
+    
+    print(result)
 ```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+
+
+```python
+    import openai
+    import time
+    import os
+    
+    openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")  # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    openai.api_type = "azure"
+    openai.api_version = "2024-02-01"
+    
+    model_name = "whisper"
+    deployment_id = "YOUR-DEPLOYMENT-NAME-HERE" #This will correspond to the custom name you chose for your deployment when you deployed a model."
+    audio_language="en"
+    
+    audio_test_file = "./wikipediaOcelot.wav"
+    
+    result = openai.Audio.transcribe(
+                file=open(audio_test_file, "rb"),            
+                model=model_name,
+                deployment_id=deployment_id
+            )
+    
+    print(result)
+```
+
+---
 
 Run the application with the python command on your quickstart file:
 

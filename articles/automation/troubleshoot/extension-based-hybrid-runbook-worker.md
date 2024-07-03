@@ -33,7 +33,7 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
 - Check whether the hybrid worker process is running.
    - For Windows: check the `Hybrid Worker Service` service.
-   - For Linux: check the `hwd.` service.
+   - For Linux: check the `hwd` service.
 
 - Collect logs:
   - For Windows: Run the log collector tool in </br>`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1` </br>

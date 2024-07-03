@@ -7,7 +7,7 @@ manager: amycolannino
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
-ms.date: 02/13/2024
+ms.date: 03/08/2024
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -232,7 +232,7 @@ You deleted a security principal that had a role assignment. If you assign a rol
 
 **Solution 2**
 
-It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.md).
+It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
@@ -475,7 +475,7 @@ The guest user doesn't have permissions to the resource at the selected scope.
 
 **Solution**
 
-Check that the guest user is assigned a role with least privileged permissions to the resource at the selected scope. For more information, [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
+Check that the guest user is assigned a role with least privileged permissions to the resource at the selected scope. For more information, [Assign Azure roles to external users using the Azure portal](role-assignments-external-users.md).
 
 ### Symptom - Unable to create a support request
 
@@ -610,12 +610,12 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Classic subscription administrators
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting March 26, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting April 3, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 >
 > For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
 ## Next steps
 
-- [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Troubleshoot for external users](role-assignments-external-users.md#troubleshoot)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

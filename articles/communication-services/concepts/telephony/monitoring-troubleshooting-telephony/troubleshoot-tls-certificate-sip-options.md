@@ -55,7 +55,7 @@ This situation might occur if you’re using an older version of TLS. To enforce
 
 Make sure that your SBC certificate isn't self-signed and that you got it from a [trusted Certificate Authority (CA)](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
-If you’re using TLS version 1.2 or higher, and your SBC certificate is valid, then the issue might occur because the FQDN is misconfigured in your SIP profile and not recognized as belonging to any Communication resource. Check for the following conditions, and fix any errors that you find:
+If you’re using TLS version 1.2, and your SBC certificate is valid, then the issue might occur because the FQDN is misconfigured in your SIP profile and not recognized as belonging to any Communication resource. Check for the following conditions, and fix any errors that you find:
 
 - The FQDN provided by the SBC in the Record-Route or Contact header is different from what is configured in Azure Communication resource.
 - The Contact header contains an IP address instead of the FQDN.
@@ -98,7 +98,7 @@ For more information about certificates, see [SBC certificates and domain names]
 
 ## TLS connection issues
 
-If the TLS connection is closed right away and SIP OPTIONS aren't received from the SBC, or if **200 OK** isn't received from the SBC, then the problem might be with the TLS version. The TLS version configured on the SBC should be 1.2 or higher.
+If the TLS connection is closed right away and SIP OPTIONS aren't received from the SBC, or if **200 OK** isn't received from the SBC, then the problem might be with the TLS version. The TLS version configured on the SBC should be 1.2.
 
 ### SBC certificate is self-signed or not from a trusted CA
 

@@ -147,18 +147,19 @@ Functions can also connect to other services to help process data and perform ot
 
 
 ::: zone pivot="programming-language-csharp"
-
 + Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 + Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-
 + Tutorial: [Apply machine learning models in Azure Functions with Python and TensorFlow](./functions-machine-learning-tensorflow.md)
 + Tutorial: [Deploy a pretrained image classification model to Azure Functions with PyTorch](./machine-learning-pytorch.md)
++ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-python-ai-openai-chatgpt)
++ Sample: [LangChain with Azure OpenAI and ChatGPT](https://github.com/Azure-Samples/function-python-ai-langchain)
 ::: zone-end
 
 ## Run scheduled tasks 

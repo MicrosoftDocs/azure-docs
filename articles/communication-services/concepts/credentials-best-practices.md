@@ -5,7 +5,7 @@ author: petrsvihlik
 manager: soricos
 services: azure-communication-services
 
-ms.author: petrsvihlik
+ms.author: soricos
 ms.date: 01/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -132,7 +132,7 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 }
 ```
 
-In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Microsoft Entra access token. Following the guide to [acquire a Microsoft Entra token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
+In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Microsoft Entra access token. Following the guide to [acquire a Microsoft Entra token to call an API](/entra/identity-platform/scenario-spa-acquire-token), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
 
 ```javascript
 const refreshAadToken = async function (abortSignal, username) {
@@ -202,7 +202,7 @@ To minimize the number of roundtrips to the Azure Communication Identity API, ma
 
 # [JavaScript](#tab/javascript)
 
-Option 1: Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](../../active-directory/develop/msal-js-pass-custom-state-authentication-request.md) set to `true`.
+Option 1: Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](/entra/identity-platform/msal-js-pass-custom-state-authentication-request) set to `true`.
 
 ```javascript
 // Extend the `refreshAadToken` function 

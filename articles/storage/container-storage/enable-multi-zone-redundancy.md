@@ -1,10 +1,10 @@
 ---
 title: Enable multi-zone storage redundancy in Azure Container Storage Preview to improve stateful application availability
-description: Enable storage redundancy across multiple availability zones in Azure Container Storage Preview to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
+description: Enable storage redundancy across multiple availability zones in Azure Container Storage to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 03/12/2024
 ms.author: kendownie
 ---
 

@@ -1,25 +1,27 @@
 ---
 title: Azure OpenAI Service Assistants Python & REST API threads reference 
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's Python & REST API threads with Assistants
+description: Learn how to use Azure OpenAI's Python & REST API threads with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 05/20/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-ms.custom:
+ms.custom: devx-track-python
 ---
 
 # Assistants API (Preview) threads reference
+
+[!INCLUDE [Assistants v2 note](includes/assistants-v2-note.md)]
 
 This article provides reference documentation for Python and REST for the new Assistants API (Preview). More in-depth step-by-step guidance is provided in the [getting started guide](./how-to/assistant.md).
 
 ## Create a thread
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-05-01-preview
 ```
 
 Create a thread.
@@ -35,7 +37,7 @@ Create a thread.
 
 A [thread object](#thread-object).
 
-### Example create thread request
+### Example: create thread request
 
 # [Python 1.x](#tab/python)
 
@@ -43,8 +45,8 @@ A [thread object](#thread-object).
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2024-02-15-preview",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -55,8 +57,8 @@ print(empty_thread)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-05-01-preview \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d ''
 ```
@@ -66,7 +68,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024
 ## Retrieve thread
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves a thread.
@@ -82,7 +84,7 @@ Retrieves a thread.
 
 The thread object matching the specified ID.
 
-### Example retrieve thread request
+### Example: retrieve thread request
 
 # [Python 1.x](#tab/python)
 
@@ -90,8 +92,8 @@ The thread object matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2024-02-15-preview",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -102,8 +104,8 @@ print(my_thread)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
 
@@ -112,7 +114,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Modify thread
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
 Modifies a thread.
@@ -133,7 +135,7 @@ Modifies a thread.
 
 The modified [thread object](#thread-object) matching the specified ID.
 
-### Example modify thread request
+### Example: modify thread request
 
 # [Python 1.x](#tab/python)
 
@@ -141,8 +143,8 @@ The modified [thread object](#thread-object) matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2024-02-15-preview",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -159,8 +161,8 @@ print(my_updated_thread)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
       "metadata": {
@@ -175,10 +177,10 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Delete thread
 
 ```http
-DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
-Delete a thread
+Delete a thread.
 
 **Path Parameters**
 
@@ -190,7 +192,7 @@ Delete a thread
 
 Deletion status.
 
-### Example delete thread request
+### Example: delete thread request
 
 # [Python 1.x](#tab/python)
 
@@ -198,8 +200,8 @@ Deletion status.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2024-02-15-preview",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -210,8 +212,8 @@ print(response)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X DELETE
 ```

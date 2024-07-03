@@ -5,7 +5,7 @@ ms.service: mariadb
 author: SudheeshGH
 ms.author: sunaray
 ms.subservice: migration-guide
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 04/19/2023
 ---

@@ -4,6 +4,7 @@ description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
 author: mathapli
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 08/01/2022

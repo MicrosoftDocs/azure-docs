@@ -76,4 +76,9 @@ A: After June 30, 2023 any dedicated host running on the SKUs that are marked fo
 
 ### Q:  What will happen to my VMs if a Host is automatically deallocated?
 
-A: If the underlying host is deallocated the VMs that were running on the host would be deallocated but not deleted. You would be able to either create a new host (of the same VM family) and allocate VMs on the host or run the VMs on multitenant infrastructure.
+A: If the underlying host is deallocated the VMs that were running on the host would be either in failed or stopped state but not deleted.   
+
+You could stop/deallocate the VM or VMSS and the dissociate the VM or VMSS from the host/host group (depending on explicit vs implicit placement) and then you would be able to either create a new host (of the same VM family) and allocate VMs on the host/host group or run the VMs on multitenant infrastructure. 
+
+Refer to the [Azure Dedicated Host Migration Guide](dedicated-host-migration-guide.md) for more detailed instructions. 
+

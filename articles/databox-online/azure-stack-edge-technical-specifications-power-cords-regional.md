@@ -7,13 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/09/2023
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 
 # Azure Stack Edge power cord specifications
 
 [!INCLUDE [applies-to-gpu-and-pro-fpga-sku](../../includes/azure-stack-edge-applies-to-gpu-pro-fpga-sku.md)]
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 Your Azure Stack Edge device will need a power cord that will vary depending on your Azure region.
 

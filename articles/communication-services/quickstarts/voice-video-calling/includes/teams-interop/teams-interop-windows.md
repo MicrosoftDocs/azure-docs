@@ -10,10 +10,14 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Windows.
 
+## Sample Code
+Find the finalized code for this quickstart on GitHub for [UWP](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling) and [WinUI 3](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
+
 ## Prerequisites
 
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- The Minimum Version supported for Teams meeting ID and passcode join API: 1.7.0
 - An [access token](../../../identity/access-tokens.md).
 
 ## Add the Teams UI controls and Enable the Teams UI controls
@@ -39,13 +43,19 @@ Replace code in MainPage.xaml with following snippet. The text box will be used 
             <RowDefinition Height="60*"/>
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="10,10,10,10" />
 
-        <Grid x:Name="AppTitleBar" Background="LightSeaGreen">
+        <Grid Grid.Row="0" x:Name="AppTitleBar" Background="LightSeaGreen">
             <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
             <!-- Using padding columns instead of Margin ensures that the background paints the area under the caption control buttons (for transparent buttons). -->
             <TextBlock x:Name="QuickstartTitle" Text="Calling Quickstart sample title bar" Style="{StaticResource CaptionTextBlockStyle}" Padding="7,7,0,0"/>
         </Grid>
+
+        <StackPanel Grid.Row="1">
+            <TextBox x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" />
+            <TextBlock Text="or" Padding="7,7,0,0" />
+            <TextBox x:Name="CalleeMeetingId" PlaceholderText="Teams Meeting Id" TextWrapping="Wrap" VerticalAlignment="Center" />
+            <TextBox x:Name="CalleeMeetingPasscode" PlaceholderText="Teams Meeting Passcode" TextWrapping="Wrap" VerticalAlignment="Center" />
+        </StackPanel>
 
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
@@ -121,11 +131,17 @@ namespace CallingQuickstart
         private async void CallButton_Click(object sender, RoutedEventArgs e)
         {
             var callString = CalleeTextBox.Text.Trim();
+            var meetingId = CalleeMeetingId.Text.Trim();
+            var passcode = CalleeMeetingPasscode.Text.Trim();
 
+            // join with meeting link
             if (!string.IsNullOrEmpty(callString))
             {
                 call = await JoinTeamsMeetingByLinkAsync(teamsMeetinglink);
             }
+
+            // (or) to join with meetingId and passcode use the below code snippet.
+            // call = await JoinTeamsMeetingByMeetingIdAsync(meetingId, passcode);
 
             if (call != null)
             {
@@ -333,6 +349,15 @@ namespace CallingQuickstart
             return call;
         }
 
+        private async Task<CommunicationCall> JoinTeamsMeetingByMeetingIdAsync(String meetingId, String passcode)
+        {
+            var joinCallOptions = GetJoinCallOptions();
+
+            var teamsMeetingIdLocator = new TeamsMeetingIdLocator(meetingId, passcode);
+            var call = await callAgent.JoinAsync(teamsMeetingIdLocator, joinCallOptions);
+            return call;
+        }
+
         private JoinCallOptions GetJoinCallOptions()
         {
             return new JoinCallOptions() {
@@ -350,6 +375,11 @@ namespace CallingQuickstart
 
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+## Get the Teams meeting ID and passcode
+* Graph API: Use Graph API to retrieve information about onlineMeeting resource and check the object in property `joinMeetingIdSettings`.
+* Teams: In your Teams application, go to Calendar app and open details of a meeting. Online meetings have meeting ID and passcode in the definition of the meeting.
+* Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
 
 ## Launch the app and join Teams meeting
 

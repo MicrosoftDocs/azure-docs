@@ -27,7 +27,7 @@ In this quickstart, you create an Azure Cosmos DB for Apache Cassandra account, 
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments.
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments.
 
 In addition, you need:
 
@@ -74,12 +74,12 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The username and password values were set using the connection string page in the Azure portal.
 
-   ```javascript
+    ```javascript
     let authProvider = new cassandra.auth.PlainTextAuthProvider(
         config.username,
         config.password
     );
-   ```
+    ```
 
 * The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
 
@@ -106,17 +106,15 @@ This step is optional. If you're interested to learn how the code creates the da
     var query =
         `CREATE KEYSPACE IF NOT EXISTS ${config.keySpace} WITH replication = {'class': 'NetworkTopologyStrategy', 'datacenter' : '1' }`;
     await client.execute(query);
-  }
     ```
 
 * A new table is created.
 
-   ```javascript
+    ```javascript
     query =
         `CREATE TABLE IF NOT EXISTS ${config.keySpace}.user (user_id int PRIMARY KEY, user_name text, user_bcity text)`;
     await client.execute(query);
-   },
-   ```
+    ```
 
 * Key/value entities are inserted.
 

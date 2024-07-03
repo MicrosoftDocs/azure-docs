@@ -6,12 +6,13 @@ summary: Learn how to create Application Gateway for Containers. This documentat
 metadata:
   title: Azure Application Gateway for Containers documentation
   description: Learn about Azure Application Gateway for Containers, an application load balancer that enables you to manage traffic to your container workloads.
+  services: application-gateway
   ms.service: application-gateway
   ms.subservice: appgw-for-containers
   ms.topic: landing-page
   author: greglin
   ms.author: greglin
-  ms.date: 07/24/2023
+  ms.date: 02/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -39,8 +40,6 @@ landingContent:
             url: alb-controller-backend-health-metrics.md
           - text: Metrics
             url: application-gateway-for-containers-metrics.md
-          - text: Reliability in Application Gateway for Containers
-            url: ../../reliability/reliability-app-gateway-containers.md?toc=/azure/application-gateway/for-containers/toc.json
           - text: Frequently asked questions
             url: faq.yml
       - linkListType: whats-new

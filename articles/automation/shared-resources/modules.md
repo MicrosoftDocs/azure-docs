@@ -53,7 +53,7 @@ The default modules are also known as global modules. In the Azure portal, the *
 ![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 > [!NOTE]
-> We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../automation-solution-vm-management.md) feature.
+> We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../../azure-functions/start-stop-vms/overview.md)
 
 |Module name|Version|
 |---|---|

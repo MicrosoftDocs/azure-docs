@@ -3,12 +3,12 @@ title: Back up and recover your conversational language understanding models
 titleSuffix: Azure AI services
 description: Learn how to save and recover your conversational language understanding models.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-clu
 ---
 
@@ -134,5 +134,4 @@ In this article, you have learned how to use the export and import APIs to repli
 
 * [Authoring REST API reference ](https://aka.ms/clu-authoring-apis)
 
-* [Runtime prediction REST API reference ](https://aka.ms/clu-apis) 
- 
+* [Runtime prediction REST API reference ](https://aka.ms/clu-apis)

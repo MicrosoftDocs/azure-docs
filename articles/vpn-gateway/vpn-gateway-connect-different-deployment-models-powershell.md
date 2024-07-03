@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 03/12/2024
 ms.author: cherylmc
 ---
 # Connect virtual networks from different deployment models using PowerShell
@@ -34,12 +34,12 @@ The following steps walk you through the settings necessary to configure a dynam
 
 These steps assume that you have a legacy classic VNet and a Resource Manager VNet already created.
 
-* Verify that the address ranges for the VNets don't overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
+* Verify that the address ranges for the VNets don't overlap with each other, or overlap with any of the ranges for other connections that the gateways might be connected to.
 * In this article, we use PowerShell. Install the latest PowerShell cmdlets to your computer for **both** Resource Manager and Service Management.
 
   While it's possible to perform a few of the PowerShell commands using the Azure Cloud Shell environment, you need to install both versions of the cmdlets to create the connections properly.
 
-  * [Service Management (classic) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps?). When you install the Service Management cmdlets, you may need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
+  * [Service Management (classic) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps?). When you install the Service Management cmdlets, you might need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
 
   * [AZ PowerShell cmdlets for Resource Manager](/powershell/azure/install-az-ps?)
 
@@ -182,7 +182,7 @@ Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded
 
 ### 6. Create the gateway
 
-Before running this example, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. The network configuration file contains the values for your classic virtual networks. When a classic VNet is created using the portal, the virtual network name is different in the network configuration file. For example, if you used the Azure portal to create a classic VNet named 'Classic VNet' and created it in a resource group named 'ClassicRG', the name that is contained in the network configuration file is converted to 'Group ClassicRG Classic VNet'. Always use the name contained in the network configuration file when you are working with PowerShell.When you specify the name of a VNet that contains spaces, use quotation marks around the value.
+Before running this example, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. The network configuration file contains the values for your classic virtual networks. When a classic VNet is created using the portal, the virtual network name is different in the network configuration file. For example, if you used the Azure portal to create a classic VNet named 'Classic VNet' and created it in a resource group named 'ClassicRG', the name that is contained in the network configuration file is converted to 'Group ClassicRG Classic VNet'. Always use the name contained in the network configuration file when you're working with PowerShell.When you specify the name of a VNet that contains spaces, use quotation marks around the value.
 
 Use the following example to create a dynamic routing gateway:
 
@@ -305,7 +305,7 @@ In this section, you work with the classic VNet. You replace the placeholder IP 
 
 ## <a name="connect"></a>Create a connection between the gateways
 
-Creating a connection between the gateways requires PowerShell. You may need to add your Azure Account to use the classic version of the PowerShell cmdlets. To do so, use **Add-AzureAccount**.
+Creating a connection between the gateways requires PowerShell. You might need to add your Azure Account to use the classic version of the PowerShell cmdlets. To do so, use **Add-AzureAccount**.
 
 1. In the PowerShell console, set your shared key. Before running the cmdlets, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. When specifying the name of a VNet that contains spaces, use single quotation marks around the value.
 
@@ -348,7 +348,7 @@ You can verify that your connection succeeded by using the 'Get-AzureVNetConnect
    Get-AzureVNetConnection "ClassicVNet"
    ```
 
-1. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
+1. After the cmdlet has finished, view the values. In the following example, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
 
    ```output
    ConnectivityState         : Connected
@@ -374,7 +374,7 @@ You can verify that your connection succeeded by using the 'Get-AzVirtualNetwork
    Get-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
    ```
 
-1. After the cmdlet has finished, view the values. In the example below, the connection status shows as 'Connected' and you can see ingress and egress bytes.
+1. After the cmdlet has finished, view the values. In the following example, the connection status shows as 'Connected' and you can see ingress and egress bytes.
 
    ```azure-powershell-interactive
    "connectionStatus": "Connected",
