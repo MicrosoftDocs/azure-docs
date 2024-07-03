@@ -20,6 +20,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for new [minor versions](concepts-supported-versions.md) 16.3, 15.7, 14.12, 13.15, and 12.19 <sup>$</sup>
 * General availability of [IOPS scaling](./concepts-storage.md#iops-scaling) on Azure Database for PostgreSQL flexible server.
 * CMK support for LTR in Public preview [long-term backup retention](concepts-backup-restore.md).
+* Support for [built-in Azure Policy definitions](concepts-security.md#azure-policy-support)
 
 ## Release: May 2024
 * General availability of Postgres [azure_ai](generative-ai-azure-overview.md) extension.

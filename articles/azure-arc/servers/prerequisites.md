@@ -63,8 +63,31 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 
 | Operating system | Last supported agent version | End of Arc Support Date | Notes |
 | -- | -- | -- | -- | 
-| Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
-| CentOS 7 and 8 | 1.42 [Download](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi)  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+| Windows Server 2008 R2 SP1 | 1.39 [Download](https://aka.ms/AzureConnectedMachineAgent-1.39)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
+| CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+
+### Connect new limited support servers
+
+To connect a new server running a Limited Support operating system to Azure Arc, you will need to make some adjustments to the onboarding script.
+
+For Windows, modify the installation script to specify the version required, using the -AltDownload parameter.
+
+Instead of 
+
+```pwsh
+    # Install the hybrid agent
+    & "$env:TEMP\install_windows_azcmagent.ps1";
+```
+
+Use 
+
+```pwsh
+    # Install the hybrid agent
+    & "$env:TEMP\install_windows_azcmagent.ps1" -AltDownload https://aka.ms/AzureConnectedMachineAgent-1.39;
+```
+
+For Linux, the relevant package repository will only contain releases that are applicable, so no special considerations are required. 
+
 
 ### Client operating system guidance
 
