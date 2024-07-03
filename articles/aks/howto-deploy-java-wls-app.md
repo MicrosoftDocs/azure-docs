@@ -66,7 +66,7 @@ The following steps show you how to find the WebLogic Server on AKS offer and fi
    You can also go directly to the [WebLogic Server on AKS](https://aka.ms/wlsaks) offer.
 
 1. On the offer page, select **Create**.
-1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that you logged into in Azure. Make sure you have the roles listed in the prerequisites section.
+1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that you logged into in Azure. Make sure you have the roles listed in the prerequisites section for the subscription.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
 
