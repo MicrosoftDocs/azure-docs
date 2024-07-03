@@ -24,15 +24,15 @@ Follow the steps in this article to:
 * Configure the workspace gateway network access settings
 * Assign users to the workspace
 
-::: zone-pivot="public-inbound-private-outbound, private-inbound-private-outbound, public"
+:::zone-pivot="public,public-inbound-private-outbound,private-inbound-private-outbound"
 
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API  Management instance is deployed, or equivalent permissions to create resources in the resource group.
-::: zone-end
+:::zone-end
 
-::: zone-pivot="public-inbound-private-outbound, private-inbound-private-outbound"
+:::zone-pivot="public-inbound-private-outbound,private-inbound-private-outbound"
 * An Azure virtual network and subnet to isolate the workspace gateway.
     * The virtual network must be in the same region and Azure subscription as the API Management instance.
     * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
@@ -40,10 +40,10 @@ Follow the steps in this article to:
     > [!IMPORTANT]
     > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace. 
 
-::: zone-end
+:::zone-end
 
 
-::: zone pivot="public-inbound-private-outbound"
+:::zone pivot="public-inbound-private-outbound"
 
 ## Prepare the subnet
 ###  Delegate the subnet
@@ -60,9 +60,9 @@ A network security group must be attached to the subnet used for access to the g
 | */80                          | Inbound            | TCP                | AzureLoadBalancer | Workspace gateway subnet range                           | Allow internal health ping traffic     |
 | */80,443 | Inbound | TCP | Internet | Workspace gateway subnet range | Allow inbound traffic |
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="private-inbound-private-outbound"
+:::zone pivot="private-inbound-private-outbound"
 ## Prepare the subnet
 ### Delegate the subnet
 For private inbound and private outbound access, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironment** service.  The subnet can't have another delegation configured. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/hostingEnvironment**.      
@@ -78,7 +78,7 @@ A network security group must be attached to the subnet used for access to the g
 | */80                          | Inbound            | TCP                | AzureLoadBalancer | Workspace gateway subnet range                           | Allow internal health ping traffic     |
 | */80,443 | Inbound | TCP | Virtual network | Workspace gateway subnet range | Allow inbound traffic |
        
-::: zone-end
+:::zone-end
 
 ## Create a workspace - portal
 
