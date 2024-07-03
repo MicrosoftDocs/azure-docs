@@ -102,8 +102,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-ios-swift-c2d.md",
-      "redirect_url": "/azure/iot-hub/c2d-messaging-ios",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/Azure-Samples/azure-iot-samples-ios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-iot-samples-ios",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-file-upload.md",

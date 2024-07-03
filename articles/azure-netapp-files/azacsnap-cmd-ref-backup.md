@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 05/15/2024
+ms.date: 07/02/2024
 ms.author: phjensen
 ---
 
@@ -63,6 +63,20 @@ The `-c backup` command takes the following arguments:
 
     ```bash
     azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
+    ```
+
+- `[--flush]` an option to request the operating system kernel to flush I/O buffers for volumes after the database is put into "*backup mode*".  In prior versions we used the "mountpoint" values to indicate volumes to flush, with AzAcSnap 10 the `--flush` option will take care of it.  Therefore this key/value ("mountpoint") can be removed from the configuration file.
+  - On Windows volumes which are labelled as "Windows" or "Recovery", and are NTFS will not be flushed.  You can also add "noflush" to the volume label and it will not be flushed.  
+  - On Linux all I/O is flushed using the Linux `sync` command.
+
+  Running the following example on the same host running the database will:
+    1. Put the database into "*backup mode*".
+    2. Request an operating system kernel flush of I/O buffers for local volumes (see operating system specific details).
+    3. Take a storage snapshot.
+    4. Release the database from "*backup mode*".
+
+    ```bash
+    azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim --flush
     ```
 
 - `[--ssl=]` an optional parameter that defines the encryption method used to communicate
