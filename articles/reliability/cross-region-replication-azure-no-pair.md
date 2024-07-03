@@ -57,11 +57,7 @@ For geo-replication in non-paired regions with Azure SQL Managed Instance, you c
 
 ## Azure Key Vault
 
-To achieve geo-replication in non-paired regions, you can:
-
-- Within a single geography only, [backup Azure Key Vault](/azure/key-vault/general/backup?tabs=azure-cli). 
-
-- Use [Key Vault Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/overview). Although it's a more expensive option, as it provides encryption key management.
+[!INCLUDE [Key Vault in non-paired regions guidance](../key-vault/includes/key-vault-non-paired-regions.md)]
 
 
 ## Azure Data Factory
