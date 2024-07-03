@@ -23,7 +23,7 @@ You can learn more about Opaque in [our partner webinar here](https://vshow.on24
 
 ## Opaque Workspaces
 
-The solution provides a centralized data platform that eliminates the need for compliance-driven, time-consuming tasks like anonymization and manual access approvals so that teams can operationalize their data for AI and analytics in days, not weeks or months. Leverages confidential computing to protect data while it’s shared across teams and harnessed for AI, to ensure only expected participants can view the original data and results of the computation. The top 3 business outcomes that enterprises experience from deploying Opaque Workspaces are:
+The solution provides a centralized data platform that eliminates the need for compliance-driven, time-consuming tasks like anonymization and manual access approvals so that teams can operationalize their data for AI and analytics in days, not weeks, or months. Leverage confidential computing to protect data while it is shared across teams and harnessed for AI, to ensure only expected participants can view the original data and results of the computation. The top 3 business outcomes that enterprises experience from deploying Opaque Workspaces are:
 
   Faster time to insights into confidential data
   Risk mitigation by secure data processing in use
