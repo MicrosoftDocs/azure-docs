@@ -86,7 +86,7 @@ To resolve this issue, you need to follow these steps:
 Artifact cache currently supports the following upstream registries:
 
 >[!WARNING]
-> We recommend customers to create and authenticate their own credentials to pull images from the local ACR to avoid rate limits and ensure uninterrupted content delivery from upstream sources.
+> We recommend customers to create and authenticate their own credentials to authenticate their cache rules when sourcing content from Docker Hub.
 
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
