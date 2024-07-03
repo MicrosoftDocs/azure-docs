@@ -21,7 +21,7 @@ Artifact cache offers faster and more *reliable pull operations* through Azure C
 
 Artifact cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
 
-Artifact cache addresses the challenge of anonymous pull limits imposed by public registries. We recommend users to create their own credentials set to authenticate and pull images from the local ACR, to circumvent rate limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
+Artifact cache addresses the challenge of pull limits imposed by public registries. We recommend users authenticate their cache rules with their upstream source credentials. Then pull images from the local ACR, to help circumvent rate limits,  ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
 
 ## Terminology 
 
