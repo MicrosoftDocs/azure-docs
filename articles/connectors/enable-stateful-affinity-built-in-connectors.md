@@ -93,8 +93,8 @@ Updates a resource by using the specified resource ID:
 
 #### Parameter values
 
-| Element | Value  | Description |
-|---------|--------|-------------|
+| Element | Value  |
+|---------|--------|
 | HTTP request method | **PATCH** |
 | <*resourceId*> | **subscriptions/{yourSubscriptionID}/resourcegroups/{yourResourceGroup}/providers/Microsoft.Web/sites/{websiteName}/config/web** |
 | <*yourSubscriptionId*> | The ID for your Azure subscription |
@@ -190,11 +190,13 @@ Resource scale-in events might cause the loss of context for built-in connectors
 
 1. On your logic app resource menu, under **Settings**, select **Scale out**.
 
-1. Under **App Scale Out**, set **Enforce Scale Out Limit** to **Yes**, which shows the **Maximum Scale Out Limit**.
+1. On the **Scale out** page, in the **App Scale out** section, follow these steps:
 
-1. On the **Scale out** page, under **App Scale out**, set the number for **Always Ready Instances** to the same number as **Maximum Scale Out Limit** and **Maximum Burst**, which appears under **Plan Scale Out**, for example:
+   1. Set **Enforce Scale Out Limit** to **Yes**, which shows the **Maximum Scale Out Limit**.
 
-   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/scale-in-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Scale out page, and Always Ready Instances number set to match Maximum Scale Out Limit and Maximum Burst.":::
+   1. Set **Always Ready Instances** to the same number as **Maximum Scale Out Limit** and **Maximum Burst**, which appears in the **Plan Scale out** section, for example:
+
+   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/scale-in-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Scale out page, and Always Ready Instances number set to match Maximum Burst and Maximum Scale Out Limit.":::
 
 1. When you're done, on the **Scale out** toolbar, select **Save**.
 
