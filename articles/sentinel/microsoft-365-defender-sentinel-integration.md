@@ -15,14 +15,17 @@ ms.collection: usx-security
 
 Integrate Microsoft Defender XDR with Microsoft Sentinel to stream all Defender XDR incidents and advanced hunting events into Microsoft Sentinel and keep the incidents and events synchronized between the Azure and Microsoft Defender portals. Incidents from Defender XDR include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Microsoft Sentinel, incidents remain bi-directionally synced with Defender XDR, allowing you to take advantage of the benefits of both portals in your incident investigation.
 
-Watch this short overview of Microsoft Sentinel integration with Microsoft Defender XDR (4 minutes). This video applies to the Defender XDR integration with Microsoft Sentinel in the Azure portal.
-
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWFIRo]
-
 Alternatively, onboard Microsoft Sentinel with Defender XDR to the unified security operations platform in the Defender portal. The unified security operations platform brings together the full capabilities of Microsoft Sentinel, Defender XDR, and generative AI built specifically for cybersecurity. For more information, see the following resources:
 
 - [Unified security operations platform with Microsoft Sentinel and Defender XDR](https://aka.ms/unified-soc-announcement)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
+
+## Integration of Defender XDR with Microsoft Sentinel
+
+Watch this short overview of Microsoft Sentinel integration with Microsoft Defender XDR (4 minutes). This video applies to the Defender XDR integration with Microsoft Sentinel in the Azure portal.
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWFIRo]
 
 ## Incident correlation and alerts
 
@@ -111,11 +114,10 @@ The Defender XDR connector also lets you stream **advanced hunting** events&mdas
 
 - Store the logs with increased retention, beyond Defender XDR’s or its components' default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
 
-## Next steps
+## Related content
 
 In this document, you learned the benefit of using Defender XDR together with Microsoft Sentinel, by enabling the Defender XDR connector in Microsoft Sentinel.
 
 - [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md)
 - To use the unified security operations platform in the Defender portal, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 - Check [availability of different Microsoft Defender XDR data types](microsoft-365-defender-cloud-support.md) in the different Microsoft 365 and Azure clouds.
-- Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-incidents.md).
