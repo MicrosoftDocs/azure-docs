@@ -1,16 +1,6 @@
 {
     "redirections": [
     {
-      "source_path": "articles/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
-      "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
-      "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
       "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
       "redirect_document_id": false
