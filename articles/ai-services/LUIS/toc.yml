@@ -92,7 +92,7 @@ items:
       href: luis-how-to-collaborate.md
     - name: With versions
       href: luis-how-to-manage-versions.md
-      diplayName: import, export, container
+      displayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
   - name: Use containers

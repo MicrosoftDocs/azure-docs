@@ -2,9 +2,10 @@
 title: Enable Periodic Assessment using policy
 description: This article shows how to manage update settings for your Windows and Linux machines managed by Azure Update Manager.
 ms.service: azure-update-manager
+ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/17/2024
+ms.date: 04/03/2024
 ms.topic: conceptual
 ---
 
@@ -24,6 +25,10 @@ This article describes how to enable Periodic Assessment for your machines at sc
 1. On the **Review + Create** tab, select **Create** to trigger **Assignment and Remediation Task** creation, which can take a minute or so.
 
 You can monitor the compliance of resources under **Compliance** and remediation status under **Remediation** on the Azure Policy home page.
+
+> [!NOTE]
+> - Periodic assessment policies work for all supported image types. If you are facing failures during remediation see, [remediation failures for gallery images](troubleshoot.md#policy-remediation-tasks-are-failing-for-gallery-images-and-for-images-with-encrypted-disks) for more information. 
+> - Run a remediation task post create [for issues with auto remediation of specialized, migrated and restored images during create](troubleshoot.md#periodic-assessment-isnt-getting-set-correctly-when-the-periodic-assessment-policy-is-used-during-create-for-specialized-migrated-and-restored-vms).
 
 ## Enable Periodic Assessment for your Azure Arc-enabled machines by using Azure Policy
 

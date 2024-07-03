@@ -115,4 +115,4 @@ To learn more about how you can use PowerShell to automate onboarding to Defende
 To learn more about Defender for Cloud, see the following articles:
 
 * [Setting security policies in Microsoft Defender for Cloud](tutorial-security-policy.md). Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
+* [Managing and responding to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml). Learn how to manage and respond to security alerts.

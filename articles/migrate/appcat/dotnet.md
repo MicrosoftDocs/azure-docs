@@ -44,7 +44,7 @@ Use the following steps to install it from inside Visual Studio. Alternatively, 
 
 ### Prerequisites
 
-- .NET SDK
+- .NET SDK (6 or greater)
 
 ### Installation steps
 

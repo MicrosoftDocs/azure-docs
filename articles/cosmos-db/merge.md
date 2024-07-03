@@ -7,6 +7,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
 ms.service: cosmos-db
+ms.custom: devx-track-azurecli
 ms.date: 04/28/2023
 ---
 

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-jenkins
 ---
 
@@ -67,7 +67,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 1. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Apps**:
 
-   :::image type="content" source="media/how-to-permissions/permissions.png" alt-text="Screenshot that shows the results of searching for Microsoft.app." lightbox="media/how-to-permissions/permissions.png":::
+   :::image type="content" source="media/how-to-permissions/permissions.png" alt-text="Screenshot of the Azure portal that shows the Add permissions page search results with Microsoft Azure Spring Apps highlighted." lightbox="media/how-to-permissions/permissions.png":::
 
 1. Select the permissions for the Developer role.
 
@@ -300,7 +300,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
-  
+
    (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Agent Pools**

@@ -66,4 +66,4 @@ See [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metri
 ## Next steps
 
 - [Learn more about the Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics)
-- [Monitor UE usage via Azure Event Hubs (preview)](/azure/event-hubs/monitor-event-hubs)
+- [Monitor UE usage via Azure Event Hubs](/azure/event-hubs/monitor-event-hubs)

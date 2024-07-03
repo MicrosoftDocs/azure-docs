@@ -3,7 +3,7 @@ title: 'Detect memory leak: Application Insights smart detection'
 description: Monitor applications with Application Insights for potential memory leaks.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 04/01/2024
 ms.reviewer: yagil
 ---
 

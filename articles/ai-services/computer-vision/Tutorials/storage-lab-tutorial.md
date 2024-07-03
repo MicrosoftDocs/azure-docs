@@ -384,7 +384,7 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
     ![Azure portal page with the endpoint URL and access keys link outlined](Images/copy-vision-endpoint.png)
     
-    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+    [!INCLUDE [Custom subdomains notice](../../includes/cognitive-services-custom-subdomains-note.md)]
 
 
 1. In the next window, copy the value of **KEY 1** to the clipboard.

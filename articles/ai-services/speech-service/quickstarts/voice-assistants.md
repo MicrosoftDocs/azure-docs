@@ -6,10 +6,9 @@ author: trrwilson
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 2/24/2024
 ms.author: travisw
 ms.devlang: csharp
-# ms.devlang: csharp, golang, java
 ms.custom: cogserv-non-critical-speech, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-voice-assistants
 ---

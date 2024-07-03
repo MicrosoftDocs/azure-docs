@@ -34,6 +34,8 @@
     href: updates-maintenance-schedules.md
   - name: Assessment options
     href: assessment-options.md
+  - name: Overview of Pre and Post Events (preview)
+    href: pre-post-scripts-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
@@ -60,14 +62,12 @@
         href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
     - name: Azure Stack HCI patching
       href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
-    - name: Deploy and manage updates using Updates view (preview)
+    - name: Deploy and manage updates using Updates view
       href: deploy-manage-updates-using-updates-view.md
     - name: Create alerts (preview)
       href: manage-alerts.md
     - name: Pre and Post Events (preview)
       items:
-      - name: Overview
-        href: pre-post-scripts-overview.md
       - name: Manage pre and post events (preview)
         href: manage-pre-post-events.md  
       - name: FAQ

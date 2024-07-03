@@ -45,6 +45,5 @@ To learn more, see [Troubleshooting](https://azure.github.io/communication-ui-li
 Users can also find the call ID via the action bar on the bottom of the call screen. For more information, see the [UI Library use cases](../../concepts/ui-library/ui-library-use-cases.md?&pivots=platform-mobile#troubleshooting-guide).
 
 ## Next steps
-
 - [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)
 - [Learn more about the UI Library Design Kit](../../quickstarts/ui-library/get-started-ui-kit.md)

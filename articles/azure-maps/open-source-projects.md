@@ -110,6 +110,7 @@ Find more open-source Azure Maps projects.
 [Azure Maps Jupyter Notebook samples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps OpenLayers plugin]: https://github.com/azure-samples/azure-maps-openlayers
+[Azure Maps Open Source Projects]: https://github.com/Microsoft/Maps/blob/master/AzureMaps.md
 [Azure Maps Overview Map module]: https://github.com/Azure-Samples/azure-maps-overview-map
 [Azure Maps Scale Bar Control module]: https://github.com/Azure-Samples/azure-maps-scale-bar-control
 [Azure Maps Selection Control module]: https://github.com/Azure-Samples/azure-maps-selection-control

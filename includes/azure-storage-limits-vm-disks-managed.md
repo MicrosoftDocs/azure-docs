@@ -11,13 +11,13 @@
 ---
 
 ### Standard HDD managed disks
-[!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
+[!INCLUDE [disk-storage-standard-hdd-sizes](./disk-storage-standard-hdd-sizes.md)]
 
 ### Standard SSD managed disks
-[!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+[!INCLUDE [disk-storage-standard-ssd-sizes](./disk-storage-standard-ssd-sizes.md)]
 
 ### Premium SSD managed disks: Per-disk limits 
-[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](./disk-storage-premium-ssd-sizes.md)]
 
 ### Premium SSD managed disks: Per-VM limits
 

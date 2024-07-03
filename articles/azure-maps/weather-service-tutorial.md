@@ -144,7 +144,7 @@ The following table displays the combined historical and forecast data for one o
 grouped_weather_data.get_group(station_ids[0]).reset_index()
 ```
 
-<center>![Grouped data](./media/weather-service-tutorial/grouped-data.png)</center>
+![Grouped data](./media/weather-service-tutorial/grouped-data.png)
 
 ## Plot forecast data
 
@@ -169,9 +169,7 @@ windsPlot.set_ylabel("Wind direction")
 
 The following graphs visualize the forecast data. For the change of wind speed, see the left graph. For change in wind direction, see the right graph. This data is prediction for next 15 days from the day the data is requested.
 
-<center>
 ![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)
-</center>
 
 In this tutorial, you learned how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
 

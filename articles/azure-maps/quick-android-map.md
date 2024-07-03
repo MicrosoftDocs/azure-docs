@@ -22,6 +22,12 @@ This article shows you how to add the Azure Maps to an Android app. It walks you
 * Reference the Azure Maps libraries from the project.
 * Add an Azure Maps control to the app.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 ## Prerequisites
 
 1. A subscription to [Microsoft Azure]. If you don't have an Azure subscription, [create a free account] before you begin.

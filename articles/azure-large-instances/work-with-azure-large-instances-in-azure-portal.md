@@ -45,7 +45,7 @@ You need to list your subscription in the Azure portal and then double-click the
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 For more information about resource providers, see [Azure resource providers and types](./../azure-resource-manager/management/resource-providers-and-types.md).
 

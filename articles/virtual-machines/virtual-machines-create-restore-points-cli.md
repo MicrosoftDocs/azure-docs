@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * [Track the progress of Copy operation](#step-3-track-the-status-of-the-vm-restore-point-creation)
 > * [Restore a VM](#restore-a-vm-from-vm-restore-point)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 - Learn more about the [support requirements](concepts-restore-points.md) and [limitations](virtual-machines-create-restore-points.md#limitations) before creating a restore point.
 
 ## Step 1: Create a VM restore point collection

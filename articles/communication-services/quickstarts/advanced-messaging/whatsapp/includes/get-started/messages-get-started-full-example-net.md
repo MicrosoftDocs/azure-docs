@@ -1,11 +1,11 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
-author: memontic-ms
+author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 08/22/2023
+ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -31,17 +31,17 @@ namespace AdvancedMessagingQuickstart
             NotificationMessagesClient notificationMessagesClient = 
                 new NotificationMessagesClient(connectionString);
 
-            string channelRegistrationId = "<Your Channel ID>";
+            var channelRegistrationId = new Guid("<Your Channel ID>");
             var recipientList = new List<string> { "<Recipient's WhatsApp Phone Number>" };
 
             // Send sample template sample_template
             string templateName = "sample_template";
             string templateLanguage = "en_us";
             MessageTemplate sampleTemplate = new MessageTemplate(templateName, templateLanguage);
-            SendMessageOptions sampleTemplateMessageOptions = 
-                new SendMessageOptions(channelRegistrationId, recipientList, sampleTemplate);
+            TemplateNotificationContent templateContent = 
+                new TemplateNotificationContent(channelRegistrationId, recipientList, sampleTemplate);
             Response<SendMessageResult> sendTemplateMessageResult = 
-                await notificationMessagesClient.SendMessageAsync(sampleTemplateMessageOptions);
+                await notificationMessagesClient.SendAsync(templateContent);
 
             PrintResult(sendTemplateMessageResult);
             Console.WriteLine("Template message sent.\nWait until the WhatsApp user responds " +
@@ -50,10 +50,10 @@ namespace AdvancedMessagingQuickstart
 
             // Send a text message
             string messageText = "Thanks for your feedback.";
-            SendMessageOptions sendTextMessageOptions =
-                new SendMessageOptions(channelRegistrationId, recipientList, messageText);
+            TextNotificationContent textContent =
+                new TextNotificationContent(channelRegistrationId, recipientList, messageText);
             Response<SendMessageResult> sendTextMessageResult =
-                await notificationMessagesClient.SendMessageAsync(sendTextMessageOptions);
+                await notificationMessagesClient.SendAsync(textContent);
 
             PrintResult(sendTextMessageResult);
             Console.WriteLine($"Text message sent to my phoneNumber.\nPress any key to continue.\n");
@@ -61,10 +61,10 @@ namespace AdvancedMessagingQuickstart
 
             // Send a media message
             Uri uri = new Uri("https://aka.ms/acsicon1");
-            SendMessageOptions sendMediaMessageOptions =
-                new SendMessageOptions(channelRegistrationId, recipientList, uri);
+            MediaNotificationContent mediaContent =
+                new MediaNotificationContent(channelRegistrationId, recipientList, uri);
             Response<SendMessageResult> sendMediaMessageResult =
-                await notificationMessagesClient.SendMessageAsync(sendMediaMessageOptions);
+                await notificationMessagesClient.SendAsync(mediaContent);
 
             PrintResult(sendMediaMessageResult);
             Console.WriteLine("Media message sent.\nPress any key to exit.\n");

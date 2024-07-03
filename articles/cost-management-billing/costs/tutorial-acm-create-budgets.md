@@ -3,7 +3,7 @@ title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/09/2024
+ms.date: 04/25/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
-> * Create and edit budgets with PowerShell
+> * Create and edit budgets
 > * Create a budget with an Azure Resource Manager template
 
 ## Prerequisites
@@ -56,11 +56,14 @@ Budgets are supported for the following types of Azure account types and scopes:
     - External account
     - External subscription
 
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+
 To view budgets, you need at least read access for your Azure account.
 
 If you have a new subscription, you can't immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
-You must have read access to view budgets for Azure EA subscriptions. To create and manage budgets, you must have contributor permission.
+Read access is required to view budgets for Azure EA subscriptions. To create and manage budgets, you must have contributor permission.
 
 The following Azure permissions, or scopes, are supported per subscription for budgets by user and group.
 
@@ -79,6 +82,8 @@ The following Azure permissions, or scopes, are supported per subscription for b
 You can create an Azure subscription budget for a monthly, quarterly, or annual period.
 
 To create or view a budget, open a scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+
+If you want to create a budget for a resource group, ensure that you navigate to one first. You can navigate to a resource group by searching for **Resource groups** in the Azure portal search box. Then, select a resource group from the list. Afterward, the **Budgets** option is available in the menu.
 
 After you create budgets, they show a simple view of your current spending against them.
 
@@ -126,7 +131,7 @@ In the preceding example, you created a budget for a subscription. You can also 
 
 ### Create a budget for combined Azure and AWS costs
 
-You can group your Azure and AWS costs together by assigning a management group to your connector along with it's consolidated and linked accounts. Assign your Azure subscriptions to the same management group. Then create a budget for the combined costs.
+You can group your Azure and AWS costs together by assigning a management group to your connector along with its consolidated and linked accounts. Assign your Azure subscriptions to the same management group. Then create a budget for the combined costs.
 
 1. In Cost Management, select **Budgets**.
 1. Select **Add**.
@@ -158,7 +163,7 @@ To create or update action groups, select **Manage action group** while you're c
 
 Next, select **Add action group** and create the action group.
 
-Budget integration with action groups works for action groups that have enabled or disabled common alert schema. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
+You can integrate budgets with action groups, regardless of whether the common alert schema is enabled or disabled in those groups. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
 
 ## Budgets in the Azure mobile app
 
@@ -175,9 +180,11 @@ To receive mobile push notifications when your budget threshold is met, you can 
 
 :::image type="content" source="./media/tutorial-acm-create-budgets/azure-app-budgets.png" alt-text="Screenshot showing budgets in the Azure app." lightbox="./media/tutorial-acm-create-budgets/azure-app-budgets.png" :::
 
-## Create and edit budgets with PowerShell
+## Create and edit budgets
 
-If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. However, we recommend that you use REST APIs to create and edit budgets because CLI commands might not support the latest version of the APIs.
+### [PowerShell](#tab/psbudget)
+
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. However, we recommend that you use REST APIs to create and edit budgets because CLI commands might not support the latest version of the APIs. Budgets created with PowerShell don't send notifications.
 
 > [!NOTE]
 > Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
@@ -188,7 +195,7 @@ To download the latest version of Azure PowerShell, run the following command:
 install-module -name Az
 ```
 
-The following example commands create a budget.
+The following example commands create a budget using PowerShell. Make sure to replace all example prompts with your own info.
 
 ```azurepowershell-interactive
 #Sign into Azure PowerShell with your account
@@ -210,9 +217,179 @@ Get-AzContext
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 
-## Create a budget with an Azure Resource Manager template
+### [CLI](#tab/clibudget)
+
+The following example creates a budget using Azure CLI. Make sure to replace all example prompts with your own info.
+
+```azurecli
+# Sign into Azure CLI with your account
+az login
+
+# Select a subscription to monitor with a budget
+az account set --subscription "Your Subscription"
+
+# Create an action group email receiver and corresponding action group
+email1=$(az monitor action-group receiver email create --email-address test@test.com --name EmailReceiver1 --resource-group YourResourceGroup --query id -o tsv)
+ActionGroupId=$(az monitor action-group create --resource-group YourResourceGroup --name TestAG --short-name TestAG --receiver $email1 --query id -o tsv)
+
+# Create a monthly budget that sends an email and triggers an Action Group to send a second email.
+# Make sure the StartDate for your monthly budget is set to the first day of the current month.
+# Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
+az consumption budget create --amount 100 --name TestCLIBudget --category Cost --start-date "2020-02-01" --time-grain Monthly --end-date "2022-12-31" --contact-email test@test.com --notification-key Key1 --notification-threshold 0.8 --notification-enabled --contact-group $ActionGroupId
+```
+
+### [Terraform](#tab/tfbudget)
+
+Make sure to properly [install and configure Terraform](/azure/developer/terraform/quickstart-configure) before continuing. All examples are based on [HashiCorp's 'azurerm_subscription_cost_management_export' docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_cost_management_export).
+
+The following example creates a budget using Terraform. Make sure to replace all example prompts with your own info.
+
+1. Configure provider: Ensure you have the Azure provider configured.
+```
+provider "azurerm" {
+  features {}
+}
+```
+
+2. Select an Azure subscription: Specify the subscription ID in the provider configuration or via environment variables.
+```
+data "azurerm_subscription" "example" {}
+```
+
+3. Create a resource group.
+```
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+```
+4. Set up an action group for notifications.
+
+```
+resource "azurerm_monitor_action_group" "example" {
+  name                = "TestAG"
+  resource_group_name = azurerm_resource_group.example.name
+  short_name          = "TestAG"
+
+  email_receiver {
+    name                    = "EmailReceiver1"
+    email_address           = "test@test.com"
+    use_common_alert_schema = true
+  }
+}
+
+```
+
+5. Create a storage account.
+```
+resource "azurerm_storage_account" "example" {
+  name                     = "examplestoracc"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+```
+
+6. Create a storage container.
+```
+resource "azurerm_storage_container" "example" {
+  name                  = "examplecontainer"
+  storage_account_name  = azurerm_storage_account.example.name
+}
+```
+
+7. Set up subscription cost management export.
+```
+resource "azurerm_subscription_cost_management_export" "example" {
+  name                         = "exampleexport"
+  subscription_id              = data.azurerm_subscription.example.id
+  recurrence_type              = "Monthly"
+  recurrence_period_start_date = "2020-08-18T00:00:00Z"
+  recurrence_period_end_date   = "2020-09-18T00:00:00Z"
+
+  export_data_storage_location {
+    container_id     = azurerm_storage_container.example.resource_manager_id
+    root_folder_path = "/root/updated"
+  }
+
+  export_data_options {
+    type       = "Usage"
+    time_frame = "WeekToDate"
+  }
+}
+
+```
+
+8. Apply the terraform configuration
+
+Here's the full code if you'd like to modify it directly from source instead of piecing it together through the steps.
+
+```
+provider "azurerm" {
+  features {}
+}
+
+data "azurerm_subscription" "example" {}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_monitor_action_group" "example" {
+  name                = "TestAG"
+  resource_group_name = azurerm_resource_group.example.name
+  short_name          = "TestAG"
+
+  email_receiver {
+    name                    = "EmailReceiver1"
+    email_address           = "test@test.com"
+    use_common_alert_schema = true
+  }
+}
+
+resource "azurerm_storage_account" "example" {
+  name                = "examplestoracc"
+  resource_group_name = azurerm_resource_group.example.name
+
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_storage_container" "example" {
+  name                 = "examplecontainer"
+  storage_account_name = azurerm_storage_account.example.name
+}
+
+resource "azurerm_subscription_cost_management_export" "example" {
+  name                         = "exampleexport"
+  subscription_id              = data.azurerm_subscription.example.id
+  recurrence_type              = "Monthly"
+  recurrence_period_start_date = "2020-08-18T00:00:00Z"
+  recurrence_period_end_date   = "2020-09-18T00:00:00Z"
+
+  export_data_storage_location {
+    container_id     = azurerm_storage_container.example.resource_manager_id
+    root_folder_path = "/root/updated"
+  }
+
+  export_data_options {
+    type       = "Usage"
+    time_frame = "WeekToDate"
+  }
+}
+
+```
+
+### [Azure Resource Manager template](#tab/armbudget)
 
 You can create a budget using an Azure Resource Manager template. To use the template, see [Create a budget with an Azure Resource Manager template](quick-create-budget-template.md).
+
+---
 
 ## Clean up resources
 

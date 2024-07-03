@@ -78,9 +78,15 @@ The following regions are supported as primary regions (Regions where you can re
 - US South Central
 - Poland Central
 - Switzerland West
+- Australia SouthEast
+- India West
+- UAE Central
+- UAE North
+- US West 2
+- US West Central
 
 > [!NOTE]
-> US Central, US East, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central and US West Central cannot be extended as a secondary region at this time.
+> US Central, US East, US South Central, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central and US West Central cannot be extended as a secondary region at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
 
 ## Billing
 

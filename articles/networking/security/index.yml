@@ -25,7 +25,7 @@ highlightedContent:
       url: /training/modules/network-security/
     - title: What's new in Azure Networking and Security? 
       itemType: whats-new 
-      url: https://azure.microsoft.com/en-us/updates/?category=networking&query=security
+      url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/bg-p/AzureNetworkSecurityBlog
     - title: Azure Well-Architected Framework review - Azure Firewall
       itemType: architecture
       url: /azure/well-architected/services/networking/azure-firewall
@@ -201,7 +201,7 @@ additionalContent:
             - text: Learn more about Azure Bastion
               url: ../../bastion/index.yml
             - text: Enable just-in-time access on VMs
-              url: ../../defender-for-cloud/just-in-time-access-usage.md
+              url: ../../defender-for-cloud/just-in-time-access-usage.yml
         - title: Training
           links:
             - text: Configure the network for your virtual machines

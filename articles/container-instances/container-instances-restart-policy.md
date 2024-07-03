@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: linux-related-content
+ms.custom:
 services: container-instances
 ms.date: 06/17/2022
 ---

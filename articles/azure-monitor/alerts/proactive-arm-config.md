@@ -4,7 +4,7 @@ description: Automate management and configuration of Application Insights smart
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 02/14/2021
+ms.date: 04/01/2024
 ms.reviewer: yagil
 ---
 

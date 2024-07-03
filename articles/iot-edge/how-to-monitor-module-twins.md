@@ -4,8 +4,8 @@ description: How to interpret device twins and module twins to determine connect
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 9/22/2022
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: how-to
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
@@ -164,7 +164,7 @@ If you're experiencing issues with your downstream devices, examining this data 
 
 The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for maintaining data for your solution. The desired properties you defined in your deployment.json file are reflected in the module twin, and your module can update reported property values as needed.
 
-You can use your preferred programming language with the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
+You can use your preferred programming language with the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/main/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
 
 1. Create an instance of the [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
 

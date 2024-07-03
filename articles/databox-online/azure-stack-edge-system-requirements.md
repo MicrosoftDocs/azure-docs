@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA system requirements
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes the important system requirements for your Microsoft Azure Stack Edge Pro FPGA solution and for the clients connecting to Azure Stack Edge Pro FPGA. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro FPGA. You can refer back to this information as necessary during the deployment and subsequent operation.
 

@@ -25,9 +25,9 @@ sections:
       - question: |
           Why can't I find my Azure DevOps repository?
         answer: |
-          The Defender for Cloud DevOps security onboarding only supports the repository type `TfsGit`. The repository type `TFSVC` is not supported today.
+          The Defender for Cloud DevOps security onboarding only supports the repository type `TfsGit`. The repository type `TFSVC` isn't supported today.
 
-          Ensure that you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
+          Ensure that you have [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
 
 
       - question: |
@@ -45,7 +45,7 @@ sections:
       - question: |
           I successfully onboarded a DevOps connector, where can I find my related recommendations?
         answer: |
-          We recommend navigating to the DevOps Security blade to see an overview of your DevOps security posture. You can sort and filter by the DevOps resource you care about to see the recommendation details.
+          We recommend navigating to the DevOps Security pane to see an overview of your DevOps security posture. You can sort and filter by the DevOps resource you care about to see the recommendation details.
           
           You can also use the [DevOps Workbook](custom-dashboards-azure-workbooks.md#use-the-devops-security-workbook) and customize it for your needs.
           
@@ -59,9 +59,9 @@ sections:
           
           - Scan results for recommendations and details.
 
-          DevOps security features are a part of [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). Please refer to the following [data residency guidance](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography) and [EU Data Boundary details](/privacy/eudb/eu-data-boundary-permanent-transfers-from-services#security-services) as it relates to the Microsoft Defender for Cloud service.
+          DevOps security features are a part of [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). Refer to the following [data residency guidance](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography) and [EU Data Boundary details](/privacy/eudb/eu-data-boundary-permanent-transfers-from-services#security-services) as it relates to the Microsoft Defender for Cloud service.
 
-          DevOps security does not process or store your code, build, and audit logs today but may in the future as it expands its capabilities.
+          DevOps security doesn't process or store your code, build, and audit logs today but might in the future as it expands its capabilities.
 
           Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
 
@@ -69,7 +69,7 @@ sections:
       - question: |
           For my Azure DevOps connector, why are write permissions required for work items, build, code, service hooks, and advanced security?
         answer: |
-          These permissions are required for certain DevOps security features, such as pull request annotations, to work. 
+          These permissions are required for certain DevOps security features, such as pull request annotations, to work.
 
 
       - question: |
@@ -80,8 +80,13 @@ sections:
       - question: |
           Why am I not able to see GitHub Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
         answer: |
-          Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. DevOps security introduced new scopes to Azure DevOps connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
-
+          Confirm your connectors is properly [authorized](#why-am-i-getting-an-error-while-trying-to-connect-).
+          
+          Ensure you're using the same Subscription ID for GHAzDO and Defender for Cloud. If you're still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. DevOps security introduced new scopes to Azure DevOps connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
+          
+          Ensure the user permissions for the Microsoft Defender for DevOps have `Advanced Security: view alerts` and `Read` set to `Allow`. These permissions might have changed if the "Inheritance" toggle was switched off. If the necessary permissions are set to `Not set` or `Deny`, they'll need to be manually updated to `Allow` otherwise the GHAzDO findings won't show up in Defender for Cloud recommendations.
+            
+            :::image type="content" source="media/faq-defender-for-devops/devops-user-permissions-set.png" alt-text="Screenshot that shows advanced security permissions." lightbox="media/faq-defender-for-devops/devops-user-permissions-set.png":::
       - question: |
           Is continuous, automatic scanning available?
         answer: |
@@ -91,7 +96,7 @@ sections:
       - question: |
           Why am I not able to configure Pull Request Annotations?
         answer: |
-          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating a Microsoft Entra role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
+          Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating a Microsoft Entra role in PIM](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
 
       - question: |
@@ -103,7 +108,7 @@ sections:
           - JavaScript
           - TypeScript
 
-          For a list of languages supported by GitHub Advanced Security, see [here](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)
+          For a list of languages supported by GitHub Advanced Security, see [here](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/).
 
 
       - question: |
@@ -133,7 +138,7 @@ sections:
       - question: |
           I have a large Azure DevOps organization with many repositories. Can I still onboard?
         answer: |
-          Yes, there is no limit to how many Azure DevOps repositories you can onboard for DevOps security capabilities.  
+          Yes, there's no limit to how many Azure DevOps repositories you can onboard for DevOps security capabilities.  
 
           However, there are two main implications when onboarding large organizations – speed and throttling. The speed of discovery for your DevOps repositories is determined by the number of projects for each connector (approximately 100 projects per hour). Throttling can happen because Azure DevOps API calls have a [global rate limit](/azure/devops/integrate/concepts/rate-limits) and we limit the calls for project discovery to use a small portion of overall quota limits.
 
@@ -143,7 +148,7 @@ sections:
           - Large number of concurrent builds that peak during work hours.
           - Authorized user is a [Power Platform](/power-platform/) user making extra Azure DevOps API calls, using up the global rate limit quotas.
 
-          Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
+          Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
 
 
 additionalContent: |

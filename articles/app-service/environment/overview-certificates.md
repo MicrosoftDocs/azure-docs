@@ -58,7 +58,7 @@ dir Cert:\LocalMachine\Root
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
 ```azurepowershell-interactive
-$certificate = New-SelfSignedCertificate -CertStoreLocation "Cert:\LocalMachine\My" -DnsName "*.internal-contoso.com","*.scm.internal-contoso.com"
+$certificate = New-SelfSignedCertificate -CertStoreLocation "Cert:\LocalMachine\My" -DnsName "*.internal.contoso.com","*.scm.internal.contoso.com"
 
 $certThumbprint = "Cert:\LocalMachine\My\" + $certificate.Thumbprint
 $fileName = "exportedcert.cer"

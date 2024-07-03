@@ -3,12 +3,12 @@ title: "Quickstart: Use the Sentiment Analysis client library and REST API"
 titleSuffix: Azure AI services
 description: Use this quickstart to start using the Sentiment Analysis API.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 01/25/2024
-ms.author: aahi
+ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-sentiment-opinion-mining, mode-api, devx-track-extended-java, devx-track-js, devx-track-python

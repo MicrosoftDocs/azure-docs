@@ -452,17 +452,17 @@ Rather than create a new template spec for the revised template, add a new versi
 1. Deploy the new version and use the `storageNamePrefix` to specify a prefix for the storage account name.
 
    ```azurecli
-    az deployment group create \
+   az deployment group create \
       --resource-group storageRG \
       --template-spec $id \
       --parameters storageNamePrefix="demo"
-    ```
+   ```
 
 # [Bicep file](#tab/bicep)
 
 1. Create a new version of the template spec. Copy the sample and replace your _main.bicep_ file.
 
-   The parameter `storageNamePrefix` specifies a prefix value for the storage account name. The `storageAccountName` variable concatenates the prefix with a unique string.
+    The parameter `storageNamePrefix` specifies a prefix value for the storage account name. The `storageAccountName` variable concatenates the prefix with a unique string.
 
     ```bicep
     param templateSpecName string = 'storageSpec'

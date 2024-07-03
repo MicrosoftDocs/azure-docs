@@ -10,7 +10,7 @@ ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
-# Protect logic apps from region failures with zone redundancy and availability zones
+# Protect logic apps from zonal failures with zone redundancy and availability zones
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 

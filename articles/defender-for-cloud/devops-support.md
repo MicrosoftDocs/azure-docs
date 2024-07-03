@@ -13,6 +13,7 @@ This article summarizes support information for DevOps security capabilities in 
 ## Cloud and region support
 
 DevOps security is available in the Azure commercial cloud, in these regions:
+
 * Asia (East Asia)
 * Australia (Australia East)
 * Canada (Canada Central)
@@ -23,6 +24,7 @@ DevOps security is available in the Azure commercial cloud, in these regions:
 ## DevOps platform support
 
 DevOps security currently supports the following DevOps platforms:
+
 * [Azure DevOps Services](https://azure.microsoft.com/products/devops/)
 * [GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)
 * [GitLab SaaS](https://docs.gitlab.com/ee/subscriptions/gitlab_com/)
@@ -48,22 +50,22 @@ The following tables summarize the availability and prerequisites for each featu
 
 > [!NOTE]
 > Starting March 7, 2024, [Defender CSPM](concept-cloud-security-posture-management.md) must be enabled on at least one subscription or multicloud connector in the tenant to benefit from premium DevOps security capabilities which include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See details below to learn more.
+
 ### Azure DevOps
 
 | Feature                          | Foundational CSPM                         | Defender CSPM                             | Prerequisites |
 |----------------------------------|:-----------------------------------------:|:-----------------------------------------:|---------------|
 | [Connect Azure DevOps repositories](quickstart-onboard-devops.md) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | See [here](quickstart-onboard-devops.md#prerequisites) |
-| [Security recommendations to fix code vulnerabilities](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud)| ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features?view=azure-devops&tabs=yaml&preserve-view=true) for CodeQL findings, [Microsoft Security DevOps extension](azure-devops-extension.md) |
+| [Security recommendations to fix code vulnerabilities](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud)| ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features?view=azure-devops&tabs=yaml&preserve-view=true) for CodeQL findings, [Microsoft Security DevOps extension](azure-devops-extension.yml) |
 | [Security recommendations to discover exposed secrets](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features?view=azure-devops&tabs=yaml&preserve-view=true) |
 | [Security recommendations to fix open source vulnerabilities](defender-for-devops-introduction.md#manage-your-devops-environments-in-defender-for-cloud) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [GitHub Advanced Security for Azure DevOps](/azure/devops/repos/security/configure-github-advanced-security-features?view=azure-devops&tabs=yaml&preserve-view=true) |
-| [Security recommendations to fix infrastructure as code misconfigurations](iac-vulnerabilities.md#configure-iac-scanning-and-view-the-results-in-azure-devops) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.md) |
+| [Security recommendations to fix infrastructure as code misconfigurations](iac-vulnerabilities.md#configure-iac-scanning-and-view-the-results-in-azure-devops) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.yml) |
 | [Security recommendations to fix DevOps environment misconfigurations](concept-devops-posture-management-overview.md) | ![Yes Icon](./media/icons/yes-icon.png) | ![Yes Icon](./media/icons/yes-icon.png) | N/A |
 | [Pull request annotations](review-pull-request-annotations.md) | | ![Yes Icon](./media/icons/yes-icon.png) | See [here](enable-pull-request-annotations.md) |
-| [Code to cloud mapping for Containers](container-image-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.md#configure-the-microsoft-security-devops-azure-devops-extension-1) |
-| [Code to cloud mapping for Infrastructure as Code templates](iac-template-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.md) |
+| [Code to cloud mapping for Containers](container-image-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.yml#configure-the-microsoft-security-devops-azure-devops-extension) |
+| [Code to cloud mapping for Infrastructure as Code templates](iac-template-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps extension](azure-devops-extension.yml) |
 | [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) |Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP Connector in the same tenant as the DevOps Connector |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) |Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector|
-
 
 ### GitHub
 
@@ -79,7 +81,6 @@ The following tables summarize the availability and prerequisites for each featu
 | [Code to cloud mapping for Infrastructure as Code templates](iac-template-mapping.md) | | ![Yes Icon](./media/icons/yes-icon.png) | [Microsoft Security DevOps action](github-action.md) |
 | [Attack path analysis](how-to-manage-attack-path.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | | ![Yes Icon](./media/icons/yes-icon.png) | Enable Defender CSPM on an Azure Subscription, AWS Connector, or GCP connector in the same tenant as the DevOps Connector |
-
 
 ### GitLab
 

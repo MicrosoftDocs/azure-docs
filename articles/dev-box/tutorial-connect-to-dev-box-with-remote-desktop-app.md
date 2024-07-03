@@ -34,7 +34,7 @@ To complete this tutorial, you must have access to a dev box through the develop
 
 ## Download the remote desktop client and connect to your dev box
 
-You can use a remote desktop client application to access your dev box in Microsoft Dev Box. Remote desktop clients are available for many operating systems and devices. 
+You can use a remote desktop client application to access your dev box in Microsoft Dev Box. Remote desktop clients are available for many operating systems and devices, including mobile devices running iOS, iPadOS or Android. 
 
 Select the relevant tab to view the steps to download and use the Remote Desktop client application from Windows or non-Windows operating systems.
 

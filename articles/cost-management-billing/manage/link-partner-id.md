@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: bandersmsft
 ms.reviewer: presharm
 ms.author: banders
-ms.date: 07/27/2023
+ms.date: 03/21/2024
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
@@ -41,11 +41,11 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Cloud Partner Program](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated Partner ID** shown on your partner profile.
 
-   ![Screenshot that shows Link to a partner ID](./media/link-partner-id/link-partner-id01.png)
+   :::image type="content" border="true" source="./media/link-partner-id/link-partner-id01.png" alt-text="Screenshot that shows Link to a partner ID.":::
 
 4. To link a partner ID for another customer, switch the directory. Under **Switch directory**, select your directory.
 
-   ![Screenshot that shows Switch directory](./media/link-partner-id/directory-switcher.png)
+   :::image type="content" border="true" source="./media/link-partner-id/directory-switcher.png" alt-text="Screenshot that shows Switch directory.":::
 
 ### Use PowerShell to link to a new partner ID
 

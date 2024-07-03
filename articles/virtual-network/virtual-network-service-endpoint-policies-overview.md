@@ -4,7 +4,7 @@ description: Learn how to filter Virtual Network traffic to Azure service resour
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 04/16/2024
 ms.author: allensu
 ---
 

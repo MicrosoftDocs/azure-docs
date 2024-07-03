@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---
 
@@ -62,19 +62,18 @@ The [Azure role assignment condition format](../../role-based-access-control/con
 
 ## Status of condition features in Azure Storage
 
-Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, and `principal` attributes in the standard storage account performance tier. It's either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
+Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, `environment`, and `principal` attributes in both the standard and premium storage account performance tiers. Currently, the container metadata resource attribute and the list blob include request attribute are in PREVIEW.
+
+The following table shows the current status of ABAC by storage resource type and attribute type. Exceptions for specific attributes are also shown.
+
+| Resource types | Attribute types    | Attributes                | Availability |
+|---|---|---|---|
+| Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Environment<br/>Principal | All attributes except those noted in this table | GA |
+| Data Lake Storage Gen2                      | Resource        | [Snapshot](storage-auth-abac-attributes.md#snapshot)           | Preview |
+| Blobs<br/>Data Lake Storage Gen2            | Resource        | [Container metadata](storage-auth-abac-attributes.md#container-metadata) | Preview |
+| Blobs                                       | Request         | [List blob include](storage-auth-abac-attributes.md#list-blob-include)  | Preview |
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The following table shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
-
-| Performance tier | Resource types | Attribute types    | Attributes                | Availability |
-|---|---|---|---|---|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | All attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment | All attributes | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | All attributes | Preview |
-
 
 > [!NOTE] 
 > Some storage features aren't supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace (HNS). To learn more, see [Blob storage feature support](storage-feature-support-in-storage-accounts.md).
@@ -84,6 +83,7 @@ The following table shows the current status of ABAC by storage account performa
 > - [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys)
 > - [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key)
 > - [Version ID](storage-auth-abac-attributes.md#version-id)
+> - [List blob include](storage-auth-abac-attributes.md#list-blob-include)
 
 ## Next steps
 

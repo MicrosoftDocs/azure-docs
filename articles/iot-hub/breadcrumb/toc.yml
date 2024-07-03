@@ -13,8 +13,5 @@
       tocHref: /azure/iot/
       topicHref: /azure/iot-hub/index
     - name: IoT Hub
-      tocHref: /azure/iot-develop/
-      topicHref: /azure/iot-hub/index
-    - name: IoT Hub
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-hub/index

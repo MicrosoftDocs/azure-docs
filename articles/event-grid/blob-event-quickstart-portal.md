@@ -16,7 +16,7 @@ In this article, you use the Azure portal to do the following tasks:
 1. Trigger an event by uploading a file to the blob storage.
 1. View the result in a handler web app. Typically, you send events to an endpoint that processes the event data and takes actions. To keep it simple, you send events to a web app that collects and displays the messages.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 When you're finished, you see that the event data has been sent to the web app.
 
@@ -56,7 +56,8 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg" alt="Button to deploy to Azure."></a>
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json":::
+
 2. On the **Custom deployment** page, do the following steps: 
     1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you're done with the tutorial by deleting the resource group.  
     2. For **Site Name**, enter a name for the web app.

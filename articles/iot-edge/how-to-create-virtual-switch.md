@@ -4,6 +4,7 @@ description: Installations for creating a virtual switch for Azure IoT Edge for 
 author: PatAltimore
 ms.reviewer: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/30/2021
@@ -12,7 +13,7 @@ ms.author: patricka
 
 # Azure IoT Edge for Linux on Windows virtual switch creation
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge for Linux on Windows uses a virtual switch on the host machine to communicate with the virtual machine. Windows desktop versions come with a default switch that can be used, but Windows Server *doesn't*. Before you can deploy IoT Edge for Linux on Windows to a Windows Server device, you need to create a virtual switch. Furthermore, you can use this guide to create your custom virtual switch, if needed. 
 
@@ -133,7 +134,7 @@ The switch is now created. Next, you'll set up the DNS.
 1. Assign the **NAT** and **gateway IP** addresses you created in the earlier section to the DHCP server, and restart the server to load the configuration. The first command should produce no output, but restarting the DHCP server should output the same warning messages that you received when you did so in the third step of this section.
 
     ```powershell
-    Set-DhcpServerV4OptionValue -ScopeID {natIp} -Router {gatewayIp}
+    Set-DhcpServerV4OptionValue -ScopeID {startIp} -Router {gatewayIp}
     Restart-service dhcpserver
     ```
 

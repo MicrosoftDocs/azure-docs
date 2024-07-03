@@ -9,7 +9,7 @@ ms.date: 09/28/2023
 
 # Overview of VM insights
 
-VM insights provides a quick and easy method for getting started monitoring the client workloads on your virtual machines and virtual machine scale sets. It displays an inventory of your existing VMs and provides a guided experience to enable base monitoring for them. It also monitors the performance and health of your virtual machines and virtual machine scale sets by collecting data on their running processes and dependencies on other resources. 
+VM insights provides a quick and easy method for getting started monitoring the client workloads on your virtual machines and virtual machine scale sets. It displays an inventory of your existing VMs and provides a guided experience to enable base monitoring for them. It also monitors the performance of your virtual machines and virtual machine scale sets by collecting data on their running processes and dependencies on other resources. 
 
 VM insights supports Windows and Linux operating systems on:
 
@@ -29,8 +29,7 @@ VM insights provides a set of predefined workbooks that allow you to view trendi
 There's no direct cost for VM insights, but you're charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), VM insights is billed for:
 
 - Data ingested from agents and stored in the workspace.
-- Health state data collected from guest health (preview).
-- Alert rules based on log and health data.
+- Alert rules based on log data.
 - Notifications sent from alert rules.
 
 The log size varies by the string lengths of performance counters. It can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the extra performance data that's sent to the Azure Monitor `InsightsMetrics` data type.​

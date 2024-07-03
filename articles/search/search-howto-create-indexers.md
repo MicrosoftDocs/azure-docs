@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 03/28/2024
 ---
 
 # Create an indexer in Azure AI Search
@@ -153,7 +153,7 @@ During indexing, an indexer only checks field names and types. There's no valida
 
 ## Create an indexer
 
-When you're ready to create an indexer on a remote search service, you need a search client. A search client can be the Azure portal, Postman or another REST client, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create an indexer on a remote search service, you need a search client. A search client can be the Azure portal, a REST client, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 ### [**Azure portal**](#tab/portal)
 
@@ -171,7 +171,7 @@ When you're ready to create an indexer on a remote search service, you need a se
 
 ### [**REST**](#tab/indexer-rest)
 
-The Postman app can function as an indexer client. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
+Visual Studio Code with a REST client can send indexer requests. Using the app, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) or [Update indexer](/rest/api/searchservice/update-indexer) requests. 
 
 ```http
 POST /indexers?api-version=[api-version]
@@ -188,7 +188,7 @@ POST /indexers?api-version=[api-version]
 }
 ```
 
-There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Create a search index using REST and Postman](search-get-started-rest.md) can get you started.
+There are numerous tutorials and examples that demonstrate REST clients for creating objects. [Quickstart: Text search using REST](search-get-started-rest.md) can get you started.
 
 ### [**.NET SDK**](#tab/indexer-csharp)
 
@@ -216,6 +216,8 @@ There are several ways to run an indexer:
 + [Schedule indexer processing](search-howto-schedule-indexers.md) to invoke execution at regular intervals. 
 
 Scheduled execution is usually implemented when you have a need for incremental indexing so that you can pick up the latest changes. As such, scheduling has a dependency on change detection.
+
+Indexers are one of the few subsystems that make overt outbound calls to other Azure resources. In terms of Azure roles, indexers don't have separate identities: a connection from the search engine to another Azure resource is made using the [system or user-assigned managed identity](search-howto-managed-identities-data-sources.md) of a search service. If the indexer connects to an Azure resource on a virtual network, you should create a [shared private link](search-indexer-howto-access-private.md) for that connection. For more information about secure connections, see the [Security in Azure AI Search](search-security-overview.md).
 
 ## Check results
 

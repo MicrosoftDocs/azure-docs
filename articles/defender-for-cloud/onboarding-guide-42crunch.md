@@ -4,7 +4,7 @@ description: Learn how to use 42Crunch with Microsoft Defender.
 ms.date: 11/15/2023
 author: dcurwin
 ms.author: dacurwin
-ms.topic: overview
+ms.topic: how-to
 ---
 
 # 42Crunch technical onboarding guide
@@ -26,9 +26,13 @@ Because the quality of the API specification largely determines the scan coverag
 
 Through relying on the 42Crunch [Audit](https://42crunch.com/api-security-audit) and [Scan](https://42crunch.com/api-conformance-scan/) services, developers can proactively test and harden APIs within their CI/CD pipelines through static and dynamic testing of APIs against the top OWASP API risks and OpenAPI specification best practices. The security scan results from 42Crunch are now available within Defender for Cloud, ensuring central security teams have visibility into the health of APIs within the Defender for Cloud recommendation experience, and can take governance steps natively available through Defender for Cloud recommendations.
 
-## Connect your GitHub repositories to Microsoft Defender for Cloud
+## Connect your DevOps environments to Microsoft Defender for Cloud
 
-This feature requires a GitHub connector in Defender for Cloud. See [how to onboard your GitHub organizations](quickstart-onboard-github.md).
+This feature requires connecting your DevOps environment to Defender for Cloud.
+
+See [how to onboard your GitHub organizations](quickstart-onboard-github.md).
+
+See [how to onboard your Azure DevOps organizations](quickstart-onboard-devops.md).
 
 ## Configure 42Crunch Audit service
 
@@ -36,7 +40,9 @@ The REST API Static Security Testing action locates REST API contracts that foll
 
 The action is powered by [42Crunch API Security Audit](https://docs.42crunch.com/latest/content/concepts/api_contract_security_audit.htm). Security Audit performs a static analysis of the API definition that includes more than 300 checks on best practices and potential vulnerabilities on how the API defines authentication, authorization, transport, and request/response schemas.
 
-Install the 42Crunch API Security Audit plugin within your CI/CD pipeline through completing the following steps:
+### For GitHub environments
+
+Install the 42Crunch API Security Audit plugin within your CI/CD pipeline by completing the following steps:
 
 1. Sign in to GitHub.
 1. Select a repository you want to configure the GitHub action to.
@@ -69,7 +75,7 @@ To create a new default workflow:
 
 You now verified that the Audit results are showing in GitHub Code Scanning. Next, we verify that these Audit results are available within Defender for Cloud. It might take up to 30 minutes for results to show in Defender for Cloud.
 
-## Navigate to Defender for Cloud
+**Navigate to Defender for Cloud**:
 
 1. Select **Recommendations**.
 1. Select **All recommendations**.
@@ -80,11 +86,64 @@ The selected recommendation shows all 42Crunch Audit findings. You completed the
 
 :::image type="content" source="media/onboarding-guide-42crunch/api-recommendations.png" alt-text="Screenshot showing API summary." lightbox="media/onboarding-guide-42crunch/api-recommendations.png":::
 
+### For Azure DevOps environments
+
+1. Install the [42Crunch Azure DevOps extension](https://marketplace.visualstudio.com/items?itemName=42Crunch.42c-cicd-audit-freemium) on your organization.
+1. Create a new pipeline in your Azure DevOps project. For a tutorial for creating your first pipeline, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
+1. Edit the created pipeline, by copying in the following workflow:
+
+   ```yml
+   trigger:
+   branches:
+      include:
+         - main
+
+   jobs:
+   - job: run_42crunch_audit
+      displayName: 'Run Audit'
+      pool:
+         vmImage: 'ubuntu-latest'
+      steps:
+         - task: UsePythonVersion@0
+         inputs:
+            versionSpec: '3.11'
+            addToPath: true
+            architecture:  x64
+         - task: APISecurityAuditFreemium@1
+         inputs:
+            enforceSQG: false
+            sarifReport: '$(Build.Repository.LocalPath)/42Crunch_AuditReport.sarif'
+            exportAsPDF: '$(Build.Repository.LocalPath)/42Crunch_AuditReport.pdf'
+         - task: PublishBuildArtifacts@1
+         displayName: publishAuditSarif
+         inputs:
+            PathtoPublish: '$(Build.Repository.LocalPath)/42Crunch_AuditReport.sarif '
+            ArtifactName: 'CodeAnalysisLogs'
+            publishLocation: 'Container'
+   ```
+
+1. Run the pipeline.
+1. To verify the results are being published correctly in Azure DevOps, validate that *42Crunch-AuditReport.sarif* is being uploaded to the Build Artifacts under the *CodeAnalysisLogs* folder.
+1. You have completed the onboarding process. Next we verify that the results show in Defender for Cloud.
+
+**Navigate to Defender for Cloud**:
+
+1. Select **Recommendations**.
+1. Select **All recommendations**.
+1. Filter by searching for **API security testing**.
+1. Select the recommendation **AzureDevOps repositories should have API security testing findings resolved**.
+
+The selected recommendation shows all 42Crunch Audit findings. You completed the onboarding for the 42Crunch Audit step.
+
+:::image type="content" source="media/onboarding-guide-42crunch/azure-devops-recommendation.png" alt-text="Screenshot showing Azure DevOps recommendation." lightbox="media/onboarding-guide-42crunch/azure-devops-recommendation.png":::
+
 ## Configure 42Crunch Scan service
 
 API Scan continually scans the API to ensure conformance to the OpenAPI contract and detect vulnerabilities at testing time. It detects OWASP API Security Top 10 issues early in the API lifecycle and validates that your APIs can handle unexpected requests.
 
 The scan requires a nonproduction live API endpoint, and the required credentials (API key/access token). [Follow these steps](https://github.com/42Crunch/apisecurity-tutorial) to configure the 42Crunch Scan.
+
+Refer to the **azure-pipelines-scan.yaml** in the tutorial for the ADO specific tasks.
 
 ## FAQ
 

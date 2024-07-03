@@ -10,6 +10,8 @@ ms.date: 03/20/2023
 
 # Connect privately to API Management using an inbound private endpoint
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 You can configure an inbound [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
 
 * The private endpoint uses an IP address from an Azure VNet in which it's hosted.
@@ -21,9 +23,6 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 :::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management using private endpoint.":::
 
 [!INCLUDE [api-management-private-endpoint](../../includes/api-management-private-endpoint.md)]
-
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Limitations
 

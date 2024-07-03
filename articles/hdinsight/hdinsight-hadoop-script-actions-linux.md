@@ -2,8 +2,9 @@
 title: Develop script actions to customize Azure HDInsight clusters
 description: Learn how to use Bash scripts to customize HDInsight clusters. Script actions allow you to run scripts during or after cluster creation to change cluster configuration settings or install additional software.
 ms.service: hdinsight
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/22/2024
 ---
 
 # Script action development with HDInsight
@@ -67,7 +68,7 @@ fi
 
 ### <a name="bps10"></a> Target the operating system version
 
-HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses `Systemd`. `Systemd` and Upstart rely on different commands, so your script should be written to work with both.
 
 Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8. The following code demonstrates how to determine if the script is running on Ubuntu 14 or 16:
 
@@ -104,7 +105,7 @@ You can find the full script that contains these snippets at https://hdiconfigac
 
 For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
 
-To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+To understand the differences between `Systemd` and Upstart, see [`Systemd` for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
 ### <a name="bPS2"></a>Provide stable links to script resources
 
@@ -125,7 +126,7 @@ To reduce the time it takes to run the script, avoid operations that compile res
 
 Scripts must be idempotent. If the script runs multiple times, it should return the cluster to the same state every time.
 
-For example, a script that modifies configuration files shouldn't add duplicate entries if ran multiple times.
+If the script runs multiple times, the script that modifies configuration files shouldn't add duplicate entries.
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
@@ -180,7 +181,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> Use retry logic to recover from transient errors
 
-When downloading files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail because of transient networking errors. For example, the remote resource you're communicating with may be in the process of failing over to a backup node.
+When you download files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail because of transient networking errors. For example, the remote resource you're communicating with may be in the process of failing over to a backup node.
 
 To make your script resilient to transient errors, you can implement retry logic. The following function demonstrates how to implement retry logic. It retries the operation three times before failing.
 

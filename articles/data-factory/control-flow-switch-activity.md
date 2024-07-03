@@ -1,8 +1,8 @@
 ---
 title: Switch activity in Azure Data Factory 
 description: The Switch activity allows you to control the processing flow based on a condition.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
@@ -293,7 +293,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 ### PowerShell commands
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 These commands assume that you've saved the JSON files into the folder: C:\ADF. 
 

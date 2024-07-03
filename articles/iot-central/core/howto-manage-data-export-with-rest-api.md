@@ -294,7 +294,7 @@ The following example shows how to use the `filter` field to export only message
   "displayName": "Enriched Export",
   "enabled": true,
   "source": "telemetry",
-  "filter": "SELECT * FROM dtmi:azurertos:devkit:gsgmxchip;1 WHERE accelerometerX > 0",
+  "filter": "SELECT * FROM dtmi:eclipsethreadx:devkit:gsgmxchip;1 WHERE accelerometerX > 0",
   "destinations": [
     {
       "id": "dest-001"
@@ -312,7 +312,7 @@ The following example shows how to use the `filter` field to export only message
   "displayName": "Enriched Export",
   "enabled": true,
   "source": "telemetry",
-  "filter": "SELECT * FROM dtmi:azurertos:devkit:gsgmxchip;1 AS A, dtmi:contoso:Thermostat;1 WHERE A.temperature > targetTemperature",
+  "filter": "SELECT * FROM dtmi:eclipsethreadx:devkit:gsgmxchip;1 AS A, dtmi:contoso:Thermostat;1 WHERE A.temperature > targetTemperature",
   "destinations": [
     {
       "id": "dest-001"

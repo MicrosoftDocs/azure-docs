@@ -10,7 +10,7 @@ ms.date: 09/06/2022
 ms.author: pauljewell
 ms.reviewer: artek
 ms.devlang: javascript
-ms.custom: linux-related-content
+ms.custom:
 ---
 
 # Tutorial: Simulate a failure in reading data from the primary region

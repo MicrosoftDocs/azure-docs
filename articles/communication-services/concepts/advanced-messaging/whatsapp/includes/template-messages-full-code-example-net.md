@@ -1,11 +1,11 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
-author: memontic-ms
+author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 07/12/2023
+ms.date: 02/02/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -19,6 +19,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Azure;
 using Azure.Communication.Messages;
+using Azure.Communication.Messages.Models.Channels;
 
 namespace SendTemplateMessages
 {
@@ -32,58 +33,58 @@ namespace SendTemplateMessages
 
             NotificationMessagesClient notificationMessagesClient = new NotificationMessagesClient(connectionString);
 
-            string channelRegistrationId = "<Your Channel ID>";
+            var channelRegistrationId = new Guid("<Your Channel ID>");
             var recipientList = new List<string> { "<Recipient's WhatsApp Phone Number>" };
 
             // List out available templates for a channel ID
             MessageTemplateClient messageTemplateClient = new MessageTemplateClient(connectionString);
             Pageable<MessageTemplateItem> templates = messageTemplateClient.GetTemplates(channelRegistrationId);
-            foreach (MessageTemplateItem template in templates)
+            foreach (WhatsAppMessageTemplateItem template in templates)
             {
-                Console.WriteLine("Name: {0}\tLanguage: {1}\tStatus: {2}\tChannelType: {3}\nContent: {4}\n",
-                    template.Name, template.Language, template.Status, template.ChannelType, template.WhatsApp.Content);
+                Console.WriteLine("Name: {0}\tLanguage: {1}\tStatus: {2}\tContent: {3}\n",
+                    template.Name, template.Language, template.Status, template.Content);
             }
 
             // Send Sample Template sample_template
             MessageTemplate sampleTemplate = AssembleSampleTemplate();
-            var sampleTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, sampleTemplate);
-            var result = await notificationMessagesClient.SendMessageAsync(sampleTemplateMessageOptions);
+            var sampleTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, sampleTemplate);
+            var result = await notificationMessagesClient.SendAsync(sampleTemplateContent);
             PrintResponse(result);
            
             // Send sample template sample_shipping_confirmation
             MessageTemplate shippingConfirmationTemplate = AssembleSampleShippingConfirmation();
-            var shippingConfirmationTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, shippingConfirmationTemplate);
-            result = await notificationMessagesClient.SendMessageAsync(shippingConfirmationTemplateMessageOptions);
+            var shippingConfirmationTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, shippingConfirmationTemplate);
+            result = await notificationMessagesClient.SendAsync(shippingConfirmationTemplateContent);
             PrintResponse(result);
 
             // Send sample template sample_movie_ticket_confirmation
             MessageTemplate movieTicketConfirmationTemplate = AssembleSampleMovieTicketConfirmation();
-            var movieTicketConfirmationTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, movieTicketConfirmationTemplate);
-            result = await notificationMessagesClient.SendMessageAsync(movieTicketConfirmationTemplateMessageOptions);
+            var movieTicketConfirmationTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, movieTicketConfirmationTemplate);
+            result = await notificationMessagesClient.SendAsync(movieTicketConfirmationTemplateContent);
             PrintResponse(result);
 
             // Send sample template sample_happy_hour_announcement
             MessageTemplate happyHourTemplate = AssembleSampleHappyHourAnnouncement();
-            var happyHourTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, happyHourTemplate);
-            result = await notificationMessagesClient.SendMessageAsync(happyHourTemplateMessageOptions);
+            var happyHourTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, happyHourTemplate);
+            result = await notificationMessagesClient.SendAsync(happyHourTemplateContent);
             PrintResponse(result);
 
             // Send sample template sample_flight_confirmation
             MessageTemplate flightConfirmationTemplate = AssembleSampleFlightConfirmation();
-            var flightConfirmationTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, flightConfirmationTemplate);
-            result = await notificationMessagesClient.SendMessageAsync(flightConfirmationTemplateMessageOptions);
+            var flightConfirmationTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, flightConfirmationTemplate);
+            result = await notificationMessagesClient.SendAsync(flightConfirmationTemplateContent);
             PrintResponse(result);
 
             // Send sample template sample_issue_resolution
             MessageTemplate issueResolutionTemplate = AssembleSampleIssueResolution();
-            var issueResolutionTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, issueResolutionTemplate);
-            result = await notificationMessagesClient.SendMessageAsync(issueResolutionTemplateMessageOptions);
+            var issueResolutionTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, issueResolutionTemplate);
+            result = await notificationMessagesClient.SendAsync(issueResolutionTemplateContent);
             PrintResponse(result);
 
             // Send sample template sample_purchase_feedback
             MessageTemplate purchaseFeedbackTemplate = AssembleSamplePurchaseFeedback();
-            var purchaseFeedbackTemplateMessageOptions = new SendMessageOptions(channelRegistrationId, recipientList, purchaseFeedbackTemplate);
-            result = await notificationMessagesClient.SendMessageAsync(purchaseFeedbackTemplateMessageOptions);
+            var purchaseFeedbackTemplateContent = new TemplateNotificationContent(channelRegistrationId, recipientList, purchaseFeedbackTemplate);
+            result = await notificationMessagesClient.SendAsync(purchaseFeedbackTemplateContent);
             PrintResponse(result);
 
             Console.WriteLine("Press any key to exit.");
@@ -104,20 +105,21 @@ namespace SendTemplateMessages
             string templateLanguage = "en_us";
 
             var threeDays = new MessageTemplateText("threeDays", "3");
-            IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-            {
-                threeDays
-            };
-            var bindings = new MessageTemplateWhatsAppBindings(
-              body: new[] { threeDays.Name });
 
-            return new MessageTemplate(templateName, templateLanguage, values, bindings);
+            WhatsAppMessageTemplateBindings bindings = new();
+            bindings.Body.Add(new(threeDays.Name));
+
+            MessageTemplate shippingConfirmationTemplate = new(templateName, templateLanguage);
+            shippingConfirmationTemplate.Bindings = bindings;
+            shippingConfirmationTemplate.Values.Add(threeDays);
+
+            return shippingConfirmationTemplate;
         }
 
         public static MessageTemplate AssembleSampleMovieTicketConfirmation()
         {
-            string templateName = "sample_movie_ticket_confirmation";
-            string templateLanguage = "en_us";
+            string templateName = "sample_movie_ticket_confirmation"; 
+            string templateLanguage = "en_us"; 
             var imageUrl = new Uri("https://aka.ms/acsicon1");
 
             var image = new MessageTemplateImage("image", imageUrl);
@@ -126,19 +128,22 @@ namespace SendTemplateMessages
             var venue = new MessageTemplateText("venue", "Southridge Video");
             var seats = new MessageTemplateText("seats", "Seat 1A");
 
-            IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-            {
-                image,
-                title,
-                time,
-                venue,
-                seats
-            };
-            var bindings = new MessageTemplateWhatsAppBindings(
-              header: new[] { image.Name },
-              body: new[] { title.Name, time.Name, venue.Name, seats.Name });
+            WhatsAppMessageTemplateBindings bindings = new();
+            bindings.Header.Add(new(image.Name));
+            bindings.Body.Add(new(title.Name));
+            bindings.Body.Add(new(time.Name));
+            bindings.Body.Add(new(venue.Name));
+            bindings.Body.Add(new(seats.Name));
 
-            return new MessageTemplate(templateName, templateLanguage, values, bindings);
+            MessageTemplate movieTicketConfirmationTemplate = new(templateName, templateLanguage);
+            movieTicketConfirmationTemplate.Values.Add(image);
+            movieTicketConfirmationTemplate.Values.Add(title);
+            movieTicketConfirmationTemplate.Values.Add(time);
+            movieTicketConfirmationTemplate.Values.Add(venue);
+            movieTicketConfirmationTemplate.Values.Add(seats);
+            movieTicketConfirmationTemplate.Bindings = bindings;
+
+            return movieTicketConfirmationTemplate;
         }
 
         public static MessageTemplate AssembleSampleHappyHourAnnouncement()
@@ -147,21 +152,21 @@ namespace SendTemplateMessages
             string templateLanguage = "en_us";
             var videoUrl = new Uri("< Your .mp4 Video URL >");
 
+            var video = new MessageTemplateVideo("video", videoUrl);
             var venue = new MessageTemplateText("venue", "Fourth Coffee");
             var time = new MessageTemplateText("time", "Today 2-4PM");
-            var video = new MessageTemplateVideo("video", videoUrl);
+            WhatsAppMessageTemplateBindings bindings = new();
+            bindings.Header.Add(new(video.Name));
+            bindings.Body.Add(new(venue.Name));
+            bindings.Body.Add(new(time.Name));
 
-            IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-            {
-                venue,
-                time,
-                video
-            };
-            var bindings = new MessageTemplateWhatsAppBindings(
-                header: new[] { video.Name },
-                body: new[] { venue.Name, time.Name });
+            MessageTemplate happyHourAnnouncementTemplate = new(templateName, templateLanguage);
+            happyHourAnnouncementTemplate.Values.Add(venue);
+            happyHourAnnouncementTemplate.Values.Add(time);
+            happyHourAnnouncementTemplate.Values.Add(video);
+            happyHourAnnouncementTemplate.Bindings = bindings;
 
-            return new MessageTemplate(templateName, templateLanguage, values, bindings);
+            return happyHourAnnouncementTemplate;
         }
 
         public static MessageTemplate AssembleSampleFlightConfirmation()
@@ -175,18 +180,20 @@ namespace SendTemplateMessages
             var lastName = new MessageTemplateText("lastName", "Larssen");
             var date = new MessageTemplateText("date", "July 1st, 2023");
 
-            IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-            {
-                document,
-                firstName,
-                lastName,
-                date
-            };
-            var bindings = new MessageTemplateWhatsAppBindings(
-                header: new[] { document.Name },
-                body: new[] { firstName.Name, lastName.Name, date.Name });
+            WhatsAppMessageTemplateBindings bindings = new();
+            bindings.Header.Add(new(document.Name));
+            bindings.Body.Add(new(firstName.Name));
+            bindings.Body.Add(new(lastName.Name));
+            bindings.Body.Add(new(date.Name));
 
-            return new MessageTemplate(templateName, templateLanguage, values, bindings);
+            MessageTemplate flightConfirmationTemplate = new(templateName, templateLanguage);
+            flightConfirmationTemplate.Values.Add(document);
+            flightConfirmationTemplate.Values.Add(firstName);
+            flightConfirmationTemplate.Values.Add(lastName);
+            flightConfirmationTemplate.Values.Add(date);
+            flightConfirmationTemplate.Bindings = bindings;
+
+            return flightConfirmationTemplate;
         }
 
         public static MessageTemplate AssembleSampleIssueResolution()
@@ -195,53 +202,46 @@ namespace SendTemplateMessages
             string templateLanguage = "en_us";
 
             var name = new MessageTemplateText(name: "name", text: "Kat");
-            var yes = new MessageTemplateQuickAction(name: "Yes", payload: "Kat said yes");
-            var no = new MessageTemplateQuickAction(name: "No", payload: "Kat said no");
+            var yes = new MessageTemplateQuickAction(name: "Yes"){ Payload =  "Kat said yes" };
+            var no = new MessageTemplateQuickAction(name: "No") { Payload = "Kat said no" };
 
-            IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-            {
-                name,
-                yes,
-                no
-            };
-            var bindings = new MessageTemplateWhatsAppBindings(
-                body: new[] { name.Name },
-                button: new[] {
-                    new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
-                        MessageTemplateValueWhatsAppSubType.QuickReply),
-                    new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
-                        MessageTemplateValueWhatsAppSubType.QuickReply)
-                });
+            WhatsAppMessageTemplateBindings bindings = new();
+            bindings.Body.Add(new(name.Name));
+            bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name));
+            bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name));
 
-            return new MessageTemplate(templateName, templateLanguage, values, bindings);
+            MessageTemplate issueResolutionTemplate = new(templateName, templateLanguage);
+            issueResolutionTemplate.Values.Add(name);
+            issueResolutionTemplate.Values.Add(yes);
+            issueResolutionTemplate.Values.Add(no);
+            issueResolutionTemplate.Bindings = bindings;
+
+            return issueResolutionTemplate;
         }
 
         public static MessageTemplate AssembleSamplePurchaseFeedback()
         {
+            
             string templateName = "sample_purchase_feedback";
             string templateLanguage = "en_us";
             var imageUrl = new Uri("https://aka.ms/acsicon1");
 
             var image = new MessageTemplateImage(name: "image", uri: imageUrl);
             var product = new MessageTemplateText(name: "product", text: "coffee");
-            var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "survey-code");
+            var urlSuffix = new MessageTemplateQuickAction(name: "text") { Text = "survey-code"};
+            
+            WhatsAppMessageTemplateBindings bindings = new();
+            bindings.Header.Add(new(image.Name));
+            bindings.Body.Add(new(product.Name));
+            bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name));
 
-            IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-            {
-                image,
-                product,
-                urlSuffix
-            };
-            var bindings = new MessageTemplateWhatsAppBindings(
-                header: new[] { image.Name },
-                body: new[] { product.Name },
-                button: new[]
-                {
-                    new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
-                        MessageTemplateValueWhatsAppSubType.Url)
-                });
+            MessageTemplate purchaseFeedbackTemplate = new(templateName, templateLanguage);
+            purchaseFeedbackTemplate.Values.Add(image);
+            purchaseFeedbackTemplate.Values.Add(product);
+            purchaseFeedbackTemplate.Values.Add(urlSuffix);
+            purchaseFeedbackTemplate.Bindings = bindings;
 
-            return new MessageTemplate(templateName, templateLanguage, values, bindings);
+            return purchaseFeedbackTemplate;
         }
 
         public static void PrintResponse(Response<SendMessageResult> response)

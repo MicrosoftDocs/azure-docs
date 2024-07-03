@@ -7,17 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/18/2024
+ms.date: 06/14/2024
 ms.custom:
   - mode-ui
-  - ignite-2023
 ---
 
 # Quickstart: Use Search explorer to run queries in the Azure portal
 
 In this quickstart, learn how to use **Search explorer**, a built-in query tool in the Azure portal used for running queries against a search index in Azure AI Search. Use it to test a query or filter expression, or confirm whether content exists in the index.
 
-This quickstart uses an existing index to demonstrate Search explorer. 
+This quickstart uses an existing index to demonstrate Search explorer.
+
+> [!TIP]
+> Search explorer now supports image search. [Quickstart: Image search in Azure portal](search-get-started-portal-image-search.md) provides the steps.
 
 ## Prerequisites
 
@@ -43,13 +45,24 @@ Before you begin, have the following prerequisites in place:
 
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Screenshot of the Search explorer tab." border="true":::
 
-1. To specify query parameters and an API version, switch to **JSON view**. The examples in this article assume JSON view throughout. You can paste JSON examples from this article into the text area.
+## Query two ways
+
+There are two approaches for querying in Search explorer. 
+
++ Query view provides a default search bar. It accepts an empty query or free text query with booleans. For example, `seattle condo +parking`.
+
++ JSON view supports parameterized queries. Filters, orderby, select, count, searchFields, and all other parameters must be set in JSON view.
+
+  > [!TIP]
+  > JSON view provides intellisense for parameter name completion. Place the cursor inside the JSON view and type a space character to show a list of all query parameters, or type a single letter like "s" to show just the query parameters starting with "s". Intellisense doesn't exclude invalid parameters so use your best judgement.
+
+  Switch to **JSON view** for parameterized queries. The examples in this article assume JSON view throughout. You can paste JSON examples from this article into the text area.
 
    :::image type="content" source="media/search-explorer/search-explorer-json-view.png" alt-text="Screenshot of the JSON view selector." border="true":::
 
-## Unspecified query
+## Run an unspecified query
 
-In Search explorer, POST requests are formulated internally using the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), with responses returned as verbose JSON documents.
+In Search explorer, POST requests are formulated internally using the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true), with responses returned as verbose JSON documents.
 
 For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there's no search score and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 
@@ -68,6 +81,8 @@ Equivalent syntax for an empty search is `*` or `"search": "*"`.
 ## Free text search
 
 Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure AI Search. Only those fields attributed as "searchable" in the index definition are scanned for matches. 
+
+You don't need JSON view for a free text query, but we provide it in JSON for consistency with other examples in this article.
 
 Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search. The "@search.score" is a relevance score computed for the match using the [default scoring algorithm](index-ranking-similarity.md#default-scoring-algorithm).
 
@@ -191,7 +206,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that use more parts of the API. The [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) is especially helpful for learning and exploration.
+To learn more about query structures and syntax, use a REST client to create query expressions that use more parts of the API. The [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) is especially helpful for learning and exploration.
 
 > [!div class="nextstepaction"]
-> [Create a basic query in Postman](search-get-started-rest.md)
+> [Create a basic query in REST](search-get-started-rest.md)

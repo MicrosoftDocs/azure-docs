@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -23,7 +24,7 @@ Returns a string expression after converting lowercase character data to upperca
 
 ## Syntax
   
-```sql
+```nosql
 UPPER(<string_expr>)
 ```
   
@@ -41,7 +42,7 @@ Returns a string expression.
   
 The following example shows how to use the function to modify various strings.
   
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/upper/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/upper/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/upper/result.json":::
 

@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal

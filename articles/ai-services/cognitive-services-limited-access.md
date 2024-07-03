@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ---
 
@@ -17,7 +17,7 @@ Our vision is to empower developers and organizations to use AI to transform soc
 
 ## What is Limited Access? 
 
-Limited Access services require registration, and only customers managed by Microsoft, meaning those who are working directly with Microsoft account teams, are eligible for access. The use of these services is limited to the use case selected at the time of registration. Customers must acknowledge that they've reviewed and agree to the terms of service. Microsoft may require customers to reverify this information. 
+Limited Access services require registration, and only customers managed by Microsoft&mdash;meaning those who are working directly with Microsoft account teams&mdash;are eligible for access. The use of these services is limited to the use case selected at the time of registration. Customers must acknowledge that they've reviewed and agree to the terms of service. Microsoft may require customers to reverify this information. 
 
 Limited Access services are made available to customers under the terms governing their subscription to Microsoft Azure Services (including the [Service Specific Terms](https://go.microsoft.com/fwlink/?linkid=2018760)). Review these terms carefully as they contain important conditions and obligations governing your use of Limited Access services. 
 
@@ -51,7 +51,7 @@ Submit a registration form for each Limited Access service you would like to use
 
 ### How long will the registration process take? 
 
-Review may take 5-10 business days. You will receive an email as soon as your application is reviewed. 
+You'll receive communication from us about your application within 5-10 business days. In some cases, reviews can take longer. You'll receive an email as soon as your application is reviewed.
 
 ### Who is eligible to use Limited Access services? 
 
@@ -92,9 +92,6 @@ Detailed information about supported regions for Custom Neural Voice and Speaker
 
 If you're an existing customer and your application for access is denied, you will no longer be able to use Limited Access features after June 30, 2023. Your data is subject to Microsoft's data retention [policies](https://www.microsoft.com/trust-center/privacy/data-management#:~:text=If%20you%20terminate%20a%20cloud,data%20or%20renew%20your%20subscription.). 
 
-### How long will the registration process take?
-
-You'll receive communication from us about your application within 10 business days. In some cases, reviews can take longer. You'll receive an email as soon as your application is reviewed.
 
 ## Help and support 
 

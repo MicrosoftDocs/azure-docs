@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: UpdateFrequency5, template-how-to, sdkv1
-ms.date: 10/13/2021
+ms.date: 04/01/2024
 ---
 
 # Prepare data for computer vision tasks with automated machine learning v1
@@ -23,7 +23,7 @@ ms.date: 10/13/2021
 
 In this article, you learn how to prepare image data for training computer vision models with [automated machine learning in Azure Machine Learning](../concept-automated-ml.md). 
 
-To generate models for computer vision tasks with automated machine learning, you need to bring labeled image data as input for model training in the form of an [Azure Machine Learning TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). 
+To generate models for computer vision tasks with AutoML, you need to bring labeled image data as input for model training in the form of an [Azure Machine Learning TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). 
 
 To ensure your TabularDataset contains the accepted schema for consumption in automated ML, you can use the Azure Machine Learning data labeling tool or use a conversion script. 
 
@@ -49,22 +49,22 @@ If you already have a data labeling project and you want to use that data, you c
 
 If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-azureml).
 
-If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files based on schemas defined in [Schema for JSONL files for AutoML image experiments](../reference-automl-images-schema.md).
+If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files. To generate JSON Lines files, use schemas defined in [Schema for JSONL files for AutoML image experiments](../reference-automl-images-schema.md).
 
-After your data file(s) are converted to the accepted JSONL format, you can upload them to your storage account on Azure. 
+After your data files are converted to the accepted JSONL format, you can upload them to your storage account on Azure. 
 
 ## Upload the JSONL file and images to storage
 
 To use the data for automated ML training, upload the data to your [Azure Machine Learning workspace](../concept-workspace.md) via a [datastore](../how-to-access-data.md). The datastore provides a mechanism for you to upload/download data to storage on Azure, and interact with it from your remote compute targets.
 
-Upload the entire parent directory consisting of images and JSONL files to the default datastore that is automatically created upon workspace creation.  This datastore connects to the default Azure blob storage container that was created as part of workspace creation.
+Upload the entire parent directory consisting of images and JSONL files to the default datastore that is automatically created upon workspace creation. This datastore connects to the default Azure blob storage container that was created as part of workspace creation.
 
 ```python
 # Retrieve default datastore that's automatically created when we setup a workspace
 ds = ws.get_default_datastore()
 ds.upload(src_dir='./fridgeObjects', target_path='fridgeObjects')
 ```
-Once the data upload is done, you can create an [Azure Machine Learning TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and register it to your workspace for future use as input to your automated ML experiments for computer vision models.
+Once the data upload is done, you can create an [Azure Machine Learning TabularDataset.](/python/api/azureml-core/azureml.data.tabulardataset) Then, register the dataset to your workspace for future use as input to your automated ML experiments for computer vision models.
 
 ```python
 from azureml.core import Dataset

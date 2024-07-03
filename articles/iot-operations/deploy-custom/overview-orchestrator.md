@@ -3,18 +3,18 @@ title: Deploy an edge solution
 description: Deploy Azure IoT Operations to your edge environment. Use Azure IoT Orchestrator to deploy edge data services to your Kubernetes cluster.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
 ms.date: 10/25/2023
 ---
 
-# Deploy a solution in Azure IoT Operations
+# Deploy a solution in Azure IoT Operations Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use Azure IoT Orchestrator to deploy, configure, and update the components of your Azure IoT Operations Preview edge computing scenario.
+Use Azure IoT Orchestrator Preview to deploy, configure, and update the components of your Azure IoT Operations Preview edge computing scenario.
 
 :::image type="content" source="./media/overview-orchestrator/orchestrator-overview.svg" alt-text="Diagram that shows the architecture of Azure IoT Orchestrator components in the cloud and managing an Arc-enabled Kubernetes cluster.":::
 
@@ -30,7 +30,7 @@ Three types of manifests-*solution*, *target*, and *instance*-work together to d
 
 #### Solution
 
-A *solution* is a template that defines an application workload that can be deployed on one or many *targets*. A solution describes application components. Application components are resources that you want to deploy on the target cluster and that use the infrastructural components defined in the target manifest, like PowerShell scripts or Azure IoT Data Processor (preview) pipelines.
+A *solution* is a template that defines an application workload that can be deployed on one or many *targets*. A solution describes application components. Application components are resources that you want to deploy on the target cluster and that use the infrastructural components defined in the target manifest, like PowerShell scripts or Azure IoT Data Processor Preview pipelines.
 
 #### Target
 

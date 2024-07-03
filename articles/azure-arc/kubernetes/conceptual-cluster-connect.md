@@ -1,6 +1,6 @@
 ---
 title: "Cluster connect access to Azure Arc-enabled Kubernetes clusters"
-ms.date: 07/22/2022
+ms.date: 02/28/2024
 ms.topic: conceptual
 description: "Cluster connect allows developers to access their Azure Arc-enabled Kubernetes clusters from anywhere for interactive development and debugging."
 ---
@@ -13,9 +13,9 @@ Cluster connect allows developers to access their clusters from anywhere for int
 
 ## Architecture
 
-[ ![Cluster connect architecture](./media/conceptual-cluster-connect.png) ](./media/conceptual-cluster-connect.png#lightbox)
+:::image type="content" source="media/conceptual-cluster-connect.png" alt-text="Diagram showing cluster connect architecture.":::
 
-On the cluster side, a reverse proxy agent called `clusterconnect-agent` deployed as part of the agent Helm chart, makes outbound calls to the Azure Arc service to establish the session.
+On the cluster side, a reverse proxy agent called `clusterconnect-agent`, deployed as part of the agent Helm chart, makes outbound calls to the Azure Arc service to establish the session.
 
 When the user calls `az connectedk8s proxy`:
 

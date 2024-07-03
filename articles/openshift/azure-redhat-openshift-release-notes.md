@@ -5,13 +5,27 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 12/20/2023
+ms.date: 05/03/2024
 ms.custom: references_regions
 ---
 
 # What's new with Azure Red Hat OpenShift?
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+
+## Version 4.14 - May 2024
+
+We're pleased to announce the launch of OpenShift 4.14 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.14](https://docs.openshift.com/container-platform/4.14/welcome/index.html). Version 4.12 will be outside of support after July 17th, 2024. Existing clusters on version 4.12 and below should be upgraded before then.
+
+In addition to making version 4.14 available, this release also makes the following features generally available:
+
+- [Egress IP (v4.12.45+, 4.13.21+)](https://docs.openshift.com/container-platform/4.14/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html) 
+
+- [Bring your own Network Security Group (NSG)](/azure/openshift/howto-bring-nsg).
+
+- Support for [Azure Resource Health alerts](/azure/openshift/howto-monitor-alerts)
+
+- Support in [Azure Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest)
 
 ## Version 4.13 - December 2023
 
@@ -43,7 +57,7 @@ We're pleased to announce the launch of OpenShift 4.11 for Azure Red Hat OpenShi
 - Ability to deploy OpenShift 4.11
 - Multi-version support: 
     - This enables customers to select specific Y and Z version of the release. See [Red Hat OpenShift versions](support-lifecycle.md#red-hat-openshift-versions) for more information about versions.
-    - Customers can still deploy 4.10 clusters if that version is specified. See [Selecting a different ARO version](tutorial-create-cluster.md#selecting-a-different-aro-version) for more information.
+    - Customers can still deploy 4.10 clusters if that version is specified. See [Selecting a different ARO version](create-cluster.md#selecting-a-different-aro-version) for more information.
 - OVN as the CNI for clusters 4.11 and above
 - Accelerated networking VMs 
 - UltraSSD support

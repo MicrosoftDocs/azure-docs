@@ -47,7 +47,7 @@ For more information, see [Secure connections (TLS)](../app-service/overview-sec
 
 #### System key 
 
-Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
+Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that get called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
 
 The scope of system keys is determined by the extension, but it generally applies to the entire function app. System keys can only be created by specific extensions, and you can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs.
 

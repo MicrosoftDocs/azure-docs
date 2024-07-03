@@ -81,9 +81,11 @@ This query finds virtual machines marked as critical that had a heartbeat more t
     arg("").resourcechanges
     | extend changeTime = todatetime(properties.changeAttributes.timestamp), 
     changeType = tostring(properties.changeType),targetResourceType = tostring(properties.targetResourceType),
-    changedBy = tostring(properties.changeAttributes.changedBy)
+    changedBy = tostring(properties.changeAttributes.changedBy),
+    createdResource = tostring(properties.targetResourceId)
     | where changeType == "Create" and changeTime <ago(1h)
-    | project changeTime,targetResourceId,changedBy
+    | project changeTime,createdResource,changedBy
+
 }
 ```
 

@@ -3,7 +3,7 @@ title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 10/20/2022
+ms.date: 03/20/2024
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -780,16 +780,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | storageAccounts / tableServices | No |
 > | storageAccounts / vmImages | No |
 > | vmImages | No |
-
-## Microsoft.CloudTest
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | accounts | Yes |
-> | hostedpools | Yes |
-> | images | Yes |
-> | pools | Yes |
 
 ## Microsoft.CodeSigning
 

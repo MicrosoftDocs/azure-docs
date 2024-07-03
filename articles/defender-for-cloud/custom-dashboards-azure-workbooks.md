@@ -1,5 +1,5 @@
 ---
-title: Use Azure Monitor gallery workbooks with Defender for Cloud data
+title: Azure Monitor workbooks with Defender for Cloud data
 description: Learn how to create rich, interactive reports for your Microsoft Defender for Cloud data by using workbooks from the integrated Azure Monitor workbooks gallery.
 ms.topic: conceptual
 ms.author: dacurwin
@@ -114,8 +114,6 @@ Defender for Cloud includes vulnerability scanners for your machines, containers
 Learn more about using these scanners:
 
 - [Find vulnerabilities with Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
-- [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
-- [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:
@@ -131,7 +129,7 @@ The Vulnerability Assessment Findings workbook gathers these findings and organi
 
 ### Compliance Over Time workbook
 
-Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select standards that are relevant to your organization by using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select standards that are relevant to your organization by using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 The Compliance Over Time workbook tracks your compliance status over time by using the various standards that you add to your dashboard.
 
@@ -202,7 +200,7 @@ The DevOps Security workbook provides a customizable visual report of your DevOp
 :::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="Screenshot that shows a sample results page after you select the DevOps workbook." lightbox="media/custom-dashboards-azure-workbooks/devops-workbook.png":::
 
 > [!NOTE]
-> To use this workbork, your environment must have a [GitHub connector](quickstart-onboard-github.md), [GitLab connector](quickstart-onboard-gitlab.md), or [Azure DevOps connector](quickstart-onboard-devops.md).
+> To use this workbook, your environment must have a [GitHub connector](quickstart-onboard-github.md), [GitLab connector](quickstart-onboard-gitlab.md), or [Azure DevOps connector](quickstart-onboard-devops.md).
 
 To deploy the workbook:
 

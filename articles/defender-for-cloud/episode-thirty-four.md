@@ -1,14 +1,14 @@
 ---
 title: Understanding the DevOps Threat Matrix | Defender for Cloud in the Field 
 
-description: Learn about the DevOps Threat Matrix
+description: Learn about the DevOps Threat Matrix.
 ms.topic: reference
 ms.date: 06/21/2023
 ---
 
 # Understanding the DevOps Threat Matrix
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Ariel Brukman joins Yuri Diogenes to talk about the DevOps Threat Matrix. Ariel talks about the process of creating a new threat matrix for a very complex domain such as DevOps, what it was found during the research process and how the research evolved to create this threat matrix. Ariel also talks about how to use the threat matrix to improve your DevOps defenses, and he gives examples of some common attacks against DevOps environments.
+**Episode description**: In this episode of Defender for Cloud in the Field, Ariel Brukman joins Yuri Diogenes to talk about the DevOps Threat Matrix. Ariel talks about the process of creating a new threat matrix for a very complex domain such as DevOps, what it was found during the research process and how the research evolved to create this threat matrix. Ariel also talks about how to use the threat matrix to improve your DevOps defenses, and gives examples of some common attacks against DevOps environments.
 
 > [!VIDEO https://aka.ms/docs/player?id=20631aa4-501c-4fa6-bd9c-eadab45887af]
 

@@ -12,6 +12,8 @@
     href: durable-functions-versions.md
   - name: Durable Functions for .NET isolated
     href: durable-functions-dotnet-isolated-overview.md
+  - name: Durable Functions packages
+    href: durable-functions-packages.md
 - name: Quickstarts
   expanded: true
   items:

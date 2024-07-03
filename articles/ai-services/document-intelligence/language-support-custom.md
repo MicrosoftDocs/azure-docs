@@ -176,12 +176,12 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 | Languages | API version |
 |:--:|:--:|
-| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
-| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| English |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
+| German |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Italian |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| French |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Spanish |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Dutch |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
 
 :::moniker-end
 

@@ -3,7 +3,7 @@ title: Migrate devices from Azure IoT Central to Azure IoT Hub
 description: Describes how to use the migration tool to migrate devices that currently connect to an Azure IoT Central application to an Azure IoT hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/12/2022
+ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -25,6 +25,29 @@ The tool requires your connected devices to implement a **DeviceMove** command t
 
 > [!TIP]
 > You can also use the migrator tool to migrate devices between IoT Cental applications, or from an IoT hub to an IoT Central application.
+
+### Minimize disruption
+
+To minimize disruption, you can migrate your devices in phases. The migrator tool uses device groups to move devices from IoT Central to your IoT hub. Divide your device fleet into device groups such as devices in Texas, devices in New York, and devices in the rest of the US. Then migrate each device group independently.
+
+> [!WARNING]
+> You can't add unassigned devices to a device group. Therefore you can't currently use the migrator tool to migrate unassigned devices.
+
+Minimize business impact by following these steps:
+
+- Create the PaaS solution and run it in parallel with the IoT Central application.
+
+- Set up continuous data export in IoT Central application and appropriate routes to the PaaS solution IoT hub. Transform both data channels and store the data into the same data lake.
+
+- Migrate the devices in phases and verify at each phase. If something doesn't go as planned, fail the devices back to IoT Central.
+
+- When you've migrated all the devices to the PaaS solution and fully exported your data from IoT Central, you can remove the devices from the IoT Central solution.
+
+After the migration, devices aren't automatically deleted from the IoT Central application. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, you're no longer billed for them. Eventually, remove the IoT Central application.
+
+### Move existing data out of IoT Central
+
+You can configure IoT Central to continuously export telemetry and property values. Export destinations are data stores such as Azure Data Lake, Event Hubs, and Webhooks. You can export device templates using either the IoT Central UI or the REST API. The REST API lets you export the users in an IoT Central application.
 
 ## Prerequisites
 
@@ -195,7 +218,3 @@ Devices that migrated successfully:
 - Are now sending telemetry to your IoT hub
 
     :::image type="content" source="media/howto-migrate-to-iot-hub/destination-metrics.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows telemetry metrics for the migrated devices." lightbox="media/howto-migrate-to-iot-hub/destination-metrics.png":::
-
-## Next steps
-
-Now that know how to migrate devices from an IoT Central application to an IoT hub, a suggested next step is to learn how to [Monitor Azure IoT Hub](../../iot-hub/monitor-iot-hub.md).

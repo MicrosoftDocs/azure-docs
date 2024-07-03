@@ -32,13 +32,12 @@ To use HostProcess features with your deployment, set *hostProcess: true* and *h
 ```yaml
     spec:
       ...
-      containers:
-          ...
-          securityContext:
-            windowsOptions:
-              hostProcess: true
-              ...
+      securityContext:
+         windowsOptions:
+           hostProcess: true
+           ...
       hostNetwork: true
+      containers:
       ...
 ```
 
@@ -63,21 +62,18 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/os: windows
+      securityContext:
+        windowsOptions:
+          hostProcess: true
+          runAsUserName: "NT AUTHORITY\\SYSTEM"
+      hostNetwork: true
       containers:
         - name: powershell
-          image: mcr.microsoft.com/powershell:lts-nanoserver-1809
-          securityContext:
-            windowsOptions:
-              hostProcess: true
-              runAsUserName: "NT AUTHORITY\\SYSTEM"
+          image: mcr.microsoft.com/powershell:lts-nanoserver-1809 # or lts-nanoserver-ltsc2022
           command:
-            - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-            - -command
-            - |
-              $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")
-              Write-Host "Process has admin rights: $AdminRights"
-              while ($true) { Start-Sleep -Seconds 2147483 }
-      hostNetwork: true
+            - powershell.exe
+            - -Command
+            - Start-Sleep -Seconds 2147483
       terminationGracePeriodSeconds: 0
 ```
 

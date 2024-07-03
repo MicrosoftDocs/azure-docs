@@ -58,13 +58,16 @@ When configuring resource level configuration, you'll be able to select the FHIR
 
 **Make sure** to select **Save** after you've completed your versioning policy configuration.
 
-:::image type="content" source="media/versioning-policy/save-button.jpg" alt-text="Screenshot of Azure portal versioning policy configuration configuration showing save button." lightbox="media/versioning-policy/save-button.jpg":::
+:::image type="content" source="media/versioning-policy/save-button.jpg" alt-text="Screenshot of Azure portal versioning policy configuration showing save button." lightbox="media/versioning-policy/save-button.jpg":::
 
 ## History management
 
 History in FHIR is important for end users to see how a resource has changed over time. It's also useful in coordination with audit logs to see the state of a resource before and after a user modified it. In general, it's recommended to keep history for a resource unless you know that the history isn't needed. Frequent updates of resources can result in a large amount of data storage, which can be undesired in FHIR services with a large amount of data.
 
 Changing the versioning policy either at a system level or resource level won't remove the existing history for any resources in your FHIR service. If you're looking to reduce the history data size in your FHIR service, you must use the [$purge-history](purge-history.md) operation.
+
+> [!NOTE] 
+> The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources.
 
 ## Next steps
 

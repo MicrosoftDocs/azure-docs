@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ The ``GROUP BY`` clause divides the query's results according to the values of o
 
 ## Syntax
 
-```sql  
+```nosql  
 <group_by_clause> ::= GROUP BY <scalar_expression_list>
 
 <scalar_expression_list> ::=
@@ -43,19 +44,19 @@ For the examples in this section, this reference set of items is used. Each item
 
 In this first example, the ``GROUP BY`` clause is used to create groups of items using the value of a specified property.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/group-by/query.sql" range="1-4,7-8" highlight="5-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/group-by/query.sql" range="1-4,7-8" highlight="5-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by/result.json":::
 
 In this next example, an aggregate system function ([``COUNT``](count.md)) is used with the groupings to provide a total number of items per group.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/group-by-aggregate/query.sql" range="1-5,8-9" highlight="6-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/group-by-aggregate/query.sql" range="1-5,8-9" highlight="6-7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by-aggregate/result.json":::
 
 In this final example, the items are grouped using multiple properties.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/group-by-multiple/query.sql" range="1-6,9-11" highlight="7-9":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/group-by-multiple/query.sql" range="1-6,9-11" highlight="7-9":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/group-by-multiple/result.json":::
 

@@ -101,8 +101,8 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 
 If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
- ```xml
- <add 
+```xml
+<add 
     name="AFRedisCacheSessionStateProvider"
     type="Microsoft.Web.Redis.RedisSessionStateProvider"
     host="enbwcache.redis.cache.windows.net"
@@ -114,7 +114,7 @@ If you're using `RedisSessionStateProvider`, ensure you set the retry timeout co
     connectionTimeoutInMilliseconds = "5000"
     operationTimeoutInMilliseconds = "1000"
     retryTimeoutInMilliseconds="3000"
-    >
+>
 ```
 
 ## Server-side troubleshooting
@@ -129,7 +129,7 @@ For more information, check these other sections:
 
 - [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates)
 - [Connection resilience](cache-best-practices-connection.md#connection-resilience)
-- `AzureRedisEvents` [notifications](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance)
+- `AzureRedisEvents` [notifications](cache-failover.md#can-i-be-notified-in-advance-of-maintenance)
 
 To check whether your Azure Cache for Redis had a failover during when timeouts occurred, check the metric **Errors**. On the Resource menu of the Azure portal, select **Metrics**. Then create a new chart measuring the `Errors` metric, split by `ErrorType`. Once you create this chart, you see a count for **Failover**.
 
@@ -145,11 +145,11 @@ There are several changes you can make to mitigate high server load:
 
 - Investigate what is causing high server load such as [long-running commands](#long-running-commands), noted in this article, because of high memory pressure.
 - [Scale](cache-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
-- If your production workload on a _C1_ cache is negatively affected by extra latency from virus scanning, you can reduce the effect by to pay for a higher tier offering  with multiple CPU cores, such as _C2_.
+- If your production workload on a _C1_ cache is negatively affected by extra latency from some internal defender scan runs, you can reduce the effect by scaling to a higher tier offering  with multiple CPU cores, such as _C2_.
 
 #### Spikes in server load
 
-On _C0_ and _C1_ caches, you might see short spikes in server load not caused by an increase in requests a couple times a day while virus scanning is running on the VMs. You see higher latency for requests while virus scanning is happening on these tiers. Caches on the  _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving virus scanning and Redis requests.
+On _C0_ and _C1_ caches, you might see short spikes in server load not caused by an increase in requests a couple times a day while internal defender scanning is running on the VMs. You see higher latency for requests while internal defender scans happen on these tiers. Caches on the  _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal defender scanning and Redis requests.
 
 ### High memory usage
 

@@ -48,7 +48,7 @@ Also, verify that the IP address for your namespace is allowed. To find the righ
     ```
 2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the **zone redundancy** for your namespace, you need to do a few extra steps: 
+If you use a namespace hosted in an older cluster (based on Cloud Services - CNAME ending in *.cloudapp.net) and the namespace is **zone redundant**, you will need to follow few extra steps below. If your namespace is on a newer cluster (based on Virtual Machine Scale Set (VMSS) - CNAME ending in *.cloudapp.azure.com) and zone redundant you can skip below steps.
 
 1. First, you run nslookup on the namespace.
 

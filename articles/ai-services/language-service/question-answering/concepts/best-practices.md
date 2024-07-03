@@ -1,5 +1,5 @@
 ---
-title: Best practices - question answering
+title: Best practices - custom question answering
 description: Use these best practices to improve your project and provide better results to your application/chat bot's end users.
 ms.service: azure-ai-language
 author: jboback
@@ -9,17 +9,17 @@ ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 
-# Question answering best practices
+# Custom question answering best practices
 
 Use these best practices to improve your project and provide better results to your client application or chat bot's end users.
 
 ## Extraction
 
-Question answering is continually improving the algorithms that extract question answer pairs from content and expanding the list of supported file and HTML formats. In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
+Custom question answering is continually improving the algorithms that extract question answer pairs from content and expanding the list of supported file and HTML formats. In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
 
 ## Creating good questions and answers
 
-We’ve used the following list of question and answer pairs as representation of a project to highlight best practices when authoring projects for question answering.
+We’ve used the following list of question and answer pairs as representation of a project to highlight best practices when authoring projects for custom question answering.
 
 | Question | Answer |
 |----------|----------|
@@ -32,7 +32,7 @@ We’ve used the following list of question and answer pairs as representation o
 
 ### When should you add alternate questions to question and answer pairs?
 
-Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to the question in the project. For example, consider the following question answer pair:
+Custom question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to the question in the project. For example, consider the following question answer pair:
 
 *Question: What is the price of Microsoft Stock?*
 *Answer: $200.*
@@ -53,19 +53,19 @@ There are certain scenarios that require the customer to add an alternate questi
 
 Users can add as many alternate questions as they want, but only first 5 will be considered for core ranking. However, the rest will be useful for exact match scenarios. It is also recommended to keep the different intent/distinct alternate questions at the top for better relevance and score.
 
-Semantic understanding in question answering should be able to take care of similar alternate questions.
+Semantic understanding in custom question answering should be able to take care of similar alternate questions.
 
 The return on investment will start diminishing once you exceed 10 questions. Even if you’re adding more than 10 alternate questions, try to make the initial 10 questions as semantically dissimilar as possible so that all kinds of intents for the answer are captured by these 10 questions.  For the project at the beginning of this section, in question answer pair #1, adding alternate questions such as “How can I buy a car”, “I wanna buy a car” aren’t required. Whereas adding alternate questions such as “How to purchase a car”, “What are the options of buying a vehicle” can be useful.
 
 ### When to add synonyms to a project?
 
-Question answering provides the flexibility to use synonyms at the project level, unlike QnA Maker where synonyms are shared across projects for the entire service.
+Custom question answering provides the flexibility to use synonyms at the project level, unlike QnA Maker where synonyms are shared across projects for the entire service.
 
 For better relevance, you need to provide a list of acronyms that the end user intends to use interchangeably. The following is a list of acceptable acronyms:
 
-`MSFT` – Microsoft
-`ID` – Identification
-`ETA` – Estimated time of Arrival
+* `MSFT` – Microsoft
+* `ID` – Identification
+* `ETA` – Estimated time of Arrival
 
 Other than acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as “my car’s audio isn’t working” and the project has questions on “fixing audio for car X”, then we need to add ‘X’ and ‘car’ as synonyms.
 
@@ -81,7 +81,7 @@ Question answering takes casing into account but it's intelligent enough to unde
 
 ### How are question answer pairs prioritized for multi-turn questions?
 
-When a project has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other question answer pairs, for the next query we give slight preference to all the children question answer pairs, sibling question answer pairs, and grandchildren question answer pairs in that order. Along with any query, the [Question Answering REST API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a `context` object with the property `previousQnAId`, which denotes the last top answer. Based on this previous `QnAID`, all the related `QnAs` are boosted.
+When a project has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other question answer pairs, for the next query we give slight preference to all the children question answer pairs, sibling question answer pairs, and grandchildren question answer pairs in that order. Along with any query, the [custom question answering REST API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a `context` object with the property `previousQnAId`, which denotes the last top answer. Based on this previous `QnAID`, all the related `QnAs` are boosted.
 
 ### How are accents treated?
 
@@ -101,7 +101,7 @@ Chit-chat is supported in [many languages](../how-to/chit-chat.md#language-suppo
 
 Chit-chat is supported for several predefined personalities:
 
-|Personality |Question answering dataset file |
+|Personality |Custom question answering dataset file |
 |---------|-----|
 |Professional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
 |Friendly |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
@@ -129,7 +129,7 @@ If you add your own chit-chat question answer pairs, make sure to add metadata s
 
 ## Searching for answers
 
-Question answering REST API uses both questions and the answer to search for best answers to a user's query.
+The custom question answering REST API uses both questions and the answer to search for best answers to a user's query.
 
 ### Searching questions only when answer isn’t relevant
 
@@ -147,7 +147,7 @@ The default [confidence score](confidence-score.md) that is used as a threshold 
 
 ### Choosing Ranker type
 
-By default, question answering searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the REST API request.
+By default, custom question answering searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the REST API request.
 
 ### Add alternate questions
 
@@ -187,7 +187,7 @@ Since these two questions are phrased with very similar words, this similarity c
 
 ## Collaborate
 
-Question answering allows users to collaborate on a project. Users need access to the associated Azure resource group in order to access the projects. Some organizations may want to outsource the project editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical language resources with identical question answering projects in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the project contents are exported and transferred with an [import-export](../how-to/migrate-knowledge-base.md) process to the language resource of the approver that will finally deploy the project and update the endpoint.
+Custom question answering allows users to collaborate on a project. Users need access to the associated Azure resource group in order to access the projects. Some organizations may want to outsource the project editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical language resources with identical custom question answering projects in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the project contents are exported and transferred with an [import-export](../how-to/migrate-knowledge-base.md) process to the language resource of the approver that will finally deploy the project and update the endpoint.
 
 ## Active learning
 

@@ -1,45 +1,60 @@
 ---
-title: Private availability testing - Azure Monitor Application Insights
-description: Learn how to use availability tests on internal servers that run behind a firewall with private testing.
+title: Availability testing behind firewalls - Azure Monitor Application Insights
+description: Learn how to use availability tests on endpoint that are behind a firewall.
 ms.topic: conceptual
-ms.date: 03/22/2023
-ms.reviewer: shyamala
+ms.date: 05/07/2024
+ms.reviewer: cogoodson
 ---
 
-# Private testing
+# Testing behind a firewall
 
-If you want to use availability tests on internal servers that run behind a firewall, you have two possible solutions: public availability test enablement and disconnected/no ingress scenarios.
+To ensure endpoint availability behind firewalls, enable public availability tests or run availability tests in disconnected or no ingress scenarios.
 
 ## Public availability test enablement
 
+Ensure your internal website has a public Domain Name System (DNS) record. Availability tests fail if DNS can't be resolved. For more information, see [Create a custom domain name for internal application](../../cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
+
+> [!WARNING]
+> The IP addresses used by the availability tests service are shared and can expose your firewall-protected service endpoints to other tests. IP address filtering alone doesn't secure your service's traffic, so it's recommended to add extra custom headers to verify the origin of web request. For more information, see [Virtual network service tags](../../virtual-network/service-tags-overview.md#virtual-network-service-tags).
+
+### Authenticate traffic
+
+Set custom headers in [standard availability tests](availability-standard-tests.md) to validate traffic.
+
+1. Generate a token or GUID to identify traffic from your availability tests.
+2. Add the custom header "X-Customer-InstanceId" with the value `ApplicationInsightsAvailability:<GUID generated in step 1>` under the "Standard test info" section when creating or updating your availability tests.
+3. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
+
+    :::image type="content" source="media/availability-private-test/custom-validation-header.png" alt-text="Screenshot that shows custom validation header.":::
+
+Alternatively, set the token as a query parameter. For example, `https://yourtestendpoint/?x-customer-instanceid=applicationinsightsavailability:<your guid>`.
+
+### Configure your firewall to permit incoming requests from Availability Tests
+
 > [!NOTE]
-> If you don't want to allow any ingress to your environment, use the method in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios) section.
+> This example is specific to network security group service tag usage. Many Azure services accept service tags, each requiring different configuration steps.
 
- Ensure you have a public DNS record for your internal website. The test will fail if the DNS can't be resolved. For more information, see [Create a custom domain name for internal application](../../cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
+- To simplify enabling Azure services without authorizing individual IPs or maintaining an up-to-date IP list, use [Service tags](../../virtual-network/service-tags-overview.md). Apply these tags across Azure Firewall and network security groups, allowing the Availability Test service access to your endpoints. The service tag `ApplicationInsightsAvailability` applies to all Availability Tests.
 
-Configure your firewall to permit incoming requests from our service.
-
-- [Service tags](../../virtual-network/service-tags-overview.md) are a simple way to enable Azure services without having to authorize individual IPs or maintain an up-to-date list. Service tags can be used across Azure Firewall and network security groups to allow our service access. The service tag **ApplicationInsightsAvailability** is dedicated to our ping testing service, which covers both URL ping tests and Standard availability tests.
     1. If you're using [Azure network security groups](../../virtual-network/network-security-groups-overview.md), go to your network security group resource and under **Settings**, select **inbound security rules**. Then select **Add**.
 
          :::image type="content" source="media/availability-private-test/add.png" alt-text="Screenshot that shows the inbound security rules tab in the network security group resource.":::
 
-    1. Next, select **Service Tag** as the source and select **ApplicationInsightsAvailability** as the source service tag. Use open ports 80 (http) and 443 (https) for incoming traffic from the service tag.
+    2. Next, select **Service Tag** as the source and select **ApplicationInsightsAvailability** as the source service tag. Use open ports 80 (http) and 443 (https) for incoming traffic from the service tag.
 
         :::image type="content" source="media/availability-private-test/service-tag.png" alt-text="Screenshot that shows the Add inbound security rules tab with a source of service tag.":::
 
-- If your endpoints are hosted outside of Azure or service tags aren't available for your scenario, you'll need to individually allowlist the [IP addresses of our web test agents](ip-addresses.md). You can query the IP ranges directly from PowerShell, the Azure CLI, or a REST call by using the [Service Tag API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). You can also download a [JSON file](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) to get a list of current service tags with IP address details.
+- To manage access when your endpoints are outside Azure or when service tags aren't an option, allowlist the [IP addresses of our web test agents](ip-addresses.md). You can query IP ranges using PowerShell, Azure CLI, or a REST call with the [Service Tag API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). For a comprehensive list of current service tags and their IP details, download the [JSON file](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+  
     1. In your network security group resource, under **Settings**, select **inbound security rules**. Then select **Add**.
-    1. Next, select **IP Addresses** as your source. Then add your IP addresses in a comma-delimited list in source IP address/CIRD ranges.
+    2. Next, select **IP Addresses** as your source. Then add your IP addresses in a comma-delimited list in source IP address/CIRD ranges.
 
          :::image type="content" source="media/availability-private-test/ip-addresses.png" alt-text="Screenshot that shows the Add inbound security rules tab with a source of IP addresses.":::
 
 ## Disconnected or no ingress scenarios
 
-To use this method, your test server must have outgoing access to the Application Insights ingestion endpoint. This is a much lower security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests tab with a simplified experience from what is available for tests created via the Azure portal. Custom availability tests will also appear as availability results in **Analytics**, **Search**, and **Metrics**.
-
-1. Connect your Application Insights resource and disconnected environment by using [Azure Private Link](../logs/private-link-security.md).
-1. Write custom code to periodically test your internal server or endpoints. You can run the code by using [Azure Functions](availability-azure-functions.md) or a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using the `TrackAvailability()` API in the core SDK package.
+1. Connect your Application Insights resource to your internal service endpoint using [Azure Private Link](../logs/private-link-security.md).
+2. Write custom code to periodically test your internal server or endpoints. Send the results to Application Insights using the [TrackAvailability()](availability-azure-functions.md) API in the core SDK package.
 
 ## Troubleshooting
 
@@ -50,4 +65,4 @@ For more information, see the [troubleshooting article](troubleshoot-availabilit
 * [Azure Private Link](../logs/private-link-security.md)
 * [Availability alerts](availability-alerts.md)
 * [Availability overview](availability-overview.md)
-* [Create and run custom availability tests by using Azure Functions](availability-azure-functions.md)
+* [Custom availability tests using Azure Functions](availability-azure-functions.md)

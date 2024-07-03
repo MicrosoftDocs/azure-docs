@@ -1,12 +1,12 @@
 ---
 title: Disable access key authentication for an Azure App Configuration instance
 titleSuffix: Azure App Configuration
-description: Learn how to disable access key authentication for an Azure App Configuration instance
+description: Learn how to disable access key authentication for an Azure App Configuration instance.
 ms.service: azure-app-configuration
-author: jimmyca15
-ms.author: jimmyca
+author: maud-lv
+ms.author: malev
 ms.topic: how-to
-ms.date: 5/14/2021
+ms.date: 04/05/2024
 ---
 
 # Disable access key authentication for an Azure App Configuration instance
@@ -17,20 +17,19 @@ When you disable access key authentication for an Azure App Configuration resour
 
 ## Disable access key authentication
 
-Disabling access key authentication will delete all access keys. If any running applications are using access keys for authentication they will begin to fail once access key authentication is disabled. Enabling access key authentication again will generate a new set of access keys and any applications attempting to use the old access keys will still fail.
+Disabling access key authentication will delete all access keys. If any running applications are using access keys for authentication, they will begin to fail once access key authentication is disabled. Enabling access key authentication again will generate a new set of access keys and any applications attempting to use the old access keys will still fail.
 
 > [!WARNING]
 > If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Microsoft Entra ID](./concept-enable-rbac.md) before disabling access key authentication.
-> Additionally, it is recommended to read the [limitations](#limitations) section below to verify the limitations won't affect the intended usage of the resource.
 
 # [Azure portal](#tab/portal)
 
 To disallow access key authentication for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
-2. Locate the **Access keys** setting under **Settings**.
+2. Locate the **Access settings** setting under **Settings**.
 
-    :::image type="content" border="true" source="./media/access-keys-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade":::
+    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
 3. Set the **Enable access keys** toggle to **Disabled**.
 
@@ -44,16 +43,16 @@ The capability to disable access key authentication using the Azure CLI is in de
 
 ### Verify that access key authentication is disabled
 
-To verify that access key authentication is no longer permitted, a request can be made to list the access keys for the Azure App Configuration resource. If access key authentication is disabled there will be no access keys and the list operation will return an empty list.
+To verify that access key authentication is no longer permitted, a request can be made to list the access keys for the Azure App Configuration resource. If access key authentication is disabled, there will be no access keys, and the list operation will return an empty list.
 
 # [Azure portal](#tab/portal)
 
 To verify access key authentication is disabled for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
-2. Locate the **Access keys** setting under **Settings**.
+2. Locate the **Access settings** setting under **Settings**.
 
-    :::image type="content" border="true" source="./media/access-keys-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade":::
+    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
 3. Verify there are no access keys displayed and **Enable access keys** is toggled to **Disabled**.
 
@@ -69,7 +68,7 @@ az appconfig credential list \
     --resource-group <resource-group>
 ```
 
-If access key authentication is disabled then an empty list will be returned.
+If access key authentication is disabled, then an empty list will be returned.
 
 ```
 C:\Users\User>az appconfig credential list -g <resource-group> -n <app-configuration-name>
@@ -89,18 +88,13 @@ These roles do not provide access to data in an Azure App Configuration resource
 
 Role assignments must be scoped to the level of the Azure App Configuration resource or higher to permit a user to allow or disallow access key authentication for the resource. For more information about role scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
 
-Be careful to restrict assignment of these roles only to those who require the ability to create an App Configuration resource or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
+Be careful to restrict assignment of these roles only to those users who require the ability to create an App Configuration resource or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 > [!NOTE]
 > The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage App Configuration resources. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-## Limitations
-
-The capability to disable access key authentication has the following limitation:
-
-### ARM template access
-
-When access key authentication is disabled, the capability to read/write key-values in an [ARM template](./quickstart-resource-manager.md) will be disabled as well. This is because access to the Microsoft.AppConfiguration/configurationStores/keyValues resource used in ARM templates requires an Azure Resource Manager role, such as contributor or owner. When access key authentication is disabled, access to the resource requires one of the Azure App Configuration [data plane roles](concept-enable-rbac.md), therefore ARM template access is rejected.
+> [!NOTE]
+> When access key authentication is disabled and [ARM authentication mode](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) of App Configuration store is local, the capability to read/write key-values in an [ARM template](./quickstart-resource-manager.md) will be disabled as well. This is because access to the Microsoft.AppConfiguration/configurationStores/keyValues resource used in ARM templates requires access key authentication with local ARM authentication mode. It's recommended to use pass-through ARM authentication mode. For more information, see [Deployment overview](./quickstart-deployment-overview.md).
 
 ## Next steps
 

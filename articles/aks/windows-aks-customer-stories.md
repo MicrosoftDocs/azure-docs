@@ -4,6 +4,9 @@ titleSuffix: Windows AKS customer stories
 description: Learn how customers are using Windows Containers on AKS.
 ms.topic: article
 ms.date: 11/29/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Windows AKS customer stories 
@@ -13,10 +16,21 @@ Explore how various industries are using Windows Containers on Azure Kubernetes 
 Learn directly from the customer stories listed here.
 
 ## Customer stories 
+- [Finastra](#finastra)
 - [Relativity](#relativity)
 - [Duck Creek](#duck-creek)
 - [Forza (Xbox Game Studios)](#forza)
 - [Microsoft Experience + Devices](#microsoft-experience--devices)
+
+
+### Finastra  
+
+![Logo of Finastra.](./media/windows-aks-customer-stories/finastra.png)
+
+LaserPro document management software is key to the Finastra vision of delivering the future of banking. Migrating from an on-premises management system to a cloud-based infrastructure using Windows containers on Azure Kubernetes Service has significantly increased agility through biweekly updates and reduced support costs for both customers and developers.
+
+For more information visit [Finastra's Windows AKS customer story](https://customers.microsoft.com/en-us/story/1759082810297807726-finastra-azure-kubernetes-service-professional-services-en-united-kingdom). 
+
 
 ### Relativity 
 

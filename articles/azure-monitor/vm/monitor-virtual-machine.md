@@ -83,6 +83,10 @@ See [Design a Log Analytics workspace architecture](../logs/workspace-design.md)
 > [!IMPORTANT]
 > Azure Monitor agent is in preview for some service features. See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for current details.
 
+## Troubleshoot VM performance issues with Performance Diagnostics
+
+[The Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json) helps troubleshoot performance issues on Windows or Linux virtual machines by quickly diagnosing and providing insights on issues it currently finds on your machines. The tool does not analyze historical monitoring data you collect, but rather checks the current state of the machine for known issues, implementation of best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory.  
+
 
 ## Next steps
 

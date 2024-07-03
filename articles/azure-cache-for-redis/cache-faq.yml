@@ -19,6 +19,25 @@ summary: |
   * [Common monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.yml)
 
 sections:
+  - name: Redis licensing change
+    questions:
+      - question: What are the changes have been made to Redis licensing?
+        answer: |
+          The Redis open-source project has changed to a dual-license model with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). Refer to the [Redis press release](https://aka.ms/redis/licensingchangepressrelease) for more information. Also see the [Microsoft blog post on the Redis licensing change](https://aka.ms/redis/licensechangeblog).  
+
+      - question: Is Azure Cache for Redis now also covered by the RSALv2 and SSPLv1 licenses?  
+        answer: |
+          No, Azure Cache for Redis is offered to customers under the Microsoft terms of service. The RSALv2 and SSPLv1 licenses do not apply to your use of Azure Cache for Redis. 
+
+      - question: Will my Azure Cache for Redis instance continue to receive patches and bug fixes? 
+        answer: |
+          Yes, Azure Cache for Redis, Azure Cache for Redis Enterprise, and Enterprise Flash will continue to receive patches and bug fixes even after the licensing announcement.
+
+      - question: What do I need to do as an Azure Cache for Redis customer in response to this licensing announcement?
+        answer: |
+          There is no action required for our Azure customers regarding the licensing announcement.
+      
+
   - name: Deprecated Services
     questions:
       - question: Which Azure Cache for Redis services were deprecated?

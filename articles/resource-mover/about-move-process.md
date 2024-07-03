@@ -4,7 +4,7 @@ description: Learn about the process for moving resources across regions with Az
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: overview
-ms.date: 02/02/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ms.custom: UpdateFrequency.5
 #Customer intent: As an Azure admin, I want to understand how Azure Resource Mover works.

@@ -4,9 +4,9 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 01/23/2024
+ms.date: 03/20/2024
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy24
 ---
 
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure
@@ -91,7 +91,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 ### Create an Azure network
 
-[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
+[Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
 
 ## Prepare GCP instances for migration
 
@@ -167,7 +167,8 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
 - [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
-- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
+- [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
+- [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
 1. Extract the contents of the installer tarball to a local folder (for example, /tmp/MobSvcInstaller) on the GCP VM, as follows:
 
@@ -227,7 +228,7 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
 

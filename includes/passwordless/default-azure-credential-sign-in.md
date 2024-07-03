@@ -24,11 +24,11 @@ az login
 
 Select the **Sign in** button in the top right of Visual Studio.
 
-:::image type="content" source="../../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-small.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
+:::image type="content" source="/azure/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-small.png" alt-text="Screenshot showing the button to sign in to Azure using Visual Studio.":::
 
 Sign-in using the Microsoft Entra account you assigned a role to previously.
 
-:::image type="content" source="../../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
+:::image type="content" source="/azure/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
 ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 

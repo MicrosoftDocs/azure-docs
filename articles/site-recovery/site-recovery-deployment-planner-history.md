@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 ms.topic: article
 ms.service: site-recovery
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 12/15/2023
 ms.author: ankitadutta
 ---

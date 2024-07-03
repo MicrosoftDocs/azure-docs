@@ -77,7 +77,7 @@ To unlink from your Automation account, perform the following steps.
 
 3. On the **Unlink workspace** page, select **Unlink workspace**, and respond to prompts.
 
-   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+   ![Unlink workspace page](media/delete-account/automation-unlink-workspace-blade.png)
 
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -141,7 +141,7 @@ To unlink from your Automation account, perform the following steps.
 
 3. On the **Unlink workspace** page, select **Unlink workspace**, and respond to prompts.
 
-   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+   ![Unlink workspace page](media/delete-account/automation-unlink-workspace-blade.png)
 
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 

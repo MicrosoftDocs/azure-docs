@@ -13,7 +13,7 @@ ms.author: ruslanzdor
 ---
 
 ## Enable interoperability in your Teams tenant
-Microsoft Entra user with [Teams administrator role](../../../active-directory/roles/permissions-reference.md#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
+Microsoft Entra user with [Teams administrator role](/entra/identity/role-based-access-control/permissions-reference#teams-administrator) can run PowerShell cmdlet with MicrosoftTeams module to enable the Communication Services resource in the tenant. 
 
 ### 1. Prepare the Microsoft Teams module
 

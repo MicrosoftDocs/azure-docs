@@ -4,7 +4,7 @@ description: Learn about the user resource type attributes that Azure AD B2C dir
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C

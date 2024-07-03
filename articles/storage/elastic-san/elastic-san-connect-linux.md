@@ -1,10 +1,10 @@
 ---
 title: Connect to an Azure Elastic SAN volume - Linux.
-description: Learn how to connect to an Azure Elastic SAN volume from a Linux client.
+description: Learn how to connect to an Azure Elastic SAN volume from an individual Linux client using iSCSI and ensure optimal performance.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: references_regions, linux-related-content
 ---
@@ -23,10 +23,6 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 - [Deploy an Elastic SAN](elastic-san-create.md)
 - [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
-
-## Limitations
-
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
 ## Connect to volumes
 

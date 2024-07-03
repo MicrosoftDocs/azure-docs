@@ -13,19 +13,19 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 06/09/2023
+ms.date: 04/24/2024
 ---
 
 # Quickstart: Full text search using the Azure SDKs
 
 Learn how to use the **Azure.Search.Documents** client library in an Azure SDK to create, load, and query a search index using sample data for [**full text search**](search-lucene-query-architecture.md). Full text search uses Apache Lucene for indexing and queries, and a BM25 ranking algorithm for scoring results.
 
-This quickstart has [steps](#create-load-and-query-an-index) for the following SDKs:
+This quickstart has steps for the following SDKs:
 
-+ [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme)
-+ [Azure SDK for Python](/python/api/overview/azure/search-documents-readme)
-+ [Azure SDK for Java](/java/api/overview/azure/search-documents-readme)
-+ [Azure SDK for JavaScript](/javascript/api/overview/azure/search-documents-readme)
++ [Azure SDK for .NET](?tabs=dotnet#create-load-and-query-an-index)
++ [Azure SDK for Python](?tabs=python#create-load-and-query-an-index)
++ [Azure SDK for Java](?tabs=java#create-load-and-query-an-index)
++ [Azure SDK for JavaScript](?tabs=javascript#create-load-and-query-an-index)
 
 ## Prerequisites
 
@@ -33,9 +33,7 @@ This quickstart has [steps](#create-load-and-query-an-index) for the following S
 
 + An Azure AI Search service. [Create a service](search-create-service-portal.md) if you don't have one. You can use a free tier for this quickstart.
 
-+ An API key and service endpoint:
-
-  Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
++ An API key and service endpoint. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
   In **Overview**, copy the URL and save it to Notepad for a later step. An example endpoint might look like `https://mydemo.search.windows.net`.
 

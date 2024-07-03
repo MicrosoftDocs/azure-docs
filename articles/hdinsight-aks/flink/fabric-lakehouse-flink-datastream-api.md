@@ -3,7 +3,7 @@ title: Microsoft Fabric with Apache Flink® in HDInsight on AKS
 description: An introduction to lakehouse on Microsoft Fabric with Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 03/23/2024
 ---
 # Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink®
 
@@ -56,7 +56,7 @@ This step illustrates, that we package dependencies needed for onelakeDemo
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <flink.version>1.16.0</flink.version>
+        <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
     </properties>
@@ -202,13 +202,17 @@ public class onelakeDemo {
     }
 }
 ```
-### Package the jar and submit to Flink
+### Package the jar and upload it into Webssh and submit the job:
 
-Here, we use the packaged jar and submit to Flink cluster in HDInsight on AKS
+`bin/flink run -c contoso.example.onelakeDemo -j OneLakeDemo-1.0-SNAPSHOT.jar`
 
-:::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/jar-submit-flink-step-1.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 1." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/jar-submit-flink-step-1.png":::
+:::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/package-the-jar-file.png" alt-text="Screenshot showing how to package the jar file." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/package-the-jar-file.png":::
 
-:::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/jar-submit-flink-step-2.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 2." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/jar-submit-flink-step-2.png":::
+Check Job running on Flink UI:
+
+
+:::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/check-job-runs-on-flink-ui.png" alt-text="Screenshot showing how to check job runs on Flink UI." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/check-job-runs-on-flink-ui.png":::
+
 
 ### Results on Microsoft Fabric 
 

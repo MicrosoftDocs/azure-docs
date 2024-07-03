@@ -3,7 +3,7 @@ title: What is Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop and Apache Spark technology stack and components, including Kafka, Hive, and HBase for big data analysis.
 ms.service: hdinsight
 ms.topic: overview
-ms.date: 12/05/2023
+ms.date: 05/09/2024
 #Customer intent: As a data analyst, I want understand what is Azure HDInsight and Hadoop and how it is offered in so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
@@ -55,7 +55,7 @@ Extract, transform, and load (ETL) is a process where unstructured or structured
 
 You can use HDInsight to perform interactive queries at petabyte scales over structured or unstructured data in any format. You can also build models connecting them to BI tools.
 
-:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png" alt-text="HDInsight architecture: Data warehousing":::
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png" alt-text="HDInsight architecture: Data warehousing.":::
 
 ### Internet of Things (IoT)
 
@@ -67,7 +67,7 @@ You can use HDInsight to process streaming data that is received in real time fr
 
 You can use HDInsight to extend your existing on-premises [big data](#what-is-big-data) infrastructure to Azure to apply the advanced analytics capabilities of the cloud.
 
-:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid":::
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid.":::
 
 ## Open-source components in HDInsight
 

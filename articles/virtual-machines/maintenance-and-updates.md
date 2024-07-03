@@ -3,7 +3,7 @@ title: Maintenance and updates
 description: Overview of maintenance and updates for virtual machines running in Azure.
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 04/01/2024
 #pmcontact:shants
 ---
 # Maintenance for virtual machines in Azure
@@ -40,7 +40,7 @@ For greater control on all maintenance activities including zero-impact and rebo
 
 ### Live migration
 
-Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, L, M, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
+Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, L, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Live Migration is available on majority of M-Series SKUs. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
 
 > [!NOTE]
 > You won't receive a notification in the Azure portal for live migration operations that don't require a reboot. To see a list of live migrations that don't require a reboot, [query for scheduled events](./windows/scheduled-events.md#query-for-events).

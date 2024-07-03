@@ -24,6 +24,8 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 - An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
+  
+   During the public preview, you can target only storage accounts that are in the same region as the storage tasks.
 
 - The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
 

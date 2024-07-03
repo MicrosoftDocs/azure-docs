@@ -100,7 +100,7 @@ There may be times when you're running a container with a multi-layered ingestio
     -e HotfixDataFolder=/usr/local/customhotfix\
     mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 
-   ```
+    ```
 
 ## Learn more
 

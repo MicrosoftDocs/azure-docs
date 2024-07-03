@@ -1,11 +1,8 @@
 ---
 title: Quick Fix remediation for Advisor recommendations
 description: Perform bulk remediation using Quick Fix in Advisor
-author: orspod
 ms.topic: article
 ms.date: 03/13/2020
-ms.author: orspodek
-
 ---
 
 # Quick Fix remediation for Advisor

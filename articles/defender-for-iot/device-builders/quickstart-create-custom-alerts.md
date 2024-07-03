@@ -9,8 +9,6 @@ ms.date: 01/01/2023
 
 Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution.
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 ## Why use custom alerts?
 
 You know your IoT devices best.

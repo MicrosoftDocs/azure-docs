@@ -1,0 +1,52 @@
+items:
+- name: Azure Operator 5G Core documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Operator 5G Core?
+    href: overview-product.md
+- name: Concepts
+  items:
+  - name: Security in Azure Operator 5G Core
+    href: concept-security.md
+  - name: Centralized lifecycle management in Azure Operator 5G Core
+    href: concept-centralized-lifecycle-management.md
+  - name: Deployment order for clusters, network functions, and observability
+    href: concept-deployment-order.md
+  - name: Observability and analytics in Azure Operator 5G Core
+    href: concept-observability-analytics.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Get access to Azure Operator 5G 
+    href: quickstart-subscription.md
+  - name: Complete the prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service
+    href: quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md
+  - name: Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
+    href: quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md
+  - name: Deploy Azure Operator 5G Core
+    href: quickstart-deploy-5g-core.md
+  - name: Monitor the status of your Azure Operator 5G Core deployment
+    href: quickstart-monitor-deployment-status.md
+  - name: Configure the Azure Operator 5G Core extension for status monitoring
+    href: quickstart-perform-checks-post-deployment.md
+- name: How-to guides
+  items:
+  - name: Configure Azure Operator 5G Core network functions
+    href: how-to-configure-network-function.md
+  - name: Deploy a network function using Azure CLI
+    href: how-to-deploy-network-functions.md
+  - name: Deploy Azure Operator 5G Core observability services
+    href: how-to-deploy-observability.md
+  - name: Delete a network function deployment or ClusterServices in Azure Operator 5G Core
+    href: how-to-delete-network-function-cluster.md
+- name: Tutorials
+  items: 
+  - name: Configure a network function
+    href: tutorial-configure-network-function.md
+- name: Reference
+  items:
+  - name: REST API Reference
+    href: /rest/api/mobilepacketcore 
+  

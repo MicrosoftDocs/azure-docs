@@ -1,13 +1,10 @@
 ---
- title: include file
- description: include file
- author: dominicbetts
- ms.topic: include
- ms.date: 10/13/2023
- ms.author: dobett
-ms.custom:
-  - include file
-  - ignite-2023
+title: include file
+description: include file
+author: dominicbetts
+ms.topic: include
+ms.date: 02/13/2024
+ms.author: dobett
 ---
 
 > [!IMPORTANT]

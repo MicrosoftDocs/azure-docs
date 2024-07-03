@@ -24,9 +24,9 @@ Configure custom network rules in the API Management subnet to filter traffic to
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | Management endpoint for Azure portal and PowerShell        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | Azure Infrastructure Load Balancer                        | External & Internal  |
 | * / 443 | Inbound | TCP | AzureTrafficManager / VirtualNetwork | Azure Traffic Manager routing for multi-region deployment | External only |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | Dependency on Azure Storage                             | External & Internal  |
-| * / 1433                     | Outbound           | TCP                | VirtualNetwork / SQL                 | Access to Azure SQL endpoints                           | External & Internal  |
-| * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | Access to Azure Key Vault                         | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | Dependency on Azure Storage for core service functionality                            | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VirtualNetwork / SQL                 | Access to Azure SQL endpoints for core service functionality                          | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | Access to Azure Key Vault for core service functionality                         | External & Internal  |
 | * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | Publish [Diagnostics Logs and Metrics](../articles/api-management/api-management-howto-use-azure-monitor.md), [Resource Health](../articles//service-health/resource-health-overview.md), and [Application Insights](../articles/api-management/api-management-howto-app-insights.md)                  | External & Internal  |
 
 

@@ -40,7 +40,7 @@ Here's an example of the application registration page.
 
 You need the service principal's object ID and the tenant ID. You need this information for permission assignment operations later in this article. All applications are registered in Microsoft Entra ID in the tenant. Two types of objects get created when the app registration is completed:
 
-- Application object - The application object ID is what you see under App Registrations in Microsoft Entra ID. The object ID should *not* be used to grant any EA roles.
+- Application object - The application ID is what you see under Enterprise Applications. The ID should *not* be used to grant any EA roles.
 - Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Microsoft Entra ID. The object ID is used to grant EA roles to the service principal.
 
 1. Open Microsoft Entra ID, and then select **Enterprise applications**.
@@ -111,7 +111,7 @@ A service principal can have only one role.
 
 1. Select **Run** to start the command.
 
-   :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment put Try It with example information ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
+   :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing a example role assignment with example information that is ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
 
    A `200 OK` response shows that the service principal was successfully added.
 
@@ -205,7 +205,7 @@ Now you can use the service principal to automatically access EA APIs. The servi
 
 1. Select **Run** to start the command.
 
-   :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments - Put article" lightbox="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" :::
+   :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments - Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" :::
 
    A `200 OK` response shows that the service principal has been successfully added.
 

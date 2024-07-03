@@ -4,7 +4,7 @@ description: Overview of Apache Phoenix
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/26/2023
+ms.date: 05/22/2024
 ---
 
 # Apache Phoenix in Azure HDInsight
@@ -21,7 +21,7 @@ Apache Phoenix adds several performance enhancements and  features to  HBase que
 
 ### Secondary indexes
 
-HBase has a single index that is lexicographically sorted on the primary row key. These records can only be accessed through the row key. Accessing records through any column other than the row key requires scanning all of the data while applying the required filter. In a secondary index, the columns or expressions that are indexed form an alternate row key, allowing lookups and range scans on that index.
+HBase has a single index that is lexicographically sorted on the primary row key. These records can only be accessed through the row key. Accessing records through any column other than the row key requires scanning all of the data while applying the required filter. In a secondary index, the columns or expressions that are indexed from an alternate row key, allowing lookups and range scans on that index.
 
 Create a secondary index with the `CREATE INDEX` command:
 
@@ -37,7 +37,7 @@ Phoenix views provide a  way to overcome an  HBase limitation, where performance
 
 Creating a Phoenix view is  similar to using standard SQL view syntax. One difference is that you can define columns for your view, in addition to the columns inherited from its base table. You can also  add new `KeyValue` columns.
 
-For example, here is a physical table named `product_metrics` with the following definition:
+For example, here's a physical table named `product_metrics` with the following definition:
 
 ```sql
 CREATE  TABLE product_metrics (
@@ -48,7 +48,7 @@ CREATE  TABLE product_metrics (
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
 
-Define a view over this table, with additional columns:
+Define a view over this table, with more columns:
 
 ```sql
 CREATE VIEW mobile_product_metrics (carrier VARCHAR, dropped_calls BIGINT) AS
@@ -60,7 +60,7 @@ To add more columns later,  use the `ALTER VIEW` statement.
 
 ### Skip scan
 
-Skip scan uses one or more columns of a composite index to find distinct values. Unlike a range scan, skip scan implements intra-row scanning, yielding [improved performance](https://phoenix.apache.org/performance.html#Skip-Scan). While scanning, the first matched value is skipped along with the index until the next value is found.
+Skip scan uses one or more columns of a composite index to find distinct values. Unlike a range scan, skip scan implements intra-row scanning, yielding [improved performance](https://phoenix.apache.org/performance.html#Skip-Scan). When you scan, the first matched value is skipped along with the index until the next value is found.
 
 A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Using `SEEK_NEXT_USING_HINT`, the skip scan keeps track of which set of keys, or ranges of keys, are being searched for in each column. The skip scan then takes a key that was passed to it during filter evaluation, and determines whether it's one of the combinations. If not, the skip scan evaluates the next highest key to jump to.
 
@@ -68,7 +68,7 @@ A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Usi
 
 While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.apache.org/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
 
-As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upsert operation fails on any transaction-enabled table.
+As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upserted operation fails on any transaction-enabled table.
 
 To enable Phoenix transactions, see the [Apache Phoenix transaction documentation](https://phoenix.apache.org/transactions.html).
 
@@ -120,11 +120,11 @@ An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-amba
 
 2. Select **HBase** from the list of services in the left-hand menu, then select the **Configs** tab.
 
-    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari HBase configurations":::
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari HBase configurations.":::
 
 3. Find the **Phoenix SQL** configuration section to enable or disable phoenix, and set the query timeout.
 
-    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Ambari Phoenix SQL configuration section":::
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Ambari Phoenix SQL configuration section.":::
 
 ## See also
 

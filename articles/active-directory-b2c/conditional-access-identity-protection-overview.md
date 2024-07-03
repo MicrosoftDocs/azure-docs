@@ -2,7 +2,7 @@
 title: Identity Protection and Conditional Access in Azure AD B2C
 description: Learn how Identity Protection gives you visibility into risky sign-ins and risk detections. Find out how and Conditional Access lets you enforce organizational policies based on risk events in your Azure AD B2C tenants.
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: B2C
 ms.topic: overview
 ms.date: 01/11/2024
 ms.author: kengaderdus
@@ -29,7 +29,7 @@ If you're already familiar with [Identity Protection](../active-directory/identi
 
 By pairing Conditional Access policies with Identity Protection risk detection, you can respond to risky authentications with the appropriate policy action.
 
-- **Gain a new level of visibility into the authentication risks for your apps and your customer base**. With signals from billions of monthly authentications across Microsoft Entra ID and Microsoft Account, the risk detection algorithms will now flag authentications as low, medium, or high risk for your local consumer or citizen authentications.
+- **Gain a new level of visibility into the authentication risks for your apps and your customer base**. With signals from billions of monthly authentications across Microsoft Entra ID and Microsoft Account, the risk detection algorithms flag authentications as low, medium, or high risk for your local consumer or citizen authentications.
 - **Automatically address risks by configuring your own adaptive authentication**. For specified applications, you can require a specific set of users to provide a second authentication factor, as in multi-factor authentication (MFA). Or you can block access based on the risk level detected. As with other Azure AD B2C experiences, you can customize resulting end-user experience  with your organization’s voice, style, and brand. You can also display mitigation alternatives if the user isn't able to gain access.
 - **Control access based on location, groups, and apps**.  Conditional Access can also be used to control non-risk based situations. For example, you can require MFA for customers accessing a specific app, or block access from specified geographies.
 - **Integrate with Azure AD B2C user flows and Identity Experience Framework custom policies**. Use your existing customized experiences and add the controls you need to interface with Conditional Access. You can also implement advanced scenarios for granting access, such as  knowledge-based access or your own preferred MFA provider.

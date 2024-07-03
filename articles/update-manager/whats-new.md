@@ -5,23 +5,49 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/06/2024
+ms.date: 05/13/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## May 2024
+
+### Migration portal experience and scripts: Generally Available
+
+Azure Update Manager offers migration portal experience and automated migration scripts to move machines and schedules from Automation Update Management to Azure Update Manager. [Learn more](https://aka.ms/aum-migration-scripts-docs)
+
+### Updates blade in Azure Update Manager: Generally Available 
+
+The purpose of this new blade is to present information from Updates pivot instead of machines. It would be useful for Central IT admins, Security admins who care about vulnerabilities in the system and want to act on them by applying updates. [Learn more](deploy-manage-updates-using-updates-view.md).
+
+
+## April 2024
+
+### Added support for new VM images
+
+Support for ubuntu pro 22.04 gen1 and gen2, redhat 8.8, centos-hpc 7.1 and 7.3, oracle8 has been added. For more information, see [support matrix](support-matrix.md) for the latest list of supported VM images.
+ 
+### New region support
+
+Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
+
+
 ## February 2024
+
+### Billing enabled for Arc-enabled severs 
+
+Billing has been enabled for Arc-enabled servers, starting from February. Azure Update Manager is charged $5/server/month (assuming 31 days of connected usage). It's charged at a daily prorated value. Refer to FAQs for pricing [here](update-manager-faq.md#pricing).
 
 ### Migration scripts to move machines and schedules from Automation Update Management to Azure Update Manager (preview)
 
-Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
+Migration scripts allow you to move all machines and schedules in an automation account from Automation Update Management to Azure Update Management in an automated fashion. [Learn more](guidance-migration-automation-update-management-azure-update-manager.md).
 
 
 ### Updates blade in Azure Update Manager (preview)
 
-The purpose of this new blade is to present information from Updates pivot instead of machines. It would be particularly useful for Central IT admins, Security admins who care about vulnerabilities in the system and want to act on them by applying updates. [Learn more](deploy-manage-updates-using-updates-view.md).
+The purpose of this new blade is to present information from Updates pivot instead of machines. It would be useful for Central IT admins, Security admins who care about vulnerabilities in the system and want to act on them by applying updates. [Learn more](deploy-manage-updates-using-updates-view.md).
 
 ## December 2023
 
@@ -60,9 +86,9 @@ Update management center is now rebranded as Azure Update Manager.
 
 Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
-### SQL Server patching (preview)
+### SQL Server patching
 
-SQL Server patching (preview) allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
+SQL Server patching allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
 
 ## July 2023
 
@@ -75,7 +101,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 

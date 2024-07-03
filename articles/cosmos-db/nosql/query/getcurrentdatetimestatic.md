@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -23,7 +24,7 @@ Returns the current UTC (Coordinated Universal Time) date and time as an ISO 860
 
 ## Syntax
 
-```sql
+```nosql
 GetCurrentDateTimeStatic()
 ```
 
@@ -42,7 +43,7 @@ This example uses a container with a partition key path of `/pk`. There are thre
 
 This function returns the same static date and time for items within the same partition. For comparison, the nonstatic function gets a new date and time value for each item matched by the query.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/query.novalidate.sql" highlight="4-5":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/query.novalidate.sql" highlight="4-5":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentdatetimestatic/result.novalidate.json":::
 

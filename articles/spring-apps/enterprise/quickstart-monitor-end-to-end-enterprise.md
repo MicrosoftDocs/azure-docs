@@ -41,62 +41,80 @@ You must manually provide the Application Insights connection string to the Orde
 > [!NOTE]
 > Currently only the buildpacks for Java and NodeJS applications support Application Insights instrumentation.
 
+1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values. The name of your Azure Spring Apps service instance must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+
+   ```azurecli
+   export RESOURCE_GROUP="<resource-group-name>"
+   export APP_INSIGHTS_NAME="<app-insights-name>"
+   export KEY_VAULT_NAME="<key-vault-name>"
+   export AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME="<Azure-Spring-Apps-service-instance-name>"
+   ```
+
+   > [!NOTE]
+   > By default, the APP_INSIGHTS_NAME is same as the AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME.
+
 1. Use the following commands to retrieve the Application Insights connection string and set it in Key Vault:
 
    ```azurecli
-   export INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group <resource-group-name> \
-       --app <app-insights-name> \
+   export CONNECTION_STRING=$(az monitor app-insights component show \
+       --resource-group ${RESOURCE_GROUP} \
+       --app ${APP_INSIGHTS_NAME} \
        --query "connectionString" \
        --output tsv)
 
    az keyvault secret set \
-       --vault-name <key-vault-name> \
+       --vault-name ${KEY_VAULT_NAME} \
        --name "ApplicationInsights--ConnectionString" \
-       --value ${INSTRUMENTATION_KEY}
+       --value ${CONNECTION_STRING}
    ```
-
-   > [!NOTE]
-   > By default, the Application Insights service instance has the same name as the Azure Spring Apps service instance.
 
 1. Use the following command to update the sampling rate for the Application Insights binding to increase the amount of data available:
 
    ```azurecli
    az spring build-service builder buildpack-binding set \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --builder-name default \
        --name default \
        --type ApplicationInsights \
-       --properties sampling-rate=100 connection_string=${INSTRUMENTATION_KEY}
+       --properties sampling-rate=100 connection_string=${CONNECTION_STRING}
    ```
 
 1. Use the following commands to restart applications to reload configuration:
 
    ```azurecli
    az spring app restart \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --name cart-service
 
    az spring app restart \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --name order-service
 
    az spring app restart \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --name catalog-service
 
    az spring app restart \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --name frontend
 
    az spring app restart \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
+       --name payment-service
+   ```
+
+1. If you've configured [single sign-on](quickstart-configure-single-sign-on-enterprise.md), use the following commands to restart applications to reload identity-service app configuration:
+
+   ```azurecli
+   az spring app restart \
+       --resource-group ${RESOURCE_GROUP} \
+       --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
        --name identity-service
    ```
 
@@ -112,23 +130,24 @@ Generate traffic in the application by moving through the application, viewing t
 
 ```azurecli
 export GATEWAY_URL=$(az spring gateway show \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-service-instance-name> \
+    --resource-group ${RESOURCE_GROUP} \
+    --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
     --query "properties.url" \
     --output tsv)
 
 export GATEWAY_URL=https://${GATEWAY_URL} 
 
-./gradlew -p azure-spring-apps-enterprise/load-test/traffic-generator gatlingRun-com.vmware.acme.simulation.GuestSimulation
+cd azure-spring-apps-enterprise/load-test/traffic-generator
+./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation.java
 ```
 
 Use the following command to get the latest 100 lines of application console logs from the Catalog Service application:
 
 ```azurecli
 az spring app logs \
-    --resource-group <resource-group-name> \
+    --resource-group ${RESOURCE_GROUP} \
     --name catalog-service \
-    --service <Azure-Spring-Apps-service-instance-name> \
+    --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
     --lines 100
 ```
 
@@ -136,9 +155,9 @@ By adding the `--follow` option, you can get real-time log streaming from an app
 
 ```azurecli
 az spring app logs \
-    --resource-group <resource-group-name> \
+    --resource-group ${RESOURCE_GROUP} \
     --name catalog-service \
-    --service <Azure-Spring-Apps-service-instance-name> \
+    --service ${AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME} \
     --follow
 ```
 

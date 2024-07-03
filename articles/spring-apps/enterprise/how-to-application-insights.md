@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -18,7 +18,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > With Spring Boot Native Image applications, use the [Azure Monitor OpenTelemetry Distro / Application Insights in Spring Boot native image Java application](https://aka.ms/AzMonSpringNative) project instead of the Application Insights Java agent.
 
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
@@ -49,34 +49,35 @@ When the **Application Insights** feature is enabled, you can:
 * In the navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page shows you an overview of all running applications.
 * Select **Application Map** to see the status of calls between applications.
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent-map.png" alt-text="Screenshot of Azure portal Application Insights with Application map page showing." lightbox="media/how-to-application-insights/insights-process-agent-map.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-map.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Application map page." lightbox="media/how-to-application-insights/insights-process-agent-map.png":::
 
 * Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
 * In the navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent-performance.png" alt-text="Screenshot of Azure portal Application Insights with Performance page showing." lightbox="media/how-to-application-insights/insights-process-agent-performance.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-performance.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page." lightbox="media/how-to-application-insights/insights-process-agent-performance.png":::
 
 * In the navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent-failures.png" alt-text="Screenshot of Azure portal Application Insights with Failures page showing." lightbox="media/how-to-application-insights/insights-process-agent-failures.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-failures.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Failures page." lightbox="media/how-to-application-insights/insights-process-agent-failures.png":::
 
 * In the navigation pane, select **Metrics** and select the namespace to see both Spring Boot metrics and custom metrics, if any.
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Metrics page showing." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Metrics page." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
+
 
 * In the navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
-   :::image type="content" source="media/how-to-application-insights/petclinic-microservices-live-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Live Metrics page showing." lightbox="media/how-to-application-insights/petclinic-microservices-live-metrics.png":::
+   :::image type="content" source="media/how-to-application-insights/petclinic-microservices-live-metrics.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Live Metrics page." lightbox="media/how-to-application-insights/petclinic-microservices-live-metrics.png":::
 
 * In the navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
-   :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of Azure portal Application Insights with Availability page showing." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
+   :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Availability page." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
 
 * In the navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
-   :::image type="content" source="media/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of Azure portal Application Insights with Logs page showing." lightbox="media/how-to-application-insights/application-insights-application-logs.png":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Logs page." lightbox="media/how-to-application-insights/application-insights-application-logs.png":::
 
 ## Manage Application Insights using the Azure portal
 
@@ -84,12 +85,13 @@ When the **Application Insights** feature is enabled, you can:
 
 Enable the Java In-Process Agent by using the following procedure.
 
-1. Go to the **service | Overview** page of your service instance, then select **Application Insights** in the **Monitoring** section.
+1. Go to the **service | Overview** page of your service instance and then select **Application Insights** in the **Monitoring** section.
 1. Select **Enable Application Insights** to enable Application Insights in Azure Spring Apps.
 1. Select an existing instance of Application Insights or create a new one.
 1. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/how-to-application-insights/insights-process-agent.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent.png" alt-text="Screenshot of the Azure portal that shows the Application Insights page for Azure Spring Apps with Enable Application Insights checkbox highlighted." lightbox="media/how-to-application-insights/insights-process-agent.png":::
+
 
 1. Select **Save** to save the change.
 
@@ -107,7 +109,7 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of the Azure portal Azure that shows the Azure Spring Apps instance with the Application Insights page and the 'Edit binding' option.":::
 
 1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
 
@@ -116,13 +118,13 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Select **Unbind binding** to disable Application Insights.
 
-   :::image type="content" source="media/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance with the Application Insights page and the Unbind binding option.":::
 
 ### Change Application Insights Settings
 
 Select the name under the *Application Insights* column to open the Application Insights section.
 
-:::image type="content" source="media/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing.":::
+:::image type="content" source="media/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance with the Application Insights page.":::
 
 ### Edit Application Insights buildpack bindings in Build Service
 
@@ -136,11 +138,11 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
-   :::image type="content" source="media/how-to-application-insights/application-insights-builder-settings.png" alt-text="Screenshot of Azure portal 'Edit bindings for default builder' pane.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-builder-settings.png" alt-text="Screenshot of the Azure portal that shows the Edit bindings for default builder pane.":::
 
 1. Edit the binding settings, then select **Save**.
 
-   :::image type="content" source="media/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of the Azure portal that shows the Edit binding pane.":::
 
 ::: zone-end
 
@@ -171,7 +173,7 @@ az spring create \
     --resource-group <resource-group-name> \
     --name "service-instance-name" \
     --app-insights <name-or-resource-ID> \
-    --sampling-rate <sampling-rate>
+    --sampling-rate <sampling-rate> \
     --sku Enterprise
 ```
 
@@ -198,7 +200,7 @@ az spring create \
     --resource-group <resource-group-name> \
     --name <service-instance-name> \
     --app-insights-key <connection-string-or-instrumentation-key> \
-    --sampling-rate <sampling-rate>
+    --sampling-rate <sampling-rate> \
     --sku Enterprise
 ```
 
@@ -225,7 +227,7 @@ az spring create \
 az spring create \
     --resource-group <resource-group-name> \
     --name <service-instance-name> \
-    --disable-app-insights
+    --disable-app-insights \
     --sku Enterprise
 ```
 
@@ -328,7 +330,7 @@ az spring build-service builder buildpack-binding show \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
-    --builder-name <your-builder-name> \
+    --builder-name <your-builder-name>
 ```
 
 To delete an Application Insights buildpack binding, use the following command:
@@ -338,7 +340,7 @@ az spring build-service builder buildpack-binding delete \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
-    --builder-name <your-builder-name> \
+    --builder-name <your-builder-name>
 ```
 
 ::: zone-end
@@ -491,12 +493,14 @@ The Java agent is updated/upgraded when the buildpack is updated.
 
 ## Java agent configuration hot-loading
 
-Azure Spring Apps has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
+Azure Spring Apps has a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
+
 
 > [!NOTE]
 > The hot-loading mechanism has a delay in minutes.
 
-* When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
+* If the Java agent is already enabled, changes to the Application Insights instance or `SamplingRate` value don't require application restart.
+
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications stop sending all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
 
@@ -530,12 +534,9 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../../azure-monitor/app/app-map.md)
 * [Live Metrics](../../azure-monitor/app/live-stream.md)
-* [Performance](../../azure-monitor/app/tutorial-performance.md)
-* [Failures](../../azure-monitor/app/tutorial-runtime-exceptions.md)
 * [Metrics](../../azure-monitor/essentials/tutorial-metrics.md)
 * [Logs](../../azure-monitor/logs/data-platform-logs.md)

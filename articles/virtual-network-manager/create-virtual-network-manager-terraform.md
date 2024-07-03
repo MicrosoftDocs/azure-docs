@@ -11,6 +11,7 @@ content_well_notification:
   - AI-contribution
 zone_pivot_groups: azure-virtual-network-manager-quickstart-options
 
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform
@@ -18,8 +19,6 @@ zone_pivot_groups: azure-virtual-network-manager-quickstart-options
 Get started with Azure Virtual Network Manager by using Terraform to provision connectivity for all your virtual networks.
 
 In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then, you verify that the connectivity configuration was applied. You can choose from a deployment with a Subscription scope or a management group scope. Learn more about [network manager scopes](concept-network-manager-scope.md).
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 

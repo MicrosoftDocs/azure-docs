@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/17/2022
+ms.date: 06/03/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Configure an IoT Edge device to act as a transparent gateway
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
@@ -48,7 +48,7 @@ If you don't have a device ready, you can create one in an Azure virtual machine
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 >[!WARNING]
-> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an _external_ virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
+> Because the IoT Edge for Linux on Windows (EFLOW) virtual machine needs to be accessible from external devices, ensure to deploy EFLOW with an *external* virtual switch. For more information about EFLOW networking configurations, see [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md).
 
 A Windows device with IoT Edge for Linux on Windows installed.
 

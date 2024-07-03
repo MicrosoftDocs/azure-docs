@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Create an iOS app that takes a photo and launches it in the Immersive Reader (Swift)"
 titleSuffix: Azure AI services
-description: In this tutorial, you will build an iOS app from scratch and add the Picture to Immersive Reader functionality.
+description: Learn how to build an iOS app from scratch and add the Picture to Immersive Reader functionality.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 
 ms.service: azure-ai-immersive-reader
 ms.topic: tutorial
-ms.date: 01/14/2020
-ms.author: rwaller
+ms.date: 02/28/2024
+ms.author: sharmas
 #Customer intent: As a developer, I want to integrate two Azure AI services, the Immersive Reader and the Read API into my iOS application so that I can view any text from a photo in the Immersive Reader.
 ---
 
@@ -18,31 +18,30 @@ The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively 
 
 The [Azure AI Vision Read API](../../ai-services/computer-vision/overview-ocr.md) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
 
-In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+In this tutorial, you build an iOS app from scratch and integrate the Read API and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 ## Prerequisites
 
-* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
-* Usage of this sample requires an Azure subscription to the Azure AI Vision service. [Create an Azure AI Vision resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services/).
+* MacOS and [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](how-to-create-immersive-reader.md) to get set up.
+* A subscription to the Azure AI Vision service. Create an [Azure AI Vision resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## Create an Xcode project
 
 Create a new project in Xcode.
 
-![New Project](./media/ios/xcode-create-project.png)
+:::image type="content" source="media/ios/xcode-create-project.png" alt-text="Screenshot of the Create a new Xcode project screen.":::
 
 Choose **Single View App**.
 
-![New Single View App](./media/ios/xcode-single-view-app.png)
+:::image type="content" source="media/ios/xcode-single-view-app.png" alt-text="Screenshot of the template gallery to select a single view app.":::
 
 ## Get the SDK CocoaPod
 
 The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via Cocoapods:
 
-1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html) - Follow the getting started guide to install Cocoapods.
+1. Follow the [guide to install Cocoapods](http://guides.cocoapods.org/using/getting-started.html).
 
 2. Create a Podfile by running `pod init` in your Xcode project's root directory.
 
@@ -68,20 +67,20 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
 
 ## Acquire a Microsoft Entra authentication token
 
-You need some values from the Microsoft Entra authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+You need some values from the Microsoft Entra authentication configuration step in the prerequisites section. Refer back to the text file you saved from that session.
 
 ````text
 TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
+ClientId     => Microsoft Entra ApplicationId
+ClientSecret => Microsoft Entra Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-In the main project folder, which contains the ViewController.swift file, create a Swift class file called Constants.swift. Replace the class with the following code, adding in your values where applicable. Keep this file as a local file that only exists on your machine and be sure not to commit this file into source control, as it contains secrets that should not be made public. It is recommended that you do not keep secrets in your app. Instead, we recommend using a backend service to obtain the token, where the secrets can be kept outside of the app and off of the device. The backend API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
+In the main project folder, which contains the *ViewController.swift* file, create a Swift class file called `Constants.swift`. Replace the class with the following code, adding in your values where applicable. Keep this file as a local file that only exists on your machine and be sure not to commit this file into source control because it contains secrets that shouldn't be made public. We recommended that you don't keep secrets in your app. Instead, use a backend service to obtain the token, where the secrets can be kept outside of the app and off of the device. The backend API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
 
 ## Set up the app to run without a storyboard
 
-Open AppDelegate.swift and replace the file with the following code.
+Open *AppDelegate.swift* and replace the file with the following code.
 
 ```swift
 import UIKit
@@ -135,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Add functionality for taking and uploading photos
 
-Rename ViewController.swift to PictureLaunchViewController.swift and replace the file with the following code.
+Rename *ViewController.swift* to *PictureLaunchViewController.swift* and replace the file with the following code.
 
 ```swift
 import UIKit
@@ -369,13 +368,13 @@ class PictureLaunchViewController: UIViewController, UINavigationControllerDeleg
         })
     }
     
-    /// Retrieves the token for the Immersive Reader using Azure Active Directory authentication
+    /// Retrieves the token for the Immersive Reader using Microsoft Entra authentication
     ///
     /// - Parameters:
-    ///     -onSuccess: A closure that gets called when the token is successfully recieved using Azure Active Directory authentication.
-    ///     -theToken: The token for the Immersive Reader recieved using Azure Active Directory authentication.
-    ///     -onFailure: A closure that gets called when the token fails to be obtained from the Azure Active Directory Authentication.
-    ///     -theError: The error that occurred when the token fails to be obtained from the Azure Active Directory Authentication.
+    ///     -onSuccess: A closure that gets called when the token is successfully received using Microsoft Entra authentication.
+    ///     -theToken: The token for the Immersive Reader received using Microsoft Entra authentication.
+    ///     -onFailure: A closure that gets called when the token fails to be obtained from the Microsoft Entra authentication.
+    ///     -theError: The error that occurred when the token fails to be obtained from the Microsoft Entra authentication.
     func getToken(onSuccess: @escaping (_ theToken: String) -> Void, onFailure: @escaping ( _ theError: String) -> Void) {
         
         let tokenForm = "grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=" + Constants.clientId + "&client_secret=" + Constants.clientSecret
@@ -553,19 +552,22 @@ class PictureLaunchViewController: UIViewController, UINavigationControllerDeleg
 ## Build and run the app
 
 Set the archive scheme in Xcode by selecting a simulator or device target.
-![Archive scheme](./media/ios/xcode-archive-scheme.png)<br/>
-![Select Target](./media/ios/xcode-select-target.png)
 
-In Xcode, press Ctrl + R or select the play button to run the project and the app should launch on the specified simulator or device.
+:::image type="content" source="media/ios/xcode-archive-scheme.png" alt-text="Screenshot of the archive stream.":::
+
+:::image type="content" source="media/ios/xcode-select-target.png" alt-text="Screenshot of the simulator selection target.":::
+
+In Xcode, press **Ctrl+R** or select the play button to run the project. The app should launch on the specified simulator or device.
 
 In your app, you should see:
 
-![Sample app](./media/ios/picture-to-immersive-reader-ipad-app.png)
+:::image type="content" source="media/ios/picture-to-immersive-reader-ipad-app.png" alt-text="Screenshot of the sample app with text to be read.":::
 
-Inside the app, take or upload a photo of text by pressing the 'Take Photo' button or 'Choose Photo from Library' button and the Immersive Reader will then launch displaying the text from the photo.
+Take or upload a photo of text by pressing the **Take Photo** button or **Choose Photo from Library** button. The Immersive Reader then launches and displays the text from the photo.
 
-![Immersive Reader](./media/ios/picture-to-immersive-reader-ipad.png)
+:::image type="content" source="media/ios/picture-to-immersive-reader-ipad.png" alt-text="Screenshot of the Immersive Reader app.":::
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK Reference](./reference.md)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK reference](reference.md)

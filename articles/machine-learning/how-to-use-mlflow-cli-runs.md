@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 02/15/2024
 ms.topic: how-to
-ms.custom: mlflow, devx-track-azurecli, cliv2, devplatv2
+ms.custom: mlflow, devx-track-azurecli, cliv2, devplatv2, update-code
 ms.devlang: azurecli
 ---
 
@@ -264,7 +264,7 @@ print(metrics, params, tags)
 ```
 
 > [!TIP]
-> For metrics, the previous example code will only return the last value of a given metric. If you want to retrieve all the values of a given metric, use the `mlflow.get_metric_history` method. For more information on retrieving values of a metric, see [Getting params and metrics from a run](how-to-track-experiments-mlflow.md#getting-params-and-metrics-from-a-run).
+> For metrics, the previous example code will only return the last value of a given metric. If you want to retrieve all the values of a given metric, use the `mlflow.get_metric_history` method. For more information on retrieving values of a metric, see [Getting params and metrics from a run](how-to-track-experiments-mlflow.md#get-params-and-metrics-from-a-run).
 
 To __download__ artifacts you've logged, such as files and models, use [mlflow.artifacts.download_artifacts()](https://www.mlflow.org/docs/latest/python_api/mlflow.artifacts.html#mlflow.artifacts.download_artifacts).
 

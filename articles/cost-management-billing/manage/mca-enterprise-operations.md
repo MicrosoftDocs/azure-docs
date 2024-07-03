@@ -18,7 +18,7 @@ If your organization signed a Microsoft Customer Agreement to renew your Enterpr
 
 The following diagram describes how billing is organized in your new billing account.
 
-![Image of ea-mca-post-transition-hierarchy](./media/mca-enterprise-operations/mca-post-transition-hierarchy.png)
+:::image type="content" border="false" source="./media/mca-enterprise-operations/mca-post-transition-hierarchy.png" alt-text="Diagram showing the post-transition hierarchy.":::
 
 | Enterprise Agreement   | Microsoft Customer Agreement    |
 |------------------------|--------------------------------------------------------|
@@ -141,7 +141,7 @@ You can view charges for a subscription either on the [subscriptions page](https
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 - [Understand billing account for a Microsoft Customer Agreement](../understand/mca-overview.md)
 - [Understand your invoice](../understand/review-individual-bill.md)

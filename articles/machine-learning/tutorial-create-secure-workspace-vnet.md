@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 08/22/2023
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, build-2023

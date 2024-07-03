@@ -22,7 +22,7 @@ function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
     speechConfig.speechSynthesisLanguage = "en-US"; 
-    speechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";
+    speechConfig.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";
 }
 
 synthesizeSpeech();
@@ -292,7 +292,7 @@ To start using SSML for customization, you make a minor change that switches the
 
    ```xml
    <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaMultilingualNeural">
        When you're on the freeway, it's a good idea to use a GPS.
      </voice>
    </speak>
@@ -338,7 +338,7 @@ To start using SSML for customization, you make a minor change that switches the
    ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-JennyNeural";`.
+> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-AvaMultilingualNeural";`.
 
 ## Subscribe to synthesizer events
 
@@ -362,7 +362,7 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
     const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
 
-    var speechSynthesisVoiceName  = "en-US-JennyNeural";  
+    var speechSynthesisVoiceName  = "en-US-AvaMultilingualNeural";  
     var ssml = `<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'> \r\n \
         <voice name='${speechSynthesisVoiceName}'> \r\n \
             <mstts:viseme type='redlips_front'/> \r\n \

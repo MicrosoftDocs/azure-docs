@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 02/26/2024
 ms.author: makromer
 ---
 
@@ -352,7 +352,8 @@ The following properties are supported in the copy activity **source** section:
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`.
+>REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`. <br>
+>The array of object as the response body is not supported in pagination.
 
 **Example 1: Using the Get method with pagination**
 
@@ -568,7 +569,7 @@ This generic REST connector supports the following pagination patterns:
 | Value | Description |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
-| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
+| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object and the array of object as the response body is not supported. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
 >[!NOTE]
 > The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
