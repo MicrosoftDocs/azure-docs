@@ -12,7 +12,10 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 # Setup Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
-AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
+AKS Network Observability is used to collect the network traffic data of your AKS cluster.
+Network Observability enables a centralized platform for monitoring application and network health.
+Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported.
+In this article, learn how to enable Network Observability and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
 
 For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
@@ -31,7 +34,7 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 >
 >For lower Kubernetes versions, extra steps are required to enable Network Observability.
 
-#### [**Kubernetes version >= 1.29**](#tab/later-k8s-versions)
+#### [**Kubernetes version >= 1.29**](#tab/newer-k8s-versions)
 
 #### Create a resource group
 
@@ -45,13 +48,12 @@ az group create \
 
 #### Create AKS cluster
 
-Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create). The following example creates an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group:
+Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create).
+The following examples each create an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group.
 
-##### [**Non-Cilium**](#tab/non-cilium)
+##### Example 1: **Non-Cilium**
 
 Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a non-Cilium AKS cluster.
-
-##### New cluster
 
 ```azurecli-interactive
 az aks create \
@@ -65,7 +67,7 @@ az aks create \
     --kubernetes-version 1.29
 ```
 
-#### [**Cilium**](#tab/cilium)
+#### Example 2: **Cilium**
 
 Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a Cilium AKS cluster.
 
@@ -82,8 +84,6 @@ az aks create \
     --node-count 2 \
     --pod-cidr 192.168.0.0/16
 ```
-
----
 
 #### [**Kubernetes version < 1.29**](#tab/older-k8s-versions)
 
@@ -137,15 +137,15 @@ az group create \
     --location eastus
 ```
 
-#### Create AKS cluster
+#### Create or Update an AKS cluster
 
-Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create). The following example creates an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group:
+The following examples each create or update an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group.
 
-##### [**Non-Cilium**](#tab/non-cilium)
+##### Example 1: **Non-Cilium**
+
+###### Create Cluster
 
 Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a non-Cilium AKS cluster with Network Observability.
-
-###### New cluster
 
 ```azurecli-interactive
 az aks create \
@@ -159,9 +159,9 @@ az aks create \
     --enable-network-observability
 ```
 
-###### Existing cluster
+###### Update Existing Cluster
 
-Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability for an existing cluster.
+Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability for an existing non-Cilium cluster.
 
 ```azurecli-interactive
 az aks update \
@@ -170,7 +170,7 @@ az aks update \
     --enable-network-observability
 ```
 
-##### [**Cilium**](#tab/cilium)
+##### Example 2: **Cilium**
 
 Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a Cilium AKS cluster.
 
@@ -187,8 +187,6 @@ az aks create \
     --node-count 2 \
     --pod-cidr 192.168.0.0/16
 ```
-
----
 
 ---
 
