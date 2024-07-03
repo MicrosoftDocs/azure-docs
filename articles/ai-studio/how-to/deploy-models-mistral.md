@@ -64,8 +64,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 - An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > The serverless API model deployment offering for eligible models in the Mistral family is only available in hubs created in the **East US 2** and **Sweden Central** regions. For _Mistral Large_, the serverless API model deployment offering is also available in the **France Central** region.
-
+    > The serverless API model deployment offering for eligible models in the Mistral family is only available in hubs created in the **East US 2** and **Sweden Central** regions. 
 - An [Azure AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
@@ -94,7 +93,7 @@ To create a deployment:
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model as a serverless API." lightbox="../media/deploy-monitor/mistral/mistral-large-deploy-pay-as-you-go.png":::
 
-1. Select the project in which you want to deploy your model. To deploy the Mistral model, your project must be in the *EastUS2* or *Sweden Central* region. For the Mistral Large model, you can also deploy in a project that's in the *France Central* region.
+1. Select the project in which you want to deploy your model. To deploy the Mistral model, your project must be in the *EastUS2* or *Sweden Central* region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
