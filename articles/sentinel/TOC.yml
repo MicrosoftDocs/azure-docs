@@ -139,7 +139,7 @@
     items: 
     - name: Integrate SAP applications
       items: 
-      - name: SAP solution overview
+      - name: Microsoft Sentinel solution for SAP applications
         items:
         - name: Overview
           href: sap/solution-overview.md
@@ -174,25 +174,25 @@
             href: sap/collect-sap-hana-audit-logs.md
           - name: Configure SAP audit log monitoring rules
             href: sap/configure-audit-log-rules.md
+        - name: Monitor SAP audit logs
+          href: sap/sap-audit-log-workbook.md
+        - name: Monitor SAP audit controls
+          href: sap/sap-audit-controls-workbook.md   
         - name: SAP security content reference
           href: sap/sap-solution-security-content.md
-        - name: SAP deployment reference
+        - name: SAP deployment reference (advanced)
           items:
           - name: SAP solution data reference
             href: sap/sap-solution-log-reference.md
           - name: Monitored SAP security parameters
             href: sap/sap-suspicious-configuration-security-parameters.md
-          - name: SAP audit log workbook
-            href: sap/sap-audit-log-workbook.md
-          - name: SAP audit controls workbook
-            href: sap/sap-audit-controls-workbook.md   
           - name: Kickstart script reference
             href: sap/reference-kickstart.md
           - name: Container update script reference 
             href: sap/reference-update.md
           - name: Systemconfig.json file reference
             href: sap/reference-systemconfig-json.md
-          - name: Systemconfig.ini file reference
+          - name: Systemconfig.ini file reference (legacy)
             href: sap/reference-systemconfig.md
           - name: Sample SAP ingestion profiles
             href: sap/select-ingestion-profiles.md 

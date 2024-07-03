@@ -1,23 +1,29 @@
 ---
-title: Microsoft Sentinel solution for SAP applications - SAP -Security Audit log and Initial Access workbook overview
-description: Learn about the SAP -Security Audit log and Initial Access workbook, used to monitor and track data across your SAP systems.
+title: Microsoft Sentinel solution for SAP applications - SAP -Security Audit log and Initial Access workbook
+description: Learn about the SAP - Security Audit log and Initial Access workbook, used to monitor and track data across your SAP systems.
 author: batamig
 ms.author: bagol
-ms.topic: reference
-ms.date: 01/23/2023
+ms.topic: how-to
+ms.date: 07/02/2024
 ---
 
-# Microsoft Sentinel solution for SAP applications - SAP -Security Audit log and Initial Access workbook
+# Microsoft Sentinel solution for SAP applications - SAP - Security Audit log and Initial Access workbook
 
-This article describes the SAP -Security Audit log and Initial Access workbook, used for monitoring and tracking user audit activity across your SAP systems. You can use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems and gain quick visibility into suspicious actions. You can drill down into suspicious events as needed.
+This article describes the **SAP - Security Audit log and Initial Access** workbook, used for monitoring and tracking user audit activity across your SAP systems. Use the workbook to get a bird's eye view of user audit activity, to better secure your SAP systems, and gain quick visibility into suspicious actions. Drill down into suspicious events as needed.
 
-You can use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity. 
+> [!TIP]
+> Use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity.
+>
 
-## Start using the workbook
+## Prerequisites
 
-1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
+Make sure that the Microsoft Sentinel solution for SAP applications solution is installed and a data connector agent is deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
-1. In the **Workbooks** gallery, go to **Templates** and enter *SAP* in the search bar, and select **SAP -Security Audit log and Initial Access** from among the results.
+## Deploy the Security Audit log and Initial Access workbook
+
+1. From Microsoft Sentinel, select **Threat management > Workbooks** > **Templates**, and enter *SAP* in the search bar.
+
+1. Select **SAP -Security Audit log and Initial Access** from among the results.
 
 1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. When the copy is created, select **View saved workbook**.
 
@@ -25,9 +31,9 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
 
      > [!IMPORTANT]
      >
-     > The SAP -Security Audit log and Initial Access workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook. 
+     > The **SAP - Security Audit log and Initial Access** workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook.
      >
-     > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**. 
+     > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**.
 
 1. Select the following fields to filter the data according to your needs:
 
@@ -36,14 +42,12 @@ You can use the workbook either for ongoing monitoring of your SAP systems, or t
     - **System Usage**. For example: SAP GTS.
     - **SAP systems**. You can select all systems, a specific system, or select multiple systems.
 
-    If you select systems that aren't configured in the ["SAP systems" watchlist](sap-solution-security-content.md#available-watchlists), the workbook shows an error, specifying the systems with issues. In this case, [configure the watchlist](deployment-solution-configuration.md#configure-watchlists) to correctly include these systems.
-
-## Workbook overview
+    If you select systems that aren't configured in the [*SAP systems* watchlist](sap-solution-security-content.md#available-watchlists), the workbook shows an error, specifying the systems with issues. In this case, [configure the watchlist](deployment-solution-configuration.md#configure-watchlists) to correctly include these systems.
 
 The workbook is separated into two tabs:
 
-- [**Logon analysis report**](#logon-analysis-report-tab). Shows different types of data regarding sign-in failures. Data includes anomalous data, Microsoft Entra data, and more. The data is based on the ["SAP systems" watchlist](sap-solution-security-content.md#available-watchlists).
-- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel solution for SAP applications watches. The data is based on the ["SAP_Dynamic_Audit_Log_Monitor_Configuration" watchlist](sap-solution-security-content.md#available-watchlists).
+- [**Logon analysis report**](#logon-analysis-report-tab). Shows different types of data regarding sign-in failures. Data includes anomalous data, Microsoft Entra data, and more. The data is based on the [*SAP systems* watchlist](sap-solution-security-content.md#available-watchlists).
+- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel solution for SAP applications watches. The data is based on the [*SAP_Dynamic_Audit_Log_Monitor_Configuration* watchlist](sap-solution-security-content.md#available-watchlists).
 
 ## Logon analysis report tab
 
@@ -125,13 +129,6 @@ In this screenshot, you can see areas with events and event trends grouped by di
 
 :::image type="content" source="media/sap-audit-log-workbook/event-data-categories.png" alt-text="Screenshot of the different event data in the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/event-data-categories.png":::
 
-## Next steps
+## Related content
 
-For more information, see:
-
-- [Deploying Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Microsoft Sentinel solution for SAP applications logs reference](sap-solution-log-reference.md)
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
+For more information, see [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) and [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md).
