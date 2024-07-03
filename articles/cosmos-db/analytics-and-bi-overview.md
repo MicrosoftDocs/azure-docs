@@ -79,7 +79,8 @@ While these options are included for completeness and work well with single part
 
 Instead of these options, we recommend that you use Mirroring in Microsoft Fabric or Azure Synapse Link, which provide no-ETL analytics, without impacting transactional workload performance or request units.
 
-## Related Content
+## Related content
+
 * [Mirroring Azure Cosmos DB overview](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context)
 
 * [Getting started with mirroring](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context)
