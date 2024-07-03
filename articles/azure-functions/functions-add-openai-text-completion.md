@@ -22,7 +22,7 @@ This article shows you how to use Visual Studio Code to connect Azure OpenAI to 
 > * Enable your function app to connect to OpenAI.
 > * Add OpenAI bindings to your HTTP triggered function.
 
-## 0. Prerequisites
+## 1. Check prerequisites
 :::zone pivot="programming-language-csharp"  
 * Complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md).
 :::zone-end  
@@ -47,7 +47,7 @@ This article shows you how to use Visual Studio Code to connect Azure OpenAI to 
 :::zone-end
 * The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
  
-## 1. Create your Azure OpenAI resources
+## 2. Create your Azure OpenAI resources
 
 The following steps show how to create an Azure OpenAI data model in the Azure portal. 
 
@@ -75,7 +75,7 @@ The following steps show how to create an Azure OpenAI data model in the Azure p
 
 The Azure portal displays a notification when the new resource is available.
 
-## 2. Deploy a model
+## 3. Deploy a model
 
 Now you can deploy a model. You can select from one of several available models in Azure OpenAI Studio.
 
@@ -105,7 +105,7 @@ To deploy a model, follow these steps:
 
 Now that you have the credentials to connect to your model in Azure OpenAI, you need to set these access credentials in application settings.
 
-## 3. Update application settings
+## 4. Update application settings
 
 1. In Visual Studio Code, open the code project you created when you completed the [previous article](./create-first-function-vs-code-csharp.md), open the local.settings.json file in the project root folder, and update the `AzureWebJobsStorage` setting to `UseDevelopmentStorage=true`. You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an existing Azure Storage account instead of `UseDevelopmentStorage=true`. 
 
@@ -118,7 +118,7 @@ Now that you have the credentials to connect to your model in Azure OpenAI, you 
 1. Save the file. When you deploy to Azure, you must also add these settings to your function app. 
 
 :::zone pivot="programming-language-csharp" 
-## 4. Register binding extensions
+## 5. Register binding extensions
 
 Because you're using an Azure OpenAI output binding, you must have the corresponding bindings extension installed before you run the project. 
 
@@ -130,7 +130,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.OpenAI --prerelea
 :::zone-end
 :::zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 <!---NOTE: Update this after preview to `## Verify the extension bundle`-->
-## 4. Update the extension bundle
+## 5. Update the extension bundle
 
 To access the preview Azure OpenAI bindings, you must use a preview version of the extension bundle that contains this extension. 
 
@@ -148,7 +148,7 @@ Replace the contents of your current `host.json` file with this JSON:
 :::zone-end
 Now, you can use the Azure OpenAI output binding to your project.
 
-## 5. Return text completion from the model
+## 6. Return text completion from the model
 
 The code you add creates a `whois` HTTP function endpoint in your existing project. In this function, data passed in a URL `name` parameter of a GET request is used to dynamically create a completion prompt. This dynamic prompt is bound to a text completion input binding, which returns a response from the model based on the prompt. The completion from the model is returned in the HTTP response. 
 :::zone pivot="programming-language-csharp"  
@@ -250,7 +250,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
   
 :::zone-end 
 
-## 6. Run the function
+## 7. Run the function
 
 1. In a Terminal window, run the following command to start the Azurite storage emulator in a separate process:
 
@@ -278,7 +278,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 ## 9. Deploy to Azure
 -->
 
-## 7. Clean up resources
+## 8. Clean up resources
 
 In Azure, *resources* refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
 
