@@ -33,9 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start this tutorial, install the [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+Finish the quickstart: [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 
 ## Create a vault
 
