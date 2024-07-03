@@ -38,7 +38,7 @@ You can query across Azure Cosmos DB collections or databases mirrored into OneL
 With Mirroring in Fabric, you don't need to piece together different services from multiple vendors. Instead, you can enjoy a highly integrated, end-to-end, and easy-to-use product that is designed to simplify your analytics needs.
 You can use T-SQL to run complex aggregate queries and Spark for data exploration. You can seamlessly access the data in notebooks, use data science to build machine learning models, and build Power BI reports using Direct Lake powered by rich Copilot integration.
 
-:::image type="content" source="./media/analytics-and-bi/fabric-mirroring-cosmos-db.png" alt-text="Azure Cosmos DB mirroring in Microsoft Fabric" border="false":::
+:::image type="content" source="./media/analytics-and-bi/fabric-mirroring-cosmos-db.png" alt-text="Diagram of Azure Cosmos DB mirroring in Microsoft Fabric" border="false":::
 
 If you're looking for analytics on your operational data in Azure Cosmos DB, mirroring provides:
 * No-ETL, cost-effective near real-time analytics on Azure Cosmos DB data without impacting your request unit (RU) consumption
@@ -60,7 +60,7 @@ Azure Synapse Analytics can access this data in Analytical store, without furthe
 
 The following image shows the Azure Synapse Link integration with Azure Cosmos DB and Azure Synapse Analytics:
 
-:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Azure Cosmos DB Synapse Link" border="false":::
+:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Diagram of Azure Cosmos DB Synapse Link" border="false":::
 
  > [!IMPORTANT]
  > Mirroring in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
