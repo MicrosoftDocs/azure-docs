@@ -1531,8 +1531,6 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-  - name: Logs Tables reference
-    href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference
     href: monitor-azure-monitor-reference.md
   - name: Supported metrics
@@ -1551,8 +1549,12 @@ items:
       href: essentials/activity-log-schema.md
   - name: Azure Monitor Log store
     items:
-    - name: Supported tables for transformations
+    - name: Logs tables reference
+      href: /azure/azure-monitor/reference/
+    - name: Tables that support transformations
       href: logs/tables-feature-support.md
+    - name: Tables that support the Basic table plan
+      href: logs/basic-logs-azure-tables.md
   - name: Windows diagnostics extension schema
     href: agents/diagnostics-extension-schema-windows.md
   - name: Azure Monitor Agent extension versions
