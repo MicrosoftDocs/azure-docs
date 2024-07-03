@@ -57,8 +57,6 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy WebLogic Server on AKS
 
-The steps in this section direct you to deploy WebLogic Server on AKS in the simplest possible way. WebLogic Server on AKS offers a broad and deep selection of Azure integrations. For more information, see [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
-
 The following steps show you how to find the WebLogic Server on AKS offer and fill out the **Basics** pane.
 
 1. In the search bar at the top of the Azure portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **WebLogic Server on AKS**.
