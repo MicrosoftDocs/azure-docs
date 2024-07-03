@@ -34,7 +34,7 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 * An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md). Some SDK calls require the IoT Hub connection string.
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md).
 
 * IoT Hub **Service Connect**  permission - To receive file upload notification messages, your backend service needs the **Service Connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. For more information, see [Create an IoT hub using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
 
@@ -42,24 +42,24 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 :::zone pivot="programming-language-csharp"
 
-[!INCLUDE [iot-hub-howto-file-upload-dotnet](../../includes/iot-hub-howto-c2d-messaging-dotnet.md)]
+[!INCLUDE [iot-hub-howto-file-upload-dotnet](../../includes/iot-hub-howto-file-upload-dotnet.md)]
 
 :::zone-end
 
 :::zone pivot="programming-language-java"
 
-[!INCLUDE [iot-hub-howto-file-upload-java](../../includes/iot-hub-howto-c2d-messaging-java.md)]
+[!INCLUDE [iot-hub-howto-file-upload-java](../../includes/iot-hub-howto-file-upload-java.md)]
 
 :::zone-end
 
 :::zone pivot="programming-language-python"
 
-[!INCLUDE [iot-hub-howto-file-upload-python](../../includes/iot-hub-howto-c2d-messaging-python.md)]
+[!INCLUDE [iot-hub-howto-file-upload-python](../../includes/iot-hub-howto-file-upload-python.md)]
 
 :::zone-end
 
 :::zone pivot="programming-language-node"
 
-[!INCLUDE [iot-hub-howto-file-upload-node](../../includes/iot-hub-howto-c2d-messaging-node.md)]
+[!INCLUDE [iot-hub-howto-file-upload-node](../../includes/iot-hub-howto-c2d-file-upload-node.md)]
 
 :::zone-end
