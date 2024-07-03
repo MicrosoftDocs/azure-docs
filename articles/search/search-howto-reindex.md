@@ -85,7 +85,7 @@ GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2023-11-
 
 ## Change an index schema
 
-The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query executions.
+The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query execution.
 
 + Add a new field
 + Set the `retrievable` attribute on an existing field
@@ -102,9 +102,9 @@ The order of operations is:
 
 1. Revise the schema with updates from the previous list.
 
-1. [Update index](/rest/api/searchservice/indexes/create-or-update).
+1. [Update index schema](/rest/api/searchservice/indexes/create-or-update) on the search service.
 
-1. [Index documents](/rest/api/searchservice/documents).
+1. [Update index content](#update-content) to match your revised schema if you added a new field. For all other changes, the existing content is used as-is.
 
 When you update the index schema, existing documents in the index are given a null value for the new field. On the next index documents job, values from external source data replace the nulls added by Azure AI Search.
 
@@ -131,9 +131,9 @@ The order of operations is:
 
 1. [Drop the existing index](/rest/api/searchservice/indexes/delete). queries targeting the index are immediately dropped. Remember that deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. 
 
-1. [Post a revised index](/rest/api/searchservice/indexes/create), where the body of the request includes changed or modified field definitions.
+1. [Post a revised index](/rest/api/searchservice/indexes/create), where the body of the request includes changed or modified field definitions and configurations.
 
-1. [Load the index with documents](/rest/api/searchservice/documents) from an external source.
+1. [Load the index with documents](/rest/api/searchservice/documents) from an external source. Documents are indexed using the field definitions and configurations of the new schema.
 
 When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field and a vector index created for each vector field. Fields that aren't searchable can be used in filters or expressions, but don't have inverted indexes and aren't full-text or fuzzy searchable. On an index rebuild, these inverted indexes and vector indexes are deleted and recreated based on the index schema you provide.
 
