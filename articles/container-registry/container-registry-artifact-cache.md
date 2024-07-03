@@ -21,7 +21,7 @@ Artifact cache offers faster and more *reliable pull operations* through Azure C
 
 Artifact cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
 
-Artifact cache addresses the challenge of anonymous pull limits imposed by public registries like Docker Hub. By allowing users to pull images from the local ACR, it circumvents these limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
+Artifact cache addresses the challenge of anonymous pull limits imposed by public registries. We recommend users to create their own credentials set to authenticate and pull images from the local ACR, to circumvent rate limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
 
 ## Terminology 
 
@@ -56,6 +56,9 @@ Artifact cache addresses the challenge of anonymous pull limits imposed by publi
 ## Upstream support 
 
 Artifact cache currently supports the following upstream registries:
+
+>[!WARNING]
+> We recommend customers to create and authenticate their own credentials to pull images from the local ACR to avoid rate limits and ensure uninterrupted content delivery from upstream sources.
 
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
