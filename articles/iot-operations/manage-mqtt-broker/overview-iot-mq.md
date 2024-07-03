@@ -1,22 +1,22 @@
 ---
-title: Publish and subscribe MQTT messages using Azure IoT MQ
-description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
+title: Publish and subscribe MQTT messages using MQTT broker
+description: Use MQTT broker to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
-#CustomerIntent: As an operator, I want to understand how to I can use Azure IoT MQ to publish and subscribe MQTT topics.
+#CustomerIntent: As an operator, I want to understand how to I can use MQTT broker to publish and subscribe MQTT topics.
 ---
 
-# Publish and subscribe MQTT messages using Azure IoT MQ Preview
+# Publish and subscribe MQTT messages using MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ Preview features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+MQTT broker features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 
 ## MQTT compliant
@@ -25,7 +25,7 @@ IoT MQ features a standards-compliant MQTT Broker that supports both MQTT v3.1.1
 
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in Azure IoT MQ Preview](../reference/mqtt-support.md).
+IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
 
 ## Highly available and scalable
 
@@ -33,7 +33,7 @@ Kubernetes can horizontally scale workloads to run in multiple instances. This r
 
 In addition to Kubernetes being an elastic scaling technology, it's also a standard for DevOps. If MQTT is the lingua franca among IoT protocols, Kubernetes is the lingua franca for computing infrastructure layer. By adopting Kubernetes, you can use the same CI/CD pipeline, tools, monitoring, app packaging, employee skilling everywhere. The result is a single end-to-end system from cloud computing, on-premises servers, and smaller IoT gateways on the factory floor. You can spend less time dealing with infrastructure or DevOps and focus on your business.
 
-Azure IoT MQ focuses on the unique edge-native, data-plane value it can provide to the Kubernetes ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane built around MQTT, and seamless integration to other scalable Kubernetes workloads and Azure.
+MQTT broker focuses on the unique edge-native, data-plane value it can provide to the Kubernetes ecosystem while fitting seamlessly into it. It brings high performance and scalable messaging platform plane built around MQTT, and seamless integration to other scalable Kubernetes workloads and Azure.
 
 ## Secure by default
 
@@ -52,7 +52,7 @@ Azure Arc technology enables the changes to take effect on IoT MQ services runni
 
 You might have different messaging requirements for your cloud scenario. For example, a bi-directional cloud/edge *fast* path for high priority data or to power near real-time cloud dashboards and a lower-cost *slow* path for less time-critical data that can be updated in batches. 
 
-To provide flexibility, Azure IoT MQ provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), [Event Grid's MQTT broker capability](../../event-grid/mqtt-overview.md), Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
+To provide flexibility, MQTT broker provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), [Event Grid's MQTT broker capability](../../event-grid/mqtt-overview.md), Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
 Building on top of Azure Arc allows the connectors to be configured to use Azure Managed Identity for accessing the cloud services with powerful Azure Role-based Access Control (RBAC). No manual, insecure, and cumbersome credential management is required.
 

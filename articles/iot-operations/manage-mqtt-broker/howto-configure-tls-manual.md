@@ -1,24 +1,24 @@
 ---
 title: Configure TLS with manual certificate management to secure MQTT communication
-description: Configure TLS with manual certificate management to secure MQTT communication between the Azure IoT MQ MQTT broker and client.
+description: Configure TLS with manual certificate management to secure MQTT communication between the MQTT broker and client.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---
 
-# Configure TLS with manual certificate management to secure MQTT communication in Azure IoT MQ Preview
+# Configure TLS with manual certificate management to secure MQTT communication in MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 You can configure TLS to secure MQTT communication between the MQTT broker and client using a [BrokerListener resource](howto-configure-brokerlistener.md). You can configure TLS with manual or automatic certificate management. 
 
-To manually configure Azure IoT MQ Preview to use a specific TLS certificate, specify it in a BrokerListener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This article shows an example to configure TLS with self-signed certificates for testing.
+To manually configure MQTT broker to use a specific TLS certificate, specify it in a BrokerListener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This article shows an example to configure TLS with self-signed certificates for testing.
 
 ## Create certificate authority with Step CLI
 
@@ -51,7 +51,7 @@ step certificate create mqtts-endpoint mqtts-endpoint.crt mqtts-endpoint.key \
 --no-password --insecure
 ```
 
-Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for Azure IoT MQ's broker frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
+Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for MQTT broker's frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
 
 ### Certificate key algorithm requirements
 
@@ -119,7 +119,7 @@ Remember to specify username, password, etc. if MQ authentication is enabled.
 
 ### Use external IP for the server certificate
 
-To connect with TLS over the internet, Azure IoT MQ's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. To solve this, deploy the listener without the server certificate first, then create the server certificate and secret with the external IP, and finally import the secret to the listener.
+To connect with TLS over the internet, MQTT broker's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. To solve this, deploy the listener without the server certificate first, then create the server certificate and secret with the external IP, and finally import the secret to the listener.
 
 If you try to deploy the example TLS listener `manual-tls-listener` but the referenced Kubernetes secret `server-cert-secret` doesn't exist, the associated service gets created, but the pods don't start. The service is created because the operator needs to reserve the external IP for the listener.
 
@@ -129,7 +129,7 @@ NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 mqtts-endpoint         LoadBalancer   10.43.93.6      172.18.0.2    8885:30674/TCP      1m15s
 ```
 
-However, this behavior is expected and it's okay to leave it like this while we import the server certificate. The health manager logs mention Azure IoT MQ is waiting for the server certificate.
+However, this behavior is expected and it's okay to leave it like this while we import the server certificate. The health manager logs mention MQTT broker is waiting for the server certificate.
 
 ```console
 $ kubectl logs -l app=health-manager -n azure-iot-operations

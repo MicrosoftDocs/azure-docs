@@ -1,6 +1,6 @@
 ---
-title: Send and receive messages between Azure IoT MQ and Event Hubs or Kafka
-description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka using the Kafka connector.
+title: Send and receive messages between MQTT broker and Event Hubs or Kafka
+description: Learn how to send and receive messages between MQTT broker and Azure Event Hubs or Kafka using the Kafka connector.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -9,19 +9,19 @@ ms.custom:
   - ignite-2023
 ms.date: 07/01/2024
 
-#CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
+#CustomerIntent: As an operator, I want to understand how to configure MQTT broker to send and receive messages between MQTT broker and Kafka.
 ---
 
-# Send and receive messages between Azure IoT MQ Preview and Azure Event Hubs or Kafka
+# Send and receive messages between MQTT broker and Azure Event Hubs or Kafka
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Kafka connector pushes messages from Azure IoT MQ Preview MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
+The Kafka connector pushes messages from MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
 
 ## Configure Event Hubs connector via Kafka endpoint
 
-By default, the connector isn't installed with Azure IoT MQ. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between IoT MQ and Azure Event Hubs through its Kafka endpoint.
+By default, the connector isn't installed with MQTT broker. It must be explicitly enabled with topic mapping and authentication credentials specified. Follow these steps to enable bidirectional communication between IoT MQ and Azure Event Hubs through its Kafka endpoint.
 
 
 1. [Create an Event Hubs namespace](/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
@@ -488,7 +488,7 @@ batching:
   maxBytes: 1024
 ```
 
-This means that messages are sent either when there are 100 messages in the buffer, or when there are 1024 bytes in the buffer, or when 1000 milliseconds elapses since the last send, whichever comes first.
+This means that messages are sent either when there are 100 messages in the buffer, or when there are 1,024 bytes in the buffer, or when 1,000 milliseconds elapses since the last send, whichever comes first.
 
 ### Partition handling strategy
 
@@ -581,4 +581,4 @@ This connector only uses MQTT v5.
 
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-broker/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)

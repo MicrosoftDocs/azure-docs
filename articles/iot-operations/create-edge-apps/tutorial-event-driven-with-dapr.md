@@ -1,25 +1,25 @@
 ---
 title: Build an event-driven app with Dapr
-description: Learn how to create a Dapr application that aggregates data and publishing on another topic using Azure IoT MQ Preview.
+description: Learn how to create a Dapr application that aggregates data and publishing on another topic using MQTT broker.
 author: PatAltimore 
 ms.author: patricka 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 11/13/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Tutorial: Build an event-driven app with Dapr and Azure IoT MQ Preview
+# Tutorial: Build an event-driven app with Dapr and MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to Azure IoT MQ Preview, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
+In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
 
 The Dapr application performs the following steps:
 
 1. Subscribes to the `sensor/data` topic for sensor data.
-1. When data is receiving on the topic, it's forwarded to the Azure IoT MQ state store.
+1. When data is receiving on the topic, it's forwarded to the MQTT broker state store.
 1. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
 1. Data older than **30 seconds** is expired from the state store.
 1. The result is published to the `sensor/window_data` topic in JSON format.
@@ -29,7 +29,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 * IoT MQ Dapr components installed - [Install IoT MQ Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application

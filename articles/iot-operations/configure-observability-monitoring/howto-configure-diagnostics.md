@@ -1,6 +1,6 @@
 ---
 title: Configure MQ diagnostics service
-description: How to configure the Azure IoT MQ diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
+description: How to configure the MQTT broker diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
 author: kgremban
 ms.author: kgremban
 ms.subservice: azure-mqtt-broker
@@ -13,16 +13,16 @@ ms.date: 04/22/2024
 #to monitor the health of the MQ service.
 ---
 
-# Configure Azure IoT MQ Preview diagnostic service settings
+# Configure MQTT broker diagnostic service settings
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ Preview includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
+MQTT broker includes a diagnostics service that periodically self tests MQTT broker components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
 
 
 ## Diagnostics service configuration
 
-The diagnostics service processes and collates diagnostic signals from various Azure IoT MQ core components. You can configure it using a custom resource definition (CRD). The following table lists its properties.
+The diagnostics service processes and collates diagnostic signals from various MQTT broker core components. You can configure it using a custom resource definition (CRD). The following table lists its properties.
 
 | Name | Required | Format | Default | Description |
 | --- | --- | --- | --- | --- |

@@ -1,21 +1,21 @@
 ---
-title: Learn about the Azure IoT MQ state store protocol
-description: Learn how to implement an Azure IoT MQ state store protocol client
+title: Learn about the MQTT broker state store protocol
+description: Learn how to implement an MQTT broker state store protocol client
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 04/29/2024
+ms.date: 07/02/2024
 
-# CustomerIntent: As a developer, I want understand what the Azure IoT MQ state store protocol is, so
+# CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the MQ state store.
 ---
 
-# Azure IoT MQ Preview state store protocol
+# MQTT broker state store protocol
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in Azure IoT MQ Preview. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own Azure IoT MQ state store clients. 
+The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own MQTT broker state store clients. 
 
 ## State store protocol overview
 The MQ state store supports the following commands:
@@ -436,5 +436,5 @@ abc<CR><LF>
 
 ## Related content
 
-- [Azure IoT MQ overview](../manage-mqtt-broker/overview-iot-mq.md)
-- [Develop with Azure IoT MQ](edge-apps-overview.md)
+- [MQTT broker overview](../manage-mqtt-broker/overview-iot-mq.md)
+- [Develop with MQTT broker](edge-apps-overview.md)
