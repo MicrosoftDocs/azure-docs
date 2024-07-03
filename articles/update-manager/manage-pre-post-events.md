@@ -28,7 +28,7 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 
 ## Create a pre and post event
 
-### create pre and post events while creating a new schedule maintenance configuration
+### Create pre and post events while creating a new schedule maintenance configuration
 
 **Azure portal**
 
@@ -52,7 +52,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 ### Create pre and post events on an existing schedule maintenance configuration
 
-**Azure portal**
+#### [Using Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -70,38 +70,50 @@ In the **Event Subscription Details** section, provide an appropriate name.
     - Keep the schema as **Event Grid Schema**.
     - In the **Topic Details** section, provide an appropriate name to the **System Topic Name**.
     - In the **Event Types** section, **Filter to Event Types**, select the event types that you want to get pushed to the endpoint or destination. You can select between **Pre Maintenance Event** and **Post Maintenance Event**. To learn more about event types that are specific to schedule maintenance configurations, see [Azure Event Types](../event-grid/event-schema-maintenance-configuration.md).
-    - In the **Endpoint details** section, select the endpoint where you want to receive the response from. 
+    - In the **Endpoint details** section, select the endpoint from where you want to receive the response from. 
        
       :::image type="content" source="./media/manage-pre-post-events/create-event-subscription.png" alt-text="Screenshot on how to create event subscription.":::
 
 1. Select **Create** to configure the pre and post events on an existing schedule.  
 
-**Create using PowerShell cmdlets**
+#### [Using PowerShell](#tab/powershell)
+
 
 ```powershell-interactive
     $MaintenanceConfigurationResourceId = "/subscriptions/<subId>/resourceGroups/<Resource group>/providers/Microsoft.Maintenance/maintenanceConfigurations/<Maintenance configuration Name>"
+    
     $ResourceGroupForSystemTopic = "<Resource Group for System Topic>"
+    
     $SystemTopicName = "<System topic name>"
+    
     $TopicType = "Microsoft.Maintenance.MaintenanceConfigurations"
+    
     $SystemTopicLocation = "<System topic location>"
  
     # System topic creation
+    
     New-AzEventGridSystemTopic -ResourceGroupName $ResourceGroupForSystemTopic -Name $SystemTopicName -Source $MaintenanceConfigurationResourceId -TopicType $TopicType -Location $SystemTopicLocation
  
     # Event subscription creation
+    
     $IncludedEventTypes = @("Microsoft.Maintenance.PreMaintenanceEvent")
  
     # Webhook
+    
     $EventSubscriptionName = "PreEventWebhook"
+    
     $PreEventWebhookEndpoint = "<Webhook URL>"
+    
     New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes
  
     # Azure Function
+    
     $dest = New-AzEventGridAzureFunctionEventSubscriptionDestinationObject -ResourceId "<Azure Function Resource Id>"
+    
     New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Destination $dest -IncludedEventType $IncludedEventTypes
 ```
 
-**Create using CLI**
+#### [Using CLI](#tab/cli)
 
 ```azurecli-interactive
 
@@ -131,7 +143,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
    
     az eventgrid system-topic event-subscription create –name "<Event subscription name>" --resource-group $ResourceGroupName --system-topic-name $SystemTopicName --endpoint-type azurefunction --endpoint "<Azure Function ResourceId>" --included-event-types IncludedEventTypes
 ```
-**Create using API**
+#### [Using API](#tab/api)
 
 **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
@@ -160,7 +172,7 @@ Allowed Event types - Microsoft.Maintenance.PreMaintenanceEvent, Microsoft.Maint
 PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
 ```
  
-**Request Body**
+Request Body:
 
 ```
 {
@@ -203,6 +215,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
     }
 }
 ```
+---
 
 ## Manage pre and post events
 
@@ -217,7 +230,7 @@ To view the pre and post events, follow these steps:
 
       :::image type="content" source="./media/manage-pre-post-events/view-configure-events-inline.png" alt-text="Screenshot that shows how to view and configure a pre and post event." lightbox="./media/manage-pre-post-events/view-configure-events-expanded.png":::
 
-1. Click on the count of the pre and post events you can view the list of events and the event types.
+1. Select the count of the pre and post events to view the list of events and the event types.
 
       :::image type="content" source="./media/manage-pre-post-events/view-events-inline.png" alt-text="Screenshot that shows how to view the pre and post events." lightbox="./media/manage-pre-post-events/view-events-expanded.png":::
 
@@ -246,7 +259,7 @@ To check the successful delivery of a pre and post event to an endpoint from Eve
    5. On the selected **Maintenance Configuration** page, under **Settings** in the ToC, select **Events**.
    6. In the **Essentials** section, you can view the metrics for all the events under the selected event subscription. In the graph, the count of the Published Events metric should match with the count of Matched Events metric. Both values should also correspond with the Delivered Events count.
    7. To view the metrics specific to a pre or a post event, select the name of the event from the grid. Here, the count of Matched Events metric should match with the Delivered Events count.
-   8. To view the time at which the event was triggered, hover over the line graph  [Learn more](/azure/azure-monitor/reference/supported-metrics/microsoft-eventgrid-systemtopics-metrics).
+   8. To view the time at which the event was triggered, hover over the line graph.  [Learn more](/azure/azure-monitor/reference/supported-metrics/microsoft-eventgrid-systemtopics-metrics).
 
    > [!Note]
    > Azure Event Grid adheres to an at-least-once delivery paradigm. This implies that, in exceptional circumstances, there is a chance of the event handler being invoked more than once for a given event. We recommend you to ensure that the event handler actions are idempotent. In other words, if the event handler is executed multiple times, it should not have any adverse effects. Implementing idempotency ensures the robustness of your application in the face of potential duplicate event invocations.
@@ -254,20 +267,19 @@ To check the successful delivery of a pre and post event to an endpoint from Eve
 
 **To check if the endpoint has been triggered and completed in the pre or post event**
 
-- **Automation Runbooks via Webhooks:**
+#### [Automation Runbooks via Webhooks](#tab/runbooks)
 
   1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Automation account**.
   2. In your Automation account, under **Process Automation**, select **Runbooks**.
   3. Select the pre or post script that is linked to your Webhook in Event Grid.
   4. In **Overview**, you can view the status of the Runbook job. The trigger time should be approximately 30 minutes before the schedule start time. Once the job is finished, you can come back to the same section to confirm if the status is **Completed**. For example, ensure that the VM has been either powered on or off.
 
-      :::image type="content" source="./media/manage-pre-post-events/automation-runbooks-webhook.png" alt-text="Screenshot that shows how to check the status of runbook job." lightbox="./media/manage-pre-post-events/automation-runbooks-webhook.png.png":::
+      :::image type="content" source="./media/manage-pre-post-events/automation-runbooks-webhook.png" alt-text="Screenshot that shows how to check the status of runbook job." lightbox="./media/manage-pre-post-events/automation-runbooks-webhook.png":::
     
     For more information on how to retrieve details from Automation account's activity log and job statuses, see [Manage runbooks in Azure Automation](../automation/automation-runbook-execution.md#jobs).
 
 
-
-- **Azure Functions:**
+#### [Azure Functions](#tab/functions)
 
   1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **your Azure Function app.**
   2. In your Azure Function app, go to the **Overview** page.
@@ -283,14 +295,25 @@ To cancel the schedule run, the cancelation API in your pre-event must get trigg
 
 **To cancel the schedule maintenance run**
 
-- **Azure portal:**
+#### [Azure portal](#tab/az-portal)
     1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
     1. Under **Manage** in the ToC, select **History**.
     1. Select the **By Maintenance run ID** tab, and select the maintenance run ID for which you want to view the history.
     1. Select **Cancel schedule update**. This option is enabled for 10 minutes before the start of the maintenance configuration.
-- **RESTAPI**: [Apply Updates - Create Or Update Or Cancel - REST API (Azure Maintenance) | Microsoft Learn](/rest/api/maintenance/apply-updates/create-or-update-or-cancel)
-- **PowerShell**: [New-AzApplyUpdate (Az.Maintenance) | Microsoft Learn](/powershell/module/az.maintenance/new-azapplyupdate)
-- **CLI**: [az maintenance applyupdate | Microsoft Learn](/cli/azure/maintenance/applyupdate)
+
+#### [REST API](#tab/rest)
+
+[Apply Updates - Create Or Update Or Cancel - REST API (Azure Maintenance) | Microsoft Learn](/rest/api/maintenance/apply-updates/create-or-update-or-cancel)
+
+#### [PowerShell](#tab/az-ps)
+
+[New-AzApplyUpdate (Az.Maintenance) | Microsoft Learn](/powershell/module/az.maintenance/new-azapplyupdate)
+
+#### [CLI](#tab/az-cli)
+
+[az maintenance applyupdate | Microsoft Learn](/cli/azure/maintenance/applyupdate)
+
+---
 
 You can obtain the list of machines in the maintenance run from the following ARG query. You can also view the correlation ID by selecting **See details**:
 
@@ -306,15 +329,15 @@ maintenanceresources
 
 ## Post schedule run
 
-**To view the History of pre and post events**
+### View the history of pre and post events
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
-2. Under **Manage** in the ToC, select **History**.
+2. Under **Manage**, select **History**.
 3. Select the **By Maintenance run ID** tab, select the maintenance run ID for which you want to view the history.
 4. Select the **Events** tab in this history page of the selected maintenance run ID.
 5. You can view the count of events and event names along with the Event type and endpoint details.
 
-**To debug pre and post events**
+### Debug pre and post events
 
 Follow the above steps to view the history of the event subscription. To view the job history of an event created through Webhook, follow the below steps:
 
@@ -322,7 +345,7 @@ Follow the above steps to view the history of the event subscription. To view th
 2. Under the **Job history** column, select **View runbook history** corresponding to the event name. This takes you to the Automation account where the runbooks reside.
 3. Select the specific runbook name that is associated to the pre or post event. In the **overview** page, you can view the recent jobs of the runbook along with the execution and status details.
 
-**To view the history of an event created through Azure Function**
+#### View the history of an event created through Azure Function
 
 Follow the below steps to view the history of an event created through Azure Function:
 
@@ -330,10 +353,10 @@ Follow the below steps to view the history of an event created through Azure Fun
 2. Under the **Job history** column, select **View Azure Function history** corresponding to the event name. This takes you to the Azure function **Invocations** page.
 3. You can view the recent invocations along with the execution and status details.
 
-**To view the status of a canceled schedule run**
+### View the status of a canceled schedule run
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Azure Update Manager**.
-2. Under **Manage in the ToC**, select **History**.
+2. Under **Manage**, select **History**.
 3. Select the **By Maintenance run ID** tab, and then select the maintenance run ID for which you want to view the status.
 4. Refer to the **Status column** to view the status. If the maintenance run has been canceled, the status will be displayed as **cancelled**. Select the status to view the details.
 
@@ -347,14 +370,15 @@ There are two types of cancelations:
 
 To confirm if the cancelation is by user or system, you can view the status of the maintenance run ID from the ARG query mentioned above in **See details**. The **error message** displays whether the schedule run has been canceled by the user or system and the **status** field confirms the status of the maintenance run.
 
- :::image type="content" source="./media/manage-pre-post-events/view-cancelation-status-inline.png" alt-text="Screenshot that shows how to view the cancelation status." lightbox="./media/manage-pre-post-events/view-cancelation-status-expanded.png":::
+ :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot that shows how to view the cancelation status." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png":::
 
 The above image shows an example of cancelation by the user, where the error message would be **Maintenance cancelled using cancellation API at YYYY-MM-DD**. If the maintenance run is canceled by the system due to any reason, the error message in the JSON would be **Maintenance cancelled due to internal platform failure at YYYY-MM-DD**.
 
 
 ## Delete pre and post event
 
-**Azure portal**
+#### [Using Azure portal](#tab/del-portal)
+
 To delete pre and post events, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
@@ -366,47 +390,48 @@ To delete pre and post events, follow these steps:
 
     :::image type="content" source="./media/manage-pre-post-events/delete-event-inline.png" alt-text="Screenshot that shows how to delete the pre and post events." lightbox="./media/manage-pre-post-events/delete-event-expanded.png":::
 
-- **Delete using PS Cmdlets:**
+#### [Using PowerShell](#tab/del-ps)
 
-**# Removing Event Subscription**
+#### Removing Event Subscription
 
-    ```powershell-interactive
+```powershell-interactive
     Remove-AzEventGridSystemTopicEventSubscription -EventSubscriptionName $EventSubscriptionName -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName
-    ```
+```
 
-**# Remove System topic**
+#### Remove System topic
 
-    ```powershell-interactive
+```powershell-interactive
     Remove-AzEventGridSystemTopic -Name $SystemTopicName -ResourceGroupName $ResourceGroupForSystemTopic
-    ```
+```
 
-- **Delete using CLI:**
+#### [Using CLI](#tab/del-cli)
 
-  **# Removing Event subscription**
+#### Removing Event subscription
 
-      ```azurecli-interactive
+```azurecli-interactive
     az eventgrid system-topic event-subscription delete --name “<Event subscription name>” --resource-group $ResourceGroupName --system-topic-name     $SystemTopicName
-    ```
+```
 
-    **# Remove System topic**
+#### Remove System topic
 
-    ```azurecli-interactive
+```azurecli-interactive
     az eventgrid system-topic delete --name $SystemTopicName --resource-group $ResourceGroupName
-    ```
+```
 
-- **Delete using API:**
+#### [Using REST API](#tab/del-api)
 
-    **Event subscription Deletion**
+#### Event subscription Deletion
 
     ```rest
     DELETE /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
     ```
 
-    **System topic deletion**
+#### System topic deletion
     
     ```rest
     DELETE /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>;?api-version=2022-06-15
     ```
+---
 
 ## Next steps
 - To learn how to use pre and post events to turn on and off your VMs using Webhooks, refer [here](tutorial-webhooks-using-runbooks.md).
