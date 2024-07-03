@@ -102,9 +102,9 @@ The order of operations is:
 
 1. Revise the schema with updates from the previous list.
 
-1. [Update index](/rest/api/searchservice/indexes/create-or-update).
+1. [Update index schema](/rest/api/searchservice/indexes/create-or-update) on the search service.
 
-1. [Index documents](/rest/api/searchservice/documents).
+1. [Update index content](#update-content) to match your revised schema if you added a new field. For all other changes, the existing content is used as-is.
 
 When you update the index schema, existing documents in the index are given a null value for the new field. On the next index documents job, values from external source data replace the nulls added by Azure AI Search.
 
