@@ -1,5 +1,5 @@
 ---
-title: Azure API Management workspaces - breaking changes (June 2024) | Microsoft Docs
+title: Azure API Management workspaces preview - breaking changes (June 2024) | Microsoft Docs
 description: Azure API Management is updating the workspaces (preview) with breaking changes. If your service uses workspaces, you may need to update workspace configurations.
 services: api-management 
 author: dlepow
@@ -104,6 +104,9 @@ If you have questions, get answers from community experts in [Microsoft Q&A](htt
 ## More information
 
 * [Workspaces overview](../workspaces-overview.md)
+* [Workspaces preview breaking changes (December 2024)](workspaces-breaking-changes-dec-2024.md)
+
+
 
 ## Related content
 

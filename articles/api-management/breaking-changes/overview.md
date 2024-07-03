@@ -24,7 +24,8 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [API version retirements][api2023] | June 1, 2024 |
 | [Deprecated (legacy) portal retirement][devportal2023] | October 31, 2023 |
 | [Self-hosted gateway v0/v1 retirement][shgwv0v1] | October 1, 2023 |
-| [Workspaces breaking changes][workspaces2024] | June 14, 2024 |
+| [Workspaces preview breaking changes][workspaces2024] | June 14, 2024 |
+| [Workspaces preview breaking changes][workspaces2024dec] | December 31, 2024 |
 | [stv1 platform retirement][stv12024] | August 31, 2024 |
 | [Git repository retirement][git2025] | March 15, 2025 |
 | [Direct management API retirement][mgmtapi2025] | March 15, 2025 |
@@ -46,3 +47,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [analytics2027]: ./analytics-dashboard-retirement-march-2027.md
 [mgmtapi2025]: ./direct-management-api-retirement-march-2025.md
 [workspaces2024]: ./workspaces-breaking-changes-june-2024.md
+[workspaces2024dec]: ./workspaces-breaking-changes-dec-2024.md
