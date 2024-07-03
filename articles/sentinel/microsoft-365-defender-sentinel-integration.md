@@ -4,7 +4,7 @@ description: Learn how using Microsoft Defender XDR together with Microsoft Sent
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 07/01/2024
+ms.date: 07/03/2024
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
@@ -21,11 +21,43 @@ Alternatively, onboard Microsoft Sentinel with Defender XDR to the unified secur
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 - [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 
-## Integration of Defender XDR with Microsoft Sentinel
+## Microsoft Sentinel and Defender XDR
 
-Watch this short overview of Microsoft Sentinel integration with Microsoft Defender XDR (4 minutes). This video applies to the Defender XDR integration with Microsoft Sentinel in the Azure portal.
+Microsoft Sentinel customers can use one of the following methods to integrate Microsoft Sentinel with Microsoft Defender XDR services:
 
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWFIRo]
+- Ingest Microsoft Defender XDR service data into Microsoft Sentinel and view Microsoft Sentinel data in the Azure portal. Enable the Defender XDR connector in Microsoft Sentinel.
+
+- Integrate Microsoft Sentinel and Defender XDR into a single, unified security operations platform in the Microsoft Defender portal. In this case, view Microsoft Sentinel data directly in the Microsoft Defender portal with the rest of your Defender incidents, alerts, vulnerabilities, and other security data. Enable the Defender XDR connector in Microsoft Sentinel and onboard Microsoft Sentinel to unified operations platform in the Defender portal.
+
+Select the appropriate tab to see what the Microsoft Sentinel integration with Defender XDR looks like depending on which integration methods you use. 
+
+## [Azure portal](#tab/azure-portal)
+
+The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
+
+:::image type="content" source="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr.png" alt-text="Diagram of the integration of Microsoft Sentinel and Microsoft XDR." lightbox="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr.png" border="false":::
+
+In this diagram:
+
+- Insights from signals across your entire organization feed into Microsoft Defender XDR and Microsoft Defender for Cloud.
+- Microsoft Defender XDR and Microsoft Defender for Cloud send SIEM log data through Microsoft Sentinel connectors.
+- SecOps teams can then analyze and respond to threats identified in Microsoft Sentinel and Microsoft Defender XDR.
+- Microsoft Sentinel provides support for multicloud environments and integrates with third-party apps and partners.
+
+## [Defender portal](#tab/defender-portal)
+
+The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel with the unified security operations platform.
+
+:::image type="content" source="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr-usx.png" alt-text="Diagram of a Microsoft Sentinel and Microsoft Defender XDR architecture with the unified security operations platform." lightbox="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr-usx.png" border="false":::
+
+In this diagram:
+
+- Insights from signals across your entire organization feed into Microsoft Defender XDR and Microsoft Defender for Cloud.
+- Microsoft Sentinel provides support for multicloud environments and integrates with third-party apps and partners.
+- Microsoft Sentinel data is ingested together with your organization's data into the Microsoft Defender portal.
+- SecOps teams can then analyze and respond to threats identified by Microsoft Sentinel and Microsoft Defender XDR in the Microsoft Defender portal.
+
+---
 
 ## Incident correlation and alerts
 
@@ -46,9 +78,7 @@ The Defender XDR connector also brings incidents from Microsoft Defender for Clo
 
 In addition to collecting alerts from these components and other services, Defender XDR generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
-The following diagram shows how incident data flows into both the Azure and Defender portals.
 
-:::image type="content" source="media/microsoft-365-defender-sentinel-integration/microsoft-365-defender-integration-with-azure-sentinel.png" alt-text="Diagram that shows the flow of incident data for Defender XDR to Microsoft Sentinel in both the Azure and Defender portals." lightbox="media/microsoft-365-defender-sentinel-integration/microsoft-365-defender-integration-with-azure-sentinel.png":::
 
 ## Common use cases and scenarios
 
