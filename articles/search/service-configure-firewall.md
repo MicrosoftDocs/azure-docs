@@ -15,6 +15,18 @@ ms.date: 06/27/2024
 
 # Configure network access and firewall rules for Azure AI Search
 
+This article explains how to configure network access to a search service's public endpoint. To block *all* data plane access to the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
+
+This article assumes the Azure portal to configure network access options. You can also use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or the [Azure CLI](/cli/azure/search).
+
+## Prerequisites
+
++ A search service, any region, at the Basic tier or higher
+
++ Owner or Contributor permissions
+
+## When to configure network access
+
 By default, Azure AI Search is configured to allow connections over a public endpoint. Access to a search service *through* the public endpoint is protected by authentication and authorization protocols, but the endpoint itself is open to the internet at the network layer for data plane requests.
 
 If you aren't hosting a public web site, you might want to configure network access to automatically refuse requests unless they originate from an approved set of devices and cloud services. There are two mechanisms:
@@ -25,16 +37,6 @@ If you aren't hosting a public web site, you might want to configure network acc
 Network rules aren't required, but it's a security best practice to add them if you use Azure AI Search for surfacing private or internal corporate content.
 
 Network rules are scoped to data plane operations against the search service's public endpoint. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
-
-This article explains how to configure network access to a search service's public endpoint. To block *all* data plane access to the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
-
-This article assumes the Azure portal to explain network access options. You can also use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or the [Azure CLI](/cli/azure/search).
-
-## Prerequisites
-
-+ A search service, any region, at the Basic tier or higher
-
-+ Owner or Contributor permissions
 
 ## Limitations
 

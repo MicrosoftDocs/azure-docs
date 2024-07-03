@@ -49,7 +49,9 @@
     - name: Compute and storage
       href: compute-storage.md 
     - name: Migration options
-      href: migration-options.md 
+      href: migration-options.md
+    - name: Service limits
+      href: limits.md
     - name: Security
       items: 
         - name: Security overview

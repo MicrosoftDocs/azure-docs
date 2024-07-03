@@ -10,7 +10,7 @@ ms.date: 07/01/2024
 
 # kNN vs ANN
 
-Two popular vector search algorithms are k-Nearest Neighbors (kNN) and Approximate Nearest Neighbors (ANN, not to be confused with Artificial Neural Network). kNN is precise but computationally intensive, making it less suitable for large datasets. ANN, on the other hand, offers a balance between accuracy and efficiency, making it better suited for large-scale applications.
+Two major categories of vector search algorithms are k-Nearest Neighbors (kNN) and Approximate Nearest Neighbors (ANN, not to be confused with Artificial Neural Network). kNN is precise but computationally intensive, making it less suitable for large datasets. ANN, on the other hand, offers a balance between accuracy and efficiency, making it better suited for large-scale applications.
 
 ## How kNN works
 
