@@ -39,7 +39,7 @@ To create and configure policies, follow these steps:
 
     :::image type="content" source="media/binary-drift-detection/select-containers-drift-policy.png" alt-text="Select Containers drift policy in Environment settings." lightbox="media/binary-drift-detection/select-containers-drift-policy.png":::
 
-1. If you didn't configure any rules, you only see the **Default rule.** Once you add rules, the default rule appears at the bottom of the list. The default rule can't be edited.
+1. You receive two rules out of the box: the **Alert on Kube-System namespace** rule and the **Default binary drift** rule. The default rule is a special rule that applies to everything if no other rule before it is matched. You can only modify its action, either to **Drift detection alert** or return it to the default **Ignore drift detection**. The **Alert on Kube-System namespace** rule is an out-of-the-box suggestion and can be modified like any other rule.
 
     :::image type="content" source="media/binary-drift-detection/default-rule.png" alt-text="Default rule appears at the bottom of the list of rules." lightbox="media/binary-drift-detection/default-rule.png":::
 
@@ -63,8 +63,6 @@ To create and configure policies, follow these steps:
 1. Select **Apply** to save the rule.
 
 1. Once you configure your rule, select and drag the rule up or down on the list to change its priority. The rule with the highest priority is evaluated first. If there's a match, it either generates an alert or ignores it (based on what was chosen for that rule) and the evaluation stops. If no match is found, the next rule is evaluated. If there's no match for any rule, the default rule is applied.
-
-    :::image type="content" source="media/binary-drift-detection/priority.png" alt-text="Dragging the rule up or down changes its priority." lightbox="media/binary-drift-detection/priority.png":::
 
 1. To edit an existing rule, choose the rule and select **Edit**. This opens the side panel where you can make changes to the rule.
 
