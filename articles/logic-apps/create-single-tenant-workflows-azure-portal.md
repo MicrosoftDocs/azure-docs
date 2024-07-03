@@ -387,7 +387,7 @@ For a stateful workflow, you can review the trigger history for each run, includ
 
 For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
 
-<a named="set-up-managed-identity-storage"></a>
+<a name="set-up-managed-identity-storage"></a>
 
 ## Set up managed identity access to your storage account
 
