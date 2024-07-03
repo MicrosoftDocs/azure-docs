@@ -142,9 +142,9 @@ When you're using virtual network integration, you can configure how parts of th
 
 #### Content share
 
-Bringing your own storage for content in often used in Functions where [content share](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
+Bringing your own storage for content in often used in Azure Functions where a [content share](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured along with the function app.
 
-To route content share traffic through the virtual network integration, you must ensure that the routing setting is configured. Learn [how to configure content share routing](./configure-vnet-integration-routing.md#content-share). 
+An additional setting is required to also route traffic to this content share through the virtual network integration. For more information, see [how to configure content share routing](./configure-vnet-integration-routing.md#content-share). 
 
 In addition to configuring the routing, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
