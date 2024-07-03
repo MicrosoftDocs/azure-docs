@@ -25,7 +25,7 @@ Use the _gRPC call out_ stage to call an external [gRPC](https://grpc.io/docs/wh
 
 ## Prerequisites
 
-To configure and use a gRPC cal lout pipeline stage, you need:
+To configure and use a gRPC callout pipeline stage, you need:
 
 - A deployed instance of the data processor that includes the optional data processor component.
 - A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the data processor instance.

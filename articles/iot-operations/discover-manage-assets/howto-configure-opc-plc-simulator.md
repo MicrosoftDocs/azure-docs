@@ -14,7 +14,7 @@ ms.date: 05/16/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to configure and connect the OPC PLC simulator. The simulator simulates an OPC UA server with multiple nodes that generate random data and anomalies. You can configure user defined nodes. The OPC UA simulator lets you test the process of managing OPC UA assets with the [operations experience web UI](howto-manage-assets-remotely.md) or [the Akri services](overview-akri.md).
+In this article, you learn how to configure and connect the OPC PLC simulator. The simulator simulates an OPC UA server with multiple nodes that generate random data and anomalies. You can configure user defined nodes. The OPC UA simulator lets you test the process of managing OPC UA assets with the [operations experience](howto-manage-assets-remotely.md) web UI or [the Akri services](overview-akri.md).
 
 ## Prerequisites
 
