@@ -71,7 +71,7 @@ For private inbound and private outbound access, the subnet needs to be delegate
 
 ### Configure NSG rules
 
-A network security group must be attached to the subnet used for access to the gateway. Configure the following inbound network security group rulesto filter traffic to your workspace gateway. Set the priority of these rules higher than that of the default rules.
+A network security group must be attached to the subnet used for access to the gateway. Configure the following inbound network security group rules to filter traffic to your workspace gateway. Set the priority of these rules higher than that of the default rules.
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
 |------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
