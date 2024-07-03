@@ -34,7 +34,7 @@ To achieve geo-replication in non-paired regions, you can use:
 
 To achieve geo-replication in non-paired regions:
 
-- Use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery).  Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a non-paired region if it is supported by Azure Site Recovery. You can have maximum data retention up to 14 days with Azure Site Recovery.
+- Use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery).  Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a non-paired region if it is supported by Azure Site Recovery. You can have maximum data retention up to 15 days with Azure Site Recovery.
 - Use [Zone-redundant Storage](../backup/backup-overview#why-use-azure-backup.md) to replicate your data in availability zones, guaranteeing data residency and resiliency in the same region.
 
 
