@@ -76,7 +76,7 @@ procedureSection:
       Follow these steps:
     steps:
       - |
-        On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**. Alerts can be scoped at subscription, resource group and resource level. If you scope at e.g. subscription, its underlying resource groups and resources can trigger the alert.
+        On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**. Through the Azure Portal, you can scope alerts at single resource, single resource group, single subscription, multiple resources (of the same type) or multiple resource groups. Regardless of the scope defined, the evaluation is always performed on the individual resource level, so for example, if you scope an alert at e.g. subscription, its underlying resource groups and resources can trigger the alert.
       - |
         Select **Apply**.
         
