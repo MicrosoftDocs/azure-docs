@@ -25,29 +25,14 @@ The following table describes each overall section in the `systemconfig.ini` fil
 
 | Section name | Description |
 | ------------ | ----------- |
-| [Secrets source](#secrets-source) | This section defines where credentials are stored. |
 | [ABAP central instance](#abap-central-instance) | This section defines general options of the SAP instance to connect to. |
+| [ABAP table selector](#abap-table-selector) | This section defines which user master data logs get extracted from the ABAP system. |
 | [Azure credentials](#azure-credentials) | This section defines credentials to connect to Azure Log Analytics. |
+| [Connector configuration](#connector-configuration) | This section defines miscellaneous connector options. |
 | [File extraction ABAP](#file-extraction-abap) | This section defines logs and credentials that are extracted from ABAP server using SAPControl interface. |
 | [File extraction JAVA](#file-extraction-java) | This section defines logs and credentials that are extracted from JAVA server using SAPControl interface. |
 | [Logs activation status](#logs-activation-status) | This section defines which logs are extracted from ABAP. |
-| [Connector configuration](#connector-configuration) | This section defines miscellaneous connector options. |
-| [ABAP table selector](#abap-table-selector) | This section defines which user master data logs get extracted from the ABAP system. |
-
-## Secrets source
-
-```ini
-secrets=AZURE_KEY_VAULT|DOCKER_FIXED
-# Storage location of SAP credentials and Log Analytics workspace ID and key
-# AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
-# DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
-
-keyvault=<vaultname>
-# Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
-
-intprefix=<prefix>
-# intprefix - Prefix for variables created in Azure Key Vault
-```
+| [Secrets source](#secrets-source) | This section defines where credentials are stored. |
 
 ## ABAP central instance
 
@@ -104,6 +89,38 @@ x509cert=<server certificate>
 # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
 ```
 
+
+## ABAP table selector
+
+```ini
+[ABAP Table Selector]
+# Specify True or False to configure whether table should be collected from the SAP system
+AGR_TCODES_FULL = <True/False>
+USR01_FULL = <True/False>
+USR02_FULL = <True/False>
+USR02_INCREMENTAL = <True/False>
+AGR_1251_FULL = <True/False>
+AGR_USERS_FULL = <True/False>
+AGR_USERS_INCREMENTAL = <True/False>
+AGR_PROF_FULL = <True/False>
+UST04_FULL = <True/False>
+USR21_FULL = <True/False>
+ADR6_FULL = <True/False>
+ADCP_FULL = <True/False>
+USR05_FULL = <True/False>
+USGRP_USER_FULL = <True/False>
+USER_ADDR_FULL = <True/False>
+DEVACCESS_FULL = <True/False>
+AGR_DEFINE_FULL = <True/False>
+AGR_DEFINE_INCREMENTAL = <True/False>
+PAHI_FULL = <True/False>
+AGR_AGRS_FULL = <True/False>
+USRSTAMP_FULL = <True/False>
+USRSTAMP_INCREMENTAL = <True/False>
+SNCSYSACL_FULL = <True/False> (Preview)
+USRACL_FULL = <True/False> (Preview)
+```
+
 ## Azure credentials
 
 ```ini
@@ -113,6 +130,23 @@ loganalyticswsid=<workspace ID>
 
 publickey=<publickey>
 # Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
+```
+
+
+## Connector configuration
+
+```ini
+extractuseremail = <True/False>
+apiretry = <True/False>
+auditlogforcexal = <True/False>
+auditlogforcelegacyfiles = <True/False>
+azure_resource_id = <Azure _ResourceId>
+# Used to force a specific resource group for the SAP tables in Log Analytics, useful for applying RBAC on SAP data
+# example - /subscriptions/1234568-qwer-qwer-qwer-123456789/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.compute/virtualmachines/VIRTUAL_MACHINE_NAME
+# for more information - https://learn.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_resourceid.
+
+timechunk = <value>
+# Default timechunk value is 60 (minutes). For certain tables, the data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
 ```
 
 ## File extraction ABAP
@@ -165,7 +199,7 @@ javatz = <timezone>
 # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
 ```
 
-### Logs activation status
+## Logs activation status
 
 ```ini
 [Logs Activation Status]
@@ -190,52 +224,21 @@ GW = <True/False>
 JAVAFilesLogs = <True/False>
 ```
 
-### Connector configuration
+## Secrets source
 
 ```ini
-extractuseremail = <True/False>
-apiretry = <True/False>
-auditlogforcexal = <True/False>
-auditlogforcelegacyfiles = <True/False>
-azure_resource_id = <Azure _ResourceId>
-# Used to force a specific resource group for the SAP tables in Log Analytics, useful for applying RBAC on SAP data
-# example - /subscriptions/1234568-qwer-qwer-qwer-123456789/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.compute/virtualmachines/VIRTUAL_MACHINE_NAME
-# for more information - https://learn.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_resourceid.
+secrets=AZURE_KEY_VAULT|DOCKER_FIXED
+# Storage location of SAP credentials and Log Analytics workspace ID and key
+# AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
+# DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
 
-timechunk = <value>
-# Default timechunk value is 60 (minutes). For certain tables, the data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
+keyvault=<vaultname>
+# Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
+
+intprefix=<prefix>
+# intprefix - Prefix for variables created in Azure Key Vault
 ```
 
-## ABAP table selector
-
-```ini
-[ABAP Table Selector]
-# Specify True or False to configure whether table should be collected from the SAP system
-AGR_TCODES_FULL = <True/False>
-USR01_FULL = <True/False>
-USR02_FULL = <True/False>
-USR02_INCREMENTAL = <True/False>
-AGR_1251_FULL = <True/False>
-AGR_USERS_FULL = <True/False>
-AGR_USERS_INCREMENTAL = <True/False>
-AGR_PROF_FULL = <True/False>
-UST04_FULL = <True/False>
-USR21_FULL = <True/False>
-ADR6_FULL = <True/False>
-ADCP_FULL = <True/False>
-USR05_FULL = <True/False>
-USGRP_USER_FULL = <True/False>
-USER_ADDR_FULL = <True/False>
-DEVACCESS_FULL = <True/False>
-AGR_DEFINE_FULL = <True/False>
-AGR_DEFINE_INCREMENTAL = <True/False>
-PAHI_FULL = <True/False>
-AGR_AGRS_FULL = <True/False>
-USRSTAMP_FULL = <True/False>
-USRSTAMP_INCREMENTAL = <True/False>
-SNCSYSACL_FULL = <True/False> (Preview)
-USRACL_FULL = <True/False> (Preview)
-```
 ## Related content
 
 For more information, see:
