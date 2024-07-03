@@ -102,7 +102,7 @@ The following commands help you create your resource group and Container Apps en
       --location $LOCATION
     ```
 
-## Use the Admin for Spring Java component
+## Use the component
 
 Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Admin for Spring.
 
@@ -142,7 +142,7 @@ Now that you have an existing environment, you can create your container app and
 
     You can also [remove a binding](admin-for-spring-usage.md#unbind) from your application.
 
-## View the application in Admin for Spring dashboards
+## View the dashboard
 
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can either explicitly assign `Owner` or `Contributor` role on the resource or follow the steps to create a custom role definition and assign it to your account.
@@ -179,9 +179,9 @@ Now that you have an existing environment, you can create your container app and
 
     ```azurecli
     az role assignment create \
-    --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
-    --role "Java Component Dashboard Access" \
-    --scope $ENVIRONMENT_ID
+      --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
+      --role "Java Component Dashboard Access" \
+      --scope $ENVIRONMENT_ID
     ```
 
 1. Get the URL of the Admin for Spring dashboard.

@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps"
+title: "Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps (preview)"
 description: Learn to integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: 
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 05/24/2024
+ms.date: 07/03/2024
 ms.author: 
 ---
 
-# Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps (Preview)
+# Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps (preview)
 
 This tutorial will guide you through the process of integrating a managed Admin for Spring with a Eureka Server for Spring within Azure Container Apps.
 
@@ -90,8 +90,11 @@ Before you begin, create the necessary resources by executing the following comm
     az containerapp env create \
       --name $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --location $LOCATION
+      --location $LOCATION \
+      --query "properties.provisioningState"
     ```
+
+    Using the `--query` parameter filters the response down to a simple success or failure message.
 
 ## Optional: Create the Eureka Server for Spring
 
@@ -104,7 +107,7 @@ Before you begin, create the necessary resources by executing the following comm
       --name $EUREKA_COMPONENT_NAME
     ```
 
-## Create the Admin for Spring and bind it to the Eureka Server for Spring
+## Bind the components together
 
 1. Create the Admin for Spring Java component.
 
@@ -116,11 +119,9 @@ Before you begin, create the necessary resources by executing the following comm
       --bind $EUREKA_COMPONENT_NAME
     ```
 
-
-## Bind Other Applications to the Eureka Server
+## Bind other apps to the Eureka Server
 
 With the Eureka Server set up, you can now bind other applications to it for service discovery. And you can also monitor and manage these applications in the dashboard of Admin for Spring. Follow the steps below to create and bind a container app to the Eureka Server:
-
 
 1. Create the container app and bind it to the Eureka Server.
 
@@ -139,7 +140,7 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 
     > [!TIP] Since the Admin for Spring has been binded to the Eureka Server for Spring in previous steps. Bind the container app to the Eureka Server Java component will enable service discovery and allow to be managed through the Admin for Spring dashboard at the same time.
 
-## View the application in both Admin for Spring and Eureka Server for Spring dashboards
+## View the dashboards
 
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can either explicitly assign `Owner` or `Contributor` role on the resource or follow the steps to create a custom role definition and assign it to your account.
@@ -184,11 +185,11 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 1. Get the URL of the Admin for Spring dashboard.
 
     ```azurecli
-        az containerapp env java-component admin-for-spring show \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $ADMIN_COMPONENT_NAME \
-        --query properties.ingress.fqdn -o tsv
+    az containerapp env java-component admin-for-spring show \
+      --environment $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $ADMIN_COMPONENT_NAME \
+      --query properties.ingress.fqdn -o tsv
     ```
 
 1. Get the URL of the Eureka Server for Spring dashboard.
@@ -212,7 +213,7 @@ With the Eureka Server set up, you can now bind other applications to it for ser
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-    az group delete \
+az group delete \
     --resource-group $RESOURCE_GROUP
 ```
 
