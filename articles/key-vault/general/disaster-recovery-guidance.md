@@ -25,7 +25,7 @@ The way that Key Vault replicates your data depends on the specific region that 
 
 For most Azure regions that are paired with another region, the contents of your key vault are replicated both within the region and to the paired region. The paired region is usually at least 150 miles away, but within the same geography. This approach ensures high durability of your keys and secrets. For more information about Azure region pairs, see [Azure paired regions](../../reliability/cross-region-replication-azure.md). Two exceptions are the Brazil South region, which is paired to a region in another geography, and the West US 3 region. When you create key vaults in Brazil South or West US 3, they aren't replicated across regions.
 
-![Key Vault in non-paired regions guidance](../includes/key-vault-non-paired-regions.md)
+[!INCLUDE [Key Vault in non-paired regions guidance](../includes/key-vault-non-paired-regions.md)]
 
 ## Failover within a region
 
