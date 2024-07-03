@@ -9,7 +9,7 @@ ms.date: 06/24/2024
 ms.custom:
 ---
 
-# Create and manage a workspace
+# Create and manage a workspace in Azure API Management
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
@@ -67,7 +67,7 @@ It can take some time to create the workspace, workspace gateway, and related re
 
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
-To manage the workspace gateway, workspace users should also be assigned the **Owner** or **Contributor** role scoped to the workspace gateway. 
+To manage the workspace gateway, we recommend also assigning workspace users an Azure-provided RBAC role scoped to the workspace gateway. 
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
