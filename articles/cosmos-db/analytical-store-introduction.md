@@ -409,7 +409,7 @@ sql_results.show()
 
 ##### Using full fidelity schema with SQL
 
-You can use the following syntax example, with the same documents of the Spark example above,:
+You can use the following syntax example, with the same documents of the Spark example above:
 
 ```SQL
 SELECT rating,timestamp_string,timestamp_utc
