@@ -2,11 +2,11 @@
 title: Configure settings for the Admin for Spring component in Azure Container Apps (preview)
 description: Learn to configure the Admin for Spring component in Azure Container Apps.
 services: container-apps
-author: 
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/24/2024
-ms.author: 
+ms.date: 07/03/2024
+ms.author: cshoe
 ---
 
 # Configure the Spring Boot Admin component in Azure Container Apps (preview)
