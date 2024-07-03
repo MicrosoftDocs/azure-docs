@@ -13,14 +13,14 @@ ms.date: 07/01/2024
 
 Azure Cosmos DB offers various options to enable large-scale analytics and BI reporting on your operational data.
 
-To get meaningful insights on your Azure Cosmos DB data, you may need to query across multiple partitions, collections, or databases. In some cases, you may need to combine this data with other data sources in your organization such as Azure SQL Database, Azure Data Lake Storage Gen2 etc. You may also need to query with aggregate functions such as sum, count etc. Such queries need heavy computational power, which likely consumes more request units (RUs) and as a result, these queries may potentially impact your mission critical workload performance. 
+To get meaningful insights on your Azure Cosmos DB data, you may need to query across multiple partitions, collections, or databases. In some cases, you might combine this data with other data sources in your organization such as Azure SQL Database, Azure Data Lake Storage Gen2 etc. You might also query with aggregate functions such as sum, count etc. Such queries need heavy computational power, which likely consumes more request units (RUs) and as a result, these queries might potentially affect your mission critical workload performance. 
 
 To isolate transactional workloads from the performance impact of complex analytical queries, database data is ingested nightly to a central location using complex Extract-Transform-Load (ETL) pipelines. Such ETL-based analytics are complex, costly with delayed insights on business data.
 
 Azure Cosmos DB addresses these challenges by providing no-ETL, cost-effective analytics offerings. 
 
 ## No-ETL, near real-time analytics on Azure Cosmos DB
-Azure Cosmos DB offers no-ETL, near real-time analytics on your data without impact on the performance of your transactional workloads or request units (RUs). These offerings remove the need for complex ETL pipelines, making your Azure Cosmos DB data seamlessly available to analytics engines. With reduced latency to insights, you can provide enhanced customer experience and react more quickly to changes in market conditions or business environment. Here are some sample [scenarios](synapse-link-use-cases.md) you can achieve with quick insights into your data. 
+Azure Cosmos DB offers no-ETL, near real-time analytics on your data without affecting the performance of your transactional workloads or request units (RUs). These offerings remove the need for complex ETL pipelines, making your Azure Cosmos DB data seamlessly available to analytics engines. With reduced latency to insights, you can provide enhanced customer experience and react more quickly to changes in market conditions or business environment. Here are some sample [scenarios](synapse-link-use-cases.md) you can achieve with quick insights into your data. 
  
  You can enable no-ETL analytics and BI reporting on Azure Cosmos DB using the following options:
 
@@ -41,7 +41,7 @@ You can use T-SQL to run complex aggregate queries and Spark for data exploratio
 :::image type="content" source="./media/analytics-and-bi/fabric-mirroring-cosmos-db.png" alt-text="Diagram of Azure Cosmos DB mirroring in Microsoft Fabric." border="false":::
 
 If you're looking for analytics on your operational data in Azure Cosmos DB, mirroring provides:
-* No-ETL, cost-effective near real-time analytics on Azure Cosmos DB data without impacting your request unit (RU) consumption
+* No-ETL, cost-effective near real-time analytics on Azure Cosmos DB data without affecting your request unit (RU) consumption
 * Ease of bringing data across various sources into Fabric OneLake.
 * Improved query performance of SQL engine handling delta tables, with V-order optimizations
 * Improved cold start time for Spark engine with deep integration with ML/notebooks
@@ -77,12 +77,12 @@ There are a few other options to enable real-time analytics on Azure Cosmos DB d
 While these options are included for completeness and work well with single partition queries in real-time, these methods have the following challenges for analytical queries:
 * Performance impact on your workload:
 
-   Analytical queries tend to be complex and consume significant compute capacity. When these queries are run against your Azure Cosmos DB data directly, you may experience performance degradation on your transactional queries. 
+   Analytical queries tend to be complex and consume significant compute capacity. When these queries are run against your Azure Cosmos DB data directly, you might experience performance degradation on your transactional queries. 
 * Cost impact: 
  
   When analytical queries are run directly against your database or collections, they increase the need for request units allocated, as analytical queries tend to be complex and need more computation power. Increased RU usage will likely lead to significant cost impact over time, if you run aggregate queries. 
 
-Instead of these options, we recommend that you use Mirroring in Microsoft Fabric or Azure Synapse Link, which provide no-ETL analytics, without impacting transactional workload performance or request units.
+Instead of these options, we recommend that you use Mirroring in Microsoft Fabric or Azure Synapse Link, which provide no-ETL analytics, without affecting transactional workload performance or request units.
 
 ## Related content
 
