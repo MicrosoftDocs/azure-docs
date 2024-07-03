@@ -85,7 +85,7 @@ GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2023-11-
 
 ## Change an index schema
 
-The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query executions.
+The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query execution.
 
 + Add a new field
 + Set the `retrievable` attribute on an existing field
