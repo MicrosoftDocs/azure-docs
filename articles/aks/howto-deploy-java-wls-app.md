@@ -42,9 +42,9 @@ If you're interested in providing feedback or working closely on your migration 
   - Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
   - If you have a support entitlement, select **Middleware**, then search for and select **weblogic_cpu**.
   - If you don't have a support entitlement from Oracle, select **Middleware**, then search for and select **weblogic**.
-    > [!NOTE]
-    > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
   - Accept the license agreement.
+  > [!NOTE]
+  > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
 - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
   - [Azure CLI](/cli/azure). Use `az --version` to test whether az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test whether Docker Daemon is running.
