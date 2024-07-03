@@ -608,8 +608,6 @@ Now, run the following command from the *web* directory to initiate the React we
 
 Running the previous command opens the React web application.
 
-:::image type="content" source="media/gen-ai/ai-agent/react-js-travel-web-application.png" lightbox="media/gen-ai/ai-agent/react-js-travel-web-application.png" alt-text="Screenshot of the React JavaScript travel web application.":::
-
 ### Walk through the React web interface
 
 The web project of the GitHub repository is a straightforward application to facilitate user interaction with the AI agent. The primary components required to converse with the agent are *TravelAgent.js* and *ChatLayout.js*. The *Main.js* file serves as the central module or user landing page.
