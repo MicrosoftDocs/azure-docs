@@ -35,7 +35,6 @@ To complete this procedure, you need:
     - Do create a new log file every day so that you can remove old files easily. 
     - Do clean up all log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
     - Do Not overwrite an existing file with new records. You should only append new records to the end of the file. Overwriting will cause data loss.
-    - Do Not rename a file to a new name and then open a new file with the same name. This could cause data loss.
     - Do Not rename or copy large log files that match the file scan pattern in to the monitored directory. If you must, do not exceed 50MB per minute.
     - Do Not rename a file that matches the file scan pattern to a new name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
 
