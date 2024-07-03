@@ -58,6 +58,7 @@ PROXY_USERNAME=username
 PROXY_PASSWORD=password
 
 **Azure File Sync agent installation parameters**
+
 | Parameter | Purpose | Values | Default Value |
 |-----------|---------|--------|-----------|
 |ACCEPTEULA|Azure File Sync license agreement|0 (Not accepted) or 1 (Accepted)|1|
