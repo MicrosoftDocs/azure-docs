@@ -71,11 +71,12 @@ az containerapp update \
 
 ## Dependency
 
-For Container App that wants to connect to the Admin for Spring, you need to add the following dependency in your `pom.xml` file.
+For Container App that wants to connect to the Admin for Spring, you need to add the following dependency in your `pom.xml` file. Please replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>
     <groupId>de.codecentric</groupId>
+    <version>3.3.2</version>
     <artifactId>spring-boot-admin-starter-client</artifactId>
 </dependency>
 ```
