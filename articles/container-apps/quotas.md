@@ -19,19 +19,12 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 
 | Feature | Scope | Default Quota | Maximum Quota | Remarks |
 |--|--|--|--|--|
-| Environments | Region | 15 | Unlimited | 15 environments per subscription, per region. Quota name: Managed Environment Count|
-| Environments | Global | 20 | Unlimited | Up to 20 environments per subscription, across all regions. Quota name: ??? |
+| Environments | Region | 15 | Unlimited | Up to 15 environments per subscription, per region. Quota name: Managed Environment Count |
+| Environments | Global | 20 | Unlimited | Up to 20 environments per subscription, across all regions. Adjusted through Managed Environment Count quota (usually 20% more than Managed Environment Count) |
 | Container Apps | Environment | Unlimited | Unlimited | |
 | Revisions | Container app | Up to 100 | Unlimited | |
 | Replicas | Revision | Unlimited | Unlimited | Maximum replicas configurable are 300 in Azure portal and 1000 in Azure CLI. There must also be enough cores quota available. |
-| Session pools | Global | Up to 6 | 10,000 | Maximum number of dynamic session pools per subscription. Quota name: ??? |
-
-## Consumption plan
-
-| Feature | Scope | Default Quota | Maximum Quota | Remarks |
-|--|--|--|--|--|
-| Cores | Replica | 2 | 2 | Maximum number of cores available to a revision replica. |
-| Cores | Environment | 100 | 10,000 | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: Managed Environment Consumption Cores |
+| Session pools | Global | Up to 6 | 10,000 | Maximum number of dynamic session pools per subscription. No official Azure quota yet, please raise support case. |
 
 
 ## Workload Profiles Environments
@@ -41,7 +34,7 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 | Feature | Scope | Default Quota | Maximum Quota | Remarks |
 |--|--|--|--|--|
 | Cores | Replica | 4 | 4 | Maximum number of cores available to a revision replica. |
-| Cores | Environment | 100 | 100,000 | Maximum number of cores the Consumption workload profile in a Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: ??? |
+| Cores | Environment | 100 | 5,000 | Maximum number of cores the Consumption workload profile in a Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: Managed Environment General Purpose Cores |
 
 ### Dedicated workload profiles
 
@@ -49,14 +42,27 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 |--|--|--|--|--|
 | Cores | Subscription | 2,000 | Unlimited  | Maximum number of dedicated workload profile cores within one subscription | 
 | Cores | Replica | Maximum cores a workload profile supports | Same as default quota | Maximum number of cores available to a revision replica. |
-| Cores | General Purpose Workload Profiles | 100 | 100,000 | The total cores available to all general purpose (D-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment General Purpose Cores |
-| Cores | Memory Optimized Workload Profiles | 50 | 100,000 | The total cores available to all memory optimized (E-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment Memory Optimized Cores |
+| Cores | Environment | 100 | 5,000 | The total cores available to all general purpose (D-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment General Purpose Cores |
+| Cores | Environment | 50 | 5,000 | The total cores available to all memory optimized (E-series) profiles within an environment. Maximum assumes appropriate network size. Quota name: Managed Environment Memory Optimized Cores |
 
 > [!NOTE]
 > For GPU enabled workload profiles, you need to request capacity via a [request for a quota increase in the Azure portal](/azure/quotas/quickstart-increase-quota-portal).
 
 > [!NOTE]
 > [Free trial](https://azure.microsoft.com/offers/ms-azr-0044p) and [Azure for Students](https://azure.microsoft.com/free/students/) subscriptions are limited to one environment per subscription globally and ten (10) cores per environment.
+
+
+
+## Consumption plan
+
+All new environments use the Consumption workload profile architecture listed above. Only environments created before January 2024 use the consumption plan below.
+
+| Feature | Scope | Default Quota | Maximum Quota | Remarks |
+|--|--|--|--|--|
+| Cores | Replica | 2 | 2 | Maximum number of cores available to a revision replica. |
+| Cores | Environment | 100 | 1,500 | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: Managed Environment Consumption Cores |
+
+
 
 ## Considerations
 
