@@ -793,7 +793,7 @@ Some configurations must be maintained at the App Service level as site settings
 
 ### alwaysOn
 
-On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP triggers _wakes-up_ your functions. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes-up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
 
 ### linuxFxVersion 
 
