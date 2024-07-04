@@ -15,6 +15,16 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+## July 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [CVE Security update](#cve-security-update)  |
+
+### CVE Security update
+
+This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
+
 ## June 2024
 
 |Service area  |Updates  |
@@ -51,7 +61,7 @@ One common challenge when connecting sensors to Defender for IoT in the Azure po
 
 ### Security update
 
-This update resolves six CVEs, which are listed in [software version 23.1.3 feature documentation](release-notes.md#version-2413).
+This update resolves six CVEs, which are listed in [software version 24.1.3 feature documentation](release-notes.md#version-2413).
 
 ## February 2024
 
