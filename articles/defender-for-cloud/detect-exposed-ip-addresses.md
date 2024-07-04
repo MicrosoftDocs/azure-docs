@@ -11,17 +11,15 @@ ai-usage: ai-assisted
 
 # Detect internet exposed IP addresses
 
-Microsoft Defender for Cloud's integration with Defender External Attack Surface Management (EASM) allows organizations to improve their security posture and reduce the potential risk of attacks by exploring their external attack surface through an outside-in scan of the resources in their environment.
+Microsoft Defender for Cloud's provides organizations the capability to perform External Attack Surface Management (EASM) (outside-in) scans to improve their security posture through its integration with Defender EASM. Defender for Cloud's EASM scans uses the information provided by the Defender EASM integration to provide actionable recommendations and visualizations of attack paths to reduce the risk of bad actors exploiting internet exposed IP addresses. 
 
-Security teams can use the cloud security explorer to build queries and proactively hunt for security risks in their environments. Additionally, they can use the attack path analysis to visualize the potential attack paths that an attacker could use to reach their critical assets. 
-
-The cloud security explorer allows you to build queries that can proactively hunt for security risks in your environments. While the attack path analysis provides a visual representation of the attack paths that an attacker could use to reach your critical assets.
+Through the use Defender for Cloud's cloud security explorer, security teams can build queries and proactively hunt for security risks. Security teams can also use the attack path analysis to visualize the potential attack paths that an attacker could use to reach their critical assets. 
 
 ## Prerequisites
 
 - You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
-- You must [enable the Defender CSPM plan](tutorial-enable-cspm-plan.md).
+- You must [enable the Defender Cloud Security Posture Management (CSPM) plan](tutorial-enable-cspm-plan.md).
 
 ## Detect internet exposed IP addresses with the cloud security explorer
 

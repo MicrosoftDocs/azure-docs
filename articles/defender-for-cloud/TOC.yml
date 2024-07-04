@@ -207,7 +207,7 @@
       - name: Investigating risks with security explorer/attack paths
         displayName: cloud security graph, attack path analysis, cloud security explorer, attack, path, graph, security, explorer
         href: concept-attack-path.md
-      - name: Integration with Defender EASM
+      - name: External attack surface management in Defender for Cloud
         displayName: EASM, attack surface management, integration
         href: concept-easm.md
       - name: Critical assets protection
