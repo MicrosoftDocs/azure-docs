@@ -125,25 +125,25 @@ For example:
 
 The following table describes each metric on the **Audit log alerts** tab:
 
-|Area  |Description  |Specific data |Options/notes |
-|---------|---------|---------|---------| 
-|**Alert severity trends per System ID** |Shows a list of systems, with a graph of medium and high severity event trends per system. For example, the 012 system had many high severity events over the entire period, and a few medium severity events with a spike that shows more medium severity events in the middle of the period. | | |
-|**Audit trend per user** |Shows a combination of Microsoft Sentinel and Microsoft Entra data. The workbook displays the users according to risk: Users that indicate the most risk are at the top of the list, and users with less security risk are at the bottom. |For each user, shows:<br>• A timeline of high and medium severity events<br>• The user's email address<br>• The Microsoft Entra risk indicator<br>• The number of incidents and alerts in Microsoft Sentinel |When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Microsoft Entra risk events under **Azure audit and signin risks for user**. |
-|**Risk score per system** | Visually represents each system in a cell shape. |• Shows the risk score for each system.<br>• Systems are grouped by type.<br>• The color of the system indicates the risk: Green indicates a system with a lower risk score, where red indicates a higher risk score. |You can select a system to see a list of SAP events per system. |
-|**Events by MITRE ATT&CK® tactics** |Shows a list of SAP events grouped by MITRE ATT&CK® tactics, like Initial Access or Defense Evasion. | |You can hover over the graph to show the number of sign-ins for different dates. |
-|**Events by category** |Shows a list of SAP event trends grouped by category, like RFC Start or Logon. | |You can hover over the graph to show the sign-in number for different dates. |
-|**Events by authorization group** |Shows a list of SAP event trends grouped by the SAP authorization group, like USER or SUPER. | |You can hover over the graph to show the number of sign-ins for different dates. |
-|**Events by user type** |Shows a list of SAP event trends grouped by the SAP user type, like Dialog or system. | |You can hover over the graph to show the number of sign-ins for different dates. |
+|Area  |Description  |
+|---------|---------|
+|**Alert severity trends per system ID** |Shows a list of systems, with a graph of *Medium* and *High* severity event trends per system. <br><br>For example, the *012* system had many *High* severity events over the entire period, and a few *Medium* severity events, with a spike that shows more *Medium* severity events in the middle of the period. |
+|**Audit trend per user** |Shows a combination of Microsoft Sentinel and Microsoft Entra data, listing users according to risk, with the most risky users at the top.  <br><br>For each user the workbook shows the following data: <br>-  A timeline of *High* and *Medium* severity events<br>- The user's email address<br>- The Microsoft Entra risk indicator<br>-  The number of incidents and alerts in Microsoft Sentinel <br><br> Select a row to see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. <br><br>View Microsoft Entra risk events under **Azure audit and signin risks for user**. |
+|**Risk score per system** | Visually represents each system in a cell shape, showing the risk score for each system and grouping systems by type. <br><br>The system's color indicates the system's risk score: Green for a lower risk score and red for a higher risk score. <br><br>Select a system to see a list of SAP events per system.|
+|**Events by MITRE ATT&CK® tactics** |Shows a list of SAP events grouped by MITRE ATT&CK tactics, like *Initial Access* or *Defense Evasion*. <br><br>Hover over the graph to show the number of sign-ins for different dates. |
+|**Events by category** |Shows a list of SAP event trends grouped by category, like *RFC Start* or *Logon*. <br><br>Hover over the graph to show the sign-in number for different dates. |
+|**Events by authorization group** |Shows a list of SAP event trends grouped by the SAP authorization group, like *USER* or *SUPER*.<br><br>Hover over the graph to show the number of sign-ins for different dates. |
+|**Events by user type** |Shows a list of SAP event trends grouped by the SAP user type, like *Dialog* or *System*. <br><br>Hover over the graph to show the number of sign-ins for different dates. |
 
-In this screenshot, you can see the data shown when the first line is selected in the **Audit trends per user** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
+In the following screenshot, note the data shown when the first line is selected in the **Audit trends per user** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
 
 :::image type="content" source="media/sap-audit-log-workbook/audit-trend-per-user.png" alt-text="Screenshot of data shown when a line is selected in the Audit trends per user table." lightbox="media/sap-audit-log-workbook/audit-trend-per-user.png":::
 
-In this screenshot, you can see the **Risk score per system** area, where the **cb7** system under the **UAT** group is selected. The **SAP events for system** area below the system visualization shows the SAP event for this system.
+In the following screenshot, note the **Risk score per system** area, where the **cb7** system under the **UAT** group is selected. The **SAP events for system** area below the system visualization shows the SAP event for this system.
 
 :::image type="content" source="media/sap-audit-log-workbook/risk-score-per-system.png" alt-text="Screenshot of the Risk score per system area of the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/risk-score-per-system.png":::
 
-In this screenshot, you can see areas with events and event trends grouped by different types of data: MITRE ATT&CK® tactics, SAP authorization group, and user type.
+In the following screenshot, note areas with events and event trends grouped by different types of data: MITRE ATT&CK tactics, SAP authorization group, and user type.
 
 :::image type="content" source="media/sap-audit-log-workbook/event-data-categories.png" alt-text="Screenshot of the different event data in the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/event-data-categories.png":::
 
