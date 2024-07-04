@@ -110,6 +110,8 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
+    - name: Migrate from legacy Log Analytics agents
+      href: migrate-legacy-agents.md
     - name: Deploy and configure Azure Monitor Agent using Azure Policy
       href: deploy-ama-policy.md
     - name: Remotely configure servers using Run command

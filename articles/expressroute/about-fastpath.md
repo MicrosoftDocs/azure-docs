@@ -13,6 +13,8 @@ ms.custom: template-concept, references_regions, engagement-fy23
 
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
+:::image type="content" source=".\media\about-fastpath\fastpath-vnet-peering.png" alt-text="Diagram of an ExpressRoute connection with Fastpath and virtual network peering.":::
+
 ## Requirements
 
 ### Circuits
@@ -29,8 +31,6 @@ To configure FastPath, the virtual network gateway must be either:
 * ErGw3AZ
 
 ### Virtual network peering
-
-:::image type="content" source=".\media\about-fastpath\fastpath-vnet-peering.png" alt-text="Diagram of an ExpressRoute connection with Fastpath and virtual network peering.":::
 
 For the FastPath feature to function correctly, the hub virtual network and any peered spoke virtual networks must reside within the same region. It is important to note that FastPath doesn't support globally peered virtual networks.
 
