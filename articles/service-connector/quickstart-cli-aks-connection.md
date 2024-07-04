@@ -23,10 +23,13 @@ This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other
 
 ## Initial set-up
 
-1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
+1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector and Kubernetes Configuration resource providers.
 
    ```azurecli
    az provider register -n Microsoft.ServiceLinker
+   ```
+   ```azurecli
+   az provider register -n Microsoft.KubernetesConfiguration
    ```
 
    > [!TIP]
