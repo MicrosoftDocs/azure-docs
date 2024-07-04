@@ -2,7 +2,7 @@
 title:  Enable additional capabilities on Arc-enabled Server machines by linking to vCenter
 description: Enable additional capabilities on Arc-enabled Server machines by linking to vCenter.
 ms.topic: how-to 
-ms.date: 07/03/2024
+ms.date: 07/04/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: devx-track-azurecli
@@ -48,7 +48,7 @@ Follow these steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) 
 
 Use the following az commands to link Arc-enabled Server machines to vCenter at scale.  
 
-**Create VMware resources from the specified Arc for Server machines in the vCenter** 
+**Create VMware resources from the specified Arc for Server machine in the vCenter** 
 
 ```azurecli-interactive
 az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/999998ee-cd13-9999-b9d4-55ca5c25496d/resourceGroups/allhands-demo/providers/microsoft.connectedvmwarevsphere/VCenters/ContosovCentervcenters/contoso-vcenter
