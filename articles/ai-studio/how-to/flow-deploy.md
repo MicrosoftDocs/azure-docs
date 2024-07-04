@@ -37,10 +37,6 @@ To deploy a prompt flow as an online endpoint, you need:
 * An Azure subscription. If you don't have one, create a free account before you begin.
 * An Azure AI Studio project.
 
-
-> [!NOTE]
-> Managed online endpoint only supports managed virtual network. If your hub is in custom vnet, you need to try other deployment options, such as [deploy to other platforms such as Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
-
 ## Create an online deployment
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
