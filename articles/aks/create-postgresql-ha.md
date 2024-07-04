@@ -75,7 +75,8 @@ In this section, you create a user-assigned managed identity (UAMI) to allow the
     ```azurecli-interactive
     AKS_UAMI_WI_IDENTITY=$(az identity create \
         --name $AKS_UAMI_CLUSTER_IDENTITY_NAME \
-        --resource-group "$RESOURCE_GROUP_NAME" \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
         --output json)
     ```
 
@@ -186,6 +187,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     export GRAFANA_RESOURCE_ID=$(az grafana create \
         --resource-group $RESOURCE_GROUP_NAME \
         --name $GRAFANA_PRIMARY \
+        --location $PRIMARY_CLUSTER_REGION \
         --zone-redundancy Enabled \
         --tags $TAGS \
         --query "id" \
@@ -202,6 +204,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     export AMW_RESOURCE_ID=$(az monitor account create \
         --name $AMW_PRIMARY \
         --resource-group $RESOURCE_GROUP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
         --tags $TAGS \
         --query "id" \
         --output tsv)
@@ -217,6 +220,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     export ALA_RESOURCE_ID=$(az monitor log-analytics workspace create \
         --resource-group $RESOURCE_GROUP_NAME \
         --workspace-name $ALA_PRIMARY \
+        --location $PRIMARY_CLUSTER_REGION \
         --query "id" \
         --output tsv)
 
@@ -381,6 +385,7 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
     az network public-ip create \
         --resource-group $AKS_PRIMARY_CLUSTER_NODERG_NAME \
         --name $AKS_PRIMARY_CLUSTER_PUBLICIP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
         --sku Standard \
         --zone 1 2 3 \
         --allocation-method static \
