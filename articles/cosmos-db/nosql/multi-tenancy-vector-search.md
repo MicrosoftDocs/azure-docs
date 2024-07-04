@@ -1,6 +1,6 @@
 ---
-title: Multi-Tenancy in Azure Cosmos DB
-description: Learn concepts for building multi-tenant gen-ai apps in Azure Cosmos DB
+title: Multi-tenancy in Azure Cosmos DB
+description: Learn concepts for building multitenant gen-ai apps in Azure Cosmos DB
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -9,26 +9,26 @@ ms.date: 06/26/2024
 ms.author: thvankra
 ---
 
-# Multi-Tenancy in Azure Cosmos DB
+# Multi-tenancy for vector search in Azure Cosmos DB
 
 > "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance." 
-> - Satya Nadella
+> — Satya Nadella
 
-Azure Cosmos DB stands out as the world's first serverless vector search database, offering unparalleled scalability and performance. By leveraging Azure Cosmos DB, users can enhance their vector search capabilities, ensuring high reliability and low maintenance for multi-tenant applications. 
+Azure Cosmos DB stands out as the world's first serverless vector search database, offering unparalleled scalability and performance. By using Azure Cosmos DB, users can enhance their vector search capabilities, ensuring high reliability and low maintenance for multitenant applications. 
 
 Multi-tenancy enables a single instance of a database to serve multiple customers, or tenants, simultaneously. This approach efficiently shares infrastructure and operational overhead, resulting in cost savings and simplified management. It's a crucial design consideration for SaaS applications and some internal enterprise solutions.
 
-Multi-tenancy introduces complexity. Your system must scale efficiently to maintain high performance across all tenants, who may have unique workloads, requirements, and SLAs. 
+Multi-tenancy introduces complexity. Your system must scale efficiently to maintain high performance across all tenants, who may have unique workloads, requirements, and service-level agreements (SLAs). 
 
 Imagine a fictional AI-assisted research platform called ResearchHub. Serving thousands of companies and individual researchers, ResearchHub manages varying user bases, data scales, and SLAs. Ensuring low query latency and high performance is vital for sustaining an excellent user experience.
 
-Azure Cosmos DB, with its [DiskANN vector index](../index-policy.md#vector-indexes) capability, simplifies multi-tenant design, providing efficient data storage and access mechanisms for high-performance applications.
+Azure Cosmos DB, with its [DiskANN vector index](../index-policy.md#vector-indexes) capability, simplifies multitenant design, providing efficient data storage and access mechanisms for high-performance applications.
 
-### Multi-Tenancy Models in Cosmos DB
+### Multi-tenancy models in Azure Cosmos DB
 
 In Azure Cosmos DB, we recommend two primary approaches to managing multi-tenancy: partition key-per-tenant or account-per-tenant, each with its own set of benefits and trade-offs.
 
-#### 1. Partition Key-Per-Tenant
+#### 1. Partition key-per-tenant
 
 For a higher density of tenants and lower isolation, the partition key-per-tenant model is effective. Each tenant is assigned a unique partition key within a given container, allowing logical separation of data.
 
@@ -41,19 +41,19 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 - **Resource Contention:** Shared resources can lead to contention during peak usage.
 - **Limited Isolation:** Logical but not physical isolation, which may not meet stringent security needs.
 
-#### Hierarchical Partitioning: Enhanced Data Organization
+#### Hierarchical partitioning: enhanced data organization
 
 [Hierarchical partitioning](../hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management.
 
 **Advantages:**
-- **Optimized Queries:** More precise targeting of sub-partitions at the parent partition level reduces query latency.
+- **Optimized Queries:** More precise targeting of subpartitions at the parent partition level reduces query latency.
 - **Improved Scalability:** Facilitates deeper data segmentation for easier scaling.
 - **Better Resource Allocation:** Evenly distributes workloads, minimizing bottlenecks.
 
 **Example:**
 ResearchHub can stratify data within each tenant’s partition by organizing it at departmental levels, facilitating efficient management and queries.
 
-#### 2. Account-Per-Tenant
+#### 2. Account-per-tenant
 
 For maximum isolation, the account-per-tenant model is preferable. Each tenant gets a dedicated Cosmos DB account, ensuring complete separation of resources.
 
@@ -66,9 +66,9 @@ For maximum isolation, the account-per-tenant model is preferable. Each tenant g
 - **Increased Management:** Higher complexity in managing multiple Cosmos DB accounts.
 - **Higher Costs:** More accounts mean higher infrastructure costs.
 
-### Security Isolation with Customer Managed Keys
+### Security isolation with customer-managed keys
 
-Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed-keys.md) for data encryption, adding an extra layer of security for multi-tenant environments.
+Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed-keys.md) for data encryption, adding an extra layer of security for multitenant environments.
 
 **Steps to Implement:**
 1. **Set Up Azure Key Vault:** Securely store your encryption keys.
@@ -77,13 +77,13 @@ Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed
 
 Using customer-managed keys ensures each tenant's data is encrypted uniquely, providing robust security and compliance.
 
-### Other Isolation Models
+### Other isolation models
 
-#### Container and Database Isolation
+#### Container and database isolation
 
 In addition to the partition key-per-tenant and account-per-tenant models, Azure Cosmos DB provides other isolation methods such as container isolation and database isolation. These approaches offer varying degrees of performance isolation, though they don't provide the same level of security isolation as the account-per-tenant model.
 
-##### Container Isolation
+##### Container isolation
 
 In the container isolation model, each tenant is assigned a separate container within a shared Cosmos DB account. This model allows for some level of isolation in terms of performance and resource allocation.
 
@@ -93,10 +93,10 @@ In the container isolation model, each tenant is assigned a separate container w
 - **Cost Efficiency:** Similar to the partition key-per-tenant model, this method reduces the overhead of multiple accounts.
 
 **Drawbacks:**
-- **Limited Security Isolation:** Unlike separate accounts, containers within the same account do not provide physical data isolation. Consequently, this model may not meet stringent security requirements.
+- **Limited Security Isolation:** Unlike separate accounts, containers within the same account don't provide physical data isolation. So, this model may not meet stringent security requirements.
 - **Resource Contention:** Heavy workloads in one container can still affect others if resource limits are breached.
 
-##### Database Isolation
+##### Database isolation
 
 The database isolation model assigns each tenant a separate database within a shared Cosmos DB account. This provides enhanced isolation in terms of resource allocation and management.
 
@@ -109,20 +109,20 @@ The database isolation model assigns each tenant a separate database within a sh
 - **Limited Security Isolation:** Similar to container isolation, having separate databases within a single account does not provide physical data isolation.
 - **Complexity:** Managing multiple databases can be more complex than managing containers, especially as the number of tenants grows.
 
-While container and database isolation models do not offer the same level of security isolation as the account-per-tenant model, they can still be useful for achieving performance isolation and flexible resource management. These methods are particularly beneficial for scenarios where cost efficiency and simplified management are priorities, and stringent security isolation is not a critical requirement.
+While container and database isolation models don't offer the same level of security isolation as the account-per-tenant model, they can still be useful for achieving performance isolation and flexible resource management. These methods are beneficial for scenarios where cost efficiency and simplified management are priorities, and stringent security isolation is not a critical requirement.
 
-By carefully evaluating the specific needs and constraints of your multi-tenant application, you can choose the most suitable isolation model in Azure Cosmos DB, balancing performance, security, and cost considerations to achieve the best results for your tenants.
+By carefully evaluating the specific needs and constraints of your multitenant application, you can choose the most suitable isolation model in Azure Cosmos DB, balancing performance, security, and cost considerations to achieve the best results for your tenants.
 
-### Real-World Implementation Considerations
+### Real-world implementation considerations
 
-When designing a multi-tenant system with Cosmos DB, consider these factors:
+When designing a multitenant system with Cosmos DB, consider these factors:
 
 - **Tenant Workload:** Evaluate data size and activity to select the appropriate isolation model.
 - **Performance Requirements:** Align your architecture with defined SLAs and performance metrics.
 - **Cost Management:** Balance infrastructure costs against the need for isolation and performance.
 - **Scalability:** Plan for growth by choosing scalable models.
 
-### Practical Implementation in Cosmos DB
+### Practical implementation in Azure Cosmos DB
 
 **Partition Key-Per-Tenant:**
 1. **Assign Partition Keys:** Unique keys for each tenant ensure logical separation.
@@ -139,12 +139,12 @@ When designing a multi-tenant system with Cosmos DB, consider these factors:
 2. **Customize Resources:** Tailor performance and SLAs to tenant requirements.
 3. **Ensure Security:** Physical data isolation offers robust security and compliance.
 
-### Best Practices for Using Azure Cosmos DB with Vector Search Capabilities
+### Best practices for using Azure Cosmos DB with vector search
 
 Azure Cosmos DB's support for DiskANN vector index capability makes it an excellent choice for applications that require fast, high-dimensional searches, such as AI-assisted research platforms like ResearchHub. Here’s how you can leverage these capabilities:
 
 **1. Efficient Storage and Retrieval:**
-   - **Vector Indexing:** Use the DiskANN vector index to efficiently store and retrieve high-dimensional vectors. This is particularly useful for applications that involve similarity searches in large datasets, such as image recognition or document similarity.
+   - **Vector Indexing:** Use the DiskANN vector index to efficiently store and retrieve high-dimensional vectors. This is useful for applications that involve similarity searches in large datasets, such as image recognition or document similarity.
    - **Performance Optimization:** DiskANN’s vector search capabilities enable quick, accurate searches, ensuring low latency and high performance, which is critical for maintaining a good user experience.
 
 **2. Scaling Across Tenants:**
@@ -155,7 +155,7 @@ Azure Cosmos DB's support for DiskANN vector index capability makes it an excell
    - **Customer Managed Keys:** Implement customer-managed keys for data encryption at rest, ensuring each tenant’s data is securely isolated.
    - **Regular Key Rotation:** Enhance security by regularly rotating encryption keys stored in Azure Key Vault.
 
-### Real-World Example: Implementing ResearchHub
+### Real-world example: implementing ResearchHub
 
 **Partition Key-Per-Tenant:**
 1. **Assign Partition Keys:** Each organization (tenant) is assigned a unique partition key.
@@ -164,7 +164,7 @@ Azure Cosmos DB's support for DiskANN vector index capability makes it an excell
 
 **Hierarchical Partitioning:**
 1. **Multi-Level Partition Keys:** Data within a tenant’s partition is further segmented by department, project, or other relevant attributes.
-2. **Granular Data Management:** This hierarchical approach allows ResearchHub to manage and query data more efficiently, reducing latency and improving response times.
+2. **Granular Data Management:** This hierarchical approach allows ResearchHub to manage and query data more efficiently, reducing latency, and improving response times.
 
 **Account-Per-Tenant:**
 1. **Separate Cosmos DB Accounts:** High-profile clients or those with sensitive data are provided individual Cosmos DB accounts.
@@ -173,9 +173,9 @@ Azure Cosmos DB's support for DiskANN vector index capability makes it an excell
 
 ### Conclusion
 
-Multi-tenancy in Azure Cosmos DB, especially with its DiskANN vector index capability, offers a powerful solution for building scalable, high-performance AI applications. Whether you choose partition key-per-tenant, hierarchical partitioning, or account-per-tenant models, you can effectively balance cost, security, and performance. By leveraging these models and best practices, you can ensure that your multi-tenant application meets the diverse needs of your customers, delivering an exceptional user experience.
+Multi-tenancy in Azure Cosmos DB, especially with its DiskANN vector index capability, offers a powerful solution for building scalable, high-performance AI applications. Whether you choose partition key-per-tenant, hierarchical partitioning, or account-per-tenant models, you can effectively balance cost, security, and performance. By using these models and best practices, you can ensure that your multitenant application meets the diverse needs of your customers, delivering an exceptional user experience.
 
-Azure Cosmos DB provides the tools necessary to build a robust, secure, and scalable multi-tenant environment. With the power of DiskANN vector indexing, you can deliver fast, high-dimensional searches that drive your AI applications.
+Azure Cosmos DB provides the tools necessary to build a robust, secure, and scalable multitenant environment. With the power of DiskANN vector indexing, you can deliver fast, high-dimensional searches that drive your AI applications.
 
 ### Next steps
 
