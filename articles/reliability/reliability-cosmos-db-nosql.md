@@ -43,7 +43,7 @@ With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redu
 ### Impact of using availability zones
 
 
-The impact of availability zones on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. In many cases, availability zones don’t add value or add minimal value if the account is multi-region (unless configured with strong consistency). 
+The impact of availability zones on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. Availability zones for multiple-region write add minimal value.
 
 Consult the table below to estimate the impact of using availability zones in your current account configuration:
 
