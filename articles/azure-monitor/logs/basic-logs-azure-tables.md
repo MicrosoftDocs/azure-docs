@@ -3,9 +3,9 @@ title: Tables that support the Basic table plan in Azure Monitor Logs
 description: Use the Auxiliary, Basic, and Analytics Logs plans to reduce costs and take advantage of advanced analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: adi.biran
+ms.reviewer: osalzberg
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 07/04/2024
 ---
 
 # Tables that support the Basic table plan in Azure Monitor Logs

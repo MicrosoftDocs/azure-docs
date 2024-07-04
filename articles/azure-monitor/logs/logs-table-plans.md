@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 07/04/2024
 
 # Customer intent: As a Log Analytics workspace administrator, I want to manage configure the plans of tables in my Log Analytics workspace so that I pay less for data I use less frequently.
 ---
@@ -19,7 +19,7 @@ You can use one Log Analytics workspace to store any type of log required for an
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated long-term data trends for **advanced analytics and machine learning** 
 
-Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to set a table.
+Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to set a table's plan.
 
 ## Select a table plan based on usage needs
 
@@ -52,20 +52,21 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 | View table plan | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Set table plan | `Microsoft.OperationalInsights/workspaces/write` and `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
   
-## Configure the table plan
+## Set the table plan
 
-When you switch between the Analytics and Basic plans, the change takes effect on existing data in the table immediately. You can't transition between the Auxiliary plan the Analytics and Basic plans.
+You can set the table plan to Auxiliary only when you [create a custom table](../logs/create-custom-table.md#create-a-custom-table) by using the API. Built-in Azure tables don't currently support the Auxiliary plan. After you create a table with an Auxiliary plan, you can't switch the table's plan. 
+
+All tables support the Analytics plan and all DCR-based custom tables and some Azure tables support the Basic log plan. You can switch between the Analytics and Basic plans, the change takes effect on existing data in the table immediately. 
 
 When you change a table's plan from Analytics to Basic, Azure monitor automatically converts any data that's older than 30 days to auxiliary retention based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the auxiliary retention period](../logs/data-retention-archive.md). 
-
-The portal sets the plan of all new tables to Analytics by default, but you can switch between the Analytics and Basic plans, as described in this section. To create a new custom table with an Auxiliary plan, see [Create a custom table](create-custom-table.md#create-a-custom-table).
-
 
 > [!NOTE]
 > You can switch a table's plan once a week. 
 # [Portal](#tab/portal-1)
 
-To configure a table for Basic logs or Analytics logs in the Azure portal:
+Analytics is the default table plan of all tables you create in the portal. You can switch between the Analytics and Basic plans, as described in this section. 
+
+To switch a table's plan in the Azure portal:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.
 
@@ -181,7 +182,7 @@ Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WOR
 
 ---
 
-## Next steps
+## Next step
 
 - [Manage data retention](../logs/data-retention-archive.md)
 
