@@ -10,7 +10,7 @@ ms.custom: AppServiceConnectivity
 ---
 # Secure connectivity to Azure services and databases from Azure App Service
 
-Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends different methods for connecting and when to use them.
+Your app service might need to connect to other Azure services such as a database, storage, or another app. This overview recommends different methods for connecting and when to use them.
 
 Today, the decision for a connectivity approach is closely related to secrets management. The common pattern of using connection secrets in connection strings, such as username and password, secret key, etc. is no longer considered the most secure approach for connectivity. The risk is even higher today because threat actors regularly crawl public GitHub repositories for accidentally committed connection secrets. For cloud applications, the best secrets management is to have no secrets at all. When you migration to Azure App Service, your app might start with secrets-based connectivity, and App Service lets you keep secrets securely. However, Azure can help secure your app's back-end connectivity through Microsoft Entra authentication, which eliminates secrets altogether in your app.
 
@@ -42,7 +42,7 @@ Examples of using application secrets to connect to a database:
 
 Your app might need to connect to a downstream service on behalf of the signed-in user. App Service lets you easily authenticate users using the most common identity providers (see [Authentication and authorization in Azure App Service and Azure Functions](overview-authentication-authorization.md)). If you use the Microsoft provider (Microsoft Entra authentication), you can then flow the signed-in user to any downstream service. For example:
 
-- In SQL database, run a query that returns confidential data that the signed-in user is authorized to read.
+- Run a database query that returns confidential data that the signed-in user is authorized to read.
 - Retrieve personal data or take actions as the signed-in user in Microsoft Graph.
 
 The following image demonstrates an application securely accessing an SQL database on behalf of the signed-in user.
@@ -65,7 +65,7 @@ There are two recommended ways to use secrets in your app: using secrets stored 
 
 Benefits of managed identities integrated with Key Vault include:
 - Access to the key vault secret is restricted to the app. 
-- App contributors, such as administrators, may have complete control of the App Service resources, and at the same time have no access to the key vault secrets. 
+- App contributors, such as administrators, might have complete control of the App Service resources, and at the same time have no access to the key vault secrets. 
 - No code change is required if your application code already accesses connection secrets with app settings. 
 - Key Vault provides monitoring and auditing of who accessed secrets.
 - Rotation of key vault secrets requires no changes in App Service.
