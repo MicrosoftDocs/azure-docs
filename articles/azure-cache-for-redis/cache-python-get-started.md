@@ -4,13 +4,14 @@ description: In this quickstart, you learn how to create a Python App that uses 
 author: flang-msft
 
 ms.author: franlanglois
-
-ms.date: 02/15/2023
+ms.date: 07/03/2024
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
 ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc
+
 ---
+
 # Quickstart: Use Azure Cache for Redis in Python
 
 In this article, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
@@ -39,18 +40,25 @@ The following example used `pip3` for Python 3 to install `redis-py` on Windows 
 
 ## [Microsoft EntraID Authentication (recommended)](#tab/entraid)
 
-## Enable Microsoft EntraID and add a User or Service Principal
-<--Fran, we probably need an include file on enabling EntraID-->
-Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication)
+[!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
+
+<!-- ## Enable Microsoft EntraID and add a User or Service Principal  -->
+<!--
+Fran, we probably need an include file on enabling EntraID
+Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication) 
+-->
 
 ## Install the Microsoft Authentication Library
-The [Microsoft Authentication Library (MSAL)](../../entra/identity-platform/msal-overview) allows you to acquire security tokens from Microsoft identity to authenticate users. There's a [Python Azure identity client library](../../python/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `pip`:
+The [Microsoft Authentication Library (MSAL)](../../entra/identity-platform/msal-overview) allows you to acquire security tokens from Microsoft identity to authenticate users. 
+
+There's a [Python Azure identity client library](../../python/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `pip`:
 
 ```python
 pip install azure-identity
 ```
 
 ## Create a sample python app
+
 Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your Microsoft EntraID user.
 
 ```python
@@ -95,7 +103,8 @@ Run `PythonApplication1.py` with Python. You should see results like the followi
 :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ## Create a sample python app with reauthentication
-Microsoft EntraID access tokens have limited lifespans, [averaging 75 minutes](../../entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
+
+Microsoft EntraID access tokens have limited lifespans, [averaging 75 minutes](/azure/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
 
 Create a new text file, add the following script, and save the file as `PythonApplication2.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your Microsoft EntraID user.
 
@@ -171,10 +180,10 @@ Run `PythonApplication2.py` with Python. You should see results like the followi
 Unlike the first example, If your token expires, this example automatically refreshes it. 
 
 ## [Access Key Authentication](#tab/accesskey)
+
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## Read and write to the cache from the command line
-
 
 Run [Python from the command line](https://docs.python.org/3/faq/windows.html#id2) to test your cache. First, initiate the python interpreter in your command line by typing `py`, and then use the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
