@@ -192,9 +192,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 ### Workspace gateway
 
-Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md)
-
-[!INCLUDE [api-management-workspace-scaling](../../includes/api-management-workspace-scaling.md)]
+Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace.
 
 ## Related content
 
