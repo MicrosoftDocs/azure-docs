@@ -45,7 +45,7 @@ You can run the app you create in this article on the platform of your choice in
 
     As you run these commands, the development server prints the URL of your website. Select the link to open it in your default browser.
 
-    ![Screen shot of the generated vanilla web application][img-vanilla-js]
+    ![Screen shot of the generated vanilla web application.][img-vanilla-js]
 
 ::: zone-end
 
@@ -61,7 +61,7 @@ You can run the app you create in this article on the platform of your choice in
 
     As you run these commands, the development server prints the URL of your website. Select the link to open it in your default browser.
 
-    ![Screen shot of the generated angular web application][img-angular]
+    ![Screen shot of the generated angular web application.][img-angular]
 
 ::: zone-end
 
@@ -78,7 +78,7 @@ You can run the app you create in this article on the platform of your choice in
 
     As you run these commands, the development server prints the URL of your website. Select the link to open it in your default browser.
 
-    ![Screen shot of the generated react web application][img-react]
+    ![Screen shot of the generated react web application.][img-react]
 
 ::: zone-end
 
@@ -95,7 +95,7 @@ You can run the app you create in this article on the platform of your choice in
 
     As you run these commands, the development server prints the URL of your website. Select the link to open it in your default browser.
 
-    ![Screen shot of the generated Vue web application][img-vue]
+    ![Screen shot of the generated Vue web application.][img-vue]
 
 ::: zone-end
 
@@ -152,7 +152,7 @@ npx swa deploy --env production
 
 It might take a few minutes to deploy the application. Once complete, the URL of your site is displayed.
 
-![Screen shot of the deploy command][img-deploy]
+![Screen shot of the deploy command.][img-deploy]
 
 On most systems, you can select the URL of the site to open it in your default browser.
 
