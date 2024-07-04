@@ -48,7 +48,7 @@ Follow these steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) 
 
 Use the following az commands to link Arc-enabled Server machines to vCenter at scale.  
 
-**Create VMware resources from the specified Arc for Server machine in the vCenter** 
+**Create VMware resource from the specified Arc for Server machine in the vCenter** 
 
 ```azurecli-interactive
 az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/999998ee-cd13-9999-b9d4-55ca5c25496d/resourceGroups/allhands-demo/providers/microsoft.connectedvmwarevsphere/VCenters/ContosovCentervcenters/contoso-vcenter
