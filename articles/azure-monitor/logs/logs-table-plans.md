@@ -6,6 +6,8 @@ ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: how-to
 ms.date: 05/01/2024
+
+# Customer intent: As a Log Analytics workspace administrator, I want to manage configure the plans of tables in my Log Analytics workspace so that I pay less for data I use less frequently.
 ---
 
 # Select a table plan based on data usage in a Log Analytics workspace
@@ -15,7 +17,7 @@ You can use one Log Analytics workspace to store any type of log required for an
 - High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
 - App and resource data for **troubleshooting** by developers
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
-- Aggregated data trends for **advanced analytics and machine learning** 
+- Aggregated long-term data trends for **advanced analytics and machine learning** 
 
 Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to set a table.
 
@@ -31,12 +33,12 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 | Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-table-plan) and DCR-based custom tables | DCR-based custom tables                                      |
 | Log queries                                            | Full query capabilities.                                     | Full Kusto Query Language (KQL) on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
 | Query performance                                      | Fast                                                         | Fast                                                         | Slower<br> Good for auditing. Not optimized for real-time analysis.                                                       |
-| Alerts                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
-| Dashboards                                             | ✅                                                            |     ✅                                                        |                                              ❌               |
+| [Alerts](../alerts/alerts-overview.md)                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
+| [Dashboards](../visualize/tutorial-logs-dashboards.md)                                             | ✅                                                            |     ✅                                                        |                                              ❌               |
 | [Search jobs](../logs/search-jobs.md)                  | ✅                                                            | ✅                                                            | ✅                                                            |
 | [Summary rules](../logs/summary-rules.md)              | ✅                                                            | ✅ KQL limited to a single table                              | ✅ KQL limited to a single table                              |
 | [Restore](../logs/restore.md)                          | ✅                                                            | ✅                                                            | ❌                                                            |
-| Pricing model                                          | **Ingestion** - Standard cost.<br>**Interactive retention** - 30 days included. Prorated monthly retention charge for extended interactive retention.<br>**Queries** - Unlimited queries included.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. | **Ingestion** - Reduced cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. | **Ingestion** - Minimal cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. |
+| Pricing model                                          | **Ingestion** - Standard cost.<br>**Interactive retention** - 30 days included. Prorated monthly charge for extended interactive retention of up to two years.<br>**Queries** - Unlimited queries included.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. | **Ingestion** - Reduced cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. | **Ingestion** - Minimal cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. |
 | Interactive retention                                  | 30 days (90 days for Microsoft Sentinel and Application Insights).<br> Can be extended to up to two years. | 30 days                                                      | 30 days                                                      |
 | Total retention                                        | Up to 12 years                                               | Up to 12 years                                               | Up to 12 years                                               |
 
