@@ -39,7 +39,7 @@ Unsupported resources include:
 * Protected resources that include public IPs created from public IP address prefix.
 * NAT Gateway.
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Virtual machine (Windows/Linux) workloads
 

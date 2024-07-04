@@ -14,7 +14,7 @@ ms.custom: engagement-fy24
 # Tutorial: Build a business case or assess servers using an imported CSV file
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
@@ -75,7 +75,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 1. In the portal, search for users, and under **Services**, select **Users**.
 

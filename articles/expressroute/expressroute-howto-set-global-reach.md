@@ -25,7 +25,7 @@ Before you start configuration, confirm the following information:
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

@@ -11,6 +11,16 @@
             "redirect_document_id": false
          },
         {
+            "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/common-questions.md",
+            "redirect_url": "/azure/azure-monitor/scom-manage-instance/scom-managed-instance-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/scom-managed-instance-overview.md",
+            "redirect_url": "/azure/azure-monitor/scom-manage-instance/overview",
+            "redirect_document_id": false
+         },
+        {
             "source_path_from_root": "/articles/azure-monitor/best-practices.md",
             "redirect_url": "/azure/azure-monitor/getting-started",
             "redirect_document_id": false
@@ -5500,6 +5510,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/resource-manager-cluster.md",
+            "redirect_url": "/azure/azure-monitor/logs/logs-dedicated-clusters",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/powerbi.md",
             "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
             "redirect_document_id": false
@@ -6733,9 +6748,11 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/pipeline-overview.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
             "redirect_document_id": false
-        }
-        
-        
-
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-migration-tools.md",
+            "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-migration",
+            "redirect_document_id": false
+        }     
     ]
 }

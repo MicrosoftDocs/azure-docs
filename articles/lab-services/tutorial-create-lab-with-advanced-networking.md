@@ -101,7 +101,7 @@ Next, you configure the subnet to be used with Azure Lab Services.  To use a sub
 
 ## Create a network security group
 
-[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 An NSG is required when using advanced networking in Azure Lab Services.
 

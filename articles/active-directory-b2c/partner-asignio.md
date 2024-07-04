@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
@@ -103,7 +103,7 @@ Complete [Tutorial: Register a web application in Azure Active Directory B2C](tu
 
 For the following instructions, use the Microsoft Entra tenant with the Azure subscription.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the Global Administrator of the Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as at least B2C IEF Policy Administrator of the Azure AD B2C tenant.
 2. In the Azure portal toolbar, select **Directories + subscriptions**.
 3. On **Portal settings | Directories + subscriptions**, in the **Directory name** list, locate your Microsoft Entra directory.
 4. Select **Switch**.
@@ -130,7 +130,7 @@ For the following instructions, use the Microsoft Entra tenant with the Azure su
 25. For **Emai**l, use **email**.
 26. Select **Save**.
 
-## SCreate a user flow policy
+## Create a user flow policy
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
 2. Select **New user flow**.

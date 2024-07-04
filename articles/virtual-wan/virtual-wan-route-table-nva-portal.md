@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke virtual network (VNet) via a Network Virtual Appliance (NVA).
 
-![Virtual WAN diagram](./media/virtual-wan-route-table-nva/vwanroute.png)
+:::image type="content" source="./media/virtual-wan-route-table-nva/vwanroute.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-route-table-nva/vwanroute.png":::
 
 ## Before you begin
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 
 # Add and run JavaScript code inline with workflows for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To perform custom integration tasks inline with your workflow in Azure Logic Apps, you can directly add and run simple JavaScript code snippets from your workflow in the Azure portal. For this task, use the **Inline Code** action named **Execute JavaScript Code**. This action returns the result from the code snippet so you can use that output in your workflow's subsequent actions. This action also has [different limits](logic-apps-limits-and-config.md#inline-code-action-limits), based on whether you have a [Consumption or Standard workflow](logic-apps-overview.md#resource-environment-differences) and works best for code snippets with the following attributes:
 

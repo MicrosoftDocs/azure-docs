@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 06/26/2024
 ---
 
 # Connections in prompt flow

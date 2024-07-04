@@ -1,14 +1,14 @@
-name: "📄 Feedback control template"
+name: "📄 Azure Kubernetes Services - Feedback control template"
 title: "Feedback"
 description: >-
-  ⛔ This template is intended for use by the feedback control on the bottom of every page on the
-  live site. If you aren't using the feedback control, choose one of the other templates.⛔
+  🛈 FYI - This issue template is intended for use by the feedback control on the bottom of Azure Kubernetes Services pages on the
+  https://learn.microsoft.com/azure/aks site.
 labels:
-  - "needs-triage"
+  - "azure-kubernetes-services/svc"
 body:
   - type: markdown
     attributes:
-      value: "## 🎁Enter your feedback🎁"
+      value: "## Enter your feedback"
   - type: markdown
     attributes:
       value: Select the issue type, and describe the issue in the text box below. Add as much detail as needed to help us resolve the issue.

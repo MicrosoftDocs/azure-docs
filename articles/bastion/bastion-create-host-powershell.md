@@ -36,9 +36,9 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 ### PowerShell
 
-[!INCLUDE [cloudshell powershell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [cloudshell powershell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-[!INCLUDE [powershell locally](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-powershell-locally.md)]
+[!INCLUDE [powershell locally](../../includes/vpn-gateway-powershell-locally.md)]
 
 ### Example values
 
