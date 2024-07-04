@@ -40,9 +40,13 @@ There are four types of availability tests:
 > [!TIP]
 > If you're currently using other availability tests, like URL ping tests, you might add Standard tests alongside the others. If you want to use Standard tests instead of one of your other tests, add a Standard test and delete your old test.
 
+### Prerequisites
+
 To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
 
-### [Standard test](#tab/standard)
+### Get started
+
+#### [Standard test](#tab/standard)
 
 1. Go to your Application Insights resource and select the **Availability** pane.
 
@@ -127,6 +131,9 @@ You can use the following population tags for the geo-location attribute when yo
 ### [TrackAvailability()](#tab/track)
 
 #### Basic code sample
+
+> [!IMPORTANT]
+> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code. [Standard tests](#standard-test) **should always be used if possible** as they require little investment, no maintenance, and have few prerequisites.
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure function. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test. By default, if you walk through this example, you'll be creating a basic availability HTTP GET test.
@@ -320,13 +327,34 @@ Availability test results can be visualized with both **Line** and **Scatter Plo
 
 After a few minutes, select **Refresh** to see your test results.
 
+### Check availability
+
+Start by reviewing the graph on the **Availability** tab of your Application Insights resource.
+
+#### [Standard test](#tab/standard)
+
 :::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Screenshot that shows the Availability page with the Refresh button highlighted.":::
+
+#### [TrackAvailability](#tab/track)
+
+> [!NOTE]
+> Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
+
+:::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Screenshot that shows the Availability tab with successful results." lightbox="media/availability-azure-functions/availability-custom.png":::
+
+---
 
 The **Scatter Plot** view shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
 
 :::image type="content" source="./media/monitor-web-app-availability/availability-scatter-plot-003.png" alt-text="Screenshot that shows the Line view." border="false":::
 
 Select a particular test or location. Or you can reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions. Or you can use Log Analytics queries to run custom reports on this data.
+
+To see the end-to-end transaction details, under **Drill into**, select **Successful** or **Failed**. Then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
+
+:::image type="content" source="media/availability-azure-functions/sample.png" alt-text="Screenshot that shows selecting a sample availability test.":::
+
+:::image type="content" source="media/availability-azure-functions/end-to-end.png" alt-text="Screenshot that shows end-to-end transaction details." lightbox="media/availability-azure-functions/end-to-end.png":::
 
 ### Inspect and edit tests
 
@@ -365,30 +393,12 @@ In addition to the raw results, you can also view two key availability metrics i
 
 This section explains how to review [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor).
 
-> [!IMPORTANT]
-> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code. [Standard tests](#standard-test) **should always be used if possible** as they require little investment, no maintenance, and have few prerequisites.
-
 #### Prerequisites
 
 > [!div class="checklist"]
 > * [Workspace-based Application Insights resource](create-workspace-resource.md)
 > * Access to the source code of a [function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
 > * Developer expertise capable of authoring [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
-
-#### Check availability
-
-Start by reviewing the graph on the **Availability** tab of your Application Insights resource.
-
-> [!NOTE]
-> Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
-
- :::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Screenshot that shows the Availability tab with successful results." lightbox="media/availability-azure-functions/availability-custom.png":::
-
-To see the end-to-end transaction details, under **Drill into**, select **Successful** or **Failed**. Then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
-
-:::image type="content" source="media/availability-azure-functions/sample.png" alt-text="Screenshot that shows selecting a sample availability test.":::
-
-:::image type="content" source="media/availability-azure-functions/end-to-end.png" alt-text="Screenshot that shows end-to-end transaction details." lightbox="media/availability-azure-functions/end-to-end.png":::
 
 #### Query in Log Analytics
 
