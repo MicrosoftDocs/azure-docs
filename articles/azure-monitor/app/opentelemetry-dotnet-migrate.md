@@ -491,7 +491,7 @@ The following libraries are included in the Distro.
 #### Customizing Instrumentation Libraries
 
 The Azure Monitor Distro includes .NET OpenTelemetry instrumentation for [ASP.NET Core](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/), [HttpClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/), and [SQLClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient).
-You can customize these included instrumentations or manually add additional instrumentation on your own using the OpenTelemetry API.
+You can customize these included instrumentations or manually add extra instrumentation on your own using the OpenTelemetry API.
 
 Here are some examples of how to customize the instrumentation:
 
@@ -527,9 +527,7 @@ builder.Services.Configure<HttpClientTraceInstrumentationOptions>(options =>
 
 ##### Customizing SqlClientInstrumentationOptions
 
-While the [SQLClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) instrumentation is still in beta, we have vendored it within our package.
-Once it reaches a stable release, it will be included as a standard package reference.
-Until then, for customization of the SQLClient instrumentation, manually add the OpenTelemetry.Instrumentation.SqlClient package reference to your project and utilize its public API.
+We vendor the [SQLClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) instrumentation within our package while it's still in beta. When it reaches a stable release, we include it as a standard package reference. Until then, to customize the SQLClient instrumentation, add the `OpenTelemetry.Instrumentation.SqlClient` package reference to your project and use its public API.
 
 ```
 dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
@@ -1071,7 +1069,7 @@ In the Application Insights .NET SDK, use telemetry processors to filter and mod
 
 #### Filtering Traces
 
-To filter telemetry data in OpenTelemetry, you can implement an activity processor. This example is equivalent to the Application Insights example for filtering telemetry data as described in [Azure Monitor documentation](./api-filtering-sampling.md?tabs=javascriptwebsdkloaderscript#c). The example illustrates where unsuccessful dependency calls are filtered.
+To filter telemetry data in OpenTelemetry, you can implement an activity processor. This example is equivalent to the Application Insights example for filtering telemetry data as described in [Azure Monitor documentation](./api-filtering-sampling.md). The example illustrates where unsuccessful dependency calls are filtered.
 
 ```csharp
 using System.Diagnostics;
