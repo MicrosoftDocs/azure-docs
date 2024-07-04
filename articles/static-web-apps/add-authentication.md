@@ -74,7 +74,7 @@ In the last article, you created a `staticwebapp.config.json` file. This file [c
 
     Once you open the site in your browser, the local authentication sign in page is displayed.
 
-    ![A screen shot of the local authentication sign in page](./media/add-authentication/local-auth-page.png)
+    ![A screen shot of the local authentication sign in page.](./media/add-authentication/local-auth-page.png)
 
     The local authentication sign in page provides an emulation of the real authentication experience without the need for external services. You can create a user ID and select which roles you'd like to apply to the user from this screen.
 
@@ -100,7 +100,7 @@ Deploy your site in the same way as you did in the last tutorial.
 
     The URL for your site is displayed once the deployment is finished. Select the site URL to open the site in the browser. The standard Microsoft Entra ID sign in page is displayed:
 
-    ![ screen shot of the Microsoft authentication sign in page](./media/add-authentication/remote-auth-page.png)
+    ![Screen shot of the Microsoft authentication sign in page.](./media/add-authentication/remote-auth-page.png)
 
     Sign in with your Microsoft account.
 
