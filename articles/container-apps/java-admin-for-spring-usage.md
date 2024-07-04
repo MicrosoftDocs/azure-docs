@@ -80,6 +80,13 @@ For Container App that wants to connect to the Admin for Spring, you need to add
 </dependency>
 ```
 
+Starting with Spring Boot 2, endpoints other than health and info are not exposed by default. You can expose them by adding the following configuration in your `application.properties` file.
+
+```properties
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
+```
+
 ## Allowed configuration list for your Admin for Spring
 
 The following list details supported configurations. You can find more details in [Spring Boot Admin](https://docs.spring-boot-admin.com/current/server.html).
