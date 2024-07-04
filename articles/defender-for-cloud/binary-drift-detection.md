@@ -18,8 +18,9 @@ Binary drift detection is integrated into the Defender for Containers plan and i
 
 ## Prerequisites
 
-- To use binary drift detection, you need to run the Defender for Container, which is available in AWS, GCP, and AKS in [versions](/azure/aks/supported-kubernetes-versions) 1.29 or higher.
-- To create and modify drift policies, you need admin permissions on the tenant.
+- To use binary drift detection, you need to run the Defender for Container sensor, which is available in AWS, GCP, and AKS in [versions](/azure/aks/supported-kubernetes-versions) 1.29 or higher.
+- The Defender for Container sensor must be enabled on the subscriptions and connectors.
+- To create and modify drift policies, you need global admin permissions on the tenant.
 
 ## Components
 
