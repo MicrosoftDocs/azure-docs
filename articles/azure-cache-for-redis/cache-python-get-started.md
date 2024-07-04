@@ -241,7 +241,7 @@ Run `PythonApplication1.py` with Python. You should see results like the followi
 
 ---
 
-## Clean up resources
+<!-- Clean up resources -->
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
