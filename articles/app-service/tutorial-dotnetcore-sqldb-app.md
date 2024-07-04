@@ -160,7 +160,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 ## 2. Verify connection strings
 
 > [!TIP]
-> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
+> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
 
 The creation wizard generated connection strings for the SQL database and the Redis cache already. In this step, find the generated connection strings for later.
 
