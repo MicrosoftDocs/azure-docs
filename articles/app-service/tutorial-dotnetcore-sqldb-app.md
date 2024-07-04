@@ -159,6 +159,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2. Verify connection strings
 
+> [!TIP]
+> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
+
 The creation wizard generated connection strings for the SQL database and the Redis cache already. In this step, find the generated connection strings for later.
 
 :::row:::
@@ -181,9 +184,6 @@ The creation wizard generated connection strings for the SQL database and the Re
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-get-connection-string-2.png" alt-text="A screenshot showing how to create an app setting." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-get-connection-string-2.png":::
     :::column-end:::
 :::row-end:::
-
-> [!TIP]
-> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
 
 ## 3. Deploy sample code
 
@@ -467,6 +467,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Verify connection strings
 
+> [!TIP]
+> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
+
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
 
 1. In the AZD output, find the settings `AZURE_SQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
@@ -481,9 +484,6 @@ The AZD template you use generated the connectivity variables for you already as
     `AZURE_SQL_CONNECTIONSTRING` contains the connection string to the SQL Database in Azure, and `AZURE_REDIS_CONNECTIONSTRING` contains the connection string to the Azure Redis cache. You need to use them in your code later. 
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
-
-> [!TIP]
-> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -713,7 +713,7 @@ Your app should now have connectivity to the SQL database. For more information,
 > [!TIP]
 > **Don't want to enable public network connection?** You can skip `az sql server update --enable-public-network true` by running the commands from an [Azure cloud shell that's integrated with your virtual network](../cloud-shell/vnet/deployment.md) if you have the **Owner** role assignment on your subscription. 
 > 
-> To grant the identity the required access to the database that's secured by the virtual network, `az webapp connection create sql` needs direct connectivity to the database server.
+> To grant the identity the required access to the database that's secured by the virtual network, `az webapp connection create sql` needs direct connectivity with Entra ID authentication to the database server. By default, the Azure cloud shell doesn't have this access to the network-secured database.
 
 ### What can I do with GitHub Copilot in my codespace?
 
