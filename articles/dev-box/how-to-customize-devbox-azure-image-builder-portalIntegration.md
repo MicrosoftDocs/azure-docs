@@ -1,3 +1,15 @@
+---
+title: Configure a dev box by using Azure VM Image Builder (Portal Integration)
+titleSuffix: Microsoft Dev Box
+description: Learn how to use Azure VM Image Builder's Portal Integration to easily and more intuitively build a custom image for configuring dev boxes with Microsoft Dev Box.
+services: dev-box
+ms.service: dev-box
+author: kgangulyvibe
+ms.author: kganguly
+ms.date: 04/07/2024
+ms.topic: how-to
+---
+
 # Creating Custom VM Images with Azure VM Image Builder (Portal Integration)
 
 In this tutorial, we will explore the process of creating custom virtual machine (VM) images using Azure VM Image Builder through the Azure Portal. However, first let's look into some of the core concepts.
