@@ -41,15 +41,3 @@ Follow this procedure for uploading a file from a device to IoT Hub:
 ### Add the connection string
 
 ### Receive the file upload notification
-
-For more information, see:
-
-* [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
-
-* [Configure IoT Hub file uploads](iot-hub-configure-file-upload.md)
-
-* [Azure blob storage documentation](../storage/blobs/storage-blobs-introduction.md)
-
-* [Azure blob storage API reference](../storage/blobs/reference.md)
-
-* [Azure IoT SDKs](iot-hub-devguide-sdks.md)

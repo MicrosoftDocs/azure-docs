@@ -114,7 +114,7 @@ def store_blob(blob_info, file_name):
 
 ### Wait for upload status
 
-Use [notify_blob_upload_status](https://review.learn.microsoft.com/en-us/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-notify-blob-upload-status) to notify IoT Hub of the status of the blob storage operation. Pass the `correlation_id` obtained by the `get_storage_info_for_blob` method. The `correlation_id` is used by IoT Hub to notify any service that might be listening for a notification regarding the status of the file upload task.
+Use [notify_blob_upload_status](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-notify-blob-upload-status) to notify IoT Hub of the status of the blob storage operation. Pass the `correlation_id` obtained by the `get_storage_info_for_blob` method. The `correlation_id` is used by IoT Hub to notify any service that might be listening for a notification regarding the status of the file upload task.
 
 For example:
 

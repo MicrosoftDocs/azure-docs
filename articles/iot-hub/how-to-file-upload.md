@@ -60,6 +60,6 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 
 :::zone pivot="programming-language-node"
 
-[!INCLUDE [iot-hub-howto-file-upload-node](../../includes/iot-hub-howto-c2d-file-upload-node.md)]
+[!INCLUDE [iot-hub-howto-file-upload-node](../../includes/iot-hub-howto-file-upload-node.md)]
 
 :::zone-end

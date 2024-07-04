@@ -115,7 +115,7 @@ serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 
 ### Receive the file upload notification
 
-Call [GetFileNotificationReceiver](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver. Then use a loop with [ReceiveAsync](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
+Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver. Then use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
 
 ```csharp
 // Define the cancellation token.
@@ -138,12 +138,12 @@ while (true)
 
 For more information, see:
 
-* [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
+* [Overview of file uploads with IoT Hub](../articles/iot-hub/iot-hub-devguide-file-upload.md)
 
-* [Configure IoT Hub file uploads](iot-hub-configure-file-upload.md)
+* [Configure IoT Hub file uploads](../articles/iot-hub/iot-hub-configure-file-upload.md)
 
-* [Azure blob storage documentation](../storage/blobs/storage-blobs-introduction.md)
+* [Azure blob storage documentation](../articles/storage/blobs/storage-blobs-introduction.md)
 
-* [Azure blob storage API reference](../storage/blobs/reference.md)
+* [Azure blob storage API reference](../articles/storage/blobs/reference.md)
 
-* [Azure IoT SDKs](iot-hub-devguide-sdks.md)
+* [Azure IoT SDKs](../articles/iot-hub/-hub-devguide-sdks.md)
