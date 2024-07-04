@@ -4,18 +4,14 @@ description: Learn how to manage table settings in a Log Analytics workspace bas
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 05/26/2024
+ms.date: 02/15/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to understand how table properties work and how to view and manage table properties so that I can manage the data and costs related to a Log Analytics workspace effectively.
 
 ---
 
 # Manage tables in a Log Analytics workspace
 
-A Log Analytics workspace lets you collect logs from Azure and non-Azure resources into one space for data analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). The Log Analytics workspace consists of tables, which you can configure to manage your data model and log-related costs. This article explains the table configuration options in Azure Monitor Logs and how to set table properties based on your data analysis and cost management needs.
-
-## Permissions required
-
-You must have `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspaces you manage, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+A Log Analytics workspace lets you collect log data from Azure and non-Azure resources into one space for analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). The Log Analytics workspace consists of tables, which you can configure to manage your data model, data access, and log-related costs. This article explains the table configuration options in Azure Monitor Logs and how to set table properties based on your data analysis and cost management needs.
 
 ## Table properties
 
@@ -36,17 +32,17 @@ Your Log Analytics workspace can contain the following types of tables:
 | Search results | All data stored in a Log Analytics workspace.                                             | The schema of a search results table is based on the query you define when you [run the search job](../logs/search-jobs.md). You can't edit the schema of existing search results tables.                                                                                        |
 | Restored logs  | Archived logs.                                                         | A restored logs table has the same schema as the table from which you [restore logs](../logs/restore.md). You can't edit the schema of existing restored logs tables.                                                                                          |
 
-### Log data plan
+### Table plan
 
 [Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
 - The **Analytics** plan makes log data available for interactive queries and use by features and services. 
 - The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. 
 
-### Retention and archive
+### Retention
 
-Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation. [Set table-level retention](../logs/data-retention-archive.md) to override the default workspace retention and to archive data within your workspace. 
+Auxiliary retention is a low-cost solution for keeping data that you don't use regularly in your workspace for compliance or occasional investigation. Use [table-level retention settings](../logs/data-retention-archive.md) to add or extend auxiliary retention. 
 
-To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
+To access data in auxiliary retention, [run a search job](../logs/search-jobs.md).
 
 ### Ingestion-time transformations
 
