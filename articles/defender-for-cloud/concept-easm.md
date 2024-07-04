@@ -6,7 +6,7 @@ ms.date: 07/03/2024
 #customer intent: As a reader, I want to learn about the integration between Defender for Cloud and Defender External attack surface management (EASM) so that I can enhance my organization's security.
 ---
 
-# Integration with Defender External Attack Surface Management (EASM)
+# External attack surface management in Defender for Cloud
 
 Microsoft Defender for Cloud has the capability to perform external attack surface management (EASM), (outside-in) scans on multicloud environments. Defender for Cloud accomplishes this through its integration with Microsoft Defender EASM. The integration allows organizations to improve their security posture while reducing the potential risk of being attacked by exploring their external attack surface. The integration is included with the Defender Cloud Security Posture Management (CSPM) plan by default and doesn't require a license from Defender EASM or any special configurations.
 
