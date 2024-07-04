@@ -1,13 +1,17 @@
 ---
-title: Microsoft Sentinel solution for SAP applications - SAP Audit Controls workbook overview
+title: Check compliance for your SAP security controls with Microsoft Sentinel
 description: Learn about the SAP - Security Audit Controls workbook, used to monitor and track security control framework compliance across your SAP systems.
 author: batamig
 ms.author: bagol
-ms.topic: reference
-ms.date: 05/22/2024
+ms.topic: concept-article
+ms.date: 07/04/2024
 ---
 
-# Microsoft Sentinel solution for SAP applications - SAP Audit Controls workbook (Preview)
+# Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook(Preview)
+
+This article describes 
+
+Microsoft Sentinel solution for SAP applications - SAP Audit Controls workbook (Preview)
 
 This article describes the SAP Audit Controls workbook, which is provided to you as part of the [Microsoft Sentinel solution for SAP applications](solution-overview.md).
 
@@ -30,6 +34,17 @@ The workbook provides the following capabilities for your compliance program:
 View a demonstration of this workbook on the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity):
 <br>
 > [!VIDEO https://www.youtube.com/embed/8_2ji5afBqc?si=BfXfeYaJFEuJHZPC]
+
+
+## Prerequisites
+
+Before you can start using the **SAP - Security Audit log and Initial Access** workbook, you must have:
+
+- The Microsoft Sentinel solution for SAP applications solution installed and a data connector agent deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
+
+- The **SAP Audit Controls** workbook installed in your Microsoft Sentinel workspace. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
+
+- At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
 ## Start using the workbook
 

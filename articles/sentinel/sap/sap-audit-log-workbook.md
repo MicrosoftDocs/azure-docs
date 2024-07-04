@@ -21,14 +21,18 @@ For example:
 
 ## Prerequisites
 
-Make sure that the Microsoft Sentinel solution for SAP applications solution is installed and a data connector agent is deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
+Before you can start using the **SAP - Security Audit log and Initial Access** workbook, you must have:
 
-Make sure that the **SAP - Security Audit log and Initial Access** workbook is installed in your Microsoft Sentinel workspace. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
+- The Microsoft Sentinel solution for SAP applications solution installed and a data connector agent deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
-> [!IMPORTANT]
-> The **SAP - Security Audit log and Initial Access** workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook.
->
-> If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**.
+- The **SAP - Security Audit log and Initial Access** workbook installed in your Microsoft Sentinel workspace. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
+
+    > [!IMPORTANT]
+    > The **SAP - Security Audit log and Initial Access** workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook.
+    >
+    > If the SOC data is on a different workspace than the workspace hosting the workbook, make sure to include the subscription for that workspace, and select the SOC workspace from **Azure audit and activity workspace**.
+
+- At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
 ## Supported filters
 
@@ -63,7 +67,7 @@ The following table describes each metric in the **Logon analysis** area:
 
 |Area  |Description  |
 |---------|---------|
-|**Unique user logons per system**     |Shows the number of unique sign ins for each SAP system, and a graph with the sign-in trends over the selected time for each system. <br><br>For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
+|**Unique user logons per system**     |Shows the number of unique signins for each SAP system, and a graph with the signin trends over the selected time for each system. <br><br>For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
 |**Logon types trend**     |Shows a trend of the number of sign ins according to type, for example, login via dialog. <br><br>Hover over the graph to show the number of logons for different dates.|
 |**Logon failures Vs. success by unique users - trend**     |Shows a trend of successful and failed sign ins in the selected period. <br><br>Hover over the graph to show the amount of successful and failed sign ins for different dates.|
 
@@ -77,13 +81,13 @@ For example:
 
 The following table describes each metric in the **Anomaly detection** area:
 
-|Area  |Description  |Specific data |Options/notes |
-|---------|---------|---------|---------|
-| **Logon failure rate** > **Logon failure anomalies** > **Unique User failed logons per SAP system** | Shows the number of unique failed sign ins for each SAP system. | | |
-|**SAP and Active Directory are better together** | The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Microsoft Entra data. The workbook displays the users according to risk: Users that indicate the most risk are at the top of the list, and the users with less security risk are at the bottom. |For each user, shows:<br>- A timeline of failed sign-in attempts<br>- A timeline showing at which point an anomalous failed attempt occurred<br>- The type of anomaly<br>- The user's email address<br>- The Microsoft Entra risk indicator<br>- The number of incidents and alerts in Microsoft Sentinel | When you select a row, you can see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. Below this list, you can also see of Microsoft Entra risk events under **Azure audit and signin risks for user**.<br>• If your Microsoft Entra data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**. |
-|**Logon failure rate per system** |Visually represents the selected SAP systems. |• For each system, shows the number of failures in the selected period<br>• Systems are grouped by type.<br>• The color of the system indicates the number of failed attempts: Green indicates a few suspicious logon attempts, where red indicates more suspicious logon attempts. |You can select a system to see a list of failed sign ins with details about the failures. |
+|Area  |Description  |
+|---------|---------|
+| **Logon failure rate** > **Logon failure anomalies** > **Unique User failed logons per SAP system**     |  Shows the number of unique failed sign ins for each SAP system.       |
+|**SAP and Active Directory are better together**     |    The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Microsoft Entra data, listing users according to risk, with the most risky users at the top. <br><br>For each user, the table shows: <br>- A timeline of failed sign-in attempts<br>- A timeline showing at which point an anomalous failed attempt occurred<br>- The type of anomaly<br>- The user's email address<br>- The Microsoft Entra risk indicator<br>- The number of incidents and alerts in Microsoft Sentinel  <br><br> Select a user's row to see a list of related alerts and incidents. Microsft Entra risk events are listed under **Azure audit and signin risks for user**.<br><br>**Note**: If your Microsoft Entra data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**.     |
+|**Logon failure rate per system**     |  Shows the selected SAP systems, grouped by type, with the number of failures in the selected period. <br><br>The system's color indicates the number of failed attempts: Green for a few suspicious sign-in attempts, and red for more.<br><br>Select a system to see a list of failed sign-ins, with details about the failures.      |
 
-In the following screenshot, see the data shown when the first line is selected in the **Anomalous login failures** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
+In the following screenshot, note the data shown when the first line is selected in the **Anomalous login failures** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.
 
 :::image type="content" source="media/sap-audit-log-workbook/anomalous-logon-failures-table.png" alt-text="Screenshot of data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/anomalous-logon-failures-table.png":::
 
@@ -91,29 +95,35 @@ In the following screenshot, the **Azure audit and signin risks for user** table
 
 :::image type="content" source="media/sap-audit-log-workbook/azure-audit-signin-risks.png" alt-text="Screenshot of audit and sign-in risk data shown when a line is selected in the Anomalous login failures table." lightbox="media/sap-audit-log-workbook/azure-audit-signin-risks.png":::
 
-In the following screenshot, see the **Login failure rate per system** area, where the **84e** system under the **Test** group is selected. The **Failed logons for system** area on the right shows failure events for this system.
+In the following screenshot, note the **Login failure rate per system** area, where the **84e** system under the **Test** group is selected. The **Failed logons for system** area on the right shows failure events for this system.
 
 :::image type="content" source="media/sap-audit-log-workbook/logon-failure-rate.png" alt-text="Screenshot of the Login failure rate per system area of the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/logon-failure-rate.png":::
 
 ### Logon failures - trends
 
-The **Logon failures trends** area shows the trends and number of failed sign-ins, grouped by different types of data.
+The **Logon failures trends** area shows the trends and number of failed sign-ins, grouped by different types of data. For example:
 
 :::image type="content" source="media/sap-audit-log-workbook/logon-failure-trends.png" alt-text="Screenshot of the Logon failures trends area of the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/logon-failure-trends.png":::
 
+The following table describes each metric in the **Logon failures trends** area:
+
 |Area  |Description  |
 |---------|---------| 
-|**Login failure by cause** | Shows a trend of the number of sign-in failures according to the cause of failure, for example: incorrect sign-in data. |
-|**Login failure by type** | Shows a trend of the number of sign-in failures according to type, for example: the sign-in triggered a background job, or the sign-in was via HTTP. |
-|**Login failure by method** | Shows a trend of the number of sign-in failures according to method, for example: SNC or a sign-in ticket. |
+|**Login failure by cause** | Shows the trend of the number of sign-in failures according to failure cause, such as incorrect sign-in data. |
+|**Login failure by type** | Shows the trend of the number of sign-in failures according to type, such as *the sign-in triggered a background job*, or the *sign-in was via HTTP*. |
+|**Login failure by method** | Shows the trend of the number of sign-in failures according to method, such as *SNC* or a *sign-in ticket*. |
 
 ## Audit log alerts report tab
 
-- [**Audit log alerts report**](#audit-log-alerts-report-tab). Shows different types of data regarding the SAP Audit log events that the Microsoft Sentinel solution for SAP applications watches. The data is based on the [*SAP_Dynamic_Audit_Log_Monitor_Configuration* watchlist](sap-solution-security-content.md#available-watchlists).
+The **Audit log alerts** tab shows data about the SAP Audit log events that the Microsoft Sentinel solution for SAP applications watches. The data is based on the [*SAP_Dynamic_Audit_Log_Monitor_Configuration* watchlist](sap-solution-security-content.md#available-watchlists).
 
-This tab shows severity and audit trends for each SAP system and user. All areas in this tab show data flagged by [anomaly detection](configure-audit-log-rules.md#anomaly-detection) only. For all events, select **All** next to **Failed logons** on the right.
+The **Audit log alerts** tab shows the severity and audit trends for each SAP system and user. All areas in this tab show data flagged by [anomaly detection](configure-audit-log-rules.md#anomaly-detection) only. For all events, select **All** next to **Failed logons** on the right.
+
+For example:
 
 :::image type="content" source="media/sap-audit-log-workbook/audit-log-alerts.png" alt-text="Screenshot of the Audit Log Alerts area of the SAP Audit workbook." lightbox="media/sap-audit-log-workbook/audit-log-alerts.png":::
+
+The following table describes each metric on the **Audit log alerts** tab:
 
 |Area  |Description  |Specific data |Options/notes |
 |---------|---------|---------|---------| 
