@@ -26,6 +26,7 @@ Start by reviewing the graph on the **Availability** tab of your Application Ins
 
 > [!NOTE]
 > Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
+> Similar to standard web tests, we recommend a minimum of five test locations for TrackAvailability() to ensure you can distinguish problems in your website from network issues.
 
  :::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Screenshot that shows the Availability tab with successful results." lightbox="media/availability-azure-functions/availability-custom.png":::
 
