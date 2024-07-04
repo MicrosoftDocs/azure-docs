@@ -39,9 +39,9 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 > same alias behaves differently between API versions, conditional modify operations can be used to
 > determine the `modify` operation used for each API version.
 
-There are some cases when modify operations are skipped during evaluation. This occurs when:
-- The operations condition is evaluated to _false_.
-- The alias is not modifiable in the request's API version. If the conflict effect is set to _deny_ the request will be blocked. If the conflict effect is set to _audit_ the request will be allowed through but the modify operation will be skipped.
+There are some cases when modify operations are skipped during evaluation:
+- When the condition of an operation in the `operations` array is evaluated to _false_, that particular operation is skipped.
+- If an alias specified for an operation is not modifiable in the request's API version, then evaluation uses the conflict effect. If the conflict effect is set to _deny_, the request will be blocked. If the conflict effect is set to _audit_, the request will be allowed through but the modify operation will be skipped.
 - [LEFT OFF HERE]
 
 When a policy definition using the `modify` effect is run as part of an evaluation cycle, it doesn't make changes to resources that already exist. Instead, it marks any resource that meets the `if` condition as non-compliant.
