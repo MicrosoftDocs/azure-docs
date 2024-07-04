@@ -170,7 +170,7 @@ The Azure Files service provides a shared file system that supports high-scale s
 
 By default, function apps hosted in Premium and Consumption plans use [zip deployment](./deployment-zip-push.md), with deployment packages stored in this Azure file share. This section is only relevant to these hosting plans.
 
-Using Azure Files requires the use of a connection string, which is stored in your app settings as [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Azure Files doesn't currently supported identity-based connections. If your scenario requires you to not store any secrets in app settings, you must remove your app's dependency on Azure Files. You can do this by creating your app without the default Azure Files dependency. 
+Using Azure Files requires the use of a connection string, which is stored in your app settings as [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Azure Files doesn't currently support identity-based connections. If your scenario requires you to not store any secrets in app settings, you must remove your app's dependency on Azure Files. You can do this by creating your app without the default Azure Files dependency. 
 
 >[!NOTE]
 >You should also consider running in your function app in the Flex Consumption plan, which is currently in preview. The Flex Consumption plan provides greater control over the deployment package, including the ability use managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings) in the Flex Consumption article.
