@@ -27,7 +27,7 @@ There are two SDK classes that are used to upload files to IoT Hub.
 
 ### Connect to IoT Hub
 
-Supply the IoT Hub primary connection string to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?view=azure-dotnet#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
+Supply the IoT Hub primary connection string to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
 
 ``` csharp
 static string connectionString = "{IoT Hub connection string}";
@@ -70,7 +70,7 @@ await blockBlobClient.UploadAsync(fileStreamSource, new BlobUploadOptions());
 
 ### Notify IoT hub that it has completed the upload
 
-Use [CompleteFileUploadAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completefileuploadasync?view=azure-dotnet) to notify IoT Hub that the device client has completed the upload. After being notified, IoT Hub will release resources associated with the upload (the SAS URI).
+Use [CompleteFileUploadAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completefileuploadasync) to notify IoT Hub that the device client has completed the upload. After being notified, IoT Hub will release resources associated with the upload (the SAS URI).
 
 If file upload notifications are enabled, IoT Hub sends a notification message to backend services.
 
@@ -146,4 +146,4 @@ For more information, see:
 
 * [Azure blob storage API reference](../articles/storage/blobs/reference.md)
 
-* [Azure IoT SDKs](../articles/iot-hub/-hub-devguide-sdks.md)
+* [Azure IoT SDKs](../articles/iot-hub/iot-hub-devguide-sdks.md)
