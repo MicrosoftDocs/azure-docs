@@ -75,7 +75,8 @@ In this section, you create a user-assigned managed identity (UAMI) to allow the
     ```azurecli-interactive
     AKS_UAMI_WI_IDENTITY=$(az identity create \
         --name $AKS_UAMI_CLUSTER_IDENTITY_NAME \
-        --resource-group "$RESOURCE_GROUP_NAME" \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
         --output json)
     ```
 
@@ -123,14 +124,17 @@ The CNPG operator automatically generates a service account called *postgres* th
     ```
 
     > [!NOTE]
-    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'.` 
-
-    Please check user permissions for blob storage and if necessary elevate your role to `Storage Blob Data Owner`:
+    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'.`. Please verify user permissions for Azure Blob Storage and, if **necessary**, elevate your role to `Storage Blob Data Owner` using the commands provided below.
 
     ```azurecli-interactive
     az role assignment list --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID --output table
 
     export USER_ID=$(az ad signed-in-user show --query id --output tsv)
+    export STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID=$(az storage account show \
+        --name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --query "id" \
+        --output tsv)
 
     az role assignment create \
         --assignee-object-id $USER_ID \
@@ -138,7 +142,7 @@ The CNPG operator automatically generates a service account called *postgres* th
         --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID \
         --role "Storage Blob Data Owner" \
         --output tsv
-    ```    
+    ```
 
 ## Assign RBAC to storage accounts
 
@@ -183,6 +187,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     export GRAFANA_RESOURCE_ID=$(az grafana create \
         --resource-group $RESOURCE_GROUP_NAME \
         --name $GRAFANA_PRIMARY \
+        --location $PRIMARY_CLUSTER_REGION \
         --zone-redundancy Enabled \
         --tags $TAGS \
         --query "id" \
@@ -199,6 +204,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     export AMW_RESOURCE_ID=$(az monitor account create \
         --name $AMW_PRIMARY \
         --resource-group $RESOURCE_GROUP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
         --tags $TAGS \
         --query "id" \
         --output tsv)
@@ -214,6 +220,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     export ALA_RESOURCE_ID=$(az monitor log-analytics workspace create \
         --resource-group $RESOURCE_GROUP_NAME \
         --workspace-name $ALA_PRIMARY \
+        --location $PRIMARY_CLUSTER_REGION \
         --query "id" \
         --output tsv)
 
@@ -378,6 +385,7 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
     az network public-ip create \
         --resource-group $AKS_PRIMARY_CLUSTER_NODERG_NAME \
         --name $AKS_PRIMARY_CLUSTER_PUBLICIP_NAME \
+        --location $PRIMARY_CLUSTER_REGION \
         --sku Standard \
         --zone 1 2 3 \
         --allocation-method static \
