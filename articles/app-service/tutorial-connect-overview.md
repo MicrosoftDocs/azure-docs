@@ -22,7 +22,7 @@ Today, the decision for a connectivity approach is closely related to secrets ma
 
 ## Connect with an app identity
 
-If your app already uses a single set of credentials to access a downstream Azure service, you can very quickly convert the connection to use an app identity instead. A [managed identity](overview-managed-identity.md) from Microsoft Entra ID lets App Service access resources without secrets, and you can manage its access through role-based access control (RBAC). A managed identity can connect to any Azure resource that supports Microsoft Entra authentication, and the authentication takes place with short-lived tokens.
+If your app already uses a single set of credentials to access a downstream Azure service, you can quickly convert the connection to use an app identity instead. A [managed identity](overview-managed-identity.md) from Microsoft Entra ID lets App Service access resources without secrets, and you can manage its access through role-based access control (RBAC). A managed identity can connect to any Azure resource that supports Microsoft Entra authentication, and the authentication takes place with short-lived tokens.
 
 The following image demonstrates the following an App Service connecting to other Azure services:
 
@@ -32,9 +32,15 @@ The following image demonstrates the following an App Service connecting to othe
 
 :::image type="content" source="media/scenario-secure-app-overview/web-app.svg" alt-text="Diagram showing managed identity accessing a resource with or without the user's identity.":::
 
+Examples of using application secrets to connect to a database:
+
+- [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
+- [Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
+- [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
+
 ## Connect on behalf of the signed-in user
 
-Your app might need to connect to a downstream service on behalf of the signed-in user. App Service lets you easily authenticate users using the most common identity providers (see [Authentication and authorization in Azure App Service and Azure Functions](overview-authentication-authorization.md)). If you use the Microsoft provider (Microsoft Entra authentication), you can then flow this signed-in user to any downstream service. For example:
+Your app might need to connect to a downstream service on behalf of the signed-in user. App Service lets you easily authenticate users using the most common identity providers (see [Authentication and authorization in Azure App Service and Azure Functions](overview-authentication-authorization.md)). If you use the Microsoft provider (Microsoft Entra authentication), you can then flow the signed-in user to any downstream service. For example:
 
 - In SQL database, run a query that returns confidential data that the signed-in user is authorized to read.
 - Retrieve personal data or take actions as the signed-in user in Microsoft Graph.
@@ -74,13 +80,14 @@ For apps that connect to services using secrets (such as usernames, passwords, a
 
 Examples of using application secrets to connect to a database:
 
-- [ASP.NET Core with SQL DB](tutorial-dotnetcore-sqldb-app.md)
-- [ASP.NET with SQL DB](app-service-web-tutorial-dotnet-sqldatabase.md)
-- [PHP with MySQL](tutorial-php-mysql-app.md)
-- [Node.js with MongoDB](tutorial-nodejs-mongodb-app.md)
-- [Python with Postgres](tutorial-python-postgresql-app.md)
-- [Java with Spring Data](tutorial-java-spring-cosmosdb.md)
-- [Quarkus with Postgres](tutorial-java-quarkus-postgresql-app.md)
+- [Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+- [Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service](tutorial-php-mysql-app.md)
+- [Deploy a Node.js + MongoDB web app to Azure](tutorial-nodejs-mongodb-app.md)
+- [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](tutorial-python-postgresql-app.md)
+- [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
+- [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
+- [Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL](tutorial-java-quarkus-postgresql-app.md)
 
 ## Next steps
 
