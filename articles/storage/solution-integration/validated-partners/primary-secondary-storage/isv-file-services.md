@@ -196,7 +196,7 @@ This article compares several ISV solutions that provide files services in Azure
 **WEKA**
 - [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/weka1652213882079.weka_data_platform)
 - Consistent high performance at scale to accelerate Enterprise AI, Generative AI, and HPC workflows
-- Terraform driven automated deployment, and scaling
+- WEKA Cloud Deployment Manager, and Terraform driven automated deployment, and scaling
 - Automated data tiering, and snapshots to Azure blob storage
 - Supports POSIX, NFS, SMB, and S3 protocols
 - Supports data encryption in flight, and at rest
