@@ -159,6 +159,7 @@ Deciding on storage size involves a combination of estimating current and future
 
 - [See more information about burstable compute](./burstable-tier.md)
 - [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
+- [Check out indexing best practices](./how-to-create-indexes.md)
 
 > [!div class="nextstepaction"]
 > [Migration options for Azure Cosmos DB for MongoDB vCore](migration-options.md)
