@@ -118,13 +118,13 @@ Make sure to [Review system logs](#review-system-logs) when you're done.
 
 This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
 
-If you're using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
+If you're using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). For more information, see [Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional).
 
 ### No data is showing in the SAP table data log
 
 This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the `ABAPTableDataLog_CL` table. 
 
-If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
+If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). For more information, see [Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional).
 
 ## Common issues
 
@@ -323,11 +323,11 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
 
 ### Missing IP address or transaction code fields in the SAP audit log
 
-This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the ABAPAuditLog_CL and SAPAuditLog tables. If you are using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). See [Retrieve additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) for more details.
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the ABAPAuditLog_CL and SAPAuditLog tables. If you are using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). For more information, see [Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional).
 
 ### No data is showing in the SAP table data log
 
-This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the ABAPTableDataLog_CL table. If no data is showing in the ABAPTableDataLog_CL, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). See [Retrieve additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) for more details.
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the ABAPTableDataLog_CL table. If no data is showing in the ABAPTableDataLog_CL, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). For more information, see [Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional)..
 
 ## Next steps
 

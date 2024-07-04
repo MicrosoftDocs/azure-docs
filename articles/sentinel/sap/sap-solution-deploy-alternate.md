@@ -146,7 +146,7 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 
     For more information, see [Manually configure the Microsoft Sentinel for SAP data connector](#manually-configure-the-microsoft-sentinel-for-sap-data-connector) and [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-    To test your configuration, you may want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use [Azure Key vault](#add-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
+    To test your configuration, you may want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use [Azure Key vault](#manually-add-sap-data-connector-agent-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
 
     For more information, see [SAL logs connector configurations](#sal-logs-connector-settings).
 

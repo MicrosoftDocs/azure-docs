@@ -30,12 +30,14 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ## Built-in analytics rules
 
+This section describes [built-in analytics rules](deploy-sap-security-content.md) provided together with the Microsoft Sentinel solution for SAP applications.
+
 ### Monitoring the configuration of static SAP security parameters (Preview)
 
 To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the "SAP - (Preview) Sensitive Static Parameter has Changed" rule, the Microsoft Sentinel solution for SAP applications tracks [over 52 static security-related parameters](sap-suspicious-configuration-security-parameters.md) in the SAP system, which are built into Microsoft Sentinel.
 
 > [!NOTE]
-> For the Microsoft Sentinel solution for SAP applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. [Verify that the solution can successfully monitor the PAHI table](preparing-sap.md#verify-that-the-pahi-table-history-of-system-database-and-sap-parameters-is-updated-at-regular-intervals).
+> For the Microsoft Sentinel solution for SAP applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. For more information, see [Verify that the PAHI table is updated at regular intervals](preparing-sap.md#verify-that-the-pahi-table-is-updated-at-regular-intervals).
 
 To understand parameter changes in the system, the Microsoft Sentinel solution for SAP applications uses the parameter history table, which records changes made to system parameters every hour.  
 
@@ -187,6 +189,8 @@ These watchlists provide the configuration for the Microsoft Sentinel solution f
 
 ## Available playbooks
 
+This section describes [built-in analytics playbooks](deploy-sap-security-content.md) provided together with the Microsoft Sentinel solution for SAP applications.
+
 | Playbook name | Parameters | Connections |
 | ------------- | ---------- | ----------- |
 | **SAP Incident Response - Lock user from Teams - Basic** | - SAP-SOAP-User-Password<br>- SAP-SOAP-Username<br>- SOAPApiBasePath<br>- DefaultEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Microsoft Teams |
@@ -194,13 +198,6 @@ These watchlists provide the configuration for the Microsoft Sentinel solution f
 | **SAP Incident Response - Reenable audit logging once deactivated** | - SAP-SOAP-KeyVault-Credential-Name<br>- DefaultAdminEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Azure Key Vault<br>- Azure Monitor Logs<br>- Microsoft Teams |
 
 
-## Next steps
+## Related conetnt
 
-For more information, see:
-
-- [Deploying Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Microsoft Sentinel solution for SAP applications logs reference](sap-solution-log-reference.md)
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Configuration file reference](configuration-file-reference.md)
-- [Prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
+For more information, see [Deploying Microsoft Sentinel solution for SAP applications](deployment-overview.md).

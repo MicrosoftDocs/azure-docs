@@ -84,7 +84,7 @@ Deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.
 | - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) | Deploy the relevant [SAP note](#deploy-sap-note-optional). |
 | - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) | |
 
-If you choose to retrieve additional information with the [NPLK900202 optional CR](#retrieve-additional-information-from-sap-optional), ensure that the following SAP note is deployed in your SAP system, according to its version:
+If you choose to retrieve additional information with the [NPLK900202 optional CR](), ensure that the following SAP note is deployed in your SAP system, according to its version:
 
 | SAP BASIS versions | Notes |
 | --- | --- |
