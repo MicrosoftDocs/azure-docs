@@ -51,7 +51,7 @@ Azure Functions currently supports the following methods of deploying a containe
 + [Azure portal](https://aka.ms/funconacablade)
 + [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions)
 + [Azure Pipeline tasks](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/AzurePipelineTasks)
-+ [ARM templates](https://learn.microsoft.com/en-us/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template)
++ [ARM templates](https://learn.microsoft.com/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template)
 + [Bicep templates](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/Biceptemplates)
 + [Azure Functions Core Tools](functions-run-local.md#deploy-containers)
 + [Azd](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/azdtemplates)
