@@ -460,6 +460,9 @@ This section provides answers to common questions.
 
 There's no impact to the machine after the Azure Arc Connected Machine agent is installed. It hardly uses system or network resources and is designed to have a low footprint on the host where it's run.    
 
+### Are there any precautions to take when using Azure Site Recovery?
+When a machine is recovered using Azure Site Recovery for disaster recovery, the resource ID of the machine where the Azure Monitor Agent was running changes, requiring a reinstallation of the Azure Monitor Agent.
+
 ## Next steps
 
 [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
