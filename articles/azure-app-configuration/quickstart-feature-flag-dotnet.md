@@ -175,12 +175,12 @@ In this quickstart, you created a feature flag in App Configuration and used it 
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
-
-> [!div class="nextstepaction"]
 > [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
 
-To get a full feature rundown of `Microsoft.FeatureManagement` package, see the following doc.
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)

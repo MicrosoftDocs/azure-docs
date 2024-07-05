@@ -1,7 +1,7 @@
 ---
 title: Quickstart for adding feature flags to ASP.NET Core apps
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
+description: This tutorial will guide you through the process of integrating feature flags from Azure App Configuration into your ASP.NET Core apps.
 services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
@@ -182,7 +182,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Next steps
 
-In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For more information, continue to the following tutorial.
+In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)
@@ -203,7 +203,7 @@ Azure App Configuration offers built-in feature filters that enable you to activ
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET/.NET framework console apps](./quickstart-feature-flag-dotnet.md)
+> [Use feature flags in .NET/.NET Framework console apps](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)

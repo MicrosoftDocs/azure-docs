@@ -1,5 +1,5 @@
 ---
-title: .NET feature flag management | Microsoft Docs
+title: .NET feature flag management
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to use feature flags in .NET apps. The feature management library provides various out-of-the-box solutions for application development, ranging from simple feature toggles to complex feature experimentation.
 services: azure-app-configuration
@@ -11,7 +11,7 @@ ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 05/22/2024
 zone_pivot_groups: feature-management
-#Customer intent: I want to control feature availability in my app by using the .NET Feature Manager library.
+#Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
 # .NET Feature Management
@@ -1432,13 +1432,13 @@ services.AddSingleton<IFeatureDefinitionProvider, InMemoryFeatureDefinitionProvi
 To learn how to use feature flags in your applications, continue to the following quickstarts.
 
 > [!div class="nextstepaction"]
-> [.NET/.NET Framework Console App](./quickstart-feature-flag-dotnet.md)
-
-> [!div class="nextstepaction"]
-> [.NET Background Service](./quickstart-feature-flag-dotnet-background-service.md)
-
-> [!div class="nextstepaction"]
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [.NET/.NET Framework console app](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
 
 To learn how to use feature filters, continue to the following tutorials.
 

@@ -14,15 +14,14 @@ ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 
 # Tutorial: Use feature flags in an ASP.NET Core app
 
+> [!IMPORTANT]
+> This document has been superseded by the [.NET Feature Management](./feature-management-dotnet-reference.md) reference document, which provides the most current and detailed rundown of the features available in the .NET feature management libraries.
+>
+> To get started with feature flags in your apps, follow the quickstarts for [.NET console apps](./quickstart-feature-flag-dotnet.md) or [ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md).
+
 The .NET feature management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
 
 The feature management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
-
-> [!NOTE]
-> For the lastest full feature rundown of .NET feature management libraries, please go to the following doc.
->
-> [!div class="nextstepaction"]
-> [.NET Feature Management](./feature-management-dotnet-reference.md)
 
 In this tutorial, you will learn how to:
 

@@ -154,7 +154,7 @@ To learn how to use feature flags in your applications, continue to the followin
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 
-To get a full feature rundown of .NET feature management library, see the following resource.
+To get a full feature rundown of .NET feature management library, see the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)
