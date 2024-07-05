@@ -760,7 +760,7 @@ Application Insights offered many more configuration options via `ApplicationIns
 | DependencyCollectionOptions                | N/A. To customize dependencies, review the available configuration options for applicable Instrumentation libraries. |
 | DeveloperMode                              | N/A                                                                                                                  |
 | EnableActiveTelemetryConfigurationSetup    | N/A                                                                                                                  |
-| EnableAdaptiveSampling                     | N/A. Currently only fixed-rate sampling is supported.                                                                |
+| EnableAdaptiveSampling                     | N/A. Only fixed-rate sampling is supported.                                                                          |
 | EnableAppServicesHeartbeatTelemetryModule  | N/A                                                                                                                  |
 | EnableAuthenticationTrackingJavaScript     | N/A                                                                                                                  |
 | EnableAzureInstanceMetadataTelemetryModule | N/A                                                                                                                  |
@@ -984,7 +984,7 @@ Application Insights offered many more configuration options via `ApplicationIns
 | ConnectionString                           | See [instructions](./opentelemetry-configuration.md?tabs=aspnetcore#connection-string) on configuring the Connection String.  |
 | DependencyCollectionOptions                | N/A. To customize dependencies, review the available configuration options for applicable Instrumentation libraries. |
 | DeveloperMode                              | N/A                                                                                                                  |
-| EnableAdaptiveSampling                     | N/A. Currently only fixed-rate sampling is supported.                                                                |
+| EnableAdaptiveSampling                     | N/A. Only fixed-rate sampling is supported.                                                                          |
 | EnableAppServicesHeartbeatTelemetryModule  | N/A                                                                                                                  |
 | EnableAzureInstanceMetadataTelemetryModule | N/A                                                                                                                  |
 | EnableDependencyTrackingTelemetryModule    | See instructions on filtering Traces.                                                                                |
