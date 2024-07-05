@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Database for MySQL
-summary: "Azure Database for MySQL - Flexible Server is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
+summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to deploy your MySQL database in Azure."
   ms.service: mysql
