@@ -13,7 +13,7 @@ ms.author: cralvord
 
 ## Overview
 
-Microsoft Azure Storage Explorer is a standalone app that makes it easy to work with Azure Storage data on Windows, macOS, and Linux.
+Microsoft Azure Storage Explorer is a standalone app that makes it easy to work with Azure Storage data on Windows, macOS, and Linux and over the Internet or your network connection.
 
 In this article, we demonstrate several ways of connecting to and managing your Azure storage accounts.
 
