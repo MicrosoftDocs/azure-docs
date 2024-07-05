@@ -20,3 +20,5 @@ items:
     href: informatica-manage-serverless.md
   - name: Troubleshoot an Informatica IDMC organization
     href: informatica-troubleshoot.md
+  - name: Get support for an Informatica IDMC organization
+    href: informatica-get-support.md
