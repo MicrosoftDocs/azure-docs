@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 02/27/2024
+ms.date: 07/05/2024
 ms.custom: vmware-scenario-422, engagement-fy24
 zone_pivot_groups: vmware-discovery-requirements
 ---

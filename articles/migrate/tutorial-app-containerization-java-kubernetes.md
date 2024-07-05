@@ -7,7 +7,7 @@ ms.manager: kmadnani
 ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 04/03/2024
+ms.date: 07/05/2024
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
 
