@@ -80,6 +80,8 @@ Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed
 
 Using customer-managed keys ensures each tenant's data is encrypted uniquely, providing robust security and compliance.
 
+![ResearchHub AI Account-per-tenant](../media/gen-ai/multi-tenant/account.png)
+
 ### Other isolation models
 
 #### Container and database isolation
