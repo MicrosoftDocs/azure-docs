@@ -14,7 +14,6 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
 
 * If you haven't already created the required infrastructure for this deployment, follow the steps in [Create infrastructure for deploying a highly available PostgreSQL database on AKS][create-infrastructure] to get set up, and then you can return to this article.
 
-
 ## Create secret for bootstrap app user
 
 1. Generate a secret to validate the PostgreSQL deployment by interactive login for a bootstrap app user using the [`kubectl create secret`][kubectl-create-secret] command.
@@ -141,11 +140,11 @@ The following table outlines the key properties set in the YAML deployment manif
           service.beta.kubernetes.io/azure-dns-label-name: $AKS_PRIMARY_CLUSTER_PG_DNSPREFIX
         labels:
           azure.workload.identity/use: "true"
-    
+      
       instances: 3
       minSyncReplicas: 1
       maxSyncReplicas: 1
-    
+      
       topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: topology.kubernetes.io/zone
@@ -153,11 +152,11 @@ The following table outlines the key properties set in the YAML deployment manif
         labelSelector:
           matchLabels:
             cnpg.io/cluster: $PG_PRIMARY_CLUSTER_NAME
-    
+      
       affinity:
         nodeSelector:
           workload: postgres
-    
+      
       resources:
         requests:
           memory: '2Gi'
@@ -165,7 +164,7 @@ The following table outlines the key properties set in the YAML deployment manif
         limits:
           memory: '2Gi'
           cpu: 1.5
-    
+      
       bootstrap:
         initdb:
           database: appdb
@@ -173,7 +172,7 @@ The following table outlines the key properties set in the YAML deployment manif
           secret:
             name: db-user-pass
           dataChecksums: true
-    
+      
       storage:
         size: 2Gi
         pvcTemplate:
@@ -183,7 +182,7 @@ The following table outlines the key properties set in the YAML deployment manif
             requests:
               storage: 2Gi
           storageClassName: managed-csi-premium
-    
+      
       walStorage:
         size: 2Gi
         pvcTemplate:
@@ -193,14 +192,14 @@ The following table outlines the key properties set in the YAML deployment manif
             requests:
               storage: 2Gi
           storageClassName: managed-csi-premium
-    
+      
       monitoring:
         enablePodMonitor: true
-    
+      
       replicationSlots:
         highAvailability:
           enabled: true
-    
+      
       postgresql:
         parameters:
           shared_buffers: "256MB"
@@ -215,13 +214,13 @@ The following table outlines the key properties set in the YAML deployment manif
             azure.workload.identity/client-id: "$AKS_UAMI_WORKLOAD_CLIENTID"  
           labels:
             azure.workload.identity/use: "true"
-    
+      
       backup:
         barmanObjectStore:
           destinationPath: "https://${PG_PRIMARY_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/backups"
           azureCredentials:
             inheritFromAzureAD: true
-    
+        
         retentionPolicy: '7d'
     EOF
     ```
@@ -233,6 +232,7 @@ The following table outlines the key properties set in the YAML deployment manif
     ```
 
     Example output
+
     ```output
     NAME                         READY   STATUS    RESTARTS   AGE
     pg-primary-cnpg-r8c7unrw-1   1/1     Running   0          4m25s
@@ -242,7 +242,7 @@ The following table outlines the key properties set in the YAML deployment manif
 
 ### Validate the Prometheus PodMonitor is running
 
-The CNPG operator automatically creates a PodMonitor for the primary instance using the recording rules created during the [Prometheus Community installation](#install-the-cnpg-operator). 
+The CNPG operator automatically creates a PodMonitor for the primary instance using the recording rules created during the [Prometheus Community installation](#install-the-cnpg-operator).
 
 * Validate the PodMonitor is running using the [`kubectl get`][kubectl-get] command.
 
@@ -255,6 +255,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
     ```
 
     Example output
+
     ```output
      kind: PodMonitor
      metadata:
@@ -301,14 +302,14 @@ Once you have deployed the Postgres cluster and the pod monitor, you can view th
 ![Azure Monitor Metrics](./media/deploy-postgresql-ha/cnpg-prom-metrics.png)
 
 #### Option B - Managed Grafana
+
 Alternatively, Once you have deployed the Postgres cluster and pod monitors, you can create a metrics dashboard on the Managed Grafana instance created by the deployment script to visualize the metrics exported to the Azure Monitor workspace. You can access the Managed Grafana via the Azure portal. Navigate to the Managed Grafana instance created by the deployment script and click on the Endpoint link as shown here:
 ![Azure Managed Grafana Instance](./media/deploy-postgresql-ha/cnpg-graf-1.png)
 
 Clicking on the Endpoint link will cause a new browser window to open where you can create dashboards on the Managed Grafana instance. Following the instructions to [configure an Azure Monitor data source](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/grafana-plugin#configure-an-azure-monitor-data-source-plug-in), you can then add visualizations to create a dashboard of metrics from the Postgres cluster. After setting up the data source connection, from the main menu, click the Data sources option and you should see a set of data source options for the data source connection as shown here:
 ![Data Source Options](./media/deploy-postgres-ha/cnpg-graf-2.png)
 
-On the Managed Prometheus option, click the option to build a dashboard to open the dashboard editor. Once the 
-editor window opens, click the Add visualization option then click the Managed Prometheus option to browse the metrics from the Postgres cluster. Once you have selected the metric you want to visualize, click the Run queries button to fetch the data for the visualization as shown here:
+On the Managed Prometheus option, click the option to build a dashboard to open the dashboard editor. Once the editor window opens, click the Add visualization option then click the Managed Prometheus option to browse the metrics from the Postgres cluster. Once you have selected the metric you want to visualize, click the Run queries button to fetch the data for the visualization as shown here:
 ![Dashboard](./media/deploy-postgres-ha/cnpg-graf-3.png)
 
 Click the Save button to add the panel to your dashboard. You can add other panels by clicking the Add button in the dashboard editor and repeating this process to visualize other metrics. Adding the metrics visualizations, you should have something that looks like this:
@@ -332,23 +333,23 @@ Your output should resemble the following example output with the availability z
 ```output
 {
     "node": "aks-postgres-15810965-vmss000000",
-    "zone": "eastus-1"
+    "zone": "westus3-1"
 }
 {
     "node": "aks-postgres-15810965-vmss000001",
-    "zone": "eastus-2"
+    "zone": "westus3-2"
 }
 {
     "node": "aks-postgres-15810965-vmss000002",
-    "zone": "eastus-3"
+    "zone": "westus3-3"
 }
 {
     "node": "aks-systempool-26112968-vmss000000",
-    "zone": "eastus-1"
+    "zone": "westus3-1"
 }
 {
     "node": "aks-systempool-26112968-vmss000001",
-    "zone": "eastus-2"
+    "zone": "westus3-2"
 }
 ```
 
@@ -374,7 +375,6 @@ In this section, you create a table and insert some data into the app database t
     ```
 
 ## Connect to PostgreSQL read-only replicas
-
 
 * Connect to the PostgreSQL read-only replicas and validate the sample dataset using the following commands:
 
@@ -407,7 +407,8 @@ In this section, you create a table and insert some data into the app database t
     ```
 
     Example output
-    ```output   
+
+    ```output
     Continuous Backup status
     First Point of Recoverability:  Not Available
     Working WAL archiving:          FAILING
@@ -439,6 +440,7 @@ In this section, you create a table and insert some data into the app database t
     ```
 
     Example output
+
     ```output
     Type    Reason     Age   From                   Message
      ----    ------     ----  ----                   -------
@@ -454,6 +456,7 @@ In this section, you create a table and insert some data into the app database t
     ```
 
     Example output
+
     ```output
     Continuous Backup status
     First Point of Recoverability:  2024-06-05T13:47:18Z
@@ -579,7 +582,7 @@ You also create a second federated credential to map the new recovery cluster se
               storage: 2Gi
           storageClassName: managed-csi-premium
           volumeMode: Filesystem
-     
+      
       serviceAccountTemplate:
         metadata:
           annotations:
@@ -646,6 +649,7 @@ You also retrieve the following endpoints from the Cluster IP service:
     ```
 
     Example output
+
     ```output
     NAME                          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
     pg-primary-cnpg-sryti1qf-r    ClusterIP   10.0.193.27    <none>        5432/TCP   3h57m
@@ -726,7 +730,7 @@ You also retrieve the following endpoints from the Cluster IP service:
     EOF
     ```
 
-4. Get the service details using the [`kubectl describe`][kubectl-describe] command.
+1. Get the service details using the [`kubectl describe`][kubectl-describe] command.
 
     ```azurecli-interactive
     kubectl describe service cnpg-cluster-load-balancer-rw \
@@ -738,9 +742,9 @@ You also retrieve the following endpoints from the Cluster IP service:
         --namespace $PG_NAMESPACE
 
     export AKS_PRIMARY_CLUSTER_ALB_DNSNAME="$(az network public-ip show \
-            --resource-group $AKS_PRIMARY_CLUSTER_NODERG_NAME \
-            --name $AKS_PRIMARY_CLUSTER_PUBLICIP_NAME \
-            --query "dnsSettings.fqdn" --output tsv)"
+        --resource-group $AKS_PRIMARY_CLUSTER_NODERG_NAME \
+        --name $AKS_PRIMARY_CLUSTER_PUBLICIP_NAME \
+        --query "dnsSettings.fqdn" --output tsv)"
 
     echo $AKS_PRIMARY_CLUSTER_ALB_DNSNAME
     ```
@@ -799,6 +803,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
     ```
 
     Example output
+
     ```output
     Name                        Current LSN Rep role        Status  Node
     --------------------------- ----------- --------        ------- -----------
@@ -825,6 +830,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
     ```
 
     Example output
+
     ```output
     pg-primary-cnpg-sryti1qf-2  0/9000060   Primary         OK      aks-postgres-32388626-vmss000001
     pg-primary-cnpg-sryti1qf-1  0/9000060   Standby (sync)  OK      aks-postgres-32388626-vmss000000
@@ -844,6 +850,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
     ```
 
     Example output
+
     ```output
     Name                        Current LSN Rep role        Status  Node
     --------------------------- ----------- --------        ------- -----------
@@ -856,7 +863,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 * Once you're finished reviewing your deployment, delete all the resources you created in this guide using the [`az group delete`][az-group-delete] command.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az group delete --resource-group $RESOURCE_GROUP_NAME --no-wait --yes
     ```
 
