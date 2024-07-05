@@ -364,7 +364,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Bright Skies GmbH](https://www.rackspace.com/bright-skies)** | Europe
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Australia
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | North America |
-| **[FlexManage](https://www.flexmanage.com/cloud)** | North America |
+| **[New Era](https://www.neweratech.com/us/)** | North America |
 | **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | North America |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australia |
 | **[MOQdigital](https://www.brennanit.com.au/solutions/cloud-services/)** | Australia |
