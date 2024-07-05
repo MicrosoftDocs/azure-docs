@@ -1,5 +1,5 @@
 ---
-title: Get support for Informatica Intelligent Data Management Cloud (Preview)- Azure Native ISV Service
+title: Get support for Informatica Intelligent Data Management Cloud- Azure Native ISV Service
 description: This article shows you how to get support when using Informatica Intelligent Data Management Cloud on the Azure Cloud.
 ms.topic: how-to
 ms.date: 07/05/2024
