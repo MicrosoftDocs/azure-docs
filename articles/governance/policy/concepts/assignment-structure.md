@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 10/03/2022
+ms.date: 07/03/2024
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -85,7 +85,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 - `createdBy` (string): The GUID of the security principal that created the assignment.
 - `createdOn` (string): The Universal ISO 8601 DateTime format of the assignment creation time.
 - `parameterScopes` (object): A collection of key-value pairs where the key matches a
-  [strongType](./definition-structure.md#strongtype) configured parameter name and the value defines
+  [strongType](./definition-structure-parameters.md#strongtype) configured parameter name and the value defines
   the resource scope used in Portal to provide the list of available resources by matching
   _strongType_. Portal sets this value if the scope is different than the assignment scope. If set,
   an edit of the policy assignment in Portal automatically sets the scope for the parameter to this
@@ -308,7 +308,7 @@ non-compliance and is optional.
 
 > [!IMPORTANT]
 > Custom messages for non-compliance are only supported on definitions or initiatives with
-> [Resource Manager modes](./definition-structure.md#resource-manager-modes) definitions.
+> [Resource Manager modes](./definition-structure-basics.md#resource-manager-modes) definitions.
 
 ```json
 "nonComplianceMessages": [
@@ -381,7 +381,7 @@ For policy assignments with effect set to **deployIfNotExist** or **modify**, it
 
 ## Next steps
 
-- Learn about the [policy definition structure](./definition-structure.md).
+- Learn about the [policy definition structure](./definition-structure-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
