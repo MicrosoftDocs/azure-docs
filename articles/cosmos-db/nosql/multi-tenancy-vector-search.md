@@ -24,11 +24,11 @@ Imagine a fictional AI-assisted research platform called ResearchHub. Serving th
 
 Azure Cosmos DB, with its [DiskANN vector index](../index-policy.md#vector-indexes) capability, simplifies multitenant design, providing efficient data storage and access mechanisms for high-performance applications.
 
-### Multi-tenancy models in Azure Cosmos DB
+## Multi-tenancy models in Azure Cosmos DB
 
 In Azure Cosmos DB, we recommend two primary approaches to managing multi-tenancy: partition key-per-tenant or account-per-tenant, each with its own set of benefits and trade-offs.
 
-#### 1. Partition key-per-tenant
+### 1. Partition key-per-tenant
 
 For a higher density of tenants and lower isolation, the partition key-per-tenant model is effective. Each tenant is assigned a unique partition key within a given container, allowing logical separation of data.
 
@@ -41,7 +41,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 - **Resource Contention:** Shared resources can lead to contention during peak usage.
 - **Limited Isolation:** Logical but not physical isolation, which may not meet stringent security needs.
 
-#### Hierarchical partitioning: enhanced data organization
+### Hierarchical partitioning: enhanced data organization
 
 [Hierarchical partitioning](../hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management.
 
@@ -56,7 +56,7 @@ ResearchHub can stratify data within each tenant’s partition by organizing it 
 ![ResearchHub AI Data Stratification](../media/gen-ai/multi-tenant/hpk.png)
 
 
-#### 2. Account-per-tenant
+### 2. Account-per-tenant
 
 For maximum isolation, the account-per-tenant model is preferable. Each tenant gets a dedicated Cosmos DB account, ensuring complete separation of resources.
 
@@ -69,7 +69,7 @@ For maximum isolation, the account-per-tenant model is preferable. Each tenant g
 - **Increased Management:** Higher complexity in managing multiple Cosmos DB accounts.
 - **Higher Costs:** More accounts mean higher infrastructure costs.
 
-### Security isolation with customer-managed keys
+## Security isolation with customer-managed keys
 
 Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed-keys.md) for data encryption, adding an extra layer of security for multitenant environments.
 
@@ -82,13 +82,13 @@ Using customer-managed keys ensures each tenant's data is encrypted uniquely, pr
 
 ![ResearchHub AI Account-per-tenant](../media/gen-ai/multi-tenant/account.png)
 
-### Other isolation models
+## Other isolation models
 
-#### Container and database isolation
+### Container and database isolation
 
 In addition to the partition key-per-tenant and account-per-tenant models, Azure Cosmos DB provides other isolation methods such as container isolation and database isolation. These approaches offer varying degrees of performance isolation, though they don't provide the same level of security isolation as the account-per-tenant model.
 
-##### Container isolation
+#### Container isolation
 
 In the container isolation model, each tenant is assigned a separate container within a shared Cosmos DB account. This model allows for some level of isolation in terms of performance and resource allocation.
 
@@ -101,7 +101,7 @@ In the container isolation model, each tenant is assigned a separate container w
 - **Limited Security Isolation:** Unlike separate accounts, containers within the same account don't provide physical data isolation. So, this model may not meet stringent security requirements.
 - **Resource Contention:** Heavy workloads in one container can still affect others if resource limits are breached.
 
-##### Database isolation
+#### Database isolation
 
 The database isolation model assigns each tenant a separate database within a shared Cosmos DB account. This provides enhanced isolation in terms of resource allocation and management.
 
@@ -118,7 +118,7 @@ While container and database isolation models don't offer the same level of secu
 
 By carefully evaluating the specific needs and constraints of your multitenant application, you can choose the most suitable isolation model in Azure Cosmos DB, balancing performance, security, and cost considerations to achieve the best results for your tenants.
 
-### Real-world implementation considerations
+## Real-world implementation considerations
 
 When designing a multitenant system with Cosmos DB, consider these factors:
 
@@ -144,7 +144,7 @@ When designing a multitenant system with Cosmos DB, consider these factors:
 2. **Customize Resources:** Tailor performance and SLAs to tenant requirements.
 3. **Ensure Security:** Physical data isolation offers robust security and compliance.
 
-### Best practices for using Azure Cosmos DB with vector search
+## Best practices for using Azure Cosmos DB with vector search
 
 Azure Cosmos DB's support for DiskANN vector index capability makes it an excellent choice for applications that require fast, high-dimensional searches, such as AI-assisted research platforms like ResearchHub. Here’s how you can leverage these capabilities:
 
@@ -176,7 +176,7 @@ Azure Cosmos DB's support for DiskANN vector index capability makes it an excell
 2. **Custom Configurations:** Resources and SLAs are tailored to meet the specific needs of each tenant, ensuring optimal performance and security.
 3. **Enhanced Data Security:** Physical separation of data with customer-managed encryption keys ensures robust security compliance.
 
-### Conclusion
+## Conclusion
 
 Multi-tenancy in Azure Cosmos DB, especially with its DiskANN vector index capability, offers a powerful solution for building scalable, high-performance AI applications. Whether you choose partition key-per-tenant, hierarchical partitioning, or account-per-tenant models, you can effectively balance cost, security, and performance. By using these models and best practices, you can ensure that your multitenant application meets the diverse needs of your customers, delivering an exceptional user experience.
 
