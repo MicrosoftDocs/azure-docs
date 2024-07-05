@@ -20,7 +20,7 @@ ms.author: behoorne
 > 
 > If you have Azure AI Health Insights deployed via the Azure Portal, it will continue to work as usual, but the Onco-Phenotype endpoint will no longer be available. As per the standard operating procedure for the Onco-Phenotype model, API results are available for 24 hours from the time the request was created, after which the results are purged. We will honor this commitment up until the model is retired.  
 >
-> We understand that you may have questions regarding this retirement. Please reach out to our Customer Service and Support (CSS) team for assistance. If you don’t currently have CSS support, you can purchase support [here](https://azure.microsoft.com/en-us/support/plans/).  
+> We understand that you may have questions regarding this retirement. Please reach out to our Customer Service and Support (CSS) team for assistance. If you don’t currently have CSS support, you can purchase support [here](https://azure.microsoft.com/support/plans/).  
 
 Onco-Phenotype is an AI model that’s offered within the context of the broader Azure AI Health Insights. It augments traditional clinical natural language processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 
