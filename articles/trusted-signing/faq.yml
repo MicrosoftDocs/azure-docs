@@ -148,6 +148,15 @@ sections:
           | :------------------- | :------------------- |
           | 400          | An Azure authentication error. This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON file. For more information, see [DefaultAzureCredential Class (Azure.Identity)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). |
           | 401          |  You aren't authenticated. Sign out and sign back in. |
+          | 403          | <ul>><li> Check Trusted Signing role. </li>      
+                          <li> Check Trusted Signing account name and Trusted Signing Certificate profile name n your metadata.json. </li>
+                          <li> Check dlib and dlib path. </li> 
+                          <li>Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. </li>  
+                          <li> Check .Net version, dlib version, and Windows SDK version. </li> 
+                          <li> Check if Trusted Signing role is assigned to the identity trying to sign the file. </li> 
+                          <li> Check if the corresponding Identity Validation is in "Completed" state. </li> 
+                          <li> Verify if you access the Trusted Signing endpoint from this VM or machine?Try executing the action on a different VM or machine. It can be a potential network issue. </li> 
+                          <li> For Private Trust scenarios 403: The user object ID to do the signing is different than the user object ID to call the  Get-azCodeSigningRootCert. The appropriate object ID needs to have the role “Trusted Signing Certificate Profile Signer. </li> </ul> |
           | 404          |  Ensure that no changes were made to your configuration or firewalls rules. |
           | "MsalUiRequiredException"           |  Typically occurs due to the local cache. The error resolves after the cache is refreshed from Azure. |
           | No certificates were found that met all the given criteria.         |  Check the dlib path, dlib version, dlib name, filename, and SignTool version. This error means that it's trying to pull certificates from your local machine and not by using Trusted Signing certificates. |
