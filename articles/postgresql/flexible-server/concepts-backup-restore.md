@@ -157,7 +157,7 @@ If your source server is configured with a *private access* virtual network, you
 
 ## Post-restore tasks
 
-After you restore the database, you can perform the following tasks to get your users and applications back up and running:
+After you restore the server, you can perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server. Change the server name of your connection string to point to the new server.
 
