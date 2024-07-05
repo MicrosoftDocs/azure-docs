@@ -33,7 +33,6 @@ The custom category API lets you create your own content categories for your use
    * [cURL](https://curl.haxx.se/) for REST API calls.
    * [Python 3.x](https://www.python.org/) installed
 
-<!--tbd env vars-->
 
 ## Prepare your training data
 

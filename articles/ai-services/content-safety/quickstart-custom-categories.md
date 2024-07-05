@@ -33,7 +33,6 @@ Follow this guide to use Azure AI Content Safety Custom category REST API to cre
    * [cURL](https://curl.haxx.se/) for REST API calls.
    * [Python 3.x](https://www.python.org/) installed
 
-<!--tbd env vars-->
 
 ## Prepare your training data
 

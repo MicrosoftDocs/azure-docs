@@ -160,10 +160,10 @@ Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need
 
 Content Safety features have query rate limits in requests-per-10-seconds. See the following table for the rate limits for each feature.
 
-|Pricing tier | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(full)|
+|Pricing tier | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(full) (preview)|
 |--------|---------|-------------|---------|---------|---------|--|
-| F0    | 1000     | 1000        | 1000     | 50      | 1000 | tbd|
-| S0    | 1000     | 1000        | 1000     | 50      | 1000 | tbd|
+| F0    | 1000     | 1000        | 1000     | 50      | 1000 | 1000|
+| S0    | 1000     | 1000        | 1000     | 50      | 1000 | 1000|
 
 If you need a faster rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 
