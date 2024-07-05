@@ -37,16 +37,17 @@ There are four types of availability tests:
 
 ## Create an availability test
 
+## [Standard test](#tab/standard)
+
 > [!TIP]
 > If you're currently using other availability tests, like URL ping tests, you might add Standard tests alongside the others. If you want to use Standard tests instead of one of your other tests, add a Standard test and delete your old test.
 
-### [Standard test](#tab/standard)
+### Prerequisites
 
-#### Prerequisites
+> [!div class="checklist"]
+> * [Workspace-based Application Insights resource](create-workspace-resource.md)
 
-To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
-
-#### Get started
+### Get started
 
 1. Go to your Application Insights resource and select the **Availability** pane.
 
@@ -69,7 +70,7 @@ To create an availability test, you must use an existing Application Insights re
     | **HTTP request verb** | Indicate what action you want to take with your request. |
     | **Request body** | Custom data associated with your HTTP request. You can upload your own files, enter your content, or disable this feature. |
 
-#### Success criteria
+### Success criteria
 
 | Setting | Description |
 |--------|--------------|
@@ -77,18 +78,18 @@ To create an availability test, you must use an existing Application Insights re
 | **HTTP response** | The returned status code that's counted as a success. The number 200 is the code that indicates that a normal webpage has been returned. |
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes, you might have to update it. *Only English characters are supported with content match.* |
 
-#### Alerts
+### Alerts
 
 | Setting | Description |
 |---------|-------------|
 | **Near real time** | We recommend using near real time alerts. Configuring this type of alert is done after your availability test is created. |
 | **Alert location threshold** |We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.** |
 
-#### Location population tags
+### Location population tags
 
 You can use the following population tags for the geo-location attribute when you deploy an availability URL ping test by using Azure Resource Manager.
 
-##### Azure
+#### Azure
 
 | Display name                           | Population name   |
 |----------------------------------------|-------------------|
@@ -109,7 +110,7 @@ You can use the following population tags for the geo-location attribute when yo
 | West US                                | us-ca-sjc-azr     |
 | UK South                               | emea-ru-msa-edge  |
 
-##### Azure Government
+#### Azure Government
 
 | Display name   | Population name     |
 |----------------|---------------------|
@@ -119,7 +120,7 @@ You can use the following population tags for the geo-location attribute when yo
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-##### Microsoft Azure operated by 21Vianet
+#### Microsoft Azure operated by 21Vianet
 
 | Display name   | Population name     |
 |----------------|---------------------|
@@ -128,25 +129,26 @@ You can use the following population tags for the geo-location attribute when yo
 | China North    | mc-cnn-azr          |
 | China North 2  | mc-cnn2-azr         |
 
-### [TrackAvailability()](#tab/track)
+## [TrackAvailability()](#tab/track)
 
 > [!IMPORTANT]
 > [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code. *[Standard tests](#standard-test) should always be used if possible* as they require little investment, no maintenance, and have few prerequisites.
 
-#### Prerequisites
+### Prerequisites
 
-To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
+> [!div class="checklist"]
+> * [Workspace-based Application Insights resource](create-workspace-resource.md)
+> * Access to the source code of a [function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
+> * Developer expertise capable of authoring [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
-#### Get started
-
-##### Basic code sample
+### Basic code sample
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure function. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test. By default, if you walk through this example, you'll be creating a basic availability HTTP GET test.
 >
 > To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
 
-###### Create a timer trigger function
+#### Create a timer trigger function
 
 1. Create an Azure Functions resource.
     If you already have an Application Insights resource:
@@ -173,7 +175,7 @@ To create an availability test, you must use an existing Application Insights re
 
     :::image type="content" source="media/availability-azure-functions/add-function.png" alt-text="Screenshot that shows how to add a timer trigger function to your function app." lightbox="media/availability-azure-functions/add-function.png":::
 
-###### Add and edit code in the App Service Editor
+#### Add and edit code in the App Service Editor
 
 Go to your deployed function app, and under **Development Tools**, select the **App Service Editor** tab.
 
@@ -305,7 +307,7 @@ To create a new file, right-click under your timer trigger function (for example
 
     ```
 
-###### Multi-step web test code sample
+#### Multi-step web test code sample
 
 Follow the same instructions above and instead paste the following code into the **runAvailabilityTest.csx** file:
 
@@ -382,17 +384,17 @@ To automate this process with Azure Resource Manager templates, see [Create a me
 
 ## See your availability test results
 
-Availability test results can be visualized with both **Line** and **Scatter Plot** views. After a few minutes, select **Refresh** to see your test results.
-
+This section explains how to review availability test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor). Availability test results can be visualized with both **Line** and **Scatter Plot** views.
+ 
 ### Check availability
 
 Start by reviewing the graph on the **Availability** tab of your Application Insights resource.
 
-#### [Standard test](#tab/standard)
+### [Standard test](#tab/standard)
 
 :::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Screenshot that shows the Availability page with the Refresh button highlighted.":::
 
-#### [TrackAvailability](#tab/track)
+### [TrackAvailability](#tab/track)
 
 > [!NOTE]
 > Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
@@ -446,18 +448,7 @@ In addition to the raw results, you can also view two key availability metrics i
 * **Availability**: Percentage of the tests that were successful across all test executions.
 * **Test Duration**: Average test duration across all test executions.
 
-### Custom TrackAvailability test
-
-This section explains how to review [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor).
-
-#### Prerequisites
-
-> [!div class="checklist"]
-> * [Workspace-based Application Insights resource](create-workspace-resource.md)
-> * Access to the source code of a [function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
-> * Developer expertise capable of authoring [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
-
-#### Query in Log Analytics
+### Query in Log Analytics
 
 You can use Log Analytics to view your availability results, dependencies, and more. To learn more about Log Analytics, see [Log query overview](../logs/log-query-overview.md).
 
