@@ -19,13 +19,13 @@ Availability tests don't require any changes to the website you're testing and w
 
 There are four types of availability tests:
 
-* [Standard test](#standard-test): This is a type of availability test that checks the availability of a website by sending a single request, similar to the deprecated URL ping test. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include TLS/SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
+* Standard test: This is a type of availability test that checks the availability of a website by sending a single request, similar to the deprecated URL ping test. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include TLS/SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
 
-* [Custom TrackAvailability test](#review-trackavailability-test-results): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
+* Custom TrackAvailability test: If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
 
-* [Multi-step web test (deprecated)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
+* [(Deprecated) Multi-step web test](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
 
-* [URL ping test (deprecated)](monitor-web-app-availability.md): You can create this test through the Azure portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
+* [(Deprecated) URL ping test](monitor-web-app-availability.md): You can create this test through the Azure portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
 
 > [!IMPORTANT]
 > There are two upcoming availability tests retirements:
@@ -135,7 +135,9 @@ You can use the following population tags for the geo-location attribute when yo
 ## [TrackAvailability()](#tab/track)
 
 > [!IMPORTANT]
-> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code. *[Standard tests](#standard-test) should always be used if possible* as they require little investment, no maintenance, and have few prerequisites.
+> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code.
+>
+> *Standard tests should always be used if possible*, as they require little investment, no maintenance, and have few prerequisites.
 
 ### Prerequisites
 
@@ -147,9 +149,9 @@ You can use the following population tags for the geo-location attribute when yo
 ### Basic code sample
 
 > [!NOTE]
-> This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure function. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test. By default, if you walk through this example, you'll be creating a basic availability HTTP GET test.
->
-> To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
+> This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure function. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test.
+> 
+> By default, if you walk through this example, you'll be creating a basic availability HTTP GET test. To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
 
 #### Create a timer trigger function
 
@@ -475,10 +477,7 @@ We simplify this process by providing clear step-by-step instructions to ensure 
 The following steps walk you through the process of creating [standard tests](availability-standard-tests.md) that replicate the functionality of your [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
 > [!IMPORTANT]
-> On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) will be retired**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
-> * A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
-> 
-> * Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
+> A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions. Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
 
 #### Prerequisites
 
@@ -575,7 +574,7 @@ Alternatively, set the token as a query parameter. For example, `https://yourtes
 > [!NOTE]
 > This example is specific to network security group service tag usage. Many Azure services accept service tags, each requiring different configuration steps.
 
-* To simplify enabling Azure services without authorizing individual IPs or maintaining an up-to-date IP list, use [Service tags](../../virtual-network/service-tags-overview.md). Apply these tags across Azure Firewall and network security groups, allowing the Availability Test service access to your endpoints. The service tag `ApplicationInsightsAvailability` applies to all Availability Tests.
+* To simplify enabling Azure services without authorizing individual IPs or maintaining an up-to-date IP list, use [Service tags](../../virtual-network/service-tags-overview.md). Apply these tags across Azure Firewall and network security groups, allowing the availability test service access to your endpoints. The service tag `ApplicationInsightsAvailability` applies to all availability tests.
 
     1. If you're using [Azure network security groups](../../virtual-network/network-security-groups-overview.md), go to your network security group resource and under **Settings**, select **inbound security rules**. Then select **Add**.
 
@@ -675,7 +674,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 This article introduces a simple way to calculate and report service-level agreement (SLA) for web tests through a single pane of glass across your Application Insights resources and Azure subscriptions. The downtime and outage report provides powerful prebuilt queries and data visualizations to enhance your understanding of your customer's connectivity, typical application response time, and experienced downtime.
 
 The SLA workbook template is accessible through the workbook gallery in your Application Insights resource. Or, in the left pane, select **Availability** and then select **SLA Report** at the top of the screen.
-:::image type="content" source="./media/sla-report/availability.png" alt-text="Screenshot that shows the Availability tab with SLA Report highlighted." lightbox="./media/sla-report/availability.png":::
+:::image type="content" source="./media/sla-report/availability.png" alt-text="Screenshot that shows the **Availability** tab with SLA Report highlighted." lightbox="./media/sla-report/availability.png":::
 
 :::image type="content" source="./media/sla-report/workbook-gallery.png" alt-text="Screenshot of the workbook gallery with the Downtime & Outages workbook highlighted." lightbox ="./media/sla-report/workbook-gallery.png":::
 
@@ -686,7 +685,7 @@ The parameters set in the workbook influence the rest of your report.
 :::image type="content" source="./media/sla-report/parameters.png" alt-text=" Screenshot that shows parameters." lightbox= "./media/sla-report/parameters.png":::
 
 * `Subscriptions`, `App Insights Resources`, and `Web Test`: These parameters determine your high-level resource options. They're based on Log Analytics queries and are used in every report query.
-* `Failure Threshold` and `Outage Window`: You can use these parameters to determine your own criteria for a service outage. An example is the criteria for an App Insights Availability alert based on a failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
+* `Failure Threshold` and `Outage Window`: You can use these parameters to determine your own criteria for a service outage. An example is the criteria for an Application Insights availability alert based on a failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
 * `Maintenance Period`: You can use this parameter to select your typical maintenance frequency. `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period will be ignored in your results.
 * `Availability Target %`: This parameter specifies your target objective and takes custom values.
 
