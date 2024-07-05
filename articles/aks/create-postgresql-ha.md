@@ -130,7 +130,7 @@ The CNPG operator automatically generates a service account called *postgres* th
         --kind StorageV2 \
         --query 'provisioningState' \
         --output tsv
-      ```
+    ```
 
 1. Create the storage container to store the Write Ahead Logs (WAL) and regular PostgreSQL on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
 
@@ -142,7 +142,7 @@ The CNPG operator automatically generates a service account called *postgres* th
     ```
 
     > [!NOTE]
-    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'.`. Please verify user permissions for Azure Blob Storage and, if **necessary**, elevate your role to `Storage Blob Data Owner` using the commands provided below.
+    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'`. Please verify user permissions for Azure Blob Storage and, if **necessary**, elevate your role to `Storage Blob Data Owner` using the commands provided below.
 
     ```azurecli-interactive
     az role assignment list --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID --output table
