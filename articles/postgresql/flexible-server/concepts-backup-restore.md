@@ -171,7 +171,7 @@ After you restore the database, you can perform the following tasks to get your 
   
 - If the source server from which you restored was configured with high availability, and you want to configure the restored server with high availability, you can then follow [these steps](./how-to-manage-high-availability-portal.md).
 
-- If the source server from which you restored was configured with read replicase, and you want to configure read replicas on the restored server, you can then follow [these steps](./how-to-read-replicas-portal.md).
+- If the source server from which you restored was configured with read replicas, and you want to configure read replicas on the restored server, you can then follow [these steps](./how-to-read-replicas-portal.md).
  
 ## Long-term retention (preview)
 
