@@ -23,6 +23,8 @@ items:
     href: quickstart-groundedness.md
   - name: Protected material detection (preview)
     href: quickstart-protected-material.md
+  - name: Custom categories
+    href: quickstart-custom-categories.md
   - name: Content Safety Studio
     href: studio-quickstart.md
   - name: Text moderation
