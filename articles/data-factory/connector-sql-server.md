@@ -99,7 +99,7 @@ These generic properties are supported for a SQL server linked service when you 
 | type | The type property must be set to **SqlServer**. | Yes |
 | server | The name or network address of the SQL server instance you want to connect to. | Yes |
 | database | The name of the database. | Yes |
-| authenticationType |The type used for authentication. Allowed values are [**SQL**](#sql-authentication) (default), [**Windows**](#windows-authentication) and [**UserAssignedManagedIdentity**](#user-assigned-managed-identity-authentication) (only for SQL Server on Azure VMs). Go to the relevant authentication section on specific properties and prerequisites. | Yes |
+| authenticationType |The type used for authentication. Allowed values are [**SQL**](#sql-authentication) (default), [**Windows**](#windows-authentication) and [**UserAssignedManagedIdentity**](#user-assigned-managed-identity-authentication) (only for [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines)). Go to the relevant authentication section on specific properties and prerequisites. | Yes |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | encrypt |Indicate whether TLS encryption is required for all data sent between the client and server. Options: mandatory (for true, default)/optional (for false)/strict. | No |
 | trustServerCertificate | Indicate whether the channel will be encrypted while bypassing the certificate chain to validate trust. | No |
@@ -297,7 +297,7 @@ You also need to follow the steps below:
 
 1. [Grant permissions to your user-assigned managed identity](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#grant-permissions).
 
-1. [Enable Microsoft Entra authentication](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#enable-microsoft-entra-authentication) to your SQL Server on Azure VMs.
+1. [Enable Microsoft Entra authentication](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm#enable-microsoft-entra-authentication) to your [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines).
 
 1. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
