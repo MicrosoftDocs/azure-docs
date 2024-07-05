@@ -301,6 +301,9 @@ Along with using Elasticsearch databases in Azure OpenAI Studio, you can also us
 
 After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
 
+> [!NOTE]
+> Deployment to both web apps and Copilot Studio (preview) is not supported in the Azure US government cloud.
+
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
 This gives you the option of deploying a standalone web app for you and your users to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
