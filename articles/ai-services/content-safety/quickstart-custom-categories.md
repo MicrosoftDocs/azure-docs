@@ -13,18 +13,20 @@ ms.author: pafarley
 
 # Quickstart: Custom categories
 
-Follow this guide to use Azure AI Content Safety Custom category API to create your own content categories for your use case and train Azure AI Content Safety to detect them in new content.
+Follow this guide to use Azure AI Content Safety Custom category REST API to create your own content categories for your use case and train Azure AI Content Safety to detect them in new text content.
 
 > [!IMPORTANT]
-> This new feature is only available in certain Azure regions. See [Region availability](./overview.md#region-availability).
+> This feature is only available in certain Azure regions. See [Region availability](./overview.md#region-availability).
 
-> [!CAUTION]
-> The sample data in this guide might contain offensive content. User discretion is advised.
+> [!IMPORTANT]
+> **Allow enough time for model training**
+>
+> The end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly.
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource</a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource</a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, [supported region](./overview.md#region-availability), and supported pricing tier. Then select **Create**.
    * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. Copy the endpoint and either of the key values to a temporary location for later use.
 * Also [create an Azure blob storage container](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) where you'll keep your training annotation file.
 * One of the following installed:
@@ -35,36 +37,19 @@ Follow this guide to use Azure AI Content Safety Custom category API to create y
 
 ## Prepare your training data
 
-To train a custom category, you need example text data that represents the category you want to detect. Follow these steps to prepare your sample data:
+To train a custom category, you need example text data that represents the category you want to detect. In this guide, you can use sample data. The provided annotation file contains text prompts about survival advice in camping/wilderness situations. The trained model will learn to detect this type of content in new text data.
 
-1. Collect or write your sample data:
-    - The quality of your sample data is important for training an effective model. Aim to collect at least 50 positive samples that accurately represent the content you want to identify. These samples should be clear, varied, and directly related to the category definition.
-    - Negative samples aren't required, but they can improve the model's ability to distinguish relevant content from irrelevant content. 
-        To improve performance, aim for 50 samples that aren't related to the positive case definition. These should be varied but still within the context of the content your model will encounter. Choose negative samples carefully to ensure they don't inadvertently overlap with the positive category. 
-    - Strive for a balance between the number of positive and negative samples. An uneven dataset can bias the model, causing it to favor one type of classification over another, which may lead to a higher rate of false positives or negatives.
+> [!TIP]
+> For tips on creating your own data set, see the [How-to guide](./how-to/custom-categories.md#prepare-your-training-data).
 
-1. Use a text editor to format your data in a *.jsonl* file. Below is an example of the appropriate format. Category examples should set `isPositive` to `true`. Negative examples are optional but can improve performance:
-    ```json
-    {"text": "This is the 1st sample.", "isPositive": true}
-    {"text": "This is the 2nd sample.", "isPositive": true}
-    {"text": "This is the 3rd sample (negative).", "isPositive": false}
-    ```
-
-1. Upload the _.jsonl_ file to an Azure Storage account blob container. Copy the blob URL to a temporary location for later use.
+1. Download the [sample text data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ContentSafety/survival-advice.jsonl) from the GitHub repository.
+1. Upload the _.jsonl_ file to your Azure Storage account blob container. Then copy the blob URL to a temporary location for later use.
 
 ### Grant storage access 
 
 [!INCLUDE [storage-account-access](../includes/storage-account-access.md)]
 
 ## Create and train a custom category
-
-> [!IMPORTANT]
-> **Allow enough time for model training**
->
-> The end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly and allocate time for:
-> * Collecting and preparing your sample data
-> * The training process
-> * Model evaluation and adjustments
 
 #### [cURL](#tab/curl)
 
@@ -73,35 +58,37 @@ In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other ne
 ### Create new category version
 
 ```bash
-curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?api-version=2024-02-15-preview" \
+curl -X PUT "<your_endpoint>/contentsafety/text/categories/survival-advice?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
-        \"categoryName\": \"<your_category_name>\",
-        \"definition\": \"<your_category_definition>\",
-        \"sampleBlobUrl\": \"https://example.blob.core.windows.net/example-container/sample.jsonl\"
-     }"
+        \"categoryName\": \"survival-advice\",
+        \"definition\": \"text prompts about survival advice in camping/wilderness situations\",
+        \"sampleBlobUrl\": \"https://<your-azure-storage-url>/example-container/survival-advice.jsonl\"
+        }"
 ```
 
 ### Start the category build process:
 
+Replace `<your_api_key>` and `<your_endpoint>` with your own values. Allow enough time for model training: the end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly.
+
 ```bash
-curl -X POST "<endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview" \
+curl -X POST "<your_endpoint>/contentsafety/text/categories/survival-advice:build?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
 
 ## Analyze text with a customized category
 
-Run the following command to analyze text with your customized category. Replace `<your_category_name>` with your own value:
+Run the following command to analyze text with your customized category. Replace `<your_api_key>` and `<your_endpoint>` with your own values.
 
 ```bash
-curl -X POST "<endpoint>/contentsafety/text:analyzeCustomCategory?api-version=2024-02-15-preview" \
+curl -X POST "<your_endpoint>/contentsafety/text:analyzeCustomCategory?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
-        \"text\": \"Example text to analyze\",
-        \"categoryName\": \"<your_category_name>\", 
+        \"text\": \"<Example text to analyze>\",
+        \"categoryName\": \"survival-advice\", 
         \"version\": 1
         }"
 ```
@@ -129,7 +116,7 @@ headers = {
 }
 ```
 
-### Create a new category version
+### Create a new category
 
 You can create a new category with *category name*, *definition* and *sample_blob_url*, and you'll get the autogenerated version number of this category.
 
@@ -145,9 +132,9 @@ def create_new_category_version(category_name, definition, sample_blob_url):
     return response.json()
 
 # Replace the parameters with your own values
-category_name = "DrugAbuse"
-definition = "This category is related to Drug Abuse."
-sample_blob_url = "https://<your-azure-storage-url>/example-container/drugsample.jsonl"
+category_name = "survival-advice"
+definition = "text prompts about survival advice in camping/wilderness situations"
+sample_blob_url = "https://<your-azure-storage-url>/example-container/survival-advice.jsonl"
 
 result = create_new_category_version(category_name, definition, sample_blob_url)
 print(result)
@@ -155,7 +142,7 @@ print(result)
 
 ### Start the category build process
 
-You can start the category build process with the *category name* and *version number*.
+You can start the category build process with the *category name* and *version number*. Allow enough time for model training: the end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly.
 
 ```python
 def trigger_category_build_process(category_name, version):
@@ -164,7 +151,7 @@ def trigger_category_build_process(category_name, version):
     return response.status_code
 
 # Replace the parameters with your own values
-category_name = "<your_category_name>"
+category_name = "survival-advice"
 version = 1
 
 result = trigger_category_build_process(category_name, version)
@@ -188,8 +175,8 @@ def analyze_text_with_customized_category(text, category_name, version):
     return response.json()
 
 # Replace the parameters with your own values
-text = "Example text to analyze"
-category_name = "<your_category_name>"
+text = "<Example text to analyze>"
+category_name = "survival-advice"
 version = 1
 
 result = analyze_text_with_customized_category(text, category_name, version)
@@ -198,121 +185,8 @@ print(result)
 
 ---
 
-## Other custom category operations
-
-Remember to replace the placeholders below with your actual values for the API key, endpoint, and specific content (category name, definition, and so on). These examples help you to manage the customized categories in your account.
-
-#### [cURL](#tab/curl)
-
-### Get a customized category or a specific version of it
-
-Replace the placeholders with your own values and run the following command in a terminal window:
-
-```bash
-curl -X GET "<endpoint>/contentsafety/text/categories/<your_category_name>?api-version=2024-02-15-preview&version=1" \
-     -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
-     -H "Content-Type: application/json"
-```
-
-### List categories of their latest versions
-
-Replace the placeholders with your own values and run the following command in a terminal window:
-
-```bash
-curl -X GET "<endpoint>/contentsafety/text/categories?api-version=2024-02-15-preview" \
-     -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
-     -H "Content-Type: application/json"
-```
-
-### Delete a customized category or a specific version of it
-
-Replace the placeholders with your own values and run the following command in a terminal window:
-
-```bash
-curl -X DELETE "<endpoint>/contentsafety/text/categories/<your_category_name>?api-version=2024-02-15-preview&version=1" \
-     -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
-     -H "Content-Type: application/json"
-```
-
-#### [Python](#tab/python)
-
-First, make sure you've installed the required Python library:
-
-```bash
-pip install requests
-```
-
-Then, set up the necessary configurations with your own AI resource details:
-
-```python
-import requests
-
-API_KEY = '<your_api_key>'
-ENDPOINT = '<your_endpoint>'
-
-headers = {
-    'Ocp-Apim-Subscription-Key': API_KEY,
-    'Content-Type': 'application/json'
-}
-```
-
-### Get a customized category or a specific version of it
-
-Replace the placeholders with your own values and run the following code in your Python script:
-
-```python
-def get_customized_category(category_name, version=None):
-    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=2024-02-15-preview"
-    if version:
-        url += f"&version={version}"
-    
-    response = requests.get(url, headers=headers)
-    return response.json()
-
-# Replace the parameters with your own values
-category_name = "DrugAbuse"
-version = 1
-
-result = get_customized_category(category_name, version)
-print(result)
-```
-
-### List categories of their latest versions
-
-```python
-def list_categories_latest_versions():
-    url = f"{ENDPOINT}/contentsafety/text/categories?api-version=2024-02-15-preview"
-    response = requests.get(url, headers=headers)
-    return response.json()
-
-result = list_categories_latest_versions()
-print(result)
-```
-
-### Delete a customized category or a specific version of it
-
-Replace the placeholders with your own values and run the following code in your Python script:
-
-```python
-def delete_customized_category(category_name, version=None):
-    url = f"{ENDPOINT}/contentsafety/text/categories/{category_name}?api-version=2024-02-15-preview"
-    if version:
-        url += f"&version={version}"
-    
-    response = requests.delete(url, headers=headers)
-    return response.status_code
-
-# Replace the parameters with your own values
-category_name = "<your_category_name>"
-version = 1
-
-result = delete_customized_category(category_name, version)
-print(result)
-```
----
-
-
 ## Related content
 
+* For information on other Custom category operations, see the [How-to guide](./how-to/custom-categories.md).
 * [Custom categories concepts](../concepts/custom-categories.md)
 * [Moderate content with Content Safety](../quickstart-text.md)
