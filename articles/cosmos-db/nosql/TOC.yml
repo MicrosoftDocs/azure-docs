@@ -349,9 +349,9 @@
     - name: Analytics and BI
       items:
         - name: Analytics and BI overview
-          href: ../analytics-bi-overview.md
+          href: ../analytics-and-business-intelligence-overview.md
         - name: Analytics and BI use cases
-          href: ../analytics-bi-use-cases.md
+          href: ../analytics-and-business-intelligence-use-cases.md
         - name: Mirroring in Microsoft Fabric
           items:
             - name: Overview

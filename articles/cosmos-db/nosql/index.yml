@@ -69,11 +69,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Analytics and BI overview
-            url: ../analytics-bi-overview.md
+            url: ../analytics-and-business-intelligence-overview.md
       - linkListType: concept
         links:
           - text: Analytics and BI use cases
-            url: ../analytics-bi-use-cases.md
+            url: ../analytics-and-business-intelligence-use-cases.md
           - text: Mirroring in Microsoft Fabric
             url: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
           - text: Azure Synapse Link
