@@ -15,7 +15,7 @@ Availability tests don't require any changes to the website you're testing and w
 > [!NOTE]
 > Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
 
-## Types of tests
+## Types of availability tests
 
 There are four types of availability tests:
 
@@ -40,13 +40,13 @@ There are four types of availability tests:
 > [!TIP]
 > If you're currently using other availability tests, like URL ping tests, you might add Standard tests alongside the others. If you want to use Standard tests instead of one of your other tests, add a Standard test and delete your old test.
 
-### Prerequisites
+### [Standard test](#tab/standard)
+
+#### Prerequisites
 
 To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
 
-### Get started
-
-#### [Standard test](#tab/standard)
+#### Get started
 
 1. Go to your Application Insights resource and select the **Availability** pane.
 
@@ -54,35 +54,35 @@ To create an availability test, you must use an existing Application Insights re
 
     :::image type="content" source="./media/availability-standard-test/standard-test.png" alt-text="Screenshot that shows the Availability pane with the Add Standard test tab open." lightbox="./media/availability-standard-test/standard-test.png":::
 
-1. Input your test name, URL, and other settings that are described in the following table. Then select **Create**.
+1. Input your test name, URL, and other settings that are described in the following table. Then, select **Create**.
 
-    |Setting | Description |
-    |--------|-------------|
-    |**URL** |  The URL can be any webpage you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.|
-    |**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option isn't selected, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which might not be noticeable when you manually browse the site. Please note, we parse only up to 15 dependent requests. |
-    |**Enable retries**| When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. *We recommend this option*. On average, about 80% of failures disappear on retry.|
+    | Setting | Description |
+    |---------|-------------|
+    | **URL** | The URL can be any webpage you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects. |
+    | **Parse dependent requests** | Test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option isn't selected, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which might not be noticeable when you manually browse the site. Please note, we parse only up to 15 dependent requests. |
+    | **Enable retries** | When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. *We recommend this option*. On average, about 80% of failures disappear on retry. |
     | **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it's correctly installed, valid, trusted, and doesn't give any errors to any of your users. |
     | **Proactive lifetime check** | This setting enables you to define a set time period before your SSL certificate expires. After it expires, your test will fail. |
-    |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
-    |**Test locations**|  Our servers send web requests to your URL from these locations. *Our minimum number of recommended test locations is five* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
+    | **Test frequency** | Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute. |
+    | **Test locations** |  Our servers send web requests to your URL from these locations. *Our minimum number of recommended test locations is five* to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations. |
     | **Custom headers** | Key value pairs that define the operating parameters. |
     | **HTTP request verb** | Indicate what action you want to take with your request. |
     | **Request body** | Custom data associated with your HTTP request. You can upload your own files, enter your content, or disable this feature. |
 
 #### Success criteria
 
-|Setting| Description|
-|-------|------------|
-| **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must have been received within this period.|
-| **HTTP response** | The returned status code that's counted as a success. The number 200 is the code that indicates that a normal webpage has been returned.|
+| Setting | Description |
+|--------|--------------|
+| **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must have been received within this period. |
+| **HTTP response** | The returned status code that's counted as a success. The number 200 is the code that indicates that a normal webpage has been returned. |
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes, you might have to update it. *Only English characters are supported with content match.* |
 
 #### Alerts
 
-|Setting| Description|
-|-------|------------|
-|**Near real time** | We recommend using near real time alerts. Configuring this type of alert is done after your availability test is created.  |
-|**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
+| Setting | Description |
+|---------|-------------|
+| **Near real time** | We recommend using near real time alerts. Configuring this type of alert is done after your availability test is created. |
+| **Alert location threshold** |We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.** |
 
 #### Location population tags
 
@@ -131,26 +131,32 @@ You can use the following population tags for the geo-location attribute when yo
 ### [TrackAvailability()](#tab/track)
 
 > [!IMPORTANT]
-> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code. [Standard tests](#standard-test) **should always be used if possible** as they require little investment, no maintenance, and have few prerequisites.
+> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code. *[Standard tests](#standard-test) should always be used if possible* as they require little investment, no maintenance, and have few prerequisites.
 
-#### Basic code sample
+#### Prerequisites
+
+To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-workspace-resource.md).
+
+#### Get started
+
+##### Basic code sample
 
 > [!NOTE]
 > This example is designed solely to show you the mechanics of how the `TrackAvailability()` API call works within an Azure function. It doesn't show you how to write the underlying HTTP test code or business logic that's required to turn this example into a fully functional availability test. By default, if you walk through this example, you'll be creating a basic availability HTTP GET test.
 >
 > To follow these instructions, you must use the [dedicated plan](../../azure-functions/dedicated-plan.md) to allow editing code in App Service Editor.
 
-#### Create a timer trigger function
+###### Create a timer trigger function
 
 1. Create an Azure Functions resource.
-    * If you already have an Application Insights resource:
+    If you already have an Application Insights resource:
 
-        * By default, Azure Functions creates an Application Insights resource. But if you want to use a resource you created previously, you must specify that during creation.
-        * Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
+    * By default, Azure Functions creates an Application Insights resource. But if you want to use a resource you created previously, you must specify that during creation.
+    * Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
 
-          On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
+        On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
 
-          :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
+        :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
 
     * If you don't have an Application Insights resource created yet for your timer-triggered function:
         * By default, when you're creating your Azure Functions application, it creates an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
@@ -159,15 +165,15 @@ You can use the following population tags for the geo-location attribute when yo
     > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
 
 1. Create a timer trigger function.
-    1. In your function app, select the **Functions** tab
+    1. In your function app, select the **Functions** tab.
     1. Select **Add**. On the **Add function** pane, select the following configurations:
-        1. **Development environment**: **Develop in portal**
-        1. **Select a template**: **Timer trigger**
+        * **Development environment**: Develop in portal
+        * **Select a template**: Timer trigger
     1. Select **Add** to create the timer trigger function.
 
     :::image type="content" source="media/availability-azure-functions/add-function.png" alt-text="Screenshot that shows how to add a timer trigger function to your function app." lightbox="media/availability-azure-functions/add-function.png":::
 
-#### Add and edit code in the App Service Editor
+###### Add and edit code in the App Service Editor
 
 Go to your deployed function app, and under **Development Tools**, select the **App Service Editor** tab.
 
@@ -299,7 +305,7 @@ To create a new file, right-click under your timer trigger function (for example
 
     ```
 
-#### Multi-step web test code sample
+###### Multi-step web test code sample
 
 Follow the same instructions above and instead paste the following code into the **runAvailabilityTest.csx** file:
 
