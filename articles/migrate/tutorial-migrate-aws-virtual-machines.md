@@ -12,7 +12,7 @@ ms.custom: MVC, engagement-fy24
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
 
