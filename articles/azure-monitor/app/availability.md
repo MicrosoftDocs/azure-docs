@@ -88,7 +88,7 @@ To create an availability test, you must use an existing Application Insights re
 
 You can use the following population tags for the geo-location attribute when you deploy an availability URL ping test by using Azure Resource Manager.
 
-**Azure**
+##### Azure
 
 | Display name                           | Population name   |
 |----------------------------------------|-------------------|
@@ -109,7 +109,7 @@ You can use the following population tags for the geo-location attribute when yo
 | West US                                | us-ca-sjc-azr     |
 | UK South                               | emea-ru-msa-edge  |
 
-**Azure Government**
+##### Azure Government
 
 | Display name   | Population name     |
 |----------------|---------------------|
@@ -119,7 +119,7 @@ You can use the following population tags for the geo-location attribute when yo
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
-**Microsoft Azure operated by 21Vianet**
+##### Microsoft Azure operated by 21Vianet
 
 | Display name   | Population name     |
 |----------------|---------------------|
@@ -329,8 +329,6 @@ public async static Task RunAvailabilityTestAsync(ILogger log)
 
 ## Availability alerts
 
-[Application Insights](app-insights-overview.md) availability tests send web requests to your application at regular intervals from points around the world. You can receive alerts if your application isn't responding or if it responds too slowly.
-
 ### Enable alerts
 
 Alerts are now automatically enabled by default, but to fully configure an alert, you must initially create your availability test.
@@ -366,17 +364,17 @@ If you need advanced capabilities, you can create a custom alert rule on the **
 
 A custom alert rule offers higher values for the aggregation period (up to 24 hours instead of 6 hours) and the test frequency (up to 1 hour instead of 15 minutes). It also adds options to further define the logic by selecting different operators, aggregation types, and threshold values.
 
-- **Alert on X out of Y locations reporting failures**: The X out of Y locations alert rule is enabled by default in the [new unified alerts experience](../alerts/alerts-overview.md) when you create a new availability test. You can opt out by selecting the "classic" option or by choosing to disable the alert rule. Configure the action groups to receive notifications when the alert triggers by following the preceding steps. Without this step, you'll only receive in-portal notifications when the rule triggers.
+* **Alert on X out of Y locations reporting failures**: The X out of Y locations alert rule is enabled by default in the [new unified alerts experience](../alerts/alerts-overview.md) when you create a new availability test. You can opt out by selecting the "classic" option or by choosing to disable the alert rule. Configure the action groups to receive notifications when the alert triggers by following the preceding steps. Without this step, you'll only receive in-portal notifications when the rule triggers.
 
-- **Alert on availability metrics**: By using the [new unified alerts](../alerts/alerts-overview.md), you can alert on segmented aggregate availability and test duration metrics too:
+* **Alert on availability metrics**: By using the [new unified alerts](../alerts/alerts-overview.md), you can alert on segmented aggregate availability and test duration metrics too:
 
-   1. Select an Application Insights resource in the **Metrics** experience, and select an **Availability** metric.
+    1. Select an Application Insights resource in the **Metrics** experience, and select an **Availability** metric.
+    
+    1. The **Configure alerts** option from the menu takes you to the new experience where you can select specific tests or locations on which to set up alert rules. You can also configure the action groups for this alert rule here.
 
-   1. The **Configure alerts** option from the menu takes you to the new experience where you can select specific tests or locations on which to set up alert rules. You can also configure the action groups for this alert rule here.
+* **Alert on custom analytics queries**: By using the [new unified alerts](../alerts/alerts-overview.md), you can alert on [custom log queries](../alerts/alerts-types.md#log-alerts). With custom queries, you can alert on any arbitrary condition that helps you get the most reliable signal of availability issues. It's also applicable if you're sending custom availability results by using the TrackAvailability SDK.
 
-- **Alert on custom analytics queries**: By using the [new unified alerts](../alerts/alerts-overview.md), you can alert on [custom log queries](../alerts/alerts-types.md#log-alerts). With custom queries, you can alert on any arbitrary condition that helps you get the most reliable signal of availability issues. It's also applicable if you're sending custom availability results by using the TrackAvailability SDK.
-
-  The metrics on availability data include any custom availability results you might be submitting by calling the TrackAvailability SDK. You can use the alerting on metrics support to alert on custom availability results.
+    The metrics on availability data include any custom availability results you might be submitting by calling the TrackAvailability SDK. You can use the alerting on metrics support to alert on custom availability results.
 
 ### Automate alerts
 
@@ -384,9 +382,7 @@ To automate this process with Azure Resource Manager templates, see [Create a me
 
 ## See your availability test results
 
-Availability test results can be visualized with both **Line** and **Scatter Plot** views.
-
-After a few minutes, select **Refresh** to see your test results.
+Availability test results can be visualized with both **Line** and **Scatter Plot** views. After a few minutes, select **Refresh** to see your test results.
 
 ### Check availability
 
