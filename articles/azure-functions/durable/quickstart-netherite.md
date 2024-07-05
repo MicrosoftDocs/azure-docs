@@ -143,6 +143,7 @@ Below are guiding screenshots on how to find this data in the portal:
 You need to add your connection string as an application setting in your function app. To do this through the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. This is where you can assign `EventHubsConnection` to map to your connection string. Below are some guiding images.
 
 ![In the Function App view, go to "configuration" and select "new application setting."](./media/quickstart-netherite/add-configuration.png)
+
 ![Enter `EventHubsConnection` as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
 
 ### Enable runtime scaling (Elastic Premium only)

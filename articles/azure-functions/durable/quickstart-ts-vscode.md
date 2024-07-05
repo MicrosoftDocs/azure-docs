@@ -72,7 +72,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, select F1 (or <kbd>Ctrl/Cmd + Shift + P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and then select **Azure Functions: Create New Project**.
 
     ![Screenshot of the Visual Studio Code command palette. The command titled "Azure Functions: Create New Project..." is highlighted.](media/quickstart-js-vscode/functions-create-project.png)
 
@@ -137,7 +137,7 @@ The most basic Durable Functions app contains three functions:
 
 You use a template to create the durable function code in your project.
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 
@@ -153,7 +153,7 @@ Next, you'll add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 
@@ -168,7 +168,7 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 
@@ -187,7 +187,7 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 One of the benefits of the V4 Programming Model is the flexibility of where you write your functions.
 In the V4 Model, you can use a single template to create all three functions in one file in your project.
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 

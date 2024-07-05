@@ -112,7 +112,7 @@ Add the following to your *pom.xml*:
 
 ## Add required JSON files
 
-Add a `host.json` file to your project directory. It should look similar to the following:
+Add a *host.json* file to your project directory. It should look similar to the following:
 
 ```json
 {
@@ -241,11 +241,11 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 
   | Prompt | Value |
   | ------ | ----- |
-  | **groupId** | `com.function` |
-  | **artifactId** | `myDurableFunction` |
-  | **version** | `1.0-SNAPSHOT` |
-  | **package** | `com.function` |
-  | **Y** | Hit _enter_ to confirm |
+  | **groupId** | **com.function** |
+  | **artifactId** | **myDurableFunction** |
+  | **version** | **1.0-SNAPSHOT** |
+  | **package** | **com.function** |
+  | **Y** | Select Enter to confirm. |
 
 Now you have a local project generated with the three functions that are needed for a basic Durable Functions app.
 
@@ -271,7 +271,7 @@ Durable Functions needs a storage provider to store runtime state. You can confi
 
 ## Create your local project
 
-1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open Command Palette. In Command Palette, search for and then select **Azure Functions: Create New Project**.
 
     ![Screenshot of create new functions project.](media/quickstart-js-vscode/functions-create-project.png)
 
@@ -295,7 +295,7 @@ You now have a project with an example HTTP function. You can remove this functi
 
 ## Add functions to the project
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Select `Change template filter` to `All`.
 

@@ -48,7 +48,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and then select **Azure Functions: Create New Project**.
 
     :::image type="content" source="media/durable-functions-create-first-csharp/functions-vscode-create-project.png" alt-text="Screenshot of create a function project window.":::
 

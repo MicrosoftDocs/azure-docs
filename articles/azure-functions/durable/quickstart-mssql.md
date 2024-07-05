@@ -45,6 +45,7 @@ If this isn't the case, we suggest you start with one of the following articles,
 You need to install the latest version of the MSSQL storage provider Extension on NuGet, which for .NET means adding a reference to it in your `.csproj` file and building the project. You can also use the [`dotnet add package`](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
 
 The Extension package to install depends on the .NET worker you're using:
+
 - For the _in-process_ .NET worker, install [`Microsoft.DurableTask.SqlServer.AzureFunctions`](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
 - For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer).
 
@@ -56,12 +57,12 @@ func extensions install --package <package name depending on your worker model> 
 
 For more information on installing Azure Functions Extensions via the Core Tools CLI, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
 
-## Set up your Database
+## Set up your database
 
 > [!NOTE]
 > If you already have an MSSQL-compatible database, you may skip this section and its sub-section on setting up a Docker-based local database.
 
-As the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
+As the MSSQL back end is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
 
 You can also do local, offline development with [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows machine or use [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container. For ease of setup, this article focuses on the latter.
 
@@ -129,10 +130,9 @@ Using the previous Docker commands, without changing any parameters, your connec
 Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;
 ```
 
-After obtaining your connection string, add it to a variable in `local.settings.json` so it can be used during local development. 
+After obtaining your connection string, add it to a variable in `local.settings.json` so it can be used during local development.
 
-Below is an example `local.settings.json` assigning the default Docker-based SQL Server's connection string to the variable `SQLDB_Connection`. 
-
+Below is an example _local.settings.json_ assigning the default Docker-based SQL Server's connection string to the variable `SQLDB_Connection`.
 
 ```json
 {
@@ -173,7 +173,7 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }    
 ```
 
-The snippet above is a fairly *minimal* `host.json` example. Later, you may want to consider [other parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+The snippet above is a fairly _minimal_ `host.json` example. Later, you may want to consider [other parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
@@ -202,7 +202,7 @@ To run your app in Azure, you'll need a publicly accessible SQL Server instance.
 > [!NOTE]
 > If you already have an Azure SQL database, or some other publicly accessible SQL Server you would like to use, you may skip to the next section.
 
-You can follow [these](/azure/azure-sql/database/single-database-create-quickstart) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the *Database collation* (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+You can follow [these](/azure/azure-sql/database/single-database-create-quickstart) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
 > Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
@@ -213,23 +213,23 @@ Below is an example of the portal view for obtaining the Azure SQL connection st
 
 ![An Azure connection string as found in the portal](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
-In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you may reset it by navigating to the database's blade in the Azure portal, selecting your *Server name* in the **Essentials** view, and also selecting **Reset password** in the resulting page. Below are some guiding images.
+In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you may reset it by navigating to the database's blade in the Azure portal, selecting your _Server name_ in the **Essentials** view, and also selecting **Reset password** in the resulting page. Below are some guiding images.
 
 ![The Azure SQL database view, with the Server name option highlighted](./media/quickstart-mssql/mssql-azure-reset-pass-1.png)
 
 ![The SQL server view, where the Reset password is visible](./media/quickstart-mssql/mssql-azure-reset-pass-2.png)
-
 
 ### Add connection string as an application setting
 
 You need to add your database's connection string as an application setting. To do this through the Azure portal, first go to your Azure Functions App view. Then under **Configuration**, select **New application setting**, where you assign **SQLDB_Connection** to map to a publicly accessible connection string. Below are some guiding images.
 
 ![On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-environment-variable-1.png)
+
 ![Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-environment-variable-2.png)
 
 ### Deploy
 
-You can now deploy your function app to Azure and run your tests or workload on it. To validate the MSSQL backend is correctly configured, you can query your database for Task Hub data.
+You can now deploy your function app to Azure and run your tests or workload on it. To validate that the MSSQL back end is correctly configured, you can query your database for Task Hub data.
 
 For example, with Azure SQL database you can query for your orchestration instances by navigating to your SQL database's blade, clicking Query Editor, authenticating, and then running the following query:
 

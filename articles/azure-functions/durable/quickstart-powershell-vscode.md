@@ -35,7 +35,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project. 
 
-1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and then select **Azure Functions: Create New Project**.
 
     ![Create function](media/quickstart-js-vscode/functions-create-project.png)
 
@@ -81,7 +81,7 @@ The most basic Durable Functions app contains three functions:
 
 You use a template to create the durable function code in your project.
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 
@@ -96,7 +96,7 @@ Next, you'll add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 
@@ -111,7 +111,7 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Following the prompts, provide the following information:
 

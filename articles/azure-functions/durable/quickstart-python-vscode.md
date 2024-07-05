@@ -38,7 +38,7 @@ To complete this tutorial:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, select F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and then select **Azure Functions: Create New Project**.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of Create function window.":::
 
@@ -130,7 +130,7 @@ A basic Durable Functions app contains three functions:
 
 You use a template to create the durable function code in your project.
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Follow the prompts and provide the following information:
 
@@ -145,7 +145,7 @@ Next, you'll add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Follow the prompts and provide the following information:
 
@@ -160,7 +160,7 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select `Azure Functions: Create Function...`.
 
 1. Follow the prompts and provide the following information:
 
@@ -214,7 +214,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 # [VS Code](#tab/vs-code-set-indexing-flag)
 
 1. Make sure you have the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed
-1. Select <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
+1. Select <kbd>F1</kbd> to open the command palette. In the command palette, search for and then select `Azure Functions: Add New Setting...`.
 1. Choose your subscription and function app when prompted
 1. For the name, type `AzureWebJobsFeatureFlags` and select <kbd>Enter</kbd>.
 1. For the value, type `EnableWorkerIndexing` and select <kbd>Enter</kbd>.
