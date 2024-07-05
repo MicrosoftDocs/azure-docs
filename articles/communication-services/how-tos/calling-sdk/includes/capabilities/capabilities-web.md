@@ -52,8 +52,8 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
             continue;
         }
         if(key === 'muteOthers' && value.reason != 'FeatureNotSupported') {
-                    (value.isPresent) ? this.setState({ canMuteOthers: true }) : this.setState({ canMuteOthers: false });
-                    continue;
+            (value.isPresent) ? this.setState({ canMuteOthers: true }) : this.setState({ canMuteOthers: false });
+            continue;
         }
         if(key === 'reaction' && value.reason != 'FeatureNotSupported') {
             (value.isPresent) ? this.setState({ canReact: true }) : this.setState({ canReact: false });
