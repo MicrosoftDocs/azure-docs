@@ -52,13 +52,21 @@ If you don't yet have a workspace, create one now:
    Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others. The workspace name is case-insensitive.
+   Friendly name | This name is not restricted by Azure naming rules. You can use spaces and special characters in this name.
+   Hub | A hub allows you to group related workspaces together and share resources. If you have access to a hub, select it here.  If you don't have access to a hub, leave this blank.
+
+1. If you did not select a hub, provide the advanced information.  If you selected a hub, these values are taken from the hub.
+
+    Field|Description
+    ---|---
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. You need *contributor* or *owner* role to use an existing resource group. For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
+
 1. Select **Create** to create the workspace
 
 > [!NOTE]
-> This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
+> This creates a workspace along with all required resources. If you would like to more customization, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.  See [Create a workspace](how-to-manage-workspace.md) for more information.
 
 ## Create a compute instance
 

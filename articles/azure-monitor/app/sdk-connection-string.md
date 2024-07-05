@@ -19,7 +19,7 @@ Connection strings define where to send telemetry data.
 
 Key-value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights service or product.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Scenario overview
 

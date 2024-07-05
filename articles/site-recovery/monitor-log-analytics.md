@@ -40,8 +40,8 @@ Azure Site Recovery provides the following Resource specific and legacy tables. 
 
 **Resource Specific tables**:
 
-- [AzureSiteRecoveryJobs](https://learn.microsoft.com/azure/azure-monitor/reference/tables/asrjobs)
-- [Azure Site Recovery Replicated Items Details](https://learn.microsoft.com/azure/azure-monitor/reference/tables/ASRReplicatedItems)
+- [AzureSiteRecoveryJobs](/azure/azure-monitor/reference/tables/asrjobs)
+- [Azure Site Recovery Replicated Items Details](/azure/azure-monitor/reference/tables/ASRReplicatedItems)
 
 
 **Legacy tables**:

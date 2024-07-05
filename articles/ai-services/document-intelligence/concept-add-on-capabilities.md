@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.1.0'
 ---
@@ -54,7 +54,9 @@ Document Intelligence supports more sophisticated and modular analysis capabilit
 
 > [!NOTE]
 >
-> Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#model-analysis-features).
+> * Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#model-analysis-features).
+>
+> * Add-on capabilities are currently not supported for Microsoft Office file types.
 
 The following add-on capabilities are available for`2024-02-29-preview`, `2024-02-29-preview`, and later releases:
 
@@ -70,7 +72,7 @@ The following add-on capabilities are available for`2024-02-29-preview`, `2024-0
 
 ## Version availability
 
-|Add-on Capability| Add-On/Free|[2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|Add-on Capability| Add-On/Free|[2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
 |Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|
@@ -1020,3 +1022,15 @@ Invoice number: 34278587
 > [!div class="nextstepaction"]
 > SDK samples:
 > [**python**](/python/api/overview/azure/ai-documentintelligence-readme)
+
+::: moniker range="doc-intel-4.0.0"
+> [!div class="nextstepaction"]
+> Find more samples:
+> [**Add-on capabilities**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Add-on_capabilities)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+> [!div class="nextstepaction"]
+> Find more samples:
+> [**Add-on capabilities**](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Add-on_capabilities)
+::: moniker-end

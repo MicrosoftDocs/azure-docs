@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 06/25/2024
 ---
 
 # Create an index alias in Azure AI Search
@@ -34,10 +34,10 @@ You can create an alias using the preview REST API, the preview SDKs, or through
 
 ### [**REST API**](#tab/rest)
 
-You can use the [Create or Update Alias (REST preview)](/rest/api/searchservice/preview-api/create-or-update-alias) to create an index alias.
+You can use the [Create or Update Alias (REST preview)](/rest/api/searchservice/aliases/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) to create an index alias.
 
 ```http
-POST /aliases?api-version=2023-10-01-preview
+POST /aliases?api-version=2024-05-01-preview
 {
     "name": "my-alias",
     "indexes": ["hotel-samples-index"]
@@ -80,7 +80,7 @@ Once you've created your alias, you're ready to start using it. Aliases can be u
 In the query below, instead of sending the request to `hotel-samples-index`, you can instead send the request to `my-alias` and it will be routed accordingly. 
 
 ```http
-POST /indexes/my-alias/docs/search?api-version=2023-10-01-preview
+POST /indexes/my-alias/docs/search?api-version=2024-05-01-preview
 {
     "search": "pool spa +airport",
     "searchMode": any,
@@ -99,10 +99,10 @@ If you expect to make updates to a production index, specify an alias rather tha
 
 ## Swap indexes
 
-Now, whenever you need to update your application to point to a new index, all you need to do is update the mapping in your alias. PUT is required for updates as described in [Create or Update Alias (REST preview)](/rest/api/searchservice/preview-api/create-or-update-alias).
+Now, whenever you need to update your application to point to a new index, all you need to do is update the mapping in your alias. PUT is required for updates as described in [Create or Update Alias (REST preview)](/rest/api/searchservice/aliases/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 ```http
-PUT /aliases/my-alias?api-version=2023-10-01-preview
+PUT /aliases/my-alias?api-version=2024-05-01-preview
 {
     "name": "my-alias",
     "indexes": ["hotel-samples-index2"]

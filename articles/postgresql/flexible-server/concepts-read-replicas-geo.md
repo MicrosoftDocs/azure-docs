@@ -14,7 +14,7 @@ ms.custom:
 
 # Geo-replication in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 A read replica can be created in the same region as the primary server and in a different one. Geo-replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
@@ -28,9 +28,9 @@ You can have a primary server in any [Azure Database for PostgreSQL flexible ser
 - **Microsoft Azure operated by 21Vianet regions**:
   - China North 3
   - China East 3
+  - China North 2
+  - China East 2
 
-> [!NOTE]
-> [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server features](concepts-read-replicas-promote.md) - are not currently supported in the special regions listed above.
 
 ## Paired regions for disaster recovery purposes
 

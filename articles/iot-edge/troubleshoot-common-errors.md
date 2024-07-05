@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure IoT Edge common errors
-description: Resolve common issues encountered when using an IoT Edge solution
+description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 02/26/2024
-ms.topic: conceptual
+ms.date: 06/06/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
@@ -14,7 +14,7 @@ ms.custom:  [amqp, mqtt]
 # Solutions to common issues for Azure IoT Edge
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
@@ -82,7 +82,7 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {

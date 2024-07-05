@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: jhirono
+ms.reviewer: meerakurup 
 ms.author: larryfr
 author: Blackmist
 # Customer intent: As an admin, I want to configure a private link for hub so that I can secure my hubs.
@@ -15,7 +15,7 @@ author: Blackmist
 
 # How to configure a private link for Azure AI Studio hubs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 We have two network isolation aspects. One is the network isolation to access an Azure AI Studio hub. Another is the network isolation of computing resources in your hub and projects such as compute instances, serverless, and managed online endpoints. This article explains the former highlighted in the diagram. You can use private link to establish the private connection to your hub and its default resources. This article is for Azure AI Studio (hub and projects). For information on Azure AI services, see the [Azure AI services documentation](/azure/ai-services/cognitive-services-virtual-networks).
 
@@ -26,7 +26,7 @@ You get several hub default resources in your resource group. You need to config
 - Disable public network access of hub default resources such as Azure Storage, Azure Key Vault, and Azure Container Registry.
 - Establish private endpoint connection to hub default resources. You need to have both a blob and file private endpoint for the default storage account.
 - [Managed identity configurations](#managed-identity-configuration) to allow hubs access your storage account if it's private.
-- Azure AI services and Azure AI Search should be public.
+- Azure AI Search should be public.
 
 
 ## Prerequisites

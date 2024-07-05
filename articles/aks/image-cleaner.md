@@ -67,9 +67,10 @@ You can manually trigger the cleanup by defining a CRD object,`ImageList`. This 
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myManagedCluster \
-      --enable-image-cleaner
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-image-cleaner \
+        --generate-ssh-keys
     ```
 
 ### Enable Image Cleaner on an existing cluster
@@ -90,17 +91,18 @@ You can manually trigger the cleanup by defining a CRD object,`ImageList`. This 
     ```azurecli-interactive
     # Create a new cluster with specifying the interval
     az aks create \
-      --resource-group myResourceGroup \
-      --name myManagedCluster \
-      --enable-image-cleaner \
-      --image-cleaner-interval-hours 48
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-image-cleaner \
+        --image-cleaner-interval-hours 48 \
+        --generate-ssh-keys
 
     # Update the interval on an existing cluster
     az aks update \
-      --resource-group myResourceGroup \
-      --name myManagedCluster \
-      --enable-image-cleaner \
-      --image-cleaner-interval-hours 48
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-image-cleaner \
+        --image-cleaner-interval-hours 48
     ```
 
 ## Manually remove images using Image Cleaner

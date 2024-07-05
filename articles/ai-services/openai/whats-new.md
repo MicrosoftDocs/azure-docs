@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/20/2024
+ms.date: 06/19/2024
 recommendations: false
 ---
 
@@ -18,7 +18,39 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## June 2024
+
+### Retirement date updates
+
+* Updated `gpt-35-turbo` 0301 retirement date to no earlier than October 1, 2024.
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k`0613 retirement date to October 1, 2024.
+* Updated `gpt-4` & `gpt-4-32k` 0314 deprecation date to October 1, 2024, and retirement date to June 6, 2025.  
+
+Refer to our [model retirement guide](./concepts/model-retirements.md) for the latest information on model deprecation and retirement.
+
+### Token based billing for fine-tuning
+
+* Azure OpenAI fine-tuning billing is now based on the number of tokens in your training file – instead of the total elapsed training time. This can result in a significant cost reduction for some training runs, and makes estimating fine-tuning costs much easier. To learn more, you can consult the [official announcement](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/pricing-update-token-based-billing-for-fine-tuning-training/ba-p/4164465).
+
+### GPT-4o released in new regions
+
+* GPT-4o is now also available in:
+    -  Sweden Central for standard regional deployment.
+    -  Australia East, Canada East, Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+
+For the latest information on model availability, see the [models page](./concepts/models.md).
+
+### Customer-managed key (CMK) support for Assistants
+
+Threads and Files in Assistants now supports CMK in the following region:
+* West US 3
+
 ## May 2024
+
+### GPT-4o provisioned deployments
+
+`gpt-4o` Version: `2024-05-13` is available for both standard and provisioned deployments. Provisioned and standard model deployments accept both text and image/vision inference requests.
+For information on model regional availability consult the model matrix for [provisioned deployments](./concepts/models.md#provisioned-deployment-model-availability).
 
 ### Assistants v2 (preview)
 
@@ -40,7 +72,6 @@ You can now create messages with the [assistant](.//assistants-reference-message
     * UK South
     * West US
     * West US 3
-    * India South
     * Norway east
 
 For more information, see the [blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-azure-openai-service-assistants-preview-refresh/ba-p/4143217) about assistants.
@@ -67,7 +98,7 @@ For more information, see the [deployment types guide](https://aka.ms/aoai/docs/
 
 ### DALL-E and GPT-4 Turbo Vision GA configurable content filters
 
-Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+Create custom content filters for your DALL-E 2 and 3, GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) and GPT-4o deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
 
 ### Asynchronous Filter available for all Azure OpenAI customers
 
@@ -80,19 +111,6 @@ Prompt Shields protect applications powered by Azure OpenAI models from two type
 ### 2024-05-01-preview API release
 
 - For more information, see the [API version lifecycle](./api-version-deprecation.md).
-
-### GPT-4 Turbo model general availability (GA)
-
-[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
-
-### GPT-4o preview model available for early access
-
-GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
-
-- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
-- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
-
-<!--To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).-->
 
 ### GPT-4 Turbo model general availability (GA)
 
@@ -429,7 +447,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 - **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
 
-- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](./how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 
 
 ## March 2023

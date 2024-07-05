@@ -39,6 +39,11 @@
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-process-telemetry.md",
             "redirect_url": "/azure/iot-operations/get-started/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-blob.md",
+            "redirect_url": "/azure/iot-operations/process-data/overview-data-processor",
+            "redirect_document_id": false
         }
     ]
 }

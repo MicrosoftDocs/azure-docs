@@ -20,7 +20,7 @@ To learn the key concepts of how AZD and ADE work together, see [Use Azure Devel
 ## Prerequisites
 
 - Create and configure a dev center with a project, environment types, and catalog. Use the following article as guidance:
-   - [Quickstart: Create and configure a dev center for Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
+   - [Quickstart: Configure Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
 
 ## Attach Microsoft quick start catalog
 

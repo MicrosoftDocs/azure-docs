@@ -193,7 +193,7 @@ There are two supported tracing headers:
 - `x-request-id` is reserved for server tracing. We override this header to ensure it's a valid GUID.
 
    > [!Note]
-   > When you create a support ticket for a failed request, attach the failed request ID to expedite the investigation.
+   > When you create a support ticket for a failed request, attach the failed request ID to expedite the investigation. Alternatively, provide the name of the region and the endpoint name.
    
 - `x-ms-client-request-id` is available for client tracing scenarios. This header is sanitized to only accept alphanumeric characters, hyphens and underscores, and is truncated to a maximum of 40 characters.
 
@@ -229,6 +229,7 @@ The following list is of common deployment errors that are reported as part of t
 * [ResourceNotFound](#error-resourcenotfound)
     * [Azure Resource Manager can't find a required resource](#resource-manager-cannot-find-a-resource)
     * [Azure Container Registry is private or otherwise inaccessible](#container-registry-authorization-error)
+* [WorkspaceManagedNetworkNotReady](#error-workspacemanagednetworknotready)
 * [OperationCanceled](#error-operationcanceled)
     * [Operation was canceled by another operation that has a higher priority](#operation-canceled-by-another-higher-priority-operation)
     * [Operation was canceled due to a previous operation waiting for lock confirmation](#operation-canceled-waiting-for-lock-confirmation)
@@ -530,6 +531,10 @@ If the mitigation is successful, the image doesn't require building, and the fin
 At deployment time, your online endpoint's system identity pulls the image from the private registry.
 
 For more diagnostic information, see [How To Use the Workspace Diagnostic API](../machine-learning/how-to-workspace-diagnostic-api.md).
+
+### ERROR: WorkspaceManagedNetworkNotReady
+
+This error occurs when you tried to create an online deployment under the workspace which enabled workspace managed VNet but the managed VNet is not provisioned yet. Workspace managed VNet should be provisioned before you create an online deployment. Follow instructions [Manually provision workspace managed VNet](how-to-managed-network.md#manually-provision-a-managed-vnet) to manually provision the workspace managed VNet. Once completed, you may start creating online deployments. For more information, see [Network isolation with managed online endpoint](concept-secure-online-endpoint.md) and [Secure your managed online endpoints with network isolation](how-to-secure-online-endpoint.md).
 
 ### ERROR: OperationCanceled
 

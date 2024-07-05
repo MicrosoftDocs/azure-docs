@@ -43,7 +43,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     using Azure.Monitor.Ingestion;
 
     // Initialize variables
-    var endpoint = new Uri("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com");
+    var endpoint = new Uri("https://my-url.monitor.azure.com");
     var ruleId = "dcr-00000000000000000000000000000000";
     var streamName = "Custom-MyTableRawData";
     
@@ -87,41 +87,54 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     // Upload logs
     try
     {
-        Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
+        var response = await client.UploadAsync(ruleId, streamName, RequestContent.Create(data)).ConfigureAwait(false);
+        if (response.IsError)
+        {
+            throw new Exception(response.ToString());
+        }
+    
+        Console.WriteLine("Log upload completed using content upload");
     }
     catch (Exception ex)
     {
-        Console.WriteLine("Upload failed with Exception " + ex.Message);
+        Console.WriteLine("Upload failed with Exception: " + ex.Message);
     }
     
     // Logs can also be uploaded in a List
-    var entries = new List<Object>();
+    var entries = new List<object>();
     for (int i = 0; i < 10; i++)
     {
-        entries.Add(
-            new {
-                Time = recordingNow,
-                Computer = "Computer" + i.ToString(),
-                AdditionalContext = i
-            }
-        );
+        entries.Add(
+            new
+            {
+                Time = currentTime,
+                Computer = "Computer" + i.ToString(),
+                AdditionalContext = new
+                {
+                    InstanceName = "user" + i.ToString(),
+                    TimeZone = "Central Time",
+                    Level = 3,
+                    CounterName = "AppMetric1" + i.ToString(),
+                    CounterValue = i
+                }
+            }
+        );
     }
     
     // Make the request
-    LogsUploadOptions options = new LogsUploadOptions();
-    bool isTriggered = false;
-    options.UploadFailed += Options_UploadFailed;
-    await client.UploadAsync(TestEnvironment.DCRImmutableId, TestEnvironment.StreamName, entries, options).ConfigureAwait(false);
-    
-    Task Options_UploadFailed(LogsUploadFailedEventArgs e)
+    try
     {
-        isTriggered = true;
-        Console.WriteLine(e.Exception);
-        foreach (var log in e.FailedLogs)
-        {
-            Console.WriteLine(log);
-        }
-        return Task.CompletedTask;
+        var response = await client.UploadAsync(ruleId, streamName, entries).ConfigureAwait(false);
+        if (response.IsError)
+        {
+            throw new Exception(response.ToString());
+        }
+    
+        Console.WriteLine("Log upload completed using list of entries");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Upload failed with Exception: " + ex.Message);
     }
     ```
 
@@ -160,7 +173,7 @@ The following sample code uses the [Azure Monitor Ingestion Logs client module f
     )
     
     // logs ingestion URI 
-    const endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com"
+    const endpoint = "https://my-url.monitor.azure.com"
     // data collection rule (DCR) immutable ID
     const ruleID = "dcr-00000000000000000000000000000000"
     // stream name in the DCR that represents the destination table
@@ -257,7 +270,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
         public static void main(String[] args) { 
             
             LogsIngestionClient client = new LogsIngestionClientBuilder()
-                .endpoint("https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com") 
+                .endpoint("https://my-url.monitor.azure.com") 
                 .credential(new DefaultAzureCredentialBuilder().build()) 
                 .buildClient(); 
                 
@@ -325,7 +338,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for J
     require("dotenv").config();
     
     async function main() {
-      const logsIngestionEndpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com";
+      const logsIngestionEndpoint = "https://my-url.monitor.azure.com";
       const ruleId = "dcr-00000000000000000000000000000000";
       const streamName = "Custom-MyTableRawData";
       const credential = new DefaultAzureCredential();
@@ -403,7 +416,7 @@ The following PowerShell code sends data to the endpoint by using HTTP REST fund
     $appSecret = "0000000000000000000000000000000000000000" #Secret created for the application
     
     # information needed to send data to the DCR endpoint
-    $endpoint_uri = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" #Logs ingestion URI for the DCR
+    $endpoint_uri = "https://my-url.monitor.azure.com" #Logs ingestion URI for the DCR
     $dcrImmutableId = "dcr-00000000000000000000000000000000" #the immutableId property of the DCR object
     $streamName = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     
@@ -484,7 +497,7 @@ The following sample code uses the [Azure Monitor Ingestion client library for P
 
     ```python
     # information needed to send data to the DCR endpoint
-    endpoint_uri = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com" # logs ingestion endpoint of the DCR
+    endpoint_uri = "https://my-url.monitor.azure.com" # logs ingestion endpoint of the DCR
     dcr_immutableid = "dcr-00000000000000000000000000000000" # immutableId property of the Data Collection Rule
     stream_name = "Custom-MyTableRawData" #name of the stream in the DCR that represents the destination table
     

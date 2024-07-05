@@ -5,7 +5,7 @@ description: Learn about the Azure Communication Services Closed Captions.
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 02/27/2024
 ms.author: kpunjabi
 ms.custom: public_preview

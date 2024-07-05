@@ -2,7 +2,7 @@
 title: Prefetch messages from Azure Service Bus
 description: Improve performance by prefetching messages from Azure Service Bus queues or subscriptions. Messages are readily available for local retrieval before the application requests for them.
 ms.topic: article
-ms.date: 08/29/2023
+ms.date: 06/18/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ---
@@ -14,10 +14,10 @@ When you enable the **Prefetch** feature for any of the official Service Bus cli
 To enable the Prefetch feature, set the prefetch count of the queue or subscription client to a number greater than zero. Setting the value to zero turns off prefetch. 
 
 # [.NET](#tab/dotnet)
-Set the prefetch count property on the [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusReceiver_PrefetchCount) and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusProcessor_PrefetchCount) objects. 
+Set the prefetch count property on the [ServiceBusReceiverOptions](/dotnet/api/azure.messaging.servicebus.servicebusreceiveroptions.prefetchcount) and [ServiceBusProcessorOptions](/dotnet/api/azure.messaging.servicebus.servicebusprocessoroptions.prefetchcount) objects. 
 
 # [Java](#tab/java)
-Set the prefetch count property on the [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusReceiver_PrefetchCount) and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount#Azure_Messaging_ServiceBus_ServiceBusProcessor_PrefetchCount) objects. 
+Set the prefetch count property on the [ServiceBusReceiverClientBuilder](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.servicebusreceiverclientbuilder) and [ServiceBusProcessorClientBuilder](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.servicebusprocessorclientbuilder) objects. 
 
 # [Python](#tab/python)
 

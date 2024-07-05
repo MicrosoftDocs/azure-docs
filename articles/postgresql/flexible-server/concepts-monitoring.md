@@ -4,7 +4,7 @@ description: Review the monitoring and metrics features in Azure Database for Po
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 06/18/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL flexible server provides various monitoring options to provide insight into how your server is performing.
 
@@ -180,9 +180,9 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 #### How to enable PgBouncer metrics
 
-- PgBouncer metrics are disabled by default.
-- For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and `metrics.pgbouncer_diagnostics` must be enabled.
+- To monitor PgBouncer metrics, ensure that the [pgbouncer](./concepts-pgbouncer.md) feature is enabled via the server parameter `pgbouncer.enabled` and metrics parameter `metrics.pgbouncer_diagnostics` is enabled.
 - These parameters are dynamic and don't require an instance restart.
+- PgBouncer metrics are disabled by default.
 
 #### List of PgBouncer metrics
 
