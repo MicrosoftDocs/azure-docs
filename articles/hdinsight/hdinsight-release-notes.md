@@ -52,7 +52,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
     * Improvements in probes scripts as per the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
 * Improvements in the HDInsight Log Analytics with System Managed Identity support for HDInsight Resource Provider.
 * Addition of new activity to upgrade the `mdsd` agent version for old image (created before 2024).
-* Enabling MISE in gateway as part of the continued improvements for [MSAL Migration](https://learn.microsoft.com/entra/identity-platform/msal-overview).
+* Enabling MISE in gateway as part of the continued improvements for [MSAL Migration](/entra/identity-platform/msal-overview).
 * Incorporate Spark Thrift Server `Httpheader hiveConf` to the Jetty HTTP ConnectionFactory.
 * Revert RANGER-3753 and RANGER-3593.
     
