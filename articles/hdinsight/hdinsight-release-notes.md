@@ -47,7 +47,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
 ## Fixed issues
-* Cluster tags enhancements
+* Security enhancements
     * Improvements on using Tags for clusters in line with the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
     * Improvements in probes scripts as per the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
 * Improvements in the HDInsight Log Analytics with System Managed Identity support for HDInsight Resource Provider.
@@ -57,8 +57,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * Revert RANGER-3753 and RANGER-3593.
     
     The `setOwnerUser` implementation given in Ranger 2.3.0 release has a critical regression issue when being used by Hive. In Ranger 2.3.0, when HiveServer2 tries to evaluate the policies, Ranger Client tries to get the owner of the hive table by calling the Metastore in the setOwnerUser function which essentially makes call to storage to check access for that table. This issue causes the queries to run slow when Hive runs on 2.3.0 Ranger.
-* HDInsight config change.
-  
+
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
