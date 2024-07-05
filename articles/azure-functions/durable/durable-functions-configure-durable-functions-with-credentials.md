@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions to make authorized requests against Microsoft Entra protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default Azure storage provider, Durable Functions needs to authenticate against an Azure storage account. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **managed identity credentials** and **client secret credentials**.
 
+If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Configure your app to use managed identity (recommended)
 
 A [managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Microsoft Entra protected resources such as Azure Key Vault. Managed identity is supported in [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) versions **2.7.0** and greater.
@@ -18,14 +20,14 @@ A [managed identity](../../app-service/overview-managed-identity.md) allows your
 > [!NOTE]
 > Strictly speaking, a managed identity is only available to apps when executing on Azure. When configured to use identity-based connections, a locally executing app will utilize your **developer credentials** to authenticate with Azure resources. Then, when deployed on Azure, it will utilize your managed identity configuration instead.
 
-### Prerequisites
+## Prerequisites
 
-The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
-In particular, this quickstart assumes that you have already:
+To complete this quickstart, you need:
 
-* Create a Durable Functions project in the Azure portal or deployed a local Durable Functions to Azure.
+* An existing Durable Functions project created in the Azure portal or a local Durable Functions project deployed to Azure.
+* Familiarity running a durable function app in Azure.
 
-If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
+If you don't have an existing Durable Functions project deployed in Azure, we suggest you start with one of the following quickstarts to create and deploy the prerequisite project:
 
 * [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 * [Create your first durable function - JavaScript](quickstart-js-vscode.md)

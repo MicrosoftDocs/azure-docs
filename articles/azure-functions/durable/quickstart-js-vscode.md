@@ -22,7 +22,7 @@ In this quickstart, you use the Durable Functions extension in Visual Studio Cod
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this quickstart, you need:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
@@ -50,7 +50,7 @@ To complete this tutorial:
 
 ::: zone-end
 
-* Have an Azure subscription. To use Durable Functions, you must have an Azure Storage account.
+* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -134,11 +134,11 @@ To use the V4 programming model, you install the preview v3.x version of the *du
 
 ## Create your functions
 
-The most basic durable function contains three functions:
+The most basic durable function app has three functions:
 
-* **Orchestrator function**: Describes a workflow that orchestrates other functions.
-* **Activity function**: Called by the orchestrator function, performs work, and optionally returns a value.
-* **Client function**: A regular Azure function that starts an orchestrator function. This example uses an HTTP-triggered function.
+* **Orchestrator function**: A workflow that orchestrates other functions.
+* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
+* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
 ::: zone pivot="nodejs-model-v3"
 

@@ -16,26 +16,26 @@ _Durable Functions_ is an extension of [Azure Functions](../functions-overview.m
 
 In this quickstart, you'll learn how to create and test a "Hello World" Durable Functions app in Java.
 
-The most basic Durable Functions app contains the following three functions:  
+The most basic durable function app has three functions:
 
-- _Orchestrator function_ - describes a workflow that orchestrates other functions.
-- _Activity function_ - called by the orchestrator function, performs work, and optionally returns a value.
-- _Client function_ - a regular Azure Function that starts an orchestrator function. This example uses an HTTP triggered function.
+* **Orchestrator function**: A workflow that orchestrates other functions.
+* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
+* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
 This quickstart will show you how to create this "Hello World" app, which you can do in different ways. Use the selector above to choose your preferred approach.
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this quickstart, you need:
 
-- The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) version 8 or newer.
+* The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) version 8 or newer.
 
-- [Apache Maven](https://maven.apache.org) version 3.0 or later.
+* [Apache Maven](https://maven.apache.org) version 3.0 or later.
 
-- Latest version of the [Azure Functions Core Tools](../functions-run-local.md).
-  - For Azure Functions 4.x, Core Tools **v4.0.4915** or newer is required.
+* Latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+  * For Azure Functions 4.x, Core Tools **v4.0.4915** or newer is required.
 
-- An Azure Storage account, which requires that you have an Azure subscription.
+* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

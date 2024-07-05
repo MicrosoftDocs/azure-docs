@@ -20,17 +20,17 @@ In this article, you learn how to use the Visual Studio Code Azure Functions ext
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this quickstart, you need:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/download).
+* [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
-* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code extension.
+* The Visual Studio Code extension [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
 
-* Make sure that you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+* The latest version of [Azure Functions Core Tools](../functions-run-local.md) installed.
 
-* Durable Functions require an Azure storage account. You need an Azure subscription.
+* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
-* Make sure that you have version 3.7, 3.8, 3.9, or 3.10 of [Python](https://www.python.org/) installed.
+* [Python](https://www.python.org/) version 3.7, 3.8, 3.9, or 3.10 installed.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -118,11 +118,11 @@ When you've created the project, the Azure Functions Visual Studio Code extensio
 
 ## Create your functions
 
-A basic Durable Functions app contains three functions:
+The most basic durable function app has three functions:
 
-* *Orchestrator function*: Describes a workflow that orchestrates other functions.
-* *Activity function*: It's called by the orchestrator function, performs work, and optionally returns a value.
-* *Client function*: It's a regular Azure Function that starts an orchestrator function. This example uses an HTTP triggered function.
+* **Orchestrator function**: A workflow that orchestrates other functions.
+* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
+* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
 ::: zone pivot="python-mode-configuration"
 

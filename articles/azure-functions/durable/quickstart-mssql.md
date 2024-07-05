@@ -10,18 +10,18 @@ ms.reviewer: azfuncdf
 
 # Quickstart: Configure Durable Functions with the Microsoft SQL Server (MSSQL) storage provider
 
-Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a Durable Functions app to utilize the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
+Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a durable function app to use the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
 > [!NOTE]
-> The MSSQL backend was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub state so that users get the benefits of modern, enterprise-grade DBMS infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
+> The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data state so that users get the benefits of modern, enterprise-grade DBMS infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
 
 ## Note on data migration
 
-Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL backend. Similarly, the task hub contents created with MSSQL can't be preserved when switching to a different storage provider.
+Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL back end. Similarly, the task hub contents created with MSSQL can't be preserved when switching to a different storage provider.
 
 ## Prerequisites
 
-The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
+The following steps assume that you're starting with an existing Durable Functions app and that you are familiar with how to operate it.
 
 In particular, this quickstart assumes that you have already:
 
@@ -60,15 +60,15 @@ For more information on installing Azure Functions Extensions via the Core Tools
 ## Set up your database
 
 > [!NOTE]
-> If you already have an MSSQL-compatible database, you may skip this section and its sub-section on setting up a Docker-based local database.
+> If you already have an MSSQL-compatible database, you can skip this section and its sub-section on setting up a Docker-based local database.
 
-As the MSSQL back end is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
+Because the MSSQL back end is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed [Azure SQL DB](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
 
-You can also do local, offline development with [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows machine or use [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container. For ease of setup, this article focuses on the latter.
+You can also do local, offline development with [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows machine or use a [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container. For ease of setup, this article focuses on the latter.
 
 ### Set up your local Docker-based SQL Server
 
-To run these steps, you need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local SQL Server database on Docker. Note that PowerShell can be installed on Windows, macOS, or Linux using the installation instructions [here](/powershell/scripting/install/installing-powershell).
+To run these steps, you need a [Docker](https://www.docker.com/products/docker-desktop/) installation on your local machine. Below are PowerShell commands that you can use to set up a local SQL Server database on Docker. You can install PowerShell on [Windows, macOS, or Linux](/powershell/scripting/install/installing-powershell).
 
 ```powershell
 # primary parameters
@@ -122,7 +122,7 @@ DurableDB
 
 ### Add your SQL connection string to local.settings.json
 
-The MSSQL backend needs a connection string to your database. How to obtain a connection string largely depends on your specific MSSQL Server provider. Review the documentation of your specific provider for information on how to obtain a connection string.
+The MSSQL back end needs a connection string to your database. How to obtain a connection string depends primarily on your specific MSSQL Server provider. Review the documentation of your specific provider for information on how to obtain a connection string.
 
 Using the previous Docker commands, without changing any parameters, your connection string should be:
 
@@ -130,7 +130,7 @@ Using the previous Docker commands, without changing any parameters, your connec
 Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;
 ```
 
-After obtaining your connection string, add it to a variable in `local.settings.json` so it can be used during local development.
+After you get your connection string, add it to a variable in _local.settings.json_ to use it during local development.
 
 Below is an example _local.settings.json_ assigning the default Docker-based SQL Server's connection string to the variable `SQLDB_Connection`.
 
@@ -241,4 +241,4 @@ After running a simple orchestrator, you should see at least one result, as show
 
 ![Azure SQL Query editor results for the SQL query provided.](./media/quickstart-mssql/mssql-azure-db-check.png)
 
-For more information about the Durable Task MSSQL backend architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
+For more information about the Durable Task MSSQL back-end architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
