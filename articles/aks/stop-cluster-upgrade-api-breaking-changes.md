@@ -54,7 +54,7 @@ You have two options to mitigate the issue: you can [remove usage of deprecated 
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the Azure CLI version 2.53 or later. If you have the `aks-preview` CLI extension installed, you need to update to version `0.5.154` or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version might6 not work long term. We recommend removing them as soon as possible after the upgrade completes.
+> This method requires you to use the Azure CLI version 2.53 or later. If you have the `aks-preview` CLI extension installed, you need to update to version `0.5.154` or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version might not work long term. We recommend removing them as soon as possible after the upgrade completes.
 
 1. Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command. Specify the `enable-force-upgrade` flag and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
