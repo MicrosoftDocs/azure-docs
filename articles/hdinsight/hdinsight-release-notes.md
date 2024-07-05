@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/20/2024
+ms.date: 07/05/2024
 ---
 
 # Azure HDInsight release notes
