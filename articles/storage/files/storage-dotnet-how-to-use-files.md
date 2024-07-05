@@ -202,7 +202,7 @@ For more information about Azure Files, see the following resources:
 
 ### Conceptual articles and videos
 
-- [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://learn.microsoft.com/en-us/shows/microsoft-azure-azurecon-2015/acon202)
 - [Use Azure Files with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage
