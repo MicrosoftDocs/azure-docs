@@ -145,7 +145,7 @@ The following table outlines the key properties set in the YAML deployment manif
       instances: 3
       minSyncReplicas: 1
       maxSyncReplicas: 1
-
+    
       topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: topology.kubernetes.io/zone
