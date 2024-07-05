@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync storage sync service using the 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/03/2024
+ms.date: 07/05/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
