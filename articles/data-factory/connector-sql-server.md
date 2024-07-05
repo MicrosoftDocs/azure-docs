@@ -283,9 +283,9 @@ To use Windows authentication, in addition to the generic properties that are de
 #### User-assigned managed identity authentication 
 
 >[!Note]
->The user-assigned managed identity authentication only applies to SQL Server on Azure VMs.
+>The user-assigned managed identity authentication only applies to [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines).
 
-A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for SQL Server on Azure VMs authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
+A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service when authenticating to other resources in Azure. You can use this managed identity for [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines) authentication. The designated factory or Synapse workspace can access and copy data from or to your database by using this identity.
 
 To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
 
