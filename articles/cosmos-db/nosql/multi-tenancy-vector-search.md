@@ -53,6 +53,9 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 **Example:**
 ResearchHub can stratify data within each tenant’s partition by organizing it at departmental levels, facilitating efficient management and queries.
 
+![ResearchHub AI Data Stratification](../media/gen-ai/multi-tenant/hpk.png)
+
+
 #### 2. Account-per-tenant
 
 For maximum isolation, the account-per-tenant model is preferable. Each tenant gets a dedicated Cosmos DB account, ensuring complete separation of resources.
