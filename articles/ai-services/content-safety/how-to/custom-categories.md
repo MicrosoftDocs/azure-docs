@@ -18,7 +18,7 @@ ms.author: pafarley
 The custom category API lets you create your own content categories for your use case and train Azure AI Content Safety to detect them in new content.
 
 > [!IMPORTANT]
-> This new feature is only available in the **East US** Azure region. 
+> This feature is only available in certain Azure regions. See [Region availability](../overview.md#region-availability).
 
 > [!CAUTION]
 > The sample data in this guide might contain offensive content. User discretion is advised.
@@ -87,7 +87,7 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?
 ### Start the category build process:
 
 ```bash
-curl -X POST "<endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview" \
+curl -X POST "<your_endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
@@ -97,7 +97,7 @@ curl -X POST "<endpoint>/contentsafety/text/categories/<your_category_name>:buil
 Run the following command to analyze text with your customized category. Replace `<your_category_name>` with your own value:
 
 ```bash
-curl -X POST "<endpoint>/contentsafety/text:analyzeCustomCategory?api-version=2024-02-15-preview" \
+curl -X POST "<your_endpoint>/contentsafety/text:analyzeCustomCategory?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
