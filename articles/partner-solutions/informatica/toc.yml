@@ -22,3 +22,18 @@ items:
     href: informatica-troubleshoot.md
   - name: Get support for an Informatica IDMC organization
     href: informatica-get-support.md
+- name: Reference
+  items:
+  - name: Python
+    href: /python/api/overview/azure/informatica
+  - name: JavaScript
+    href: /javascript/api/overview/azure/informatica
+  - name: .NET
+    href: /dotnet/api/overview/azure/informatica
+  - name: Java
+    href: /java/api/overview/azure/informatica
+  - name: REST API
+    href: /rest/api/informatica
+#  - name: Azure PowerShell
+#    href: 
+
