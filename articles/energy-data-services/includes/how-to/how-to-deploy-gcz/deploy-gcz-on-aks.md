@@ -9,6 +9,8 @@ author: EirikHaughom
 ms.date: 05/30/2024
 ---
 
+## Deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Service (AKS)
+
 Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
