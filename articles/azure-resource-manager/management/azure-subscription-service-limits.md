@@ -115,11 +115,11 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 **Limits per subscription**
 
-[!INCLUDE [azure-search-limits-per-subscription](../../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 **Limits per search service**
 
-[!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
@@ -378,7 +378,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Key Vault limits
 
-[!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
 
 ## Managed identity limits
 

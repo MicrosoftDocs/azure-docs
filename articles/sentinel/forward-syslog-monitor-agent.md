@@ -14,6 +14,9 @@ ms.custom: template-tutorial, linux-related-content
 
 In this tutorial, you configure a Linux virtual machine (VM) to forward Syslog data to your workspace by using Azure Monitor Agent. These steps allow you to collect and monitor data from Linux-based devices where you can't install an agent like a firewall network device.
 
+> [!NOTE]
+> Container Insights now supports the automatic collection of Syslog events from Linux nodes in your AKS clusters. To learn more, see [Syslog collection with Container Insights](../azure-monitor/containers/container-insights-syslog.md).
+
 Configure your Linux-based device to send data to a Linux VM. Azure Monitor Agent on the VM forwards the Syslog data to the Log Analytics workspace. Then use Microsoft Sentinel or Azure Monitor to monitor the device from the data stored in the Log Analytics workspace.
 
 In this tutorial, you learn how to:

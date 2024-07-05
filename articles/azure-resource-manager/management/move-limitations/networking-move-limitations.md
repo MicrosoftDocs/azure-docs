@@ -3,7 +3,7 @@ title: Move Azure Networking resources to new subscription or resource group
 description: Use Azure Resource Manager to move virtual networks and other networking resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 06/17/2024
+ms.date: 06/20/2024
 ---
 
 # Move networking resources to new resource group or subscription

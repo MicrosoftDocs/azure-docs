@@ -20,7 +20,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 > * Configure a Spring Boot web application to use Microsoft Entra authentication with MySQL Database.
 > * Connect to MySQL Database with Managed Identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

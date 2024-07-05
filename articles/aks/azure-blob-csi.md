@@ -4,7 +4,7 @@ description: Learn how to use the Container Storage Interface (CSI) driver for A
 ms.topic: article
 ms.custom:
 ms.subservice: aks-storage
-ms.date: 11/24/2023
+ms.date: 06/24/2024
 author: tamram
 ms.author: tamram
 
@@ -141,7 +141,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
             "kubernetes.io/os": linux
           containers:
             - name: statefulset-blob-nfs
-              image: mcr.microsoft.com/oss/nginx/nginx:1.19.5
+              image: mcr.microsoft.com/oss/nginx/nginx:1.22
               volumeMounts:
                 - name: persistent-storage
                   mountPath: /mnt/blob
@@ -190,7 +190,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
             "kubernetes.io/os": linux
           containers:
             - name: statefulset-blob
-              image: mcr.microsoft.com/oss/nginx/nginx:1.19.5
+              image: mcr.microsoft.com/oss/nginx/nginx:1.22
               volumeMounts:
                 - name: persistent-storage
                   mountPath: /mnt/blob

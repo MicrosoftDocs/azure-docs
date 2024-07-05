@@ -5,7 +5,7 @@ description: Learn how to configure the VPN client for VPN Gateway P2S configura
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/14/2024
+ms.date: 06/18/2024
 ms.author: cherylmc
 ---
 
@@ -138,18 +138,6 @@ Configure authentication settings.
 1. Once the connection has been established, the status shows as **Connected** and you can view the IP address that was pulled from the VPN client address pool.
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/connected.png":::
-
-## OpenVPN: macOS steps
-
-The following example uses **TunnelBlick**.
-
-[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
-
-## OpenVPN: iOS steps
-
-The following example uses **OpenVPN Connect** from the App store.
-
-[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 
 ## Next steps
 

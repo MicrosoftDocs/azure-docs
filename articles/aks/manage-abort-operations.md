@@ -7,6 +7,7 @@ author: tamram
 ms.author: tamram
 
 ms.subservice: aks-nodes
+ms.custom: devx-track-azurecli
 ---
 
 # Terminate a long running operation on an Azure Kubernetes Service (AKS) cluster
@@ -131,4 +132,3 @@ Learn more about [Container insights](../azure-monitor/containers/container-insi
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-

@@ -5,12 +5,12 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/06/2024
+ms.date: 07/02/2024
 ms.author: victorh
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic.
+You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic. The rules are terminating, so rule proceisng stops on a match.
 
 ## Rule processing using classic rules
 

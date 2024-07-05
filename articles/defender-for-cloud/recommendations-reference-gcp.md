@@ -989,7 +989,7 @@ GCP facilitates up to 10 external service account keys per service account to fa
 
 **Severity**: Medium
 
-### [GCP overprovisioned identities should have only the necessary permissions](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fa210cff-18da-474a-ac60-8f93f7c6f4c9)
+### [GCP overprovisioned identities should have only the necessary permissions](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/8353c257-30be-4048-8ac3-b8f26d89d2ea)
 
 **Description**: An over-provisioned active identity is an identity that has access to privileges that they haven't used. Over-provisioned active identities, especially for nonhuman accounts that have very defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise The principle of least privilege states that a resource should only have access to the exact resources it needs in order to function. This principle was developed to address the risk of compromised identities granting an attacker access to a wide range of resources.
 

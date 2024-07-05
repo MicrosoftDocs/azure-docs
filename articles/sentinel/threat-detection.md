@@ -4,6 +4,7 @@ description: Understand how threat detection works in Microsoft Sentinel. Learn 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/23/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
