@@ -9,6 +9,8 @@ author: EirikHaughom
 ms.date: 05/30/2024
 ---
 
+## Deploy Geospatial Consumption Zone (GCZ) on a Windows Virtual Machine
+
 Learn how to deploy Geospatial Consumption Zone (GCZ) on Windows. This deployment option is recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 
 ### Prerequisites
