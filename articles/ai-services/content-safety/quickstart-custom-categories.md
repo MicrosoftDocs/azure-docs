@@ -46,7 +46,7 @@ To train a custom category, you need example text data that represents the categ
 
 ### Grant storage access 
 
-[!INCLUDE [storage-account-access](../includes/storage-account-access.md)]
+[!INCLUDE [storage-account-access](./includes/storage-account-access.md)]
 
 ## Create and train a custom category
 
@@ -187,5 +187,5 @@ print(result)
 ## Related content
 
 * For information on other Custom category operations, see the [How-to guide](./how-to/custom-categories.md).
-* [Custom categories concepts](../concepts/custom-categories.md)
-* [Moderate content with Content Safety](../quickstart-text.md)
+* [Custom categories concepts](./concepts/custom-categories.md)
+* [Moderate content with Content Safety](./quickstart-text.md)
