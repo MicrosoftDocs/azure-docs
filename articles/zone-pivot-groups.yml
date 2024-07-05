@@ -3292,6 +3292,14 @@ groups:
     title: Azure portal
   - id: energy-data-services-gcz-apim-cli
     title: Azure CLI
+- id: gcz-aks-or-windows
+  title: Deploy to AKS or Windows
+  prompt: Choose your deployment option
+  pivots:
+  - id: gcz-aks
+    title: Deploy GCZ using Azure Kubernetes Service (AKS)
+  - id: gcz-windows
+    title: Deploy GCZ using Windows VM
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
