@@ -17,7 +17,9 @@ Cloud Shell requires a Microsoft Azure Files share.
 
 ## Storage cost
 
-If you would like to persist files across sessions, Cloud Shell requires a new or existing Azure Files share to be mounted. Storage incurs regular costs. For pricing information, see [Azure Files Pricing][01].
+If you would like to persist files across sessions, Cloud Shell requires a new or existing Azure
+Files share to be mounted. Storage incurs regular costs. For pricing information, see
+[Azure Files Pricing][01].
 
 ## Network costs
 
