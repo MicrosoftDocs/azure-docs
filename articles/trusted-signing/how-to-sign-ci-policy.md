@@ -24,13 +24,7 @@ To complete the steps in this article, you need:
 
 ## Sign a CI policy
 
-1. ⁠Unzip the Az.CodeSigning module to a folder.
 1. ⁠Open [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest).
-1. In the *Az.CodeSigning* folder, run this command:
-
-   ```powershell
-   Import-Module .\Az.CodeSigning.psd1
-   ```
 
 1. Optionally, you can create a *metadata.json* file that looks like this example:(`"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources.)
 

@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
 
 1. To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Deploy app to Azure
 
@@ -89,7 +89,7 @@ In this step, you deploy your .NET Core application to App Service.
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](~/reusable-content/ce-skilling/azure/includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create an App Service plan
 
