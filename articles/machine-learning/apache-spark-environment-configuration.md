@@ -3,8 +3,8 @@ title: Apache Spark - environment configuration
 titleSuffix: Azure Machine Learning
 description: Learn how to configure your Apache Spark environment for interactive data wrangling.
 author: ynpandey
-ms.author: yogipandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
