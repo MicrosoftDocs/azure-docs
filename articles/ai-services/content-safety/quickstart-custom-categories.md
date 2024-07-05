@@ -52,7 +52,7 @@ To train a custom category, you need example text data that represents the categ
 
 #### [cURL](#tab/curl)
 
-In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values. Then enter each command in a terminal window and run it.
+In the command below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values. Then enter each command in a terminal window and run it.
 
 ### Create new category version
 
