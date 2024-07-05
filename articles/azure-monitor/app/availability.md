@@ -2,7 +2,7 @@
 title: Application Insights availability tests 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 07/05/2024
 ms.reviewer: cogoodson
 ---
 
@@ -19,9 +19,12 @@ Availability tests don't require any changes to the website you're testing and w
 
 There are four types of availability tests:
 
-* [Standard test](#standard-test): This is a type of availability test that checks the availability of a website by sending a single request, similar to the deprecated URL ping test. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include TLS/SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.<br><br>
-* [Custom TrackAvailability test](#review-trackavailability-test-results): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.<br><br>
-* [Multi-step web test (deprecated)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.<br><br>
+* [Standard test](#standard-test): This is a type of availability test that checks the availability of a website by sending a single request, similar to the deprecated URL ping test. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include TLS/SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
+
+* [Custom TrackAvailability test](#review-trackavailability-test-results): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
+
+* [Multi-step web test (deprecated)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
+
 * [URL ping test (deprecated)](monitor-web-app-availability.md): You can create this test through the Azure portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
 
 > [!IMPORTANT]
@@ -151,9 +154,11 @@ You can use the following population tags for the geo-location attribute when yo
 #### Create a timer trigger function
 
 1. Create an Azure Functions resource.
+
     If you already have an Application Insights resource:
 
     * By default, Azure Functions creates an Application Insights resource. But if you want to use a resource you created previously, you must specify that during creation.
+
     * Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
 
         On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
@@ -167,10 +172,13 @@ You can use the following population tags for the geo-location attribute when yo
     > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
 
 1. Create a timer trigger function.
+
     1. In your function app, select the **Functions** tab.
+
     1. Select **Add**. On the **Add function** pane, select the following configurations:
         * **Development environment**: Develop in portal
         * **Select a template**: Timer trigger
+
     1. Select **Add** to create the timer trigger function.
 
     :::image type="content" source="media/availability-azure-functions/add-function.png" alt-text="Screenshot that shows how to add a timer trigger function to your function app." lightbox="media/availability-azure-functions/add-function.png":::
@@ -344,7 +352,7 @@ Alerts are now automatically enabled by default, but to fully configure an alert
 
 1. After you save the availability test, on the **Details** tab, select the ellipsis by the test you made. Select **Open Rules (Alerts) page**.
 
-   :::image type="content" source="./media/availability-alerts/edit-alert.png" alt-text="Screenshot that shows the Availability pane for an Application Insights resource in the Azure portal and the Open Rules (Alerts) page menu option." lightbox="./media/availability-alerts/edit-alert.png":::
+    :::image type="content" source="./media/availability-alerts/edit-alert.png" alt-text="Screenshot that shows the Availability pane for an Application Insights resource in the Azure portal and the Open Rules (Alerts) page menu option." lightbox="./media/availability-alerts/edit-alert.png":::
 
 1. Set the severity level, rule description, and action group that have the notification preferences you want to use for this alert rule.
 
@@ -468,20 +476,20 @@ The following steps walk you through the process of creating [standard tests](av
 
 > [!IMPORTANT]
 > On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) will be retired**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
-> - A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
+> * A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
 > 
-> - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
-> 
+> * Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
+
 #### Prerequisites
 
-- Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
-- [Azure PowerShell](/powershell/azure/get-started-azureps) access
+* Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
+* [Azure PowerShell](/powershell/azure/get-started-azureps) access
 
-#### Steps
+#### Get started
 
-1.	Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
+1. Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
 
-2.	List all URL ping tests in the current subscription:
+1. List all URL ping tests in the current subscription:
 
     ```azurepowershell
     Get-AzApplicationInsightsWebTest | `
@@ -489,14 +497,14 @@ The following steps walk you through the process of creating [standard tests](av
     Format-Table -Property ResourceGroupName,Name,WebTestKind,Enabled;
     ```
 
-3.	Find the URL Ping Test you want to migrate and record its resource group and name.
+1. Find the URL Ping Test you want to migrate and record its resource group and name.
 
-4.	The following commands create a standard test with the same logic as the URL ping test.
+1. The following commands create a standard test with the same logic as the URL ping test.
 
     > [!NOTE]
     > The following commands work for both HTTP and HTTPS endpoints, which are used in your URL ping Tests.
 
-    ```azurepowershell
+    ```shell
     $resourceGroup = "pingTestResourceGroup";
     $appInsightsComponent = "componentName";
     $pingTestName = "pingTestName";
@@ -527,9 +535,11 @@ The following steps walk you through the process of creating [standard tests](av
     -RequestParseDependent:($pingTestRequest.ParseDependentRequests -eq [bool]::TrueString);
     ```
 
-5. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
-6. Once you have validated the functionality of the new standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. Then you disable or delete the URL ping test.
-7. To delete a URL ping test with Azure PowerShell, you can use this command:
+1. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
+
+1. Once you have validated the functionality of the new standard test, [update your alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules) that reference the URL ping test to reference the standard test instead. Then you disable or delete the URL ping test.
+
+1. To delete a URL ping test with Azure PowerShell, you can use this command:
 
     ```azurepowershell
     Remove-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup -Name $pingTestName;
@@ -551,126 +561,114 @@ Ensure your internal website has a public Domain Name System (DNS) record. Avail
 Set custom headers in [standard availability tests](availability-standard-tests.md) to validate traffic.
 
 1. Generate a token or GUID to identify traffic from your availability tests.
-2. Add the custom header "X-Customer-InstanceId" with the value `ApplicationInsightsAvailability:<GUID generated in step 1>` under the "Standard test info" section when creating or updating your availability tests.
-3. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
+
+1. Add the custom header "X-Customer-InstanceId" with the value `ApplicationInsightsAvailability:<GUID generated in step 1>` under the "Standard test info" section when creating or updating your availability tests.
+
+1. Ensure your service checks if incoming traffic includes the header and value defined in the previous steps.
 
     :::image type="content" source="media/availability-private-test/custom-validation-header.png" alt-text="Screenshot that shows custom validation header.":::
 
 Alternatively, set the token as a query parameter. For example, `https://yourtestendpoint/?x-customer-instanceid=applicationinsightsavailability:<your guid>`.
 
-#### Configure your firewall to permit incoming requests from Availability Tests
+#### Configure your firewall to permit incoming requests from availability tests
 
 > [!NOTE]
 > This example is specific to network security group service tag usage. Many Azure services accept service tags, each requiring different configuration steps.
 
-- To simplify enabling Azure services without authorizing individual IPs or maintaining an up-to-date IP list, use [Service tags](../../virtual-network/service-tags-overview.md). Apply these tags across Azure Firewall and network security groups, allowing the Availability Test service access to your endpoints. The service tag `ApplicationInsightsAvailability` applies to all Availability Tests.
+* To simplify enabling Azure services without authorizing individual IPs or maintaining an up-to-date IP list, use [Service tags](../../virtual-network/service-tags-overview.md). Apply these tags across Azure Firewall and network security groups, allowing the Availability Test service access to your endpoints. The service tag `ApplicationInsightsAvailability` applies to all Availability Tests.
 
     1. If you're using [Azure network security groups](../../virtual-network/network-security-groups-overview.md), go to your network security group resource and under **Settings**, select **inbound security rules**. Then select **Add**.
 
-         :::image type="content" source="media/availability-private-test/add.png" alt-text="Screenshot that shows the inbound security rules tab in the network security group resource.":::
+        :::image type="content" source="media/availability-private-test/add.png" alt-text="Screenshot that shows the inbound security rules tab in the network security group resource.":::
 
-    2. Next, select **Service Tag** as the source and select **ApplicationInsightsAvailability** as the source service tag. Use open ports 80 (http) and 443 (https) for incoming traffic from the service tag.
+    1. Next, select **Service Tag** as the source and select **ApplicationInsightsAvailability** as the source service tag. Use open ports 80 (http) and 443 (https) for incoming traffic from the service tag.
 
         :::image type="content" source="media/availability-private-test/service-tag.png" alt-text="Screenshot that shows the Add inbound security rules tab with a source of service tag.":::
 
-- To manage access when your endpoints are outside Azure or when service tags aren't an option, allowlist the [IP addresses of our web test agents](ip-addresses.md). You can query IP ranges using PowerShell, Azure CLI, or a REST call with the [Service Tag API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). For a comprehensive list of current service tags and their IP details, download the [JSON file](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+* To manage access when your endpoints are outside Azure or when service tags aren't an option, allowlist the [IP addresses of our web test agents](ip-addresses.md). You can query IP ranges using PowerShell, Azure CLI, or a REST call with the [Service Tag API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). For a comprehensive list of current service tags and their IP details, download the [JSON file](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
   
     1. In your network security group resource, under **Settings**, select **inbound security rules**. Then select **Add**.
-    2. Next, select **IP Addresses** as your source. Then add your IP addresses in a comma-delimited list in source IP address/CIRD ranges.
 
-         :::image type="content" source="media/availability-private-test/ip-addresses.png" alt-text="Screenshot that shows the Add inbound security rules tab with a source of IP addresses.":::
+    1. Next, select **IP Addresses** as your source. Then add your IP addresses in a comma-delimited list in source IP address/CIRD ranges.
+
+        :::image type="content" source="media/availability-private-test/ip-addresses.png" alt-text="Screenshot that shows the Add inbound security rules tab with a source of IP addresses.":::
 
 ### Disconnected or no ingress scenarios
 
 1. Connect your Application Insights resource to your internal service endpoint using [Azure Private Link](../logs/private-link-security.md).
-2. Write custom code to periodically test your internal server or endpoints. Send the results to Application Insights using the [TrackAvailability()](availability-azure-functions.md) API in the core SDK package.
 
-## TLS support
-
-To provide best-in-class encryption, all availability tests use Transport Layer Security (TLS) 1.2 or higher as the encryption mechanism of choice.
-
-> [!WARNING]
-> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights availability tests. 
+1. Write custom code to periodically test your internal server or endpoints. Send the results to Application Insights using the [TrackAvailability()](availability-azure-functions.md) API in the core SDK package.
 
 ### Supported TLS configurations
 
-TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for availability tests. In addition, the following Cipher suites and Elliptical curves are also supported within each version.
+To provide best-in-class encryption, all availability tests use Transport Layer Security (TLS) 1.2 and 1.3 as the encryption mechanisms of choice. In addition, the following Cipher suites and Elliptical curves are also supported within each version.
+
 > [!NOTE]
-> TLS 1.3 is currently only available in these availability test regions: NorthCentralUS, CentralUS, EastUS, SouthCentralUS, WestUS 
+> TLS 1.3 is currently only available in the availability test regions NorthCentralUS, CentralUS, EastUS, SouthCentralUS, and WestUS.
 
 #### TLS 1.2
 
 **Cipher suites**
-- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 
-- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 
+* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 
 
 **Elliptical curves**
-- NistP384 
-- NistP256 
+* NistP384 
+* NistP256 
 
 #### TLS 1.3
 
 **Cipher suites**
-- TLS_AES_256_GCM_SHA384 
-- TLS_AES_128_GCM_SHA256 
+* TLS_AES_256_GCM_SHA384 
+* TLS_AES_128_GCM_SHA256 
 
 **Elliptical curves:** 
-- NistP384 
-- NistP256 
+* NistP384 
+* NistP256 
 
 ### Deprecating TLS configuration
 
 > [!WARNING]
-> After 31 October 2024, only the listed Cipher suites and Elliptical curves within the below TLS 1.2 and TLS 1.3 sections will be retired. TLS 1.2/1.3 and the previously mentioned Cipher Suites and Elliptical Curves under section "Supported TLS configurations" will still be supported.
+> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/), TLS 1.0/1.1 protocol versions and the below listed TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights availability tests.
 
 #### TLS 1.0 and TLS 1.1
 
-Protocol versions will no longer be supported
+Protocol versions will no longer be supported.
 
 #### TLS 1.2
 
 **Cipher suites**
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA 
-- TLS_RSA_WITH_AES_256_GCM_SHA384 
-- TLS_RSA_WITH_AES_128_GCM_SHA256 
-- TLS_RSA_WITH_AES_256_CBC_SHA256 
-- TLS_RSA_WITH_AES_128_CBC_SHA256 
-- TLS_RSA_WITH_AES_256_CBC_SHA 
-- TLS_RSA_WITH_AES_128_CBC_SHA 
+* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
+* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA 
+* TLS_RSA_WITH_AES_256_GCM_SHA384 
+* TLS_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_RSA_WITH_AES_256_CBC_SHA256 
+* TLS_RSA_WITH_AES_128_CBC_SHA256 
+* TLS_RSA_WITH_AES_256_CBC_SHA 
+* TLS_RSA_WITH_AES_128_CBC_SHA 
 
 **Elliptical curves:** 
-- curve25519 
+* curve25519 
 
 #### TLS 1.3
 
 **Elliptical curves**
-- curve25519 
+* curve25519 
 
-## Frequently asked questions
+### Troubleshooting
 
-This section provides answers to common questions.
-
-### General
-
-#### Can I run availability tests on an intranet server?
-
-Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
-          
-* **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](../ip-addresses.md).
-* **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
-
-#### What is the user agent string for availability tests?
-
-The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; AppInsights**
+> [!WARNING]
+> We have recently enabled TLS 1.3 in availability tests. If you are seeing new error messages as a result, please ensure that clients running on Windows Server 2022 with TLS 1.3 enabled can connect to your endpoint. If you are unable to do this, you may consider temporarily disabling TLS 1.3 on your endpoint so that availability tests will fall back to older TLS versions.  
+> For additional information, please check the  [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 
 ## Downtime, SLA, and outages workbook
 
@@ -696,9 +694,9 @@ The parameters set in the workbook influence the rest of your report.
 
 The overview page contains high-level information about your:
 
-- Total SLA (excluding maintenance periods, if defined).
-- End-to-end outage instances.
-- Application downtime.
+* Total SLA (excluding maintenance periods, if defined)
+* End-to-end outage instances
+* Application downtime
 
 Outage instances are defined by when a test starts to fail until it's successful, based on your outage parameters. If a test starts failing at 8:00 AM and succeeds again at 10:00 AM, that entire period of data is considered the same outage.
 
@@ -744,38 +742,55 @@ The report can be shared with your teams and leadership or pinned to a dashboard
 
 :::image type="content" source="./media/sla-report/share.png" alt-text=" Screenshot that shows the Share Template pane." lightbox= "./media/sla-report/share.png":::
 
-### TLS Support 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### General
+
+#### Can I run availability tests on an intranet server?
+
+Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
+          
+* **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](../ip-addresses.md).
+* **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
+
+#### What is the user agent string for availability tests?
+
+The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; AppInsights)**
+
+### TLS Support
 
 #### How does this deprecation impact my web test behavior?
+
 Availability tests act as a distributed client in each of the supported web test locations. Every time a web test is executed the availability test service attempts to reach out to the remote endpoint defined in the web test configuration. A TLS Client Hello message is sent which contains all the currently supported TLS configuration. If the remote endpoint shares a common TLS configuration with the availability test client, then the TLS handshake succeeds. Otherwise, the web test fails with a TLS handshake failure. 
 
 #### How do I ensure my web test isn't impacted?
+
 To avoid any impact, each remote endpoint (including dependent requests) your web test interacts with needs to support at least one combination of the same Protocol Version, Cipher Suite, and Elliptical Curve that availability test does. If the remote endpoint doesn't support the needed TLS configuration, it needs to be updated with support for some combination of the above-mentioned post-deprecation TLS configuration. These endpoints can be discovered through viewing the [Transaction Details](/azure/azure-monitor/app/availability-standard-tests#see-your-availability-test-results) of your web test (ideally for a successful web test execution). 
 
 #### How do I validate what TLS configuration a remote endpoint supports?
+
 There are several tools available to test what TLS configuration an endpoint supports. One way would be to follow the example detailed on this [page](/security/engineering/solving-tls1-problem#appendix-a-handshake-simulation). If your remote endpoint isn't available via the Public internet, you need to ensure you validate the TLS configuration supported on the remote endpoint from a machine that has access to call your endpoint. 
 
 > [!NOTE]
 > For steps to enable the needed TLS configuration on your web server, it is best to reach out to the team that owns the hosting platform your web server runs on if the process is not known. 
 
 #### After October 31, 2024, what will the web test behavior be for impacted tests?
+
 There's no one exception type that all TLS handshake failures impacted by this deprecation would present themselves with. However, the most common exception your web test would start failing with would be `The request was aborted: Couldn't create SSL/TLS secure channel`. You should also be able to see any TLS related failures in the TLS Transport [Troubleshooting Step](/troubleshoot/azure/azure-monitor/app-insights/availability/diagnose-ping-test-failure) for the web test result that is potentially impacted. 
 
 #### Can I view what TLS configuration is currently in use by my web test?
+
 The TLS configuration negotiated during a web test execution can't be viewed. As long as the remote endpoint supports common TLS configuration with availability tests, no impact should be seen post-deprecation. 
 
 #### Which components does the deprecation affect in the availability test service?
+
 The TLS deprecation detailed in this document should only affect the availability test web test execution behavior after October 31, 2024. For more information about interacting with the availability test service for CRUD operations, see [Azure Resource Manager TLS Support](/azure/azure-resource-manager/management/tls-support). This resource provides more details on TLS support and deprecation timelines.
 
 #### Where can I get TLS support?
+
 For any general questions around the legacy TLS problem, see [Solving TLS problems](/security/engineering/solving-tls1-problem).
-
-## Troubleshooting
-
-> [!WARNING]
-> We have recently enabled TLS 1.3 in availability tests. If you are seeing new error messages as a result, please ensure that clients running on Windows Server 2022 with TLS 1.3 enabled can connect to your endpoint. If you are unable to do this, you may consider temporarily disabling TLS 1.3 on your endpoint so that availability tests will fall back to older TLS versions.  
-> For additional information, please check the  [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
-See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 
 ## Next steps
 
