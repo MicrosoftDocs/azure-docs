@@ -53,6 +53,24 @@ az extension add --upgrade --name k8s-extension --yes --allow-preview false
 az extension add --upgrade --name amg --yes --allow-preview false
 ```
 
+As a prerequisite for utilizing kubectl, it is essential to first install [Krew][install-krew], followed by the installation of the [CNPG plugin][cnpg-plugin]. This will enable the management of the PostgreSQL operator using the subsequent commands.
+
+```azurecli
+(
+  set -x; cd "$(mktemp -d)" &&
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
+)
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+kubectl krew install cnpg
+```
+
 ## Create a resource group
 
 Create a resource group to hold the resources you create in this guide using the [`az group create`][az-group-create] command.
@@ -112,7 +130,7 @@ The CNPG operator automatically generates a service account called *postgres* th
         --kind StorageV2 \
         --query 'provisioningState' \
         --output tsv
-      ```
+    ```
 
 1. Create the storage container to store the Write Ahead Logs (WAL) and regular PostgreSQL on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
 
@@ -124,7 +142,7 @@ The CNPG operator automatically generates a service account called *postgres* th
     ```
 
     > [!NOTE]
-    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'.`. Please verify user permissions for Azure Blob Storage and, if **necessary**, elevate your role to `Storage Blob Data Owner` using the commands provided below.
+    > If you encounter the error message: `The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'. If you want to change the default action to apply when no rule matches, please use 'az storage account update'`. Please verify user permissions for Azure Blob Storage and, if **necessary**, elevate your role to `Storage Blob Data Owner` using the commands provided below.
 
     ```azurecli-interactive
     az role assignment list --scope $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID --output table
@@ -507,3 +525,5 @@ Now that you've created the require infrastructure, [deploy a highly available P
 [helm-upgrade]: https://helm.sh/docs/helm/helm_upgrade/
 [kubectl-apply]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/
 [deploy-postgresql]: ./deploy-postgresql-ha.md
+[install-krew]: https://krew.sigs.k8s.io/
+[cnpg-plugin]: https://cloudnative-pg.io/documentation/current/kubectl-plugin/#using-krew
