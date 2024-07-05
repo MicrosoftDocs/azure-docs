@@ -230,9 +230,10 @@ The following table outlines the key properties set in the YAML deployment manif
 
     ```azurecli-interactive
     kubectl get pods --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
-    # Example output
-
+    Example output
+    ```output
     NAME                         READY   STATUS    RESTARTS   AGE
     pg-primary-cnpg-r8c7unrw-1   1/1     Running   0          4m25s
     pg-primary-cnpg-r8c7unrw-2   1/1     Running   0          3m33s
@@ -251,9 +252,10 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
         get podmonitors.monitoring.coreos.com \
         $PG_PRIMARY_CLUSTER_NAME \
         --output yaml
-     
-     # Example output
+    ```
 
+    Example output
+    ```output
      kind: PodMonitor
      metadata:
       annotations:
@@ -402,9 +404,10 @@ In this section, you create a table and insert some data into the app database t
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
-    # Example output
-    
+    Example output
+    ```output   
     Continuous Backup status
     First Point of Recoverability:  Not Available
     Working WAL archiving:          FAILING
@@ -433,9 +436,10 @@ In this section, you create a table and insert some data into the app database t
 
     ```azurecli-interactive
     kubectl describe backup $BACKUP_ONDEMAND_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
-    # Example output
-
+    Example output
+    ```output
     Type    Reason     Age   From                   Message
      ----    ------     ----  ----                   -------
     Normal  Starting   6s    cloudnative-pg-backup  Starting backup for cluster pg-primary-cnpg-r8c7unrw
@@ -447,9 +451,10 @@ In this section, you create a table and insert some data into the app database t
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
-    # Example output
-
+    Example output
+    ```output
     Continuous Backup status
     First Point of Recoverability:  2024-06-05T13:47:18Z
     Working WAL archiving:          OK
@@ -638,9 +643,10 @@ You also retrieve the following endpoints from the Cluster IP service:
 
     ```azurecli-interactive
     kubectl get services --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -l cnpg.io/cluster=$PG_PRIMARY_CLUSTER_NAME
+    ```
 
-    # Example output
-    
+    Example output
+    ```output
     NAME                          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
     pg-primary-cnpg-sryti1qf-r    ClusterIP   10.0.193.27    <none>        5432/TCP   3h57m
     pg-primary-cnpg-sryti1qf-ro   ClusterIP   10.0.237.19    <none>        5432/TCP   3h57m
@@ -756,7 +762,7 @@ Remember that the primary read-write endpoint maps to TCP port 5432 and the read
     # Query the primary, pg_is_in_recovery = false
     
     psql -h $AKS_PRIMARY_CLUSTER_ALB_DNSNAME \
-         -p 5432 -U app -d appdb -W -c "SELECT pg_is_in_recovery();"
+        -p 5432 -U app -d appdb -W -c "SELECT pg_is_in_recovery();"
 
     # Example output
     
@@ -768,14 +774,14 @@ Remember that the primary read-write endpoint maps to TCP port 5432 and the read
     # Query a replica, pg_is_in_recovery = true
     
     psql -h $AKS_PRIMARY_CLUSTER_ALB_DNSNAME \
-         -p 5433 -U app -d appdb -W -c "SELECT pg_is_in_recovery();"
+        -p 5433 -U app -d appdb -W -c "SELECT pg_is_in_recovery();"
 
     # Example output
     
     pg_is_in_recovery
     -------------------
     t
-   (1 row)
+    (1 row)
     ```
 
     When successfully connected to the primary read-write endpoint, the PostgreSQL function returns `f` for *false*, indicating that the current connection is writable.
@@ -790,9 +796,10 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
-    
-    # Example output
+    ```
 
+    Example output
+    ```output
     Name                        Current LSN Rep role        Status  Node
     --------------------------- ----------- --------        ------- -----------
     pg-primary-cnpg-sryti1qf-1  0/9000060   Primary         OK      aks-postgres-32388626-vmss000000
@@ -815,9 +822,10 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
-    # Example output
-
+    Example output
+    ```output
     pg-primary-cnpg-sryti1qf-2  0/9000060   Primary         OK      aks-postgres-32388626-vmss000001
     pg-primary-cnpg-sryti1qf-1  0/9000060   Standby (sync)  OK      aks-postgres-32388626-vmss000000
     pg-primary-cnpg-sryti1qf-3  0/9000060   Standby (sync)  OK      aks-postgres-32388626-vmss000002
@@ -833,9 +841,10 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
-    # Example output
-
+    Example output
+    ```output
     Name                        Current LSN Rep role        Status  Node
     --------------------------- ----------- --------        ------- -----------
     pg-primary-cnpg-sryti1qf-1  0/9000060   Primary         OK      aks-postgres-32388626-vmss000000
