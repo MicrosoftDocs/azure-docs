@@ -410,7 +410,7 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
         --output table
     ```
 
-1. Get the newly created public IP address using the [`az network public-ip show`][az-network-public-ip-show] command.
+3. Get the newly created public IP address using the [`az network public-ip show`][az-network-public-ip-show] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_PUBLICIP_ADDRESS=$(az network public-ip show \
@@ -422,7 +422,7 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
     echo $AKS_PRIMARY_CLUSTER_PUBLICIP_ADDRESS
     ```
 
-2. Get the resource ID of the node resource group using the [`az group show`][az-group-show] command.
+4. Get the resource ID of the node resource group using the [`az group show`][az-group-show] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_NODERG_NAME_SCOPE=$(az group show --name \
@@ -433,7 +433,7 @@ To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooli
     echo $AKS_PRIMARY_CLUSTER_NODERG_NAME_SCOPE
     ```
 
-3. Assign the "Network Contributor" role to the UAMI object ID using the node resource group scope using the [`az role assignment create`][az-role-assignment-create] command.
+5. Assign the "Network Contributor" role to the UAMI object ID using the node resource group scope using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create \
@@ -491,6 +491,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
         --namespace $PG_SYSTEM_NAMESPACE cnpg-controller-manager \
         --context $AKS_PRIMARY_CLUSTER_NAME
     ```
+
 ---
 
 ## Next steps
