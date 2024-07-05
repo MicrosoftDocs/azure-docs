@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases instance backup errors
 description: This article describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA database instances.
 ms.topic: troubleshooting
-ms.date: 11/02/2023
+ms.date: 07/15/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -157,6 +157,16 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 **Cause**:  The snapshot point-in-time restore operation failed as the underlying database on the target machine is protected with Azure Backup.
 
 **Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
+
+### OperationCancelledBecauseSameOperationQueuedUserError
+
+**Error code**: `OperationCancelledBecauseSameOperationQueuedUserError`
+
+**Error message**: This error happens to prevent multiple backups triggering on the same database/datasource. The next backup should finish successfully once the concurrent task/backup  is completed. 
+
+**Cause**: In some cases, where there are large numbers of databases in the same container, backups will trigger and get queued. The queue will cause the backup to start with a delay. So, it'll not be evident from start time and end time which task is concurrent.
+
+**Recommended action**: You need to reduce frequency on certain databases or distribute it to another container instead of having a single container.
 
 ## Appendix
 
