@@ -20,7 +20,7 @@ and certificates.
 
 For more information, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
-## Operator Nexus Built-in Roles
+## Operator Nexus built-in roles
 
 Azure Operator Nexus provides the following built-in roles.
 
@@ -28,8 +28,7 @@ Azure Operator Nexus provides the following built-in roles.
 
 [Operator Nexus Keyset Administrator Role (Preview)](#operator-nexus-keyset-administrator-role-preview)
 
-> NOTE
->
+> [!NOTE]
 > Preview roles are subject to change.
 
 ---
@@ -43,7 +42,7 @@ including creating, modifying, and deleting resources related to Nexus infrastru
 |---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Microsoft.Authorization/*/read                                      | Read roles and role assignments                                                                                                                                          |
 | Microsoft.ExtendedLocation/customLocations/deploy/action            | Deploy permissions to a Custom Location resource                                                                                                                         |
-| Microsoft.ExtendedLocation/customLocations/read                     | Gets an Custom Location resource                                                                                                                                         |
+| Microsoft.ExtendedLocation/customLocations/read                     | Gets a Custom Location resource                                                                                                                                         |
 | Microsoft.HybridCompute/machines/extensions/read                    | Reads any Azure Arc extensions                                                                                                                                           |
 | Microsoft.HybridCompute/machines/read                               | Read any Azure Arc machines                                                                                                                                              |
 | Microsoft.Insights/alertRules/*                                     | Create and manage a classic metric alert                                                                                                                                 |
@@ -93,8 +92,7 @@ including creating, modifying, and deleting resources related to Nexus infrastru
 | Microsoft.Resources/deployments/*                                   | Create and manage a deployment                                                                                                                                           |
 | Microsoft.Resources/subscriptions/resourceGroups/read               | Gets or lists resource groups                                                                                                                                            |
 
-> NOTE
->
+> [!NOTE]
 > In some instances, it may be necessary to assign additional actions to the user.
 > One solution would be to create a custom role with the below actions to be assigned to
 > the user in conjunction with the Operator Nexus Compute Contributor role.
