@@ -800,5 +800,5 @@ print(response.text)
 
 ## Related content
 
-- [Custom categories (rapid) concepts](../concepts/custom-categories-rapid.md)
+- [Custom categories concepts](../concepts/custom-categories.md)
 - [What is Azure AI Content Safety?](../overview.md)

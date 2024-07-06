@@ -67,8 +67,8 @@ items:
     href: concepts/groundedness.md
   - name: Protected material detection
     href: concepts/protected-material.md
-  - name: Custom categories (rapid)
-    href: concepts/custom-categories-rapid.md
+  - name: Custom categories
+    href: concepts/custom-categories.md
   - name: Harm categories
     href: concepts/harm-categories.md
 - name: Reference
