@@ -44,22 +44,37 @@ This service mesh add-on uses and builds on top of open-source Istio. The add-on
 
 ## Limitations
 
-Istio-based service mesh add-on for AKS has the following limitations:
+Istio-based service mesh add-on for AKS currently has the following limitations:
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
 * The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
 * The add-on doesn't support adding pods associated with virtual nodes to be added under the mesh.
+* The add-on doesn't support egress gateways for outbound traffic control.
+* The add-on doesn't support the sidecar-less Ambient dataplane mode.
+* The add-on doesn't support multi-cluster, multi-mesh, multi-cloud, or hybrid deployments.
+* The add-on restricts mesh-wide configuration options for the [Istio meshconfig][istio-meshconfig].
+* The add-on doesn't support static IP address, port, or other customizations for the [Istio add-on ingress gateways][istio-ingress].
 * Istio doesn't support Windows Server containers.
-* Customization of mesh based on the following custom resources is blocked for now - `EnvoyFilter, ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`
+* Customization of mesh based on the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`. For `EnvoyFilter`, the add-on only supports customization of Lua script filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`) - other `EnvoyFilter` types are blocked.
+
 * Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon.
 
 ## Next steps
 
+### Feedback and Feature Requests
+
+Feedback and feature requests for the Istio-based service mesh add-on should be raised as a new issue in the [AKS github repository][aks-gh-issues]. Please open a new issue with and add the `mesh` label. 
+
 * [Deploy Istio-based service mesh add-on][istio-deploy-addon]
+* [Troubleshoot Istio-based service mesh add-on][istio-troubleshooting]
 
 [istio-overview]: https://istio.io/latest/
 [managed-prometheus-overview]: ../azure-monitor/essentials/prometheus-metrics-overview.md
 [managed-grafana-overview]: ../managed-grafana/overview.md
 [azure-cni-cilium]: azure-cni-powered-by-cilium.md
 [open-service-mesh-about]: open-service-mesh-about.md
+[istio-meshconfig]: ./istio-meshconfig.md
+[istio-ingress]: ./istio-deploy-ingress.md
+[istio-troubleshooting]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting.md
+[aks-gh-issues]: https://github.com/Azure/AKS/issues
 
 [istio-deploy-addon]: istio-deploy-addon.md
