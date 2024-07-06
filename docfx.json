@@ -889,7 +889,7 @@
         "articles/service-fabric/**/*": "https://learn.microsoft.com/answers/tags/39/azure-service-fabric/",
         "articles/service-health/**/*": "https://learn.microsoft.com/answers/tags/20/azure-monitor",
         "articles/site-recovery/**/*": "https://learn.microsoft.com/answers/tags/227/azure-site-recovery/",
-        "articles/site-reliability-engineering/NO-MATCH-USE-GLOBAL": "",
+        "articles/site-reliability-engineering/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/spatial-anchors/**/*": "https://learn.microsoft.com/answers/tags/26/azure-spatial-anchors/",
         "articles/spring-apps/**/*": "https://learn.microsoft.com/answers/tags/424/azure-spring-apps/",
         "articles/sql-server-stretch-database/**/*": "hhttps://learn.microsoft.com/answers/tags/191/sql-server",
