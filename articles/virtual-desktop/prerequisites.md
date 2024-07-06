@@ -165,6 +165,7 @@ To learn more about licenses you can use, including per-user access pricing, see
 > 
 > - Support for Windows 7 ended on January 10, 2023.
 > - Support for Windows Server 2012 R2 ended on October 10, 2023.
+> - If your virtual machines are running a Windows Server OS, you'll need to install the Remote Desktop Session Host role.
 
 For Azure, you can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 
