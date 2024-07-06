@@ -64,8 +64,7 @@ See the following table for the input limitations of the service.
 
 ### Region availability
 
-To use this API, you must create your Azure AI Content Safety resource in one of the supported regions:
-- East US
+To use this API, you must create your Azure AI Content Safety resource in one of the supported regions. See [Region availability](../overview.md#region-availability).
 
 
 ## Next steps
