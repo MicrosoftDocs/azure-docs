@@ -13,7 +13,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Route network traffic with a route table using the Azure portal
 
-Azure routes traffic between all subnets within a virtual network, by default. To customize your traffic routes, you shouldn't modify the default route but you should create your custom route, which overrides Azure's default routing. Custom routes are helpful when, for example, you want to route traffic between subnets through a network virtual appliance (NVA).
+By default, Azure routes traffic between all subnets within a virtual network. If you want to customize your traffic routes, create a custom route instead of modifying the default one. This custom route will override Azure's default routing. Use custom routes when you need to route traffic between subnets through a network virtual appliance (NVA), for example.
 
 :::image type="content" source="./media/tutorial-create-route-table-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-create-route-table-portal/resources-diagram.png":::
 
