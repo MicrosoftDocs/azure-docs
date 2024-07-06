@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 07/02/2024
 ms.author: phjensen
 ---
 
@@ -19,7 +19,7 @@ For specific information on Preview features, refer to the [AzAcSnap Preview](az
 
 ## May-2024
 
-### AzAcSnap 10 (Build: XXXXXXX)
+### AzAcSnap 10 (Build: 1B55F1*)
 
 AzAcSnap 10 is being released with the following fixes and improvements:
 
@@ -40,7 +40,7 @@ AzAcSnap 10 is being released with the following fixes and improvements:
   - Azure Large Instance storage management via CLI over SSH.
     - CLI over SSH replaced with the REST API over HTTPS.
 
-Download the [AzAcSnap 10](https://aka.ms/azacsnap-10) installer.
+Download the binary of [AzAcSnap 10 for Linux](https://aka.ms/azacsnap-10-linux) or [AzAcSnap 10 for Windows](https://aka.ms/azacsnap-10-windows).
 
 ## Apr-2024
 

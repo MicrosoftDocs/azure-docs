@@ -5,11 +5,10 @@ description: Perform data exploration and modeling tasks on the Windows Data Sci
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-azurepowershell
-
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: conceptual
-ms.reviewer: franksolomon
+ms.reviewer: jcioffi
 ms.date: 06/05/2024
 ---
 
