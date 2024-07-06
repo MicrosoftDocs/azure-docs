@@ -16,7 +16,7 @@ Load balancer provides several capabilities for both UDP and TCP applications.
 
 ## Floating IP
 
-Some application scenarios prefer or require the use of the same port by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Enabling Floating IP allows for more flexibility. 
+Some application scenarios prefer or require the use of the same port by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Enabling Floating IP allows for more flexibility: depending on the rule you define, VM can listen on the same IP and same port as the frontend, or different. By default if floating ip is enabled, when a packet reaches the VM, it comes with the destination IP same as frontend ip of the load balancer and you will need to configure your guest OS with that IP to accept that traffic.
 
 | Floating IP status | Outcome |
 | --- | --- | 
