@@ -37,73 +37,25 @@ For more security recommendations for observability, see the [Azure security bas
 
 By default, clients can connect to function endpoints by using both HTTP or HTTPS. You should redirect HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
 
-When you require HTTPS, you should also Require the latest TLS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
+When you require HTTPS, you should also Require the latest T[Work with access keys in Azure Functions](function-keys-how-to.md)LS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
 For more information, see [Secure connections (TLS)](../app-service/overview-security.md#https-and-certificates).
 
 ### Function access keys
 
-[!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
+Functions lets you use keys to make it harder to access your function endpoints. Unless the HTTP access level on an HTTP triggered function is set to `anonymous`, requests must include an access key in the request. For more information, see [Work with access keys in Azure Functions](function-keys-how-to.md). 
 
-#### System key 
+While access keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity. 
 
-Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that get called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
+For the highest-level of security, you can also secure the entire application architecture inside a virtual network [using private endpoints](#private-site-access) or by [running in isolation.](#deploy-your-function-app-in-isolation).   
 
-The scope of system keys is determined by the extension, but it generally applies to the entire function app. System keys can only be created by specific extensions, and you can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs.
+### Enable App Service Authentication/Authorization
 
-#### Keys comparison
+The App Service platform lets you use Microsoft Entra ID and several third-party identity providers to authenticate clients. You can use this strategy to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../app-service/overview-authentication-authorization.md) and [Working with client identities](functions-bindings-http-webhook-trigger.md#working-with-client-identities).
 
-The following table compares the uses for various kinds of access keys:
+### Use Azure API Management (APIM) to authenticate requests
 
-| Action                                        | Scope                    | Valid keys         |
-|-----------------------------------------------|--------------------------|--------------------|
-| Execute a function                            | Specific function        | Function           |
-| Execute a function                            | Any function             | Function or host   |
-| Call an admin endpoint                        | Function app             | Host (master only) |
-| Call Durable Task extension APIs              | Function app<sup>1</sup> | System<sup>2</sup> |
-| Call an extension-specific Webhook (internal) | Function app<sup>1</sup> | system<sup>2</sup> |
-
-<sup>1</sup>Scope determined by the extension.  
-<sup>2</sup>Specific names set by extension.
-
-To learn more about access keys, see the [HTTP trigger binding article](functions-bindings-http-webhook-trigger.md#obtaining-keys).
-
-
-#### Secret repositories
-
-By default, keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. You can use the [AzureWebJobsSecretStorageType](functions-app-settings.md#azurewebjobssecretstoragetype) setting to override this behavior and store keys in a different location.
-
-|Location  | Value | Description  | 
-|---------|---------|---------|
-|Second storage account | `blob` | Stores keys in Blob storage of a different storage account, based on the SAS URL in  [AzureWebJobsSecretStorageSas](functions-app-settings.md#azurewebjobssecretstoragesas).  |
-|File system  | `files` | Keys are persisted on the file system, which is the default in Functions v1.x. |
-|Azure Key Vault | `keyvault` | The key vault set in [AzureWebJobsSecretStorageKeyVaultUri](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
-|Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when running the Functions runtime in Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
-
-When using Key Vault for key storage, the app settings you need depend on the managed identity type. Functions runtime version 3.x only supports system-assigned managed identities.
-
-# [Version 4.x](#tab/v4)
-
-| Setting name | System-assigned | User-assigned | App registration | 
-| --- | --- | --- | --- |
-| [AzureWebJobsSecretStorageKeyVaultUri](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) | ✓ | ✓ | ✓ | 
-| [AzureWebJobsSecretStorageKeyVaultClientId](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientid) | X | ✓ |✓ |
-| [AzureWebJobsSecretStorageKeyVaultClientSecret](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientsecret) | X | X | ✓ |
-| [AzureWebJobsSecretStorageKeyVaultTenantId](functions-app-settings.md#azurewebjobssecretstoragekeyvaulttenantid) | X | X | ✓ |
-
-# [Version 3.x](#tab/v3)
-
-| Setting name | System-assigned | User-assigned | App registration | 
-| --- | --- | --- | --- |
-| [AzureWebJobsSecretStorageKeyVaultName](functions-app-settings.md#azurewebjobssecretstoragekeyvaultname) | ✓ | X | X |
-
----
-
-### Authentication/authorization
-
-While function keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity.  
-
-[!INCLUDE [functions-enable-auth](../../includes/functions-enable-auth.md)]
+APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-policies.md#authentication-and-authorization). With APIM in place, you can configure your function app to accept requests only from the IP address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
 
 ### Permissions
 
@@ -241,15 +193,15 @@ Access restrictions allow you to define lists of allow/deny rules to control tra
 
 ### Secure the storage account
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. For more information, see [Restrict your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured by a virtual network with access enabled by service endpoints or private endpoints. For more information, see [Restrict your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
-### Private site access
+### Deploy your function app to a virtual network
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ### Deploy your function app in isolation
 
-[!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
+Azure App Service Environment (ASE) provides a dedicated hosting environment in which to run your functions. ASE lets you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/integrate-with-application-gateway.md). 
 
 ### Use a gateway service
 

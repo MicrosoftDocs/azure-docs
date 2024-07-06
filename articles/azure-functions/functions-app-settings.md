@@ -220,7 +220,9 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsSecretStorageKeyVaultName
 
-The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
+_This setting is deprecated and was only used when running on version 3.x of the Azure Functions runtime._ 
+
+The name of a key vault instance used to store keys. This setting was only used in version 3.x of the Functions runtime, which is no longer supported. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
 
 The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When your functions run locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 

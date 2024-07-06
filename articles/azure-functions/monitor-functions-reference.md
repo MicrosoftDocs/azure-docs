@@ -79,8 +79,8 @@ The following table lists operations related to Azure Functions that might be cr
 
 | Operation | Description |
 |:---|:---|
-|Microsoft.web/sites/functions/listkeys/action | Return the [keys for the function](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-|Microsoft.Web/sites/host/listkeys/action | Return the [host keys for the function app](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+|Microsoft.web/sites/functions/listkeys/action | Return the [keys for the function](function-keys-how-to.md).|
+|Microsoft.Web/sites/host/listkeys/action | Return the [host keys for the function app](function-keys-how-to.md).|
 |Microsoft.Web/sites/host/sync/action | [Sync triggers](functions-deployment-technologies.md#trigger-syncing) operation.|
 |Microsoft.Web/sites/start/action| Function app started. |
 |Microsoft.Web/sites/stop/action| Function app stopped.|
