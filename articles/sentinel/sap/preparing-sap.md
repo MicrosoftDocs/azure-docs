@@ -11,7 +11,7 @@ ms.date: 05/28/2024
 
 # Configure SAP authorizations and deploy optional SAP change requests
 
-This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs). This step is the second step in deploying the Microsoft Sentinel solution for SAP applications, and is typically handled by your SAP team.
+This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs). This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications, and is typically handled by your SAP team.
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
@@ -19,7 +19,7 @@ This article describes how to prepare your environment for the installation of t
 
 ## Prerequisites
 
-Before you start, make sure to review the [prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md). 
+- Before you start, make sure to review the [prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Configure the Microsoft Sentinel role
 
@@ -29,7 +29,7 @@ The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack
 
 | SAP BASIS versions | Sample CR |
 | --- | --- |
-| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) | 
+| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) |
 
 > [!TIP]
 > Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](#required-abap-authorizations). The examples in this procedure use the **/MSFTSEN/SENTINEL_RESPONDER** name.
@@ -86,7 +86,7 @@ The required authorizations are listed here by their purpose. You only need the 
 >
 > Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system to create the **/MSFTSEN/SENTINEL_CONNECTOR** role, or load the role authorizations from the [**/MSFTSEN/SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file.
 
-If needed, you can [remove the user role and the optional CR installed on your ABAP system](deployment-solution-configuration.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
+If needed, you can [remove the user role and the optional CR installed on your ABAP system](preparing-sap.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
 
 :::row:::
     :::column:::
@@ -124,7 +124,6 @@ If needed, you can [remove the user role and the optional CR installed on your A
 | S_APPL_LOG | ALG_OBJECT | * |
 | S_APPL_LOG | ALG_SUBOBJ | * |
 | S_APPL_LOG | ACTVT | Display |
-
 
 #### ABAP change documents log
 
@@ -165,7 +164,6 @@ If needed, you can [remove the user role and the optional CR installed on your A
 | S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
 | S_XMI_PROD | INTERFACE | XBP |
 
-
 #### ABAP security audit log
 
 | Authorization object | Field | Value |
@@ -193,14 +191,12 @@ If needed, you can [remove the user role and the optional CR installed on your A
 | S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
 | S_XMI_PROD | INTERFACE | XAL |
 
-
 #### ABAP spool logs
 
 | Authorization object | Field | Value |
 | -------------------- | ----- | ----- |
 | S_TABU_NAM | TABLE | TSP01 |
 | S_ADMI_FCD | S_ADMI_FCD | SPOS (Use of Transaction SP01 (all systems)) |
-
 
 #### ABAP workflow log
 
@@ -233,13 +229,13 @@ If needed, you can [remove the user role and the optional CR installed on your A
 
 | Authorization object | Field | Value |
 | -------------------- | ----- | ----- |
-|S_RFC	|RFC_TYPE	|Function Module |
-|S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
-|S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
-|S_RFC	|RFC_NAME	|TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
-|S_USER_GRP	|CLASS	|* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
-|S_USER_GRP	|ACTVT	|03 |
-|S_USER_GRP	|ACTVT	|05 |
+|S_RFC |RFC_TYPE |Function Module |
+|S_RFC |RFC_NAME |BAPI_USER_LOCK |
+|S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
+|S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+|S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+|S_USER_GRP |ACTVT |03 |
+|S_USER_GRP |ACTVT |05 |
 
 #### Configuration history
 
@@ -252,7 +248,6 @@ If needed, you can [remove the user role and the optional CR installed on your A
 | Authorization object | Field | Value |
 | -------------------- | ----- | ----- |
 | S_RFC | RFC_NAME | /MSFTSEN/* |
-
 
 #### SNC data
 
@@ -299,7 +294,6 @@ The following table describes the optional CRs available to deploy:
 |**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations) and [Create and configure a role (required)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required). |
 |**NPLK900201** or **NPLK900202**  |[Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
 
-
 ### Prerequisites for deploying CRs
 
 1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username**, and **password** before beginning the deployment process. For the following example, the following details are assumed:
@@ -342,11 +336,11 @@ The following table describes the optional CRs available to deploy:
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
-        ```    
+        ```
 
     Each CR consists of two files, one beginning with K and one with R.
 
-1. Change the ownership of the files to the *`<sid> `adm* user and the *sapsys* group. In the following sample code, substitute your SAP system ID for `<sid>`.
+1. Change the ownership of the files to the *`<sid>` adm* user and the *sapsys* group. In the following sample code, substitute your SAP system ID for `<sid>`.
 
     ```bash
     chown <sid>adm:sapsys *.NPL
@@ -426,8 +420,8 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 
 1. Check whether the `RSHOSTPH`, `RSSTATPH` and `RSDB_PAR` report names are maintained in the TCOLL table:
 
-    - `RSHOSTPH` report: Reads the operating system kernel parameters and stores this data in the PAHI table. 
-    - `RSSTATPH` report: Reads the SAP profile parameters and stores this data in the PAHI table. 
+    - `RSHOSTPH` report: Reads the operating system kernel parameters and stores this data in the PAHI table.
+    - `RSSTATPH` report: Reads the SAP profile parameters and stores this data in the PAHI table.
     - `RSDB_PAR` report: Reads the database parameters and stores them in the PAHI table.
 
 If the job exists and is configured correctly, no further steps are needed.
@@ -495,8 +489,7 @@ However, you might need to make the connection on an encrypted channel or use cl
 
 1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
 
-If you're configuring your system to use SNC connections, make sure to use the relevant procedure when configuring your SAP data connector agent container. 
-
+If you're configuring your system to use SNC connections, make sure to use the relevant procedure when configuring your SAP data connector agent container.
 
 ## Remove the user role and the optional CR installed on your ABAP system
 
@@ -506,9 +499,5 @@ To do so, import the deletion CR *NPLK900259* into your ABAP system.
 
 ## Next step
 
-Your SAP environment is now fully prepared to deploy a data connector agent. A role and profile are provisioned, a user account is created and assigned the relevant role profile, and CRs are deployed as needed for your environment.
-
-Now, you're ready to deploy and configure SAP data connector agent.
-
 > [!div class="nextstepaction"]
-> [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+> [Enable and configure SAP auditing for Microsoft Sentinel](configure-audit.md)

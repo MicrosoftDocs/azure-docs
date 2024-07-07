@@ -152,7 +152,11 @@
           - name: Deployment prerequisites
             href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
           - name: Prepare SAP environment
-            href: sap/preparing-sap.md
+            items:
+            - name: Configure SAP authorizations and deploy optional SAP change requests
+              href: sap/preparing-sap.md
+            - name: Configure SAP auditing for Microsoft Sentinel
+              href: sap/configure-audit.md
           - name: Deploy the data connector agent
             href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content

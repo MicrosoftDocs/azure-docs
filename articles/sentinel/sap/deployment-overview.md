@@ -41,11 +41,11 @@ You can also always authenticate using SAP's Secure Network Communication (SNC) 
 
 The Microsoft Sentinel solution for SAP applications includes the following types of security content to help you gain insight into your organization's SAP environment and detect and respond to security threats:
 
-    - **Analytics rules** and **watchlists** for threat detection.
-    - **Functions** for easy data access.
-    - **Workbooks** to create interactive data visualization.
-    - **Watchlists** for customization of the built-in solution parameters.
-    - **Playbooks** that you can use to automate responses to threats.
+- **Analytics rules** and **watchlists** for threat detection.
+- **Functions** for easy data access.
+- **Workbooks** to create interactive data visualization.
+- **Watchlists** for customization of the built-in solution parameters.
+- **Playbooks** that you can use to automate responses to threats.
 
 For more information, see [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md).
 

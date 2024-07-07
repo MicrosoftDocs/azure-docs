@@ -293,7 +293,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
     > [!NOTE]
-    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see [Command line options](#command-line-options).
+    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [[Command line](#tab/command-line)](#command-linetabcommand-line) tab.
     >
 
 1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
@@ -318,7 +318,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 1. On the **Authentication** tab, enter the following details:
 
     - For basic authentication, enter the user and password. 
-    - If you selected an SNC connection when you [set up the agent](#create-a-new-agent), select **SNC** and enter the certificate details.
+    - If you selected an SNC connection when you [set up the agent](#deploy-the-data-connector-agent), select **SNC** and enter the certificate details.
 
 1. Select **Next: Logs**.
 

@@ -10,13 +10,13 @@ ms.date: 05/28/2024
 
 # Enable and configure SAP auditing for Microsoft Sentinel
 
-<!--this is pure SAP instructions and really shouldn't be in Microsoft docs. I feel for security admins trying to do this but we really can't document SAP procedures .... I'd like to remove this altogether and just add it into the prereqs page instead. it's unfortunate b/c we're getting about 250 pv a month on it...-->
-
 Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters.
 
-This article provides guidance on how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, and is the third step in the deployment process.
+This article provides guidance on how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, and is part of the second step in the deployment process, and is typically handled by your SAP team.
 
-:::image type="content" source="media/deployment-steps/configure-auditing.png" alt-text="Diagram of the SAP deployment flow, showing auditing as the current step." border="false":::
+:::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
+
+<!--this is pure SAP instructions and really shouldn't be in Microsoft docs. I feel for security admins trying to do this but we really can't document SAP procedures .... I'd like to remove this altogether and just add it into the prereqs page instead. it's unfortunate b/c we're getting about 250 pv a month on it...-->
 
 > [!IMPORTANT]
 > We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
@@ -42,7 +42,7 @@ This procedure describes how to enable auditing in your SAP system if it's not a
 
 1. In the **Security Audit Log** screen, select **Parameter** under **Security Audit Log Configuration** section in **Configuration** tree.
 
-1. If the **Static security audit active** checkbox is marked, system-level auditing is turned on. If it isn't, select **Display <-> Change** and mark the **Static security audit active** checkbox. 
+1. If the **Static security audit active** checkbox is marked, system-level auditing is turned on. If it isn't, select **Display <-> Change** and mark the **Static security audit active** checkbox.
 
 1. By default, the SAP system logs the client name (terminal ID) rather than client IP address. If you want the system to log by client IP address instead, mark the **Log peer address not terminal ID** checkbox in the **General Parameters** section.
 
@@ -57,7 +57,7 @@ This procedure describes how to enable auditing in your SAP system if it's not a
 
     ![Screenshot showing R S A U CONFIG create profile screen.](./media/configure-audit/create-profile.png)
 
-1. Specify a name for the profile in the **Profile/Filter Number** field. 
+1. Specify a name for the profile in the **Profile/Filter Number** field.
 
    > [!NOTE]
    > Vanilla SAP installation requires this additional step: right-click the profile you have created and create a new filter.
@@ -68,7 +68,7 @@ This procedure describes how to enable auditing in your SAP system if it's not a
 
 1. In the **User** field enter `*`.
 
-1. Under **Event Selection**, choose **Classic event selection** and select all the event types in the list. 
+1. Under **Event Selection**, choose **Classic event selection** and select all the event types in the list.
 
 1. Select **Save**.
 
@@ -78,11 +78,11 @@ This procedure describes how to enable auditing in your SAP system if it's not a
 
 1. In the confirmation window select **Yes** to activate the newly created profile.
    > [!NOTE]
-   > Static configuration only takes effect after a system restart. For an immediate setup, create an additional dynamic filter with the same properties, by right clicking the newly created static profile and selecting "apply to dynamic configuration". 
+   > Static configuration only takes effect after a system restart. For an immediate setup, create an additional dynamic filter with the same properties, by right clicking the newly created static profile and selecting "apply to dynamic configuration".
 
-## Next steps
+## Next step
 
-In this article, you learned how to enable and configure SAP auditing for Microsoft Sentinel.
+Your SAP environment is now fully prepared to deploy a data connector agent. 
 
 > [!div class="nextstepaction"]
-> [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md)
+> [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)

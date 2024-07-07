@@ -22,15 +22,15 @@ The automatic or manual updates described in this article are relevant to the SA
 
 ## Prerequisites
 
-Before you start, make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications.
+Before you start:
 
-For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+- Make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-Additionally, make sure that you understand your SAP and Microsoft Sentinel environments and architecture, including the machines where your connector agents and collectors are [installed](deploy-data-connector-agent-container.md).
+- Make sure that you understand your SAP and Microsoft Sentinel environments and architecture, including the machines where your connector agents and collectors are [installed](deploy-data-connector-agent-container.md).
 
 ## Automatically update the SAP data connector agent (Preview)
 
-Turn on automatic updates for the connector agent, either for [all existing containers](#enable-automatic-updates-on-all-existing-containers) or a [specific container](#enable-automatic-updates-on-a-specific-container).
+Turn on automatic updates for the connector agent, either for [all existing containers](#turn-on-automatic-updates-for-all-existing-containers) or a [specific container](#turn-on-automatic-updates-on-a-specific-container).
 
 Automatic updates install the latest GA version of the Microsoft Sentinel SAP data connector agent. Log files for automatic updates are located on the collector machine, at */var/log/sapcon-sentinel-register-autoupdate.log*.
 
@@ -83,7 +83,7 @@ Automatic attack disruption for SAP is supported with the unified security opera
 
 - A workspace [onboarded to the unified security operations platform](../microsoft-sentinel-defender-portal.md).
 
-- A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to. 
+- A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to.
 
 - The identity of your data connector agent VM assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role. If this role isn't assigned, make sure to [assign these roles manually](#assign-required-azure-roles-manually).
 
@@ -136,7 +136,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 1. In the **Configuration** area, under step **1. Add an API based collector agent**, locate the agent that you're updating and select the **Show commands** button.
 
 1. Copy the **Role assignment commands** displayed. Run them on your agent VM, replacing the `Object_ID` placeholders with your VM identity object ID.
-    
+
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
 > [!IMPORTANT]
@@ -153,7 +153,6 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     ```
 
     For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
-
 
 1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
@@ -177,7 +176,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 
 ### Apply and assign the SENTINEL_RESPONDER SAP role to your SAP system
 
-Apply **/MSFTSEN/SENTINEL_RESPONDER** SAP role to your SAP system and assign it to the SAP user account used by Microsoft Sentinel's SAP data connector agent. 
+Apply **/MSFTSEN/SENTINEL_RESPONDER** SAP role to your SAP system and assign it to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
 
 To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
   
@@ -189,13 +188,13 @@ To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
 
   | Authorization object | Field | Value |
   | -------------------- | ----- | ----- |
-  |S_RFC	|RFC_TYPE	|Function Module |
-  |S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
-  |S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
-  |S_RFC	|RFC_NAME	|TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
-  |S_USER_GRP	|CLASS	|* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
-  |S_USER_GRP	|ACTVT	|03 |
-  |S_USER_GRP	|ACTVT	|05 |
+  |S_RFC |RFC_TYPE |Function Module |
+  |S_RFC |RFC_NAME |BAPI_USER_LOCK |
+  |S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
+  |S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+  |S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+  |S_USER_GRP |ACTVT |03 |
+  |S_USER_GRP |ACTVT |05 |
 
   For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
 
