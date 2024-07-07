@@ -110,7 +110,7 @@ Before you deploy Defender for Servers, verify operating system support for agen
 
 ## Review agent provisioning
 
-When you enable Defender for Cloud plans, including Defender for Servers, you can choose to automatically provision some agents that are relevant for Defender for Servers:
+When you enable plans in Defender for Cloud, including Defender for Servers, you can choose to automatically provision some agents that are relevant for Defender for Servers:
 
 - Log Analytics agent and Azure Monitor agent for Azure VMs
 - Log Analytics agent and Azure Monitor agent for Azure Arc VMs
@@ -146,7 +146,7 @@ You want to configure a custom workspace | Log Analytics agent, Azure Monitor ag
 
 After working through these planning steps, you can start deployment:
 
-- [Enable Defender for Servers](enable-enhanced-security.md) plans
+- [Enable plans in Defender for Servers](enable-enhanced-security.md)
 - [Connect on-premises machines](quickstart-onboard-machines.md) to Azure.
 - [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
 - [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.
