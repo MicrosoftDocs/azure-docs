@@ -24,6 +24,9 @@ There are two ways of configuring a backend pool:
 To preallocate a backend pool with an IP address range that will contain virtual machines and Virtual Machine Scale Sets, configure the pool by IP address and virtual network ID.
 This article focuses on configuration of backend pools by IP addresses.
 
+> [!NOTE]  
+> You can create more than one backend pool if you want to load balance traffic differently for different sets of resources. By creating multiple load balancing rules, each targeting a different backend pool, you can ensure that traffic is distributed according to your specific requirements across different sets of backend resources.
+
 ## Configure backend pool by IP address and virtual network
 
 In scenarios with pre-populated backend pools, use IP and virtual network.
