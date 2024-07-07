@@ -53,7 +53,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: Medium
 
-### [Azure DevOps build pipelines shouldn't have secrets available to builds of forks](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/d5711372-9b5f-4926-a711-13dcf51565a6)
+### [Azure DevOps pipelines shouldn't have secrets available to builds of forks](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/d5711372-9b5f-4926-a711-13dcf51565a6)
 
 **Description**: In public repositories, it's possible that people from outside the organization create forks and run builds on the forked repository. In such a case, if this setting is enabled, outsiders can get access to build pipeline secrets that were meant to be internal.
 

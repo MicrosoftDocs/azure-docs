@@ -88,7 +88,7 @@ End March | Recommendation | Deprecation | [Endpoint protection health issues on
 March 5 | Recommendation | Deprecation | Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI) | 
 March 5 | Recommendation | Deprecation | Over-provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI) | 
 February 20 | Recommendation | Upcoming | [Azure AI Services resources should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243) | Azure AI Services (formerly known as Cognitive Services) is adding new resource types. This updated recommendation replaces the current recommendation Cognitive Services accounts should restrict network access, to align with new naming format and relevant resources.
-February 20 | Recommendation | Upcomin | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) | Azure AI Services (formerly known as Cognitive Services) is adding new resource types. This updated recommendation replaces the current recommendation Cognitive Services accounts should restrict network access, to align with new naming format and relevant resources.
+February 20 | Recommendation | Upcoming | [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6) | Azure AI Services (formerly known as Cognitive Services) is adding new resource types. This updated recommendation replaces the current recommendation Cognitive Services accounts should restrict network access, to align with new naming format and relevant resources.
 February 12 | Recommendation | Deprecation | [`Public network access should be disabled for Cognitive Services accounts`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7). Estimated deprecation: March 14 2024 | The related policy definition [`Cognitive Services accounts should disable public network access`](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) is also being removed from the regulatory compliance dashboard.<br/><br/> This recommendation is already being covered by another networking recommendation for Azure AI Services, [`Cognitive Services accounts should restrict network access`](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar~/false).
 February 8 | Recommendation | Preview | [(Preview) Azure Stack HCI servers should meet secured-core requirements](recommendations-reference-compute.md#preview-azure-stack-hci-servers-should-meet-secured-core-requirements)
 February 8 | Recommendation | Preview| [(Preview) Azure Stack HCI servers should have consistently enforced application control policies](recommendations-reference.md)| md#preview-azure-stack-hci-servers-should-have-consistently-enforced-application-control-policies)
@@ -100,31 +100,31 @@ January 25 | Alert | Deprecation| `Excessive role permissions assigned in Kubern
 January 25 | Alert | Deprecation | `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)` | Containers alert
 January 25 | Alert | Update to informational | `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlWindowsViolationAudited)` | Windows machine alert
 January 25 | Recommendation | Update to informational | `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlLinuxViolationAudited)` | Windows machine alert
-January 25 | Alert | Update to informationa  | `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)` | Containers alert
-January 25 | Alert | Update to informationa   | `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)` | Containers alert
-January 25 | Alert | Update to informationa  | `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)` | Containers alert
-January 25 | Alert | Update to informationa  | `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)` | Containers alert
-January 25 | Alert | Update to informationa | `Container with a sensitive volume mount detected (K8S_SensitiveMount)` | Containers alert
-January 25 | Alert | Update to informationa  | `Creation of admission webhook configuration detected (K8S_AdmissionController)` | Containers alert
-January 25 | Alert | Update to informationa | `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)` | Containers alert
-January 25 | Alert | Update to informationa   | `Docker build operation detected on a Kubernetes node (K8S.NODE_ImageBuildOnNode)` | Containers alert
-January 25 | Alert | Update to informational  | `New container in the kube-system namespace detected (K8S_KubeSystemContainer)` | Containers alert
-January 25 | Alert | Update to informationa   | `New high privileges role detected (K8S_HighPrivilegesRole)` | Containers alert
-January 25 | Alert | Update to informationa | `Privileged container detected (K8S_PrivilegedContainer)` | Containers alert
-January 25 | Alert | Update to informationa  | `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)` | Containers alert
-January 25 | Alert | Update to informationa  | `Role binding to the cluster-admin role detected (K8S_ClusterAdminBinding)` | Containers alert
-January 25 | Alert | Update to informationa | `SSH server is running inside a container (K8S.NODE_ContainerSSH)` | Containers alert
-January 25 | Alert | Update to informationa   | `Communication with suspicious algorithmically generated domain (AzureDNS_DomainGenerationAlgorithm)` | DNS alert
-January 25 | Alert | Update to informationa  |`Communication with suspicious algorithmically generated domain (DNS_DomainGenerationAlgorithm)` | DNS alert
-January 25 |Alert | Update to informationa  |`Communication with suspicious random domain name (Preview) (DNS_RandomizedDomain)` | DNS alert
-January 25 | Alert | Update to informationa  |`Communication with suspicious random domain name (AzureDNS_RandomizedDomain)` | DNS alert
-January 25 | Alert | Update to informationa  |`Communication with possible phishing domain (AzureDNS_PhishingDomain)` | DNS alert
-January 25 | Alert | Update to informationa  |`Communication with possible phishing domain (Preview) (DNS_PhishingDomain)` | DNS alert
-January 25 | Alert | Update to informationa   |`NMap scanning detected (AppServices_Nmap)` | Azure App Service
-January 25 |Alert | Update to informationa   |`Suspicious User Agent detected (AppServices_UserAgentInjection)` | Azure App Service
-January 25 | Alert | Update to informationa   |`Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)` | Azure network layer
-January 25 | Alert | Update to informationa |`Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)` | Azure network layer
-January 25 |Alert | Update to informationa |`Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)` | Azure Resource Manager
+January 25 | Alert | Update to informational  | `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)` | Containers alert
+January 25 | Alert | Update to informational  | `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)` | Containers alert
+January 25 | Alert |Update to informational  | `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)` | Containers alert
+January 25 | Alert | Update to informational   | `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)` | Containers alert
+January 25 | Alert | Update to informational | `Container with a sensitive volume mount detected (K8S_SensitiveMount)` | Containers alert
+January 25 | Alert | Update to informational   | `Creation of admission webhook configuration detected (K8S_AdmissionController)` | Containers alert
+January 25 | Alert | Update to informational | `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)` | Containers alert
+January 25 | Alert | Update to informational   | `Docker build operation detected on a Kubernetes node (K8S.NODE_ImageBuildOnNode)` | Containers alert
+January 25 | Alert | Update to informational| `New container in the kube-system namespace detected (K8S_KubeSystemContainer)` | Containers alert
+January 25 | Alert | Update to informational  | `New high privileges role detected (K8S_HighPrivilegesRole)` | Containers alert
+January 25 | Alert |Update to informational | `Privileged container detected (K8S_PrivilegedContainer)` | Containers alert
+January 25 | Alert | Update to informational  | `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)` | Containers alert
+January 25 | Alert | Update to informational  | `Role binding to the cluster-admin role detected (K8S_ClusterAdminBinding)` | Containers alert
+January 25 | Alert | Update to informational | `SSH server is running inside a container (K8S.NODE_ContainerSSH)` | Containers alert
+January 25 | Alert | Update to informational   | `Communication with suspicious algorithmically generated domain (AzureDNS_DomainGenerationAlgorithm)` | DNS alert
+January 25 | Alert | Update to informational  |`Communication with suspicious algorithmically generated domain (DNS_DomainGenerationAlgorithm)` | DNS alert
+January 25 |Alert | Update to informational  |`Communication with suspicious random domain name (Preview) (DNS_RandomizedDomain)` | DNS alert
+January 25 | Alert | Update to informational   |`Communication with suspicious random domain name (AzureDNS_RandomizedDomain)` | DNS alert
+January 25 | Alert | Update to informational  |`Communication with possible phishing domain (AzureDNS_PhishingDomain)` | DNS alert
+January 25 | Alert | Update to informational  |`Communication with possible phishing domain (Preview) (DNS_PhishingDomain)` | DNS alert
+January 25 | Alert | Update to informational   |`NMap scanning detected (AppServices_Nmap)` | Azure App Service
+January 25 |Alert | Update to informational    |`Suspicious User Agent detected (AppServices_UserAgentInjection)` | Azure App Service
+January 25 | Alert | Update to informational   |`Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)` | Azure network layer
+January 25 | Alert | Update to informational  |`Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)` | Azure network layer
+January 25 |Alert | Update to informational |`Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)` | Azure Resource Manager
 January 4 | Recommendation | Preview | [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference-data.md#cognitive-services-accounts-should-have-local-authentication-methods-disabled) | Microsoft Cloud Security Benchmark | 
 January 4 | Recommendation preview | [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link) | Microsoft Cloud Security Benchmark
 January 4 | Recommendation | Preview | [Virtual machines and virtual machine scale sets should have encryption at host enabled](recommendations-reference-compute.md#virtual-machines-and-virtual-machine-scale-sets-should-have-encryption-at-host-enabled) | Microsoft Cloud Security Benchmark 

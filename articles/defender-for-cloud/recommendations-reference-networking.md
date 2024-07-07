@@ -665,7 +665,7 @@ Flow Logs provide visibility into network traffic for each VM inside the subnet 
 - tcp: 443
 - tcp: 3389
 - udp: 3389
-- sctp :22
+- sctp: 22
 
  The sourceRanges property contains a combination of IP ranges that includes any nonprivate IP address and the allowed property contains a combination of rules that permit either all tcp ports or all udp ports.
 
@@ -709,7 +709,7 @@ Flow Logs provide visibility into network traffic for each VM inside the subnet 
 
 ### [Firewall should not be configured to have an open HTTP port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d6e19ca8-7446-4b1a-87e9-fb0bee876c80)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:80.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 80.
 
 **Severity**: Low
 

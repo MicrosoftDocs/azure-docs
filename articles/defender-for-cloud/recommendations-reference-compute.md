@@ -151,7 +151,7 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 ### [Endpoint protection health issues on virtual machine scale sets should be resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e71020c2-860c-3235-cd39-04f3f8c936d2)
 
-**Description**: Remediate endpoint protection health failures on VM scale sets to protect them from threats and vulnerabilities.
+**Description**: On virtual machine scale sets, remediate endpoint protection health failures to protect them from threats and vulnerabilities.
 (Related policy: [Endpoint protection solution should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f26a828e1-e88f-464e-bbb3-c134a282b9de)).
 
 **Severity**: Low
@@ -410,7 +410,7 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 ### [Virtual machines should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/12018f4f-3d10-999b-e4c4-86ec25be08a1)
 
-**Description**: Virtual machinesb (classic) are deprecated and these VMs should be migrated to Azure Resource Manager.
+**Description**: Virtual machines (classic) are deprecated and these VMs should be migrated to Azure Resource Manager.
 Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through Azure Service Manager (ASM) on February 28, 2020. This functionality will be fully retired on March 1, 2023.
 
 To view all affected classic VMs make sure to select all your Azure subscriptions under 'directories + subscriptions' tab.
@@ -442,7 +442,7 @@ This assessment only applies to Trusted Launch enabled virtual machines that hav
 
 ### [Virtual machine scale sets should be configured securely](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8941d121-f740-35f6-952c-6561d2b38d36)
 
-**Description**: Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks.
+**Description**: On virtual machine scale sets, remediate vulnerabilities to protect them from attacks.
 (Related policy: [Vulnerabilities in security configuration on your virtual machine scale sets should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4)).
 
 **Severity**: High
@@ -818,7 +818,7 @@ However, when "Compute Engine default service account" assigned to an instance i
 1. Set access for each API: Allows Instance administrator to choose only those APIs that are needed to perform specific business functionality expected by instance
 When an instance is configured with "Compute Engine default service account" with Scope "Allow full access to all Cloud APIs," based on IAM roles assigned to the user(s) accessing Instance,
 it might allow user to perform cloud operations/API calls that user isn't supposed to perform leading to successful privilege escalation.
-VMs created by GKE should be excluded. These VMs have names that start with "gke-" and are labeled "goog-gke-node."
+VMs created by GKE should be excluded. These VMs have names that start with ```gke-``` and are labeled ```goog-gke-node```.
 
 **Severity**: Medium
 

@@ -159,7 +159,7 @@ For a list of all supported operating systems, see [Registries and images suppor
 | November 27 | [General availability of agentless secrets scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secrets-scanning-in-defender-for-servers-and-defender-cspm) |
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
-| November 20 | [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
+| November 20 | [General Availability of the autoprovisioning process for SQL Servers on machines](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
 | November 15 | [General availability of Defender for APIs](#general-availability-of-defender-for-apis) |
 | November 15 | [Defender for Cloud is now integrated with Microsoft 365 Defender (Preview)](#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview) |
 | November 15 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender for Containers and Defender for Container Registries](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-for-containers-and-defender-for-container-registries) |
@@ -905,11 +905,11 @@ Updates in May include:
 
 - [A new alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault).
 - [Support for agentless scanning of encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws).
-- [Changes in JIT (Just-In-Time) rule naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud).
+- [Changes in JIT (Just-In-Time) naming conventions in Defender for Cloud](#revised-jit-just-in-time-rule-naming-conventions-in-defender-for-cloud).
 - [The onboarding of selected AWS regions](#onboard-selected-aws-regions).
 - [Changes to identity recommendations](#multiple-changes-to-identity-recommendations).
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard).
-- [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#defender-for-devops-recommendations-now-include-azure-devops-scan-findings).
+- [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#defender-for-devops--includes-azure-devops-scan-findings).
 - [New default setting for the Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution).
 - [Ability to download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview).
 - [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#the-release-of-containers-vulnerability-assessment-with-microsoft-defender-vulnerability-management).
@@ -1015,7 +1015,7 @@ We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offeri
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
-### Defender for DevOps recommendations now include Azure DevOps scan findings
+### Defender for DevOps includes Azure DevOps scan findings
 
 Defender for DevOps Code and IaC has expanded its recommendation coverage in Microsoft Defender for Cloud to include Azure DevOps security findings for the following two recommendations:
 
@@ -2937,7 +2937,7 @@ Updates in August include:
 - [Deprecated recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecated-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines)
 - [Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link](#azure-defender-for-container-registries-now-scans-for-vulnerabilities-in-registries-protected-with-azure-private-link)
 - [Security Center can now autoprovision the Azure Policy's Guest Configuration extension (in preview)](#security-center-can-now-autoprovision-the-azure-policys-guest-configuration-extension-in-preview)
-- [Recommendations to enable plans in Azure Defender now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
+- [Recommendations now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
 - [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 
@@ -3021,7 +3021,7 @@ With this update, you can now set Security Center to automatically provision thi
 
 Learn more about how autoprovisioning works in [Configure autoprovisioning for agents and extensions](monitoring-components.md).
 
-### Recommendations to enable Azure Defender plans now support "Enforce"
+### Recommendations now support "Enforce"
 
 Security Center includes two features that help ensure newly created resources are provisioned in a secure manner: **enforce** and **deny**. When a recommendation offers these options, you can ensure your security requirements are met whenever someone attempts to create a resource:
 
