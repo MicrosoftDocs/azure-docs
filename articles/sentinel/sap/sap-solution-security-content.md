@@ -187,6 +187,8 @@ These watchlists provide the configuration for the Microsoft Sentinel solution f
 
 ## Available playbooks
 
+Playbooks provided by Microsoft Sentinel solution for SAP applications help you automate SAP incident response worklows, improving the efficiency and effectiveness of security operations.
+
 This section describes [built-in analytics playbooks](deploy-sap-security-content.md) provided together with the Microsoft Sentinel solution for SAP applications.
 
 | Playbook name | Parameters | Connections |
@@ -194,6 +196,45 @@ This section describes [built-in analytics playbooks](deploy-sap-security-conten
 | **SAP Incident Response - Lock user from Teams - Basic** | - SAP-SOAP-User-Password<br>- SAP-SOAP-Username<br>- SOAPApiBasePath<br>- DefaultEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Microsoft Teams |
 | **SAP Incident Response - Lock user from Teams - Advanced** | - SAP-SOAP-KeyVault-Credential-Name<br>- DefaultAdminEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Azure Monitor Logs<br>- Office 365 Outlook<br>- Microsoft Entra ID<br>- Azure Key Vault<br>- Microsoft Teams |
 | **SAP Incident Response - Reenable audit logging once deactivated** | - SAP-SOAP-KeyVault-Credential-Name<br>- DefaultAdminEmail<br>- TeamsChannel | - Microsoft Sentinel<br>- Azure Key Vault<br>- Azure Monitor Logs<br>- Microsoft Teams |
+
+The following sections describe sample uses cases for each of the provided playbooks, in a scenario where an incident warned you of suspicious activity in one of the SAP systems, where a user is trying to execute one of these highly sensitive transactions.
+
+During the incident triage phase, you decide to take action against this user, kicking it out of your SAP ERP or BTP systems or even from Microsoft Entra ID.
+
+For more information, see [Automate threat response with playbooks in Microsoft Sentinel](../automation/automate-responses-with-playbooks.md)
+
+The process for deploying Standard logic apps generally is more complex than it is for Consumption logic apps. We've created a series of shortcuts to help you deploy them quickly from the Microsoft Sentinel GitHubt repository. For more information, see [Step-by-Step Installation Guide](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Playbooks/INSTALLATION.md).
+
+> [!TIP]
+> Watch the [SAP playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks) in the GitHub repository for more playbooks as they become available. There's also a [short introductory video (external link)](https://www.youtube.com/watch?v=b-AZnR-nQpg) there to help you get started.
+
+### Lock out a user from a single system
+
+Build an [automation rule](../automate-incident-handling-with-automation-rules.md) to invoke the **Lock user from Teams - Basic** playbook whenever a sensitive transaction execution by an unauthorized user is detected. This playbook uses Teams' adaptive cards feature to request approval before unilaterally blocking the user.
+
+For more information, see [From zero to hero security coverage with Microsoft Sentinel for your critical SAP security signals - You’re gonna hear me SOAR! Part 1](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/) (SAP blog post).
+
+The **Lock user from Teams - Basic** playbook is a Standard playbook, which are generally more complex to deploy than Consumption playbooks.
+
+We've created a series of shortcuts to help you deploy them quickly from the Microsoft Sentinel GitHubt repository. For more information, see [Step-by-Step Installation Guide](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Playbooks/INSTALLATION.md) and [Supported logic app types](../automation/logic-apps-playbooks.md#supported-logic-app-types).
+
+### Lock out a user from multiple systems
+
+The **Lock user from Teams - Advanced** playbook accomplishes the same objective, but is designed for more complex scenarios, allowing a single playbook to be used for multiple SAP systems, each with its own SAP SID.
+
+The **Lock user from Teams - Advanced** playbook seamlessly manages the connections to all of these systems, and their credentials, using the *InterfaceAttributes* optional dynamic parameter in the *SAP - Systems* watchlist and Azure Key Vault.
+
+The **Lock user from Teams - Advanced** playbook also allows you to communicate to the parties in the approval process using [Outlook actionable messages](/outlook/actionable-messages/get-started) together with Teams, using the *TeamsChannelID* and *DestinationEmail* parameters in the *SAP_Dynamic_Audit_Log_Monitor_Configuration* watchlist.
+
+For more information, see [From zero to hero security coverage with Microsoft Sentinel for your critical SAP security signals – Part 2](https://blogs.sap.com/2023/05/23/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-2/) (SAP blog post).
+
+### Prevent deactivation of audit logging
+
+You might also be concerned about the SAP audit log, which is one of your security data sources, being deactivated. We recommend that you build an automation rule based on the **SAP - Deactivation of Security Audit Log** analytics rule to invoke the **Reenable audit logging once deactivated** playbook to make sure the SAP audit log isn't deactivated.
+
+The **SAP - Deactivation of Security Audit Log** playbook also uses Teams, informing security personnel after the fact. The severity of the offense and the urgency of its mitigation indicate that immediate action can be taken with no approval required.
+
+Since the **SAP - Deactivation of Security Audit Log** playbook also uses Azure Key Vault to manage credentials, the playbook's configuration is similar to that of the **Lock user from Teams - Advanced** playbook. For more information, see [From zero to hero security coverage with Microsoft Sentinel for your critical SAP security signals – Part 3](https://blogs.sap.com/2023/05/23/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-3/) (SAP blog post).
 
 ## Related conetnt
 

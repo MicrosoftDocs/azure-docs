@@ -4,7 +4,7 @@ description: Learn how to deploy the Microsoft Sentinel solution for SAP applica
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 07/07/2024
 
 # customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP applications from the content hub so that I can plan a deployment.
 ---
@@ -33,7 +33,7 @@ Deploy the [SAP security content](sap-solution-security-content.md) from the Mic
 
 Deploying the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
-To deploy SAP solution security content:
+**To deploy SAP solution security content**:
 
 1. In Microsoft Sentinel, select **Content management > Content hub** to display a filtered, searchable list of solutions.
 
@@ -64,13 +64,17 @@ To deploy SAP solution security content:
 
 1. On the **Review + create tab** pane, wait for the **Validation Passed** message, and then select **Create** to deploy the solution. Alternately, select **Download a template** for a link to deploy the solution as code.
 
-1. When the deployment is finished, to display the newly deployed content:
+## View deployed content and confirm your connection
+
+When the deployment is finished:
+
+1. Display your newly deployed content as follows:
 
     - For the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks), go to **Threat Management** > **Workbooks** > **My workbooks**.
 
     - For a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules), go to **Configuration** > **Analytics**.
 
-1. In Microsoft Sentinel, go to the **Microsoft Sentinel for SAP** data connector to confirm the connection:
+1. To confirm your connection, go to the **Microsoft Sentinel for SAP** data connector page. For example:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-data-connector.png" alt-text="Screenshot that shows the Microsoft Sentinel for SAP data connector page." lightbox="media/deploy-sap-security-content/sap-data-connector.png":::
 
@@ -80,20 +84,7 @@ To deploy SAP solution security content:
 
     For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
 
-## Troubleshooting references and related content
-
-If you need help troubleshooting your deployment, see:
-
-- [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
-- [Microsoft Sentinel solutions](../sentinel-solutions.md)
-
-For more information, see:
-
-- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Microsoft Sentinel solution for SAP applications solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP applications: Security content reference](sap-solution-security-content.md)
-
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
+> [Configure initial Microsoft Sentinel solution for SAP applications content](deployment-solution-configuration.md)

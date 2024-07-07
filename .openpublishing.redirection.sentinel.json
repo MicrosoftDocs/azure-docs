@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/sap/sap-incident-response-playbooks.md",
+            "redirect_url": "/azure/sentinel/sap/sap-solution-security-content#available-playbooks",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/sap/configure-snc.md",
             "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-your-system-to-use-snc-for-secure-connections",
             "redirect_document_id": true

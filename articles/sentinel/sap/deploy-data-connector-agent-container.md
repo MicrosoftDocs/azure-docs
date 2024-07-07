@@ -304,7 +304,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
-1. In the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--what configuration area?-->
+1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--what configuration area?-->
 
     - Under **Select an agent**, select the agent you created earlier.
     - Under **System identifier**, select the server type and provide the server details.
@@ -360,7 +360,7 @@ If you're using a configuration file to store your credentials, see [Deploy and 
         chmod +x ./sapcon-sentinel-kickstart.sh
         ```
 
-        Run the script, specifying the application ID, secret (the "password"), tenant ID, and key vault name that you copied in the previous steps. For example: <!--do we really need to use such an obvious example?-->
+        Run the script, specifying the application ID, secret (the "password"), tenant ID, and key vault name that you copied in the previous steps. For example:
 
         ```bash
         ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
