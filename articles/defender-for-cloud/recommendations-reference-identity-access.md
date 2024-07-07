@@ -354,12 +354,12 @@ RDS databases should have relevant logs enabled. Database logging provides detai
 
 **Severity**: Medium
 
-### [Disable direct internet access for Amazon SageMaker notebook instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0991c64b-ccf5-4408-aee9-2ef03d460020)
+### [Disable direct internet access for Amazon Sage Maker notebook instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0991c64b-ccf5-4408-aee9-2ef03d460020)
 
-**Description**: Direct internet access should be disabled for an SageMaker notebook instance.
+**Description**: Direct internet access should be disabled for an Sage Maker notebook instance.
  This checks whether the 'DirectInternetAccess' field is disabled for the notebook instance.
  Your instance should be configured with a VPC and the default setting should be Disable - Access the internet through a VPC.
- In order to enable internet access to train or host models from a notebook, make sure that your VPC has a NAT gateway and your security group allows outbound connections. Ensure access to your SageMaker configuration is limited to only authorized users, and restrict users' IAM permissions to modify SageMaker settings and resources.
+ In order to enable internet access to train or host models from a notebook, make sure that your VPC has a NAT gateway and your security group allows outbound connections. Ensure access to your Sage Maker configuration is limited to only authorized users, and restrict users' IAM permissions to modify Sage Maker settings and resources.
 
 **Severity**: High
 
@@ -375,7 +375,7 @@ RDS databases should have relevant logs enabled. Database logging provides detai
 
 **Description**: AWS provides a support center that can be used for incident notification and response, as well as technical support and customer services.
  Create an IAM Role to allow authorized users to manage incidents with AWS Support.
-By implementing least privilege for access control, an IAM Role requires an appropriate IAM Policy to allow Support Center Access in order to manage Incidents with AWS Support.
+When you implement least privilege for access control, an IAM Role requires an appropriate IAM Policy to allow Support Center Access in order to manage Incidents with AWS Support.
 
 **Severity**: Low
 
@@ -405,9 +405,9 @@ The AWS configuration item history captured by AWS Config enables security analy
 The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service. CloudTrail provides a history of AWS API calls for an account, including API calls made via the Management Console, SDKs, command line tools, and higher-level AWS services (such as CloudFormation).
 The AWS API call history produced by CloudTrail enables security analysis, resource change tracking, and compliance auditing. Additionally:
 
-- ensuring that a multi-regions trail exists will ensure that unexpected activity occurring in otherwise unused regions is detected
-- ensuring that a multi-regions trail exists will ensure that "Global Service Logging" is enabled for a trail by default to capture recording of events generated on AWS global services
-- for a multi-regions trail, ensuring that management events configured for all type of Read/Writes ensures recording of management operations that are performed on all resources in an AWS account
+- Checking that a multi-regions trail exists ensures that unexpected activity occurring in otherwise unused regions is detected.
+- Checking that a multi-regions trail exists ensures that "Global Service Logging" is enabled for a trail by default to capture recording of events generated on AWS global services.
+- For a multi-regions trail, checking that management events are configured for all type of Read/Writes ensures recording of management operations that are performed on all resources in an AWS account.
 
 **Severity**: High
 
@@ -501,7 +501,7 @@ Enabling MFA provides increased security for console access as it requires the a
 
 **Description**: The root account is the most privileged user in an account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled, when a user signs in to an AWS website, they're prompted for their user name and password and for an authentication code from their AWS MFA device.
  For Level 2, it's recommended that you protect the root account with a hardware MFA. A hardware MFA has a smaller attack surface than a virtual MFA. For example, a hardware MFA doesn't suffer the attack surface introduced by the mobile smartphone that a virtual MFA resides on.
- Using hardware MFA for many, many accounts might create a logistical device management issue. If this occurs, consider implementing this Level 2 recommendation selectively to the highest security accounts. You can then apply the Level 1 recommendation to the remaining accounts.
+When you use hardware for MFA for many, many accounts it might create a logistical device management issue. If this occurs, consider implementing this Level 2 recommendation selectively to the highest security accounts. You can then apply the Level 1 recommendation to the remaining accounts.
 
 **Severity**: Low
 
@@ -521,7 +521,7 @@ IAM database authentication allows authentication to database instances with an 
 
 ### [IAM customer managed policies should not allow decryption actions on all KMS keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d088fb9f-11dc-451e-8f79-393916e42bb2)
 
-**Description**: Checks whether the default version of IAM customer managed policies allow principals to use the AWS KMS decryption actions on all resources. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.This control fails if the "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys. The control evaluates both attached and unattached customer managed policies. It doesn't check inline policies or AWS managed policies.
+**Description**: Checks whether the default version of IAM customer managed policies allow principals to use the AWS KMS decryption actions on all resources. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts. This control fails if the "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys. The control evaluates both attached and unattached customer managed policies. It doesn't check inline policies or AWS managed policies.
 With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the "kms:Decrypt" or "kms:ReEncryptFrom" permissions and only for the keys that are required to perform a task. Otherwise, the user might use keys that aren't appropriate for your data.
 Instead of granting permissions for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow users to use only those keys. For example, don't allow "kms:Decrypt" permission on all KMS keys. Instead, allow "kms:Decrypt" only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
 
@@ -586,9 +586,9 @@ Assigning privileges at the group or role level reduces the complexity of access
 ### [IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/18be55d0-b681-4693-af8d-b8815518d758)
 
 **Description**: Checks whether the inline policies that are embedded in your IAM identities (role, user, or group) allow the AWS KMS decryption actions on all KMS keys. This control uses [Zelkova](http://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova), an automated reasoning engine, to validate and warn you about policies that might grant broad access to your secrets across AWS accounts.
-This control fails if "kms:Decrypt" or "kms:ReEncryptFrom" actions are allowed on all KMS keys in an inline policy.
+This control fails if ```kms:Decrypt``` or ```kms:ReEncryptFrom``` actions are allowed on all KMS keys in an inline policy.
 With AWS KMS, you control who can use your KMS keys and gain access to your encrypted data. IAM policies define which actions an identity (user, group, or role) can perform on which resources. Following security best practices, AWS recommends that you allow least privilege. In other words, you should grant to identities only the permissions they need and only for keys that are required to perform a task. Otherwise, the user might use keys that aren't appropriate for your data.
-Instead of granting permission for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow the users to use only those keys. For example, don't allow "kms:Decrypt" permission on all KMS keys. Instead, allow them only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
+Instead of granting permission for all keys, determine the minimum set of keys that users need to access encrypted data. Then design policies that allow the users to use only those keys. For example, don't allow ```kms:Decrypt``` permission on all KMS keys. Instead, allow them only on keys in a particular Region for your account. By adopting the principle of least privilege, you can reduce the risk of unintended disclosure of your data.
 
 **Severity**: Medium
 
@@ -834,18 +834,18 @@ There are three kinds of Data Access audit log information:
 
  It's recommended to have an effective default audit config configured in such a way that:
 
- 1. logtype is set to DATA_READ (to log user activity tracking) and DATA_WRITES (to log changes/tampering to user data).
- 1. audit config is enabled for all the services supported by the Data Access audit logs feature.
- 1. Logs should be captured for all users, that is, there are no exempted users in any of the audit config sections. This will ensure overriding the audit config will not contradict the requirement.
+ - Log type is set to DATA_READ (to log user activity tracking) and DATA_WRITES (to log changes/tampering to user data).
+ - Audit config is enabled for all the services supported by the Data Access audit logs feature.
+ - Logs should be captured for all users, that is, there are no exempted users in any of the audit config sections. This will ensure overriding the audit config will not contradict the requirement.
 
 **Severity**: Medium
 
-### [Ensure that Cloud KMS cryptokeys are not anonymously or publicly accessible](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/fcbcaef9-4bb0-49db-a932-afd64ed221d4)
+### [Ensure that Cloud KMS crypto keys are not anonymously or publicly accessible](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/fcbcaef9-4bb0-49db-a932-afd64ed221d4)
 
-**Description**: It's recommended that the IAM policy on Cloud KMS "cryptokeys" should restrict anonymous and/or public access.
+**Description**: It's recommended that the IAM policy on Cloud KMS crypto keys should restrict anonymous and/or public access.
  Granting permissions to "allUsers" or "allAuthenticatedUsers" allows anyone to access the dataset.
  Such access might not be desirable if sensitive data is stored at the location.
- In this case, ensure that anonymous and/or public access to a Cloud KMS "cryptokey" isn't allowed.
+ In this case, ensure that anonymous and/or public access to a Cloud KMS crypto key isn't allowed.
 
 **Severity**: High
 
@@ -876,13 +876,13 @@ There are three kinds of Data Access audit log information:
 
 **Description**: It's recommended that the principle of 'Separation of Duties' is enforced while assigning KMS related roles to users.
  The built-in/predefined IAM role "Cloud KMS Admin" allows the user/identity to create, delete, and manage service account(s).
- The built-in/predefined IAM role "Cloud KMS CryptoKey Encrypter/Decrypter" allows the user/identity (with adequate privileges on concerned resources) to encrypt and decrypt data at rest using an encryption key(s).
- The built-in/predefined IAM role Cloud KMS CryptoKey Encrypter allows the user/identity (with adequate privileges on concerned resources) to encrypt data at rest using an encryption key(s).
- The built-in/predefined IAM role "Cloud KMS CryptoKey Decrypter" allows the user/identity (with adequate privileges on concerned resources) to decrypt data at rest using an encryption key(s).
+ The built-in/predefined IAM role "Cloud KMS Crypto Key Encrypter/Decrypter" allows the user/identity (with adequate privileges on concerned resources) to encrypt and decrypt data at rest using an encryption key(s).
+ The built-in/predefined IAM role Cloud KMS Crypto Key Encrypter allows the user/identity (with adequate privileges on concerned resources) to encrypt data at rest using an encryption key(s).
+ The built-in/predefined IAM role "Cloud KMS Crypto Key Decrypter" allows the user/identity (with adequate privileges on concerned resources) to decrypt data at rest using an encryption key(s).
  Separation of duties is the concept of ensuring that one individual doesn't have all necessary permissions to be able to complete a malicious action.
  In Cloud KMS, this could be an action such as using a key to access and decrypt data a user shouldn't normally have access to.
  Separation of duties is a business control typically used in larger organizations, meant to help avoid security or privacy incidents and errors.
- It's considered best practice. No user(s) should have Cloud KMS Admin and any of the "Cloud KMS CryptoKey Encrypter/Decrypter," "Cloud KMS CryptoKey Encrypter," "Cloud KMS CryptoKey Decrypter" roles assigned at the same time.
+ It's considered best practice. No user(s) should have Cloud KMS Admin and any of the "Cloud KMS Crypto Key Encrypter/Decrypter," "Cloud KMS Crypto Key Encrypter," "Cloud KMS Crypto Key Decrypter" roles assigned at the same time.
 
 **Severity**: High
 
@@ -923,7 +923,7 @@ There are three kinds of Data Access audit log information:
 
 **Description**: Google Cloud Platform (GCP) services write audit log entries to the Admin Activity and Data Access logs to help answer the questions of, "who did what, where, and when?" within GCP projects.
 Cloud audit logging records information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by GCP services. Cloud audit logging provides a history of GCP API calls for an account, including API calls made via the console, SDKs, command-line tools, and other GCP services.
-Admin activity and data access logs produced by cloud audit logging enable security analysis, resource change tracking, and compliance auditing.
+Administrator activity and data access logs produced by cloud audit logging enable security analysis, resource change tracking, and compliance auditing.
 Configuring the metric filter and alerts for audit configuration changes ensures the recommended state of audit configuration is maintained so that all activities in the project are audit-able at any point in time.
 
 **Severity**: Low

@@ -448,7 +448,7 @@ Microsoft Defender for Cloud now supports the latest [CIS Azure Security Foundat
 
 Azure monitor offers the capability to [set a daily cap](../azure-monitor/logs/daily-cap.md) on the data that is ingested on your Log analytics workspaces. However, Defenders for Cloud security events are currently not supported in those exclusions.
 
-The Log Analytics Daily Cap no longer exclude the following set of data types:
+The Log Analytics Daily Cap no longer excludes the following set of data types:
 
 - WindowsEvent
 - SecurityAlert

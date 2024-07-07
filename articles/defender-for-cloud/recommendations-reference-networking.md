@@ -333,7 +333,7 @@ Monitoring changes to IAM policies helps ensure authentication and authorization
 ### [Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/79082bbe-34fc-480a-a7fc-3aad94954609)
 
 **Description**: Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It's recommended that no security group allows unrestricted ingress access to port 3389.
- Removing unfettered connectivity to remote console services, such as RDP, reduces a server's exposure to risk.
+ When you remove unfettered connectivity to remote console services, such as RDP, it reduces a server's exposure to risk.
 
 **Severity**: High
 
@@ -450,7 +450,7 @@ If other relationships are listed, then the control passes.
 
 ### [Egress deny rule should be set on a firewall to block unwanted outbound traffic](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2acc6ce9-c9a7-4d91-b7c8-f2314ecbf8af)
 
-**Description**: This recommendation evaluates whether the destinationRanges property in the firewall is set to 0.0.0.0/0 and the denied property contains the key-value pair, 'IPProtocol': 'all.'
+**Description**: This recommendation evaluates whether the destinationRanges property in the firewall is set to 0.0.0.0/0 and the denied property contains the key-value pair, ```'IPProtocol': 'all.'```
 
 **Severity**: Low
 
@@ -458,7 +458,7 @@ If other relationships are listed, then the control passes.
 
 **Description**: Access to VMs should be restricted by firewall rules that allow only IAP traffic by ensuring only connections proxied by the IAP are allowed.
 To ensure that load balancing works correctly health checks should also be allowed.
-IAP ensure that access to VMs is controlled by authenticating incoming requests.
+IAP ensures that access to VMs is controlled by authenticating incoming requests.
  However if the VM is still accessible from IP addresses other than the IAP it might still be possible to send unauthenticated requests to the instance.
  Care must be taken to ensure that loadblancer health checks aren't blocked as this would stop the load balancer from correctly knowing the health of the VM and load balancing correctly.
 
@@ -535,7 +535,7 @@ and TCP/443 (DNS over HTTPS) to prevent client from using external DNS name serv
 
 **Description**: GCP Firewall Rules are specific to a VPC Network. Each rule either allows or denies traffic when its conditions are met. Its conditions allow users to specify the type of traffic, such as ports and protocols, and the source or destination of the traffic, including IP addresses, subnets, and instances.
 Firewall rules are defined at the VPC network level and are specific to the network in which they're defined. The rules themselves can't be shared among networks. Firewall rules only support IPv4 traffic.
-When specifying a source for an ingress rule or a destination for an egress rule by address, an IPv4 address or IPv4 block in CIDR notation can be used. Generic (0.0.0.0/0) incoming traffic from the Internet to a VPC or VM instance using RDP on Port 3389 can be avoided.
+When you specify a source for an ingress rule or a destination for an egress rule by address, an IPv4 address or IPv4 block in CIDR notation can be used. Generic (0.0.0.0/0) incoming traffic from the Internet to a VPC or VM instance using RDP on Port 3389 can be avoided.
  GCP Firewall Rules within a VPC Network. These rules apply to outgoing (egress) traffic from instances and incoming (ingress) traffic to instances in the network.
  Egress and ingress traffic flows are controlled even if the traffic stays within the network (for example, instance-to-instance communication). For an instance to have outgoing Internet access, the network must have a valid Internet gateway route or custom route whose destination IP is specified.
  This route simply defines the path to the Internet, to avoid the most general (0.0.0.0/0) destination IP Range specified from the Internet through RDP with the default Port 3389. Generic access from the Internet to a specific IP Range should be restricted.
@@ -550,7 +550,7 @@ When specifying a source for an ingress rule or a destination for an egress rule
  Domain Name System Security Extensions (DNSSEC) algorithm numbers in this registry might be used in CERT RRs.
  Zonesigning (DNSSEC) and transaction security mechanisms (SIG(0) and TSIG) make use of particular subsets of these algorithms.
  The algorithm used for key signing should be a recommended one and it should be strong.
- When enabling DNSSEC for a managed zone, or creating a managed zone with DNSSEC, the user can select the DNSSEC signing algorithms and the denial-of-existence type.
+ When you enable DNSSEC for a managed zone, or creat a managed zone with DNSSEC, the user can select the DNSSEC signing algorithms and the denial-of-existence type.
  Changing the DNSSEC settings is only effective for a managed zone if DNSSEC isn't already enabled.
  If there's a need to change the settings for a managed zone where it has been enabled, turn off DNSSEC and then re-enable it with different settings.
 
@@ -562,9 +562,9 @@ When specifying a source for an ingress rule or a destination for an egress rule
  Zone signing (DNSSEC) and transaction security mechanisms (SIG(0) and TSIG) make use of particular subsets of these algorithms.
  The algorithm used for key signing should be a recommended one and it should be strong.
  DNSSEC algorithm numbers in this registry might be used in CERT RRs.
- Zonesigning (DNSSEC) and transaction security mechanisms (SIG(0) and TSIG) make use of particular subsets of these algorithms.
+ Zone signing (DNSSEC) and transaction security mechanisms (SIG(0) and TSIG) make use of particular subsets of these algorithms.
  The algorithm used for key signing should be a recommended one and it should be strong.
- When enabling DNSSEC for a managed zone, or creating a managed zone with DNSSEC, the DNSSEC signing algorithms, and the denial-of-existence type can be selected.
+ When you enable DNSSEC for a managed zone, or create a managed zone with DNSSEC, the DNSSEC signing algorithms, and the denial-of-existence type can be selected.
  Changing the DNSSEC settings is only effective for a managed zone if DNSSEC isn't already enabled.
  If the need exists to change the settings for a managed zone where it has been enabled, turn off DNSSEC and then re-enable it with different settings.
 
@@ -574,7 +574,7 @@ When specifying a source for an ingress rule or a destination for an egress rule
 
 **Description**: GCP Firewall Rules are specific to a VPC Network. Each rule either allows or denies traffic when its conditions are met. Its conditions allow the user to specify the type of traffic, such as ports and protocols, and the source or destination of the traffic, including IP addresses, subnets, and instances.
 Firewall rules are defined at the VPC network level and are specific to the network in which they're defined. The rules themselves can't be shared among networks. Firewall rules only support IPv4 traffic.
-When specifying a source for an ingress rule or a destination for an egress rule by address, only an IPv4 address or IPv4 block in CIDR notation can be used. Generic (0.0.0.0/0) incoming traffic from the internet to VPC or VM instance using SSH on Port 22 can be avoided.
+When you specify a source for an ingress rule or a destination for an egress rule by address, only an IPv4 address or IPv4 block in CIDR notation can be used. Generic (0.0.0.0/0) incoming traffic from the internet to VPC or VM instance using SSH on Port 22 can be avoided.
  GCP Firewall Rules within a VPC Network apply to outgoing (egress) traffic from instances and incoming (ingress) traffic to instances in the network.
 Egress and ingress traffic flows are controlled even if the traffic stays within the network (for example, instance-to-instance communication).
 For an instance to have outgoing Internet access, the network must have a valid Internet gateway route or custom route whose destination IP is specified.
@@ -661,11 +661,11 @@ Flow Logs provide visibility into network traffic for each VM inside the subnet 
 
  The sourceRanges property contains 0.0.0.0/0 and the allowed property contains a combination of rules that includes any protocol or protocol:port, except the following:
  icmp
- tcp:22
- tcp:443
- tcp:3389
- udp:3389
- sctp:22
+ tcp: 22
+ tcp: 443
+ tcp: 3389
+ udp: 3389
+ sctp :22
 
  The sourceRanges property contains a combination of IP ranges that includes any nonprivate IP address and the allowed property contains a combination of rules that permit either all tcp ports or all udp ports.
 
@@ -673,115 +673,115 @@ Flow Logs provide visibility into network traffic for each VM inside the subnet 
 
 ### [Firewall should not be configured to have an open CASSANDRA port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06ee058b-9ba9-4a54-a6d3-7214703d309f)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:7000-7001, 7199, 8888, 9042, 9160, 61620-61621.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 7000-7001, 7199, 8888, 9042, 9160, 61620-61621.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open CISCOSECURE_WEBSM port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/87cb47d9-eb93-4413-be7f-2f89112d3e22)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP:9090.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP: 9090.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open DIRECTORY_SERVICES port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9c59d6ae-79c9-4f74-bacd-9bb8d2b05576)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:445 and UDP:445.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 445 and UDP: 445.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open DNS port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/99fa8cd5-10fc-4051-909c-62a6d1272956)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:53 and UDP:53.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 53 and UDP: 53.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open ELASTICSEARCH port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9c39d3a7-a11d-4f1e-a5b8-8c3be23fe0d1)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:9200, 9300.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 9200, 9300.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open FTP port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/14dae408-be1b-4ab9-8645-1d9eba885a3e)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP:21.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP: 21.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open HTTP port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d6e19ca8-7446-4b1a-87e9-fb0bee876c80)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:80.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP :80.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open LDAP port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/114491f8-1760-40b9-ad56-04be9c0be1d6)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:389, 636 and UDP:389.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 389, 636 and UDP: 389.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open MEMCACHED port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dcbfebbd-0d89-4605-b29c-a8b94a11ca4c)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:11211, 11214-11215 and UDP:11211, 11214-11215.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 11211, 11214-11215 and UDP: 11211, 11214-11215.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open MONGODB port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0088a052-38cd-4ef3-80bc-982871756481)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:27017-27019.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 27017-27019.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open MYSQL port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/184a6210-9eb3-4d41-9453-84fd7f01186e)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP:3306.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP: 3306.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open NETBIOS port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f39b9212-7c2e-4265-85ad-14701b0209e3)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:137-139 and UDP:137-139.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 137-139 and UDP: 137-139.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open ORACLEDB port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/802bc806-5136-461f-a95d-dd65f8725af0)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:1521, 2483-2484 and UDP:2483-2484.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 1521, 2483-2484 and UDP: 2483-2484.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open POP3 port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4f5e97a0-d563-4c0a-8aca-958753dfbeb6)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP:110.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocol and port: TCP: 110.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open PostgreSQL port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27d1143d-a7ab-405c-a80c-8b9da25bc5e4)
 
-**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP:5432 and UDP:5432.
+**Description**: This recommendation evaluates the allowed property in firewall metadata for the following protocols and ports: TCP: 5432 and UDP: 5432.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open REDIS port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9a7b9056-30af-476f-bdc8-8b421d29b5e3)
 
-**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocol and port: TCP:6379.
+**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocol and port: TCP: 6379.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open SMTP port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/5855b7ce-fded-464c-894c-d34bd834f17e)
 
-**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocol and port: TCP:25.
+**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocol and port: TCP: 25.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open SSH port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4c8753af-c7d5-404f-abdf-8e8bef018dc9)
 
-**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocols and ports: TCP:22 and SCTP:22.
+**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocols and ports: TCP: 22 and SCTP: 22.
 
 **Severity**: Low
 
 ### [Firewall should not be configured to have an open TELNET port that allows generic access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/bdb01af7-e42a-49c6-952f-b83ce13914a7)
 
-**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocol and port: TCP:23.
+**Description**: This recommendation evaluates whether the allowed property in firewall metadata contains the following protocol and port: TCP: 23.
 
 **Severity**: Low
 
