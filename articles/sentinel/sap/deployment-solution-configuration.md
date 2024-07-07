@@ -1,10 +1,10 @@
 ---
 title: Configure initial Microsoft Sentinel solution for SAP applications content
-description: This article shows you how to configure the deployed Microsoft Sentinel solution for SAP applications
+description: This article shows you how to configure initial security content for the Microsoft Sentinel solution for SAP applications.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 07/07/2024
 ---
 
 # Configure initial Microsoft Sentinel solution for SAP applications content

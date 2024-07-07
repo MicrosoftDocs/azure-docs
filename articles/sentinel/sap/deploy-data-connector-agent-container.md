@@ -58,8 +58,7 @@ For more information, see:
 - [What are manged identies for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 
-
-# [Managed identity](#tab/managed-identity)
+## [Managed identity](#tab/managed-identity)
 
 ### Create a managed identity with an Azure VM
 
@@ -98,7 +97,7 @@ For more information, see:
 
 1. Copy the **systemAssignedIdentity** GUID, as it will be used in the coming steps. This is your **managed identity**.
 
-# [Registered application](#tab/registered-application)
+## [Registered application](#tab/registered-application)
 
 ### Register an application to create an application identity
 
@@ -156,13 +155,13 @@ This procedure describes how to create a key vault to store your agent configura
 
     - **Azure role-based access control permission model**:
 
-        # [Managed identity](#tab/managed-identity)
+        #### [Managed identity](#tab/managed-identity)
 
         ```Azure CLI
         az role assignment create --assignee-object-id <ManagedIdentityId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName> /providers/Microsoft.KeyVault/vaults/<KeyVaultName>
         ```
 
-        # [Registered application](#tab/registered-application)
+        #### [Registered application](#tab/registered-application)
 
         ```Azure CLI
         az role assignment create --assignee-object-id <ServicePrincipalObjectId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -177,22 +176,21 @@ This procedure describes how to create a key vault to store your agent configura
 
     - **Vault access policy permission model**:
 
-        # [Managed identity](#tab/managed-identity)
+        #### [Managed identity](#tab/managed-identity)
 
         ```Azure CLI
         az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <ManagedIdentityId> --secret-permissions get list
         ```
 
-        # [Registered application](#tab/registered-application)
+        #### [Registered application](#tab/registered-application)
 
         ```Azure CLI
         az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <ApplicationId> --secret-permissions get list
         ```
 
-        To find the object ID of the app registration, go to the Microsoft Entra ID portal's **App registrations** page. Search for name of the app registration and copy the **Application (client) ID** value. 
+        To find the object ID of the app registration, go to the Microsoft Entra ID portal's **App registrations** page. Search for name of the app registration and copy the **Application (client) ID** value.
 
         ---
-
 
 1. In the same key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the user configuring the data connector agent:
 
@@ -233,7 +231,7 @@ Continue with one of the following tabs, depending on whether you're using the p
 
 Advanced users might always want to deploy the data connector agent manually, such as in a Kubernetes cluster. For more information, see [Deploy the SAP data connector manually](sap-solution-deploy-alternate.md).
 
-# [Portal](#tab/portal)
+## [Portal](#tab/portal)
 
 ### Deploy the data connector agent from the portal (Preview)
 
@@ -282,7 +280,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     >
     > If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
 
-1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to the **Agent deployment command** in step 2. For example:
+1. Select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon next to the Agent deployment command." border="false"::: next to the **Agent deployment command** in step 2. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-agent.png" alt-text="Screenshot of the Agent command to copy in step 2.":::
 
@@ -295,7 +293,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
     > [!NOTE]
-    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [[Command line](#tab/command-line)](#command-linetabcommand-line) tab.
+    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the **Command line** tab instead. <!--fix this link-->
     >
 
 1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
@@ -304,10 +302,9 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
-    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
+    If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
 1. In the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--what configuration area?-->
-
 
     - Under **Select an agent**, select the agent you created earlier.
     - Under **System identifier**, select the server type and provide the server details.
@@ -315,11 +312,11 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     When you're done, select  **Next: Authentication**.
 
     For example: <!--can we get a screenshot with an example?-->
-    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area.":::
+    :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area's System settings tab.":::
 
 1. On the **Authentication** tab, enter the following details:
 
-    - For basic authentication, enter the user and password. 
+    - For basic authentication, enter the user and password.
     - If you selected an SNC connection when you [set up the agent](#deploy-the-data-connector-agent), select **SNC** and enter the certificate details.
 
 1. Select **Next: Logs**.
@@ -334,7 +331,7 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
 
-# [Command line](#tab/command-line)
+## [Command line](#tab/command-line)
 
 ### Deploy the data connector agent from the command line
 
@@ -427,7 +424,6 @@ If you're using a configuration file to store your credentials, see [Deploy and 
 
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
-
     1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
     ```bash
@@ -484,9 +480,8 @@ Use the following procedure to configure the Microsoft Sentinel SAP data connect
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
 
-
-
 For more information about options that are available in the kickstart script, see [Reference: Kickstart script](reference-kickstart.md).
+
 ---
 
 ## Check health and connectivity
@@ -518,18 +513,12 @@ If you need to reenable the Docker container, sign into the data connector agent
 docker start sapcon-[SID]
 ```
 
-
-
-
-
-
-
-## Related content
-
-For more video content, see the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity).
-
 ## Next step
 
 Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP applications content:
 > [!div class="nextstepaction"]
 > [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+
+## Related content
+
+For more video content, see the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity).

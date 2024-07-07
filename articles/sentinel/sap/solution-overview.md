@@ -30,7 +30,6 @@ For example, the following image shows a multi-SID SAP landscape with a split be
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
-
 <!--i don't think we need this section here, it should be covered in the log reference.
 ## Supported log sources
 
@@ -66,9 +65,9 @@ The Microsoft Sentinel solution for SAP applications supports the following type
 
 Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP and SAP S/4 on-premises.
 
-- The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4). 
+- The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4).
 - Our certification includes S/4 and SAP Rise S/4 HANA Cloud Private Edition running in any cloud and on-premises.
-- We support hybrid deployments that can cover the entire customer estate. 
+- We support hybrid deployments that can cover the entire customer estate.
 
 For more information, see the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
 
@@ -86,7 +85,6 @@ For more information, see [View the roles of your connected production systems](
 
 SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries/regions. 
 -->
-
 
 ## Related content
 

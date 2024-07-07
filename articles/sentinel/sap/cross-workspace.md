@@ -51,7 +51,7 @@ The following table maps data and feature access for SAP and SOC teams when they
 <sup>*</sup> The SOC team can see these functions in both workspaces. The SAP team can see these functions only in the SAP workspace.
 
 > [!NOTE]
-> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs ](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model). 
+> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs ](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
 
 ## Store SAP data only in the SOC workspace
 
@@ -61,7 +61,7 @@ To do this, use the following steps:
 
 1. **Use Log Analytics in Azure Monitor to manage access to data by resource**. For more information, see [Manage access to Microsoft Sentinel data by resource](../resource-context-rbac.md).
 
-2. **Associate SAP resources with an Azure resource ID**. Specify the required `azure_resource_id` field in the connector configuration section on the data collector that you use to ingest data from the SAP system into Microsoft Sentinel. For more information, see [Connector Configuration section](reference-systemconfig-json.md#connector-configuration-section).
+2. **Associate SAP resources with an Azure resource ID**. Specify the required `azure_resource_id` field in the connector configuration section on the data collector that you use to ingest data from the SAP system into Microsoft Sentinel. For more information, see [Connector configuration](reference-systemconfig-json.md#connector-configuration).
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-combined.png" alt-text="Diagram that shows how to work with the Microsoft Sentinel solution for SAP applications by using the same workspace for SAP and SOC data." border="false":::
 

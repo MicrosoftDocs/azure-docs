@@ -97,4 +97,3 @@ For more information, see:
 
 > [!div class="nextstepaction"]
 > [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
-

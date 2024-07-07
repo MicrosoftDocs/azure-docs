@@ -84,7 +84,7 @@ This procedure describes how to enable auditing in your SAP system if it's not a
 
 ## Next step
 
-Your SAP environment is now fully prepared to deploy a data connector agent. 
+Your SAP environment is now fully prepared to deploy a data connector agent.
 
 > [!div class="nextstepaction"]
 > [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
