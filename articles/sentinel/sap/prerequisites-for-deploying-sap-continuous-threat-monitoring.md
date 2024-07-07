@@ -55,10 +55,7 @@ We recommend that your SAP team verify and ensure SAP system prerequisites. We s
 
 <!--this is where we'd redirect to from sap auditing-->
 
-<!--
 ### SAP role requirements
-
-<!--do we need this section here if we have it in the next article?
 
 To allow the SAP data connector to connect to your SAP system, you must create a SAP system role. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
 
@@ -71,8 +68,6 @@ The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack
 Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
 
 ### Requirements for retrieving additional information from SAP (optional)
-
-<!--do we need this section here if we have it in the next article?
 
 Deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve the following content information from your SAP system:
 
@@ -92,7 +87,7 @@ If you choose to retrieve additional information with the [NPLK900202 optional C
 
 This process is described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
  
---> 
+ 
 ## Next step
 
 > [!div class="nextstepaction"]

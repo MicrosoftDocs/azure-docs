@@ -293,7 +293,7 @@ The following table describes the optional CRs available to deploy:
 
 |CR |Description |
 |---------|---------|
-|**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations) and [Create and configure a role (required)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required). |
+|**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations). |
 |**NPLK900201** or **NPLK900202**  |[Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
 
 ### Prerequisites for deploying CRs
@@ -309,7 +309,7 @@ The following table describes the optional CRs available to deploy:
 
 1. Make sure you know which [CR you want to deploy](#deploy-optional-crs).
 
-1. If you're deploying the NPLK900202 CR to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
+1. If you're deploying the NPLK900202 CR to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional).
 
 ### Set up the files
 
@@ -414,7 +414,7 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 - [Monitoring the configuration of static SAP security parameters (Preview)](sap-solution-security-content.md#monitoring-the-configuration-of-static-sap-security-parameters-preview)
 
 > [!TIP]
-> For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector-section).
+> For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
 
 **To verify that the PAHI table is updated regularly**:
 

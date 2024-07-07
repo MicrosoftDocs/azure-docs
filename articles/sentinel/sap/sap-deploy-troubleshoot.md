@@ -218,9 +218,7 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 ### Missing SAP change request
 
-If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
-
-For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
+If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites) and [Deploy optional CRs](preparing-sap.md#deploy-optional-crs).
 
 ### No records / late records
 
@@ -250,7 +248,7 @@ If you have unexpected issues not listed in this article, try the following step
 
 ### Retrieving an audit log fails with warnings
 
-If you attempt to retrieve an audit log, without the [required change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) deployed or on an older / unpatched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
+If you attempt to retrieve an audit log without the [required configurations](configure-audit.md) and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 
 - Using a compatibility mode called *XAL* on older versions
 - Using a version not recently patched
@@ -290,7 +288,7 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 ### Unable to import the change request transports to SAP
 
-If you're not able to import the [required SAP log change requests](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
+If you're unable to import [SAP log change requests](preparing-sap.md#deploy-optional-crs) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
 ### Audit log data not ingested past initial load
 
@@ -327,7 +325,9 @@ This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above 
 
 ### No data is showing in the SAP table data log
 
-This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the ABAPTableDataLog_CL table. If no data is showing in the ABAPTableDataLog_CL, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). For more information, see [Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional)..
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the ABAPTableDataLog_CL table. If no data is showing in the ABAPTableDataLog_CL, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). For more information, see [Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional).
+
+
 
 ## Next steps
 
