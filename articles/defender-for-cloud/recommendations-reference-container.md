@@ -193,7 +193,7 @@ Use customer-managed keys to manage the encryption at rest of the contents of yo
 AppArmor (Application Armor) is a Linux security module that protects an operating system and its applications from security threats. To use it, a system administrator associates an AppArmor security profile with each program.
 (Related policy: [Kubernetes cluster containers should only use allowed AppArmor profiles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f511f5417-5d12-434d-ab2e-816901e72a5e)).
 
-**Severit**: High
+**Severity**: High
 
 **Type**: Kubernetes data plane
 

@@ -435,7 +435,7 @@ Microsoft Defender for Cloud now supports the latest [CIS Azure Security Foundat
 |----------|----------|
 | September 30 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |
 | September 27 | [Data security dashboard available in public preview](#data-security-dashboard-available-in-public-preview) |
-| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines plan](#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
+| September 21 | [Preview release: New autoprovisioning process for SQL Server on machines](#preview-release-new-autoprovisioning-process-for-sql-server-on-machines-plan) |
 | September 20 | [GitHub Advanced Security for Azure DevOps alerts in Defender for Cloud](#github-advanced-security-for-azure-devops-alerts-in-defender-for-cloud) |
 | September 11 | [Exempt functionality now available for Defender for APIs recommendations](#exempt-functionality-now-available-for-defender-for-apis-recommendations) |
 | September 11 | [Create sample alerts for Defender for APIs detections](#create-sample-alerts-for-defender-for-apis-detections) |
@@ -901,7 +901,7 @@ Learn more about [agentless container posture](concept-agentless-containers.md).
 
 ## May 2023
 
-Updates in might include:
+Updates in May include:
 
 - [A new alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault).
 - [Support for agentless scanning of encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws).
@@ -909,7 +909,7 @@ Updates in might include:
 - [The onboarding of selected AWS regions](#onboard-selected-aws-regions).
 - [Changes to identity recommendations](#multiple-changes-to-identity-recommendations).
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard).
-- [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#two-defender-for-devops-recommendations-now-include-azure-devops-scan-findings).
+- [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#defender-for-devops-recommendations-now-include-azure-devops-scan-findings).
 - [New default setting for the Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution).
 - [Ability to download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview).
 - [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#the-release-of-containers-vulnerability-assessment-with-microsoft-defender-vulnerability-management).
@@ -1015,7 +1015,7 @@ We have fully deprecated support of [PCI DSS](/azure/compliance/offerings/offeri
 
 Learn how to [customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
-### Two Defender for DevOps recommendations now include Azure DevOps scan findings
+### Defender for DevOps recommendations now include Azure DevOps scan findings
 
 Defender for DevOps Code and IaC has expanded its recommendation coverage in Microsoft Defender for Cloud to include Azure DevOps security findings for the following two recommendations:
 
@@ -2340,7 +2340,7 @@ Following our recent announcement [Native CSPM for GCP and threat protection for
 Updates in January include:
 
 - [Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix](#microsoft-defender-for-resource-manager-updated-with-new-alerts-and-greater-emphasis-on-high-risk-operations-mapped-to-mitre-attck-matrix)
-- [Recommendations to enable Microsoft Defender plans on workspaces (in preview)](#recommendations-to-enable-microsoft-defender-plans-on-workspaces-in-preview)
+- [Recommendations to enable plans in Microsoft Defender on workspaces (in preview)](#recommendations-to-enable-microsoft-defender-plans-on-workspaces-in-preview)
 - [Autoprovision Log Analytics agent to Azure Arc-enabled machines (preview)](#autoprovision-log-analytics-agent-to-azure-arc-enabled-machines-preview)
 - [Deprecated the recommendation to classify sensitive data in SQL databases](#deprecated-the-recommendation-to-classify-sensitive-data-in-sql-databases)
 - [Communication with suspicious domain alert expanded to included known Log4Shell-related domains](#communication-with-suspicious-domain-alert-expanded-to-included-known-log4shell-related-domains)
@@ -2937,7 +2937,7 @@ Updates in August include:
 - [Deprecated recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecated-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines)
 - [Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link](#azure-defender-for-container-registries-now-scans-for-vulnerabilities-in-registries-protected-with-azure-private-link)
 - [Security Center can now autoprovision the Azure Policy's Guest Configuration extension (in preview)](#security-center-can-now-autoprovision-the-azure-policys-guest-configuration-extension-in-preview)
-- [Recommendations to enable Azure Defender plans now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
+- [Recommendations to enable plans in Azure Defender now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
 - [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 

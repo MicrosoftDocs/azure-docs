@@ -294,7 +294,7 @@ Secure your storage account with greater flexibility using customer-managed keys
 ### [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/cdcf4f71-60d3-540b-91e3-aa19792da364)
 
 **Description**: This policy audits any Cognitive Services accounts that are not using data encryption. For each account with storage, you should enable data encryption with either customer managed or Microsoft managed key.
-(Related policy: [Cognitive Services accounts should enable data encrsption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2bdd0062-9d75-436e-89df-487dd8e4b3c7)).
+(Related policy: [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2bdd0062-9d75-436e-89df-487dd8e4b3c7)).
 
 **Severity**: Low
 
@@ -773,7 +773,7 @@ For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSi
 ### [An RDS event notifications subscription should be configured for critical cluster events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/65659c22-6588-405b-b118-614c2b4ead5b)
 
 **Description**: This control checks whether an Amazon RDS event subscription exists that has notifications enabled for the following source type:
- Event category key-value pairs. DBCluster: [maintenance and failure].
+ Event category key-value pairs. DBCluster: [Maintenance and failure].
  RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 
@@ -782,7 +782,7 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 ### [An RDS event notifications subscription should be configured for critical database instance events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ff4f3ab3-8ed7-4b4f-a721-4c3b66a59140)
 
 **Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type:
- Event category key-value pairs. ```DBInstance```: [maintenance, configuration change and failure].
+ Event category key-value pairs. ```DBInstance```: [Maintenance, configuration change and failure].
 RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 
@@ -799,7 +799,7 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 
 ### [An RDS event notifications subscription should be configured for critical database security group events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ab5c51fb-ecdb-46de-b8df-c28ae46ce5bc)
 
-**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type: Event category key-value pairs.DBSecurityGroup: [configuration,change, failure].
+**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type: Event category key-value pairs.DBSecurityGroup: [Configuration, change, failure].
  RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for a rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 

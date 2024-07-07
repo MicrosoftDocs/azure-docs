@@ -25,7 +25,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [Azure DevOps repositories should have GitHub Advanced Security for Azure DevOps (GHAzDO) enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c7a934bf-7be6-407a-84d9-4f20e6e49592/showSecurityCenterCommandBar~/false)
 
-**Description**: DevOps security in Defender for Cloud uses a central console so that you can with the With DevOps security enabled, you get findings about secrets, dependencies, and code vulnerabilities in your Azure DevOps repositories surfaced in Microsoft Defender for Cloud.
+**Description**:  DevOps security in Defender for Cloud uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across Azure DevOps. With enablement of GitHub Advanced Security for Azure DevOps (GHAzDO) repositories including GitHub Advanced Security for Azure DevOps, you get findings about secrets, dependencies, and code vulnerabilities in your Azure DevOps repositories surfaced in Microsoft Defender for Cloud.
 
 **Severity**: High
 

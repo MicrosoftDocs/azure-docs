@@ -87,7 +87,7 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 ### [Container hosts should be configured securely](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0677209d-e675-2c6f-e91a-54cef2878663)
 
-**Description**: Remediate vulnerabilities in security configuration on machines with Docker installed to protect them from attacks.
+**Description**: Remediate vulnerabilities in security configuration settings on machines with Docker installed to protect them from attacks.
 (Related policy: [Vulnerabilities in container security configurations should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe8cbc669-f12d-49eb-93e7-9273119e9933)).
 
 **Severity**: High
@@ -151,7 +151,7 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 ### [Endpoint protection health issues on virtual machine scale sets should be resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e71020c2-860c-3235-cd39-04f3f8c936d2)
 
-**Description**: Remediate endpoint protection health failures on your virtual machine scale sets to protect them from threats and vulnerabilities.
+**Description**: Remediate endpoint protection health failures on VM scale sets to protect them from threats and vulnerabilities.
 (Related policy: [Endpoint protection solution should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f26a828e1-e88f-464e-bbb3-c134a282b9de)).
 
 **Severity**: Low
@@ -410,7 +410,7 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 ### [Virtual machines should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/12018f4f-3d10-999b-e4c4-86ec25be08a1)
 
-**Description**: Virtual Machines (classic) was deprecated and these VMs should be migrated to Azure Resource Manager.
+**Description**: Virtual machinesb (classic) are deprecated and these VMs should be migrated to Azure Resource Manager.
 Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through Azure Service Manager (ASM) on February 28, 2020. This functionality will be fully retired on March 1, 2023.
 
 To view all affected classic VMs make sure to select all your Azure subscriptions under 'directories + subscriptions' tab.
@@ -426,7 +426,7 @@ Available resources and information about this tool & migration:
 
 ### [Virtual machines guest attestation status should be healthy](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b7604066-ed76-45f9-a5c1-c97e4812dc55)
 
-**Description**: Guest attestation is performed by sending a trusted log (TCGLog) to an attestation server. The server uses these logs to determine whether boot components are trustworthy. This assessment is intended to detect compromises of the boot chain, which might be the result of a bootkit or rootkit infection.
+**Description**: Guest attestation is performed by sending a trusted log (TCGLog) to an attestation server. The server uses these logs to determine whether boot components are trustworthy. This assessment is intended to detect compromises of the boot chain, which might be the result of a ```bootkit``` or ```rootkit``` infection.
 This assessment only applies to Trusted Launch enabled virtual machines that have the Guest Attestation extension installed.
 (No related policy)
 
@@ -697,7 +697,7 @@ Project-wide SSH keys are stored in Compute/Project-meta-data. Project wide SSH 
 ### [Ensure Compute instances are launched with Shielded VM enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a4b3b3a-7de9-4aa4-a29b-580d59b43f79)
 
 **Description**: To defend against advanced threats and ensure that the boot loader and firmware on your VMs are signed and untampered, it's recommended that Compute instances are launched with Shielded VM enabled.
-Shielded VMs are virtual machines (VMs) on Google Cloud Platform hardened by a set of security controls that help defend against rootkits and bootkits.
+Shielded VMs are VMs on Google Cloud Platform hardened by a set of security controls that help defend against ```rootkits``` and ```bootkits```.
 Shielded VM offers verifiable integrity of your Compute Engine VM instances, so you can be confident your instances haven't been compromised by boot- or kernel-level malware or rootkits.
 Shielded VM's verifiable integrity is achieved through the use of Secure Boot, virtual trusted platform module (vTPM)-enabled Measured Boot, and integrity monitoring.
 Shielded VM instances run firmware that is signed and verified using Google's Certificate Authority, ensuring that the instance's firmware is unmodified and establishing the root of trust for Secure Boot.
@@ -736,14 +736,14 @@ Therefore interactive serial console support should be disabled.
 **Description**: The PostgreSQL executor is responsible to execute the plan handed over by the PostgreSQL planner.
  The executor processes the plan recursively to extract the required set of rows.
  The "log_executor_stats" flag controls the inclusion of PostgreSQL executor performance statistics in the PostgreSQL logs for each query.
- The "log_executor_stats" flag enables a crude profiling method for logging PostgreSQL executor performance statistics, which even though can be useful for troubleshooting, it might increase the amount of logs significantly and have performance overhead.
+ The "log_executor_stats" flag enables a crude profiling method for logging PostgreSQL executor performance statistics, which even though can be useful for troubleshooting, it might increase the number of logs significantly and have performance overhead.
  This recommendation is applicable to PostgreSQL database instances.
 
 **Severity**: Low
 
 ### [Ensure 'log_min_error_statement' database flag for Cloud SQL PostgreSQL instance is set to 'Error' or stricter](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/50a1058e-925b-4998-9d93-5eaa8f7021a3)
 
-**Description**: The "log_min_error_statement" flag defines the minimum message severity level that are considered as an error statement.
+**Description**: The "log_min_error_statement" flag defines the minimum message severity level that is considered as an error statement.
  Messages for error statements are logged with the SQL statement.
  Valid values include "DEBUG5," "DEBUG4," "DEBUG3," "DEBUG2," "DEBUG1," "INFO," "NOTICE," "WARNING," "ERROR," "LOG," "FATAL," and "PANIC."
  Each severity level includes the subsequent levels mentioned above.
@@ -761,7 +761,7 @@ Therefore interactive serial console support should be disabled.
 **Description**: The PostgreSQL planner/optimizer is responsible to parse and verify the syntax of each query received by the server.
  If the syntax is correct a "parse tree" is built up else an error is generated.
  The "log_parser_stats" flag controls the inclusion of parser performance statistics in the PostgreSQL logs for each query.
- The "log_parser_stats" flag enables a crude profiling method for logging parser performance statistics, which even though can be useful for troubleshooting, it might increase the amount of logs significantly and have performance overhead.
+ The "log_parser_stats" flag enables a crude profiling method for logging parser performance statistics, which even though can be useful for troubleshooting, it might increase the number of logs significantly and have performance overhead.
  This recommendation is applicable to PostgreSQL database instances.
 
 **Severity**: Low
@@ -771,7 +771,7 @@ Therefore interactive serial console support should be disabled.
 **Description**: The same SQL query can be executed in multiple ways and still produce different results.
  The PostgreSQL planner/optimizer is responsible to create an optimal execution plan for each query.
  The "log_planner_stats" flag controls the inclusion of PostgreSQL planner performance statistics in the PostgreSQL logs for each query.
- The "log_planner_stats" flag enables a crude profiling method for logging PostgreSQL planner performance statistics, which even though can be useful for troubleshooting, it might increase the amount of logs significantly and have performance overhead.
+ The "log_planner_stats" flag enables a crude profiling method for logging PostgreSQL planner performance statistics, which even though can be useful for troubleshooting, it might increase the number of logs significantly and have performance overhead.
  This recommendation is applicable to PostgreSQL database instances.
 
 **Severity**: Low
@@ -781,7 +781,7 @@ Therefore interactive serial console support should be disabled.
 **Description**: The "log_statement_stats" flag controls the inclusion of end to end performance statistics of a SQL query in the PostgreSQL logs for each query.
  This can't be enabled with other module statistics (*log_parser_stats*, *log_planner_stats*, *log_executor_stats*).
  The "log_statement_stats" flag enables a crude profiling method for logging end to end performance statistics of a SQL query.
- This can be useful for troubleshooting but might increase the amount of logs significantly and have performance overhead.
+ This can be useful for troubleshooting but might increase the number of logs significantly and have performance overhead.
  This recommendation is applicable to PostgreSQL database instances.
 
 **Severity**: Low
@@ -791,7 +791,7 @@ Therefore interactive serial console support should be disabled.
 **Description**: Compute instances shouldn't be configured to have external IP addresses.
 To reduce your attack surface, Compute instances shouldn't have public IP addresses. Instead, instances should be configured behind load balancers, to minimize the instance's exposure to the internet.
 Instances created by GKE should be excluded because some of them have external IP addresses and can't be changed by editing the instance settings.
-These VMs have names that start with *gke-* and are labeled *goog-gke-node*.
+These VMs have names that start with ```gke-``` and are labeled ```goog-gke-node```.
 
 **Severity**: High
 
@@ -799,10 +799,10 @@ These VMs have names that start with *gke-* and are labeled *goog-gke-node*.
 
 **Description**: It's recommended to configure your instance to not use the default Compute Engine service account because it has the Editor role on the project.
 The default Compute Engine service account has the Editor role on the project, which allows read and write access to most Google Cloud Services.
-To defend against privilege escalations if your VM is compromised and prevent an attacker from gaining access to all of your project, it's recommended to not use the default Compute Engine service account.
+To defend against privilege escalations if your VM is compromised, and to prevent an attacker from gaining access to all of your projects, it's recommended to not use the default Compute Engine service account.
 Instead, you should create a new service account and assigning only the permissions needed by your instance.
 The default Compute Engine service account is named `[PROJECT_NUMBER]- compute@developer.gserviceaccount.com`.
-VMs created by GKE should be excluded. These VMs have names that start with *gke-* and are labeled *goog-gke-node*.
+VMs created by GKE should be excluded. These VMs have names that start with ```gke-``` and are labeled ```goog-gke-node```.
 
 **Severity**: High
 

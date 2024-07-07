@@ -16,10 +16,10 @@ Defender for Servers is one of the paid plans provided by [Microsoft Defender fo
 
 This article is the *fifth* article in the Defender for Servers planning guide. Before you begin, review the earlier articles:
 
-1. [Start planning your deployment](plan-defender-for-servers.md)
-1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
-1. [Review Defender for Servers access roles](plan-defender-for-servers-roles.md)
-1. [Select a Defender for Servers plan](plan-defender-for-servers-select-plan.md)
+1. [Start planning your deployment](plan-defender-for-servers.md).
+1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md).
+1. [Review Defender for Servers access roles](plan-defender-for-servers-roles.md).
+1. [Select a plan for Defender for Servers](plan-defender-for-servers-select-plan.md).
 
 ## Review Azure Arc requirements
 

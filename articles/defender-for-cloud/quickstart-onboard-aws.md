@@ -67,7 +67,7 @@ Each plan has its own requirements for the native connector.
 If you choose the Microsoft Defender for Containers plan, you need:
 
 - At least one Amazon EKS cluster with permission to access to the EKS Kubernetes API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
-- The resource capacity to create a new Amazon SQS queue, "Kinesis Data Firehose" delivery stream, and Amazon S3 bucket in the cluster's region.
+- The resource capacity to create a new Amazon SQS queue, ```Kinesis Data Firehose``` delivery stream, and Amazon S3 bucket in the cluster's region.
 
 ### Defender for SQL
 
