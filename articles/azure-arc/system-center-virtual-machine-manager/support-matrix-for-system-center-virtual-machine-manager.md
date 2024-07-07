@@ -7,8 +7,7 @@ ms.subservice: azure-arc-scvmm
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
-ms.topic: how-to 
-ms.date: 07/05/2024
+ms.date: 07/08/2024
 keywords: "VMM, Arc, Azure"
 
 # Customer intent: As a VI admin, I want to understand the support matrix for System Center Virtual Machine Manager.
@@ -44,13 +43,7 @@ Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM
 
 The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
 
-### Outbound connectivity
-
-The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. 
-
 [!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
-
-### Firewall/Proxy URL allowlist 
 
 >[!Note] 
 > To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](../resource-bridge/network-requirements.md#azure-arc-resource-bridge-network-requirements). 
