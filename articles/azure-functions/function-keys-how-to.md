@@ -3,7 +3,7 @@ title: Work with access keys in Azure Functions
 description: Learn about access keys in Azure Functions, including how to get and renew keys and how to use access keys when calling function endpoints.
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 07/05/2024
+ms.date: 07/07/2024
 
 #CustomerIntent: As an Azure Functions developer, I want learn how to work with access keys so that I can properly harden both my function endpoints and my overall function app running in Azure.
 ---
@@ -19,6 +19,8 @@ While access keys provide some mitigation against unwanted access, you should co
 + [Deploy your function app to a virtual network](security-concepts.md#deploy-your-function-app-to-a-virtual-network)
 + [Deploy your function app in isolation](security-concepts.md#deploy-your-function-app-in-isolation)
  
+Access keys provide the basis for HTTP authorization in HTTP triggered functions. For more information, see [Authorization level](./functions-bindings-http-webhook-trigger.md#auth-level).
+
 ## Understand keys
 
 The scope of an access key and the actions it supports depend on the type of access key. 
