@@ -20,7 +20,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 ## June 2024
 
-|Date | Category | Update |
+|Date|Category|Update|
 |--|--|--|
 | June 27 | GA | [Checkov IaC Scanning in Defender for Cloud](#ga-checkov-iac-scanning-in-defender-for-cloud). |
 | June 24 | Update | [Change in pricing for multicloud Defender for Containers](#update-change-in-pricing-for-defender-for-containers-in-multicloud) | 
@@ -110,13 +110,13 @@ Will be applied to the following recommendations:
 
 ## May 2024
 
-|Date | Category | Update |
+|Date|Category|Update |
 |--|--|--|
 | May 30 | GA | [Agentless malware detection in Defender for Servers Plan 2](#ga-agentless-malware-detection-in-defender-for-servers-plan-2) |
 | May 22 | Update |[Configure email notifications for attack paths](#update-configure-email-notifications-for-attack-paths) |
 | May 21 | Update |[Advanced hunting in Microsoft Defender XDR includes Defender for Cloud alerts and incidents](#update-advanced-hunting-in-microsoft-defender-xdr-includes-defender-for-cloud-alerts-and-incidents) | 
 | May 9 | Preview | [Checkov integration for IaC scanning in Defender for Cloud](#preview-checkov-integration-for-iac-scanning-in-defender-for-cloud) |
-| May 7 | GA | [Permissions management in Defender for Cloud](#ga-permissions-management-in-defender-for-cloud)
+| May 7 | GA | [Permissions management in Defender for Cloud](#ga-permissions-management-in-defender-for-cloud) | 
 | May 6 | Preview | [AI multicloud security posture management is available for Azure and AWS](#preview-ai-multicloud-security-posture-management). |
 | May 6 | Limited preview | [Threat protection for AI workloads in Azure](#limited-preview-threat-protection-for-ai-workloads-in-azure). | 
 | May 2 | Update |[Security policy management](#ga-security-policy-management). |
@@ -210,7 +210,7 @@ As part of this release, FIM experience over AMA will no longer be available thr
 
 ## April 2024
 
-|Date |Category | Update |
+|Date|Category|Update|
 |--|--|--|
 | April 16 | Upcoming update | [Change in CIEM assessment IDs](#update-change-in-ciem-assessment-ids).<br/><br/> Estimated Update |May 2024. |
 | April 15 | GA | [Defender for Containers is now available for AWS and GCP](#ga-defender-for-containers-for-aws-and-gcp). |
@@ -269,7 +269,7 @@ Learn more about [Microsoft Defender for open-source relational databases](defen
 
 ## March 2024
 
-|Date |Category |Update |
+|Date|Category|Update|
 |--|--|--|
 | March 31 | GA | [Windows container images scanning](#ga-windows-container-images-scanning) |
 | March 25 | Update |[Continuous export now includes attack path data](#update-continuous-export-now-includes-attack-path-data) |
@@ -420,7 +420,7 @@ The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is 
 
 ## February 2024
 
-|Date | Category | Update |
+|Date|Category|Update|
 |--|--|--|
 | February 28 | Deprecation |[Microsoft Security Code Analysis (MSCA) is no longer operational](#deprecation-microsoft-security-code-analysis-msca-is-no-longer-operational). |
 | February 28 | Update |[Updated security policy management expands support to AWS and GCP](#update-security-policy-management-expands-support-to-aws-and-gcp). |
@@ -491,7 +491,7 @@ For details on the new API version, see [Microsoft Defender for Cloud REST APIs]
 
 ## January 2024
 
-|Date | Category | Update |
+|Date|Category|Update|
 |--|--|--|
 | January 31 | Update |[New insight for active repositories in Cloud Security Explorer](#update-new-insight-for-active-repositories-in-cloud-security-explorer) |
 | January 30 | Upcoming update | [Change in pricing for multicloud container threat detection](#update-change-in-pricing-for-multicloud-container-threat-detection)<br/><br/> Expected: April 2024 |
