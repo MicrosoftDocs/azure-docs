@@ -7,7 +7,7 @@ author: dcurwin
 ms.date: 12/06/2023
 ---
 
-# Create rich, interactive reports of Defender for Cloud data by using workbooks
+# Create interactive reports with Azure Monitor workbooks
 
 [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md) are flexible canvas that you can use to analyze data and create rich, visual reports in the Azure portal. In workbooks, you can access multiple data sources across Azure. Combine workbooks into unified, interactive experiences.
 
