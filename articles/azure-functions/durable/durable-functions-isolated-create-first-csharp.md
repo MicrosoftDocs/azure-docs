@@ -109,7 +109,7 @@ You can use Azure Functions Core Tools to run an Azure Functions project on your
    > [!NOTE]
    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
    >
-   > If you encounter a *No job functions found* error, [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Earlier versions of Core Tools don't support .NET isolated.
+   > If a *No job functions found* error message appears, [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Earlier versions of Core Tools don't support .NET isolated.
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
