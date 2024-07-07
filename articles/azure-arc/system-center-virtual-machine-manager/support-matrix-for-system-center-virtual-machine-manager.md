@@ -59,7 +59,7 @@ In addition, SCVMM requires the following exception:
 | SCVMM Management Server | 443 | URL of the SCVMM management server. | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 | WinRM | WinRM Port numbers (Default: 5985 and 5986). | URL of the WinRM service. | IPs in the IP Pool used by the Appliance VM and control plane need connection with the VMM server. | Used by the SCVMM server to communicate with the Appliance VM. |
 
-[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md#inbound-connectivity-requirements)]
+[!INCLUDE [netork-requirements](../resource-bridge/includes/network-requirements.md#inbound-connectivity-requirements)]
 
 Generally, connectivity requirements include these principles: 
 
@@ -99,7 +99,7 @@ Ensure the following before you install Arc agents using a script for SCVMM VMs:
 
 ### Supported SCVMM versions
 
-Azure Arc-enabled SCVMM supports direct installation of Arc agents in VMs managed by7:
+Azure Arc-enabled SCVMM supports direct installation of Arc agents in VMs managed by:
 
 - SCVMM 2022 UR1 or later versions of SCVMM server or console
 - SCVMM 2019 UR5 or later versions of SCVMM server or console
@@ -111,7 +111,7 @@ For VMs managed by other SCVMM versions, [install Arc agents through the script]
 
 ### Supported Operating Systems
 
-Azure Arc-enabled SCVMM supports direct installation of Arc agents in VMs running Windows Server 2022, 2019, 2016, 2012R2, WIndows 10, and Windows 11 operating systems. For other Windows and Linux operating systems, [install Arc agents through the script](install-arc-agents-using-script.md).
+Azure Arc-enabled SCVMM supports direct installation of Arc agents in VMs running Windows Server 2022, 2019, 2016, 2012R2, Windows 10, and Windows 11 operating systems. For other Windows and Linux operating systems, [install Arc agents through the script](install-arc-agents-using-script.md).
 
 ### Software requirements
 
@@ -149,4 +149,4 @@ The following firewall URL exceptions are needed for the Azure Arc agents:
 
 ## Next steps
 
-- [Connect your System Center Virtual Macine Manager management server to Azure Arc](quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
+- [Connect your System Center Virtual Machine Manager management server to Azure Arc](quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
