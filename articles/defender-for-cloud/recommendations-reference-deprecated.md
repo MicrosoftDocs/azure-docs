@@ -144,5 +144,5 @@ Using the latest Python version for web apps is recommended to benefit from secu
 
 ## Related content
 
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](review-security-recommendations.md)
+- [Learn about security recommendations](security-policy-concept.md)
+- [Review security recommendations](review-security-recommendations.md)

@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 04/08/2024
 ---
 
-# Connect your AWS account to Microsoft Defender for Cloud
+# Connect AWS accounts to Microsoft Defender for Cloud
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Amazon Web Services (AWS), but you need to set up the connection between them and Defender for Cloud.
 

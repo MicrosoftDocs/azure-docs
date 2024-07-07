@@ -1498,5 +1498,5 @@ Even with key owner precautions, keys can be easily leaked by less than optimum 
 
 ## Related content
 
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](review-security-recommendations.md)
+- [Learn about security recommendations](security-policy-concept.md)
+- [Review security recommendations](review-security-recommendations.md)

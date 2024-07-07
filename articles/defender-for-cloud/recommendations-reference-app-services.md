@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 
 # Azure App Service security recommendations
 
-This article lists all the security recommendations you might see in Microsoft Defender for Cloud for Azure App Service.
+This article lists all the security recommendations you might see issued by the Microsoft Defender for Cloud plan - Microsoft Defender for Cloud for Azure App Service.
 
 The recommendations that appear in your environment are based on the resources that you're protecting and on your customized configuration.
 
@@ -225,5 +225,5 @@ Only clients that have a valid certificate will be able to reach the app.
 
 ## Related content
 
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](review-security-recommendations.md)
+- [Learn about security recommendations](security-policy-concept.md)
+- [Review security recommendations](review-security-recommendations.md)

@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: ignite-2023
 ---
 
-# Quickstart: Connect your Azure DevOps Environment to Microsoft Defender for Cloud
+# Connect Azure DevOps environments to Defender for Cloud
 
 This page provides a simple onboarding experience to connect Azure DevOps environments to Microsoft Defender for Cloud, and automatically discover Azure DevOps repositories.
 

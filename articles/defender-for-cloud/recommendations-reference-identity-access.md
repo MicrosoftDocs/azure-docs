@@ -998,5 +998,5 @@ GCP facilitates up to 10 external service account keys per service account to fa
 
 ## Related content
 
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](review-security-recommendations.md)
+- [Learn about security recommendations](security-policy-concept.md)
+- [Review security recommendations](review-security-recommendations.md)

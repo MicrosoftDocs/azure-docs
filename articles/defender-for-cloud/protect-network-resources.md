@@ -6,7 +6,7 @@ ms.author: dacurwin
 author: dcurwin
 ms.date: 05/30/2024
 ---
-# Protect your network resources
+# Protect network resources
 
 Microsoft Defender for Cloud continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 

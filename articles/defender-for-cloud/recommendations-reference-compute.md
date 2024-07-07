@@ -938,5 +938,5 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 ## Related content
 
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](review-security-recommendations.md)
+- [learn about security recommendations](security-policy-concept.md)
+- [Review security recommendations](review-security-recommendations.md)

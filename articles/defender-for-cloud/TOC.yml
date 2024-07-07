@@ -268,10 +268,7 @@
       href: copilot-security-in-defender-for-cloud.md
     - name: Security recommendations
       items:
-        - name: AI recommendations
-          displayName: AI, recommendations
-          href: recommendations-reference-ai.md
-        - name: API, API Management recommendations
+        - name: API recommendations
           displayName: API, recommendations
           href: recommendations-reference-api.md
         - name: Azure App Service recommendations
@@ -450,7 +447,7 @@
         - name: Mitigate risks on specific resources in the asset inventory
           displayName: asset, inventory, resources
           href: asset-inventory.md
-        - name: Maintain network security best practices
+        - name: Protect network resources
           displayName: map, network map
           href: protect-network-resources.md
         - name: Lock down logins with multifactor authentication
