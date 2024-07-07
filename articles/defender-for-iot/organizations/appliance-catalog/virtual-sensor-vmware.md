@@ -53,7 +53,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
    - Guest OS family: **Linux**
 
-   - Guest OS version: **Devian**
+   - Guest OS version: **Debian**
 
 1. Select **Next**.
 
