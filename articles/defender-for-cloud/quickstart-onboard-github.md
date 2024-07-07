@@ -13,13 +13,7 @@ In this quickstart, you connect your GitHub organizations on the **Environment s
 
 By connecting your GitHub environments to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources, and improve security posture. [Learn more](defender-for-devops-introduction.md).
 
-## Prerequisites
 
-To complete this quickstart, you need:
-
-- An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Note that API calls that Defender for Cloud performs count against the [Azure DevOps global consumption limit](/azure/devops/integrate/concepts/rate-limits). 
-- Review [common questions about DevOps security in Defender for Cloud](faq-defender-for-devops.yml).
 
 ## Prerequisites
 

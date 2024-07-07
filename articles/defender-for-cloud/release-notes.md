@@ -20,11 +20,11 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 ## June 2024
 
-|Date | Category | Update
+|Date | Category | Update |
 |--|--|--|
 | June 27 | GA | [Checkov IaC Scanning in Defender for Cloud](#ga-checkov-iac-scanning-in-defender-for-cloud). |
 | June 24 | Update | [Change in pricing for multicloud Defender for Containers](#update-change-in-pricing-for-defender-for-containers-in-multicloud) | 
-| June 20 | Upcoming deprecation  | [Reminder of deprecation for adaptive recommendations at Microsoft Monitoring Agent (MMA) deprecation](#deprecation-reminder-of-deprecation-for-adaptive-recommendations).<br/><br/> Estimated Deprecation August 2024.
+| June 20 | Upcoming deprecation  | [Reminder of deprecation for adaptive recommendations at Microsoft Monitoring Agent (MMA) deprecation](#deprecation-reminder-of-deprecation-for-adaptive-recommendations).<br/><br/> Estimated deprecation August 2024.
 | June 10 | Preview | [Copilot for Security in Defender for Cloud](#preview-copilot-for-security-in-defender-for-cloud) |
 | June 10 | Upcoming update |[SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#update-sql-vulnerability-assessment-automatic-enablement).<br/><br/> Estimated Update |July 10, 2024. |
 | June 3 | Upcoming update |[Changes in identity recommendations behavior](#update-changes-in-identity-recommendations-behavior)<br/><br/> Estimated Update |July 10 2024. |
@@ -47,7 +47,7 @@ June 24, 2024
 
 Since Defender for Containers in multicloud is now generally available, it's no longer free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-### Deprecation: Reminder of deprecation for adaptive recommendations 
+### Deprecation: Reminder of deprecation for adaptive recommendations
 
 June 20, 2024
 
@@ -110,17 +110,17 @@ Will be applied to the following recommendations:
 
 ## May 2024
 
-|Date | Category | Update
+|Date | Category | Update |
 |--|--|--|
 | May 30 | GA | [Agentless malware detection in Defender for Servers Plan 2](#ga-agentless-malware-detection-in-defender-for-servers-plan-2) |
 | May 22 | Update |[Configure email notifications for attack paths](#update-configure-email-notifications-for-attack-paths) |
 | May 21 | Update |[Advanced hunting in Microsoft Defender XDR includes Defender for Cloud alerts and incidents](#update-advanced-hunting-in-microsoft-defender-xdr-includes-defender-for-cloud-alerts-and-incidents) | 
 | May 9 | Preview | [Checkov integration for IaC scanning in Defender for Cloud](#preview-checkov-integration-for-iac-scanning-in-defender-for-cloud) |
 | May 7 | GA | [Permissions management in Defender for Cloud](#ga-permissions-management-in-defender-for-cloud)
-| May 6 | Preview | [AI multicloud security posture management is available for Azure and AWS](#preview-ai-multicloud-security-posture-management-is-available-for-azure-and-aws). |
+| May 6 | Preview | [AI multicloud security posture management is available for Azure and AWS](#preview-ai-multicloud-security-posture-management). |
 | May 6 | Limited preview | [Threat protection for AI workloads in Azure](#limited-preview-threat-protection-for-ai-workloads-in-azure). | 
 | May 2 | Update |[Security policy management](#ga-security-policy-management). |
-| May 1 | Preview | [Defender for open-source databases is now available on AWS for Amazon instances](#preview-defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances).|
+| May 1 | Preview | [Defender for open-source databases is now available on AWS for Amazon instances](#preview-defender-for-open-source-databases-available-in-aws). |
 | May 1 | Upcoming deprecation |[Removal of FIM over AMA and release of new version over Defender for Endpoint](#deprecation-removal-of-fim-with-ama).<br/><br/> Estimated Deprecation August 2024. |
 
 
@@ -210,12 +210,12 @@ As part of this release, FIM experience over AMA will no longer be available thr
 
 ## April 2024
 
-|Date | Update |
-|--|--|
-| April 16 | Upcoming update |[Change in CIEM assessment IDs](#update-change-in-ciem-assessment-ids).<br/><br/> Estimated Update |May 2024. |
+|Date | Category| Update |
+|--|--|--|
+| April 16 | Upcoming update | [Change in CIEM assessment IDs](#update-change-in-ciem-assessment-ids).<br/><br/> Estimated Update |May 2024. |
 | April 15 | GA | [Defender for Containers is now available for AWS and GCP](#ga-defender-for-containers-for-aws-and-gcp). |
-| April 3 | Update |[Risk prioritization is now the default experience in Defender for Cloud](#update-risk-prioritization) |
-| April 3 | Update |[Defender for open-source relational databases updates](#update-defender-for-open-source-relational-databases-updates). |
+| April 3 | Update | [Risk prioritization is now the default experience in Defender for Cloud](#update-risk-prioritization) |
+| April 3 | Update | [Defender for open-source relational databases updates](#update-defender-for-open-source-relational-databases-updates). |
 
 
 
@@ -269,12 +269,12 @@ Learn more about [Microsoft Defender for open-source relational databases](defen
 
 ## March 2024
 
-|Date | Category | Update
+|Date | Category | Update |
 |--|--|--|
 | March 31 | GA | [Windows container images scanning](#ga-windows-container-images-scanning) |
 | March 25 | Update |[Continuous export now includes attack path data](#update-continuous-export-now-includes-attack-path-data) |
 | March 21 | Preview | [Agentless scanning supports CMK encrypted VMs in Azure](#preview-agentless-scanning-supports-cmk-encrypted-vms-in-azure) |
-| March 17 | Preview | [Custom recommendations based on KQL for Azure ](#custom-recommendations-based-on-kql-for-azure). |
+| March 17 | Preview | [Custom recommendations based on KQL for Azure](#preview-custom-recommendations-based-on-kql-for-azure). |
 | March 13 | Update |[Inclusion of DevOps recommendations in the Microsoft cloud security benchmark](#update-inclusion-of-devops-recommendations-in-the-microsoft-cloud-security-benchmark)
 | March 13 | GA | [ServiceNow integration](#ga-servicenow-integration-is-now-generally-available). |
 | March 13 | Preview | [Critical assets protection in Microsoft Defender for Cloud](#preview-critical-assets-protection-in-microsoft-defender-for-cloud). |
@@ -420,7 +420,7 @@ The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is 
 
 ## February 2024
 
-|Date | Category | Update
+|Date | Category | Update |
 |--|--|--|
 | February 28 | Deprecation |[Microsoft Security Code Analysis (MSCA) is no longer operational](#deprecation-microsoft-security-code-analysis-msca-is-no-longer-operational). |
 | February 28 | Update |[Updated security policy management expands support to AWS and GCP](#update-security-policy-management-expands-support-to-aws-and-gcp). |
@@ -491,18 +491,18 @@ For details on the new API version, see [Microsoft Defender for Cloud REST APIs]
 
 ## January 2024
 
-|Date | Category | Update
+|Date | Category | Update |
 |--|--|--|
 | January 31 | Update |[New insight for active repositories in Cloud Security Explorer](#update-new-insight-for-active-repositories-in-cloud-security-explorer) |
 | January 30 | Upcoming update | [Change in pricing for multicloud container threat detection](#update-change-in-pricing-for-multicloud-container-threat-detection)<br/><br/> Expected: April 2024 |
 | January 29 | Upcoming update |[Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#update-enforcement-of-defender-cspm-for-premium-devops-security-value).<br/><br/>Expected: March 2024 |
 | January 24 | Preview | [Agentless container posture for GCP in Defender for Containers and Defender CSPM](#preview-agentless-container-posture-for-gcp-in-defender-for-containers-and-defender-cspm). |
 | January 16 | Preview | [Agentless malware scanning for servers](#preview-agentless-malware-scanning-for-servers).|
-| January 15 | GA | [Defender for Cloud's integration with Microsoft Defender XDR](#ga-defender-for-clouds-integration-with-microsoft-defender-xdr). |
+| January 15 | GA | [Defender for Cloud's integration with Microsoft Defender XDR](#ga-general-availability-of-defender-for-clouds-integration-with-microsoft-defender-xdr). |
 | January 14 | Update |[Update to agentless VM scanning built-in Azure role](#update-agentless-vm-scanning-built-in-azure-role)<br/><br/> Expected: March 2024 | 
 | January 12 | Update |[DevOps security Pull Request annotations are now enabled by default for Azure DevOps connectors](#update-devops-security-pull-request-annotations-enabled-by-default-for-azure-devops-connectors). |
 | January 9 | Deprecation |[Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#deprecation-defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path).<br/><br/> Expected: May 2024 | 
-| January 3 | Upcoming update |[Upcoming change for the Defender for Cloud’s multicloud network requirements](#update-upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements).<br/><br/> Expected: May 2024. | 
+| January 3 | Upcoming update |[Upcoming change for the Defender for Cloud’s multicloud network requirements](#update-defender-for-clouds-multicloud-network-requirements).<br/><br/> Expected: May 2024. | 
 
 
 
@@ -557,7 +557,7 @@ Agentless malware detection for VMs is now included in our agentless scanning pl
 
 Learn more about [agentless malware scanning](agentless-malware-scanning.md) for servers and [agentless scanning for VMs](concept-agentless-data-collection.md).
 
-### GA: Defender for Cloud's integration with Microsoft Defender XDR
+### GA: General availability of Defender for Cloud's integration with Microsoft Defender XDR
 
 January 15, 2024
 
