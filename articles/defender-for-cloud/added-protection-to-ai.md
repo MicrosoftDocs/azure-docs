@@ -52,33 +52,33 @@ If a field’s name is misspelled, the Azure OpenAI API call will still succeed.
 1. Select the tab that corresponds to your development environment.
 
 
-### [Basic C# Initialization Example](#tab/basic-c-initialization-example)
-
-```csharp
-Add code here
-```
-
-### [Azure AI C# SDK](#tab/azure-ai-c-sdk)
-
-```csharp
-Add code here
-```
-
-### [Semantic Kernel](#tab/sementic-kernel)
-
-Require version 1.3.0 or later
-
-```bash
-Add code here
-```
-
-### [Azure AI Python SDK](#tab/azure-ai-python-sdk)
-
-```azurecli
-Add code here
-```
-
----
+    ### [Basic C# Initialization Example](#tab/basic-c-initialization-example)
+    
+    ```csharp
+    Add code here
+    ```
+    
+    ### [Azure AI C# SDK](#tab/azure-ai-c-sdk)
+    
+    ```csharp
+    Add code here
+    ```
+    
+    ### [Semantic Kernel](#tab/sementic-kernel)
+    
+    Require version 1.3.0 or later
+    
+    ```bash
+    Add code here
+    ```
+    
+    ### [Azure AI Python SDK](#tab/azure-ai-python-sdk)
+    
+    ```azurecli
+    Add code here
+    ```
+    
+    ---
 
 1. Save the changes to your AI model.
 1. ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
