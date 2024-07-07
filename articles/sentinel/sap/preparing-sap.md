@@ -94,22 +94,22 @@ If needed, you can [remove the user role and the optional CR installed on your A
 
 :::row:::
     :::column:::
-        [ABAP application log](#abap-application-log)
-        [ABAP change documents log](#abap-change-documents-log)
-        [ABAP CR log](#abap-cr-log)
-        [ABAP DB table data log](#abap-db-table-data-log)
-        [ABAP job log](#abap-job-log)
-        [ABAP security audit log](#abap-security-audit-log)
-        [ABAP spool logs](#abap-spool-logs)
-        [ABAP workflow log](#abap-workflow-log)
-        [All logs](#all-logs)
+        - [ABAP application log](#abap-application-log)
+        - [ABAP change documents log](#abap-change-documents-log)
+        - [ABAP CR log](#abap-cr-log)
+        - [ABAP DB table data log](#abap-db-table-data-log)
+        - [ABAP job log](#abap-job-log)
+        - [ABAP security audit log](#abap-security-audit-log)
+        - [ABAP spool logs](#abap-spool-logs)
+        - [ABAP workflow log](#abap-workflow-log)
+        - [All logs](#all-logs)
     :::column-end:::
     :::column:::
-        [Attack disruption response actions](#attack-disruption-response-actions)
-        [Configuration history](#configuration-history)
-        [Optional logs, if the Microsoft Sentinel solution CR is implemented](#optional-logs-if-the-microsoft-sentinel-solution-cr-is-implemented)
-        [SNC data](#snc-data)
-        [User data](#user-data)
+        - [Attack disruption response actions](#attack-disruption-response-actions)
+        - [Configuration history](#configuration-history)
+        - [Optional logs, if the Microsoft Sentinel solution CR is implemented](#optional-logs-if-the-microsoft-sentinel-solution-cr-is-implemented)
+        - [SNC data](#snc-data)
+        - [User data](#user-data)
     :::column-end:::
 :::row-end:::
 
