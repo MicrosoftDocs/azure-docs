@@ -171,7 +171,7 @@ Use customer-managed keys to manage the encryption at rest of the contents of yo
 **Type**: Control plane
 ### [[Preview] Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)
 
-**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters, and provides vulnerability reports for those workloads by matching the images and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
 
 **Severity**: High
 
@@ -190,10 +190,10 @@ Use customer-managed keys to manage the encryption at rest of the contents of yo
 ### [Containers should only use allowed AppArmor profiles](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/86f91051-9d6a-47c3-a07f-bd14cb214b45)
 
 **Description**: Containers running on Kubernetes clusters should be limited to allowed AppArmor profiles only.
-;AppArmor (Application Armor) is a Linux security module that protects an operating system and its applications from security threats. To use it, a system administrator associates an AppArmor security profile with each program.
+AppArmor (Application Armor) is a Linux security module that protects an operating system and its applications from security threats. To use it, a system administrator associates an AppArmor security profile with each program.
 (Related policy: [Kubernetes cluster containers should only use allowed AppArmor profiles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f511f5417-5d12-434d-ab2e-816901e72a5e)).
 
-**Severity**: High
+**Severit**: High
 
 **Type**: Kubernetes data plane
 
@@ -368,7 +368,7 @@ Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b0fdc63a-38e7-4bab-a
 
 ### [[Preview] Containers running in AWS should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d5d1e526-363a-4223-b860-f4b6e710859f)
 
-**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
 
 **Severity**: High
 
@@ -423,7 +423,7 @@ All the [Kubernetes data plane security recommendations](kubernetes-workload-pro
 
 ### [[Preview] Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)
 
-**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
 
 **Severity**: High
 
@@ -452,13 +452,13 @@ Learn more about [Microsoft Defender for Cloud's security features for container
 
 ### [GKE cluster's auto repair feature should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6aeb69dc-0d01-4228-88e9-7e610891d5dd)
 
-**Description**: This recommendation evaluates the management property of a node pool for the key-value pair, 'key': 'autoRepair,' 'value': true.
+**Description**: This recommendation evaluates the management property of a node pool for the key-value pair, ```key: autoRepair, value: true```.
 
 **Severity**: Medium
 
 ### [GKE cluster's auto upgrade feature should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1680e053-2e9b-4e77-a1c7-793ae286155e)
 
-**Description**: This recommendation evaluates the management property of a node pool for the key-value pair, 'key': 'autoUpgrade,' 'value': true.
+**Description**: This recommendation evaluates the management property of a node pool for the key-value pair, ```key: autoUpgrade, value: true```.
 
 **Severity**: High
 

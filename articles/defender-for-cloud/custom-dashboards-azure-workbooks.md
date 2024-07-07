@@ -171,7 +171,7 @@ To see more details about an alert, select the alert.
 
 The **MITRE ATT&CK tactics** tab lists alerts in the order of the "kill chain" and the number of alerts that the subscription has at each stage.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot that shows the order of the "kill chain" and the number of alerts.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot that shows the order of the chain and the number of alerts.":::
 
 You can see all the active alerts in a table and filter by columns.
 

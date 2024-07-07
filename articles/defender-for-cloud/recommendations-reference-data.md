@@ -76,7 +76,7 @@ Manage encryption at rest of your Azure Machine Learning workspace data with cus
 
 ### [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/80dc29d6-9887-4071-a66c-e763376c2de3)
 
-**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](../cosmos-db/how-to-configure-private-endpoints.md).
+**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. When private endpoints are mapped to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](../cosmos-db/how-to-configure-private-endpoints.md).
 (Related policy: [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f58440f8a-10c5-4151-bdce-dfbaad4a20b7)).
 
 **Severity**: Medium
@@ -152,7 +152,7 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 ### [API Management services should use a virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/74e7dcff-317f-9635-41d2-ead5019acc99)
 
-**Description**: Azure Virtual Network deployment provides enhanced security, isolation, and allows you to place your API Management service in a non-internet routable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies, which enables access to your backend services within the network and/or on-premises. The developer portal and API gateway can be configured to be accessible either from the Internet or only within the virtual network.
+**Description**: Azure Virtual Network deployment provides enhanced security, isolation, and allows you to place your API Management service in a non-internet routable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies, which enable access to your backend services within the network and/or on-premises. The developer portal and API gateway can be configured to be accessible either from the Internet or only within the virtual network.
 (Related policy: [API Management services should use a virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fef619a2c-cc4d-4d03-b2ba-8c94a834d85b)).
 
 **Severity**: Medium
@@ -293,8 +293,8 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 ### [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/cdcf4f71-60d3-540b-91e3-aa19792da364)
 
-**Description**: This policy audits any Cognitive Services account not using data encryption. For each Cognitive Services account with storage, should enable data encryption with either customer managed or Microsoft managed key.
-(Related policy: [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2bdd0062-9d75-436e-89df-487dd8e4b3c7)).
+**Description**: This policy audits any Cognitive Services accounts that are not using data encryption. For each account with storage, you should enable data encryption with either customer managed or Microsoft managed key.
+(Related policy: [Cognitive Services accounts should enable data encrsption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2bdd0062-9d75-436e-89df-487dd8e4b3c7)).
 
 **Severity**: Low
 
@@ -772,8 +772,8 @@ For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSi
 
 ### [An RDS event notifications subscription should be configured for critical cluster events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/65659c22-6588-405b-b118-614c2b4ead5b)
 
-**Description**: This control checks whether an Amazon RDS event subscription exists that has notifications enabled for the following source type,
- event category key-value pairs. DBCluster: ["maintenance" and "failure"].
+**Description**: This control checks whether an Amazon RDS event subscription exists that has notifications enabled for the following source type:
+ Event category key-value pairs. DBCluster: [maintenance and failure].
  RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 
@@ -781,8 +781,8 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 
 ### [An RDS event notifications subscription should be configured for critical database instance events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ff4f3ab3-8ed7-4b4f-a721-4c3b66a59140)
 
-**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type.
- event category key-value pairs. DBInstance: ["maintenance", "configuration change" and "failure"].
+**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type:
+ Event category key-value pairs. ```DBInstance```: [maintenance, configuration change and failure].
 RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 
@@ -790,8 +790,8 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 
 ### [An RDS event notifications subscription should be configured for critical database parameter group events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c6f24bb0-b696-451c-a26e-0cc9ea8e97e3)
 
-**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type.
- event category key-value pairs. DBParameterGroup: ["configuration","change"].
+**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type:
+ Event category key-value pairs. DBParameterGroup: ["configuration","change"].
  RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 
@@ -799,7 +799,7 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 
 ### [An RDS event notifications subscription should be configured for critical database security group events](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ab5c51fb-ecdb-46de-b8df-c28ae46ce5bc)
 
-**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type, event category key-value pairs.DBSecurityGroup: ["configuration","change","failure"].
+**Description**: This control checks whether an Amazon RDS event subscription exists with notifications enabled for the following source type: Event category key-value pairs.DBSecurityGroup: [configuration,change, failure].
  RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for a rapid response.
 For more information about RDS event notifications, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the Amazon RDS User Guide.
 
@@ -850,7 +850,7 @@ For more information about RDS event notifications, see [Using Amazon RDS event 
 ### [Application and Classic Load Balancers logging should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ba5c359-495f-4ba6-9897-7fdbc0aed675)
 
 **Description**: This control checks whether the Application Load Balancer and the Classic Load Balancer have logging enabled. The control fails if `access_logs.s3.enabled` is false.
-Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
+Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use access logs to analyze traffic patterns and to troubleshoot issues.
 To learn more, see [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html) in User Guide for Classic Load Balancers.
 
 **Severity**: Medium
@@ -966,7 +966,7 @@ Enabling managed platform updates ensures that the latest available platform fix
 
 ### [Elastic Load Balancer shouldn't have ACM certificate expired or expiring in 90 days.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a5e0d700-3de1-469a-96d2-6536d9a92604)
 
-**Description**: This check identifies Elastic Load Balancers (ELB) which are using ACM certificates expired or expiring in 90 days. AWS Certificate Manager (ACM) is the preferred tool to provision, manage, and deploy your server certificates. With ACM. you can request a certificate or deploy an existing ACM or external certificate to AWS resources. As a best practice, it's recommended to reimport expiring/expired certificates while preserving the ELB associations of the original certificate.
+**Description**: This check identifies Elastic Load Balancers (ELB) which are using ACM certificates expired or expiring in 90 days. AWS Certificate Manager (ACM) is the preferred tool to provision, manage, and deploy your server certificates. With ACM. You can request a certificate or deploy an existing ACM or external certificate to AWS resources. As a best practice, it's recommended to reimport expiring/expired certificates while preserving the ELB associations of the original certificate.
 
 **Severity**: High
 
@@ -1296,11 +1296,11 @@ Such access might not be desirable if sensitive data is being stored in the data
 
 **Severity**: High
 
-### [Ensure that Cloud SQL database instances are not open to the world](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/de78ebca-1ec6-4872-8061-8fcfb27752fc)
+### [Ensure that Cloud SQL database instances are not opened to the world](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/de78ebca-1ec6-4872-8061-8fcfb27752fc)
 
 **Description**: Database Server should accept connections only from trusted Network(s)/IP(s) and restrict access from the world.
  To minimize attack surface on a Database server instance, only trusted/known and required IP(s) should be approved to connect to it.
- An authorized network shouldn't have IPs/networks configured to "0.0.0.0/0", which will allow access to the instance from anywhere in the world. Note that authorized networks apply only to instances with public IPs.
+ An authorized network shouldn't have IPs/networks configured to 0.0.0.0/0, which will allow access to the instance from anywhere in the world. Note that authorized networks apply only to instances with public IPs.
 
 **Severity**: High
 
@@ -1398,7 +1398,7 @@ Confidential VM can help alleviate concerns about risk related to either depende
 
 **Description**: It's recommended to set the local_infile database flag for a Cloud SQL MySQL instance to off.
 The local_infile flag controls the server-side LOCAL capability for LOAD DATA statements. Depending on the local_infile setting, the server refuses or permits local data loading by clients that have LOCAL enabled on the client side.
-To explicitly cause the server to refuse LOAD DATA LOCAL statements (regardless of how client programs and libraries are configured at build time or runtime), start mysqld with local_infile disabled. local_infile can also be set at runtime.
+To explicitly cause the server to refuse LOAD DATA LOCAL statements (regardless of how client programs and libraries are configured at build time or runtime), start ```mysqld``` with local_infile disabled. local_infile can also be set at runtime.
 Due to security issues associated with the local_infile flag, it's recommended to disable it. This recommendation is applicable to MySQL database instances.
 
 **Severity**: Medium
@@ -1432,10 +1432,10 @@ For user-managed keys, the user has to take ownership of key management activiti
 - Key distribution
 - Key revocation
 - Key rotation
-- Protecting the keys from unauthorized users
+- Key protection from unauthorized users
 - Key recovery
 
-Even with key owner precautions, keys can be easily leaked by common development malpractices like checking keys into the source code or leaving them in the Downloads directory, or accidentally leaving them on support blogs/channels. It's recommended to prevent user-managed service account keys.
+Even with key owner precautions, keys can be easily leaked by less than optimum common development practices like checking keys into the source code or leaving them in the Downloads directory, or accidentally leaving them on support blogs/channels. It's recommended to prevent user-managed service account keys.
 
 **Severity**: Low
 
@@ -1445,7 +1445,7 @@ Even with key owner precautions, keys can be easily leaked by common development
  The "user connections" option specifies the maximum number of simultaneous user connections that are allowed on an instance of SQL Server.
  The actual number of user connections allowed also depends on the version of SQL Server that you're using, and also the limits of your application or applications and hardware.
  SQL Server allows a maximum of 32,767 user connections.
- Because user connections is a dynamic (self-configuring) option, SQL Server adjusts the maximum number of user connections automatically as needed, up to the maximum value allowable.
+ Because user connections are a dynamic (self-configuring) option, SQL Server adjusts the maximum number of user connections automatically as needed, up to the maximum value allowable.
  For example, if only 10 users are logged in, 10 user connection objects are allocated.
  In most cases, you don't have to change the value for this option.
  The default is 0, which means that the maximum (32,767) user connections are allowed.
@@ -1458,7 +1458,7 @@ Even with key owner precautions, keys can be easily leaked by common development
 **Description**: It's recommended that, "user options" database flag for Cloud SQL SQL Server instance shouldn't be configured.
  The "user options" option specifies global defaults for all users.
  A list of default query processing options is established for the duration of a user's work session.
- The user options option allows you to change the default values of the SET options (if the server's default settings aren't appropriate).
+ The user options setting allows you to change the default values of the SET options (if the server's default settings aren't appropriate).
  A user can override these defaults by using the SET statement.
  You can configure user options dynamically for new logins.
  After you change the setting of user options, new login sessions use the new setting; current login sessions aren't affected.
