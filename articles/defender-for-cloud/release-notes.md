@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/10/2024
+ms.date: 07/07/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,20 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## July 2024
+
+|Date | Update |
+|--|--|
+| July 7 | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
+
+### Compliance standards are now GA
+
+July 7, 2024
+
+Based on customer feedback, the compliance standards that were added are now generally available (GA).
+
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
 
 ## June 2024
 
