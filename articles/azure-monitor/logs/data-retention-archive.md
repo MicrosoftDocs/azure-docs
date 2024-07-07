@@ -51,10 +51,10 @@ When you change the auxiliary retention settings of a table with existing data, 
 
 ## Configure the default interactive retention period of Analytics tables
 
-By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 30 days. 
+By default, all tables have an interactive retention period of 30 days. 
 
 > [!IMPORTANT]
-> Workspaces with a 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, configure the default workspace retention to 30 days using the API and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
+> Workspaces with 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, configure the default workspace retention to 30 days using the API and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
 
 To change the default interactive retention period of Analytics tables within a Log Analytics workspace from 30 days to up to two years:
 
