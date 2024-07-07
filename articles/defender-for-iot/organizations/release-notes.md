@@ -116,7 +116,7 @@ To understand whether a feature is supported in your sensor version, check the r
 This version includes the following updates and enhancements:
 
 - [Malicious URL path alert](whats-new.md#malicious-url-path-alert)
-- The following CVEs are resolved in this version:
+- The following CVE is resolved in this version:
   - CVE-2024-38089
 
 ### Version 24.1.3

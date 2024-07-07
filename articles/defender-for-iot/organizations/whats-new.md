@@ -19,9 +19,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [CVE Security update](#cve-security-update)  |
+| **OT networks** | - [Security update](#security-update)  |
 
-### CVE Security update
+### Security update
 
 This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
 
@@ -41,7 +41,7 @@ For more information, this alert is described in the [Malware engine alerts tabl
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update) |
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update-1) |
 
 ### Single sign-on for the sensor console
 
