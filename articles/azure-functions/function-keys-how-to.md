@@ -166,8 +166,7 @@ Run the following script, which uses the REST APIs to renew the `default` host k
 ```powershell-interactive
 # Variables - replace these with your actual values
 $resourceGroupName = "<RESOURCE_GROUP>"
-$functionAppName = "<APP_NAME>"
-$secretName = "default" 
+$functionAppName = "<APP_NAME>" 
 
 # Generate a new cryptographic key
 $bytes = New-Object Byte[] 32  # Create a byte array of size 32
@@ -180,7 +179,7 @@ $uri = "https://management.azure.com/subscriptions/$((Get-AzContext).Subscriptio
 # Construct the body of the request
 $body = @{
     properties = @{
-        name = $secretName
+        name = "default"
         value = $newSecretValue
     }
 } | ConvertTo-Json

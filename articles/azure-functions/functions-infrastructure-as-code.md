@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 06/08/2024
+ms.date: 07/06/2024
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -1604,7 +1604,43 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ::: zone-end
 ## Function access keys
 
-<!---{{Add key info here}}-->
+Host-level [function access keys](function-keys-how-to.md) are defined as Azure resources. This means that you can create and manage host keys in your ARM templates and Bicep files. A host key is defined as a resource of type `Microsoft.Web/sites/host/functionKeys`. This example creates a host-level access key named `my_custom_key` when the function app is created:
+
+### [ARM template](#tab/json)
+
+```json
+{  
+	"type": "Microsoft.Web/sites/host/functionKeys",
+	"apiVersion": "2022-09-01",
+	"name": "[concat(parameters('name'), '/default/my_custom_key')]",
+	"properties": {
+		"name": "my_custom_key"
+	},
+	"dependsOn": [
+		"[resourceId('Microsoft.Web/Sites', parameters('name'))]"
+	]
+}
+```
+
+### [Bicep](#tab/bicep)
+
+```bicep
+resource functionKey 'Microsoft.Web/sites/host/functionKeys@2022-09-01' = {
+  name: '${parameters('name')}/default/my_custom_key'
+  properties: {
+    name: 'my_custom_key'
+  }
+  dependsOn: [
+    resourceId('Microsoft.Web/Sites', parameters('name'))
+  ]
+}
+```
+
+---
+
+In this example, the `name` parameter is the name of the new function app. You must include a `dependsOn` setting to guarantee that the key is created with the new function app. Finally, the `properties` object of the host key can also include a `value` property that can be used to set a specific key. 
+
+When you don't set the `value` property, Functions automatically generates a new key for you when the resource is created, which is recommended. To learn more about access keys, including security best practices for working with access keys, see [Work with access keys in Azure Functions](function-keys-how-to.md). 
 
 :::zone pivot="flex-consumption-plan"  
 ## Application configuration
