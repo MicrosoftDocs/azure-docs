@@ -22,10 +22,10 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update
 |--|--|--|
-| June 27 | GA | [Checkov IaC Scanning in Defender for Cloud (GA)](#ga-checkov-iac-scanning-in-defender-for-cloud). |
-| June 24 | Update |[Change in pricing for multicloud Defender for Containers (GA)](#update-change-in-pricing-for-defender-for-containers-multicloud). | 
-| June 20 | Upcoming deprecation  |[Reminder of deprecation for adaptive recommendations at Microsoft Monitoring Agent (MMA) deprecation](#deprecation-reminder-of-the-deprecation-scope-of-adaptive-recommendations).<br/><br/> Estimated Deprecation |August 2024.
-| June 10 | Preview | [Copilot for Security in Defender for Cloud](#preview-copilot-for-security-in-defender-for-cloud). |
+| June 27 | GA | [Checkov IaC Scanning in Defender for Cloud](#ga-checkov-iac-scanning-in-defender-for-cloud). |
+| June 24 | Update | [Change in pricing for multicloud Defender for Containers](#update-change-in-pricing-for-defender-for-containers-in-multicloud) | 
+| June 20 | Upcoming deprecation  | [Reminder of deprecation for adaptive recommendations at Microsoft Monitoring Agent (MMA) deprecation](#deprecation-reminder-of-deprecation-for-adaptive-recommendations).<br/><br/> Estimated Deprecation August 2024.
+| June 10 | Preview | [Copilot for Security in Defender for Cloud](#preview-copilot-for-security-in-defender-for-cloud) |
 | June 10 | Upcoming update |[SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#update-sql-vulnerability-assessment-automatic-enablement).<br/><br/> Estimated Update |July 10, 2024. |
 | June 3 | Upcoming update |[Changes in identity recommendations behavior](#update-changes-in-identity-recommendations-behavior)<br/><br/> Estimated Update |July 10 2024. |
 
