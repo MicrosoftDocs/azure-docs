@@ -1,5 +1,5 @@
 ---
-title: Enable and configure SAP auditing for Microsoft Sentinel
+title: Configure SAP auditing for Microsoft Sentinel
 description: This article shows you how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, so that you can have complete visibility into your SAP solution.
 author: batamig
 ms.author: bagol
@@ -8,7 +8,7 @@ ms.date: 05/28/2024
 #customerIntent: As an SAP admin, I want to know how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications so that I can have complete visibility into my SAP solution.
 ---
 
-# Enable and configure SAP auditing for Microsoft Sentinel
+# Configure SAP auditing for Microsoft Sentinel
 
 Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters.
 

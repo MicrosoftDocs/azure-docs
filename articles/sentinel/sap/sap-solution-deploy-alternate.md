@@ -12,7 +12,9 @@ ms.date: 07/01/2024
 
 This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container using expert, custom, or manual configuration options.
 
-We typically recommend using the default process, as described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). This article is intended for advanced users.
+We typically recommend using the default process, as described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). 
+
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
 
 ## Prerequisites
 

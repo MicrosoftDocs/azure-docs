@@ -324,7 +324,7 @@ The following table describes the optional CRs available to deploy:
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
         ```
 
-        Alternatively, [load these authorizations directly from a file](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).
+        Alternatively, [load these authorizations directly from a file](#configure-the-microsoft-sentinel-role).
   
     - **To download NPLK900202**
 

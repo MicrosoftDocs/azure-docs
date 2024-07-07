@@ -1,5 +1,5 @@
 ---
-title: Update Microsoft Sentinel's SAP data connector agent
+title: Update the Microsoft Sentinel for SAP applications data connector agent
 description: This article shows you how to update an already existing SAP data connector to its latest version.
 author: batamig
 ms.author: bagol
@@ -10,13 +10,15 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ---
 
-# Update Microsoft Sentinel's SAP data connector agent
+# Update the Microsoft Sentinel for SAP applications data connector agent
 
 This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version.
 
 To get the latest features, either [turn on automatic updates](#automatically-update-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
 
-The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
+The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
+
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP teams.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 

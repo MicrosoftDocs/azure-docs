@@ -11,9 +11,10 @@ ms.date: 06/09/2024
 
 This article explains how to collect audit logs from your SAP HANA database.
 
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your security, infrastructure, and  SAP teams.
+
 > [!IMPORTANT]
 > Microsoft Sentinel SAP HANA support is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 
 ## Prerequisites
 
@@ -96,23 +97,5 @@ For more information, see [Microsoft Sentinel solution for SAP® applications: s
 Learn more about the Microsoft Sentinel solution for SAP applications:
 
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP change requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-
-Troubleshooting:
-
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
-
-Reference files:
-
 - [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
-- [Kickstart script reference](reference-kickstart.md)
-- [Update script reference](reference-update.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md)
-
-For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
-

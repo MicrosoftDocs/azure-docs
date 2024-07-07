@@ -165,10 +165,10 @@
             href: sap/deployment-solution-configuration.md
           - name: Update the connector
             href: sap/update-sap-data-connector.md      
-          - name: Disable the connector
+          - name: Disable the connector agent
             displayName: disable, stop ingestion, stop
             href: sap/deployment-overview.md#stop-sap-data-collection
-        - name: Deploy automatic attack disruption for SAP
+        - name: Automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md
         - name: Optional deployment steps
           items:
@@ -176,7 +176,7 @@
             href: sap/sap-solution-deploy-alternate.md
           - name: Collect SAP HANA audit logs
             href: sap/collect-sap-hana-audit-logs.md
-          - name: Configure SAP audit log monitoring rules
+          - name: Configure SAP audit log monitoring
             href: sap/configure-audit-log-rules.md
         - name: Monitor SAP audit logs
           href: sap/sap-audit-log-workbook.md

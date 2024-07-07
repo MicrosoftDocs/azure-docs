@@ -1,5 +1,5 @@
 ---
-title: Configure SAP audit log monitoring rules with Microsoft Sentinel
+title: Configure SAP audit log monitoring with Microsoft Sentinel
 description: Monitor the SAP audit logs using Microsoft Sentinel built-in analytics rules, to easily manage your SAP logs, reducing noise with no compromise to security value. 
 author: batamig
 ms.author: bagol
@@ -8,9 +8,11 @@ ms.date: 07/02/2024
 #Customer.intent: As a security operator, I want to monitor the SAP audit logs and easily manage the logs, so I can reduce noise without compromising security value.
 ---
 
-# Monitor SAP audit logs with Microsoft Sentinel
+# Configure SAP audit log monitoring with Microsoft Sentinel
 
 The SAP audit log records audit and security actions on SAP systems, like failed sign-in attempts or other suspicious actions. This article describes how the Microsoft Sentinel solution for SAP applications helps you monitor the SAP audit logs with built-in analytics rules, improving your SAP log management and reducing noise without compromising security value.
+
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Content in this article is relevant for your security team.
 
 
 <!--do we need this information? this is generic anomaly detection, not specific to SAP.

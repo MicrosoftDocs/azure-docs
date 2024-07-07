@@ -16,6 +16,8 @@ Because SAP is a business application, and business processes tend to be seasona
 
 This article shows typical customer configuration profiles for SAP log ingestion. The ingestion profile is a set of configurations that define the logs to be collected from the SAP landscape. The profile is defined in the `systemconfig.json` or `systemconfig.ini` (legacy) file, which is used by the SAP data connector agent to collect logs from the SAP landscape.
 
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
+
 ## Default ingestion profile (recommended)
 
 <!--do we really need this? if it's the default, isn't it covered in the reference file?-->

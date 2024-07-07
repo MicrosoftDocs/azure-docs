@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft Sentinel with SAP and multiple workspaces
+title: Integrate SAP across multiple Microsoft Sentinel workspaces
 description: Learn how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios.
 author: batamig
 ms.author: bagol

@@ -11,9 +11,9 @@ ms.date: 07/03/2024
 
 This article provides a reference of the configurable parameters available in the kickstart script used to the deploy the Microsoft Sentinel for SAP applications data connector agent. 
 
-This article is intended for advanced SAP users.
-
 For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
+
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
 
 ## Secret storage location
 

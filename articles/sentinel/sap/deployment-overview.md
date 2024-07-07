@@ -1,5 +1,5 @@
 ---
-title: Deploy Microsoft Sentinel solution for SAP applications
+title: Deploy the Microsoft Sentinel solution for SAP applications
 description: Get an introduction to the process of deploying the Microsoft Sentinel solution for SAP applications.
 author: batamig
 ms.author: bagol
@@ -9,7 +9,7 @@ ms.date: 05/26/2024
 # customer intent: As a business user or decision maker, I want to get an overview of how to deploy the Microsoft Sentinel solution for SAP applications so that I know the scope of the information I need and how to access it.
 ---
 
-# Deploy Microsoft Sentinel solution for SAP applications
+# Deploy the Microsoft Sentinel solution for SAP applications
 
 Use the Microsoft Sentinel solution for SAP applications to monitor your SAP systems with Microsoft Sentinel, detecting sophisticated threats throughout the business logic and application layers of your SAP applications.
 

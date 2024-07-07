@@ -9,15 +9,15 @@ ms.date: 07/07/2024
 
 # Configure initial Microsoft Sentinel solution for SAP applications content
 
-While deploying the Microsoft Sentinel data collector agent and solution for SAP applications provides you with the ability to monitor SAP systems for suspicious activities and identify threats, additional configuration steps are required to ensure the solution is optimized for your SAP deployment. This article provides best practices for configuring the Microsoft Sentinel solution for SAP applications.
+While deploying the Microsoft Sentinel data collector agent and solution for SAP applications provides you with the ability to monitor SAP systems for suspicious activities and identify threats, additional configuration steps are required to ensure the solution is optimized for your SAP deployment. This article provides best practices for getting started with the security content delivered with the Microsoft Sentinel solution for SAP applications, and is the last step in deploying the SAP integration.
 
 :::image type="content" source="media/deployment-steps/settings.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Configure solution settings step.":::
+
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Content in this article is relevant for your security team.
 
 > [!IMPORTANT]
 > Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Content in this article is relevant for your security team.
 
 <!--should this be the get started article?-->
 
