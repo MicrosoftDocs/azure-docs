@@ -117,9 +117,9 @@ In this script, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the resource gr
 
 ---
 
-## Renew access keys
+## Renew or create access keys
 
-When you renew your function key values, you must manually redistribute the updated key values to all clients that call your function. 
+When you renew or create your access key values, you must manually redistribute the updated key values to all clients that call your function. 
 
 You can renew function and host keys programmatically or create new ones by using these Azure Resource Manager APIs: 
 

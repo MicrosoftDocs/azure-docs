@@ -1100,7 +1100,7 @@ Authorization defaults to the `function` level.
 
 Functions lets you use access keys to make it harder to access your function endpoints. Unless the authorization level on an HTTP triggered function is set to `anonymous`, requests must include an access key in the request. For more information, see [Work with access keys in Azure Functions](function-keys-how-to.md). 
 
-### Access key authorization
+### <a name="api-key-authorization"></a>Access key authorization
 
 Most HTTP trigger templates require an access key in the request. So your HTTP request normally looks like the following URL:
 

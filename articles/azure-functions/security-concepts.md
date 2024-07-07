@@ -33,6 +33,17 @@ For enterprise-level threat detection and response automation, stream your logs 
 
 For more security recommendations for observability, see the [Azure security baseline for Azure Functions](security-baseline.md#logging-and-monitoring). 
 
+### Secure HTTP endpoints
+
+HTTP endpoints that are exposed publicly provide a vector of attack for malicious actors. When securing your HTTP endpoints, you should use a layered security approach. These techniques can be used to reduce the vulnerability of publicly exposed HTTP endpoints, ordered from most basic to most secure and restrictive:
+
++ [Require HTTPS](#require-https)
++ [Require access keys](#function-access-keys)
++ [Enable App Service Authentication/Authorization](#enable-app-service-authenticationauthorization)
++ [Use Azure API Management (APIM) to authenticate requests](#use-azure-api-management-apim-to-authenticate-requests)
++ [Deploy your function app to a virtual network](#deploy-your-function-app-to-a-virtual-network)
++ [Deploy your function app in isolation](#deploy-your-function-app-in-isolation)
+
 ### Require HTTPS
 
 By default, clients can connect to function endpoints by using both HTTP or HTTPS. You should redirect HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
@@ -47,7 +58,7 @@ Functions lets you use keys to make it harder to access your function endpoints.
 
 While access keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity. 
 
-For the highest-level of security, you can also secure the entire application architecture inside a virtual network [using private endpoints](#private-site-access) or by [running in isolation.](#deploy-your-function-app-in-isolation).   
+For the highest-level of security, you can also secure the entire application architecture inside a virtual network [using private endpoints](#deploy-your-function-app-to-a-virtual-network) or by [running in isolation.](#deploy-your-function-app-in-isolation).   
 
 ### Enable App Service Authentication/Authorization
 
