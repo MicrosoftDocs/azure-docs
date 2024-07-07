@@ -322,7 +322,7 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 ### [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link)
 
-**Description**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Azure Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](../private-link/private-link-overview). (Related policy: Cognitive Services should use private link).
+**Description**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Azure Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](../private-link/private-link-overview.md). (Related policy: Cognitive Services should use private link).
 
 **Severity**: Medium
 

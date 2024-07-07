@@ -11,11 +11,15 @@ ms.custom: ignite-2023
 
 In this quickstart, you connect your GitHub organizations on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to autodiscover your GitHub repositories.
 
-By connecting your GitHub organizations to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources. These features include:
+By connecting your GitHub environments to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources, and improve security posture. [Learn more](defender-for-devops-introduction.md).
 
-- **Foundational Cloud Security Posture Management (CSPM) features**: You can assess your GitHub security posture through GitHub-specific security recommendations. You can also learn about all the [recommendations for GitHub](recommendations-reference.md) resources.
+## Prerequisites
 
-- **Defender CSPM features**: Defender CSPM customers receive code to cloud contextualized attack paths, risk assessments, and insights to identify the most critical weaknesses that attackers can use to breach their environment. Connecting your GitHub repositories allows you to contextualize DevOps security findings with your cloud workloads and identify the origin and developer for timely remediation. For more information, learn how to [identify and analyze risks across your environment](concept-attack-path.md).
+To complete this quickstart, you need:
+
+- An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Note that API calls that Defender for Cloud performs count against the [Azure DevOps global consumption limit](/azure/devops/integrate/concepts/rate-limits). 
+- Review [common questions about DevOps security in Defender for Cloud](faq-defender-for-devops.yml).
 
 ## Prerequisites
 

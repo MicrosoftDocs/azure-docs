@@ -15,7 +15,6 @@ The following screenshot shows AWS accounts displayed in the Defender for Cloud 
 
 You can learn more by watching the [New AWS connector in Defender for Cloud](episode-one.md) video from the *Defender for Cloud in the Field* video series.
 
-For a reference list of all the recommendations that Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 ## **AWS authentication process**
 

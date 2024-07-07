@@ -9,10 +9,10 @@
         key vault, resource manager, dns, open-source relational databases,
         Azure cosmos db, db, Azure, defender
       href: defender-for-cloud-introduction.md
-    - name: What's new
+    - name: What's new in Defender for Cloud features
       displayName: changelog, news, release notes
       href: release-notes.md
-    - name: What's new (recommendations and alerts)
+    - name: What's new in recommendations and alerts
       displayName: what's new, recommendations, alerts
       href: release-notes-recommendations-alerts.md
     - name: Prepare for retirement of the Log Analytics agent
@@ -268,10 +268,6 @@
       href: copilot-security-in-defender-for-cloud.md
     - name: Security recommendations
       items:
-        - name: Reference list of recommendations
-          displayName: Azure, recommendations
-          items: 
-          href: recommendations-reference.md
         - name: AI recommendations
           displayName: AI, recommendations
           href: recommendations-reference-ai.md

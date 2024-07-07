@@ -280,4 +280,3 @@ This article describes the Defender for Cloud integrated Azure workbooks page th
 
 Built-in workbooks get their data from Defender for Cloud recommendations.
 
-- Learn about the many security recommendations in [Security recommendations: A reference guide](recommendations-reference.md).
