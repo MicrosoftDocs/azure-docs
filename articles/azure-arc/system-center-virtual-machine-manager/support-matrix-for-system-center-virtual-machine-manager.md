@@ -43,16 +43,14 @@ Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM
 
 The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
 
-[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
+### Outbound connectivity 
+
+The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. 
+
+[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md#firewallproxy-url-allowlist)]
 
 >[!Note] 
-> To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](../resource-bridge/network-requirements.md#azure-arc-resource-bridge-network-requirements). 
-
-### Resource bridge networking requirements
-
-The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
-
-[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
+> To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](../resource-bridge/network-requirements.md#azure-arc-resource-bridge-network-requirements).
 
 In addition, SCVMM requires the following exception:
 
@@ -61,9 +59,15 @@ In addition, SCVMM requires the following exception:
 | SCVMM Management Server | 443 | URL of the SCVMM management server. | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 | WinRM | WinRM Port numbers (Default: 5985 and 5986). | URL of the WinRM service. | IPs in the IP Pool used by the Appliance VM and control plane need connection with the VMM server. | Used by the SCVMM server to communicate with the Appliance VM. |
 
-[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md#inbound-connectivity-requirements)]
 
-For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
+Generally, connectivity requirements include these principles: 
+
+- All connections are TCP unless otherwise specified. 
+- All HTTP connections use HTTPS and SSL/TLS with officially signed and verifiable certificates. 
+- All connections are outbound unless otherwise specified. 
+
+To use a proxy, verify that the agents and the machine performing the onboarding process meet the network requirements in this article. For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ### Azure role/permission requirements
 
