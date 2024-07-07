@@ -61,7 +61,10 @@ We recommend that you involve all relevant teams when planning your deployment t
 
 1. [Review the prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md). Some prerequisites, such as enabling auditing on your SAP systems, require coordination with your SAP team.
 
-1. [Prepare your SAP environment](preparing-sap.md), incuding configuring SAP authorizations and deploying optional SAP change requests. This step must be done by your SAP team.
+1. Prepare your SAP environment, including configuring SAP authorizations, deploying optional SAP change requests, and configuring SAP auditing for Microsoft Sentinel. This step must be done by your SAP team, and includes the following procedures:
+
+    - [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md)
+    - [Enable and configure SAP auditing for Microsoft Sentinel](configure-audit.md)
 
 1. [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md). This step requires coordination between your security, infrastructure, and SAP teams.
 
