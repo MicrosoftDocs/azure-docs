@@ -136,9 +136,16 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 ### [EDR configuration issues should be resolved on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dc5357d0-3858-4d17-a1a3-072840bff5be)
 
-**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint enabled.
+
+This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations. 
+
+- These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
+- These new agentless endpoint recommendations replace existing recommendations [Endpoint protection should be installed on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) and [Endpoint protection health issues should be resolved on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000).
+- These older recommendations use the MMA/AMA agent and will be replaced as the agents are [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269).
 
 **Severity**: Low
+
 
 ### [EDR solution should be installed on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c) 
 
@@ -146,6 +153,12 @@ When you restore from a recovery point, you can restore the whole VM or specific
 - If a resource is classified as "Unhealthy", it indicates the absence of a supported EDR solution.
 - If an EDR solution is installed but not discoverable by this recommendation, it can be exempted
 - Without an EDR solution, the virtual machines are at risk of advanced threats.
+
+This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
+
+- These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
+- These new agentless endpoint recommendations replace existing recommendations [Endpoint protection should be installed on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) and [Endpoint protection health issues should be resolved on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000).
+- These older recommendations use the MMA/AMA agent and will be replaced as the agents are [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269).
 
 **Severity**: High
 
@@ -244,6 +257,8 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 **Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources. Use Azure Disk Encryption or EncryptionAtHost to encrypt all this data. Visit [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) to compare encryption offerings. This policy requires two prerequisites to be deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol).
 (Related policy: [[Preview]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)).
 
+Replaces the older recommendation *Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources*. The recommendation enables you to audit VM encryption compliance.
+
 **Severity**: High
 
 ### [Linux virtual machines should enforce kernel module signature validation](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e2f798b8-621a-4d46-99d7-1310e09eba26)
@@ -276,10 +291,20 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: High
 
+As use of the AMA and MMA is phased out in Defender for Servers, recommendations that rely on those agents, like this one, will be removed. Instead, Defender for Servers features will use the Microsoft Defender for Endpoint agent, or agentless scanning, with no reliance on the MMA or AMA. 
+
+Estimated deprecation: July 2024
+
+
 ### [Log Analytics agent should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/45cfe080-ceb1-a91e-9743-71551ed24e94)
 
 **Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. You'll also need to follow that procedure if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. You cannot configure auto-provisioning of the agent for Azure virtual machine scale sets. To deploy the agent on virtual machine scale sets (including those used by Azure managed services such as Azure Kubernetes Service and Azure Service Fabric), follow the procedure in the remediation steps.
 (Related policy: [Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa3a6ea0c-e018-4933-9ef0-5aaa1501449b)).
+
+As use of the AMA and MMA is phased out in Defender for Servers, recommendations that rely on those agents, like this one, will be removed. Instead, Defender for Servers features will use the Microsoft Defender for Endpoint agent, or agentless scanning, with no reliance on the MMA or AMA. 
+
+Estimated deprecation: July 2024
+
 
 **Severity**: High
 
@@ -287,6 +312,11 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your Log Analytics workspace for analysis. This agent is also required if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. We recommend configuring [auto-provisioning](enable-data-collection.md) to automatically deploy the agent. If you choose not to use auto-provisioning, manually deploy the agent to your VMs using the instructions in the remediation steps.
 (Related policy: [Log Analytics agent should be installed on your virtual machine for Azure Security Center monitoring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa4fe33eb-e377-4efb-ab31-0784311bc499)).
+
+As use of the AMA and MMA is phased out in Defender for Servers, recommendations that rely on those agents, like this one, will be removed. Instead, Defender for Servers features will use the Microsoft Defender for Endpoint agent, or agentless scanning, with no reliance on the MMA or AMA. 
+
+Estimated deprecation: July 2024
+
 
 **Severity**: High
 
@@ -297,10 +327,16 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Severity**: High
 
+As use of the AMA and MMA is phased out in Defender for Servers, recommendations that rely on those agents, like this one, will be removed. Instead, Defender for Servers features will use the Microsoft Defender for Endpoint agent, or agentless scanning, with no reliance on the MMA or AMA. 
+
+Estimated deprecation: July 2024
+
 ### [Machines should be configured securely](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c476dc48-8110-4139-91af-c8d940896b98)
 
 **Description**: Remediate vulnerabilities in security configuration on your machines to protect them from attacks.
 (Related policy: [Vulnerabilities in security configuration on your machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15)).
+
+This recommendation helps you to improve server security posture. Defender for Cloud enhances the Center for Internet Security (CIS) benchmarks by providing security baselines that are powered by Microsoft Defender Vulnerability Management. [Learn more](remediate-security-baseline.md).
 
 **Severity**: Low
 
@@ -386,12 +422,21 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 **Description**: Install missing system security and critical updates to secure your Windows and Linux virtual machine scale sets.
 (Related policy: [System updates on virtual machine scale sets should be installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc3f317a7-a95c-4547-b7e7-11017ebdf2fe)).
 
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is phased out in Defender for Servers, recommendations that rely on those agents, like this one, will be removed. Instead, Defender for Servers features will use the Microsoft Defender for Endpoint agent, or agentless scanning, with no reliance on the MMA or AMA. 
+
+Estimated deprecation: July 2024. These recommendations are [replaced by new ones](release-notes-archive.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga).
+
+
 **Severity**: High
 
 ### [System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ab6e3c5-74dd-8b35-9ab9-f61b30875b27)
 
 **Description**: Install missing system security and critical updates to secure your Windows and Linux virtual machines and computers
 (Related policy: [System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f86b3d65f-7626-441e-b690-81a8b71cff60)).
+
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is phased out in Defender for Servers, recommendations that rely on those agents, like this one, will be removed. Instead, Defender for Servers features will use the Microsoft Defender for Endpoint agent, or agentless scanning, with no reliance on the MMA or AMA. 
+
+Estimated deprecation: July 2024. These recommendations are [replaced by new ones](release-notes-archive.md#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga).
 
 **Severity**: High
 
@@ -499,6 +544,8 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Description**: By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren't encrypted, and data isn't encrypted when flowing between compute and storage resources. Use Azure Disk Encryption or EncryptionAtHost to encrypt all this data. Visit [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) to compare encryption offerings. This policy requires two prerequisites to be deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol).
 (Related policy: [[Preview]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)).
+
+Replaces the older recommendation Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources. The recommendation enables you to audit VM encryption compliance.
 
 **Severity**: High
 
@@ -613,13 +660,24 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 
 ### [EDR configuration issues should be resolved on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/695abd03-82bd-4d7f-a94c-140e8a17666c)
 
-**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint enabled.
+
+This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
+- These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
+- These new agentless endpoint recommendations replace existing recommendations [Endpoint protection should be installed on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) and [Endpoint protection health issues should be resolved on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000).
+- These older recommendations use the MMA/AMA agent and will be replaced as the agents are [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269).
 
 **Severity**: High
 
 ### [EDR solution should be installed on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/77d09952-2bc2-4495-8795-cc8391452f85)
 
 **Description**: To protect EC2s, install an Endpoint Detection and Response (EDR) solution. EDRs help prevent, detect, investigate, and respond to advanced threats. Use Microsoft Defender for Servers to deploy Microsoft Defender for Endpoint. If resource is classified as "Unhealthy", it doesn't have a supported EDR solution installed. If you have an EDR solution installed which isn't discoverable by this recommendation, you can exempt it.
+
+This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
+
+- These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
+- These new agentless endpoint recommendations replace existing recommendations [Endpoint protection should be installed on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) and [Endpoint protection health issues should be resolved on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000).
+- These older recommendations use the MMA/AMA agent and will be replaced as the agents are [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269).
 
 **Severity**: High
 
@@ -675,13 +733,25 @@ To learn more about the supported runtimes that this control checks for the supp
 
 ### [EDR configuration issues should be resolved on GCP virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f36a15fb-61a6-428c-b719-6319538ecfbc)
 
-**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint  enabled.
+
+This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
+
+- These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
+- These new agentless endpoint recommendations replace existing recommendations [Endpoint protection should be installed on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) and [Endpoint protection health issues should be resolved on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000).
+- These older recommendations use the MMA/AMA agent and will be replaced as the agents are [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269).
 
 **Severity**: High 
 
 ### [EDR solution should be installed on GCP Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/68e595c1-a031-4354-b37c-4bdf679732f1)
 
 **Description**: To protect virtual machines, install an Endpoint Detection and Response (EDR) solution. EDRs help prevent, detect, investigate, and respond to advanced threats. Use Microsoft Defender for Servers to deploy Microsoft Defender for Endpoint. If resource is classified as "Unhealthy", it doesn't have a supported EDR solution installed. If you have an EDR solution installed which isn't discoverable by this recommendation, you can exempt it.
+
+This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
+
+- These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
+- These new agentless endpoint recommendations replace existing recommendations [Endpoint protection should be installed on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) and [Endpoint protection health issues should be resolved on your machines (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000).
+- These older recommendations use the MMA/AMA agent and will be replaced as the agents are [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269).
 
 **Severity**: High
 

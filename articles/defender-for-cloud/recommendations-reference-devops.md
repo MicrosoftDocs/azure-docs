@@ -91,13 +91,13 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [(Preview) Azure DevOps repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/470742ea-324a-406c-b91f-fc1da6a27c0c) 
 
-**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.<br/><br/> This recommendation is provided in Defender for Cloud foundational security posture, if you have connected Azure DevOps to Defender for Cloud.
 
 **Severity**: High
 
 ### [(Preview) Azure DevOps repositories should not allow requestors to approve their own Pull Requests](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98b5895a-0ad8-4ed9-8c9d-d654f5bda816)
 
-**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend prohibiting pull request creators from approving their own submissions to ensure that every change undergoes objective review by someone other than the author. By doing this, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend prohibiting pull request creators from approving their own submissions to ensure that every change undergoes objective review by someone other than the author. By doing this, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.<br/><br/> This recommendation is provided in Defender for Cloud foundational security posture, if you have connected Azure DevOps to Defender for Cloud.
 
 **Severity**: High
 
@@ -105,7 +105,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
 
-**Description**: For secrets used in GitHub Action workflows that are stored at the GitHub organization-level, you can use access policies to control which repositories can use organizational secrets. Organization-level secrets let you share secrets between multiple repositories. This reduces the need to create duplicate secrets. However, once a secret is made accessible to a repository, anyone with write access on repository can access the secret from any branch in a workflow. To reduce the attack surface, ensure that the secret is accessible from selected repositories only.
+**Description**: For secrets used in GitHub Action workflows that are stored at the GitHub organization-level, you can use access policies to control which repositories can use organizational secrets. Organization-level secrets let you share secrets between multiple repositories. This reduces the need to create duplicate secrets. However, once a secret is made accessible to a repository, anyone with write access on repository can access the secret from any branch in a workflow. To reduce the attack surface, ensure that the secret is accessible from selected repositories only.<br/><br/> This recommendation is provided in Defender for Cloud foundational security posture, if you have connected Azure DevOps to Defender for Cloud.
 
 **Severity**: High
 
