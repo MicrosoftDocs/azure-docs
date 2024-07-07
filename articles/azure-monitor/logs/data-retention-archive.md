@@ -9,37 +9,35 @@ ms.date: 7/01/2024
 
 # Manage data retention in a Log Analytics workspace
 
-A Log Analytics workspace retains data in two states:
+A Log Analytics workspace retains data in two states: 
 
-* **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics.
-* **Auxiliary retention**: A cheap state in which data isn't available for interactive queries, but can be accessed through [search jobs](../logs/search-jobs.md). This tier is ideal for long-term retention of low-use data for up to 12 years. 
+* **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics, based on the [table plan](../logs/logs-table-plans.md).
+* **Long-term retention**: In this low-cost state, data isn't available for table plan features, but can be accessed through [search jobs](../logs/search-jobs.md). 
 
-By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 31 days, but you can modify this default from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
+By default, tables with the Analytics [data plan](basic-logs-configure.md) have an interactive retention period of 30 days, but you can modify this default from 30 days to up to two years. The Basic and Auxiliary plans have an interactive retention period of 30 days. 
 
-You can set auxiliary retention to up to 12 years on all tables.
+You can retain data up to 12 years in all tables.
 
 This article explains how to manage data retention at the Log Analytics workspace and table levels.
 
 
 ## What is total retention and how do retention modifications work?
 
-**Total retention** is the sum of interactive and auxiliary retention.
+**Total retention** is the sum of interactive and long-term retention.
 
-:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
-
-You can set the total retention on all tables to up to 12 years (4,383 days).
+:::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows interactive and long-term retention in Azure Monitor Logs.":::
 
 When you shorten a table's total retention, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately from tables with the Analytics and Basic data plans, if needed. You can't purge data from tables with the Auxiliary plan.
 
 When you increase total retention, the new retention period applies to all data was already ingested into the table and wasn't yet purged or removed.   
 
-When you change the auxiliary retention settings of a table with existing data, the change is effective immediately. 
+When you change the long-term retention settings of a table with existing data, the change is effective immediately. 
 
 ***Example***: 
 
-- You have an existing table with 180 days of interactive retention and no auxiliary retention. 
+- You have an existing table with 180 days of interactive retention and no long-term retention. 
 - You change the interactive retention to 90 days without changing the total retention period of 180 days. 
-- Azure Monitor automatically converts the remaining 90 days of total retention to auxiliary retention, so that data that's 90-180 days old isn't lost.
+- Azure Monitor automatically treats the remaining 90 days of total retention as low-cost, long-term retention, so that data that's 90-180 days old isn't lost.
 
 
 ## Permissions required
@@ -129,7 +127,7 @@ Status code: 200
 
 To set the default interactive retention period of Analytics tables within a Log Analytics workspace, run the [az monitor log-analytics workspace update](/cli/azure/monitor/log-analytics/workspace/#az-monitor-log-analytics-workspace-update) command and pass the `--retention-time` parameter.
 
-This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months:
+This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the long-term retention period is 23 months:
 
 ```azurecli
 az monitor log-analytics workspace update --resource-group myresourcegroup --retention-time 30 --workspace-name myworkspace
@@ -146,12 +144,12 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 
 ## Configure table-level retention
 
-By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no auxiliary retention. You can increase the interactive retention period to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
+By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no long-term retention. You can increase the interactive retention period to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
 
 > [!NOTE]
 > You can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs.
 
-To add auxiliary retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days).
+To add long-term retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days).
 
 > [!NOTE]
 > Currently, you can set total retention to up to 12 years through the Azure portal and API. CLI and PowerShell are limited to seven years; support for 12 years will follow.
@@ -181,7 +179,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups
 ```
 
 > [!NOTE]
-> You don't explicitly specify the auxiliary duration in the API call. Instead, you set the total retention, which is the sum of the interactive and auxiliary retention periods.
+> You don't explicitly specify the auxiliary duration in the API call. Instead, you set the total retention, which is the sum of the interactive and long-term retention periods.
 
 You can use either PUT or PATCH, with the following difference:
 
@@ -195,11 +193,11 @@ The request body includes the values in the following table.
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730. <br/>Setting this property to null applies the workspace retention period. For a Basic Logs table, the value is always 8. |
-|properties.totalRetentionInDays | integer  | The table's total data retention including auxiliary retention. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, 2556, 2922, 3288, 3653, 4018, or 4383. Set this property to null if you don't want auxiliary retention.  |
+|properties.totalRetentionInDays | integer  | The table's total data retention including long-term retention. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, 2556, 2922, 3288, 3653, 4018, or 4383. Set this property to null if you don't want long-term retention.  |
 
 **Example**
 
-This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months.
+This example sets the table's interactive retention to the workspace default of 30 days, and the total retention to two years, which means that the long-term retention period is 23 months.
 
 **Request**
 
@@ -238,7 +236,7 @@ Status code: 200
 
 To modify a table's retention settings, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and pass the `--retention-time` and `--total-retention-time` parameters.
 
-This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months:
+This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the long-term retention period is 23 months:
 
 ```azurecli
 az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
@@ -254,7 +252,7 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 
 # [PowerShell](#tab/PowerShell-1)
 
-Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to modify a table's retention settings. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the auxiliary retention period is 23 months:
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to modify a table's retention settings. This example sets the table's interactive retention to 30 days, and the total retention to two years, which means that the long-term retention period is 23 months:
 
 ```powershell
 Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName AzureMetrics -RetentionInDays 30 -TotalRetentionInDays 730
@@ -353,7 +351,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-The charge for extended interactive retention and auxiliary retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` isn't subject to retention charges. 
+The charge for extended interactive retention and long-term retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` isn't subject to retention charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

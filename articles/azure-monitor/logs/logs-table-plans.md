@@ -23,7 +23,7 @@ Table plans let you manage data costs based on how often you use the data in a t
 
 ## Select a table plan based on usage needs
 
-The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and auxiliary retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
+The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
 
 :::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
 
@@ -40,7 +40,7 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 | [Search jobs](../logs/search-jobs.md)                  | ✅                                                            | ✅                                                            | ✅                                                            |
 | [Summary rules](../logs/summary-rules.md)              | ✅                                                            | ✅ KQL limited to a single table                              | ✅ KQL limited to a single table                              |
 | [Restore](../logs/restore.md)                          | ✅                                                            | ✅                                                            | ❌                                                            |
-| Pricing model                                          | **Ingestion** - Standard cost.<br>**Interactive retention** - 30 days included. Prorated monthly charge for extended interactive retention of up to two years.<br>**Queries** - Unlimited queries included.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. | **Ingestion** - Reduced cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. | **Ingestion** - Minimal cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Auxiliary retention** - Prorated monthly auxiliary retention charge. |
+| Pricing model                                          | **Ingestion** - Standard cost.<br>**Interactive retention** - 30 days included. Prorated monthly charge for extended interactive retention of up to two years.<br>**Queries** - Unlimited queries included.<br>**Long-term retention** - Prorated monthly long-term retention charge. | **Ingestion** - Reduced cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Long-term retention** - Prorated monthly long-term retention charge. | **Ingestion** - Minimal cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Long-term retention** - Prorated monthly long-term retention charge. |
 | Interactive retention                                  | 30 days (90 days for Microsoft Sentinel and Application Insights).<br> Can be extended to up to two years. | 30 days                                                      | 30 days                                                      |
 | Total retention                                        | Up to 12 years                                               | Up to 12 years                                               | Up to 12 years                                               |
 
@@ -60,7 +60,7 @@ You can set the table plan to Auxiliary only when you [create a custom table](..
 
 All tables support the Analytics plan and all DCR-based custom tables and some Azure tables support the Basic log plan. You can switch between the Analytics and Basic plans, the change takes effect on existing data in the table immediately. 
 
-When you change a table's plan from Analytics to Basic, Azure monitor automatically converts any data that's older than 30 days to auxiliary retention based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the auxiliary retention period](../logs/data-retention-archive.md). 
+When you change a table's plan from Analytics to Basic, Azure monitor treats any data that's older than 30 days as long-term retention data based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the long-term retention period](../logs/data-retention-archive.md). 
 
 > [!NOTE]
 > You can switch a table's plan once a week. 
