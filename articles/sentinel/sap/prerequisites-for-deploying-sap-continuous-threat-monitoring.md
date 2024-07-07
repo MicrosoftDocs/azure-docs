@@ -14,7 +14,7 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
-Content in this article is relevant for your security, infrastructure, and  SAP teams.
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP teams.
 
 ## Azure prerequisites
 

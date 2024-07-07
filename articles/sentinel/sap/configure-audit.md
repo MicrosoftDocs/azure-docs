@@ -16,6 +16,8 @@ This article provides guidance on how to enable and configure auditing for the M
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Procedures in this article are typically performed by your SAP teams.
+
 <!--this is pure SAP instructions and really shouldn't be in Microsoft docs. I feel for security admins trying to do this but we really can't document SAP procedures .... I'd like to remove this altogether and just add it into the prereqs page instead. it's unfortunate b/c we're getting about 250 pv a month on it...-->
 
 > [!IMPORTANT]

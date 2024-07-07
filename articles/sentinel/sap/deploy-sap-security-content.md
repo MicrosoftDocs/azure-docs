@@ -15,6 +15,8 @@ This article shows you how to deploy the Microsoft Sentinel solution for SAP app
 
 :::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
 
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Content in this article is relevant for your security team.
+
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites

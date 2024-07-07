@@ -11,9 +11,13 @@ ms.date: 05/28/2024
 
 # Configure SAP authorizations and deploy optional SAP change requests
 
-This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs). This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications, and is typically handled by your SAP team.
+This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs).
+
+This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications.
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
+
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: The procedures in this article are typically performed by your SAP team.
 
 [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 
