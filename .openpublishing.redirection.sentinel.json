@@ -2,9 +2,8 @@
     "redirections": [
         {
             "source_path": "articles/sentinel/sap/configure-snc.md",
-            "redirect_url": "/azure/sentinel/sap/preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-your-system-to-use-snc-for-secure-connections",
             "redirect_document_id": true
-        },
         {
             "source_path": "articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",
             "redirect_url": "/azure/sentinel/create-analytics-rule-from-template",

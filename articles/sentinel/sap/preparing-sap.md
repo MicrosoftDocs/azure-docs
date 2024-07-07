@@ -287,8 +287,6 @@ If needed, you can [remove the user role and the optional CR installed on your A
 
 This section presents a step-by-step guide to deploying extra, optional CRs. It's intended for SOC engineers or implementers who might not necessarily be SAP experts.
 
-Experienced SAP administrators that are familiar with the CR deployment process might prefer to get the appropriate CRs directly from the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them.
-
 We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator.
 
 The following table describes the optional CRs available to deploy:
