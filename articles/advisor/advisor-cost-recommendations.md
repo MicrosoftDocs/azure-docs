@@ -129,8 +129,3 @@ To learn more about Advisor recommendations, see:
 * [Advisor cost recommendations (full list)](advisor-reference-cost-recommendations.md)
 * [Introduction to Advisor](advisor-overview.md)
 * [Advisor score](azure-advisor-score.md)
-* [Get started with Advisor](advisor-get-started.md)
-* [Advisor performance recommendations](advisor-reference-performance-recommendations.md)
-* [Advisor reliability recommendations](advisor-reference-reliability-recommendations.md)
-* [Advisor security recommendations](advisor-security-recommendations.md)
-* [Advisor operational excellence recommendations](advisor-reference-operational-excellence-recommendations.md)
