@@ -262,7 +262,13 @@ Retrieving this data with a log query would return the following results.
 :::image type="content" source="media/data-collection-log-text/delimited-configuration.png" lightbox="media/data-collection-log-text/delimited-configuration.png" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
 
 
+## Troubleshooting
+Go through the following steps if you aren't collecting data from the text log that you're expecting.
 
+- Verify that data is being written to the log file being collected.
+- Verify that the name and location of the log file matches the file pattern you specified.
+- Verify that the schema of the target table matches the incoming stream or that you have a transformation that will convert the incoming stream to the correct schema.
+- See [Verify operation](./azure-monitor-agent-data-collection.md#verify-operation) to verify whether the agent is operational and data is being received.
 
 ## Next steps
 

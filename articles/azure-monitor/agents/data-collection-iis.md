@@ -72,6 +72,14 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 > [!NOTE]
 > The X-Forwarded-For custom field is not supported at this time. If this is a critical field, you can collect the IIS logs as a custom text log.
 
+## Troubleshooting
+Go through the following steps if you aren't collecting data from the JSON log that you're expecting.
+
+- Verify that IIS logs are being created in the location you specified.
+- Verify that IIS logs are configured to be W3C formatted.
+- See [Verify operation](./azure-monitor-agent-data-collection.md#verify-operation) to verify whether the agent is operational and data is being received.
+
+
 ## Next steps
 
 Learn more about: 

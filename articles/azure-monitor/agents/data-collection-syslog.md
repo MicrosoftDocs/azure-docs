@@ -215,7 +215,11 @@ The following table provides different examples of log queries that retrieve Sys
 	| summarize AggregatedValue = count() by facility
 	```
 
+## Troubleshooting
+Go through the following steps if you aren't collecting data from the JSON log that you're expecting.
 
+- Verify that data is being written to Syslog.
+- See [Verify operation](./azure-monitor-agent-data-collection.md#verify-operation) to verify whether the agent is operational and data is being received.
 
 ## Next steps
 

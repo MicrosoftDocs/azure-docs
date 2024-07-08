@@ -28,26 +28,26 @@ If you're new to Azure Monitor or have basic data collection requirements, then 
 
 ## Data sources
 
-    The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
+The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
 
-    | Data source | Destinations | Description |
-    |:---|:---|:---|
-    | Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
-    | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
-    | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
-    |	Text and JSON logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
-    | Windows IIS logs |Internet Information Service (IIS) logs from to the local disk of Windows machines |[Collect IIS Logs with Azure Monitor Agent].(data-collection-iis.md) |
-    | Windows Firewall logs | Firewall logs from the local disk of a Windows Machine| |
+| Data source | Destinations | Description |
+|:---|:---|:---|
+| Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+| Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
+|	Text and JSON logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+| Windows IIS logs |Internet Information Service (IIS) logs from to the local disk of Windows machines |[Collect IIS Logs with Azure Monitor Agent].(data-collection-iis.md) |
+| Windows Firewall logs | Firewall logs from the local disk of a Windows Machine| |
 
 
-    <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
-    <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
+<sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
+<sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
 
-    > [!NOTE]
-    > On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
+> [!NOTE]
+> On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
 
-    > [!NOTE]
-    > Azure Monitor Agent also supports Azure service [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) which is currently Generally available. For more information, refer [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment).
+> [!NOTE]
+> Azure Monitor Agent also supports Azure service [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) which is currently Generally available. For more information, refer [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment).
 
 ## Prerequisites
 
@@ -140,8 +140,14 @@ Event
 | order by TimeGenerated desc
 ```
 
+## Troubleshooting
+Go through the following steps if you aren't collecting data that you're expecting.
 
-
+- Verify that the agent is installed and running on the machine.
+- See the **Troubleshooting** section of the article for the data source you're having trouble with.
+- See [Monitor and troubleshoot DCR data collection in Azure Monitor](../essentials/data-collection-rule-monitor.md) to enable monitoring for the DCR.
+  - View metrics to determine if data is being collected and whether any rows are being dropped. 
+  - View logs to identify errors in the data collection.
 
 ## Next steps
 

@@ -14,9 +14,6 @@ Many applications and services will log information to text or JSON files instea
 
 **Custom Text Logs** and **Custom JSON Logs** are two of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
 
-> [!NOTE]
-> The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. Please follow the directions in the Resource Manager Template tab.
-
 
 ## Prerequisites
 To complete this procedure, you need: 
@@ -68,9 +65,7 @@ JSON files include a property name with each value, and the incoming stream in t
 
 
 ## Custom table
-Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table.
-
-For example, you can use the following PowerShell script to create a custom table with with `RawData` and `FilePath`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
+Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table. For example, you can use the following PowerShell script to create a custom table with with multiple columns.  
 
 ```powershell
 $tableParams = @'
@@ -119,7 +114,11 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 
 ## Create a data collection rule for a JSON file
 
+
 ### [Portal](#tab/portal)
+
+> [!NOTE]
+> The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. While you can create the DCR using the portal, you must modify it to define the columns in the incoming stream. See the **Resource Manager template** tab for details on creating the required DCR.
 
 Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **JSON Logs**  from the **Data source type** dropdown. 
  
@@ -263,6 +262,14 @@ Use the following ARM template to create a DCR for collecting text log files. In
 }
 ```
 
+## Troubleshooting
+Go through the following steps if you aren't collecting data from the JSON log that you're expecting.
+
+- Verify that data is being written to the log file being collected.
+- Verify that the name and location of the log file matches the file pattern you specified.
+- Verify that the schema of the incoming stream in the DCR matches the schema in the log file.
+- Verify that the schema of the target table matches the incoming stream or that you have a transformation that will convert the incoming stream to the correct schema.
+- See [Verify operation](./azure-monitor-agent-data-collection.md#verify-operation) to verify whether the agent is operational and data is being received.
 
 
 
