@@ -12,7 +12,7 @@ ms.custom: AppServiceConnectivity
 
 Your app service might need to connect to other Azure services such as a database, storage, or another app. This overview recommends different methods for connecting and when to use them.
 
-Today, the decision for a connectivity approach is closely related to secrets management. The common pattern of using connection secrets in connection strings, such as username and password, secret key, etc. is no longer considered the most secure approach for connectivity. The risk is even higher today because threat actors regularly crawl public GitHub repositories for accidentally committed connection secrets. For cloud applications, the best secrets management is to have no secrets at all. When you migration to Azure App Service, your app might start with secrets-based connectivity, and App Service lets you keep secrets securely. However, Azure can help secure your app's back-end connectivity through Microsoft Entra authentication, which eliminates secrets altogether in your app.
+Today, the decision for a connectivity approach is closely related to secrets management. The common pattern of using connection secrets in connection strings, such as username and password, secret key, etc. is no longer considered the most secure approach for connectivity. The risk is even higher today because threat actors regularly crawl public GitHub repositories for accidentally committed connection secrets. For cloud applications, the best secrets management is to have no secrets at all. When you migrate to Azure App Service, your app might start with secrets-based connectivity, and App Service lets you keep secrets securely. However, Azure can help secure your app's back-end connectivity through Microsoft Entra authentication, which eliminates secrets altogether in your app.
 
 |Connection method|When to use|
 |--|--|
@@ -72,7 +72,7 @@ Benefits of managed identities integrated with Key Vault include:
 
 The following image demonstrates App Service connecting to Key Vault using a managed identity and then accessing an Azure service using secrets stored in Key Vault:
 
-:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
+:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Diagram showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
 
 ### Use secrets in app settings 
 

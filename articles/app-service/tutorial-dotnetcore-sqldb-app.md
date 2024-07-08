@@ -704,7 +704,7 @@ az sql server update --enable-public-network false
 
 By default, the command `az webapp connection create sql --client-type dotnet --system-identity --config-connstr` does the following:
 
-- Sets your user as the Entra ID administrator of the SQL database server.
+- Sets your user as the Microsoft Entra ID administrator of the SQL database server.
 - Create a system-assigned managed identity and grants it access to the database.
 - Generates a passwordless connection string called `AZURE_SQL_CONNECTIONGSTRING`, which your app is already using at the end of the tutorial.
 
