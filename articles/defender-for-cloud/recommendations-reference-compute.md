@@ -937,7 +937,7 @@ Enabling log_checkpoints causes checkpoints and restart points to be logged in t
  Messages for error statements are logged with the SQL statement.
  Valid values include "DEBUG5," "DEBUG4," "DEBUG3," "DEBUG2," "DEBUG1," "INFO," "NOTICE," "WARNING," "ERROR," "LOG," "FATAL," and "PANIC."
  Each severity level includes the subsequent levels mentioned above.
- Note: To effectively turn off logging failing statements, set this parameter to PANIC.
+ To effectively turn off logging failing statements, set this parameter to PANIC.
  ERROR is considered the best practice setting. Changes should only be made in accordance with the organization's logging policy.
 Auditing helps in troubleshooting operational problems and also permits forensic analysis.
  If "log_min_error_statement" isn't set to the correct value, messages might not be classified as error messages appropriately.
