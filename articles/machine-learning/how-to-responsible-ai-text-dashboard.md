@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: rai
 ms.topic:  how-to
-ms.reviewer: lagayhar
-ms.author: wenxwei
-author: wenxwei
+ms.reviewer: None
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 06/03/2024
 ms.custom: responsible-ml, build-2023
 ---

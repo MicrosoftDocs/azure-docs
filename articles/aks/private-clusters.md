@@ -2,6 +2,8 @@
 title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
+ms.author: schaffererin
+author: schaffererin
 ms.date: 06/29/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
@@ -58,7 +60,7 @@ Create a private cluster with default basic networking using the [`az aks create
 ```azurecli-interactive
 az aks create \
     --name <private-cluster-name> \
-    --resource-group-name <private-cluster-resource-group> \
+    --resource-group <private-cluster-resource-group> \
     --load-balancer-sku standard \
     --enable-private-cluster \
     --generate-ssh-keys
@@ -211,6 +213,7 @@ The API server endpoint has no public IP address. To manage the API server, you'
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
 * Use the [AKS `command invoke` feature][command-invoke].
 * Use a [private endpoint][private-endpoint-service] connection.
+* Use a [Cloud Shell][cloud-shell-vnet] instance deployed into a subnet that's connected to the API server for the cluster.
 
 > [!NOTE]
 > Creating a VM in the same VNet as the AKS cluster is the easiest option. Express Route and VPNs add costs and require additional networking complexity. Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
@@ -401,3 +404,4 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-network-vnet-peering-create]: /cli/azure/network/vnet/peering#az_network_vnet_peering_create
 [az-network-vnet-peering-list]: /cli/azure/network/vnet/peering#az_network_vnet_peering_list
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
+[cloud-shell-vnet]: ../cloud-shell/vnet/overview.md

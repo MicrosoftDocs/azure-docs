@@ -164,7 +164,7 @@ If you need to create multiple environments for development or testing scenarios
 
 Lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates. You can also automate deployment through the Azure CLI by using the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to create environments. For more information, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Automate ARM environment template deployment with Azure PowerShell with these steps:
 
