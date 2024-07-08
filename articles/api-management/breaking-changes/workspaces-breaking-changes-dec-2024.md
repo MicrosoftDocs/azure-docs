@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/03/2024
+ms.date: 07/08/2024
 ms.author: danlep
 ---
 
@@ -74,7 +74,7 @@ After you add a dedicated gateway to your workspace, you need to update your cli
 
 > [!NOTE]
 > * To help you migrate your workspaces, APIs in workspaces can still be accessed at runtime through October 2024 using the gateway hostname of your API Management instance. After October 2024, you must use the gateway hostname of the workspace. We strongly recommend that you complete migration before this date.
-* If your workspace gateways are in internal virtual networks (that is, they're configured with private inbound access and private outbound access), make sure that connectivity to your API Management instance's built-in gateway is also secured.
+> * If your workspace gateways are in internal virtual networks (that is, they're configured with private inbound access and private outbound access), make sure that connectivity to your API Management instance's built-in gateway is also secured.
 
 ### Update dependencies on service-level managed identities
 
