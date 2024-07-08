@@ -37,11 +37,11 @@ Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
 | **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud or a host group with a minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](/system-center/vmm/network-pool?view=sc-vmm-2022&preserve-view=true) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. If your SCVMM server is behind a firewall, all IPs in this IP Pool and the Control Plane IP should be allowed to communicate through WinRM ports. The default WinRM ports are 5985 and 5986. <br/><br/> Dynamic IP allocation using DHCP isn't supported. <br/><br/> A library share with write permission for the SCVMM admin account through which Resource Bridge deployment is going to be performed.  |
 | **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. If the SCVMM server is installed in a High Availability configuration, the user should be a part of the local administrator accounts in all the SCVMM cluster nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM and the deployment of the Arc Resource Bridge VM. |
-| **Workstation** | The workstation will be used to run the helper script. Ensure you have [64-bit Azure CLI installed](/cli/azure/install-azure-cli) on the workstation.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
+| **Workstation** | The workstation will be used to run the helper script. Ensure you have [64-bit Azure CLI installed](/cli/azure/install-azure-cli) on the workstation.<br/><br/> When you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
 
 ### Resource Bridge networking requirements
 
-The following firewall URL exceptions are needed for the Azure Arc Resource Bridge VM:
+The following firewall URL exceptions are required for the Azure Arc Resource Bridge VM:
 
 [!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
 
@@ -122,7 +122,7 @@ Linux operating systems:
 
 ### Networking requirements
 
-The following firewall URL exceptions are needed for the Azure Arc agents:
+The following firewall URL exceptions are required for the Azure Arc agents:
 
 | **URL** | **Description** |
 | --- | --- |
