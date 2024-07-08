@@ -483,6 +483,8 @@
                   href: workload-identity-overview.md
                 - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
+                - name: Configure cross-tenant workload identity
+                  href: workload-identity-cross-tenant.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Microsoft Entra pod identity

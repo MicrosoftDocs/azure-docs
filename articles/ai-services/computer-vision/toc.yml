@@ -332,7 +332,7 @@ items:
         href: identity-encrypt-data-at-rest.md
   - name: Tutorials
     items:
-    - name: Detect liveness in face
+    - name: Detect liveness in faces
       href: Tutorials/liveness.md
     - name: Add users to a Face identification app
       href: Tutorials/build-enrollment-app.md
