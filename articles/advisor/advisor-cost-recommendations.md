@@ -41,11 +41,11 @@ Advisor identifies resources that weren't used at all over the last seven days a
 
 Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). On virtual machine scale sets, Advisor recommends resizing when it's possible to fit the current load on a more appropriate cheaper SKU, or a lower number of instances of the same SKU.
 
-* Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**.
+* Recommendation criteria include **CPU**, **Memory**, and **Outbound Network utilization**.
 
 * The last 7 days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, it might take up to 48 hours for the recommendations to be updated.
 
-* Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
+* Metrics are sampled every 30 seconds, aggregated to 1 minute, and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
 
 * An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
   * Performance of the workloads on the new SKU won't be impacted.
