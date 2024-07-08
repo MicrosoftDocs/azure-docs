@@ -50,19 +50,16 @@ Istio-based service mesh add-on for AKS currently has the following limitations:
 * The add-on doesn't support adding pods associated with virtual nodes to be added under the mesh.
 * The add-on doesn't support egress gateways for outbound traffic control.
 * The add-on doesn't support the sidecar-less Ambient dataplane mode.
-* The add-on doesn't support multi-cluster, multi-mesh, multi-cloud, or hybrid deployments.
-* The add-on restricts mesh-wide configuration options for the [Istio meshconfig][istio-meshconfig].
-* The add-on doesn't support static IP address, port, or other customizations for the [Istio add-on ingress gateways][istio-ingress].
+* The add-on doesn't support multi-cluster deployments.
 * Istio doesn't support Windows Server containers.
-* Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`. For `EnvoyFilter`, the add-on only supports customization of Lua script filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`) - other `EnvoyFilter` types are currently blocked.
-
-* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon.
+* Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`. For `EnvoyFilter`, the add-on only supports customization of Lua filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`) - other `EnvoyFilter` types are currently blocked.
+* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as Static IP address in the Gateway API Istio implementation as part of the Istio add-on in future.
 
 ## Next steps
 
 ### Feedback and Feature Requests
 
-Feedback and feature requests for the Istio-based service mesh add-on should be raised as a new issue in the [AKS github repository][aks-gh-issues]. Please open a new issue with and add the `mesh` label. 
+Feedback and feature requests for the Istio-based service mesh add-on should be raised as a new issue in the [AKS github repository][aks-gh-issues]. Please open a new issue with the `mesh` label. 
 
 * [Deploy Istio-based service mesh add-on][istio-deploy-addon]
 * [Troubleshoot Istio-based service mesh add-on][istio-troubleshooting]
