@@ -14,9 +14,9 @@ ms.date: 06/18/2024
 
 # Enable or disable role-based access control in Azure AI Search
 
-If you want to use Azure role-based access control for connections into Azure AI Search, this article explains how to enable it for your search service.
+Before you can assign roles for authorized access to Azure AI Search, enable role-based access control on your search service.
 
-Role-based access for data plane operations is optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
+Role-based access for data plane operations is optional, but recommended as the more secure option. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
 Roles for service administration (control plane) are built in and can't be enabled or disabled. 
 
@@ -25,17 +25,17 @@ Roles for service administration (control plane) are built in and can't be enabl
 
 ## Prerequisites
 
-+ Owner, User Access Administrator, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
-
 + A search service in any region, on any tier, including free.
+
++ Owner, User Access Administrator, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 ## Enable role-based access for data plane operations
 
+Configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
+
 When you enable roles for the data plane, the change is effective immediately, but wait a few seconds before assigning roles.
 
-The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`. 
-
-Once role-based access is enabled, the search service recognizes an **authorization** header on data plane requests that provide an OAuth2 access token.
+The default failure mode for unauthorized requests is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`. 
 
 ### [**Azure portal**](#tab/config-svc-portal)
 

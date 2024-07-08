@@ -92,6 +92,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 - Conditional Access feature to enforce MFA on external users/tenants isn't supported yet.
 - Conditional Access policy applied to Microsoft Entra roles (such as all global admins, external users, external domain, etc.) isn't supported yet.
+- Conditional Access authentication strength isn't supported yet.
 - External MFA solutions such as Okta, Ping, Duo, and more aren't supported within the identity MFA recommendations.
 
 ## Next steps

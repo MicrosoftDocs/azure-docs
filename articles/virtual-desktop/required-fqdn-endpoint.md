@@ -4,7 +4,7 @@ description: A list of FQDNs and endpoints you must allow, ensuring your Azure V
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 05/24/2024
+ms.date: 06/26/2024
 ---
 
 # Required FQDNs and endpoints for Azure Virtual Desktop
@@ -31,7 +31,6 @@ The following table is the list of FQDNs and endpoints your session host VMs nee
 | `*.prod.warm.ingest.monitor.core.windows.net` | TCP | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
 | `catalogartifact.azureedge.net` | TCP | 443 | Azure Marketplace | AzureFrontDoor.Frontend |
 | `gcs.prod.monitoring.core.windows.net` | TCP | 443 | Agent traffic | AzureCloud |
-| `kms.core.windows.net` | TCP | 1688 | Windows activation | Internet |
 | `azkms.core.windows.net` | TCP | 1688 | Windows activation | Internet |
 | `mrsglobalsteus2prod.blob.core.windows.net` | TCP | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.windows.net` | TCP | 443 | Azure portal support | AzureCloud |
@@ -62,7 +61,7 @@ The following table lists optional FQDNs and endpoints that your session host vi
 | `*.wvd.azure.us` | TCP | 443 | Service traffic | WindowsVirtualDesktop |
 | `*.prod.warm.ingest.monitor.core.usgovcloudapi.net` | TCP | 443 | Agent traffic<br />[Diagnostic output](diagnostics-log-analytics.md) | AzureMonitor |
 | `gcs.monitoring.core.usgovcloudapi.net` | TCP | 443 | Agent traffic | AzureCloud |
-| `kms.core.usgovcloudapi.net` | TCP | 1688 | Windows activation | Internet |
+| `azkms.core.usgovcloudapi.net ` | TCP | 1688 | Windows activation | Internet |
 | `mrsglobalstugviffx.blob.core.usgovcloudapi.net` | TCP | 443 | Agent and side-by-side (SXS) stack updates | AzureCloud |
 | `wvdportalstorageblob.blob.core.usgovcloudapi.net` | TCP | 443 | Azure portal support | AzureCloud |
 | `169.254.169.254` | TCP | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |

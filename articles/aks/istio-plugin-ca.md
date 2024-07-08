@@ -35,7 +35,7 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
     az keyvault secret set --vault-name $AKV_NAME --name root-cert --file <path-to-folder/root-cert.pem>
     az keyvault secret set --vault-name $AKV_NAME --name ca-cert --file <path-to-folder/ca-cert.pem>
     az keyvault secret set --vault-name $AKV_NAME --name ca-key --file <path-to-folder/ca-key.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path/cert-chain.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path-to-folder/cert-chain.pem>
     ```
 
 1. Enable [Azure Key Vault provider for Secret Store CSI Driver for your cluster][akv-addon]:

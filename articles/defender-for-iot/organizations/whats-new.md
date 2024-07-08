@@ -19,9 +19,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Malicious alert path](#malicious-alert-path)<br> |
+| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> |
 
-### Malicious alert path
+### Malicious URL path alert
 
 The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
 
@@ -51,7 +51,7 @@ One common challenge when connecting sensors to Defender for IoT in the Azure po
 
 ### Security update
 
-This update resolves six CVEs, which are listed in [software version 23.1.3 feature documentation](release-notes.md#version-2413).
+This update resolves six CVEs, which are listed in [software version 24.1.3 feature documentation](release-notes.md#version-2413).
 
 ## February 2024
 

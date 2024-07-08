@@ -57,7 +57,5 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Set up a custom tenant for Azure Classroom
-            url: custom-tenant-set-up-classroom.md
           - text: Find IDs
             url: find-ids.md
