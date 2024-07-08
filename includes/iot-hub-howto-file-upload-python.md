@@ -32,7 +32,7 @@ Follow this procedure for uploading a file from a device to IoT Hub:
 * Connect to IoT Hub
 * Get a SAS URI from IoT Hub
 * Upload the file to Azure storage
-* Notify IoT Hub that it has completed the upload
+* Notify IoT Hub that it completed the upload
 
 ### Import statements
 
@@ -124,7 +124,7 @@ device_client.notify_blob_upload_status(storage_info["correlationId"], True, 200
 
 ### Shut down the device client
 
-Shut down the client for graceful exit. Once this method is called, any attempts at further client calls will result in a [ClientError](/python/api/azure-iot-device/azure.iot.device.exceptions.clienterror) being raised.
+Shut down the client for graceful exit. Once this method is called, any attempts at further client calls result in a [ClientError](/python/api/azure-iot-device/azure.iot.device.exceptions.clienterror) being raised.
 
 ```python
     # Graceful exit
@@ -169,7 +169,7 @@ def run_sample(device_client):
 
 ### Sample
 
-The SDK inlcudes two samples:
+The SDK includes two samples:
 
 * [Upload to blob](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/upload_to_blob.py)
 * [Upload to blob using an X.509 certificate](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/upload_to_blob_x509.py)

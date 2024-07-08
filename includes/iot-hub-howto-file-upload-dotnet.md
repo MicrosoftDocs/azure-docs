@@ -18,7 +18,7 @@ Follow this procedure for uploading a file from a device to IoT Hub:
 * Connect to IoT Hub
 * Get a SAS URI from IoT Hub
 * Upload the file to Azure storage
-* Notify IoT Hub that it has completed the upload
+* Notify IoT Hub that it completed the upload
 
 There are two SDK classes that are used to upload files to IoT Hub.
 
@@ -36,7 +36,7 @@ deviceClient = DeviceClient.CreateFromConnectionString(connectionString);
 
 ### Get a SAS URI from IoT Hub
 
-Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload SAS URI which the Azure Storage SDK can use to upload a file to blob for this device.
+Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload SAS URI, which the Azure Storage SDK can use to upload a file to blob for this device.
 
 For example:
 
@@ -57,7 +57,7 @@ Uri uploadUri = sasUri.GetBlobUri();
 
 Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI.
 
-Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Azure storage, passing the the SAS URI.
+Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Azure storage, passing the SAS URI.
 
 The Azure blob client always uses HTTPS as the protocol to upload the file Azure storage.
 
@@ -68,9 +68,9 @@ var blockBlobClient = new BlockBlobClient(uploadUri);
 await blockBlobClient.UploadAsync(fileStreamSource, new BlobUploadOptions());
 ```
 
-### Notify IoT hub that it has completed the upload
+### Notify IoT hub that it completed the upload
 
-Use [CompleteFileUploadAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completefileuploadasync) to notify IoT Hub that the device client has completed the upload. After being notified, IoT Hub will release resources associated with the upload (the SAS URI).
+Use [CompleteFileUploadAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completefileuploadasync) to notify IoT Hub that the device client completed the upload. After being notified, IoT Hub will release resources associated with the upload (the SAS URI).
 
 If file upload notifications are enabled, IoT Hub sends a notification message to backend services.
 

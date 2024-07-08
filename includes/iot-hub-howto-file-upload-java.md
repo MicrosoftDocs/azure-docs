@@ -20,7 +20,7 @@ There are two SDK classes that are used to upload files to IoT Hub.
 
 ### Connection protocol
 
-File upload operations always uses HTTPS. `DeviceClient` can define the `IotHubClientProtocol` for other services like telemetry, device Method and device twin.
+File upload operations always use HTTPS. `DeviceClient` can define the `IotHubClientProtocol` for other services like telemetry, device method, and device twin.
 
 For example:
 
@@ -37,11 +37,11 @@ DeviceClient client = new DeviceClient(connString, protocol);
 
 ### Retrieve the SAS URI from Iot Hub
 
-Call [getFileUploadSasUri](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?view=azure-java-stable#com-microsoft-azure-sdk-iot-device-deviceclient-getfileuploadsasuri(com-microsoft-azure-sdk-iot-deps-serializer-fileuploadsasurirequest)) to obtain a [FileUploadSasUriResponse](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadsasuriresponse) object.
+Call [getFileUploadSasUri](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-getfileuploadsasuri(com-microsoft-azure-sdk-iot-deps-serializer-fileuploadsasurirequest)) to obtain a [FileUploadSasUriResponse](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadsasuriresponse) object.
 
-FileUploadSasUriResponse includes these methods which are passed to file upload methods. The Blob URI (SAS URI) is used to upload a file to blob storage.
+FileUploadSasUriResponse includes these methods, which are passed to file upload methods. The Blob URI (SAS URI) is used to upload a file to blob storage.
 
-* Correlation Id - `getCorrelationId())`
+* Correlation ID - `getCorrelationId())`
 * Container name - `getContainerName())`
 * Blob name - `getBlobName())`
 * Blob Uri - `getBlobUri())`
@@ -69,7 +69,7 @@ BlobClient blobClient =
         .buildClient();
 ```
 
-Call [uploadFromFile](https://learn.microsoft.com/en-us/java/api/com.azure.storage.blob.blobclient?#com-azure-storage-blob-blobclient-uploadfromfile(java-lang-string)) to upload the file to blob storage.
+Call [uploadFromFile](/java/api/com.azure.storage.blob.blobclient?#com-azure-storage-blob-blobclient-uploadfromfile(java-lang-string)) to upload the file to blob storage.
 
 ```java
 String fullFileName = "Path of the file to upload";
@@ -78,9 +78,9 @@ blobClient.uploadFromFile(fullFileName);
 
 ## Send file upload status notification to IoT Hub
 
-Create a [FileUploadCompletionNotification](https://learn.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadcompletionnotification?#com-microsoft-azure-sdk-iot-deps-serializer-fileuploadcompletionnotification-fileuploadcompletionnotification(java-lang-string-java-lang-boolean)) object. Pass the `correlationId` and `isSuccess` file upload success status. Pass an `isSuccess` `true` value when file upload was successful, `false` when not.
+Create a [FileUploadCompletionNotification](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadcompletionnotification?#com-microsoft-azure-sdk-iot-deps-serializer-fileuploadcompletionnotification-fileuploadcompletionnotification(java-lang-string-java-lang-boolean)) object. Pass the `correlationId` and `isSuccess` file upload success status. Pass an `isSuccess` `true` value when file upload was successful, `false` when not.
 
-`FileUploadCompletionNotification` must be called even when the file upload fails. IoT Hub has a fixed number of SAS URIs allowed to be active at any given time. Once you are done with the file upload, you should free your SAS URI so that other SAS URIs can be generated. If a SAS URI is not freed through this API, then it will free itself eventually based on how long SAS URIs are configured to live on an IoT Hub.
+`FileUploadCompletionNotification` must be called even when the file upload fails. IoT Hub has a fixed number of SAS URI allowed to be active at any given time. Once you're done with the file upload, you should free your SAS URI so that other SAS URI can be generated. If a SAS URI isn't freed through this API, then it frees itself eventually based on how long SAS URI are configured to live on an IoT Hub.
 
 This example passes a successful status.
 
