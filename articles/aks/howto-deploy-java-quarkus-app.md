@@ -19,15 +19,15 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
-- Install a Java SE implementation (for example, [Microsoft build of OpenJDK](/java/openjdk)).
+- Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
 - Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
 - Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
 - Install [jq](https://jqlang.github.io/jq/download/).
 - Install [cURL](https://curl.se/download.html).
-- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling).
+- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling) 3.12.1 or higher.
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](~/reusable-content/ce-skilling/azure/includes/azure-cli-login.md)]
-  - This article requires at least version 2.61.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+  - This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
@@ -289,7 +289,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
+To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
 
 ```azurecli-interactive
 az aks install-cli
