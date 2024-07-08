@@ -26,9 +26,8 @@ For App Service, custom backups are stored on a selected storage account. As a r
 
 To achieve geo-replication in non-paired regions:
 
-- Use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery).  Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a non-paired region if it is supported by Azure Site Recovery. You can have maximum data retention up to 14 days with Azure Site Recovery.
-- Replace the data retention time frame from 14 days to 15 days.
-- Add [Zone-redundant Storage](../backup/backup-overview#why-use-azure-backup.md) as one of the replication options.
+- Use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery).  Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a non-paired region if it is supported by Azure Site Recovery. You can have maximum data retention up to 15 days with Azure Site Recovery.
+- Use [Zone-redundant Storage](../backup/backup-overview.md#why-use-azure-backup) to replicate your data in availability zones, guaranteeing data residency and resiliency in the same region.
 
 
 
@@ -39,7 +38,16 @@ Choose [any supported Azure region](../mysql/flexible-server/overview#azure-regi
 
 ## Azure Database for PostgreSQL
 
-For geo-replication in non-paired regions, copy the database using [pg_dump](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql).
+For geo-replication in non-paired regions with Azure Database for PostgreSQL, you can use:
+
+**Managed service with geo-replication**: Azure PostgreSQL Managed service supports active [geo-replication](/azure/postgresql/flexible-server/concepts-read-replicas) to create a continuously readable secondary replica of your primary server. The readable secondary may be in the same Azure region as the primary or, more commonly, in a different region. This kind of readable secondary replica is also known as *geo-replica*.
+ 
+You can also utilize any of the two customer-managed data migration methods listed below to replicate the data to a non-paired region.  
+
+- [Copy](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql).
+
+- [Logical Replication & Logical Decoding](/azure/postgresql/flexible-server/concepts-logical).
+
 
  
 ## Azure Data Factory
@@ -102,12 +110,6 @@ To achieve geo-replication in non-paired regions, you can use:
 - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices) or any application-level replication service. 
 - [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction) can be also considered as an option since it can replicate to a set of paired regions not constrained by geo-redundant storage (GRS).
 - [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.” 
-
-
-
-
-
-
 
 
 
