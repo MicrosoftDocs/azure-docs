@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: conceptual
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: yogipandey
 ms.date: 10/05/2023
 ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.

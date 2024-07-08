@@ -16,7 +16,8 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**Azure Database for MySQL - Single Server is on the retirement path** and is scheduled for retirement by **September 16, 2024**.
+> [!IMPORTANT]
+> **Azure Database for MySQL - Single Server is on the retirement path** and is scheduled for retirement by **September 16, 2024**.
 
 As part of this retirement, we'll no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023** and Azure CLI beginning **March 19, 2024**. If you still need to create Single Server instances to meet business continuity needs, raise an Azure support ticket. You'll still be able to create read replicas and perform restores (PITR and geo-restore) for your existing single server instance and this will continue to be supported until the sunset date of **September 16, 2024**.
 
