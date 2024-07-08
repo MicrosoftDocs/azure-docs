@@ -99,7 +99,7 @@ $targetSnapshot.CompletionPercent
 
 # [Portal](#tab/azure-portal)
 
-You can also copy an incremental snapshot across regions in the Azure portal. However, you must use this specific link to access the portal, for now: https://aka.ms/incrementalsnapshot 
+You can also copy an incremental snapshot across regions in the Azure portal.
 
 1. Sign in to the [Azure portal](https://aka.ms/incrementalsnapshot) and navigate to the incremental snapshot you'd like to migrate.
 1. Select **Copy snapshot**.
