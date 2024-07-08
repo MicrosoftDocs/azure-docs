@@ -19,7 +19,7 @@ ms.date: 07/26/2023
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The current version of <a href="https://dotnet.microsoft.com/download/dotnet-core" target="_blank">.NET Core</a>
-- An Azure OpenAI Service resource with the `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-35-turbo` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
@@ -48,17 +48,20 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
-CompletionsOptions completionsOptions = new()
-{
-    DeploymentName = "gpt-35-turbo-instruct", 
-    Prompts = { "When was Microsoft founded?" },
-};
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        // System messages represent instructions or other guidance about how the assistant should behave
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        // User messages represent user input, whether historical or the most recen tinput
+        new UserChatMessage("When was Microsoft founded?")
+    ]);
 
-Response<Completions> completionsResponse = client.GetCompletions(completionsOptions);
-string completion = completionsResponse.Value.Choices[0].Text;
-Console.WriteLine($"Chatbot: {completion}");
+Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
 ```
 
 > [!IMPORTANT]

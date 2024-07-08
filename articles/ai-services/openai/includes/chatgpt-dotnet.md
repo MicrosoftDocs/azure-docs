@@ -50,26 +50,22 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
-{
-    DeploymentName = "gpt-35-turbo", //This must match the custom deployment name you chose for your model
-    Messages =
-    {
-        new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
-        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
-    },
-    MaxTokens = 100
-};
+// This must match the custom deployment name you chose for your model
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
-Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        new UserChatMessage("Does Azure OpenAI support customer managed keys?"),
+        new AssistantChatMessage("Yes, customer managed keys are supported by Azure OpenAI"),
+        new UserChatMessage("Do other Azure AI services support this too?")
+    ]);
 
-Console.WriteLine(response.Value.Choices[0].Message.Content);
-
-Console.WriteLine();
+Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
 ```
 
 > [!IMPORTANT]
@@ -97,30 +93,31 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
-{
-    DeploymentName= "gpt-35-turbo", //This must match the custom deployment name you chose for your model
-    Messages =
-    {
-        new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
-        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
-    },
-    MaxTokens = 100
-};
+// This must match the custom deployment name you chose for your model
+ChatClient chatClient = azureClient.GetChatClient("trubo");
 
-await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatCompletionsStreaming(chatCompletionsOptions))
+var chatUpdates = chatClient.CompleteChatStreamingAsync(
+    [
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        new UserChatMessage("Does Azure OpenAI support customer managed keys?"),
+        new AssistantChatMessage("Yes, customer managed keys are supported by Azure OpenAI"),
+        new UserChatMessage("Do other Azure AI services support this too?")
+    ]);
+
+await foreach(var chatUpdate in chatUpdates)
 {
     if (chatUpdate.Role.HasValue)
     {
-        Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+        Console.Write($"{chatUpdate.Role} : ");
     }
-    if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+    
+    foreach(var contentPart in chatUpdate.ContentUpdate)
     {
-        Console.Write(chatUpdate.ContentUpdate);
+        Console.Write(contentPart.Text);
     }
 }
 ```
