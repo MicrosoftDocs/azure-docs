@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -28,7 +28,7 @@ In this article, learn how to install and run the Translator container online wi
 
 * **🆕 Text Transliteration**. Convert text from one language script or writing system to another language script or writing system in real time. For more information, *see* [Container: transliterate text](transliterate-text-parameters.md).
 
-* **🆕 Document translation (preview)**. Synchronously translate documents while preserving structure and format in real time. For more information, *see* [Container:translate documents](translate-document-parameters.md).
+* **🆕 Document translation**. Synchronously translate documents while preserving structure and format in real time. For more information, *see* [Container:translate documents](translate-document-parameters.md).
 
 ## Prerequisites
 
@@ -175,7 +175,7 @@ docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 ```
 
-The above command:
+The Docker command:
 
 * Creates a running Translator container from a downloaded container image.
 * Allocates 12 gigabytes (GB) of memory and four CPU core.

@@ -5,6 +5,7 @@ services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 05/22/2024
 zone_pivot_groups: feature-management

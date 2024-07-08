@@ -21,7 +21,7 @@ Get started with the Azure Linux Container Host using Terraform to deploy an Azu
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - If you haven't already configured Terraform, you can do so using one of the following options:
   - [Azure Cloud Shell with Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)

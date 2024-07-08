@@ -34,7 +34,14 @@ For more information, see [Aggregate Microsoft Sentinel data with summary rules]
 
 ## June 2024
 
+- [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
 - [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
+
+### Codeless Connector Platform now generally available
+
+The Codeless Connector Platform (CCP), is now generally available (GA). Check out the [announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-create-your-own-codeless-data-connector/ba-p/4174439).
+
+For more information on the CCP enhancements and capabilities, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
 ### Advanced threat indicator search capability available
 
