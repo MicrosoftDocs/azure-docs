@@ -67,16 +67,26 @@ az containerapp update \
 
 ## Dependency
 
-When you use the admin component in your container app, you need to add the following dependency in your `pom.xml` file.
+When you use the admin component in your container app, you need to add the following dependency in your `pom.xml` file. Replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>
     <groupId>de.codecentric</groupId>
+    <version>3.3.2</version>
     <artifactId>spring-boot-admin-starter-client</artifactId>
 </dependency>
 ```
 
 ## Configurable properties
+
+Starting with Spring Boot 2, endpoints other than health and info are not exposed by default. You can expose them by adding the following configuration in your `application.properties` file.
+
+```properties
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
+```
+
+## Allowed configuration list for your Admin for Spring
 
 The following list details the admin component properties you can configure for your app. You can find more details in [Spring Boot Admin](https://docs.spring-boot-admin.com/current/server.html) docs.
 
