@@ -5,9 +5,9 @@ description: Learn to authenticate clients for an Azure Machine Learning online 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 reviewer: msakande
 ms.date: 04/23/2024
 ms.topic: how-to

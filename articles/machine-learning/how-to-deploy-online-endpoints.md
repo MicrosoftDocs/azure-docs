@@ -5,9 +5,9 @@ description: Learn to deploy your machine learning model as an online endpoint i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 04/30/2024
 reviewer: msakande
 ms.topic: how-to
