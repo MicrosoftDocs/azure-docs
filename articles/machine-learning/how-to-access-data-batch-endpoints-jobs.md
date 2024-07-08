@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: ccrestana
-ms.author: cacrest
+author: msakande
+ms.author: mopeakande
 ms.date: 5/01/2023
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 reviewer: msakande
 ms.custom:
   - devplatv2

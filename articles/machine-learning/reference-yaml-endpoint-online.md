@@ -8,10 +8,10 @@ ms.subservice: mlops
 ms.topic: how-to
 ms.custom: cliv2
 
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 11/15/2023
-ms.reviewer: mopeakande
+ms.reviewer: sehan
 reviewer: msakande
 ---
 
