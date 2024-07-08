@@ -10,6 +10,10 @@ ms.date: 06/10/2024
 
 # Site Recovery feature updates
 
+The Azure Site Recovery service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest feature releases. This page is updated regularly.
+
+You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
+
 ## Updates (May 2024)
 
 ### Use Azure Monitor for Azure Site Recovery
