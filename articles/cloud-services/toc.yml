@@ -95,7 +95,7 @@
           - name: Family 1 retirement notice
             href: cloud-services-guestos-family1-retirement.md
           - name: Family 2, 3, 4 retirement notice
-            href: cloud-services-guestos-family234-retirement.md
+            href: cloud-services-guestos-family-2-3-4-retirement.md
         - name: Guest OS release news
           href: cloud-services-guestos-update-matrix.md
       - name: Cloud Services Role config XPath cheat sheet
