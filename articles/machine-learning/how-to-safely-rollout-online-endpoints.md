@@ -9,7 +9,6 @@ author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
 ms.date: 10/24/2023
-reviewer: msakande
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, sdkv2
 ---

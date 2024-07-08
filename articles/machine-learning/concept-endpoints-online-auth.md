@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
-reviewer: msakande
 ms.custom: devplatv2
 ms.date: 12/15/2023
 ---

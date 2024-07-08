@@ -7,7 +7,6 @@ ms.service: machine-learning
 ms.subservice: inferencing
 author: msakande
 ms.author: mopeakande
-reviewer: msakande
 ms.reviewer: cacrest
 ms.topic: how-to
 ms.custom:
