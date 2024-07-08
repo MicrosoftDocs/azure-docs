@@ -245,9 +245,9 @@ You can use Azure Functions Core Tools to run an Azure Functions project on your
 
     The response is the HTTP function's initial result, letting us know that the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it into the browser's address bar, and execute the request.
+1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request.
 
-    The request will query the orchestration instance for the status. You must get an eventual response that looks like the following.  This output shows us the instance has completed and includes the outputs or results of the durable function.
+    The request will query the orchestration instance for the status. You must get an eventual response that looks like the following. This output shows us the instance has completed and includes the outputs or results of the durable function.
 
     ```json
     {

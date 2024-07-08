@@ -240,13 +240,13 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-status.png" alt-text="Screenshot of the browser window with statusQueryGetUri called out.":::
 
-    The response is the HTTP function's initial result, letting us know that the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 
-    At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
+   At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it into the browser's address bar, and execute the request.
+1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request.
 
-    The request will query the orchestration instance for the status. You should see that the instance has completed and includes the outputs of your activity invocations. It looks like:
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
 
     ```json
     {
