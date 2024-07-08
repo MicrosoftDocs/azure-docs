@@ -393,19 +393,34 @@ For an existing stateful workflow run, you can rerun the entire workflow with th
 
 By default, your Standard logic app authenticates access to your Azure Storage account by using a connection string. However, you can set up a user-assigned managed identity to authenticate access instead.
 
-1. From your storage account, get the URIs for the Blob, Queue, and Table services by following these steps:
+1. In the [Azure portal](https://portal.azure.com), [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-   1. In the Azure portal, go to your storage account. On the storage account menu, under **Settings**, select **Endpoints**.
-
-   1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
-
-1. If you haven't already, [follow these steps to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
-
-1. From your user-assigned identity, get the resource ID by following these steps:
+1. From your user-assigned identity, get the resource ID:
 
    1. On the user-assigned managed identity menu, under **Settings**, select **Properties**.
 
    1. From the **Id** property, copy and save the resource ID.
+
+1. From your storage account, get the URIs for the Blob, Queue, and Table services:
+
+   1. On the storage account menu, under **Settings**, select **Endpoints**.
+
+   1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
+
+1. On your storage account, add the necessary [role assignments](../role-based-access-control/role-assignments.md) to your user-assigned identity:
+
+   1. On the storage account menu, select **Access control (IAM)**.
+
+   1. On the **Access control (IAM)** page toolbar, from the **Add** menu, select **Add role assignment**.
+
+   1. On the **Job function roles** tab, add each of the following roles to the user-assigned identity:
+
+      - Storage Account Contribtor
+      - Storage Blob Data Owner
+      - Storage Queue Data Contributor
+      - Storage Data Data Contributor
+
+   For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. Go to your Standard logic app. On the logic app menu, select **Overview**.
 
