@@ -1,4 +1,5 @@
 ---
+
 title: Multi-tenancy in Azure Cosmos DB
 description: Learn concepts for building multitenant gen-ai apps in Azure Cosmos DB
 author: TheovanKraay
@@ -7,6 +8,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: thvankra
+
 ---
 
 # Multi-tenancy for vector search in Azure Cosmos DB
@@ -36,10 +38,12 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 - **Cost Efficiency:** Sharing a single Cosmos DB account across multiple tenants reduces overhead.
 - **Scalability:** Can manage a large number of tenants, each isolated within their partition key.
 - **Simplified Management:** Fewer Cosmos DB accounts to manage.
+- **Hierarchical Partition Keys (HPK):** Optimizes data organization and query performance in multi-tenant apps with a high number of tenants.
 
 **Drawbacks:**
 - **Resource Contention:** Shared resources can lead to contention during peak usage.
 - **Limited Isolation:** Logical but not physical isolation, which may not meet stringent security needs.
+- **Less Flexibility:** Reduced flexibility per tenant for enabling account-level features like geo-replication, point-in-time restore (PITR), and customer-managed keys (CMK).
 
 ### Hierarchical partitioning: enhanced data organization
 
@@ -48,13 +52,15 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 **Advantages:**
 - **Optimized Queries:** More precise targeting of subpartitions at the parent partition level reduces query latency.
 - **Improved Scalability:** Facilitates deeper data segmentation for easier scaling.
-- **Better Resource Allocation:** Evenly distributes workloads, minimizing bottlenecks.
+- **Better Resource Allocation:** Evenly distributes workloads, minimizing bottlenecks for high tenant counts.
+
+**Considerations:**
+- If tenants have very few HPK, this can lead to bottlenecks since all documents with the same first-level key will write to the same physical partition(s).
 
 **Example:**
 ResearchHub can stratify data within each tenant’s partition by organizing it at departmental levels, facilitating efficient management and queries.
 
 ![ResearchHub AI Data Stratification](../media/gen-ai/multi-tenant/hpk.png)
-
 
 ### 2. Account-per-tenant
 
@@ -64,6 +70,7 @@ For maximum isolation, the account-per-tenant model is preferable. Each tenant g
 - **High Isolation:** No contention or interference due to dedicated resources.
 - **Custom SLAs:** Resources and SLAs can be tailored to individual tenant needs.
 - **Enhanced Security:** Physical data isolation ensures robust security.
+- **Flexibility:** Tenants can enable account-level features like geo-replication, point-in-time restore (PITR), and customer-managed keys (CMK) as needed.
 
 **Drawbacks:**
 - **Increased Management:** Higher complexity in managing multiple Cosmos DB accounts.
@@ -157,7 +164,7 @@ Azure Cosmos DB's support for DiskANN vector index capability makes it an excell
    - **Hierarchical Partitioning:** Implement hierarchical partitioning to further segment data within each tenant’s partition, improving query performance and resource distribution.
 
 **3. Security and Compliance:**
-   - **Customer Managed Keys:** Implement customer-managed keys for data encryption at rest, ensuring each tenant’s data is securely isolated.
+   - **Customer-Managed Keys:** Implement customer-managed keys for data encryption at rest, ensuring each tenant’s data is securely isolated.
    - **Regular Key Rotation:** Enhance security by regularly rotating encryption keys stored in Azure Key Vault.
 
 ### Real-world example: implementing ResearchHub
