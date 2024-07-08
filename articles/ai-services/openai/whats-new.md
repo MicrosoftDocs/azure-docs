@@ -46,6 +46,8 @@ This article provides a summary of the latest releases and major documentation u
 - westus            
 - westus3           
 
+For information on global standard quota, consult the [quota and limits page](./quotas-limits.md).
+
 ## June 2024
 
 ### Retirement date updates

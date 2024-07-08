@@ -145,9 +145,9 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 [!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
-This table doesn't include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
+This table doesn't include [global standard](../how-to/deployment-types.md) model deployment regional availability for GPT-4o, or fine-tuning regional availability information.  Consult the dedicated [global standard deployment section](#global-standard-model-availability) and the [fine-tuning section](#fine-tuning-models) for this information.
 
-### Standard deployment model quota
+### Standard and global standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
@@ -199,6 +199,8 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 #### Public cloud regions
 
 [!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+
 
 #### Select customer access
 
