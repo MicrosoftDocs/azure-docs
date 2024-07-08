@@ -23,7 +23,7 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### July 2024
-* [MD5 hashing is disabled](reference-versions.md#postgresql-versions) in Azure Cosmos DB for PostgreSQL.
+* [MD5 hashing is disabled](./reference-limits.md#security) in Azure Cosmos DB for PostgreSQL.
 
 ### May 2024
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (12.19, 13.15, 14.12, 15.7, and 16.3) are now available.
