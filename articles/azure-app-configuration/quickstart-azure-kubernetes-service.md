@@ -363,13 +363,9 @@ You can follow the steps in the [Troubleshooting](#troubleshooting) to check the
 
 Ensure that you specify the correct key-value selectors to match the expected data. If no selectors are specified, all key-values without a label will be downloaded from your App Configuration store. When using a key filter, verify that it matches the prefix of your expected key-values. If your key-values have labels, make sure to specify the label filter in the selectors. For more examples, refer to the [key-value selection](./reference-kubernetes-provider.md#key-value-selection) documentation.
 
-#### Can the target ConfigMap be updated after I update the key-values in the App Configuration store?
+#### What customizations can I make to install the Azure App Configuration Kubernetes Provider?
 
-Please follow this [Configuration Refresh](./reference-kubernetes-provider.md#configuration-refresh) to learn how to refresh the ConfigMap.
-
-#### Can I install the Azure App Configuration Kubernetes Provider in a specific node?
-
-Yes, you can install it in a specific node by setting the `nodeSelector` helm value while installing the helm chart. You can find more information about supported helm values [here](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml).
+You can customize the installation by providing additional helm values when installing the Azure App Configuration Kubernetes Provider, e.g., setting the log level, configuring the `nodeSelector` to let the provider running on target node, disabling the replica discovery, etc. You can find all supported helm values [here](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml).
 
 ## Clean up resources
 
