@@ -6,10 +6,10 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
@@ -27,6 +27,14 @@ POST /completions?api-version=2024-04-01-preview
 | Name | In  | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | api-version | query | True | string | The version of the API in the format "YYYY-MM-DD" or "YYYY-MM-DD-preview". |
+
+## Request Header
+
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| extra-parameters | | string | The behavior of the API when extra parameters are indicated in the payload. Using `pass-through` makes the API to pass the parameter to the underlying model. Use this value when you want to pass parameters that you know the underlying model can support. Using `ignore` makes the API to drop any unsupported parameter. Use this value when you need to use the same payload across different models, but one of the extra parameters may make a model to error out if not supported. Using `error` makes the API to reject any extra parameter in the payload. Only parameters specified in this API can be indicated, or a 400 error is returned. |
+| azureml-model-deployment |     | string | Name of the deployment you want to route the request to. Supported for endpoints that support multiple deployments. |
 
 
 ## Request Body

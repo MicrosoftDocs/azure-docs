@@ -3,9 +3,9 @@ title: Create a vector index in an Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to create a vector index in Azure Machine Learning and use it in a prompt flow.
 services: machine-learning
-ms.author: balapv
-author: balapv
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: balapv
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/22/2024

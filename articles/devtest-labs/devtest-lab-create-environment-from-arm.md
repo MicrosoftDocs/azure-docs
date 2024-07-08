@@ -6,8 +6,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/13/2024
-ms.custom: engagement-fy23, devx-track-azurepowershell, UpdateFrequency2
-
+ms.custom: engagement-fy23, devx-track-azurepowershell, UpdateFrequency2, devx-track-arm-template
 #customer intent: As a developer, I want to use ARM templates in Azure DevTest Labs so that I can create virtual machines or PaaS resources.
 ---
 
@@ -165,7 +164,7 @@ If you need to create multiple environments for development or testing scenarios
 
 Lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates. You can also automate deployment through the Azure CLI by using the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to create environments. For more information, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Automate ARM environment template deployment with Azure PowerShell with these steps:
 

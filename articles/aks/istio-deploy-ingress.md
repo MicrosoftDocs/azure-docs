@@ -40,6 +40,10 @@ NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP    
 aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
 ```
 
+> [!NOTE]
+> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress are reverted back by the Istio add-on. 
+It's planned to allow these customizations in Gateway API Istio implementation as part of the Istio add-on in future.
+
 Applications aren't accessible from outside the cluster by default after enabling the ingress gateway. To make an application accessible, map the sample deployment's ingress to the Istio ingress gateway using the following manifest:
 
 ```bash
@@ -239,7 +243,8 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ## Next steps
 
 * [Secure ingress gateway for Istio service mesh add-on][istio-secure-gateway]
+* [Scale ingress gateway HPA][istio-scaling-guide]
 
 [istio-deploy-addon]: istio-deploy-addon.md
 [istio-secure-gateway]: istio-secure-gateway.md
-
+[istio-scaling-guide]: istio-scale.md#scaling
