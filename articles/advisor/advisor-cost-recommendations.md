@@ -43,7 +43,7 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
 
 * Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**.
 
-* The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, be aware that it might take up to 48 hours for the recommendations to be updated.
+* The last 7 days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, it might take up to 48 hours for the recommendations to be updated.
 
 * Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
 
@@ -105,7 +105,7 @@ We're constantly working on improving these recommendations. Feel free to share 
 
 ## Configure VM/VMSS recommendations
 
-You can adjust Advisor virtual machine (VM) and Virtual Machine Scale Sets recommendations. Specifically, you can setup a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
+You can adjust Advisor virtual machine (VM) and Virtual Machine Scale Sets recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
 
 > [!NOTE]
 > If you don't have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
@@ -116,7 +116,7 @@ To adjust Advisor VM/Virtual Machine Scale Sets right sizing rules, follow these
 
 1. Select the **VM/Virtual Machine Scale Sets right sizing** tab.
 
-1. Select the subscriptions you’d like to setup a filter for average CPU utilization, and then click **Edit**.
+1. Select the subscriptions you’d like to set up a filter for average CPU utilization, and then click **Edit**.
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
