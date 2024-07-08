@@ -66,7 +66,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 - **Accepted Values:** `connectedCluster`
 - **Default Value:** `connectedCluster`
 
-### Configuration Settings File (--config)
+### Single configuration value (--config)
 
 - **Definition:** The configuration parameters and values for deploying the connected registry extension on the Kubernetes cluster.
 - **Accepted Values:** Alphanumerical value

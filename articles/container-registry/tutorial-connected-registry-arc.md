@@ -69,8 +69,12 @@ While using a preinstalled cert-manager service on the cluster, you can deploy t
     --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \ 
-    --config service.clusterIP=192.100.100.1 trustDistribution.enabled=true trustDistribution.skipNodeSelector=true cert-manager.enabled=true cert-manager.install=false \ 
-    --config-protected-file protected-settings-extension.json 
+    --config service.clusterIP=192.100.100.1 \ 
+    --config trustDistribution.enabled=true \ 
+    --config trustDistribution.skipNodeSelector=true \ 
+    --config cert-manager.enabled=true \
+    --config cert-manager.install=false \ 
+    --config-protected-file protected-settings-extension.json
     ```
 
 ## Deploy Connected registry with kubernetes secret management for TLS encryption 
@@ -82,11 +86,7 @@ Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string var
     ```json
     { 
     
-    # TLS settings 
-    
-    tls: 
-    
-    secret: “k8secret” 
+    "tls.secret": “k8secret” 
     
     } 
     ```
@@ -101,8 +101,11 @@ Now, you can deploy the Connected registry extension with HTTPS (TLS encryption)
     --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \
-    --config service.clusterIP=192.100.100.1  trustDistribution.enabled=true 
-          trustDistribution.skipNodeSelector=true cert-manager.enabled=false cert-manager.install=false \ 
+    --config service.clusterIP=192.100.100.1 \
+    --config trustDistribution.enabled=true \ 
+    --config trustDistribution.skipNodeSelector=true \
+    --config cert-manager.enabled=false \
+    --config cert-manager.install=false \ 
     --config-protected-file protected-settings-extension.json 
     ```
 
@@ -117,14 +120,8 @@ Follow the [quickstart][quickstart] and add the public certificate and private k
     
 ```json
         { 
-        
-        # TLS settings 
-        
-        tls: 
-        
-        crt: "public-cert"
-              key: "private-key"
-        
+        "tls.crt": "public-cert",
+        "tls.key": "private-key"
         } 
 ```
 
@@ -138,7 +135,11 @@ Follow the [quickstart][quickstart] and add the public certificate and private k
     --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \
-    --config service.clusterIP=192.100.100.1  trustDistribution.enabled=true trustDistribution.skipNodeSelector=true cert-manager.enabled=false cert-manager.install=false \ 
+    --config service.clusterIP=192.100.100.1 \
+    --config trustDistribution.enabled=true \
+    --config trustDistribution.skipNodeSelector=true \
+    --config cert-manager.enabled=false \
+    --config cert-manager.install=false \ 
     --config-protected-file protected-settings-extension.json 
     ```
 
@@ -156,7 +157,11 @@ While using your own kubernetes secret or public certificate and private key pai
     --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \ 
-    --config service.clusterIP==192.100.100.1 trustDistribution.enabled=false trustDistribution.skipNodeSelector=false cert-manager.enabled=false cert-manager.install=false \ 
+    --config service.clusterIP==192.100.100.1 \
+    --config trustDistribution.enabled=false \ 
+    --config trustDistribution.skipNodeSelector=false \
+    --config cert-manager.enabled=false \
+    --config cert-manager.install=false \ 
     --config-protected-file <JSON file path> 
     ```
 
@@ -174,7 +179,12 @@ The Connected registry extension deployment can be further secured with HTTP and
     --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \
-    --config service.clusterIP=192.100.100.1 trustDistribution.enabled=true trustDistribution.skipNodeSelector=true cert-manager.enabled=false cert-manager.install=false HttpsEnabled=false \ 
+    --config service.clusterIP=192.100.100.1 \
+    --config trustDistribution.enabled=true \ 
+    --config trustDistribution.skipNodeSelector=true \
+    --config cert-manager.enabled=false \
+    --config cert-manager.install=false \
+    --config HttpsEnabled=false \ 
     --config-protected-file <JSON file path>
     ```
 

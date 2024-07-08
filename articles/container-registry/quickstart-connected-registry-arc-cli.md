@@ -21,7 +21,7 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
 
 * Create or use an existing Azure Container Registry (ACR) with [quickstart.][create-acr]
 
-* Set up the firewall access and communication between the ACR registry and the Connected registry by enabling the [dedicated data endpoints.][dedicated data endpoints]
+* Set up the firewall access and communication between the ACR and the Connected registry by enabling the [dedicated data endpoints.][dedicated data endpoints]
 
 * Create or use an existing Azure Kubernetes Service (AKS) cluster with the [tutorial.][tutorial-aks-cluster]
 
@@ -39,6 +39,8 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
     ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
+    az provider register --namespace Microsoft.ExtendedLocation
+   
     ```
     An Azure resource provider is a set of REST operations that enable functionality for a specific Azure service. 
 
@@ -181,7 +183,7 @@ To authenticate and pull an image from the locally deployed Connected registry w
     crictl pull --creds mytoken:password1 10.10.10.10/hello-world:latest
     ```
 
-- The `crictl pull` command pulls an image from the Connected registry by specifying the desired repository. Lear to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
+- The `crictl pull` command pulls an image from the Connected registry by specifying the desired repository. Learn to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
 
 ## Clean up resources
 
