@@ -10,11 +10,20 @@ ms.custom: devx-track-extended-java
 
 # Language runtime support policy for App Service
 
-This article describes the language runtime support policy for updating existing stacks and retiring end-of-support stacks in Azure App Service. This policy clarifies existing practices and doesn't represent a change to customer commitments.
+This article describes the language runtime support policy for updating existing stacks and retiring end-of-support stacks in Azure App Service. This policy clarifies existing practices and doesn't represent a change to customer commitments. 
 
-> [!NOTE]  
-> Some runtime languages are supported by both Windows and Linux app service plans such as ASP.NET Core, .NET, PHP, Node.js and Java. Some others are supported by a specific operating system. For example, only Windows plans support ASP.NET and only Linux plans support Ruby and Python.
->
+Some runtime languages are supported by both Windows and Linux app service plans while some others are supported by a specific operating system. Following table illustrates the language support:
+
+| **Runtime**       | **Windows plan** | **Linux plan** |
+| ----------------------- | ------------- | ------------------------- |
+| ASP.NET Core            | Supported | Supported |
+| .NET               | Supported | Supported   |
+| PHP              | Supported | Supported   |
+| Node.js              | Supported | Supported   |
+| Java              | Supported | Supported   |
+| ASP.NET              | Supported | Not supported   |
+| Ruby              | Not supported | Supported   |
+| Ruby              | Not supported | Supported   |
 
 ## Updates to existing stacks
 
