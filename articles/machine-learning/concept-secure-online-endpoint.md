@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
-reviewer: msakande
 ms.custom: devplatv2, moe-wsvnet
 ms.date: 02/29/2024
 ---
