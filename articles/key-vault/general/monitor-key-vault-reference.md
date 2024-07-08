@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Key Vault
 description: This article contains important reference material you need when you monitor Azure Key Vault by using Azure Monitor.
-ms.date: 07/01/2024
+ms.date: 07/09/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: msmbaldwin

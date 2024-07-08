@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Key Vault
 description: Start here to learn how to monitor Azure Key Vault by using Azure Monitor.
-ms.date: 07/01/2024
+ms.date: 07/09/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: msmbaldwin
@@ -20,13 +20,13 @@ Key Vault Insights provides comprehensive monitoring of your key vaults by deliv
 
 ## Monitoring overview page in Azure portal
 
-The **Overview** page in the Azure portal for each key vault includes the following metrics on the "Monitoring" tab:
+The **Overview** page in the Azure portal for each key vault includes the following metrics on the **Monitoring** tab:
 
 - Total requests
 - Average Latency
 - Success ratio
 
-You can select **additional metrics** or the **Metrics** tab in the left-hand sidebar, under **Monitoring**, to view these metrics as well:
+You can select **additional metrics** or the **Metrics** tab in the left-hand sidebar, under **Monitoring**, to view the following metrics:
 
 - Overall service API latency
 - Overall vault availability
@@ -55,10 +55,6 @@ To create a diagnostic setting for your key vault, see [Enable Key Vault logging
 You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of available metrics for Key Vault, see [Azure Key Vault monitoring data reference](monitor-key-vault-reference.md#metrics).
-
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
