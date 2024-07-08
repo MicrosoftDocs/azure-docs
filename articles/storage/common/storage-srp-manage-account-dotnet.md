@@ -61,6 +61,8 @@ You can create a storage account using the following method:
 
 - [CreateOrUpdateAsync]()
 
+You can set or update the properties of a storage account by setting the properties on the `StorageAccountCreateOrUpdateContent` class.
+
 ## List storage accounts
 
 You can list storage accounts in a subscription or a resource group. The following code example lists storage accounts in a subscription:
@@ -74,6 +76,24 @@ The following code example lists storage accounts in a resource group:
 ```
 
 ## Manage storage account keys
+
+You can list storage account keys using the following method:
+
+- 
+
+The following code example lists the keys for a storage account:
+
+```csharp
+```
+
+You can regenerate a storage account key using the following method:
+
+- 
+
+The following code example regenerates a storage account key:
+
+```csharp
+```
 
 ## Update the storage account SKU
 
