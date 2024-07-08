@@ -2,7 +2,7 @@
 title: Ebdsv5 and Ebsv5 series 
 description: Specifications for the Ebdsv5-series and Ebsv5-series Azure virtual machines.
 ms.service: virtual-machines
-ms.date: 07/02/2024
+ms.date: 07/08/2024
 ms.subservice: sizes
 ms.topic: conceptual
 ms.custom: references_regions
@@ -44,32 +44,32 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processo
 - NVMe Interface: Supported only on Generation 2 VMs
 - SCSI Interface: Supported on Generation 1 and 2 VMs
 
-## Ebdsv5 Series (SCSI)
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached Premium SSD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max NICs | Network bandwidth |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_E2bds_v5 | 2 | 16 | 75 | 4 | 9000/125 | 5500/156 | 10000/1200 | 7370/156 | 15000/1200 | 2 | 12500 |
-| Standard_E4bds_v5 | 4 | 32 | 150 | 8 | 19000/250 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 12500 |
-| Standard_E8bds_v5 | 8 | 64 | 300 | 16 | 38000/500 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 12500 |
-| Standard_E16bds_v5 | 16 | 128 | 600 | 32 | 75000/1000 | 44000/1250 | 64000/2000 |58960/1250 |96000/2000 |  8 | 12500 |
-| Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/2000 | 88000/2500 | 120000/4000 | 117920/2500|160000/4000|  8 | 16000 | 
-| Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/3000 | 120000/4000 | 120000/4000 | 160000/4000|160000/4000 | 8 | 16000 | 
-| Standard_E64bds_v5 | 64 | 512 | 2400 | 32 | 300000/4000 | 120000/4000 | 120000/4000 |160000/4000 | 160000/4000| 8 | 20000 |
-| Standard_E96bds_v5 | 96 | 672 | 3600 | 32 | 450000/4000 | 120000/4000 | 120000/4000 |160000/4000 | 160000/4000| 8 | 25000 |
-
 ## Ebdsv5 Series (NVMe)
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached Premium SSD  disk throughput: IOPS/MBps  | Max burst uncached Premium SSD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max NICs | Network bandwidth |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_E2bds_v5 | 2 | 16 | 75 | 4 | 9000/125 | 5500/156 | 10000/1200 | 7370/156 | 15000/1200 | 2 | 12500 |
-| Standard_E4bds_v5 | 4 | 32 | 150 | 8 | 19000/250 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 12500 |
-| Standard_E8bds_v5 | 8 | 64 | 300 | 16 | 38000/500 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 12500 |
-| Standard_E16bds_v5 | 16 | 128 | 600 | 32 | 75000/1000 | 44000/1250 | 64000/2000 |58960/1250 |96000/2000 |  8 | 12500 |
-| Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/2000 | 88000/2500 | 120000/4000 | 117920/2500|160000/4000|  8 | 16000 | 
-| Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/3000 | 132000/4000 | 150000/5000 | 160000/4000|160000/4000 | 8 | 16000 | 
-| Standard_E64bds_v5 | 64 | 512 | 2400 | 32 | 300000/4000 | 176000/5000 | 200000/5000 |160000/4000 | 160000/4000| 8 | 20000 |
-| Standard_E96bds_v5 | 96 | 672 | 3600 | 32 | 450000/4000 | 260000/7500 | 260000/8000 |260000/6500 | 260000/6500 | 8 | 25000 |
-| Standard_E112ibds_v5 | 112| 672 | 3800 | 64 | 450000/4000 | 260000/8000 | 260000/8000 |260000/6500 | 260000/6500| 8 | 40000 |
+|----------------------|-----|-----|------|----|-------------|-------------|-------------|--------------|--------------|---|-------|
+| Standard_E2bds_v5    | 2   | 16  | 75   | 4  | 9000/125    | 8000/230    | 10000/1200  | 12000/300    | 15000/1200   | 2 | 12500 |
+| Standard_E4bds_v5    | 4   | 32  | 150  | 8  | 19000/250   | 16000/460   | 20000/1200  | 21400/600    | 30000/1200   | 2 | 12500 |
+| Standard_E8bds_v5    | 8   | 64  | 300  | 16 | 38000/500   | 33000/930   | 40000/1200  | 44200/1200   | 60000/1200   | 4 | 12500 |
+| Standard_E16bds_v5   | 16  | 128 | 600  | 32 | 75000/1000  | 66000/1800  | 70000/2000  | 88400/2300   | 96000/2600   | 8 | 12500 |
+| Standard_E32bds_v5   | 32  | 256 | 1200 | 32 | 150000/2000 | 130000/3700 | 140000/4000 | 174200/4800  | 180000/5200  | 8 | 16000 |
+| Standard_E48bds_v5   | 48  | 384 | 1800 | 32 | 225000/3000 | 190000/5600 | 200000/6000 | 253300/7300  | 260000/7850  | 8 | 16000 |
+| Standard_E64bds_v5   | 64  | 512 | 2400 | 32 | 300000/4000 | 220000/6000 | 230000/6500 | 294800/7800  | 310000/8500  | 8 | 20000 |
+| Standard_E96bds_v5   | 96  | 672 | 3600 | 32 | 450000/4000 | 260000/7500 | 260000/8000 | 390000/8500  | 390000/9000  | 8 | 25000 |
+| Standard_E112ibds_v5 | 112 | 672 | 3800 | 64 | 450000/4000 | 260000/8000 | 260000/8000 | 400000/10000 | 400000/10000 | 8 | 40000 |
+
+## Ebdsv5 Series (SCSI)
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached Premium SSD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max NICs | Network bandwidth |
+|--------------------|----|-----|------|----|-------------|-------------|-------------|--------------|------------|---|-------|
+| Standard_E2bds_v5  | 2  | 16  | 75   | 4  | 9000/125    | 6000/170    | 10000/1200  | 8000/170    | 15000/1200  | 2 | 12500 |
+| Standard_E4bds_v5  | 4  | 32  | 150  | 8  | 19000/250   | 12100/350   | 20000/1200  | 16200/350   | 30000/1200  | 2 | 12500 |
+| Standard_E8bds_v5  | 8  | 64  | 300  | 16 | 38000/500   | 24200/680   | 40000/1200  | 32400/680   | 60000/1200  | 4 | 12500 |
+| Standard_E16bds_v5 | 16 | 128 | 600  | 32 | 75000/1000  | 48400/1370  | 64000/2000  | 64800/1370  | 96000/2000  | 8 | 12500 |
+| Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/2000 | 96800/2740  | 120000/4000 | 129700/2740 | 160000/4000 | 8 | 16000 |
+| Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/3000 | 120000/4000 | 120000/4000 | 160000/4000 | 160000/4000 | 8 | 16000 |
+| Standard_E64bds_v5 | 64 | 512 | 2400 | 32 | 300000/4000 | 120000/4000 | 120000/4000 | 160800/6500 | 160800/6500 | 8 | 20000 |
+| Standard_E96bds_v5 | 96 | 672 | 3600 | 32 | 450000/4000 | 120000/4000 | 120000/4000 | 180000/6500 | 180000/6500 | 8 | 25000 |
 
 ## Ebsv5 series
 
@@ -86,32 +86,32 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Cascade Lake). The
 - NVMe Interface: Supported only on Generation 2 VMs
 - SCSI Interface: Supported on Generation 1 and Generation 2 VMs
 
-## Ebsv5 Series (SCSI)
-
-| Size | vCPU | Memory: GiB | Max data disks |  Max uncached Premium SSD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max NICs | Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E2bs_v5 | 2 | 16 | 4 | 6000/170 | 10000/1200 | 8000/170 | 15000/1200 | 2 | 12500 |
-| Standard_E4bs_v5 | 4 | 32 | 8 | 12100/350 | 20000/1200 | 16200/350 | 30000/1200 | 2 | 12500 |
-| Standard_E8bs_v5 | 8 | 64 | 16 | 24200/680 | 40000/1200 | 32400/680 | 60000/1200 | 4 | 12500 |
-| Standard_E16bs_v5 | 16 | 128 | 32 | 48400/1370 | 64000/2000 | 64800/1370 | 96000/2000 | 8 | 12500 |
-| Standard_E32bs_v5 | 32 | 256 | 32 | 96800/2740 | 120000/4000 | 129700/2740 | 160000/4000 | 8 | 16000 |
-| Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 160000/4000 | 160000/4000 | 8 | 16000 |
-| Standard_E64bs_v5 | 64 | 512 | 32 | 120000/4000 | 120000/4000 | 160800/6500 | 160800/6500 | 8 | 20000 |
-| Standard_E96bs_v5 | 96 | 672 | 32 | 120000/4000 | 120000/4000 | 180000/6500 | 180000/6500 | 8 | 25000 |
-
 ## Ebsv5 Series (NVMe)
 
 | Size | vCPU | Memory: GiB | Max data disks |  Max uncached Premium SSD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max NICs | Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E2bs_v5 | 2 | 16 | 4 | 8000/230 | 10000/1200 | 12000/300 | 15000/1200 | 2 | 12500 |
-| Standard_E4bs_v5 | 4 | 32 | 8 | 16000/460 | 20000/1200 | 21400/600 | 30000/1200 | 2 | 12500 |
-| Standard_E8bs_v5 | 8 | 64 | 16 | 33000/930 | 40000/1200 | 44200/1200 | 60000/1200 | 4 | 12500 |
-| Standard_E16bs_v5 | 16 | 128 | 32 | 66000/1800 | 70000/2000 | 88400/2300 | 96000/2600 | 8 | 12500 |
-| Standard_E32bs_v5 | 32 | 256 | 32 | 130000/3700 | 140000/4000 | 174200/4800 | 180000/5200 | 8 | 16000 |
-| Standard_E48bs_v5 | 48 | 384 | 32 | 190000/5600 | 200000/6000 | 253300/7300 | 260000/7850 | 8 | 16000 |
-| Standard_E64bs_v5 | 64 | 512 | 32 | 220000/6000 | 230000/6500 | 294800/7800 | 310000/8500 | 8 | 20000 |
-| Standard_E96bs_v5 | 96 | 672 | 32 | 260000/7500 | 260000/8000 | 390000/8500 | 390000/9000 | 8 | 25000 |
+|---------------------|-----|-----|----|-------------|-------------|--------------|--------------|---|-------|
+| Standard_E2bs_v5    | 2   | 16  | 4  | 8000/230    | 10000/1200  | 12000/300    | 15000/1200   | 2 | 12500 |
+| Standard_E4bs_v5    | 4   | 32  | 8  | 16000/460   | 20000/1200  | 21400/600    | 30000/1200   | 2 | 12500 |
+| Standard_E8bs_v5    | 8   | 64  | 16 | 33000/930   | 40000/1200  | 44200/1200   | 60000/1200   | 4 | 12500 |
+| Standard_E16bs_v5   | 16  | 128 | 32 | 66000/1800  | 70000/2000  | 88400/2300   | 96000/2600   | 8 | 12500 |
+| Standard_E32bs_v5   | 32  | 256 | 32 | 130000/3700 | 140000/4000 | 174200/4800  | 180000/5200  | 8 | 16000 |
+| Standard_E48bs_v5   | 48  | 384 | 32 | 190000/5600 | 200000/6000 | 253300/7300  | 260000/7850  | 8 | 16000 |
+| Standard_E64bs_v5   | 64  | 512 | 32 | 220000/6000 | 230000/6500 | 294800/7800  | 310000/8500  | 8 | 20000 |
+| Standard_E96bs_v5   | 96  | 672 | 32 | 260000/7500 | 260000/8000 | 390000/8500  | 390000/9000  | 8 | 25000 |
 | Standard_E112ibs_v5 | 112 | 672 | 64 | 260000/8000 | 260000/8000 | 400000/10000 | 400000/10000 | 8 | 40000 |
+
+## Ebsv5 Series (SCSI)
+
+| Size | vCPU | Memory: GiB | Max data disks |  Max uncached Premium SSD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max NICs | Network bandwidth |
+|-------------------|----|-----|----|-------------|-------------|-------------|-------------|---|-------|
+| Standard_E2bs_v5  | 2  | 16  | 4  | 6000/170    | 10000/1200  | 8000/170    | 15000/1200  | 2 | 12500 |
+| Standard_E4bs_v5  | 4  | 32  | 8  | 12100/350   | 20000/1200  | 16200/350   | 30000/1200  | 2 | 12500 |
+| Standard_E8bs_v5  | 8  | 64  | 16 | 24200/680   | 40000/1200  | 32400/680   | 60000/1200  | 4 | 12500 |
+| Standard_E16bs_v5 | 16 | 128 | 32 | 48400/1370  | 64000/2000  | 64800/1370  | 96000/2000  | 8 | 12500 |
+| Standard_E32bs_v5 | 32 | 256 | 32 | 96800/2740  | 120000/4000 | 129700/2740 | 160000/4000 | 8 | 16000 |
+| Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 160000/4000 | 160000/4000 | 8 | 16000 |
+| Standard_E64bs_v5 | 64 | 512 | 32 | 120000/4000 | 120000/4000 | 160800/6500 | 160800/6500 | 8 | 20000 |
+| Standard_E96bs_v5 | 96 | 672 | 32 | 120000/4000 | 120000/4000 | 180000/6500 | 180000/6500 | 8 | 25000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
