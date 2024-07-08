@@ -10,7 +10,6 @@ ms.date: 07/01/2024
 ms.author: mopeakande
 author: msakande
 ms.reviewer: kritifaujdar
-reviewer: msakande
 ms.custom: [references_regions]
 ---
 

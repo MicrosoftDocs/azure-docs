@@ -8,7 +8,6 @@ ms.subservice: inferencing
 author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
-reviewer: msakande
 ms.date: 01/10/2024
 ms.topic: how-to
 ms.custom: how-to, ignite-2023, sdkv2, devx-track-azurecli

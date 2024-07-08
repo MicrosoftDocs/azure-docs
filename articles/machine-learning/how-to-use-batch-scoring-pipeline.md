@@ -9,7 +9,6 @@ ms.topic: how-to
 author: msakande
 ms.author: mopeakande
 ms.date: 11/15/2023
-reviewer: msakande
 ms.reviewer: cacrest
 ms.custom:
   - how-to
