@@ -10,7 +10,6 @@ ms.date: 04/29/2024
 ms.author: mopeakande
 author: msakande
 ms.reviewer: kritifaujdar
-reviewer: msakande
 ms.custom: [references_regions]
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-mistral.md
 ---
