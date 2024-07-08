@@ -24,10 +24,10 @@ Service-to-service communication is what makes a distributed application possibl
 
 Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. Istio enables load balancing, service-to-service authentication, and monitoring – with few or no service code changes. Its powerful control plane brings vital features, including:
 
-* Secure service-to-service communication in a cluster with TLS encryption, strong identity-based authentication and authorization.
+* Secure service-to-service communication in a cluster with TLS (Transport Layer Security) encryption, strong identity-based authentication and authorization.
 * Automatic load balancing for HTTP, gRPC, WebSocket, and TCP traffic.
 * Fine-grained control of traffic behavior with rich routing rules, retries, failovers, and fault injection.
-* A pluggable policy layer and configuration API supporting access controls, rate limits and quotas.
+* A pluggable policy layer and configuration API supporting access controls, rate limits, and quotas.
 * Automatic metrics, logs, and traces for all traffic within a cluster, including cluster ingress and egress.
 
 ## How is the add-on different from open-source Istio?
@@ -46,20 +46,20 @@ This service mesh add-on uses and builds on top of open-source Istio. The add-on
 
 Istio-based service mesh add-on for AKS currently has the following limitations:
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
-* The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
+* The add-on doesn't work on AKS clusters with Istio installed outside of the add-on installation.
 * The add-on doesn't support adding pods associated with virtual nodes to be added under the mesh.
 * The add-on doesn't support egress gateways for outbound traffic control.
-* The add-on doesn't support the sidecar-less Ambient dataplane mode.
+* The add-on doesn't support the sidecar-less Ambient data plane mode.
 * The add-on doesn't support multi-cluster deployments.
 * Istio doesn't support Windows Server containers.
 * Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`. For `EnvoyFilter`, the add-on only supports customization of Lua filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`) - other `EnvoyFilter` types are currently blocked.
-* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as static IP address configuration in the Gateway API Istio implementation as part of the Istio add-on in future.
+* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as ingress static IP address configuration as part of the Gateway API implementation for the add-on in future.
 
 ## Next steps
 
 ### Feedback and Feature Requests
 
-Feedback and feature requests for the Istio-based service mesh add-on should be raised as a new issue in the [AKS github repository][aks-gh-issues]. Please open a new issue with the `mesh` label. 
+Feedback and feature requests for the Istio-based service mesh add-on should be raised as a new issue in the [AKS GitHub repository][aks-gh-issues]. Please open a new issue with the `mesh` label. 
 
 * [Deploy Istio-based service mesh add-on][istio-deploy-addon]
 * [Troubleshoot Istio-based service mesh add-on][istio-troubleshooting]

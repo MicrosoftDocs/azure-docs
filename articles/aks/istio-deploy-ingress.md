@@ -41,7 +41,7 @@ aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>  
 ```
 
 > [!NOTE]
-> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress specifications are reverted back by the Istio add-on. It's planned to allow these customizations in Gateway API Istio implementation as part of the Istio add-on in future.
+> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress specifications are reverted back by the Istio add-on. It's planned to allow these customizations in the Gateway API implementation for the Istio add-on in future.
 
 Applications aren't accessible from outside the cluster by default after enabling the ingress gateway. To make an application accessible, map the sample deployment's ingress to the Istio ingress gateway using the following manifest:
 
@@ -226,7 +226,7 @@ Confirm that the sample application's product page is accessible. The expected o
 
 ## Delete resources
 
-If you want to clean up the Istio external or internal ingresses, but leave the mesh enabled on the cluster, run the following command:
+If you want to clean up the Istio external or internal ingress gateways, but leave the mesh enabled on the cluster, run the following command:
 
 ```azure-cli-interactive
 az aks mesh disable-ingress-gateway --ingress-gateway-type <external/internal> --resource-group ${RESOURCE_GROUPS}
