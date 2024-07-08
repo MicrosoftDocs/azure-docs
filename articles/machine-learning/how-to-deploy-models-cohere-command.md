@@ -8,7 +8,6 @@ ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/02/2024
 ms.reviewer: None
-reviewer: msakande
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, build-2024

@@ -9,7 +9,6 @@ ms.topic: how-to
 author: msakande
 ms.author: mopeakande
 ms.reviewer: alehughes
-reviewer: msakande
 ms.date: 01/29/2024
 ms.custom: devplatv2, update-code, devx-track-azurecli
 ---

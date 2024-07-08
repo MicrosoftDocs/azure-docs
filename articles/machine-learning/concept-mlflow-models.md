@@ -6,7 +6,6 @@ services: machine-learning
 author: msakande
 ms.author: mopeakande
 ms.reviewer: fasantia
-reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 12/20/2023

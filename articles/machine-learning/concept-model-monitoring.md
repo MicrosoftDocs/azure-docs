@@ -8,7 +8,6 @@ ms.author: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: alehughes
-reviewer: msakande
 ms.topic: conceptual
 ms.date: 01/29/2024
 ms.custom: devplatv2
