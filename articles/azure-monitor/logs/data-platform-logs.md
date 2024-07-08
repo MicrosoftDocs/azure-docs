@@ -10,7 +10,7 @@ ms.author: guywild
 
 # Azure Monitor Logs overview
 
-Azure Monitor Logs is a managed service that lets you collect, organize, store, and act on any type of log data for any need.
+Azure Monitor Logs is a managed cloud service that lets you collect, organize, store, and act on any type of log data for any need.
 
 You can collect and manage the data model and costs of different types of data in one [Log Analytics workspace](../logs/log-analytics-workspace-overview.md), the primary Azure Monitor Logs resource. This means you never have to move data or manage additional storage, and you can retain different data types for as long or as little as you need.
 
@@ -21,7 +21,7 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 >
 > Azure Monitor Metrics can only store numeric data in a particular structure, whereas Azure Monitor Logs can store a variety of data types that have their own structures. You can also perform complex analysis on Azure Monitor Logs data by using log queries, which can't be used for analysis of Azure Monitor Metrics data.
 
-## Manage data storage, consumption, and costs in your Log Analytics workspace    
+## Log Analytics workspace    
 
 Azure Monitor Logs stores the data that you collect in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md), which consists of tables in which you store various types of data. 
 
@@ -38,7 +38,7 @@ To address the unique data collection and analysis needs of the various personas
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
 
 
-## Built-in and custom monitoring experiences based on a powerful query language
+## Built-in Insights experiences
 
 You can analyze log data by using a sophisticated query language that's capable of quickly analyzing millions of records. You might perform a simple query that retrieves a specific set of records or perform sophisticated data analysis to identify critical patterns in your monitoring data. Work with log queries and their results interactively by using Log Analytics, use them in alert rules to be proactively notified of issues, or visualize their results in a workbook or dashboard.
 
@@ -46,7 +46,7 @@ Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights
 
 :::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
 
-## Table plans tailored for different data consumption needs
+## Table plans
 
 
 The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
