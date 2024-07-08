@@ -15,9 +15,9 @@ keywords: "VMM, Arc, Azure"
 
 # Support matrix for Azure Arc-enabled System Center Virtual Machine Manager
 
-This article documents the prerequisites and support requirements for using [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](overview.md) to manage your SCVMM VMs through Azure Arc.
+This article documents the prerequisites and support requirements for using [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](overview.md) to manage your SCVMM managed on-prem VMs through Azure Arc.
 
-To use Arc-enabled SCVMM, you must deploy an Azure Arc resource bridge in your SCVMM managed environment. The resource bridge provides an ongoing connection between your SCVMM management server and Azure. Once you've connected your SCVMM management server to Azure, components on the resource bridge discover your SCVMM management server inventory. You can [enable them in Azure](enable-scvmm-inventory-resources.md) and start performing virtual hardware and guest OS operations on them using Azure Arc.
+To use Arc-enabled SCVMM, you must deploy an Azure Arc Resource Bridge in your SCVMM managed environment. The Resource Bridge provides an ongoing connection between your SCVMM management server and Azure. Once you've connected your SCVMM management server to Azure, components on the Resource Bridge discover your SCVMM management server inventory. You can [enable them in Azure](enable-scvmm-inventory-resources.md) and start performing virtual hardware and guest OS operations on them using Azure Arc.
 
 ## System Center Virtual Machine Manager requirements
 
@@ -29,63 +29,24 @@ Azure Arc-enabled SCVMM works with VMM 2019 and 2022 versions and supports SCVMM
 
 > [!NOTE]
 > If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed.
-> If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
+> If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the Resource Bridge again.
 > Azure Arc Resource Bridge deployment using private link is currently not supported.
 
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
 | **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud or a host group with a minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](/system-center/vmm/network-pool?view=sc-vmm-2022&preserve-view=true) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. If your SCVMM server is behind a firewall, all IPs in this IP Pool and the Control Plane IP should be allowed to communicate through WinRM ports. The default WinRM ports are 5985 and 5986. <br/><br/> Dynamic IP allocation using DHCP isn't supported. <br/><br/> A library share with write permission for the SCVMM admin account through which Resource Bridge deployment is going to be performed.  |
-| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. If the SCVMM server is installed in a High Availability configuration, the user should be a part of the local administrator accounts in all the SCVMM cluster nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM and the deployment of the Arc Resource bridge VM. |
-| **Workstation** | The workstation will be used to run the helper script. Ensure you have [64-bit Azure CLI installed](/cli/azure/install-azure-cli) on the workstation.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> To avoid network latency issues, we recommend executing the helper script directly in the VMM server machine.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
+| **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. If the SCVMM server is installed in a High Availability configuration, the user should be a part of the local administrator accounts in all the SCVMM cluster nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM and the deployment of the Arc Resource Bridge VM. |
+| **Workstation** | The workstation will be used to run the helper script. Ensure you have [64-bit Azure CLI installed](/cli/azure/install-azure-cli) on the workstation.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
 
-### Resource bridge networking requirements
+### Resource Bridge networking requirements
 
-The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
+The following firewall URL exceptions are needed for the Azure Arc Resource Bridge VM:
 
-### Outbound connectivity 
-
-The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. 
-
-### Firewall/Proxy URL allowlist
+[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
 
 >[!Note] 
 > To configure SSL proxy and to view the exclusion list for no proxy, see [Additional network requirements](../resource-bridge/network-requirements.md#azure-arc-resource-bridge-network-requirements).
-
-
-|**Service**|**Port**|**URL**|**Direction**|**Notes**|
-|--|--|--|--|--|
-|SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Management machine & Appliance VM IPs need outbound connection. | Download product catalog, product bits, and OS images from SFS. |
-|Resource bridge (appliance) image download| 443 | `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. |  Download the Arc Resource Bridge OS images.|
-|Microsoft Container Registry| 443 | `mcr.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. | Download container images for Arc Resource Bridge.|
-|Windows NTP Server| 123 | `time.windows.com` | Management machine & Appliance VM IPs (if Hyper-V default is Windows NTP) need outbound connection on UDP | OS time sync in appliance VM & Management machine (Windows NTP).|
-|Azure Resource Manager| 443 | `management.azure.com`| Management machine & Appliance VM IPs need outbound connection. | Manage resources in Azure. |
-|Microsoft Graph | 443 | `graph.microsoft.com` | Management machine & Appliance VM IPs need outbound connection. | Required for Azure RBAC. |
-|Azure Resource Manager | 443 | `login.microsoftonline.com`| Management machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
-|Azure Resource Manager | 443 | `*.login.microsoft.com`| Management machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
-|Azure Resource Manager | 443 | `login.windows.net`| Management machine & Appliance VM IPs need outbound connection. | Required to update ARM tokens.|
-|Resource bridge (appliance) Dataplane service| 443 | `*.dp.prod.appliances.azure.com`| Appliance VMs IP need outbound connection. | Communicate with resource provider in Azure.|
-|Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, ecpacr.azurecr.io`| Appliance VM IPs need outbound connection. | Required to pull container images. |
-|Managed Identity| 443 | `*.his.arc.azure.com`| Appliance VM IPs need outbound connection. | Required to pull system-assigned Managed Identity certificates. | 
-|Azure Arc for Kubernetes container image download| 443 | `azurearcfork8s.azurecr.io`|  Appliance VM IPs need outbound connection. | Pull container images. |
-|Azure Arc agent| 443 | `k8connecthelm.azureedge.net`|  Appliance VM IPs need outbound connection. | deploy Azure Arc agent. |
-|ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`| Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data from appliance VM. |
-|Microsoft events data service | 443 |`v20.events.data.microsoft.com`| Appliance VM IPs need outbound connection. | Send diagnostic data from Windows. |
-|Log collection for Arc Resource Bridge| 443 | `linuxgeneva-microsoft.azurecr.io`| Appliance VM IPs need outbound connection. | Push logs for Appliance managed components.|
-|Resource bridge components download| 443 | `kvamanagementoperator.azurecr.io`| Appliance VM IPs need outbound connection. | Pull artifacts for Appliance managed components.|
-|Microsoft open source packages manager| 443 | `packages.microsoft.com`| Appliance VM IPs need outbound connection. | Download Linux installation package.|
-|Custom Location| 443 | `sts.windows.net`| Appliance VM IPs need outbound connection. | Required for Custom Location.|
-|Azure Arc| 443 | `guestnotificationservice.azure.com` | Appliance VM IPs need outbound connection. | Required for Azure Arc.|
-|Custom Location | 443 | `k8sconnectcsp.azureedge.net` | Appliance VM IPs need outbound connection. | Required for Custom Location. |
-|Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.microsoftmetrics.com` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.hot.ingest.monitor.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.warm.ingest.monitor.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Azure portal | 443 | `*.arc.azure.net`| Appliance VM IPs need outbound connection. | Manage cluster from Azure portal.|
-|Azure CLI & Extension | 443 | `*.blob.core.windows.net`| Management machine needs outbound connection. | Download Azure CLI Installer and extension. |
-|Azure Arc Agent| 443 | `*.dp.kubernetesconfiguration.azure.com`| Management machine needs outbound connection. | Dataplane used for Arc agent.|
-|Python package| 443 | `pypi.org`, `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
-|Azure CLI| 443 | `pythonhosted.org`, `*.pythonhosted.org`| Management machine needs outbound connection. | Python packages for Azure CLI installation.|
 
 In addition, SCVMM requires the following exception:
 
@@ -93,18 +54,6 @@ In addition, SCVMM requires the following exception:
 | --- | --- | --- | --- | --- |
 | SCVMM Management Server | 443 | URL of the SCVMM management server. | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 | WinRM | WinRM Port numbers (Default: 5985 and 5986). | URL of the WinRM service. | IPs in the IP Pool used by the Appliance VM and control plane need connection with the VMM server. | Used by the SCVMM server to communicate with the Appliance VM. |
-
-### Inbound connectivity requirements
-
-Communication between the following ports must be allowed from the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open and that traffic is not being routed through a proxy to facilitate the deployment and maintenance of Arc resource bridge. 
-
-|**Service**|**Port**|**IP/machine**|**Direction**|**Notes**|
-|--|--|--|--|--|
-|SSH| 22 | `appliance VM IPs` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
-|Kubernetes API server| 6443 | `appliance VM IPs` and `Management machine` | Bidirectional | Management of the appliance VM.|
-|SSH| 22 | `control plane IP` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
-|Kubernetes API server| 6443 | `control plane IP` and `Management machine` | Bidirectional | Management of the appliance VM.|
-|HTTPS | 443 | `private cloud control plane address` and `Management machine` | Management machine needs outbound connection. | Communication with control plane (ex: VMware vCenter address).|
 
 Generally, connectivity requirements include these principles: 
 
@@ -120,23 +69,23 @@ The minimum Azure roles required for operations related to Arc-enabled SCVMM are
 
 | **Operation** | **Minimum role required** | **Scope** |
 | --- | --- | --- |
-| Onboarding your vCenter Server to Arc | Azure Arc VMware Private Clouds Onboarding | On the subscription or resource group into which you want to onboard |
-| Administering Arc-enabled VMware vSphere | Azure Arc VMware Administrator | On the subscription or resource group where vCenter server resource is created |
-| VM Provisioning | Azure Arc VMware Private Cloud User | On the subscription or resource group that contains the resource pool/cluster/host, datastore and virtual network resources, or on the resources themselves |
-| VM Provisioning | Azure Arc VMware VM Contributor | On the subscription or resource group where you want to provision VMs |
-| VM Operations | Azure Arc VMware VM Contributor | On the subscription or resource group that contains the VM, or on the VM itself |
+| Onboarding your SCVMM Management Server to Arc | Azure Arc SCVMM Private Clouds Onboarding  | On the subscription or resource group into which you want to onboard |
+| Administering Arc-enabled SCVMM | Azure Arc SCVMM Administrator | On the subscription or resource group where SCVMM management server resource is created  |
+| VM Provisioning | Azure Arc SCVMM Private Cloud User  | On the subscription or resource group that contains the SCVMM cloud, datastore, and virtual network resources, or on the resources themselves |
+| VM Provisioning | Azure Arc SCVMM VM Contributor | On the subscription or resource group where you want to provision VMs |
+| VM Operations | Azure Arc SCVMM VM Contributor | On the subscription or resource group that contains the VM, or on the VM itself |
 
 Any roles with higher permissions on the same scope, such as Owner or Contributor, will also allow you to perform the operations listed above. 
 
-### Azure connected machine agent (guest management) requirements
+### Azure connected machine agent (Guest Management) requirements
 
 Ensure the following before you install Arc agents using a script for SCVMM VMs:
 
-- The resource bridge must be in a running state.
+- The Resource Bridge must be in a running state.
 - The SCVMM management server must be in a connected state.
-- The user account must have permissions listed in Azure Arc SCVMM Administrator role.
+- The user account must have permissions listed in Azure Arc-enabled SCVMM Administrator role.
 - The target machine:
-     - Is powered on and the resource bridge has network connectivity to the host running the VM.
+     - Is powered on and the Resource Bridge has network connectivity to the host running the VM.
      - Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
      - Is able to connect through the firewall to communicate over the Internet and [these URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
      - Has Azure CLI [installed](/cli/azure/install-azure-cli).
@@ -194,4 +143,4 @@ The following firewall URL exceptions are needed for the Azure Arc agents:
 
 ## Next steps
 
-- [Connect your System Center Virtual Machine Manager management server to Azure Arc](quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
+[Connect your System Center Virtual Machine Manager management server to Azure Arc](quickstart-connect-system-center-virtual-machine-manager-to-arc.md).
