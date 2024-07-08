@@ -25,7 +25,7 @@ The [azure.storage.blob](https://pypi.org/project/azure-storage-blob/) package i
 pip install azure.storage.blob
 ```
 
-## Upload file from a device app
+## Upload file from a device application
 
 Follow this procedure for uploading a file from a device to IoT Hub:
 
