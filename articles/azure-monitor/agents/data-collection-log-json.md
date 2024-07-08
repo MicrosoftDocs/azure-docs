@@ -14,8 +14,9 @@ Many applications and services will log information to text or JSON files instea
 
 **Custom Text Logs** and **Custom JSON Logs** are two of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
 
-> [!Note]
-> JSON ingestion is currently in Preview.
+> [!NOTE]
+> The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. Please follow the directions in the Resource Manager Template tab.
+
 
 ## Prerequisites
 To complete this procedure, you need: 
