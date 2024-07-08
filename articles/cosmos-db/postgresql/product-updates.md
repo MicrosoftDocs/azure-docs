@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 05/28/2024
+ms.date: 07/07/2024
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
