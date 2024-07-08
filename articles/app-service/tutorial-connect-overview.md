@@ -16,9 +16,9 @@ Today, the decision for a connectivity approach is closely related to secrets ma
 
 |Connection method|When to use|
 |--|--|
-|[Connect with an app identity](#connect-with-an-app-identity)|* You want to remove credentials, keys, or secrets completely from your application.<br.>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.*<br/>The downstream resource doesn't need to know the current signed-in user or doesn't need granular authorization of the current signed-in user.|
-|[Connect on behalf of the signed-in user](#connect-on-behalf-of-the-signed-in-user)| * The app must access a downstream resource on behalf of the signed-in user.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.*<br/>The downstream resource must perform granular authorization of the current signed-in user.|
-|[Connect using secrets](#connect-using-secrets)|* The downstream resource requires connection secrets.<br>* Your app connects to non-Azure services, such as an on-premises database server.<br>* The downstream Azure service doesn't support Microsoft Entra authentication yet.|
+|[Connect with an app identity](#connect-with-an-app-identity)|* You want to remove credentials, keys, or secrets completely from your application.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.<br/>* The downstream resource doesn't need to know the current signed-in user or doesn't need granular authorization of the current signed-in user.|
+|[Connect on behalf of the signed-in user](#connect-on-behalf-of-the-signed-in-user)| * The app must access a downstream resource on behalf of the signed-in user.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.<br/>* The downstream resource must perform granular authorization of the current signed-in user.|
+|[Connect using secrets](#connect-using-secrets)|* The downstream resource requires connection secrets.<br/>* Your app connects to non-Azure services, such as an on-premises database server.<br/>* The downstream Azure service doesn't support Microsoft Entra authentication yet.|
 
 ## Connect with an app identity
 
