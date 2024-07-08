@@ -8,7 +8,7 @@ ms.reviewer: ratanase
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 07/08/2024
 ms.custom: sdkv2, update-code1
 ---
 
