@@ -61,7 +61,7 @@ When in transit or stored inside of Service Bus, the payload is always an opaque
 
 Unlike the Java or .NET Standard variants, the .NET Framework version of the Service Bus API supports creating **BrokeredMessage** instances by passing arbitrary .NET objects into the constructor. 
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 When you use the legacy SBMP protocol, those objects are then serialized with the default binary serializer, or with a serializer that is externally supplied. The object is serialized into an AMQP object. The receiver can retrieve those objects with the [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method, supplying the expected type. With AMQP, the objects are serialized into an AMQP graph of `ArrayList` and `IDictionary<string,object>` objects, and any AMQP client can decode them. 
 

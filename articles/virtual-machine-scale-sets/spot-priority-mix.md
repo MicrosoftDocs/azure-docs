@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.topic: conceptual
-ms.date: 07/01/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 # Spot Priority Mix for high availability and cost savings
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 

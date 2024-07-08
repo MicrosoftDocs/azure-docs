@@ -55,7 +55,7 @@ New-AzIotHub `
 
 The name of the IoT hub must be globally unique.
 
-[!INCLUDE [iot-hub-pii-note-naming-hub](~/reusable-content/ce-skilling/azure/includes/iot-hub-pii-note-naming-hub.md)]
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 To list all the IoT hubs in your subscription, use the [Get-AzIotHub](/powershell/module/az.IotHub/Get-azIotHub) command.
 

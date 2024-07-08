@@ -16,6 +16,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-about#protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-cert-linux.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-certificate-client-linux-azure-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client-mac.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-mac",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/howto-point-to-site-multi-auth.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-about#authentication",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate",
             "redirect_document_id": false

@@ -60,7 +60,7 @@ The following network and FQDN/application rules are required for an AKS cluster
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. This is required for clusters with *konnectivity-agent* enabled. Konnectivity also uses Application-Layer Protocol Negotiation (ALPN) to communicate between agent and server. Blocking or rewriting the ALPN extension will cause a failure. This isn't required for [private clusters][private-clusters]. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations.  |
-| **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
+| **`*.data.mcr.microsoft.com`**, **`mcr-0001.mcr-msedge.net`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Required for Microsoft Entra authentication. |
 | **`packages.microsoft.com`**     | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |

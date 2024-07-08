@@ -85,7 +85,7 @@ az signalr update \
 
 Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
 
-[!INCLUDE [cli-script-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Compare pricing tiers
 

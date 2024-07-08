@@ -86,7 +86,7 @@ When you enable resource logging, the system captures query requests in the **Az
       AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2023-07-01-preview&search=*"
+   | where Query_s != "?api-version=2023-11-01&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 

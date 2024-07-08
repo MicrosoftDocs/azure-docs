@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # Configure an Always On VPN device tunnel for Virtual WAN
 
-[!INCLUDE [intro](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-always-on-intro.md)]
+[!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ You must create a point-to-site configuration and edit the virtual hub assignmen
 
 ## Configure the device tunnel
 
-[!INCLUDE [device tunnel](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-always-on-device.md)]
+[!INCLUDE [device tunnel](../../includes/vpn-gateway-vwan-always-on-device.md)]
 
 ## To remove a profile
 

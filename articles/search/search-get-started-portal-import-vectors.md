@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: quickstart
-ms.date: 05/30/2024
+ms.date: 06/17/2024
 ---
 
 # Quickstart: Import and vectorize data wizard (preview)
@@ -19,10 +19,17 @@ ms.date: 05/30/2024
 
 Get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal. This wizard calls a user-specified embedding model to vectorize content during indexing and for queries.
 
-In this preview version of the wizard:
+You need three Azure resources and some sample files to complete this walkthrough:
 
-+ Source data is either blobs in Azure Storage or files in OneLake, using the default parsing mode (one search document per blob or file).
-+ Index schema is nonconfigurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key, represented as `parent_id` in the Index.
+> [!div class="checklist"]
+> + Azure Blob storage or Microsoft Fabric with OneLake for your data
+> + Azure vectorizations: either Azure AI services multiservice account, Azure OpenAI, or Azure AI Studio model catalog
+> + Azure AI Search for indexing and queries
+
+## Preview limitations
+
++ Source data is either Azure Blob Storage or OneLake files and shortcuts, using the default parsing mode (one search document per blob or file).
++ Index schema is nonconfigurable. Source fields include "content" (chunked and vectorized), "metadata_storage_name" for title, and a "metadata_storage_path" for the document key, represented as `parent_id` in the Index.
 + Chunking is nonconfigurable. The effective settings are:
 
   ```json
@@ -31,27 +38,31 @@ In this preview version of the wizard:
   pageOverlapLength: 500
   ```
 
-For more configuration and data source options, try Python or the REST APIs. See [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb) for details.
+For fewer limitations or more data source options, try a code-base approach. See [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb) for details.
 
 ## Prerequisites
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure AI Search, in any region and on any tier, with two caveats:
++ For data, use either [Azure Blob storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). 
 
-  First, role-based access control isn't available on the free tier. Basic tier and higher  provide role-based access control, which is required for *OneLake indexing* and recommended for connections to embedding models.
+  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use ADLS Gen2 (a storage account with a hierarchical namespace). ADLS Gen2 isn't supported with this version of the wizard.
 
-  Second, for multimodal embeddings with Azure AI Vision or image-related transformations, your search service must be in the *same region* as Azure AI Vision. Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
++ For vectorization, have an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments.
 
-+ A supported embedding model: [Azure OpenAI](https://aka.ms/oai/access) endpoint with deployments, [Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval) in a supported region, or [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
+  For [multimodal with Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval), create an Azure AI service in SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
 
-+ A supported data source: [Azure Storage account](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md). For Azure Storage, use a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
+  You can also use [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
 
-+ Role assignments or API keys are required for connections to embedding models and data sources. Instructions are provided in this article.
++ Azure AI Search, in the same region as your Azure AI service. We recommend Basic tier or higher.
 
-+ All components (data source and embedding endpoint) must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security. 
++ Role assignments or API keys are required for connections to embedding models and data sources. Instructions for role-based access are provided in this article.
 
-   If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here's a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
+All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
+
+If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here's a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
+
+A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This means you must use key-based authentication on free search service connections to other Azure services. For more secure connections, use basic tier or above and [configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignments to admit requests from Azure AI Search on other Azure services.
 
 ## Check for space
 

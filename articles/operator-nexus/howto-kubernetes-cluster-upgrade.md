@@ -91,7 +91,7 @@ During the cluster upgrade process, Operator Nexus performs the following operat
 * This process repeats until all worker nodes in the cluster have been upgraded.
 
 > [!NOTE]
-> The cluster upgrade may not create new nodes and replace the old ones if the operating system (OS) image version and Kubernetes version remain the same between version bundles. This is expected behavior, as the upgrade may only include updates to Addon versions rather than new OS or K8s versions. Since there is no rolling upgrade involved, there is no cordon and drain on the nodes, so Pod disruptions will not occur.
+> The cluster upgrade won't create new nodes and replace the old ones if the operating system (OS) image version and Kubernetes version remain the same between version bundles. This is expected behavior, as the upgrade may only include updates to Addon versions rather than new OS or K8s versions. Since there is no rolling upgrade involved, there is no cordon and drain on the nodes, so Pod disruptions will not occur.
 
 > [!IMPORTANT]
 > Ensure that any `PodDisruptionBudgets` ([PDB](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets)) allow for at least *one* pod replica to be moved at a time otherwise the drain/evict operation will fail.

@@ -45,8 +45,8 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td><code>mapReduce</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 
 <tr><td rowspan="3">Authentication Commands</td><td><code>authenticate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>getnonce</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>logout</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>getnonce</code></td><td colspan="3">Deprecated in MongoDB 4.0</td></tr>
+<tr><td><code>logout</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 
 <tr><td rowspan="1">Geospatial Commands</td><td><code>geoSearch</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 
@@ -88,7 +88,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 
 <tr><td rowspan="1">Replication Commands</td><td colspan="4">Azure manages replication, removing the necessity for customers to replicate manually.</td></tr>
 
-<tr><td rowspan="35">Sharding Commands</td><td><code>enableSharding</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td rowspan="34">Sharding Commands</td><td><code>enableSharding</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>isdbgrid</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>reshardCollection</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>shardCollection</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
@@ -122,13 +122,12 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td><code>abortReshardCollection</code></td></tr>
 <tr><td><code>commitReshardCollection</code></td></tr>
 <tr><td><code>refineCollectionShardKey</code></td></tr>
-<tr><td><code>reshardCollection</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 
 <tr><td rowspan="9">Query and Write Operation Commands</td><td><code>change streams</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>delete</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>find</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>findAndModify</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>getLastError</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>getLastError</code></td><td colspan="3">Deprecated in MongoDB 5.1</td></tr>
 <tr><td><code>getMore</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>insert</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>resetError</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>

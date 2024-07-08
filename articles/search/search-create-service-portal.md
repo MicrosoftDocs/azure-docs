@@ -223,7 +223,7 @@ Azure AI Search restricts the [number of search services](search-limits-quotas-c
 
 You must have Owner or Contributor permissions on the subscription to request quota.
 
-Maximum quota for a given tier and region combination is an extra 100 search services over the baseline quota (which means 106, 108, or 116 [depending on the tier](search-limits-quotas-capacity.md#subscription-limits)). You can't increase quota for the Free tier.
+Maximum quota for a given tier and region combination is an extra 100 search services over the baseline quota (which means 106, 108, or 116 [depending on the tier](search-limits-quotas-capacity.md#subscription-limits)). For more than 100, file a support ticket. You can't increase quota for the Free tier.
 
 1. Sign in to the Azure portal, search for "quotas" in your dashboard, and then select the **Quotas** service.
 
