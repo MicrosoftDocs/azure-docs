@@ -23,7 +23,7 @@ You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordas
 The Advisor dashboard displays personalized recommendations for all your subscriptions. The recommendations are divided into five categories: 
 
 * **Reliability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-reference-reliability-recommendations.md).
-* **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
+* **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](../defender-for-cloud/recommendations-reference.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-reference-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-reference-cost-recommendations.md).
 * **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. For more information, see [Advisor Operational Excellence recommendations](advisor-reference-operational-excellence-recommendations.md).
