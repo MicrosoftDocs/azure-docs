@@ -254,21 +254,23 @@ The capability matrix for SAP workload looks like:
 
 [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure native, first-party, enterprise-class, high-performance file storage service certified for use with SAP HANA. It provides _Volumes as a service_ for which you create NetApp accounts, capacity pools, and volumes. With Azure NetApp Files, you select service and performance levels and manage data protection to create and manage high-performance, highly available, and scalable file shares by using the same protocols and tools that you're familiar with and rely on on-premises.
 
+The following types of SAP workload are supported on Azure NetApp Files volumes:
 
-For information about service levels, see [Service levels for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). For the different types of SAP workload the following service levels are highly recommended:
+- SAP DBMS workload
+- SAPMNT share
+- Global transport directory
 
-- SAP DBMS workload:  	Performance, ideally Ultra
-- SAPMNT share:			Performance, ideally Ultra
-- Global transport directory: Performance, ideally Ultra
+Azure NetApp Files is available in three service levels, each with their own throughput and pricing specifications. Which one is right for your deployment depends on the size of the deployment. Customized sizing recommendations are available in the [SAP on Azure NetApp Files TCO Estimator](https://aka.ms/anfsapcalc).
 
-Sizing recommendations are available in the [SAP on Azure NetApp Files TCO Estimator](https://aka.ms/anfsapcalc).
+For information about service levels, see [Service levels for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+
 
 ### Deploying volumes 
 
 For optimal results, use [Application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md) to deploy the volumes. Application volume group place volumes in optimal locations in the Azure infrastructure using affinity and anti-affinity rules to reduce contention and to allow for the best throughput and lowest latency.
 
 > [!NOTE]
-> The minimum provisioning size is a 1 TiB unit that is called capacity pool. You can expand a capacity pool in 1-TiB increments. Capacity pools are the parent unit for volumes; the smallest volume size is 100 GiB. For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/)
+> Capacity pools are a basic provisioning unit for Azure NetApp Files. Capacity pools are offered beginning at 1 TiB in size; you can expand a capacity pool in 1-TiB increments. Capacity pools are the parent unit for volumes; the smallest volume size is 100 GiB. For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/)
 
 Azure NetApp Files is supported for several SAP workload scenarios:
 
@@ -279,7 +281,7 @@ Azure NetApp Files is supported for several SAP workload scenarios:
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md)
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 - IBM Db2 in Suse or Red Hat Linux-based Azure VM
-- SAP on Oracle deployments in Oracle Linux guest OS using [dNFS]https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
+- SAP on Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - SAP on ASE in Suse or Red Hat Linux guest OS
 - AP on MAXDB in Suse or Red Hat Linux guest OS 
 - SAP on Microsoft SQL Server with SMB volumes
@@ -311,7 +313,7 @@ The capability matrix for SAP workload on Azure NetApp Files looks like:
 | OS base VHD | Use managed disk | - |
 | Data disk | Suitable | SAP HANA, Oracle on Oracle Linux, Db2 and SAP ASE on SLES/RHEL, MAXDB, SQL Server  |
 | SAP global transport directory | Yes | SMB (Windows only) and  NFS (Linux only) |
-| SAP sapmnt | Suitable | All systems SMB (Windows only) or NFS (Linux only) |
+| SAP sapmnt | Suitable |SMB (Windows only) or NFS (Linux only) |
 | Backup storage | Suitable | Use snapshots and/or Azure NetApp Files backup; log backup for HANA can also be used as file based backup destination |
 | Shares/shared disk | Yes | SMB, NFS |
 | Resiliency | LRS and GRS | [GRS with cross-region replication](../../azure-netapp-files/cross-region-replication-introduction.md); [ZRS with cross-zone replication](../../azure-netapp-files/cross-zone-replication-introduction.md) |
@@ -327,9 +329,9 @@ The capability matrix for SAP workload on Azure NetApp Files looks like:
 
 Other built-in functionality of Azure NetApp Files storage:
 
-- Capability to perform application consistent snapshots of volume using [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md)
-- Cloning of Azure NetApp Files volumes from snapshots for testing and development
-- Restoring volumes from from snapshots (snap-revert) for rapid restores from corruptions and errors
+- Capability to perform application consistent [snapshots](../..//azure-netapp-files/snapshots-introduction.md) of volume using [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md)
+- Cloning of Azure NetApp Files [volumes from snapshots](../../azure-netapp-files/snapshots-restore-new-volume.md) for testing and development
+- Restoring [volumes from from snapshots (snap-revert)](../../azure-netapp-files/snapshots-revert-volume.md) for rapid restores from corruptions and errors
 
 > [!IMPORTANT]
 > Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than 1 millisecond for HANA redo log writes of smaller sizes. To get to such latencies, see the possibilities below.
@@ -339,7 +341,7 @@ Other built-in functionality of Azure NetApp Files storage:
 
 The motivation to have this type of Availability Zone alignment is the reduction of risk surface by having the NFS shares in the same availability zone as the application VMs.
 
-Deploy Azure NetApp Files volumes for your SAP HANA deployment using Application Volume Group for SAP HANA. The advantage of Application Volume Group is that data volumes are deployed over multiple storage endpoints, reducing network contention and improving performance. 
+* Deploy Azure NetApp Files volumes for your SAP HANA deployment using [application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Group is that data volumes are deployed over multiple storage endpoints, reducing network contention and improving performance. 
 
 **Summary**: Azure NetApp Files is a certified low latency storage solution for SAP HANA. The service provides volumes carved out of one or more capacity pools. Capacity pools are available in three service levels which define the total capacity and throughput allocated. The volumes can be resized, and allocated throughput can be adjusted without service interruption to cater for changing requirements and to control cost.  The service provides functionality to replicate volumes to other regions or zones for disaster recovery and business continuance purposes.
 
