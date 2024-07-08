@@ -2,9 +2,9 @@
 title: Deploy model packages to online endpoints (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how you can package a model and deploy it for online inferencing to online endpoints.
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
