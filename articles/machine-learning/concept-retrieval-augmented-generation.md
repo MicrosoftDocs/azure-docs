@@ -3,9 +3,9 @@ title: Retrieval Augmented Generation using Azure Machine Learning prompt flow (
 titleSuffix: Azure Machine Learning
 description: Explaining retrieval augmented generation and using Prompt Flow models for business use cases
 services: machine-learning
-ms.author: balapv
-author: balapv
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: balapv
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/10/2024

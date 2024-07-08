@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 05/29/2024
+ms.date: 07/08/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,19 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.8         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.8         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.9         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.9         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+
+## Updates for version 10.5.9
+
+*Published: June 27, 2024*
+
+In this release, we made the following changes:
+
+- Updated the client connection path to fall back to TLS when NTLM isn't available in the context of NLA. 
+- Addressed an issue that prevented the hardware keyboard from working when connected. 
+
 
 ## Updates for version 10.5.8
 

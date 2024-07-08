@@ -5,9 +5,9 @@ description: Roll out newer versions of ML models without disruption.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 10/24/2023
 reviewer: msakande
 ms.topic: how-to
