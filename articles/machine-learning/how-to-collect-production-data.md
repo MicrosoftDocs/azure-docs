@@ -10,7 +10,6 @@ author: msakande
 ms.author: mopeakande
 ms.date: 04/15/2024
 ms.reviewer: alehughes
-reviewer: msakande
 ms.custom: devplatv2, build-2023
 ---
 
