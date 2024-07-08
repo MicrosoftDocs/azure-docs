@@ -93,16 +93,16 @@ More workflows in your logic app raise the risk of longer load times, which nega
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Fabrikam-Workflows-RG**. |
-   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app's name automatically gets the suffix, **.azurewebsites.net**, because the Standard logic app resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app named **Fabrikam-Workflows**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app name automatically gets the suffix, **.azurewebsites.net**, because the Standard logic app resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app named **Fabrikam-Workflows**. |
 
 1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Standard** so that you view only the settings that apply to the Standard plan-based logic app type.
 
-   The **Plan type** property specifies the hosting plan and billing model to use for your logic app. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md).
+   The **Plan type** property specifies the hosting plan and pricing model to use for your logic app. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md).
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection. Workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type and workflow runs in global, multitenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection. Workflows run in single-tenant Azure Logic Apps and use the [Standard pricing model](logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type and workflow runs in global, multitenant Azure Logic Apps and uses the [Consumption pricing model](logic-apps-pricing.md#consumption-pricing). |
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -114,7 +114,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Publish** | Yes | **Workflow** | This option appears and applies only when **Plan type** is set to the **Standard** logic app type. By default, this option is set to **Workflow** and creates an empty logic app resource where you add your first workflow. <br><br>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Standard)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
-   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region to use for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <br><br>- If you previously chose **Docker Container**, select your custom location from the **Region** list. <br><br>- If you want to deploy your app to an existing [App Service Environment v3 resource](../app-service/environment/overview.md), you can select that environment from the **Region** list. |
+   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region to use for storing your app information. This example deploys the sample logic app to the **West US** region in Azure. <br><br>- If you previously chose **Docker Container**, select your custom location from the **Region** list. <br><br>- If you want to deploy your app to an existing [App Service Environment v3 resource](../app-service/environment/overview.md), you can select that environment from the **Region** list. |
 
    > [!NOTE]
    >
@@ -132,7 +132,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. <br><br>**Note**: By default, Standard logic apps use a connection string to access your Azure Storage account. However, after you create your Standard logic app, you can [set up a user-assigned managed identity instead to authenticate access from your logic app to your storage account](#set-up-managed-identity-storage). |
 
 1. On the **Networking** tab, you can leave the default options for this example.
@@ -157,7 +157,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    1. For the **Application Insights** setting, either select an existing Application Insights instance, or if you want to create a new instance, select **Create new** and provide the name that you want to use.
 
-1. After Azure validates your logic app's settings, on the **Review + create** tab, select **Create**, for example:
+1. After Azure validates your logic app settings, on the **Review + create** tab, select **Create**, for example:
 
    ![Screenshot showing Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
@@ -328,7 +328,8 @@ In this example, the workflow runs when the Request trigger receives an inbound 
    **`https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`**
 
    > [!TIP]
-   > You can also find the endpoint URL on your logic app's **Overview** pane in the **Workflow URL** property.
+   >
+   > You can also find the endpoint URL on your logic app **Overview** page in the **Workflow URL** property.
    >
    > 1. On the resource menu, select **Overview**.
    > 1. On the **Overview** pane, find the **Workflow URL** property.
@@ -415,7 +416,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. On the **Job function roles** tab, add each of the following roles to the user-assigned identity:
 
-      - **Storage Account Contribtor**
+      - **Storage Account Contributor**
       - **Storage Blob Data Owner**
       - **Storage Queue Data Contributor**
       - **Storage Table Data Contributor**
@@ -440,7 +441,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 1. On the **App settings** tab, delete the app setting named **AzureWebJobsStorage**, which is set to the connection string associated with your storage account.
 
-1. When you finish, select **Apply** to save your changes, which restarts your logic app.
+1. When you finish, select **Apply**, which saves your changes and restarts your logic app.
 
    Your changes might take several moments to take effect. If necessary, on your logic app menu, select **Overview**, and on the toolbar, select **Refresh**.
 
@@ -456,7 +457,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app's menu, under **Settings**, select **Configuration**.
+1. On the logic app menu, under **Settings**, select **Configuration**.
 
 1. On the **Application settings** tab, select **New application setting**.
 
@@ -478,7 +479,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
+If your logic app creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
 
 ### Enable Application Insights on a deployed logic app
 
@@ -565,7 +566,7 @@ To fix this problem, follow these steps to delete the outdated version so that t
    > If you get an error such as **"permission denied"** or **"file in use"**, refresh the 
    > page in your browser, and try the previous steps again until the folder is deleted.
 
-1. In the Azure portal, return to your logic app's **Overview** page, and select **Restart**.
+1. In the Azure portal, return to your logic app and its **Overview** page, and select **Restart**.
 
    The portal automatically gets and uses the latest bundle.
 
