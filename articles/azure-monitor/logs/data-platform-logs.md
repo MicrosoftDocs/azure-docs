@@ -78,11 +78,10 @@ After you create a [Log Analytics workspace](#log-analytics-workspaces), you mus
 This configuration will be different depending on the data source. For example:
 
 - [Create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace.
-- [Enable VM insights](../vm/vminsights-enable-overview.md) to collect data from virtual machines. 
-- [Configure data sources on the workspace](../data-sources.md) to collect more events and performance data.
+- [Enable data collection rules](../essentials/data-collection-rule-create-edit.md) to collect data from virtual machines. 
 
 > [!IMPORTANT]
-> Most data collection in Logs will incur ingestion and retention costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you enable any data collection.
+> For most data collection in Logs, you incur ingestion and retention costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you enable any data collection.
 
 
 ## Log Analytics 
