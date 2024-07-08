@@ -16,7 +16,7 @@ author: eric-urban
 
 # Generate adversarial simulations for safety evaluation
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you might not have test datasets to evaluate the quality and effectiveness of your generative AI application. 
 
@@ -30,7 +30,7 @@ pip install promptflow-evals
 
 from promptflow.evals.synthetic import AdversarialSimulator
 ```
-The adversarial simulator works by setting up a service-hosted GPT large language model to simulate an adversarial user and interact with your application. An Azure AI project is required to run the adversarial simulator:
+The adversarial simulator works by setting up a service-hosted GPT large language model to simulate an adversarial user and interact with your application. An AI Studio project is required to run the adversarial simulator:
 ```python
 from azure.identity import DefaultAzureCredential
 
@@ -122,12 +122,6 @@ The `messages` in `output` is a list of role-based turns. For each turn, it cont
 
 ```json
 {
-    "template_parameters": [
-        {
-            "name": "<name_of_simulated_agent>",
-            "chatbot_name": "<name_of_chatbot>"
-        }
-    ],
     "messages": [
         {
             "content": "<conversation_turn_content>", 

@@ -7,17 +7,16 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
  - serverless
  - references_regions
 ---
 
-# Region availability for models in Serverless API endpoints | Azure Machine Learning
+# Region availability for models in serverless API endpoints | Azure Machine Learning
 
 In this article, you learn about which regions are available for each of the models supporting serverless API endpoint deployments.
 
@@ -25,18 +24,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-Serverless API endpoints are available in the following regions for the indicated models:
-
-| Model              | East US 2   | West US 3      | Sweden Central | France Central |
-| ------------------ | ----------- | -------------- | -------------- | -------------- |
-| Mistral-Small      | **&check;** |                | **&check;**    |                |
-| Mistral-Large      | **&check;** |                | **&check;**    | **&check;**    |
-| Cohere Command R   | **&check;** |                | **&check;**    |                |
-| Cohere Command R+  | **&check;** |                | **&check;**    |                |
-| Cohere Embed v3    | **&check;** |                | **&check;**    |                |
-| Meta Llama 2       | **&check;** | **&check;**    |                |                |
-| Meta Llama 3       | **&check;** |                |                |                |
-| Phi-3              | **&check;** |                | **&check;**    |                |
+[!INCLUDE [region-availabilitity-serverless-api](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/region-availabilitity-serverless-api.md)]
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for purchase only on [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions), with exception of Cohere family of models, which is also available in Japan.

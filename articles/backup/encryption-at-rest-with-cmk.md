@@ -2,7 +2,7 @@
 title: Encrypt backup data by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs).
 ms.topic: conceptual
-ms.date: 08/25/2023
+ms.date: 06/12/2024
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: backup
 author: AbhishekMallick-MS

@@ -5,14 +5,13 @@ description: Reference documentation for the CLI (v2) Python feed connections YA
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-python
 ms.topic: reference
 
-author: AmarBadal
-ms.author: ambadal
+author: Blackmist
+ms.author: larryfr
 ms.date: 05/09/2024
-ms.reviewer: larryfr
+ms.reviewer: ambadal
 ---
 
 # CLI (v2) Python feed connection YAML schema
@@ -40,7 +39,7 @@ ms.reviewer: larryfr
 
 ## Remarks
 
-While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections, the Python feed connection is specific to Azure AI Studio.
+While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections.
 
 ## Examples
 

@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 06/19/2024
 ---
 
 # Estimate and manage capacity of a search service
@@ -27,6 +27,9 @@ When scaling a search service, you can choose from the following tools and appro
 + [Azure PowerShell](search-manage-powershell.md#scale-replicas-and-partitions)
 + [Azure CLI](/cli/azure/search/service#az-search-service-create-optional-parameters)
 + [Management REST API](/rest/api/searchmanagement/services/create-or-update)
+
+> [!NOTE]
+> Higher capacity partitions are available at the same billing rate on newer services created after April and May 2024. For more information, see [Service limits](search-limits-quotas-capacity.md#service-limits) for partition size upgrades.
 
 ## Concepts: search units, replicas, partitions
 

@@ -36,8 +36,6 @@ items:
     items:
     - name: Create indoor maps
       href: tutorial-creator-indoor-maps.md
-    - name: Set up a geofence
-      href: tutorial-geofence.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)
@@ -108,6 +106,8 @@ items:
         items:
         - name: Get Imagery Metadata
           href: migrate-get-imagery-metadata.md
+        - name: Get a Static Map
+          href: migrate-get-static-map.md
       - name: Bing Maps Locations Services
         items:
         - name: Find a Location by Address
@@ -201,6 +201,8 @@ items:
       href: how-to-use-best-practices-for-search.md
     - name: Best Practices using Route Service
       href: how-to-use-best-practices-for-routing.md
+    - name: Create multi-itinerary optimization service
+      href: itinerary-optimization-service.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
     - name: Request real-time and forecasted weather data

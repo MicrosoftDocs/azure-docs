@@ -200,6 +200,8 @@ items:
       - name: What is text to speech avatar?
         href: text-to-speech-avatar/what-is-text-to-speech-avatar.md
         displayName: avatar
+      - name: Content credentials
+        href: text-to-speech-avatar/content-credentials.md
       - name: How to synthesize text to speech avatar
         items:
         - name: Real-time synthesis
@@ -227,7 +229,7 @@ items:
         - name: Deploy your custom text to speech avatar model as an endpoint
           href: text-to-speech-avatar/custom-avatar-endpoint.md
           displayName: avatar
-    - name: Audio Content Creation
+    - name: Audio content creation
       href: how-to-audio-content-creation.md
       displayName: acc
     - name: OpenAI text to speech voices
@@ -246,6 +248,12 @@ items:
          href: get-started-speech-translation.md
        - name: How to recognize and translate speech
          href: how-to-translate-speech.md
+    - name: Video translation (preview)
+      items:
+       - name: Video translation overview
+         href: video-translation-overview.md
+       - name: Video translation in the studio
+         href: video-translation-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview
@@ -566,6 +574,10 @@ items:
         - name: Text to speech REST API
           href: rest-text-to-speech.md
           displayName: reference, tts output, output format
+        - name: Custom voice REST API
+          href: /rest/api/aiservices/speechapi/operation-groups
+        - name: Batch synthesis REST API
+          href: /rest/api/batchtexttospeech/operation-groups
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 

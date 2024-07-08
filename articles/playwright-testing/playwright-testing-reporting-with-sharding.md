@@ -1,6 +1,6 @@
 ---
 title: Use Microsoft Playwright Testing Reporting with Playwright sharding (preview)
-description: Learn to
+description: Learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use Playwright's sharding features.
 author: vvs11
 ms.service: playwright-testing
 ms.custom:
@@ -35,7 +35,6 @@ By default, a test run that uses reporting feature automatically generates a uni
 While using sharding, make sure the same `RUN_ID` is set across all the shards for the results to be reported together. 
 
 Here's an example of how you can set it in your pipeline via GitHub Actions. 
-
 
 ```yml
 name: Playwright Tests

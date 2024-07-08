@@ -16,7 +16,7 @@ author: lgayhardt
 
 # Evaluation and monitoring metrics for generative AI
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Azure AI Studio allows you to evaluate single-turn or complex, multi-turn conversations where you ground the generative AI model in your specific data (also known as Retrieval Augmented Generation or RAG). You can also evaluate general single-turn question answering scenarios, where no context is used to ground your generative AI model (non-RAG). Currently, we support built-in metrics for the following task types:
 

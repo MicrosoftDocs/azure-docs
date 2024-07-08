@@ -4,7 +4,7 @@ description: Learn how to quickly build and deploy Django  on AKS with Azure Dat
 author: agapovm
 ms.author: maximagapov
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/13/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL flexible server using the Azure CLI.
 
@@ -27,7 +27,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 ## Pre-requisites
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on your local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.

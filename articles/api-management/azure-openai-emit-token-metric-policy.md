@@ -8,6 +8,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 05/10/2024
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ---
@@ -66,7 +67,7 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 * Product ID
 * User ID
 * Subscription ID
-* Location ID
+* Location
 * Gateway ID
 
 ## Usage

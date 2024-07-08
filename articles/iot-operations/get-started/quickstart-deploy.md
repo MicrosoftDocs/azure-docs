@@ -22,13 +22,12 @@ The services deployed in this quickstart include:
 * [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
 * [Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Azure IoT Data Processor Preview](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md)
 * [Azure Device Registry Preview](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../monitor/howto-configure-observability.md)
 
-The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Before you begin
 
@@ -61,7 +60,10 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Connect a Kubernetes cluster to Azure Arc
 
-Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For this quickstart, use GitHub Codespaces to host your cluster.
+Azure IoT Operations should work on any Kubernetes cluster that conforms to the Cloud Native Computing Foundation (CNCF) standards. For speed and convenience, this quickstart uses GitHub Codespaces to host your cluster.
+
+> [!IMPORTANT]
+> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a production cluster such as AKS Edge Essentials, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials).
 
 In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
@@ -94,7 +96,7 @@ Run the following CLI commands in your Codespaces terminal.
    >[!TIP]
    > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
 
-1. Deploy Azure IoT Operations.
+1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
    az iot ops init --simulate-plc --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --kv-id $(az keyvault show --name ${CLUSTER_NAME:0:24} -o tsv --query id)
@@ -127,7 +129,7 @@ To view your cluster on the Azure portal, use the following steps:
 
    :::image type="content" source="./media/quickstart-deploy/view-extensions.png" alt-text="Screenshot that shows the deployed extensions on your Arc-enabled cluster.":::
 
-   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service. These extensions have a unique suffix that identifies your deployment. In the previous screenshot, this suffix is **-z2ewy**.
+   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service. These extensions have a unique suffix that identifies your deployment. In the previous screenshot, this suffix is **-tg45l**.
 
    There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
 
@@ -141,15 +143,11 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, be sure to keep the secrets provider on your cluster.
+If you want to delete the Azure IoT Operations deployment but want to keep your cluster, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command.
 
-1. In your resource group in the Azure portal, select your cluster.
-1. On your cluster resource page, select **Extensions**.
-1. Select all of the extensions of type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Don't uninstall the secrets provider extension.
-
-    :::image type="content" source="media/quickstart-deploy/uninstall-extensions.png" alt-text="Screenshot that shows the extensions to uninstall.":::
-
-1. Return to your resource group and select the custom location resource, then select **Delete**.
+   ```azurecli
+   az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+   ```
 
 If you want to delete all of the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contained the cluster.
 

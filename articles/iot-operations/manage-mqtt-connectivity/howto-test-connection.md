@@ -3,11 +3,11 @@ title: Test connectivity to IoT MQ with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to Azure IoT MQ in a nonproduction environment.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 03/18/2024
+ms.date: 07/08/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my Azure IoT MQ broker correctly.
 ---
@@ -253,8 +253,32 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 1. Use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as the example without port forwarding.
 
 Port forwarding is also useful for testing IoT MQ locally on your development machine without having to modify the broker's configuration.
+For more information about minikube, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
-To learn more, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) for minikube and [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) for Azure Kubernetes Services Edge Essentials.
+#### Port forwarding on AKS Edge Essentials
+For Azure Kubernetes Services Edge Essentials, you need to perform a few additional steps. For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
+1. Assume that the broker's service is exposed to an external IP using a load balancer. For example if you patched the default load balancer `aio-mq-dmqtt-frontend`, get the external IP address for the service.
+    ```bash
+    kubectl get service aio-mq-dmqtt-frontend --namespace azure-iot-operations
+    ```
+    
+    Output should look similar to the following:
+    
+    ```Output
+    NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+    aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   192.168.0.4   8883:30366/TCP   14h
+    ```
+    
+1. Set up port forwarding to the `aio-mq-dmqtt-frontend` service on the external IP address `192.168.0.4` and port `8883`:
+    ```bash
+    netsh interface portproxy add v4tov4 listenport=8883 connectport=8883 connectaddress=192.168.0.4
+    ```
+    
+1. Open the port on the firewall to allow traffic to the broker's service:
+    ```bash
+    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    ```
+1. Use the host's public IP address to connect to the MQTT broker.
 
 ## No TLS and no authentication
 

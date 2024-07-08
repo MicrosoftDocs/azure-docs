@@ -2,8 +2,7 @@
 title: Azure OpenAI extension for Azure Functions
 description: Learn to configure the Azure OpenAI extension to be able to integrate your Azure Functions code executions with Azure OpenAI APIs.
 ms.topic: reference
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 05/14/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -67,7 +66,7 @@ When using a vector database for storing content, you should also install at lea
 
 ## Install bundle
 
-You can add the preview extension by adding or replacing the following code in your `host.json` file:
+You can add the preview extension by adding or replacing the following code in your `host.json` file, which specifically targets a preview version of the 4.x bundle that contains the OpenAI extension:
 <!---verify this bundle info-->
 ```json
 {

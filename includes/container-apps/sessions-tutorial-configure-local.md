@@ -1,6 +1,7 @@
 ---
 author: anthonychu
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic:  include
 ms.date: 05/08/2024
 ms.author: antchu
@@ -48,7 +49,7 @@ ms.author: antchu
             --output tsv
         ```
 
-    1. Create a `.env` file in the root of the sample app directory (`langchain-python-webapi`). Add the following content to the file:
+    1. Create a `.env` file in the root of the sample app directory (same location as `main.py`). Add the following content to the file:
 
         ```text
         AZURE_OPENAI_ENDPOINT=<AZURE_OPENAI_ENDPOINT>

@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This page describes the Azure Database for MySQL versioning policy and applies to Azure Database for MySQL - Single Server and Azure Database for MySQL - Flexible Server deployment modes.
 
@@ -69,7 +69,7 @@ __Azure MySQL 5.7 Deprecation Timelines__
 |Timelines|	Azure MySQL 5.7 Flexible end at	|Azure MySQL 5.7 Single end at|
 |---|---|---|
 |Creation of new servers using the Azure portal.| 	To Be Decided|	Already ended as part of [Single Server deprecation](single-server/whats-happening-to-mysql-single-server.md)|
-|Creation of new servers using the Command Line Interface (CLI). |	To Be Decided| 	September 2024| 
+|Creation of new servers using the Command Line Interface (CLI). |	To Be Decided| 	March 19, 2024| 
 |Creation of replica servers for existing servers. |	September 2025|	September 2024|
 |Creation of servers using restore workflow for the existing servers| September 2025|September 2024|
 |Creation of new servers for migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server.|	NA|	September 2024|
@@ -107,7 +107,7 @@ A: Some compatibility issues may arise due to changes in MySQL v8.0. It's import
 
 __Q: What support is available if I encounter issues during the upgrade process?__
 
-A: If you have questions, get answers from community experts in [Microsoft Q&A](https://aka.ms/microsoft-azure-mysql-qa). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also email the [Azure Database for MySQL product team](mailto:AskAzureDBforMySQL@service.microsoft.com).
+A: If you have questions, get answers from community experts in [Microsoft Q&A](https://aka.ms/microsoft-azure-mysql-qa). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 __Q: What will happen to my data during the upgrade?__
 

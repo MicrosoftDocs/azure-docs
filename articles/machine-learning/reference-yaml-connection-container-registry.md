@@ -9,10 +9,10 @@ ms.custom:
   - build-2024
 ms.topic: reference
 
-author: AmarBadal
-ms.author: ambadal
+author: Blackmist
+ms.author: larryfr
 ms.date: 05/09/2024
-ms.reviewer: larryfr
+ms.reviewer: ambadal
 ---
 
 # CLI (v2) Azure Container Registry connection YAML schema
@@ -41,7 +41,7 @@ ms.reviewer: larryfr
 
 ## Remarks
 
-While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections, the container registry connection is specific to Azure AI Studio.
+While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections.
 
 ## Examples
 

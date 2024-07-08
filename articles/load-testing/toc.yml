@@ -61,12 +61,16 @@ items:
           href: how-to-create-load-test-app-service.md
         - name: Test Azure Functions
           href: how-to-create-load-test-function-app.md
+        - name: Optimize Azure Functions
+          href: how-to-optimize-azure-functions.md          
         - name: Test private endpoints
           displayName: virtual network, vnet, hybrid, on-premises, onprem, private link, subnet
           href: how-to-test-private-endpoint.md
         - name: Test secure endpoints
           displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
           href: how-to-test-secured-endpoints.md
+        - name: Run tests in debug mode
+          href: how-to-run-tests-in-debug-mode.md  
     - name: Automation
       items:
         - name: Run load tests in CI/CD

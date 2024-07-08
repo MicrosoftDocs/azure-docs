@@ -45,9 +45,10 @@ To install the KEDA add-on, use `--enable-keda` when creating or updating a clus
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --enable-keda 
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --enable-keda \
+        --generate-ssh-keys
     ```
 
 ### Enable the KEDA add-on on an existing AKS cluster
@@ -56,9 +57,9 @@ To install the KEDA add-on, use `--enable-keda` when creating or updating a clus
 
     ```azurecli-interactive
     az aks update \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --enable-keda 
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --enable-keda 
     ```
 
 ## Get the credentials for your cluster

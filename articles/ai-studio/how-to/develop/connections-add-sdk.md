@@ -15,7 +15,7 @@ author: Blackmist
 
 # Add a new connection using the Azure Machine Learning SDK
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to add a new connection using the Azure Machine Learning SDK.
 
@@ -39,7 +39,7 @@ The following example creates an Azure OpenAI Service connection.
 > To connect to Azure OpenAI and more AI services with one connection, you can use the [AI services connection](#azure-ai-services) instead.
 
 ```python
-from azure.ai.ml.entities import Connection, AzureOpenAIConnection, ApiKeyConfiguration
+from azure.ai.ml.entities import AzureOpenAIConnection, ApiKeyConfiguration
 from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 name = "XXXXXXXXX"
@@ -50,7 +50,7 @@ resource_id= "Azure-resource-id"
 
 wps_connection = AzureOpenAIConnection(
     name=name,
-    endpoint=target,
+    azure_endpoint=target,
     credentials=ApiKeyConfiguration(key=api_key),
     resource_id = resource_id,
     is_shared=False
@@ -81,7 +81,7 @@ wps_connection = AzureAIServicesConnection(
 ml_client.connections.create_or_update(wps_connection)
 ```
 
-## Azure AI Search
+## Azure AI Search (preview)
 
 The following example creates an Azure AI Search connection:
 
@@ -101,7 +101,7 @@ wps_connection = AzureAISearchConnection(
 ml_client.connections.create_or_update(wps_connection)
 ```
 
-## Azure AI Content Safety
+## Azure AI Content Safety (preview)
 
 The following example creates an Azure AI Content Safety connection:
 
@@ -123,7 +123,7 @@ wps_connection = AzureContentSafetyConnection(
 ml_client.connections.create_or_update(wps_connection)
 ```
 
-## Serverless
+## Serverless model (preview)
 
 The following example creates a serverless endpoint connection:
 
@@ -143,7 +143,7 @@ wps_connection = ServerlessConnection(
 ml_client.connections.create_or_update(wps_connection)
 ```
 
-## Azure Blob Storage
+## Azure Blob Storage (preview)
 
 The following example creates an Azure Blob Storage connection. This connection is authenticated with an account key or a SAS token:
 
@@ -167,7 +167,7 @@ wps_connection = AzureBlobStoreConnection(
 ml_client.connections.create_or_update(wps_connection)
 ```
 
-## Azure Data Lake Storage Gen 2
+## Azure Data Lake Storage Gen 2 (preview)
 
 The following example creates Azure Data Lake Storage Gen 2 connection. This connection is authenticated with a Service Principal:
 
@@ -195,7 +195,7 @@ wps_connection = WorkspaceConnection(
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```
 
-## Microsoft OneLake
+## Microsoft OneLake (preview)
 
 The following example creates a Microsoft OneLake connection. This connection is authenticated with a Service Principal:
 
@@ -227,28 +227,6 @@ wps_connection = MicrosoftOneLakeWorkspaceConnection(
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```
 
-## Git
-
-The following example creates a Git connection to a GitHub repo. This connection is authenticated with a Personal Access Token (PAT):
-
-```python
-from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
-
-
-name = "my_git_conn"
-
-target = "https://github.com/myaccount/myrepo"
-
-wps_connection = WorkspaceConnection(
-    name=name,
-    type="git",
-    target=target,
-    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
-)
-ml_client.connections.create_or_update(workspace_connection=wps_connection)
-```
-
 ## Serp
 
 The following example creates a Serp connection:
@@ -274,82 +252,13 @@ The following example creates an OpenAI (not Azure OpenAI) connection:
 from azure.ai.ml.entities import OpenAIConnection
 
 name = "my_oai_apk"
-api_key = "XXXXXXXX
+api_key = "XXXXXXXX"
 
 wps_connection = OpenAIConnection(
     name=name,
     api_key=api_key,
 )
 ml_client.connections.create_or_update(wps_connection)
-```
-
-## Python feed
-
-The following example creates a Python feed connection. This connection is authenticated with a personal access token (PAT) or a username and password:
-
-```python
-from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration  
-
-
-name = "my_pfeed_conn"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
-
-wps_connection = WorkspaceConnection(
-    name=name,
-    type="python_feed",
-    target=target,
-    #credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"), 
-    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
-
-    #credentials=None
-)
-ml_client.connections.create_or_update(workspace_connection=wps_connection)
-```
-
-## Azure Container Registry
-
-The following example creates an Azure Container Registry connection. This connection is authenticated using a managed identity:
-
-```python
-from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration  
-
-
-name = "my_acr_conn"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
-
-wps_connection = WorkspaceConnection(
-    name=name,
-    type="container_registry",
-    target=target,
-    credentials=ManagedIdentityConfiguration (client_id="xxxxx", resource_id="xxxxx"),    
-)
-ml_client.connections.create_or_update(workspace_connection=wps_connection)
-```
-
-## API key
-
-The following example creates an API key connection:
-
-```python
-from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ApiKeyConfiguration
-
-
-name = "my_api_key"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
-
-wps_connection = WorkspaceConnection(
-    name=name,
-    type="apikey",
-    target=target,
-    credentials=ApiKeyConfiguration(key="XXXXXXXXX"),    
-)
-ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```
 
 ## Custom

@@ -1,8 +1,8 @@
 ---
 title: User roles and permissions
-description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
+description: Learn how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: limits-and-quotas
-ms.date: 10/09/2023
+ms.date: 05/12/2024
 ---
 
 # User roles and permissions
@@ -25,13 +25,17 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | **Action**   | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) /<br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 |:-|:-:|:-:|:-:|:-:|:-:|
 |  |  |  | **(Resource group level)** | **(Subscription level)** | **(Subscription level)** |
-| Add/assign initiatives (including) regulatory compliance standards) | - | ✔ | - | - | ✔ |
+| Add/assign initiatives (including regulatory compliance standards) | - | ✔ | - | - | ✔ |
 | Edit security policy | - | ✔ | - | - | ✔ |
 | Enable / disable Microsoft Defender plans | - | ✔ | - | ✔ | ✔ |
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Exempt security recommendations | - |✔|-|-| ✔ |
+| Configure email notifications | - | ✔ | ✔| ✔ | ✔ |
+
+> [!NOTE]
+> While the three roles mentioned are sufficient for enabling and disabling Defender plans, to enable all capabilities of a plan the Owner role is required.
 
 The specific role required to deploy monitoring components depends on the extension you're deploying. Learn more about [monitoring components](monitoring-components.md).
 

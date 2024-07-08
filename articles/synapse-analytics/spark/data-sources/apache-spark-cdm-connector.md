@@ -311,7 +311,7 @@ The following code writes the `df` DataFrame to a Common Data Model folder with:
 * A submanifest that contains the `TeamMembership` entity that's created in a *TeamMembership* subdirectory.
 
 `TeamMembership` data is written to CSV files (the default) that overwrite any existing data files. The code retrieves the `TeamMembership` entity definition from the Common Data Model CDN at
-[https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json](https://cdm-schema.microsoft.com/logical/core/applicationCommon/TeamMembership.cdm.json).
+[Team Membership in applicationCommon](/common-data-model/schema/core/applicationcommon/teammembership).
 
 ```scala
 df.write.format("com.microsoft.cdm")

@@ -17,7 +17,7 @@ author: sdgilley
 
 # Create and manage prompt flow compute sessions in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 You need a compute session to run [prompt flows](prompt-flow.md). Use Azure AI Studio to create and manage prompt flow compute sessions.
 

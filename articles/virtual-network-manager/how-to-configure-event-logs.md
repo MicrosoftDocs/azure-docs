@@ -14,8 +14,6 @@ When configurations are changed in Azure Virtual Network Manager, this can affec
 
 In this article, you learn how to monitor Azure Virtual Network Manager for virtual network changes with Log Analytics or a storage account.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed instance of [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md) in your subscription, with managed virtual networks.

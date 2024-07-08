@@ -7,7 +7,7 @@ ms.topic: conceptual
 # Understanding Azure Machine Configuration
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
@@ -33,7 +33,7 @@ Examples of each scenario are provided in the following table.
 | [Configuration management][05] | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
 | [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they're deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it's needed, in a controlled way, at scale. For new machines, enforce the setting when they're deployed." |
 
-You can view the per-setting results from configurations in the [Guest assignments page][07]. If an
+You can view the per-setting results from configurations in the [Guest assignments page][44]. If an
 Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
 evaluated resource" link on the ["Compliance details" page][07].
 
@@ -114,23 +114,26 @@ status is then written to Azure Resource Graph.
 
 Machine configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
-compatible. The following table shows a list of supported operating systems on Azure images. The
-`.x` text is symbolic to represent new minor versions of Linux distributions.
+compatible. Additionally, Linux server versions that are out of lifetime support by their
+respective publishers are excluded from the support matrix.
+
+The following table shows a list of supported operating systems on Azure images. The `.x` text is
+symbolic to represent new minor versions of Linux distributions.
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 14.04 - 22.x     |
-| Credativ  | Debian                     | 8 - 10.x         |
+| Canonical | Ubuntu Server              | 16.04 - 22.x     |
+| Credativ  | Debian                     | 10.x - 12.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
-| Microsoft | Windows Client             | Windows 10       |
+| Microsoft | Windows Client             | Windows 10, 11   |
 | Microsoft | Windows Server             | 2012 - 2022      |
 | Oracle    | Oracle-Linux               | 7.x - 8.x        |
 | OpenLogic | CentOS                     | 7.3 - 8.x        |
 | Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |
-| Rocky     | Rocky Linux                | 9                |
-| SUSE      | SLES                       | 12 SP3-SP5, 15.x |
+| Rocky     | Rocky Linux                | 8                |
+| SUSE      | SLES                       | 12 SP5, 15.x     |
 
 \* Red Hat CoreOS isn't supported.
 
@@ -473,9 +476,10 @@ Machine configuration built-in policy samples are available in the following loc
 [35]: /azure/virtual-machines/windows/run-command
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[38]: ../policy/samples/built-in-policies.md
-[39]: ../policy/samples/built-in-initiatives.md
+[38]: ../policy/samples/built-in-policies.md#guest-configuration
+[39]: ../policy/samples/built-in-initiatives.md#guest-configuration
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
 [42]: ./how-to/develop-custom-package/overview.md
 [43]: ./how-to/create-policy-definition.md
+[44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration

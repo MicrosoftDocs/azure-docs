@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 05/17/2024
+ms.date: 06/29/2024
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
@@ -36,7 +36,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 | Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; CentOS Linux 7 and 8 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*.|
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*.|
  
 
 ### Other Requirements
@@ -119,13 +119,13 @@ $protectedsettings = @{
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -ProtectedSettings $protectedsettings -EnableAutomaticUpgrade $true/$false
 ```
 
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -ProtectedSetting $protectedsettings -NoWait -EnableAutomaticUpgrade
 ```
 
 # [Linux](#tab/linux)
@@ -141,13 +141,13 @@ $settings = @{
 **Azure VMs**
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Settings $settings -ProtectedSettings $protectedsettings -EnableAutomaticUpgrade $true/$false
 ```
 
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Setting $settings -EnableAutomaticUpgrade $true
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 1.1 -Setting $settings -ProtectedSetting $protectedsettings -NoWait -EnableAutomaticUpgrade
 ```
 
 ---
@@ -263,6 +263,7 @@ You can delete the Hybrid Runbook Worker from the portal.
    > [!NOTE]
    > - A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. </br> </br>
    > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - Hybrid Runbook Worker proxy settings can be deleted from  HKLM\SOFTWARE\Microsoft\Azure\HybridWorker\Parameters, "Http Connection Proxy Url".
 
 ## Delete a Hybrid Runbook Worker group
 
