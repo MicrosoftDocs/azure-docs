@@ -48,7 +48,7 @@ Running containerized applications usually means you need to create a Dockerfile
 
 Different applications types are implemented either as an individual container app or as a [Container Apps job](jobs.md). Use the following table to help you decide which application type is best for your scenario.
 
-Examples listed in this table aren't meant to be exhaustive, but to help you best understand the intent of different application types.
+Examples listed in this table aren't meant to be exhaustive, but to help your best understand the intent of different application types.
 
 | Type | Examples | Implement as... |
 |--|--|--|
@@ -89,15 +89,13 @@ All the [standard observability tools](observability.md) work with your Java app
 
 ## Diagnostics
 
-Azure Container Apps platform offers built-in diagnostics tools exclusively for Java developers, streamlining the debugging and troubleshooting of Java applications running on Azure Container Apps for enhanced efficiency and ease.
+Azure Container Apps offers built-in diagnostics tools exclusively for Java developers. This support streamlines the debugging and troubleshooting of Java applications running on Azure Container Apps for enhanced efficiency and eases.
 
 - **Dynamic logger level**: Allows you to access and check different level of log details without code modifications or forcing you to restart your app. You can view [Set dynamic logger level](java-dynamic-log-level.md) for reference.
-
 
 ## Scaling
 
 If you need to make sure requests from your front-end applications reach the same server, or your front-end app is split between multiple containers, make sure to enable [sticky sessions](sticky-sessions.md).
-
 
 ## Security
 
@@ -127,7 +125,7 @@ Azure Container Apps offers support for the following Spring Components as manag
 
 - **Config Server for Spring**: Config Server provides centralized external configuration management for distributed systems. This component designed to address the challenges of [managing configuration settings across multiple microservices](java-config-server-usage.md) in a cloud-native environment.
 
-- **Admin for Spring**： The Admin for Spring managed component provides an administrative interface specifically designed for Spring Boot web applications that utilize actuator endpoints. As a managed component within Azure Container Apps, it facilitates effortless integration and management by allowing you to seamlessly bind your container app to [Admin for Spring](java-admin.md).
+- **Admin for Spring**： The Admin for Spring managed component provides an administrative interface is designed for Spring Boot web applications that have actuator endpoints. A managed component provides integration and management to your container app by allowing you to bind your container app to the [Admin for Spring component](java-admin.md).
 
 ## Next steps
 
