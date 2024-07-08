@@ -194,11 +194,12 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
 }
 ```
 ---
+
 :::zone-end
 
-### Create pre and post events on an existing schedule maintenance configuration
-
 ::: zone pivot="existing-mc"
+
+### Create pre and post events on an existing schedule maintenance configuration
 
 #### [Using Azure portal](#tab/portal)
 
