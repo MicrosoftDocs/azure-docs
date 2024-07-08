@@ -63,6 +63,10 @@ Alerts can be stateful or stateless.
 
 Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
+> [!NOTE]  
+> Metric alerts are stateful by default, so other alerts aren't fired if there's already a fired alert on a specific time series. This is the case even if more than one metric alert has been applied on different scopes, for example on resource level and resource group level.
+
+
 ### Stateless alerts
 Stateless alerts fire each time the condition is met. The alert condition for all stateless alerts is always `fired`. 
 
