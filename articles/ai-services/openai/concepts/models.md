@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 07/01/2024
+ms.date: 07/08/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -145,9 +145,9 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 [!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
-This table doesn't include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
+This table doesn't include [global standard](../how-to/deployment-types.md) model deployment regional availability for GPT-4o, or fine-tuning regional availability information.  Consult the dedicated [global standard deployment section](#global-standard-model-availability) and the [fine-tuning section](#fine-tuning-models) for this information.
 
-### Standard deployment model quota
+### Standard and global standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
@@ -172,18 +172,35 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 
 **Supported regions:**
 
- - eastus
- - eastus2
- - northcentralus
- - southcentralus
- - westus
- - westus3
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
 
 ### GPT-4 and GPT-4 Turbo model availability
 
 #### Public cloud regions
 
 [!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+
 
 #### Select customer access
 

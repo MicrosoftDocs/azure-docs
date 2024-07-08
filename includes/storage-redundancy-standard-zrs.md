@@ -22,6 +22,7 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (Europe) North Europe
 - (Europe) Norway East
 - (Europe) Poland Central
+- (Europe) Spain Central
 - (Europe) Sweden Central
 - (Europe) Switzerland North
 - (Europe) UK South
@@ -33,6 +34,7 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (North America) Central US
 - (North America) East US
 - (North America) East US 2
+- (North America) Mexico Central
 - (North America) South Central US
 - (North America) US Gov Virginia
 - (North America) West US 2
