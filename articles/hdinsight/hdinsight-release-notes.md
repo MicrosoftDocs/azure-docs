@@ -29,7 +29,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 * HOBO tags overwrite user tags. 
 
-   * HOBO tags overwrite user tags on sub-resources in HDI cluster creation. 
+   * HOBO tags overwrite user tags on sub-resources in HDInsight cluster creation. 
 
 ### Release date: Jun 19, 2024
 
