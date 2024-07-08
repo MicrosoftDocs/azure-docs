@@ -51,7 +51,7 @@ One common challenge when connecting sensors to Defender for IoT in the Azure po
 
 ### Security update
 
-This update resolves six CVEs, which are listed in [software version 23.1.3 feature documentation](release-notes.md#version-2413).
+This update resolves six CVEs, which are listed in [software version 24.1.3 feature documentation](release-notes.md#version-2413).
 
 ## February 2024
 

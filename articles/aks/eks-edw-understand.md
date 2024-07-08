@@ -49,6 +49,16 @@ The following resources can help you learn more about the differences between AW
 > [!div class="nextstepaction"]
 > [Rearchitect the workload for AKS][eks-edw-rearchitect]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+- Ken Kilty | Principal TPM
+- Russell de Pina | Principal TPM
+- Jenny Hayes | Senior Content Developer
+- Carol Smith | Senior Content Developer
+- Erin Schaffer | Content Developer 2
+
 <!-- LINKS -->
 [azure-rbac]: ../role-based-access-control/overview.md
 [entra-workload-id]: /azure/architecture/aws-professional/eks-to-aks/workload-identity#microsoft-entra-workload-id-for-kubernetes
