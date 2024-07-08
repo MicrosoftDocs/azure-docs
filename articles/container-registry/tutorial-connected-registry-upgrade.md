@@ -1,6 +1,6 @@
 ---
 title: " Upgrade and Rollback Connected registry with Azure arc"
-description: "Upgrade and Roll back the Connected registry extension with Azure Arc to secure the extension deployment."
+description: "Upgrade and Roll back the Connected registry extension with Azure Arc for secure the extension deployment."
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
@@ -49,7 +49,7 @@ To complete this tutorial, you need the following resources:
 ## Deploy the Connected registry Arc extension with auto rollback
 
 > [!IMPORTANT]
-> When a customer pins to a specific version, the extension does not auto-rollback. Auto-rollback will only occur if the --auto-upgrade-minor-version is set to true.
+> When a customer pins to a specific version, the extension does not auto-rollback. Auto-rollback will only occur if the--auto-upgrade-minor-version is set to true.
 
 1. Follow the [quickstart][quickstart] to edit the [az k8s-extension update] command and add--version with your desired version. This example uses version 0.6.0. This parameter updates the extension version to the desired pinned version. 
 
