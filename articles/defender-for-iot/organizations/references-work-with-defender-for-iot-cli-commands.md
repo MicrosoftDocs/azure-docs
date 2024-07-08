@@ -6,7 +6,7 @@ ms.topic: concept-article
 ---
 
 # Defender for IoT CLI users and access
-
+<!-- what to remove from this page?-->
 This article provides an introduction to the Microsoft Defender for IoT command line interface (CLI). The CLI is a text-based user interface that allows you to access your OT sensors and the on-premises management console for advanced configuration, troubleshooting, and support.
 
 To access the Defender for IoT CLI, you'll need access to the sensor or on-premises management console.
@@ -36,17 +36,17 @@ For more information, see [On-premises users and roles for OT monitoring with De
 The following tables list the activities available by CLI and the privileged users supported for each activity. The *cyberx* and *cyberx_host* users are only supported in versions earlier than [23.1.x](release-notes.md).
 
 ### Appliance maintenance commands
-
+<!-- remove  and change restart and shutdown - restore?? -->
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Sensor health     |   *admin*, *cyberx*      | [Check OT monitoring services health](cli-ot-sensor.md#check-ot-monitoring-services-health)        |
-|Restart and shutdown     |  *admin*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
+|Restart and shutdown     |  *admin*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        | 
 |Software versions     |  *admin*, *cyberx*       |  [Show installed software version](cli-ot-sensor.md#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
 |Date and time     |   *admin*, *cyberx*, *cyberx_host*          |  [Show current system date/time](cli-ot-sensor.md#show-current-system-datetime)       |
 |NTP     | *admin*, *cyberx*        | [Turn on NTP time sync](cli-ot-sensor.md#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](cli-ot-sensor.md#turn-off-ntp-time-sync)        |
 
 ### Backup and restore commands
-
+<!-- remove  and change bnackup disk - restore?? -->
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Backup files     | *admin*, *cyberx*        | [List current backup files](cli-ot-sensor.md#list-current-backup-files)    <br>[Start an immediate, unscheduled backup](cli-ot-sensor.md#start-an-immediate-unscheduled-backup)    |
@@ -54,7 +54,7 @@ The following tables list the activities available by CLI and the privileged use
 |Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](cli-ot-sensor.md#display-backup-disk-space-allocation)       |
 
 ### TLS/SSL certificate commands
-
+<!-- remove  ??-->
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Certificate management     | *cyberx*        | [Import TLS/SSL certificates to your OT sensor](cli-ot-sensor.md#import-tlsssl-certificates-to-your-ot-sensor)<br>[Restore the default self-signed certificate](cli-ot-sensor.md#restore-the-default-self-signed-certificate)        |
@@ -68,7 +68,7 @@ The following tables list the activities available by CLI and the privileged use
 | Sign-in configuration     | *cyberx*        | [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins)       |
 
 ### Network configuration commands
-
+<!-- remove parts of this as well?-->
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 | Network setting configuration | *cyberx_host* | [Change networking configuration or reassign network interface roles](cli-ot-sensor.md#change-networking-configuration-or-reassign-network-interface-roles) |
@@ -80,18 +80,18 @@ The following tables list the activities available by CLI and the privileged use
 |Physical interfaces management    | *admin*, *cyberx*        |     [List connected physical interfaces](cli-ot-sensor.md#list-connected-physical-interfaces)    |
 
 ### Traffic capture filter commands
-
+<!-- remove this as well?-->
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 | Capture filter management    |  *admin*, *cyberx*       | [Create a basic filter for all components](cli-ot-sensor.md#create-a-basic-filter-for-all-components)<br>[Create an advanced filter for specific components](cli-ot-sensor.md#create-an-advanced-filter-for-specific-components)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
-
+<!--
 ### Alert commands
 
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](cli-ot-sensor.md#trigger-a-test-alert)      |
 | Alert exclusion rules | *admin*, *cyberx* | [Show current alert exclusion rules](cli-ot-sensor.md#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](cli-ot-sensor.md#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](cli-ot-sensor.md#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](cli-ot-sensor.md#delete-an-alert-exclusion-rule)
-
+-->
 ## Defender for IoT CLI access
 
 To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor or your on-premises management console using a terminal emulator and SSH.
@@ -123,8 +123,8 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 |User  |Command  |
 |---------|---------|
 |**admin**     |  `logout`       |
-|**cyberx**     |  `cyberx-xsense-logout`       |
-|**cyberx_host**     |   `logout`      |
+<!--|**cyberx**     |  `cyberx-xsense-logout`       |
+|**cyberx_host**     |   `logout`      |-->
 
 ## Next steps
 
