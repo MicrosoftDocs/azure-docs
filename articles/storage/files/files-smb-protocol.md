@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 07/08/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -52,9 +52,9 @@ You can disable encryption in transit for an Azure storage account. When encrypt
 
 Azure Files offers multiple settings that affect the behavior, performance, and security of the SMB protocol. These are configured for all Azure file shares within a storage account.
 
-### SMB Multichannel
+### SMB Multichannel status
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. SMB Multichannel is disabled by default.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. In most Azure regions, SMB Multichannel is disabled by default.
 
 # [Portal](#tab/azure-portal)
 To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. The status of the SMB Multichannel can be seen under the **File share settings** section.
