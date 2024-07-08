@@ -22,14 +22,14 @@ This article provides a summary of the latest releases and major documentation u
 
 ### Expansion of regions available for global standard deployments of gpt-4o
 
- GPT-4o is now available for global standard deployments in:
+ GPT-4o is now available for [global standard deployments](./how-to/deployment-types.md) in:
 
 - australiaeast     
 - brazilsouth       
 - canadaeast        
 - eastus            
 - eastus2           
-- francecentral     
+- francecentral     git
 - germanywestcentral
 - japaneast         
 - koreacentral      
