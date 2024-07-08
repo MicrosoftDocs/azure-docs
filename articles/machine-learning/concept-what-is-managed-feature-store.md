@@ -2,9 +2,9 @@
 title: What is managed feature store?
 titleSuffix: Azure Machine Learning
 description: Learn about the managed feature store in Azure Machine Learning
-author: rsethur
-ms.author: seramasu
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: seramasu
 ms.service: machine-learning
 ms.subservice: mldata 
 ms.custom: build-2023, ignite-2023

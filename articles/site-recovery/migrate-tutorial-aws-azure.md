@@ -35,5 +35,4 @@ If you're already using Azure Site Recovery, and you want to continue using it f
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
+- [Review common questions](../migrate/resources-faq.md) about Azure Migrate.

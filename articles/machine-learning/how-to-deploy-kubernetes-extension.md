@@ -2,9 +2,9 @@
 title: Deploy Azure Machine Learning extension on Kubernetes cluster
 description: Learn about the Azure Machine Learning extension, available configuration settings and different deployment scenarios, and verify and managed Azure Machine Learning extension
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/19/2024
