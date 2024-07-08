@@ -8,6 +8,7 @@ manager: jsuri
 ms.date: 05/22/2024
 ms.service: azure-monitor
 ms.subservice: operations-manager-managed-instance
+ms.custom: linux-related-content
 ms.topic: how-to
 ---
 

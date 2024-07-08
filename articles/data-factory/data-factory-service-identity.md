@@ -17,7 +17,7 @@ ms.custom: subject-rbac-steps
 
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Data Factory.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 

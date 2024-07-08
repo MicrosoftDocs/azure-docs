@@ -40,6 +40,8 @@
       href: prerequisites.md
     - name: Network requirements
       href: network-requirements.md
+    - name: Simplify network configuration requirements
+      href: arc-gateway.md
     - name: Private Link networking
       href: private-link-security.md
     - name: Deployment options
@@ -108,6 +110,8 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
+    - name: Migrate from legacy Log Analytics agents
+      href: migrate-legacy-agents.md
     - name: Deploy and configure Azure Monitor Agent using Azure Policy
       href: deploy-ama-policy.md
     - name: Remotely configure servers using Run command

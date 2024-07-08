@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > - Add an authentication controller to support GitHub authentication
 > - Deploy your ASP.NET Core web app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

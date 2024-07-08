@@ -10,7 +10,7 @@ ms.date: 08/15/2023
 
 # Update schema for Workflow Definition Language in Azure Logic Apps - June 1, 2016
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 The [latest Workflow Definition Language schema version June-01-2016](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) and API version for Azure Logic Apps includes key improvements that make Consumption logic app workflows more reliable and easier to use:
 

@@ -23,7 +23,6 @@ The following table compares the scenarios enabled by the hub cluster:
 | Capability | Kubernetes Fleet resource without hub cluster | Kubernetes Fleet resource with hub cluster |
 |----|----|----|
 |**Hub cluster hosting**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
-|**Member cluster limit**|Up to 100 clusters|Up to 20 clusters|
 |**Update orchestration**|<span class='green-check'>&#9989;</span>|<span class='green-check'>&#9989;</span>|
 |**Workload orchestration**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|
 |**Layer 4 load balancing**|<span class='red-x'>&#10060;</span>|<span class='green-check'>&#9989;</span>|

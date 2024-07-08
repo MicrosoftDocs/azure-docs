@@ -83,7 +83,9 @@ The following is an example of a minimal `local.settings.json` file with these c
 }
 ```
 
-You might need to make other changes to your app based on the version support of its dependencies.
+If your app uses [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions), ensure it targets version 1.5.3 or later. Due to a behavior change in .NET 8, apps with older versions of the package will throw an ambiguous constructor exception.
+
+You might need to make other changes to your app based on the version support of its other dependencies.
 
 ## Functions class library project
 
