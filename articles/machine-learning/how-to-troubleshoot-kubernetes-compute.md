@@ -2,9 +2,9 @@
 title: Troubleshoot Kubernetes compute for machine learning tasks
 description: Learn how to troubleshoot common Kubernetes compute errors for training jobs and model deployments.
 titleSuffix: Azure Machine Learning
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: chenlujiao
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/11/2024
