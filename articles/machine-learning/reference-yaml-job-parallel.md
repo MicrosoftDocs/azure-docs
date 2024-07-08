@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: alainli
 ms.date: 09/27/2022

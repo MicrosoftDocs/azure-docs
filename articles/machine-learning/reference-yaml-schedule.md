@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/17/2023
 ms.reviewer: lochen

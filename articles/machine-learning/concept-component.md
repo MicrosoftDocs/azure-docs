@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: keli19
 ms.date: 01/19/2024
 ms.topic: conceptual

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: keli19
 ms.date: 01/09/2020

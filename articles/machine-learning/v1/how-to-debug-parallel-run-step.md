@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.custom: UpdateFrequency5, troubleshooting, sdkv1, devx-track-python
 ms.reviewer: None
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.date: 11/16/2022
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
 ---

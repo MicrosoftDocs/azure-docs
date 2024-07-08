@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: jinzhong
 ms.date: 12/18/2023
 ---

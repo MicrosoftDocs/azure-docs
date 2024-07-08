@@ -8,7 +8,7 @@ ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: None
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.date: 5/15/2024
 ms.custom: responsible-ml, build-2023, devx-track-python
 ---

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: None
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to

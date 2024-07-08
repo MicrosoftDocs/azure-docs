@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: conceptual
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: chenlujiao
 ms.date: 09/12/2023

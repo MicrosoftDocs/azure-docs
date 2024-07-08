@@ -9,7 +9,7 @@ ms.topic: reference
 
 ms.reviewer: None
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.date: 07/31/2020
 ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1
 ---

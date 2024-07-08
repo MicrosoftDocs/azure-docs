@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: zhanxia
 ms.date:  08/27/2023
 ms.topic: how-to

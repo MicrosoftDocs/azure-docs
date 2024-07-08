@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: how-to
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: keli19
 ms.date: 05/08/2024

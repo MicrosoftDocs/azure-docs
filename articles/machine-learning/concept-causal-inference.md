@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: rai
 ms.topic:  how-to
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: mesameki
 ms.date: 02/27/2024
 ms.custom: responsible-ml

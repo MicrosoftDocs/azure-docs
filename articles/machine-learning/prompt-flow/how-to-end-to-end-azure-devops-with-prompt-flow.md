@@ -3,7 +3,7 @@ title: LLMOps with prompt flow and Azure DevOps
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample LLMOps environment and pipeline on Azure DevOps for prompt flow project
 services: machine-learning
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.service: machine-learning
 ms.subservice: prompt-flow

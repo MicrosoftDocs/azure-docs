@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: mithigpe
 ms.date: 10/21/2021
 ms.topic: how-to

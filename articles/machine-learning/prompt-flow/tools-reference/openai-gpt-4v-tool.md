@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: reference
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: jinzhong
 ms.date: 12/18/2023

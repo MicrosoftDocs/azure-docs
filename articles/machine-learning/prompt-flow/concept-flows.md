@@ -8,7 +8,7 @@ ms.subservice: core
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: keli19
 ms.date: 06/28/2024

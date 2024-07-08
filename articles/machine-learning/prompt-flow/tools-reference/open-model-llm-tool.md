@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.custom: ignite-2023
 ms.topic: reference
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: GEWOODS
 ms.date: 11/02/2023

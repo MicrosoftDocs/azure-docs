@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.reviewer: None
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/18/2024
 adobe-target: true

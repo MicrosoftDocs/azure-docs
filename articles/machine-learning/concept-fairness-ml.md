@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: rai
 ms.topic: conceptual
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: mesameki
 ms.date: 02/21/2024
 ms.custom: responsible-ml, devx-track-python

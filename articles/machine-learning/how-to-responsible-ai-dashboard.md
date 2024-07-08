@@ -8,7 +8,7 @@ ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: None
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.date: 11/09/2022
 ms.custom: responsible-ml
 ---

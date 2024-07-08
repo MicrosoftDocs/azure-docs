@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, update-code6
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.date: 08/08/2022
 ms.reviewer: lochen

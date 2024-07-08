@@ -9,7 +9,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: tutorial
-author: lagayhar
+author: lgayhardt
 ms.author: lagayhar
 ms.reviewer: yijunzhang
 ms.date: 09/12/2023
