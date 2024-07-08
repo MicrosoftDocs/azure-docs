@@ -27,9 +27,9 @@ Azure Monitor Logs stores the data that you collect in a [Log Analytics workspac
 
 To address the unique data collection and analysis needs of the various personas who use the data in the a Log Analytics workspace, you can:
 
-- [Define table plans]() suited to the usage and cost management needs of the data in each table.
+- [Define table plans]() suited to your data consumption and cost management needs.
 - [Manage low-cost long-term retention and interactive retention](../logs/data-retention-archive.md) for each table.
-- [Manage access rights](../logs/manage-access.md) to the workspace and to specific tables.
+- [Manage access](../logs/manage-access.md) to the workspace and to specific tables.
 - Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and store raw data in a table with a low-cost table plan for however long you need it.
 - Create ready-to-run queries, visulizations, and alerts tailored to specific personas.  
 
@@ -45,7 +45,7 @@ Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights
 You can analyze log data by using a sophisticated query language that's capable of quickly analyzing millions of records. You might perform a simple query that retrieves a specific set of records or perform sophisticated data analysis to identify critical patterns in your monitoring data. Work with log queries and their results interactively by using Log Analytics, use them in alert rules to be proactively notified of issues, or visualize their results in a workbook or dashboard.
 
 
-## Select a table plan based on usage needs
+## Table plans based on data consumption needs
 
 
 The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
