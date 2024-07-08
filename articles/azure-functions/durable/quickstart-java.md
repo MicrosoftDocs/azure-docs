@@ -113,7 +113,7 @@ Add the following code to your _pom.xml_ file:
 
 ## Add required JSON files
 
-Add a _host.json_ file to your project directory. It should look similar to the following:
+Add a _host.json_ file to your project directory. It should look similar to the following example:
 
 ```json
 {
@@ -139,7 +139,7 @@ Add a _host.json_ file to your project directory. It should look similar to the 
 > [!NOTE]
 > It's important to note that only the Azure Functions v4 extension bundle currently has the necessary support for Durable Functions for Java. Durable Functions for Java is _not_ supported in v3 and early extension bundles. For more information on extension bundles, see the [extension bundles documentation](../functions-bindings-register.md#extension-bundles).
 
-Durable Functions needs a storage provider to store runtime state. Add a `local.settings.json` file to your project directory to configure the storage provider. To use Azure Storage as the provider, set the value of `AzureWebJobsStorage` to the connection string of your Azure Storage account:
+Durable Functions needs a storage provider to store runtime state. Add a _local.settings.json_ file to your project directory to configure the storage provider. To use Azure Storage as the provider, set the value of `AzureWebJobsStorage` to the connection string of your Azure Storage account:
 
 ```json
 {
@@ -153,7 +153,7 @@ Durable Functions needs a storage provider to store runtime state. Add a `local.
 
 ## Create your functions
 
-The sample code below shows a simple example of each:
+The following sample code shows a basic example of each type of function:
 
 ```java
 import com.microsoft.azure.functions.annotation.*;
@@ -281,7 +281,7 @@ Durable Functions needs a storage provider to store runtime state. You can confi
 1. Follow the prompts and provide the following information:
 
     | Prompt | Action |
-    | -- | -- |
+    |--|--|
     | **Select a language** | Select **Java**. |
     | **Select a version of Java** | Select **Java 8** or later. Select the Java version that your functions run on in Azure, and one that you verified locally. |
     | **Provide a group ID** | Enter **com.function**. |
@@ -339,7 +339,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 > [!NOTE]
 > Durable Functions for Java requires Azure Functions Core Tools version 4.0.4915 or later. You can see which version is installed by running the `func --version` command in the terminal.
 
-1. If you are using Visual Studio Code, open a new terminal window and run the following commands to build the project:
+1. If you're using Visual Studio Code, open a new terminal window and run the following commands to build the project:
 
    ```bash
    mvn clean package
@@ -367,7 +367,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     }
     ```
 
-  The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+  The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can continue to use Postman to issue the GET request.
 

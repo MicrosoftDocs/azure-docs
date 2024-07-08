@@ -13,22 +13,21 @@ ms.reviewer: azfuncdf
 Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through the steps to set up a durable function app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql).
 
 > [!NOTE]
-> The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data state so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
-
->[!NOTE]
-> Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
+> - The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data state so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
+>
+> - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 
 ## Prerequisites
 
-The following steps assume that you're starting with an existing Durable Functions app and that you are familiar with how to operate it.
+The following steps assume that you're starting with an existing Durable Functions app and that you're familiar with how to operate it.
 
-In particular, this quickstart assumes that you have already:
+Specifically, this quickstart assumes that you have already:
 
 1. Created an Azure Functions project on your local computer.
 1. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 1. Configured the project for local debugging.
 
-If this isn't the case, we suggest that you start with one of the following articles to get detailed instructions on how to meet all the prerequisites:
+If you don't meet these prerequisites, we suggest that you start with one of the following articles:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -125,7 +124,7 @@ DurableDB
 
 The MSSQL back end needs a connection string to access your database. How to obtain a connection string depends primarily on your specific MSSQL server provider. Review the documentation of your specific provider for information on how to obtain a connection string.
 
-Using the previous Docker commands, without changing any parameters, your connection string should be:
+If you use the preceding Docker commands without changing any parameters, your connection string is:
 
 ```cmd
 Server=localhost,1433;Database=DurableDB;User Id=sa;Password=yourStrong(!)Password;
@@ -178,7 +177,7 @@ This snippet is a relatively basic _host.json_ example. Later, you might want to
 
 ### Test locally
 
-Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root and execute a simple orchestrator function.
+Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root and execute a basic orchestrator function.
 
 While the function app is running, it updates runtime state in the configured SQL database. You can test it's working as expected by using your SQL query interface. For example, in your Docker-based local SQL Server container, you can view the state of your orchestration instances by using the following `docker` command:
 
@@ -210,7 +209,7 @@ In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/dat
 
 You can get your Azure SQL database's connection string by going to the database's overview pane in the Azure portal. Then, under **Settings**, select **Connection strings** and get the **ADO.NET** connection string. Make sure that you provide your password in the template that's provided.
 
-Below is an example of the portal view for obtaining the Azure SQL connection string.
+Here's an example of how to get the Azure SQL connection string in the portal:
 
 ![Screenshot that shows an Azure connection string in the Azure portal.](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
@@ -222,7 +221,7 @@ In the Azure portal, the connection string has the database's password removed: 
 
 ### Add the connection string as an application setting
 
-Next, add your database's connection string as an application setting. To do this in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. See the following figures for examples.
+Next, add your database's connection string as an application setting. To add it in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. See the following figures for examples.
 
 ![Screenshot that shows the database pane and New application setting highlighted.](./media/quickstart-mssql/mssql-azure-environment-variable-1.png)
 

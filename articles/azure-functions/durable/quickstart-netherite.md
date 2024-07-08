@@ -13,23 +13,22 @@ ms.reviewer: azfuncdf
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through the steps to set up a durable function app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
-> Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
-
->[!NOTE]
-> Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Netherite back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
+> - Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
+>
+> - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Netherite back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 
 ## Prerequisites
 
-The following steps assume that you are starting with an existing Durable Functions app and are familiar with how to operate it.
+The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
 
-In particular, this quickstart assumes that you have already:
+Specifically, this quickstart assumes that you have already:
 
 1. Created an Azure Functions project on your local computer.
 1. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 1. Configured the project for local debugging.
 1. Learned how to deploy an Azure Functions project to Azure.
 
-If this isn't the case, we suggest that you start with one of the following articles to get detailed instructions on how to meet all the prerequisites:
+If you don't meet these prerequisites, we suggest that you start with one of the following articles:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -42,12 +41,12 @@ If this isn't the case, we suggest that you start with one of the following arti
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-You need to install the latest version of the Netherite storage provider extension from NuGet. For .NET, this usually means including a reference to it in your *.csproj* file and building the project.
+You need to install the latest version of the Netherite storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
 
 Which extension package you install depends on the .NET worker you're using:
 
-- For the _in-process_ .NET worker, install [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
-- For the _isolated_ .NET worker, install [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
+- For the *in-process* .NET worker, install [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
+- For the *isolated* .NET worker, install [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
 
 You can install the extension by using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command:
 
@@ -61,7 +60,7 @@ For more information about installing Azure Functions extensions via the Core To
 
 The Netherite back end requires a connection string to [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs/) to run on Azure. However, for local development, providing the string `"SingleHost"` bypasses the need to use Event Hubs.
 
-In _local.settings.json_, set the value of `EventHubsConnection` to `SingleHost`:
+In *local.settings.json*, set the value of `EventHubsConnection` to `SingleHost`:
 
 ```json
 {
@@ -98,9 +97,9 @@ This code snippet is a basic configuration. Later, you might want to [add parame
 
 ## Test locally
 
-Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root, and then execute a simple orchestrator function.
+Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root, and then execute a basic orchestrator function.
 
-While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table won't be empty. See the following figure for an example.
+While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table isn't empty. See the following figure for an example.
 
 ![Screenshot that shows data in the DurableTaskPartitions table in Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
 
@@ -108,7 +107,7 @@ While the function app is running, Netherite publishes load information about it
 > For more information about the contents of this table, see [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable).
 
 > [!NOTE]
-> If you use local storage emulation on a Windows OS, ensure that you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy _Azure Storage Emulator_ component. Local storage emulation with Netherite is supported only via Azurite.
+> If you use local storage emulation on a Windows OS, ensure that you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy *Azure Storage Emulator* component. Local storage emulation with Netherite is supported only via Azurite.
 
 ## Run your app in Azure
 
@@ -125,19 +124,19 @@ You need to set up an Event Hubs namespace to run Netherite in Azure. You can al
 
 Follow [these steps](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) to create an Event Hubs namespace on the Azure portal. When you create the namespace, you might be prompted to:
 
-* Select a *resource group*. Use the same resource group that the function app uses.
-* Select a *plan* and provision *throughput units*. Select the defaults. You can change this setting later.
-* Select a *retention* time. Select the default. This setting has no effect on Netherite.
+- Select a *resource group*. Use the same resource group that the function app uses.
+- Select a *plan* and provision *throughput units*. Select the defaults. You can change this setting later.
+- Select a *retention* time. Select the default. This setting has no effect on Netherite.
 
 #### Get the Event Hubs connection string
 
-To get the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal. Select **Shared access policies**, and then select **RootManagedSharedAccessKey**. This should reveal a field named **Connection string-primary key** and the field's value is the connection string.
+To get the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal. Select **Shared access policies**, and then select **RootManagedSharedAccessKey**. A field named **Connection string-primary key** is revealed, and the field's value is the connection string.
 
 ![Screenshot that shows finding the connection string primary key in the Azure portal.](./media/quickstart-netherite/namespace-connection-string.png)
 
 ### Add the connection string as an application setting
 
-Next, add your connection string as an application setting in your function app. To do this in the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. You can assign `EventHubsConnection` to map to your connection string. The following figures show some examples.
+Next, add your connection string as an application setting in your function app. To add it in the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. You can assign `EventHubsConnection` to map to your connection string. The following figures show some examples.
 
 ![Screenshot that shows the function app view, Configuration, and select New application setting.](./media/quickstart-netherite/add-configuration.png)
 
@@ -148,7 +147,7 @@ Next, add your connection string as an application setting in your function app.
 > [!NOTE]
 > Skip this section if your app is not in the Elastic Premium plan.
 
-If your app is running on the Elastic Premium plan, we recommend that you enable runtime scale monitoring for better scaling. To do this, go to **Configuration**, select **Function runtime settings**, and set **Runtime Scale Monitoring** to **On**.
+If your app is running on the Elastic Premium plan, we recommend that you enable runtime scale monitoring for better scaling. Go to **Configuration**, select **Function runtime settings**, and set **Runtime Scale Monitoring** to **On**.
 
 ![Screenshot that shows how to enable runtime scale monitoring in the portal.](./media/quickstart-netherite/runtime-scale-monitoring.png)
 
@@ -157,7 +156,7 @@ If your app is running on the Elastic Premium plan, we recommend that you enable
 > [!NOTE]
 > Skip this section if your app is running on Linux.
 
-Netherite requires a 64-bit architecture. Starting in Azure Functions V4, 64-bit should be the default. You can usually validate this in the portal. Under **Configuration**, select **General Settings**, and then ensure that **Platform** is set to **64 Bit**. If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they support only 64-bit.
+Netherite requires a 64-bit architecture. Starting in Azure Functions V4, 64-bit should be the default. You can usually validate this setting in the portal. Under **Configuration**, select **General Settings**, and then ensure that **Platform** is set to **64 Bit**. If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps don't show this setting because they support only 64-bit architecture.
 
 ![Screenshot that shows how to configure a runtime to use 64-bit in the portal.](./media/quickstart-netherite/ensure-64-bit-architecture.png)
 
