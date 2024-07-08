@@ -23,7 +23,7 @@ Prepare the following prerequisites, depending on which tool you use.
 
 * Access to the [Azure portal](https://portal.azure.com).
 
-### [Azure CLI]()
+### [Azure CLI](#tab/cli)
 
 * The Azure CLI installed on your development machine. If you don't have the Azure CLI, follow the steps to [Install the Azure CLI](/cli/azure/install-azure-cli).
 
