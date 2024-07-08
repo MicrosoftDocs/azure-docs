@@ -177,7 +177,7 @@ The module that you deploy in this section simulates a sensor and sends generate
 
 Follow these steps to deploy your first module.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT Hub.
 
 1. From the menu on the left, select **Devices** under the **Device management** menu.
 
@@ -185,7 +185,6 @@ Follow these steps to deploy your first module.
 
    >[!NOTE]
    >When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
-
 
 1. On the upper bar, select **Set Modules**.
 
