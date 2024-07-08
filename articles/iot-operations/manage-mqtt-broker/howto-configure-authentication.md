@@ -84,17 +84,15 @@ spec:
         # ...
     - sat:
         # ...
-    - usernamePassword:
-        # ...
 ```
 
-The earlier example specifies custom, SAT, and [username-password authentication](#configure-authentication-method). When a client connects, MQTT broker attempts to authenticate the client using the specified methods in the given order **custom > SAT > username-password**.
+The earlier example specifies custom and SAT. When a client connects, MQTT broker attempts to authenticate the client using the specified methods in the given order *custom* then *SAT*.
 
 1. MQTT broker checks if the client's credentials are valid for custom authentication. Since custom authentication relies on an external server to determine validity of credentials, the broker considers all credentials relevant to custom auth and forwards them to the custom authentication server.
 
 1. If the custom authentication server responds with `Pass` or `Fail` result, the authentication flow ends. However, if the custom authentication server isn't available, then MQTT broker falls back to the remaining specified methods, with SAT being next.
 
-1. MQTT broker tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `$sat`, MQTT broker evaluates the MQTT password as a SAT. Otherwise, the broker falls back to username-password and check if the provided MQTT username and password are valid.
+1. MQTT broker tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `$sat`, MQTT broker evaluates the MQTT password as a SAT.
 
 If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials aren't relevant, then the broker denies the client connection.
 
@@ -110,84 +108,6 @@ spec:
 ## Configure authentication method
 
 To learn more about each of the authentication options, see the following sections:
-
-## Username and password
-
-Each client has the following required properties:
-
-- Username
-- Password ([PBKDF2 encoded](https://en.wikipedia.org/wiki/PBKDF2))
-- [Attributes for authorization](./howto-configure-authorization.md)
-
-For example, start with a `passwords.toml` with identities and PBKDF2 encoded passwords.
-
-```toml
-# Credential #1
-# username: client1
-# password: password
-[client1]
-password = "$pbkdf2-sha512$i=100000,l=64$HqJwOCHweNk1pLryiu3RsA$KVSvxKYcibIG5S5n55RvxKRTdAAfCUtBJoy5IuFzdSZyzkwvUcU+FPawEWFPn+06JyZsndfRTfpiEh+2eSJLkg"
-
-[client1.attributes]
-floor = "floor1"
-site = "site1"
-
-# Credential #2
-# username: client2
-# password: password2
-[client2]
-password = "$pbkdf2-sha512$i=100000,l=64$+H7jXzcEbq2kkyvpxtxePQ$jTzW6fSesiuNRLMIkDDAzBEILk7iyyDZ3rjlEwQap4UJP4TaCR+EXQXNukO7qNJWlPPP8leNnJDCBgX/255Ezw"
-
-[client2.attributes]
-floor = "floor2"
-site = "site1"
-```
-
-Then, import it into a Kubernetes secret under that key.
-
-```bash
-kubectl create secret generic passwords-db --from-file=passwords.toml -n azure-iot-operations
-```
-
-Include a reference to the secret in the *BrokerAuthentication* custom resource.
-
-```yaml
-spec:
-  authenticationMethods:
-    - usernamePassword:
-        secretName: passwords-db
-```
-
-To encode the password using PBKDF2, use the [Azure IoT Operations CLI extension](/cli/azure/iot/ops) that includes the `az iot ops mq get-password-hash` command. It generates a PBKDF2 password hash from a password phrase using the SHA-512 algorithm and a 128-bit randomized salt.
-
-```bash
-az iot ops mq get-password-hash --phrase TestPassword
-```
-
-The output shows the PBKDF2 password hash to copy:
-
-```json
-{
-  "hash": "$pbkdf2-sha512$i=210000,l=64$4SnaHtmi7m++00fXNHMTOQ$rPT8BWv7IszPDtpj7gFC40RhhPuP66GJHIpL5G7SYvw+8rFrybyRGDy+PVBYClmdHQGEoy0dvV+ytFTKoYSS4A"
-}
-```
-
-Then, save the file as `passwords.toml` and import it into a Kubernetes secret under that key.
-
-```bash
-kubectl create secret generic passwords-db --from-file=passwords.toml -n azure-iot-operations
-```
-
-Include a reference to the secret in the *BrokerAuthentication* custom resource
-
-```yaml
-spec:
-  authenticationMethods:
-    - usernamePassword:
-        secretName: passwords-db
-```
-
-It might take a few minutes for the changes to take effect.
 
 ## X.509 client certificate
 

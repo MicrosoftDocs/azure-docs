@@ -146,7 +146,7 @@ Use the downloaded `ca.crt` file to configure your client to trust the broker's 
 
 ### Authenticate with the broker
 
-By default, IoT MQ only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509 or username and password. For more information, see [Configure authentication](howto-configure-authentication.md).
+By default, IoT MQ only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509. For more information, see [Configure authentication](howto-configure-authentication.md).
 
 #### Turn off authentication is for testing purposes only
 
