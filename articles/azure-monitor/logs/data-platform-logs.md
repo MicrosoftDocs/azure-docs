@@ -30,7 +30,7 @@ To address the unique data collection and analysis needs of the various personas
 - [Define table plans]() suited to the usage and cost management needs of the data in each table.
 - [Manage low-cost long-term retention and interactive retention](../logs/data-retention-archive.md) for each table.
 - [Manage access rights](../logs/manage-access.md) to the workspace and to specific tables.
-- Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and enables you to store raw data in a table with a low-cost table plan for however long you need it.
+- Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and store raw data in a table with a low-cost table plan for however long you need it.
 - Create ready-to-run queries, visulizations, and alerts tailored to specific personas.  
 
 :::image type="content" source="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" lightbox="edia/data-platform-logs/log-analytics-workspace-for-all-log-data.png" alt-text="A screenshot of a Log Analytics workspace in the Azure portal.":::
