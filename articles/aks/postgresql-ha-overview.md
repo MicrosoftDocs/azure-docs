@@ -23,27 +23,27 @@ This article walks through the prerequisites for setting up a PostgreSQL cluster
 
 * You also need the following resources installed:
 
-    * [Azure CLI](/cli/azure/install-azure-cli) version 2.56 or later.
-    * [Azure Kubernetes Service (AKS) preview extension][aks-preview].
-    * [jq][jq], version 1.5 or later.
-    * [kubectl][install-kubectl] version 1.21.0 or later.
-    * [Helm][install-helm] verison 3.0.0 or later.
-    * [openssl][install-openssl] version 3.3.0 or later.
-    * [Visual Studio Code][install-vscode] or equivalent.
-    * [Krew][install-krew] version 0.4.4 or later.
-    * [kubectl CloudNativePG (CNPG) Plugin][cnpg-plugin].
+  * [Azure CLI](/cli/azure/install-azure-cli) version 2.56 or later.
+  * [Azure Kubernetes Service (AKS) preview extension][aks-preview].
+  * [jq][jq], version 1.5 or later.
+  * [kubectl][install-kubectl] version 1.21.0 or later.
+  * [Helm][install-helm] version 3.0.0 or later.
+  * [openssl][install-openssl] version 3.3.0 or later.
+  * [Visual Studio Code][install-vscode] or equivalent.
+  * [Krew][install-krew] version 0.4.4 or later.
+  * [kubectl CloudNativePG (CNPG) Plugin][cnpg-plugin].
 
 ## Deployment process
 
 In this guide, you learn how to:
 
-- Use Azure CLI to create a multi-zone AKS cluster.
-- Deploy a highly available PostgreSQL cluster and database using the [CNPG operator][cnpg-plugin].
-- Set up monitoring for PostgreSQL using Prometheus and Grafana.
-- Deploy a sample dataset to a PostgreSQL database.
-- Perform PostgreSQL and AKS cluster upgrades.
-- Simulate a cluster interruption and PostgreSQL replica failover.
-- Perform backup and restore of a PostgreSQL database.
+* Use Azure CLI to create a multi-zone AKS cluster.
+* Deploy a highly available PostgreSQL cluster and database using the [CNPG operator][cnpg-plugin].
+* Set up monitoring for PostgreSQL using Prometheus and Grafana.
+* Deploy a sample dataset to a PostgreSQL database.
+* Perform PostgreSQL and AKS cluster upgrades.
+* Simulate a cluster interruption and PostgreSQL replica failover.
+* Perform backup and restore of a PostgreSQL database.
 
 ## Deployment architecture
 
@@ -55,7 +55,6 @@ Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing ano
 
 > [!NOTE]
 > The CNPG operator supports only *one database per cluster*. Plan accordingly for applications that require data separation at the database level.
-
 
 ## Next steps
 
@@ -72,6 +71,7 @@ Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing ano
 * Jenny Hayes | Senior Content Developer
 * Carol Smith | Senior Content Developer
 * Erin Schaffer | Content Developer 2
+* Adam Sharif | Customer Engineer 2
 
 <!-- LINKS -->
 [what-is-aks]: ./what-is-aks.md

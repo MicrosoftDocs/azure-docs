@@ -18,7 +18,7 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
 
 1. Generate a secret to validate the PostgreSQL deployment by interactive login for a bootstrap app user using the [`kubectl create secret`][kubectl-create-secret] command.
 
-    ```azurecli-interactive
+    ```bash
     PG_DATABASE_APPUSER_SECRET=$(echo -n | openssl rand -base64 16)
 
     kubectl create secret generic db-user-pass \
@@ -30,7 +30,7 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
 
 1. Validate that the secret was successfully created using the [`kubectl get`][kubectl-get] command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl get secret db-user-pass --namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
     ```
 
@@ -38,7 +38,7 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
 
 * Deploy a ConfigMap to set environment variables for the PostgreSQL cluster using the following command with the [`kubectl apply`][kubectl-apply] command.
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f -
     apiVersion: v1
     kind: ConfigMap
@@ -55,14 +55,14 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
 
 1. Add the Prometheus Community Helm repo using the [`helm repo add`][helm-repo-add] command.
 
-    ```azurecli-interactive
+    ```bash
     helm repo add prometheus-community \
         https://prometheus-community.github.io/helm-charts
     ```
 
 2. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
-    ```azurecli-interactive
+    ```bash
     helm upgrade --install \
         --namespace $PG_NAMESPACE \
         -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/docs/src/samples/monitoring/kube-stack-config.yaml \
@@ -73,7 +73,7 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
 
 Verify that the pod monitor is created.
 
-```azurecli-interactive
+```bash
 kubectl --namespace $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.monitoring.coreos.com \
@@ -87,7 +87,7 @@ In this section, you create a federated identity credential for PostgreSQL backu
 
 1. Get the OIDC issuer URL of the cluster using the [`az aks show`][az-aks-show] command.
 
-    ```azurecli-interactive
+    ```bash
     export AKS_PRIMARY_CLUSTER_OIDC_ISSUER="$(az aks show \
         --name $AKS_PRIMARY_CLUSTER_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
@@ -97,7 +97,7 @@ In this section, you create a federated identity credential for PostgreSQL backu
 
 2. Create a federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
-    ```azurecli-interactive
+    ```bash
     az identity federated-credential create \
         --name $AKS_PRIMARY_CLUSTER_FED_CREDENTIAL_NAME \
         --identity-name $AKS_UAMI_CLUSTER_IDENTITY_NAME \
@@ -128,7 +128,7 @@ The following table outlines the key properties set in the YAML deployment manif
 
 1. Deploy the PostgreSQL cluster with the Cluster CRD using the [`kubectl apply`][kubectl-apply] command.
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -v 9 -f -
     apiVersion: postgresql.cnpg.io/v1
     kind: Cluster
@@ -227,7 +227,7 @@ The following table outlines the key properties set in the YAML deployment manif
 
 1. Validate that the primary PostgreSQL cluster was successfully created using the [`kubectl get`][kubectl-get] command. The CNPG Cluster CRD specified three instances, which can be validated by viewing running pods once each instance is brought up and joined for replication. Be patient as it can take some time for all three instances to come online and join the cluster.
 
-    ```azurecli-interactive
+    ```bash
     kubectl get pods --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -246,7 +246,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
 
 * Validate the PodMonitor is running using the [`kubectl get`][kubectl-get] command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl --namespace $PG_NAMESPACE \
         --context $AKS_PRIMARY_CLUSTER_NAME \
         get podmonitors.monitoring.coreos.com \
@@ -266,7 +266,7 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
 
 If you are using Azure Monitor for Managed Prometheus, you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
 
-```azurecli-interactive
+```bash
 cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -f -
 apiVersion: azmonitoring.coreos.com/v1
 kind: PodMonitor
@@ -288,7 +288,7 @@ EOF
 
 Verify that the pod monitor is created (note the difference in the group name).
 
-```azurecli-interactive
+```bash
 kubectl --namespace $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.azmonitoring.coreos.com \
@@ -321,7 +321,7 @@ Click the Save icon to save your dashboard.
 
 Validate that PostgreSQL is spread across multiple availability zones by retrieving the AKS node details using the [`kubectl get`][kubectl-get] command.
 
-```azurecli-interactive
+```bash
 kubectl get nodes \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     --namespace $PG_NAMESPACE \
@@ -359,7 +359,7 @@ In this section, you create a table and insert some data into the app database t
 
 * Create a table and insert data into the app database using the following commands:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg psql $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
 
     # Run the following PSQL commands to create a small dataset
@@ -378,7 +378,7 @@ In this section, you create a table and insert some data into the app database t
 
 * Connect to the PostgreSQL read-only replicas and validate the sample dataset using the following commands:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg psql --replica $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
 
     #postgres=# 
@@ -402,7 +402,7 @@ In this section, you create a table and insert some data into the app database t
 
 1. Validate that the PostgreSQL cluster can access the Azure storage account specified in the CNPG Cluster CRD and that `Working WAL archiving` reports as `OK` using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -418,7 +418,7 @@ In this section, you create a table and insert some data into the app database t
 
 1. Deploy an on-demand backup to Azure Storage, which uses the AKS workload identity integration, using the YAML file with the [`kubectl apply`][kubectl-apply] command.
 
-    ```azurecli-interactive
+    ```bash
     export BACKUP_ONDEMAND_NAME="on-demand-backup-1"
 
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -v 9 -f -
@@ -435,7 +435,7 @@ In this section, you create a table and insert some data into the app database t
 
 1. Validate the status of the on-demand backup using the [`kubectl describe`][kubectl-describe] command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl describe backup $BACKUP_ONDEMAND_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -451,7 +451,7 @@ In this section, you create a table and insert some data into the app database t
 
 1. Validate that the cluster has a first point of recoverability using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -465,7 +465,7 @@ In this section, you create a table and insert some data into the app database t
 
 1. Configure a scheduled backup for *every hour at 15 minutes past the hour* using the YAML file with the [`kubectl apply`][kubectl-apply] command.
 
-    ```azurecli-interactive
+    ```bash
     export BACKUP_SCHEDULED_NAME="scheduled-backup-1"
 
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -v 9 -f -
@@ -484,13 +484,13 @@ In this section, you create a table and insert some data into the app database t
 
 1. Validate the status of the scheduled backup using the [`kubectl describe`][kubectl-describe] command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl describe scheduledbackup $BACKUP_SCHEDULED_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
 1. View the backup files stored on Azure blob storage for the primary cluster using the [`az storage blob list`][az-storage-blob-list] command.
 
-    ```azurecli-interactive
+    ```bash
     az storage blob list --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME --container-name backups --query "[*].name" --only-show-errors 
     ```
 
@@ -522,7 +522,7 @@ You also create a second federated credential to map the new recovery cluster se
 
 1. Create a second federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
-    ```azurecli-interactive
+    ```bash
     export PG_PRIMARY_CLUSTER_NAME_RECOVERED="$PG_PRIMARY_CLUSTER_NAME-recovered-db"
 
     az identity federated-credential create \
@@ -536,7 +536,7 @@ You also create a second federated credential to map the new recovery cluster se
 
 1. Restore the on-demand backup using the Cluster CRD with the [`kubectl apply`][kubectl-apply] command.
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -v 9 -f -
     apiVersion: postgresql.cnpg.io/v1
     kind: Cluster
@@ -604,7 +604,7 @@ You also create a second federated credential to map the new recovery cluster se
 
 1. Connect to the recovered instance, then validate that the dataset created on the original cluster where the full backup was taken is present using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg psql $PG_PRIMARY_CLUSTER_NAME_RECOVERED --namespace $PG_NAMESPACE
 
     postgres=# SELECT COUNT(*) FROM datasample;
@@ -618,13 +618,13 @@ You also create a second federated credential to map the new recovery cluster se
 
 1. You can now delete the recovered cluster using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg destroy $PG_PRIMARY_CLUSTER_NAME_RECOVERED 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
 1. You can now delete the federated identity credential using the [`az identity federated-credential delete`][az-identity-federated-credential-delete] command.
 
-    ```azurecli-interactive
+    ```bash
     az identity federated-credential delete \
         --name $PG_PRIMARY_CLUSTER_NAME_RECOVERED \
         --identity-name $AKS_UAMI_CLUSTER_IDENTITY_NAME \
@@ -644,7 +644,7 @@ You also retrieve the following endpoints from the Cluster IP service:
 
 1. Get the Cluster IP service details using the [`kubectl get`][kubectl-get] command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl get services --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -l cnpg.io/cluster=$PG_PRIMARY_CLUSTER_NAME
     ```
 
@@ -662,7 +662,7 @@ You also retrieve the following endpoints from the Cluster IP service:
 
 1. Get the service details using the [`kubectl get`][kubectl-get] command.
 
-    ```azurecli-interactive
+    ```bash
     export PG_PRIMARY_CLUSTER_RW_SERVICE=$(kubectl get services \
         --namespace $PG_NAMESPACE \
         --context $AKS_PRIMARY_CLUSTER_NAME \
@@ -682,7 +682,7 @@ You also retrieve the following endpoints from the Cluster IP service:
 
 1. Configure the load balancer service with the following YAML files using the [`kubectl apply`][kubectl-apply] command.
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -f -
     apiVersion: v1
     kind: Service
@@ -732,7 +732,7 @@ You also retrieve the following endpoints from the Cluster IP service:
 
 1. Get the service details using the [`kubectl describe`][kubectl-describe] command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl describe service cnpg-cluster-load-balancer-rw \
         --context $AKS_PRIMARY_CLUSTER_NAME \
         --namespace $PG_NAMESPACE
@@ -760,7 +760,7 @@ Remember that the primary read-write endpoint maps to TCP port 5432 and the read
 
 * Validate the public PostgreSQL endpoints using the following `psql` commands:
 
-    ```azurecli-interactive
+    ```bash
     echo "Public endpoint for PostgreSQL cluster: $AKS_PRIMARY_CLUSTER_ALB_DNSNAME"
 
     # Query the primary, pg_is_in_recovery = false
@@ -798,7 +798,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 1. Check the status of the running pod instances using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -814,7 +814,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 1. Delete the primary pod using the [`kubectl delete`][kubectl-delete] command.
 
-    ```azurecli-interactive
+    ```bash
     PRIMARY_POD=$(kubectl get pod \
         --namespace $PG_NAMESPACE \
         --no-headers \
@@ -825,7 +825,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 1. Validate that the `pg-primary-cnpg-sryti1qf-2` pod instance is now the primary using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -839,13 +839,13 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 1. Reset the `pg-primary-cnpg-sryti1qf-1` pod instance as the primary using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg promote $PG_PRIMARY_CLUSTER_NAME 1 --namespace $PG_NAMESPACE
     ```
 
 1. Validate that the pod instances have returned to their original state before the unplanned failover test using the following command:
 
-    ```azurecli-interactive
+    ```bash
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
@@ -863,7 +863,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 * Once you're finished reviewing your deployment, delete all the resources you created in this guide using the [`az group delete`][az-group-delete] command.
 
-    ```azurecli-interactive
+    ```bash
     az group delete --resource-group $RESOURCE_GROUP_NAME --no-wait --yes
     ```
 
@@ -891,6 +891,7 @@ To learn more about how you can leverage AKS for your workloads, see [What is Az
 * Jenny Hayes | Senior Content Developer
 * Carol Smith | Senior Content Developer
 * Erin Schaffer | Content Developer 2
+* Adam Sharif | Customer Engineer 2
 
 <!-- LINKS -->
 [helm-upgrade]: https://helm.sh/docs/helm/helm_upgrade/
