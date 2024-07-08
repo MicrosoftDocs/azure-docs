@@ -92,7 +92,7 @@ Consider the following recommendations when you select logic apps for export:
 
    :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png" alt-text="Screenshot showing Export tab with Azure subscription and region selected.":::
 
-1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.
+1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side.
 
    > [!TIP]
    >
@@ -102,7 +102,16 @@ Consider the following recommendations when you select logic apps for export:
 
    The export tool starts to validate whether your selected logic apps are eligible for export.
 
-1. For **Advanced options**, 
+1. In the **Advanced options** section, you can select the following options:
+
+   | Option | Default | Description |
+   |--------|---------|-------------|
+   | **Generate Infrastructure Template** | On | The export process creates infrastructure templates, which include one ARM template for the Standard logic app and one ARM template for each exported Azure-managed connection. |
+   | **Clone Connection Credentials** | Off | The export process clones credentials from the original Azure-managed connection to the new Azure-managed connection created in Azure, as part of deployment. Works only in cases where the exported connection remains an Azure-managed connection, for example, an Office 365 Outlook connection. <br><br>**Important**: Carefully use this option. By default, two new connections will point at the same resource, which can potentially create race conditions. |
+   | **Default to integration account as source for transformations and validation** | Off | Either reference map and schema files locally or in an integration account. If enabled, don't copy maps and schemas to the destination project. Requires that you add a reference to an integration account in the app setting for your logic app. By default, the **Transform XML** and **XML Validation** actions use the integration account as the source. |
+   | **Export custom connectors as API Management actions** | Off | If enabled, custom connectors are created as API Management actions, rather than HTTP actions, so that you can implement custom actions as API operations in API Management. For more information, see [Azure Logic Apps Standard options for connecting to customer services or APIs](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/la-standard-options-for-connecting-to-custom-services-or-apis/ba-p/3814148). |
+
+1. When you're done, select **Next**.
 
 ### Review export validation results
 
@@ -169,7 +178,6 @@ If you export actions that depend on an integration account, you have to manuall
 ### Batch actions and settings
 
 If you export actions that use Batch actions with multiple configurations stored in an integration account, you have to manually configure your Batch actions with the correct values after export. For more information, review [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md#create-batch-receiver).
-
 
 ## Project folder structure
 
