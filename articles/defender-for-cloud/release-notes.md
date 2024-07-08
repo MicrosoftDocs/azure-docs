@@ -81,7 +81,7 @@ Originally, SQL Vulnerability Assessment (VA) with Express Configuration was onl
 We will be updating all Azure SQL Servers that had Microsoft Defender for SQL activated before December 2022 and had no existing SQL VA policy in place, to have SQL Vulnerability Assessment (SQL VA) automatically enabled with Express Configuration.
 
 - The implementation of this change will be gradual, spanning several weeks, and does not require any action on the user’s part.
-- This change applies to Azure SQL Servers where Microsoft Defender for SQL was activated either at the Azure subscription level or at the individual server level.
+- This change applies to Azure SQL Servers where Microsoft Defender for SQL was activated at the Azure subscription level.
 - Servers with an existing classic configuration (whether valid or invalid) will not be affected by this change.
 - Upon activation, the recommendation ‘SQL databases should have vulnerability findings resolved’ may appear and could potentially impact your secure score.
 
