@@ -74,7 +74,7 @@ A burstable SKU recommendation is made if:
 * The average **CPU utilization** is less than a burstable SKUs' baseline performance
   * If the P95 of CPU is less than two times the burstable SKUs' baseline performance
   * If the current SKU doesn't have accelerated networking enabled, since burstable SKUs don't support accelerated networking yet
-  * If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days.  Note that you can change your lookback period in the configurations.
+  * If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days. You can change your lookback period in the configurations.
 
 The resulting recommendation suggests that a user should resize their current virtual machine or virtual machine scale set to a burstable SKU with the same number of cores. This suggestion is made so a user can take advantage of lower cost and also the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU.
 
