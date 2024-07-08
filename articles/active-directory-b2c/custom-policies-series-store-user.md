@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 05/11/2024
+ms.date: 06/21/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -263,7 +263,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 After the policy finishes execution, and you receive your ID token, check that the user record has been created: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least Privileged Role Administrator.
 
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 

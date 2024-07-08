@@ -2,7 +2,7 @@
 title: Use certificates and securely access Azure Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -10,8 +10,6 @@ ms.custom: devx-track-azurepowershell
 
 > [!WARNING]
 > Batch account certificates as detailed in this article are [deprecated](batch-certificate-migration-guide.md). To securely access Azure Key Vault, simply use [Pool managed identities](managed-identity-pools.md) with the appropriate access permissions configured for the user-assigned managed identity to access your Key Vault. If you need to provision certificates on Batch nodes, please utilize the available Azure Key Vault VM extension in conjunction with pool Managed Identity to install and manage certificates on your Batch pool. For more information on deploying certificates from Azure Key Vault with Managed Identity on Batch pools, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
-> 
-> `CloudServiceConfiguration` pools do not provide the ability to specify either Managed Identity or the Azure Key Vault VM extension, and these pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). You should migrate to `VirtualMachineConfiguration` pools which provide the aforementioned alternatives.
 
 In this article, you'll learn how to set up Batch nodes with certificates to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md).
 

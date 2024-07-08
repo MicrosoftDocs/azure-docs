@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2, build-2023
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 10/19/2023
-ms.reviewer: mopeakande
+ms.reviewer: sehan
 ---
 
 # CLI (v2) managed online deployment YAML schema

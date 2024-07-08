@@ -66,7 +66,7 @@ To get started with video translation, refer to [video translation in the studio
 
 ## Price 
 
-Pricing details for video translation will be effective from June 2024. 
+For pricing details on video translation, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that video translation pricing will only be visible for [service regions](#supported-regions-and-languages) where the feature is available.
 
 ## Related content
 

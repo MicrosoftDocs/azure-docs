@@ -9,7 +9,8 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
+
 
 # Customer intent: As an IT admin responsible for securing applications, I want to integrate Azure Active Directory B2C with F5 BIG-IP Access Policy Manager. I want to expose legacy applications securely to the internet with preauthentication, Conditional Access, and single sign-on (SSO) capabilities.
 ---
@@ -79,7 +80,7 @@ Obtain custom attributes from Azure AD B2C user objects, federated IdPs, API con
 
 Legacy applications expect specific attributes, so include them in your user flow. You can replace them with attributes your application requires. Or if you're setting up a test app using the instructions, then user any headers.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least B2C IEF Policy Administrator.
 2. In the left-hand pane, select **User attributes**.
 3. Select **Add** to create two custom attributes.
 4. For Agent ID, select String **Data Type**.

@@ -24,7 +24,7 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 ## Prerequisites
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * Make sure that the identity that you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set][az-account-set] command.

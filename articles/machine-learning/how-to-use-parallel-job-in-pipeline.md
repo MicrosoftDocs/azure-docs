@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: alainli
-ms.author: alainli
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: alainli
 ms.date: 03/13/2023
 ms.custom: devx-track-python, sdkv2, cliv2, update-code1
 ---

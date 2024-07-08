@@ -2,7 +2,7 @@
 title: Azure Lab Services retirement guide
 description: Learn about the Azure Lab Services retirement schedule and how to transition to Microsoft or partner services.
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 07/08/2024
 
 # customer intent: As an Azure Lab Services customer, I want to understand the Azure Lab Services retirement schedule and what Microsoft and partners services I can transition to.
 ---

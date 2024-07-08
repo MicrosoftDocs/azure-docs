@@ -170,5 +170,5 @@ Run a failover for the machines you want to migrate.
 > **Don't cancel a failover in progress**: Server replication is stopped before failover starts. If you cancel a failover in progress, failover stops, but the server won't continue to replicate.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
+
+- [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
