@@ -13,13 +13,13 @@ ms.author: asabbour
 
 **Applies to:** :heavy_check_mark: AKS Automatic (preview)
 
-In Azure Kubernetes Service (AKS) Automatic, Azure manages your cluster configuration, including your nodes, scaling, security, and other preconfigured settings. Automatic clusters are optimized to run most production workloads, and provision compute resources based on your workload needs. The streamlined configuration follows AKS best practices and recommendations for cluster and workload setup, scalability, and security.
+Azure Kubernetes Service (AKS) Automatic offers an experience that makes the most common tasks on Kubernetes fast and frictionless, while preserving the flexibility, extensibility, and consistency of Kubernetes. Azure takes care of your cluster setup, including node management, scaling, security, and preconfigured settings that follow AKS well-architected recommendations. Automatic clusters dynamically allocate compute resources based on your specific workload requirements and are tuned for running production applications.
 
-- **Optimal cluster configuration**: Clusters are preconfigured for optimal production use, suitable for most applications. They offer fully managed node pools that automatically allocate and scale resources based on your workload needs. Pods are bin packed efficiently, to maximize resource utilization.
+- **Production ready by default**: Clusters are preconfigured for optimal production use, suitable for most applications. They offer fully managed node pools that automatically allocate and scale resources based on your workload needs. Pods are bin packed efficiently, to maximize resource utilization.
+  
+- **Built-in best practices and safeguards**: AKS Automatic clusters have a hardened default configuration, with many cluster, application, and networking security settings enabled by default. AKS automatically patches your nodes and cluster components while adhering to any planned maintenance schedules.
 
-- **Streamlined application deployment**: Go from a container image to a deployed application that adheres to best practices patterns within minutes, with access to the comprehensive capabilities of the Kubernetes API and its rich ecosystem.
-
-- **Default security posture**: AKS Automatic clusters have a hardened default configuration, with many cluster, application, and networking security settings enabled by default. AKS automatically patches your nodes and cluster components while adhering to any planned maintenance schedules.
+- **Code to Kubernetes in minutes**: Go from a container image to a deployed application that adheres to best practices patterns within minutes, with access to the comprehensive capabilities of the Kubernetes API and its rich ecosystem.
 
 ## AKS Automatic and Standard feature comparison
 
@@ -54,14 +54,14 @@ Node management is automatically handled without the need for manual node pool c
 
 ### Security and policies
 
-Cluster authentication and authorization use [Azure Role-based Access Control (RBAC) for Kubernetes authorization][azure-rbac-for-k8s-auth] and applications can use features like [workload identity with Microsoft Entra Workload ID][workload-identity] and [OpenID Connect (OIDC) cluster issuer][oidc-issuer] to have secure communication with Azure services. [Deployment safeguards][deployment-safeguards] enforce Kubernetes best practices through Azure Policy controls and the built-in [image cleaner][image-cleaner] removes stale and vulnerable images, enhancing image security.
+Cluster authentication and authorization use [Azure Role-based Access Control (RBAC) for Kubernetes authorization][azure-rbac-for-k8s-auth] and applications can use features like [workload identity with Microsoft Entra Workload ID][workload-identity] and [OpenID Connect (OIDC) cluster issuer][oidc-issuer] to have secure communication with Azure services. [Deployment safeguards][deployment-safeguards] enforce Kubernetes best practices through Azure Policy controls and the built-in [image cleaner][image-cleaner] removes unused images with vulnerabilities, enhancing image security.
 
 | Option                    | AKS Automatic   	| AKS Standard  	|
 |---	                    |---	            |---	            |
 | Cluster authentication and authorization	        | **Pre-configured:** [Azure RBAC for Kubernetes authorization][azure-rbac-for-k8s-auth] for managing cluster authentication and authorization using Azure role-based access control.  | **Default:** Local accounts. <br/> **Optional:** <ul><li>[Azure RBAC for Kubernetes authorization][azure-rbac-for-k8s-auth]</li><li>[Kubernetes RBAC with Microsoft Entra integration][k8s-rbac-with-entra]</li></ul> |
 | Cluster security	        | **Pre-configured:** [API server virtual network integration][api-server-vnet-integration] enables network communication between the API server and the cluster nodes over a private network without requiring a private link or tunnel. | **Optional:** [API server virtual network integration][api-server-vnet-integration] enables network communication between the API server and the cluster nodes over a private network without requiring a private link or tunnel.|
 | Application security	        | **Pre-configured:** <ul><li>[Workload identity with Microsoft Entra Workload ID][workload-identity]</li><li>[OpenID Connect (OIDC) cluster issuer][oidc-issuer]</li></ul> | **Optional:** <ul><li>[Workload identity with Microsoft Entra Workload ID][workload-identity]</li><li>[OpenID Connect (OIDC) cluster issuer][oidc-issuer]</li></ul> |
-| Image security	        | **Pre-configured:** [Image cleaner][image-cleaner] to remove stale and vulnerable images. | **Optional:** [Image cleaner][image-cleaner] to remove stale and vulnerable images. |
+| Image security	        | **Pre-configured:** [Image cleaner][image-cleaner] to remove unused images with vulnerabilities. | **Optional:** [Image cleaner][image-cleaner] to remove unused images with vulnerabilities. |
 | Policy enforcement	        | **Pre-configured:** [Deployment safeguards][deployment-safeguards] that enforce Kubernetes best practices in your AKS cluster through Azure Policy controls. | **Optional:** [Deployment safeguards][deployment-safeguards] enforce Kubernetes best practices in your AKS cluster through Azure Policy controls. |
 
 ### Networking
@@ -72,7 +72,7 @@ AKS Automatic clusters use [managed Virtual Network powered by Azure CNI Overlay
 |---	                    |---	            |---	            |
 | Virtual network	        | **Pre-configured:** [Managed Virtual Network using Azure CNI Overlay powered by Cilium][azure-cni-powered-by-cilium] combines the robust control plane of Azure CNI with the data plane of Cilium to provide high-performance networking and security. | **Default:** [Managed Virtual Network with kubenet][kubenet] <br/> **Optional:** <ul><li>[Azure CNI][azure-cni]</li><li>[Azure CNI Overlay][azure-cni-overlay]</li><li>[Azure CNI Overlay powered by Cilium][azure-cni-powered-by-cilium]</li><li>[Bring your own CNI][use-byo-cni]</li></ul> |
 | Ingress	        | **Pre-configured:** [Managed NGINX using the application routing add-on][app-routing] with integrations for Azure DNS  and Azure Key Vault. <br/> **Optional:** <ul><li>[Azure Service Mesh (Istio)][istio-deploy-ingress] ingress gateway</li><li>Bring your own ingress or gateway.</li></ul> | **Optional:** <ul><li>[Managed NGINX using the application routing add-on][app-routing] with integrations for Azure DNS  and Azure Key Vault.</li><li>[Azure Service Mesh (Istio)][istio-deploy-ingress] ingress gateway</li><li>Bring your own ingress or gateway.</li></ul> |
-| Egress	        | **Pre-configured:** [AKS managed NAT gateway][managed-nat-gateway] for a scalable outbound connection flows| **Default:** <ul><li>[Azure Load Balancer][egress-load-balancer]</li><li>[User-assigned NAT gateway][managed-nat-gateway]</li><li>[AKS managed NAT gateway][userassigned-nat-gateway]</li></ul> |
+| Egress	        | **Pre-configured:** [AKS managed NAT gateway][managed-nat-gateway] for a scalable outbound connection flows| **Default:** [Azure Load Balancer][egress-load-balancer] <br/> **Optional:** <ul><li>[User-assigned NAT gateway][managed-nat-gateway]</li><li>[AKS managed NAT gateway][userassigned-nat-gateway]</li></ul> |
 | Service mesh	        | **Optional:** <ul><li>[Azure Service Mesh (Istio)][istio-mesh]</li><li>Bring your own service mesh.</li></ul> | **Optional:** <ul><li>[Azure Service Mesh (Istio)][istio-mesh]</li><li>Bring your own service mesh.</li></ul> |
 
 ## Next steps

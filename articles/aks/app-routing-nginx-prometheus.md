@@ -16,7 +16,7 @@ The ingress-nginx controller in the application routing add-on exposes many metr
 
 The application routing add-on exposes the Prometheus metrics endpoint at `/metrics` on port 10254.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Prerequisites
 

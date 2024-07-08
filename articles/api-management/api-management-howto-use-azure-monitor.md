@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 06/27/2023
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -179,7 +179,7 @@ For more information about using resource logs for API Management, see:
 
 ## Modify API logging settings
 
-By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the data, or disable logging for some APIs.
+By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the data, enable logging of headers or request or response payloads, or disable logging for some APIs.
 
 For details about the logging settings, see [Diagnostic logging settings reference](diagnostic-logs-reference.md).
 
@@ -188,14 +188,16 @@ To configure logging settings for all APIs:
 1. In the left menu of your API Management instance, select **APIs** > **All APIs**.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**.
+1. Review the settings and make changes if needed. Select **Save**. 
 
 To configure logging settings for a specific API:
 
 1. In the left menu of your API Management instance, select **APIs** and then the name of the API.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**.
+1. Review the settings and make changes if needed. Select **Save**. 
+
+[!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
 
 ## Next steps
 

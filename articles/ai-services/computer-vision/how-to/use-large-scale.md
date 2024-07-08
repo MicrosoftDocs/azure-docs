@@ -92,13 +92,13 @@ private static async Task TrainLargeFaceList(
     int timeIntervalInMilliseconds = 1000)
 {
     // Trigger a train call.
-    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
+    await FaceClient.LargeFaceList.TrainAsync(largeFaceListId);
 
     // Wait for training finish.
     while (true)
     {
-        Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
+        await Task.Delay(timeIntervalInMilliseconds);
+        var status = await faceClient.LargeFaceList.GetTrainingStatusAsyn(largeFaceListId);
 
         if (status.Status == Status.Running)
         {
@@ -123,7 +123,7 @@ Previously, a typical use of **FaceList** with added faces and **FindSimilar** l
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
+await faceClient.FaceList.CreateAsync(FaceListId, FaceListName);
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
@@ -141,7 +141,7 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
+    var faces = await faceClient.Face.DetectWithStreamAsync(stream);
     foreach (var face in faces)
     {
         results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
@@ -156,7 +156,7 @@ When migrating it to **LargeFaceList**, it becomes the following:
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
+await faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName);
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
@@ -178,7 +178,7 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
+    var faces = await faceClient.Face.DetectWithStreamAsync(stream);
     foreach (var face in faces)
     {
         results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));

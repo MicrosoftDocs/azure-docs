@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 05/25/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 

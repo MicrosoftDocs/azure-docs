@@ -2,7 +2,7 @@
 title: Azure Queue storage trigger and bindings for Azure Functions overview
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 11/11/2022
 zone_pivot_groups: programming-languages-set-functions
 ---

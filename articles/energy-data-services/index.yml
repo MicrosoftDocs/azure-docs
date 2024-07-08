@@ -36,6 +36,8 @@ landingContent:
             url: tutorial-manifest-ingestion.md
       - linkListType: concept
         links:
+          - text: OSDU® services available on Azure Data Manager for Energy
+            url: osdu-services-on-adme.md
           - text: Manifest ingestion concepts
             url: concepts-manifest-ingestion.md
           - text: CSV parser concepts
@@ -94,6 +96,8 @@ landingContent:
             url: how-to-add-more-data-partitions.md
           - text: How to generate auth token
             url: how-to-generate-auth-token.md
+          - text: How to deploy Geospatial Consumption Zone (GCZ)
+            url: how-to-deploy-gcz.md
           - text: How to deploy OSDU Admin UI
             url: how-to-deploy-osdu-admin-ui.md
       - linkListType: concept

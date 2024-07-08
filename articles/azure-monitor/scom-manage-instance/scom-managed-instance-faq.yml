@@ -1,0 +1,226 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Monitor SCOM Managed Instance - FAQ
+  description: This article answers frequently asked questions about Azure Monitor SCOM Managed Instance.
+  ms.date: 06/17/2024
+  ms.topic: faq
+  ms.service: azure-monitor
+  ms.subservice: operations-manager-managed-instance
+  author: PriskeyJeronika-MS
+  ms.author: v-gjeronika
+title: Azure Monitor SCOM Managed Instance - Frequently asked questions
+summary: This article answers frequently asked questions about Azure Monitor SCOM Managed Instance.
+sections:
+  - name: Virtual Network (VNet)
+    questions:
+      - question: What regions do the VNet need to be in?
+        answer: |
+          To maintain latency, we recommend you have the VNet in the same region as your other Azure resources.
+      - question: What address range does the VNet need? 
+        answer: |
+          The minimum address space is /27 (which means /28 and above wouldn't work).
+      - question: How many subnets does the VNet need to have? 
+        answer: |
+          - VNet needs two subnets.
+             - For SCOM Managed Instance
+             - For SQL Managed Instance
+          - The subnet for SQL Managed Instance will be a delegated (dedicated) subnet and won't be used by the SCOM Managed Instance. Name the subnets accordingly to avoid confusion in the future while you create the SQL Managed Instance/SCOM Managed Instance.
+      - question: |
+          What address range do the two subnets need?
+        answer: |
+          The minimum address space needs to be /27 for SQL MI subnet and /28 for the SCOM Managed Instance subnet.
+      - question: |
+          Do the subnets need to specify a NAT gateway or Service Endpoint?
+        answer: |
+          No, both the options can be left blank.
+      - question: |
+          Are there limitations on the security options in the Create VNet experience (BastionHost, DDoS, Firewall)?
+        answer: |
+          No, you can disable all of them or enable any of them based on your organization's preferences.
+      - question: |
+          I created separate VNets in Azure. What steps do I need to take?
+        answer: |
+          If you have multiple VNets created, you need to peer your VNets. If you're peering any two networks, ensure to peer from both networks to each other. Thus, if you peer three networks, you need to do six peerings. For more information on peering, see [Azure Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview).
+      - question: |
+          What options do I select while peering?
+        answer: |
+          - You need to specify a peering name (in the field **Peering link name**).
+          - The first name is used to name the peer network from the current network to the other network. The second name is used to name the peer network from the other network to this network.
+          - In the section *Virtual Network*, specify the name of the VNet that you're peering. If you can't find the VNet, you can search for it using the *Resource ID*. Retain the rest of the options as default.
+             :::image type="Add peering" source="media/scom-managed-instance-faq/add-peering-inline.png" alt-text="Screenshot showing add peering screen." lightbox="media/scom-managed-instance-faq/add-peering-expanded.png":::
+  - name: SQL managed instance
+    questions:
+      - question: |
+          I don't see my region in SQL MI. How do I solve that?
+        answer: |
+          1. If you don't see the region that you want to choose (West US or West Europe) in the list of regions, select **Not seeing a region**, and then select **Request quota increase for your subscription**.
+             :::image type="Region error" source="media/scom-managed-instance-faq/region-error.png" alt-text="Screenshot showing region error.":::
+          2. Enter the required fields in **Basics** and go to **Details** to enter the **Problem details**.
+             :::image type="New support request" source="media/scom-managed-instance-faq/new-support-request-inline.png" alt-text="Screenshot showing new support request." lightbox="media/scom-managed-instance-faq/new-support-request-expanded.png":::
+          3. Select **Enter details**. **Quota details** page opens on the right pane. In *Region*, choose the desired region and change the limits as desired (10 subnets and 500 vCores should suffice). Select **Save and continue** and then select **Next: Review + create >>** to raise the ticket. It might take 24 hours for the ticket to get resolved. Wait for it to get resolved before proceeding to create the SQL MI instance.
+          <br>
+          For more information, see [Which Azure regions are supported?](/azure/azure-sql/managed-instance/frequently-asked-questions-faq?view=azuresql#which-azure-regions-are-supported).
+  - name: Azure role-based access control (RBAC)
+    questions:
+      - question: |
+          What is Azure RBAC?
+        answer: |
+          Azure RBAC is the role-based access control system that Azure follows while granting permissions. For more information, see [Azure role-based access control](/azure/role-based-access-control/overview).
+          <br>
+          Azure RBAC is divided into Azure roles and Microsoft Entra ID roles. At a high level, Azure roles control permissions to manage Azure resources, while Microsoft Entra ID roles control permissions to manage Microsoft Entra ID Directory resources. The following table compares some of the differences.
+           |**Azure roles**|**Microsoft Entra ID roles**|
+           |---|---|
+           |Manage access to Azure resources|Manage access to Microsoft Entra ID resources|
+           |Supports custom roles|Supports custom roles|
+           |Scope can be specified at multiple levels (management group, subscription, resource group, resource)|Scope can be specified at the tenant level (organization-wide), administrative unit, or on an individual object (for example, a specific application)|
+           |Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API|Role information can be accessed in Azure admin portal, Microsoft 365, admin center, Microsoft Graph, Microsoft Entra ID PowerShell|
+          <br>
+          Below is the high-level view of how the classic subscription administrator roles, Azure roles, and Azure AD roles are related.
+           :::image type="Microsoft Entra ID roles" source="media/scom-managed-instance-faq/azure-active-directory-roles.png" alt-text="Screenshot of Microsoft Entra ID roles.":::
+      - question: |
+          What is a Global Administrator role?
+        answer: |
+          Users with the Global administrator role have access to all administrative features in Microsoft Entra ID and services that use Microsoft Entra ID identities, such as:
+             - Microsoft 365 Defender portal
+             - Compliance portal
+             - Exchange Online
+             - SharePoint Online
+             - Skype for Business Online
+  - name: Other queries
+    questions:
+      - question: |
+          What if there's an error during the deployment?
+        answer: |  
+          During the deployment phase, there can be several reasons why deploying a SCOM Managed Instance shows an error. It might be due to wrong input while creation or some backend error. Raise a support ticket in case you need any further assistance. In the scenario of an error during deployment, it's best to delete the instance and create one again. For more information, see [Troubleshoot issues with Azure Monitor SCOM Managed Instance](/azure/azure-monitor/scom-manage-instance/troubleshoot-scom-managed-instance).
+      - question: |
+          What is the procedure to delete an instance?
+        answer: |
+          You can either delete the instance from the instance view itself or from the *Resource Group* view.
+          <br>
+          In the instance view, select *Delete* from the top menu and wait for the confirmation that the instance has been deleted. 
+           :::image type="Delete option" source="media/scom-managed-instance-faq/delete.png" alt-text="Screenshot showing delete option.":::
+          Alternatively, go to your resource group view (search for Resource Group in the Azure search bar, and in the list of results, open your resource group). Go to the resource group where the SCOM Managed Instance resides and delete the instance.
+          <br>
+          Once the instance is deleted, you'll also have to delete the two databases created in SQL MI. In the resource view, select the two databases (depending on what name you gave to your SCOM Managed Instance) and select **Delete**.
+      - question: |
+          If an Arc instance to connect to private cloud with some resources is available, will SCOM Managed Instance scale to those resources?
+        answer: |
+          Currently not supported. Today, independent of System Center Operations Manager, customers can install an Arc agent on a VM running on-premises and start seeing the resource in the Azure portal. Once they start seeing the resource in the Azure portal, they can use the Azure services for that resource (and incur the appropriate costs).
+      - question: |
+          How will network monitoring be done on SCOM Managed Instance?
+        answer: |
+          SCOM Managed Instance and System Center Operations Manager share the same feature set. You can use the same Management packs that you use in on-premises to carry out network monitoring via SCOM Managed Instance.
+      - question: |
+          How is SCOM Managed Instance different from running System Center Operations Manager in Azure VMs?
+        answer: |
+          - SCOM Managed Instance is native to Azure, while running System Center Operations Manager in Azure VMs isn't a native solution. This means, SCOM Managed Instance integrates smoothly with Azure and all of Azure’s updates are available to SCOM Managed Instance.
+          - SCOM Managed Instance prepares the entire infra for high availability by deploying VMSS, Load Balancer, MSI, etc. To prepare such setup manually, it takes months of effort (and requires in-depth technical knowledge).
+          - SCOM Managed Instance uses SQL MI as the backend for database management by default.
+          - SCOM Managed Instance comes with built-in scaling, patching features, and integrated reports.
+      - question: |
+          What does line-of-sight mean?
+        answer: |
+          Being in the same private network so that the IPs assigned to each component in the network can be a private IP.
+      - question: |
+          Can I view the SCOM Managed Instance resources and VMs in my subscription?
+        answer: |
+          Since this instance requires you to create the SCOM Managed Instance in your subscription, you will be able to see all the SCOM Managed Instance resources (including the VMs). However, we recommend not to do any actions on the VMs and other resources while you're operating SCOM Managed Instance to avoid unforeseen complexities.
+  - name: Monitoring scenarios
+    questions:
+      - question: |
+          Can I reuse existing System Center Operations Manager Gateway servers with SCOM Managed Instance?
+        answer: |  
+          No.
+          <br>
+          SCOM Managed Instance Managed Gateways can be configured on any Azure and Arc-enabled server, which doesn't have Operations Manager Gateway software on it. If you want to reuse Operations Manager on-premises Gateway servers with SCOM Managed Instance, uninstall Operations Manager Gateway software on it. To configure SCOM Managed Instance Managed Gateway, see [Configure monitoring of servers via SCOM Managed Instance Gateway](/azure/azure-monitor/scom-manage-instance/monitor-arc-enabled-vm-with-scom-managed-instance#configure-monitoring-of-servers-via-scom-managed-instance-gateway).
+      - question: |
+          Can SCOM Managed Instance Managed Gateway multi-home with System Center Operations Manager on-premises Management server?
+        answer: |  
+          No. Multi-homing on SCOM Managed Instance Managed Gateway isn't possible.
+      - question: |
+          What certificate is used in SCOM Managed Instance Managed Gateway for authentication?
+        answer: |  
+          The certificates are assigned by Microsoft and are signed by CA. There's no requirement for manual management of certificates on Managed Gateways. 
+      - question: |
+          Can SCOM Managed Instance monitor on-premises machines without Arc installed?
+        answer: |  
+          Yes, if there's a direct connectivity (line-of-sight) between SCOM Managed Instance and on-premises machine via VPN/ER, you can monitor these machines. For more information, see [Configure monitoring of on-premises servers](/azure/azure-monitor/scom-manage-instance/monitor-arc-enabled-vm-with-scom-managed-instance#configure-monitoring-of-on-premises-servers).
+  - name: Monitored Resources (Agents)/Managed Gateway Servers
+    questions:
+      - question: |
+          Can we perform actions on on-premises monitored resources from Azure Portal?
+        answer: |  
+          You can't perform actions on the on-premises monitored resources, but can view them. Additionally, if the monitored objects are deleted, the portal will automatically remove those on-premises objects in five minutes.
+      - question: |
+          How often are the connectivity synchronizations performed for monitored resources and managed gateways?
+        answer: |
+          The monitored resources and managed gateways connectivity status are updated every minute, you can view the same in the Properties context menu.
+      - question: |
+          What happens if a System Center Operations Manager agent is already installed on the machine?
+        answer: |
+          The agent will be upgraded in-place (if required) and multi-homed to the SCOM Managed Instance.
+      - question: |
+          Which extension version of SCOM Managed Instance supports agent (monitored resource) or managed gateway servers?
+        answer: |
+          The capability is enabled with SCOM Managed Instance extension >=91.
+      - question: |
+          How can we view the complete list of properties for a monitored resource or a managed gateway?
+        answer: |
+          You can view the list of properties for a monitored resource or a managed gateway in the **Properties** context menu.
+      - question: |
+          Which machine types are eligible for monitoring?
+        answer: |
+          SCOM Managed Instance enables monitoring of Azure and Arc-enabled machines. Additionally, it displays information about on-premises machines that are directly connected to the SCOM Managed Instance.
+      - question: |
+          What is the expected duration for the health and connectivity states to be updated after onboarding?
+        answer: |
+          The initial retrieval of health and connectivity states on the portal takes approximately five to seven minutes. Subsequently, heartbeats occur every minute.
+      - question: |
+          What is the minimum required .NET version for the agent (monitored resources) or gateway servers?
+        answer: |
+          The minimum required .NET Framework version is 4.7.2.
+      - question: |
+          How do we check whether the agent (monitored resources) or gateway has line of sight to Azure endpoint <*.workloadnexus.com>?
+        answer: |
+          On the agent/gateway server to be onboarded,
+           - Check if it has the outbound connectivity to *.workloadnexus.azure.com
+           - Check if the firewall has been opened for this URL.
+          <br>
+          For example: `Test-NetConnection westus.workloadnexus.azure.com -Port 443` (Region must be SCOM Managed Instance's region)
+      - question: |
+          How can we determine if an agent (monitored resource) or gateway has a line of sight to the management servers?
+        answer: |
+          On the agent/gateway server to be onboarded, check if it has the outbound connectivity to management servers load balancers endpoint.
+          <br>
+          For example: `Test-NetConnection wlnxMWH160LB.scommi.com -Port 5723`
+      - question: |
+          How can we verify if the machine has TLS 1.2, or a higher version enabled, and TLS 1.1 disabled?
+        answer: |
+          The agent and gateway server machines needs TLS 1.2 or more enabled, and TLS 1.1 disabled to get the successful onboarding and monitoring.
+          <br>
+          For more information, see [the process for enabling TLS 1.2](/mem/configmgr/core/plan-design/security/enable-tls-1-2).
+  - name: Monitored Resources (Agents)
+    questions:
+      - question: |
+          Are Linux machines permitted for monitoring?
+        answer: |  
+          Currently, we don't support monitoring of Azure and Arc-enabled Linux machines. However, they can be managed via the Arc-enabled gateway servers.
+      - question: |
+          Is it possible to configure an agent to communicate with multiple SCOM Managed Instances?
+        answer: |  
+          No. You can't configure an agent to communicate with multiple SCOM Managed Instances, but it can have a multi-home configuration for on-premises System Center Operations Manager and a SCOM Managed Instance.
+  - name: Managed Gateway Servers
+    questions:
+      - question: |
+          Is it permissible to use Azure Windows machines as gateway servers?
+        answer: |  
+          Currently, only Arc-enabled machines are permitted as gateway servers.
+      - question: |
+          Is it possible to configure gateway servers with multi-homing?
+        answer: |  
+          Currently, multi-homing for gateway servers isn't supported.
+additionalContent: |
+  ## Next steps
+  Read the other FAQs:
+
+  [SCOM Managed Instance overview](overview.md)

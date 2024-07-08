@@ -1,7 +1,7 @@
 ---
-title: Index binary data for vector search
+title: Index binary vectors for vector search
 titleSuffix: Azure AI Search
-description: Explains how to configure fields for binary data and the vector search configuration for querying the fields.
+description: Explains how to configure fields for binary vectors and the vector search configuration for querying the fields.
 
 author: HeidiSteen
 ms.author: heidist
@@ -9,25 +9,28 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 05/30/2024
 ---
 
-# Index binary data for vector search
+# Index binary vectors for vector search
 
-Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Binary)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
+> [!IMPORTANT]
+> Binary data types are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) and later preview APIs provide the new data type.
 
-There are three steps to configuring an index for binary data:
+Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Byte)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
+
+There are three steps to configuring an index for binary vectors:
 
 > [!div class="checklist"]
 > + Add a vector search algorithm that specifies Hamming distance for binary vector comparison
 > + Add a vector profile that points to the algorithm
 > + Add the vector profile to your binary field definition
 
-This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step.
+This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step, but you could also add a binary field to an index in the Azure portal.
 
 ## Prerequisites
 
-+ An embedding model that outputs embeddings in a packed form, where each 8-bit binary value is packed into one uint8 unit.
++ Binary vectors, with 1 bit per dimension, packaged in uint8 values with 8 bits per value. These can be obtained by using models that directly generate "packaged binary" vectors, or by quantizing vectors into binary vectors client-side during indexing and searching.
 
 ## Limitations
 
@@ -37,7 +40,7 @@ This article assumes you're familiar with [creating an index in Azure AI Search]
 
 ## Add a vector search algorithm and vector profile
 
-Vector search algorithms are used to create the query navigation structures during indexing. For binary data fields, vector comparisons are performed using the Hamming distance metric. 
+Vector search algorithms are used to create the query navigation structures during indexing. For binary vector fields, vector comparisons are performed using the Hamming distance metric. 
 
 1. To add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request using the **2024-05-01-preview REST API** or the Azure portal.
 
@@ -82,10 +85,10 @@ The following example shows a basic `vectorSearch` configuration:
 
 The fields collection of an index must include a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
 
-Binary fields are of type `Collection(Edm.Binary)` and contain embeddings in packed form. For example, if the original embedding dimension is `1024`, the packed binary vector length is `ceiling(1024 / 8) = 128`. You get the packed form by setting the `vectorEncoding` property on the field.
+Binary fields are of type `Collection(Edm.Byte)` and contain embeddings in packed form. For example, if the original embedding dimension is `1024`, the packed binary vector length is `ceiling(1024 / 8) = 128`. You get the packed form by setting the `vectorEncoding` property on the field.
 
 1. Add a field to the fields collection and give it name.
-1. Set data type to `Collection(Edm.Binary)`.
+1. Set data type to `Collection(Edm.Byte)`.
 1. Set `vectorEncoding` to `packedBit` for binary encoding. 
 1. Set `dimensions` to `1024`. Specify the original (unpacked) vector dimension.
 1. Set `vectorSearchProfile` to a profile you defined in the previous step.

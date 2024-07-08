@@ -1,20 +1,19 @@
 ---
 title: Connect your GitHub organizations
-description: Learn how to connect your GitHub Environment to Defender for Cloud.
-ms.date: 01/24/2023
+description: Learn how to connect your GitHub Environment to Defender for Cloud and enhance the security of your GitHub resources.
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.custom: ignite-2023
+#customer intent: As a user, I want to learn how to connect my GitHub Environment to Defender for Cloud so that I can enhance the security of my GitHub resources.
 ---
 
 # Quickstart: Connect your GitHub Environment to Microsoft Defender for Cloud
 
 In this quickstart, you connect your GitHub organizations on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to autodiscover your GitHub repositories.
 
-By connecting your GitHub organizations to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources. These features include:
+By connecting your GitHub environments to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources, and improve security posture. [Learn more](defender-for-devops-introduction.md).
 
-- **Foundational Cloud Security Posture Management (CSPM) features**: You can assess your GitHub security posture through GitHub-specific security recommendations. You can also learn about all the [recommendations for GitHub](recommendations-reference.md) resources.
 
-- **Defender CSPM features**: Defender CSPM customers receive code to cloud contextualized attack paths, risk assessments, and insights to identify the most critical weaknesses that attackers can use to breach their environment. Connecting your GitHub repositories allows you to contextualize DevOps security findings with your cloud workloads and identify the origin and developer for timely remediation. For more information, learn how to [identify and analyze risks across your environment](concept-attack-path.md).
 
 ## Prerequisites
 

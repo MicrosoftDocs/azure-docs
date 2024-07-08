@@ -13,8 +13,6 @@ ms.custom: template-how-to
 
 This article shows you how to create a security admin rule to block inbound network traffic on RDP port 3389 that you can add to a rule collection. For more information, see [Security admin rules](concept-security-admins.md).
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Prerequisites
 
 Before you start to configure security admin rules, confirm that you've done the following steps:

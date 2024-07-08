@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.author: mathapli
 ms.custom: kr2b-contr-experiment, devx-track-azurecli, linux-related-content
 ---

@@ -4,30 +4,27 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to set up your development environment for Azure AI SDKs.
 manager: nitinme
 ms.service: azure-ai-studio
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-azurecli, devx-track-python
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 5/30/2024
 ms.reviewer: dantaylo
 ms.author: eur
 author: eric-urban
 ---
 
 # Build a custom chat app in Python using the prompt flow SDK
-
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this quickstart, we walk you through setting up your local development environment with the prompt flow SDK. We write a prompt, run it as part of your app code, trace the LLM calls being made, and run a basic evaluation on the outputs of the LLM.
 
 ## Prerequisites
 
-Before you can follow this quickstart, you first need to create the resources you need for your application, we recommend creating the following resources:
-- An AI Studio hub for connecting to external resources.
-- An AI Studio project for organizing your project artifacts and sharing traces and evaluation runs
-- An Azure AI services resource connected to your project, for providing intelligent APIs and models
-- An Azure OpenAI chat model deployment (gpt-35-turbo or gpt-4)
+Before you can follow this quickstart, create the resources that you need for your application:
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md) for connecting to external resources.
+- A [project](../how-to/create-projects.md) for organizing your project artifacts and sharing traces and evaluation runs.
+- A [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model (gpt-35-turbo or gpt-4)
 
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [SDK guide to create a hub and project](../how-to/develop/create-hub-project-sdk.md) article.
+Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [SDK guide to create a hub and project](../how-to/develop/create-hub-project-sdk.md) article.
 
 Also, you must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
@@ -141,7 +138,7 @@ Activating the Python environment means that when you run ```python``` or ```pip
 
 ## Install the prompt flow SDK
 
-In this section, we use prompt flow to build our application. [https://microsoft.github.io/promptflow/](Prompt flow) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
+In this section, we use prompt flow to build our application. [Prompt flow](https://microsoft.github.io/promptflow) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
 
 Use pip to install the prompt flow SDK into the virtual environment that you created.
 ```
@@ -163,8 +160,8 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
 1. Create a ```.env``` file, and paste the following code:
     ```
     AZURE_OPENAI_ENDPOINT=endpoint_value
-    AZURE_OPENAI_DEPLOYMENT_NAME=deployment_name
-    AZURE_OPENAI_API_VERSION=2024-02-15-preview
+    AZURE_OPENAI_CHAT_DEPLOYMENT=chat_deployment_name
+    AZURE_OPENAI_API_VERSION=api_version
     ```
 
 1. Navigate to the [chat playground inside of your AI Studio project](./get-started-playground.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
@@ -172,15 +169,15 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
 
     :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png" alt-text="Screenshot of the AI Studio chat playground opened, highlighting the deployment name and the view code button." lightbox="../media/quickstarts/promptflow-sdk/playground-deployment-view-code.png":::
 
-1. In the ```.env``` file, replace ```deployment_name``` with the name of the deployment from the previous step. In this example, we're using the deployment name ```gpt-35-turbo-16k```. 
-1. Select the **<\> View Code** button and copy the endpoint value.
+1. In the ```.env``` file, replace ```chat_deployment_name``` with the name of the deployment from the previous step. In this example, we're using the deployment name ```gpt-35-turbo-16k```. 
+1. Select the **<\> View Code** button and copy the endpoint value and API version value.
 
     :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-copy-endpoint.png" alt-text="Screenshot of the view code popup highlighting the button to copy the endpoint value." lightbox="../media/quickstarts/promptflow-sdk/playground-copy-endpoint.png":::
 
-1. In the ```.env``` file, replace ```endpoint_value``` with the endpoint value copied from the dialog in the previous step. 
+1. In the ```.env``` file, replace ```endpoint_value``` with the endpoint value and replace ```api_version``` with the API version copied from the dialog in the previous step (such as "2024-02-15-preview"). 
 
 > [!WARNING]
-> Key based authentication is supported but isn't recommended by Microsoft. If you want to use keys you can add your key to the ```.env```, but please ensure that your ```.env``` is in your ```.gitignore``` file so that you don't accidentally checked into your git repository.
+> Key based authentication is supported but isn't recommended by Microsoft. If you want to use keys you can add your key to the ```.env```, but please ensure that your ```.env``` is in your ```.gitignore``` file so that you don't accidentally check it into your git repository.
 
 ## Create a basic chat prompt and app
 
@@ -233,7 +230,7 @@ load_dotenv()
 from promptflow.core import Prompty, AzureOpenAIModelConfiguration
 
 model_config = AzureOpenAIModelConfiguration(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+    azure_deployment=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT"),
     api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
 )
@@ -309,7 +306,7 @@ from promptflow.core import Prompty, AzureOpenAIModelConfiguration
 from promptflow.evals.evaluators import ChatEvaluator
 
 model_config = AzureOpenAIModelConfiguration(
-    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
+    azure_deployment=os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT"),
     api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
     azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
 )

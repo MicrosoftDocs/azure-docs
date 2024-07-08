@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
 ms.topic: conceptual
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 01/17/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
@@ -115,7 +115,7 @@ Follow the steps in [Create resources you need to get started](quickstart-create
 
 For more options, see [create a new compute instance](how-to-create-compute-instance.md?tabs=azure-studio#create).
 
-As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-compute-instance.md#create-on-behalf-of)**.
+As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-compute-instance.md#create-on-behalf-of)**. SSO has to be disabled for such a compute instance.
 
 You can also **[use a setup script](how-to-customize-compute-instance.md)** for an automated way to customize and configure the compute instance.
 

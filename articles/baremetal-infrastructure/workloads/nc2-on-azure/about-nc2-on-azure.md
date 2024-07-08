@@ -6,7 +6,7 @@ description: Learn about Nutanix Cloud Clusters on Azure and the benefits it off
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # About Nutanix Cloud Clusters on Azure
@@ -102,6 +102,12 @@ NC2 on Azure requires manual escalation to request, approve, and deliver ESU key
 >> By activating this key you agree that it will only be used for only NC2 on Azure. If you violate these terms, we may stop providing services to you or we may close your Microsoft account.
 
 For any questions on Azure Hybrid Benefits, contact your Microsoft Account Executive.
+
+## Responsibility matrix
+
+On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform.
+For NC2 on Azure, Microsoft maintains the hardware for the customer.
+For more information, see [NC2 on Azure responsibility matrix](nc2-on-azure-responsibility-matrix.md).
 
 ## Support
 

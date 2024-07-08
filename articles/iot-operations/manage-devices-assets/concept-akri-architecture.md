@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Akri architecture
-description: Understand the key components in Azure IoT Akri architecture.
+description: Understand the key components in the Azure IoT Akri architecture and how they relate to each other. Includes some information about the CNCF version of Akri
 author: dominicbetts
 ms.author: dobett
 ms.subservice: akri
-ms.topic: concept-article
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/26/2023
+ms.date: 05/13/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
 ---
@@ -16,73 +16,79 @@ ms.date: 10/26/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article helps you understand the Azure IoT Akri Preview architecture. By learning the core components of Azure IoT Akri, you can use it to start detecting devices and assets, and adding them to your Kubernetes cluster.
+This article helps you understand the architecture of Azure IoT Akri Preview. After you learn about the core components of Azure IoT Akri, you can use it to detect devices and assets, and add them to your Kubernetes cluster.
+
+Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source Cloud Native Computing Foundation (CNCF) project.
 
 ## Core components
-Azure IoT Akri consists of five components: two custom resources, Discovery Handlers, an Agent (device plugin implementation), and a custom Controller.
 
-- **Akri Configuration**. The first custom resource, Akri Configuration, is where you name a device.  This configuration tells Azure Iot Akri what kind of device to look for.
-- **Akri Discovery Handlers**.  The Discovery Handlers look for the configured device and inform the Agent of discovered devices.
-- **Akri Agent**.  The Agent creates the second custom resource, the Akri Instance.
-- **Akri Instance**. The second custom resource, Akri Instance, tracks the availability and usage of the device. Each Akri Instance represents a leaf device.
-- **Akri Controller**.  After the configured device is found, the Akri Controller helps you use it. The Controller sees each Akri Instance and deploys a broker Pod that knows how to connect to the resource and utilize it.
+Azure IoT Akri consists of the following five components:
+
+- **Akri configuration** is a custom resource where you name a device. This configuration tells Azure Iot Akri what kind of devices to look for.
+- **Akri instance** is a custom resource that tracks the availability and usage of a device. Each Akri instance represents a leaf device.
+- **Akri discovery handlers** look for the configured device and inform the agent about discovered devices.
+- **Akri agent** creates the Akri instance custom resource.
+- **Akri controller** helps you to use a configured device. The controller sees each Akri instance and deploys a broker pod that knows how to connect to and use the resource.
 
 :::image type="content" source="media/concept-akri-architecture/akri-architecture.png" alt-text="Diagram for Azure IoT Akri Preview architecture." border="false":::
 
-## Custom Resource Definitions
+## Custom resource definitions
 
-A Custom Resource Definition (CRD) is a Kubernetes API extension that lets you define new object types.
-
-There are two Azure IoT Akri CRDs:
+A custom resource definition (CRD) is a Kubernetes API extension that lets you define new object types. There are two Azure IoT Akri CRDs:
 
 - Configuration
 - Instance
 
-### Akri Configuration CRD
-The Configuration CRD is used to configure Azure IoT Akri. Users create configurations to describe what resources should be discovered and what pod should be deployed on the nodes that discover a resource. See the [Akri Configuration CRD](https://github.com/project-akri/akri/blob/main/deployment/helm/crds/akri-configuration-crd.yaml). The CRD schema specifies what components all configurations must have, including the following components:
+### Akri configuration CRD
 
-- The desired discovery protocol for finding resources.  For example, ONVIF or udev.
-- A capacity (`spec.capacity`) that defines the maximum number of nodes that can schedule workloads on this resource.
-- A PodSpec (`spec.brokerPodSpec`) that defines the "broker" pod that is scheduled to each of these reported resources.
-- A ServiceSpec (`spec.instanceServiceSpec`) that defines the service that provides a single stable endpoint to access each individual resource's set of broker pods.
-- A ServiceSpec (`spec.configurationServiceSpec`) that defines the service that provides a single stable endpoint to access the set of all brokers for all resources associated with the configuration.
+The configuration CRD configures Azure IoT Akri. You create configurations that describe the resources to discover and the pod to deploy on a node that discovers a resource. To learn more, see  [Akri Configuration CRD](https://github.com/project-akri/akri/blob/main/deployment/helm/crds/akri-configuration-crd.yaml). The CRD schema specifies the settings all configurations must have, including the following settings:
 
-### Akri Instance CRD
-Each Azure IoT Akri Instance represents an individual resource that is visible to the cluster. For example, if there are five IP cameras visible to the cluster, there are five Instances. The Instance CRD enables Azure IoT Akri coordination and resource sharing. These instances store internal state and aren't intended for users to edit. For more information on resource sharing, see [Resource Sharing In-depth](https://docs.akri.sh/architecture/resource-sharing-in-depth).
+- The discovery protocol for finding resources. For example, ONVIF or udev.
+- `spec.capacity` that defines the maximum number of nodes that can schedule workloads on this resource.
+- `spec.brokerPodSpec` that defines the broker pod to schedule for each of these reported resources.
+- `spec.instanceServiceSpec` that defines the service that provides a single stable endpoint to access each individual resource's set of broker pods.
+- `spec.configurationServiceSpec` that defines the service that provides a single stable endpoint to access the set of all brokers for all resources associated with the configuration.
+
+### Akri instance CRD
+
+Each Azure IoT Akri instance represents an individual resource that's visible to the cluster. For example, if there are five IP cameras visible to the cluster, there are five instances. The instance CRD enables Azure IoT Akri coordination and resource sharing. These instances store internal state and aren't intended for you to edit. To learn more, see [Resource sharing in-depth](https://docs.akri.sh/architecture/resource-sharing-in-depth).
 
 ## Agent
-The Akri Agent implements [Kubernetes Device-Plugins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/) for discovered resources.
 
-The Akri Agent performs the following workflow:
+The Akri agent implements [Kubernetes Device-Plugins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/) for discovered resources. The Akri Agent performs the following tasks:
 
-- Watch for Configuration changes to determine what resources to search for.
-- Monitor resource availability to determine what resources to advertise. In an edge environment, resource availability changes often.
-- Inform Kubernetes of resource health and availability as it changes.
+- It watches for configuration changes to determine the resources to search for.
+- It monitors resource availability to determine what resources to advertise. In an edge environment, resource availability changes often.
+- It informs Kubernetes of any changes to resource health and availability.
 
-This basic workflow combined with the state stored in the Instance, allows multiple nodes to share a resource while respecting the limitations defined by `Configuration.capacity`.
+These tasks, combined with the state stored in the instance, enable multiple nodes to share a resource while respecting the limits defined by the `spec.capacity` setting.
 
-For a more in-depth understanding, see the documentation for [Agent In-depth](https://docs.akri.sh/architecture/agent-in-depth).
+To learn more, see [Agent in-depth](https://docs.akri.sh/architecture/agent-in-depth).
 
-## Discovery Handlers
-A Discovery Handler finds devices around the cluster. Devices can be connected to Nodes (for example, USB sensors), embedded in Nodes (for example, GPUs), or on the network (for example, IP cameras). The Discovery Handler reports all discovered devices to the Agent. There are often protocol implementations for discovering a set of devices, whether a network protocol like OPC UA or a proprietary protocol. Discovery Handlers implement the `DiscoveryHandler` service defined in [`discovery.proto`](https://github.com/project-akri/akri/blob/main/discovery-utils/proto/discovery.proto). A Discovery Handler is required to register with the Agent, which hosts the `Registration` service defined in [`discovery.proto`](https://github.com/project-akri/akri/blob/main/discovery-utils/proto/discovery.proto).
+## Discovery handlers
 
-To get started creating a Discovery Handler, see the documentation for [Discovery Handler development](https://docs.akri.sh/development/handler-development).
+A discovery handler finds devices. Examples of device include:
+
+- USB sensors connected to nodes.
+- GPUs embedded in nodes.
+- IP cameras on the network.
+
+The discovery handler reports all discovered devices to the agent. There are often protocol implementations for discovering a set of devices, whether a network protocol like OPC UA or a proprietary protocol. Discovery handlers implement the `DiscoveryHandler` service defined in [`discovery.proto`](https://github.com/project-akri/akri/blob/main/discovery-utils/proto/discovery.proto). A discovery handler is required to register with the agent, which hosts the `Registration` service defined in [`discovery.proto`](https://github.com/project-akri/akri/blob/main/discovery-utils/proto/discovery.proto).
+
+To learn more, see [Custom Discovery Handlers](https://docs.akri.sh/development/handler-development).
 
 ## Controller
-The Akri Controller serves two purposes:
 
-- Create or delete the pods & services that enable resource availability
-- Ensure that Instances are aligned to the cluster state at any given moment
+The goals of the Akri controller are to:
 
-The Controller performs the following workflow:
+- Create or delete the pods and services that enable resource availability.
+- Ensure that instances are aligned to the cluster state at any given moment.
 
-- Watch for Instance changes to determine what pods and services should exist 
-- Watch for Nodes that are contained in Instances that no longer exist
+To achieve these goals, the controller:
 
-This basic workflow allows the Akri Controller to ensure that protocol brokers and Kubernetes Services are running on all nodes, and exposing desired resources, while respecting the limits defined by `Configuration.capacity`.
+- Watches out for instance changes to determine what pods and services should exist.
+- Watches for nodes that are contained in instances that no longer exist.
+
+These tasks enable the Akri controller to ensure that protocol brokers and Kubernetes services are running on all nodes and exposing the desired resources, while respecting the limits defined by the `spec.capacity` setting.
 
 For more information, see the documentation for [Controller In-depth](https://docs.akri.sh/architecture/controller-in-depth).
-
-## Related content
-
-- [Azure IoT Akri overview](overview-akri.md)
