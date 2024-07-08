@@ -46,7 +46,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - A Java application using Java 8+
 
-### [Java Native](#tab/java-native)
+### [Java Native](#tab/javanative)
 
 - A Java application using GraalVM 17+
 
@@ -97,7 +97,7 @@ Download the [applicationinsights-agent-3.5.3.jar](https://github.com/microsoft/
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 
 
-#### [Java Native](#tab/java-native)
+#### [Java Native](#tab/javanative)
 
 For Spring Boot native applications:
 * [Import the OpenTelemetry Bills of Materials (BOM)](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/).
@@ -218,7 +218,7 @@ Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 
-##### [Java Native](#tab/java-native)
+##### [Java Native](#tab/javanative)
 
 Several automatic instrumentations are enabled through configuration changes; no code changes are required
 
@@ -327,7 +327,7 @@ Azure Monitor OpenTelemetry sample applications are available for all supported 
 
 - [Java sample apps](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples)
 
-##### [Java Native](#tab/java-native)
+##### [Java Native](#tab/javanative)
 
 - [Java GraalVM native sample apps](https://github.com/Azure-Samples/java-native-telemetry)
 
@@ -372,7 +372,8 @@ Azure Monitor OpenTelemetry sample applications are available for all supported 
 - Enable usage experiences by seeing [Enable web or browser user monitoring](javascript.md).
 - Review the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
-### [Java Native](#tab/java-native)
+### [Java Native](#tab/javanative)
+
 - See [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md) for details on adding and modifying Azure Monitor OpenTelemetry.
 - Review the source code in the [Azure Monitor OpenTelemetry Distro in Spring Boot native image Java application](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-monitor) and [Quarkus OpenTelemetry Exporter for Azure](https://github.com/quarkiverse/quarkus-opentelemetry-exporter/tree/main/quarkus-opentelemetry-exporter-azure).
 - Learn more about OpenTelemetry and its community in the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
