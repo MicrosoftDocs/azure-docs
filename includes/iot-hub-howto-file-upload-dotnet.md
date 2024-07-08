@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 07/01/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -135,6 +135,10 @@ while (true)
     await notificationReceiver.CompleteAsync(fileUploadNotification);
 }
 ```
+
+### Sample
+
+The SDK includes one [sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
 
 For more information, see:
 
