@@ -22,12 +22,12 @@ Large Language Models (LLMs) are advanced deep neural network models trained on 
 
 - **Hallucinations**: LLMs sometimes generate factually incorrect or ungrounded information, known as "hallucinations."
 - **Stale Data**: LLMs are trained on static datasets that might not include the most recent information, limiting their current relevance.
-- **No Access to User’s Local Data**: LLMs do not have direct access to personal or localized data, restricting their ability to provide personalized responses.
+- **No Access to User’s Local Data**: LLMs don't have direct access to personal or localized data, restricting their ability to provide personalized responses.
 - **Token Limits**: LLMs have a maximum token limit per interaction, constraining the amount of text they can process at once. For example, OpenAI’s gpt-3.5-turbo has a token limit of 4096.
 
 ### Leveraging Retrieval-Augmented Generation (RAG)
 
-Retrieval-augmented generation (RAG) is an architecture designed to overcome LLM limitations. RAG uses vector search to retrieve relevant documents based on an input query, providing these documents as context to the LLM for generating more accurate responses. Instead of relying solely on pre-trained patterns, RAG enhances responses by incorporating up-to-date, relevant information. This approach helps to:
+Retrieval-augmented generation (RAG) is an architecture designed to overcome LLM limitations. RAG uses vector search to retrieve relevant documents based on an input query, providing these documents as context to the LLM for generating more accurate responses. Instead of relying solely on pretrained patterns, RAG enhances responses by incorporating up-to-date, relevant information. This approach helps to:
 
 - **Minimize Hallucinations**: Grounding responses in factual information.
 - **Ensure Current Information**: Retrieving the most recent data to ensure up-to-date responses.
@@ -42,7 +42,7 @@ The architecture of our application is outlined below:
 
 ![Architecture Diagram](./media/vector/architecture-diagram.png)
 
-We will now discuss the various frameworks, models, and components used in this tutorial, emphasizing their roles and nuances.
+We'll now discuss the various frameworks, models, and components used in this tutorial, emphasizing their roles and nuances.
 
 ### Azure Cosmos DB for MongoDB (vCore)
 
@@ -59,13 +59,13 @@ Key aspects of LangChain:
 - **Modularity**: Simplifies development, debugging, and maintenance.
 - **Popularity**: An open-source project rapidly gaining adoption and evolving to meet user needs.
 
-### Web Services Interface
+### Azure App Services Interface
 
-Web services provide a robust platform for building user-friendly web interfaces for ML and data science applications. This tutorial uses web services to create an interactive interface for the application.
+App services provide a robust platform for building user-friendly web interfaces for Gen-AI applications. This tutorial uses Azure App services to create an interactive interface for the application.
 
 ### OpenAI Models
 
-OpenAI is a leader in AI research, providing various models for language generation, text vectorization, image creation, and audio-to-text conversion. For this tutorial, we will use OpenAI’s embedding and language models, crucial for understanding and generating language-based applications.
+OpenAI is a leader in AI research, providing various models for language generation, text vectorization, image creation, and audio-to-text conversion. For this tutorial, we'll use OpenAI’s embedding and language models, crucial for understanding and generating language-based applications.
 
 ### Embedding Models vs. Language Generation Models
 
@@ -81,9 +81,28 @@ Understanding the distinction is vital:
 - **Azure App Services**: Building the user interface.
 - **OpenAI**: For providing LLM and embedding models.
 
-By the end of this tutorial, you will have a comprehensive understanding of how to build an AI-powered application using Azure Cosmos DB for MongoDB vCore, LangChain, web services, and OpenAI models, optimizing retrieval-augmented generation (RAG) with vector search for robust performance.
+By the end of this tutorial, you'll have a comprehensive understanding of how to build an AI-powered application using Azure Cosmos DB for MongoDB (vCore), LangChain, app services, and OpenAI models, optimizing retrieval-augmented generation (RAG) with vector search for robust performance.
 
-## Next step
+### How to Use?
+
+To get started with optimizing retrieval-augmented generation (RAG) using Azure Cosmos DB for MongoDB (vCore), follow these steps:
+
+1. **Create the following resources on Microsoft Azure:**
+    - **Azure Cosmos DB for MongoDB vCore cluster**: See the [Quick Start guide here]().
+    - **Azure OpenAI resource with:**
+        - **Embedding model deployment** (e.g., `text-embedding-ada-002`): See the [guide here]().
+        - **Chat model deployment** (e.g., `gpt-35-turbo`).
+
+2. **Open the repository in GitHub Codespaces:**
+
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/Cosmic-Food-RAG-app?devcontainer_path=.devcontainer/devcontainer.json)
+
+3. 📝 **Start here** 👉 [CBD_Mongo_vCore.ipynb](./CBD_Mongo_vCore.ipynb)
+
+## Next Steps
+
+For a hands-on experience and to see how RAG can be implemented using Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI models, visit our GitHub repository.
 
 > [!div class="nextstepaction"]
-> [Check out RAG sample on Github](https://aka.ms/vcorelangchain)
+> [Check out RAG sample on GitHub](https://github.com/Azure-Samples/Cosmic-Food-RAG-app)
+
