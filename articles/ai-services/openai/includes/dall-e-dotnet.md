@@ -70,38 +70,30 @@ dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.6
 From the project directory, open the *program.cs* file and replace with the following code:
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Azure;
 using Azure.AI.OpenAI;
+using OpenAI.Images;
+using static System.Environment;
 
-namespace Azure.AI.OpenAI.Tests.Samples
-{
-    public partial class GenerateImages
-    {
-        // add an async Main method:
-        public static async Task Main(string[] args)
+string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
+
+// This must match the custom deployment name you chose for your model
+ImageClient chatClient = azureClient.GetImageClient("dalle-3");
+
+var imageGeneration = await chatClient.GenerateImageAsync(
+        "a happy monkey sitting in a tree, in watercolor",
+        new ImageGenerationOptions()
         {
-            string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-            string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-
-            OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
-
-            Response<ImageGenerations> imageGenerations = await client.GetImageGenerationsAsync(
-                new ImageGenerationOptions()
-                {
-                    Prompt = "a happy monkey eating a banana, in watercolor",
-                    Size = ImageSize.Size256x256,
-                });
-
-            // Image Generations responses provide URLs you can use to retrieve requested images
-            Uri imageUri = imageGenerations.Value.Data[0].Url;
-            
-            // Print the image URI to console:
-            Console.WriteLine(imageUri);
+            Size = GeneratedImageSize.W1024xH1024
         }
-    }
-}
+    );
+
+Console.WriteLine(imageGeneration.Value.ImageUri);
 ```
 
 Build and run the application from your application directory with these commands:

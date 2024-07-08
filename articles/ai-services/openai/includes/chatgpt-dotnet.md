@@ -88,6 +88,7 @@ This will wait until the model has generated its entire response before printing
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
+using OpenAI.Chat;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
@@ -98,7 +99,7 @@ AzureOpenAIClient azureClient = new(
     new AzureKeyCredential(key));
 
 // This must match the custom deployment name you chose for your model
-ChatClient chatClient = azureClient.GetChatClient("trubo");
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
 var chatUpdates = chatClient.CompleteChatStreamingAsync(
     [

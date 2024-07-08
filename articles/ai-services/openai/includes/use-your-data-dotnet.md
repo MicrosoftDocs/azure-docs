@@ -125,7 +125,8 @@ This will wait until the model has generated its entire response before printing
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
-using System.Text.Json;
+using Azure.AI.OpenAI.Chat;
+using OpenAI.Chat;
 using static System.Environment;
 
 string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
@@ -135,40 +136,25 @@ string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 
+AzureOpenAIClient azureClient = new(
+    new Uri(azureOpenAIEndpoint),
+    new AzureKeyCredential(azureOpenAIKey));
+ChatClient chatClient = azureClient.GetChatClient(deploymentName);
 
-var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
+ChatCompletionOptions options = new();
+options.AddDataSource(new AzureSearchChatDataSource()
+{
+    Endpoint = new Uri(searchEndpoint),
+    IndexName = searchIndex,
+    Authentication = DataSourceAuthentication.FromApiKey(searchKey),
+});
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
-{
-    DeploymentName = deploymentName,
-    Messages =
-    {
-        new ChatRequestUserMessage("What are my available health plans?"),
-    },
-    AzureExtensionsOptions = new AzureChatExtensionsOptions()
-    {
-        Extensions =
-        {
-            new AzureCognitiveSearchChatExtensionConfiguration()
-            {
-                SearchEndpoint = new Uri(searchEndpoint),
-                Key = searchKey,
-                IndexName = searchIndex,
-            },
-        }
-    }
-};
-await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatCompletionsStreaming(chatCompletionsOptions))
-{
-    if (chatUpdate.Role.HasValue)
-    {
-        Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
-    }
-    if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
-    {
-        Console.Write(chatUpdate.ContentUpdate);
-    }
-}
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        new UserChatMessage("What are the best-selling Contoso products this month?"),
+    ], options);
+
+Console.WriteLine(completion.Content[0].Text);
 ```
 
 > [!div class="nextstepaction"]
