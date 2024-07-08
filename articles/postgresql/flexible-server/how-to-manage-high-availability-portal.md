@@ -20,6 +20,11 @@ High availability feature provisions physically separate primary and standby rep
 
 This page provides guidelines how you can enable or disable high availability. This operation doesn't change your other settings including VNET configuration, firewall settings, and backup retention. Similarly, enabling and disabling of high availability is an online operation and doesn't impact your application connectivity and operations.
 
+> [!IMPORTANT]
+> _Billing Model Update for Azure Database for PostgreSQL Flexible Server (v5 HA):_
+In April, we implemented a billing model update for v5 Sku with High Availability (HA) enabled servers. This change aims to accurately reflect the correct charges by accounting for both the primary and standby servers, which may result in an increase in billing for HA configurations. Customers using v5 Sku with HA enabled servers will now see billing quantities multiplied by 2. This update does not impact v4 and v3 SKUs.  
+
+
 ## Prerequisites
 
 > [!IMPORTANT]
