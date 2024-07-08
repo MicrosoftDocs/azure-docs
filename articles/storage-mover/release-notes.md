@@ -90,7 +90,7 @@ Refresh release notes for:
 - Improved network connectivity testing: The Storage Mover agent now utilizes the Azure ARC CLI tool (azcmagent) and a curl GET command to verify the ARC and Storage Mover endpoints with the 'Test Network Connectivity' option in the agent console. 
 - A new option, 'Test Network Connectivity Verbosely' can help diagnose local network problems more easily.
 - Improved user experience to error conditions during agent registration and unregistration processes.
-- Since Storage Mover depends on Azure ARC and a Managed Identity, extra safeguards are added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, as well as the Azure Arc Private Link Scope (if applicable).
+- Storage Mover depends on Azure ARC and a Managed Identity. Extra safeguards were added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, as well as the Azure Arc Private Link Scope (if applicable).
 - Improved instructions during agent registration when using private networking.
 - Security improvements and bug fixes.
 
@@ -132,7 +132,7 @@ Major refresh release notes for:
 
 - Changes required for the previously mentioned migration paths.
 - Improved handling and logging of files that fail migration when they contain invalid characters or are in use during a migration.
-- Added support for file and folder security descriptors larger than 8KiB. (ACLs)
+- Added support for file and folder security descriptors larger than 8 KiB. (ACLs)
 - Avoid a job error condition when the source is an empty SMB share.
 - Improvements to agent-local network configuration like applying a static IP to the agent, or an error listing certain network configuration.
 - Security improvements.
@@ -181,8 +181,8 @@ Existing migration scenarios from the GA release remain unchanged. This release 
 ### Service
 
 - Fixed a corner-case issue where the *mirror* copy mode may miss changes made in the source since the job was last ran.
-- Moving a storage mover resource to a different resource group, an issue was fixed where some properties could be left behind.
-- Error messages were improved.
+- Fixed an issue when moving a Storage Mover resource to a different resource group. It was possible for some properties to be left behind.
+- Improved error messages.
 
 ### Agent
 

@@ -34,7 +34,7 @@ This schedule looks a lot like a calendar in outlook, but there are a few import
 - The schedule doesn't store a timezone. When you set a limit that starts for instance at 9am, then that means agent-local time. You can see what timezone is configured for the agent. Pay close attention, the agent's timezone may be different from the timezone of your site where the agent is deployed.
 
 > [!TIP]
-> You can set the timezone of a Storage Mover agent to where it is deployed.<br>1. [Connect to the agent console and login](agent-register.md#step-1-connect-to-the-agent-vm)<br>2. Select menu option: ``1) System configuration`` <br>Select menu option: ``3) Change timezone`` and follow the prompts to make your selection.
+> You can set the timezone of a Storage Mover agent to where it is deployed.<br>1. [Connect to the agent console and login](agent-register.md#step-1-connect-to-the-agent-vm)<br>2. Select menu option: ``1) System configuration`` <br>3. Select menu option: ``3) Change timezone`` and follow the prompts to make your selection.
 
 ## Enabling or changing a bandwidth management schedule
 
@@ -61,7 +61,7 @@ Here you can create a custom schedule for this selected agent, or you can [reuse
 > Only the *migration data stream* an agent establishes to your target storage in Azure is controlled by this schedule. In addition to this data stream, there is control plane traffic from the agent to Azure. Control messages, progress telemetry, and copy logs generally require only a small amount of bandwidth. To ensure proper functionality of the agent throughout your migration, the control plane of the agent is not governed by the schedule you set. In an extreme case the agent may exceed the limits you defined by a small amount.
 
 > [!TIP]
-> You can set the timezone of a Storage Mover agent to where it is deployed.<br>1. [Connect to the agent console and login](agent-register.md#step-1-connect-to-the-agent-vm)<br>2. Select menu option: ``1) System configuration`` <br>Select menu option: ``3) Change timezone`` and follow the prompts to make your selection.
+> You can set the timezone of a Storage Mover agent to where it is deployed.<br>1. [Connect to the agent console and login](agent-register.md#step-1-connect-to-the-agent-vm)<br>2. Select menu option: ``1) System configuration`` <br>3. Select menu option: ``3) Change timezone`` and follow the prompts to make your selection.
 
 ## Changing or deleting a bandwidth limit
 
@@ -88,7 +88,7 @@ You can reuse the bandwidth limit schedule from another agent.
 > Schedules are stored free of a timezone. That enables them to be reused on other agents. A scheduled limit will be in effect during this time in whatever the agent's timezone is. You need to ensure that you offset your bandwidth management schedule if the agent's timezone is different to the one used in the location you've deployed the agent in. For example, if the agent's timezone is UTC but your agent is actually deployed in the Pacific timezone (PST), you need to offset your schedule by -7 hours. Alternatively, you can adjust the agent's timezone to the correct one for the location. Doing this removes the need to offset your schedule and also enables your schedule to automatically adjust to Daylight Savings, should your timezone observe that.
 
 > [!TIP]
-> You can set the timezone of a Storage Mover agent to where it is deployed.<br>1. [Connect to the agent console and login](agent-register.md#step-1-connect-to-the-agent-vm)<br>2. Select menu option: ``1) System configuration`` <br>Select menu option: ``3) Change timezone`` and follow the prompts to make your selection.
+> You can set the timezone of a Storage Mover agent to where it is deployed.<br>1. [Connect to the agent console and login](agent-register.md#step-1-connect-to-the-agent-vm)<br>2. Select menu option: ``1) System configuration`` <br>3. Select menu option: ``3) Change timezone`` and follow the prompts to make your selection.
 
 ## Use PowerShell to configure a bandwidth limit schedule
 
