@@ -165,7 +165,7 @@ Search Explorer accepts text, vectors, and images as query inputs. You can drag 
 
 1. Select **Search** to run the query.
 
-   The top match should be the image that you searched for. Because a [vector search](vector-search-overview.md) matches on similar vectors, the search engine returns any document that's sufficiently similar to the query input, up to *k*-number of results. You can switch to JSON view for more advanced queries that include relevance tuning.
+   The top match should be the image that you searched for. Because a [vector search](vector-search-overview.md) matches on similar vectors, the search engine returns any document that's sufficiently similar to the query input, up to the `k` number of results. You can switch to JSON view for more advanced queries that include relevance tuning.
 
    :::image type="content" source="media/search-get-started-portal-images/image-search.png" alt-text="Screenshot of search results.":::
 
