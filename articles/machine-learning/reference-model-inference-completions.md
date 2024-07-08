@@ -8,7 +8,6 @@ ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
 ms.reviewer: None
-reviewer: msakande
 ms.author: mopeakande
 author: msakande
 ms.custom: 

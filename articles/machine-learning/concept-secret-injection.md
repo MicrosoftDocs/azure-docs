@@ -9,7 +9,6 @@ ms.topic: concept-article
 author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
-reviewer: msakande
 ms.custom: ignite-2023
 ms.date: 01/10/2024
 
