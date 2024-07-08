@@ -105,12 +105,20 @@ For geo-replication in non-paired regions with Azure SQL Managed Instance, you c
 
 To achieve geo-replication in non-paired regions, you can use:
 
-- [Azure Storage Object Replication](/azure/storage/blobs/object-replication-overview).
-- [AZCopy](/azure/storage/common/storage-use-azcopy-blobs-copy).
-- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices) or any application-level replication service. 
-- [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction) can be also considered as an option since it can replicate to a set of paired regions not constrained by geo-redundant storage (GRS).
-- [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.” 
 
+
+To achieve geo-replication in non-paired regions, 
+
+- For Azure Object Storage: 
+    - [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](../data-factory/connector-azure-blob-storage?tabs=data-factory.md) are options that are supported for both Blob Storage and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
+    - [Azure Storage Object Replication](/azure/storage/blobs/object-replication-overview) for general-purpose v2 storage accounts and premium block blob accounts. Object replication isn't supported for [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
+- For Azure NetApp Files (ANF): 
+    - [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction) cross-region replication, you replicate to a set of non-standard pairs besides Azure region pairs.
+- For Azure Files:  
+    - [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md), [Azure PowerShell](/powershell/module/az.storage/?view=azps-12.0.0) or [Azure Data Factory](../data-factory/connector-azure-blob-storage?tabs=data-factory.md) to copy your files to another storage account in a different region. 
+     
+    For a sample script, see [Sync between two Azure file shares for Backup and Disaster Recovery](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR).
+- [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
 
 
