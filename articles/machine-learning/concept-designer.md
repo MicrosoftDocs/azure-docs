@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
 ms.reviewer: lagayhar
-author: lgayhardt
+author: lagayhar
 ms.date: 05/21/2024
 ms.custom: designer
 ---

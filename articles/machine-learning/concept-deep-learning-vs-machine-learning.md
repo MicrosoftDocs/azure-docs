@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.author: lagayhar
-author: lgayhardt
+author: lagayhar
 ms.reviewer: lagayhar
 ms.date: 01/19/2024
 ms.custom: engagement-fy23
