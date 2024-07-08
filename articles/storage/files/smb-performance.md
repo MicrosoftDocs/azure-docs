@@ -89,11 +89,11 @@ On Windows clients, SMB Multichannel is enabled by default. You can verify your 
 Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
 ```
 
-If SMB Multichannel isn't enabled on your Azure storage account, see [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
+If SMB Multichannel isn't enabled on your Azure storage account, see [SMB Multichannel status](files-smb-protocol.md#smb-multichannel).
 
 ### Disable SMB Multichannel
 
-In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) and [SMB Multichannel status](files-smb-protocol.md#smb-multichannel-status) for more details.
+In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) and [SMB Multichannel status](files-smb-protocol.md#smb-multichannel) for more details.
 
 ### Verify SMB Multichannel is configured correctly
 
@@ -215,5 +215,5 @@ Metadata caching can increase network throughput by more than 60% for metadata-h
 
 ## Next steps
 
-- [Check SMB Multichannel status](files-smb-protocol.md#smb-multichannel-status)
+- [Check SMB Multichannel status](files-smb-protocol.md#smb-multichannel)
 - See the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for SMB Multichannel
