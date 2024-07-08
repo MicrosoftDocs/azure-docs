@@ -36,7 +36,22 @@ We recommend that you review [common monitoring questions](monitoring-common-que
 
 ## Event logs available for Azure Site Recovery
 
-For a list of resource-specific and legacy tables, see [Event logs available for Azure Site Recovery](monitor-site-recovery-reference.md#event-logs-available-for-azure-site-recovery).
+Azure Site Recovery provides the following resource-specific and legacy tables. Each event provides detailed data on a specific set of site recovery related artifacts.
+
+**Resource-specific tables**:
+
+- [AzureSiteRecoveryJobs](/azure/azure-monitor/reference/tables/asrjobs)
+- [Azure Site Recovery Replicated Items Details](/azure/azure-monitor/reference/tables/ASRReplicatedItems)
+
+**Legacy tables**:
+
+- Azure Site Recovery Events
+- Azure Site Recovery Replicated Items  
+- Azure Site Recovery Replication Stats
+- Azure Site Recovery Points
+- Azure Site Recovery Replication Data Upload Rate
+- Azure Site Recovery Protected Disk Data Churn
+- Azure Site Recovery Replicated Item Details
 
 ## Configure Site Recovery to send logs
 
