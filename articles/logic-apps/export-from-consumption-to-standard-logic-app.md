@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 07/05/2024
 #Customer intent: As a developer, I want to export one or more Consumption workflows to a Standard workflow.
 ---
 
@@ -13,7 +13,7 @@ ms.date: 01/10/2024
 
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
-If you want the benefits from Standard workflows, but your workflows run in multi-tenant Azure Logic Apps, you can now move your Consumption workflows to single-tenant Azure Logic Apps. This switch makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
+If you want the benefits from Standard workflows, but your workflows run in multitenant Azure Logic Apps, you can now move your Consumption workflows to single-tenant Azure Logic Apps. This switch makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
 
 You can now export Consumption logic apps to a Standard logic app. Using Visual Studio Code and the latest Azure Logic Apps (Standard) extension, you export your logic apps as stateful workflows to a Standard logic app project. You can then locally update, test, and debug your workflows to get them ready for redeployment. When you're ready, you can deploy either directly from Visual Studio Code or through your own DevOps process.
 
@@ -41,7 +41,6 @@ This article provides information about the export process and shows how to expo
 
 - By default, if an Azure connector has a built-in connector version, the export tool automatically converts the Azure connector to the built-in connector. No option exists to opt out from this behavior.
 
-
 ## Exportable operation types
 
 | Operation | JSON type |
@@ -57,13 +56,13 @@ This article provides information about the export process and shows how to expo
 
 - Azure contributor resource group-level access, if you select the option for **Deploy managed connectors**.
 
-
 - Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
 > [!NOTE]
-> 
-  > Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for Visual Studio Code. 
-  > Some conversion scenarios require the latest workflow designer, which is available starting with this version.
+>
+> Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for 
+> Visual Studio Code. Some conversion scenarios require the latest workflow designer, which is 
+> available with this version.
 
 ## Group logic apps for export
 
@@ -77,7 +76,6 @@ Consider the following recommendations when you select logic apps for export:
 
 ## Export Consumption workflows to a local project
 
-
 ### Select logic apps for export
 
 1. In Visual Studio Code, sign in to Azure, if you haven't already.
@@ -86,7 +84,7 @@ Consider the following recommendations when you select logic apps for export:
 
    :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-azure-view.png" alt-text="Screenshot showing Visual Studio Code Activity Bar with Azure icon selected.":::
 
-1. On the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Export Logic App**.
+1. On the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Export logic app**.
 
    :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png" alt-text="Screenshot showing Azure window, Workspace section toolbar, and Export Logic App selected.":::
 
@@ -94,7 +92,7 @@ Consider the following recommendations when you select logic apps for export:
 
    :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png" alt-text="Screenshot showing Export tab with Azure subscription and region selected.":::
 
-1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side. When you're done, select **Next**.
+1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side.
 
    > [!TIP]
    >
@@ -103,6 +101,17 @@ Consider the following recommendations when you select logic apps for export:
    :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-logic-apps.png" alt-text="Screenshot showing 'Select logic apps to export' section with logic apps selected for export.":::
 
    The export tool starts to validate whether your selected logic apps are eligible for export.
+
+1. In the **Advanced options** section, you can select the following options:
+
+   | Option | Default | Description |
+   |--------|---------|-------------|
+   | **Generate Infrastructure Template** | On | The export process creates infrastructure templates, which include one ARM template for the Standard logic app and one ARM template for each exported Azure-managed connection. |
+   | **Clone Connection Credentials** | Off | The export process clones credentials from the original Azure-managed connection to the new Azure-managed connection created in Azure, as part of deployment. Works only in cases where the exported connection remains an Azure-managed connection, for example, an Office 365 Outlook connection. <br><br>**Important**: Carefully use this option. By default, two new connections will point at the same resource, which can potentially create race conditions. |
+   | **Default to integration account as source for transformations and validation** | Off | Either reference map and schema files locally or in an integration account. If enabled, don't copy maps and schemas to the destination project. Requires that you add a reference to an integration account in the app setting for your logic app. By default, the **Transform XML** and **XML Validation** actions use the integration account as the source. |
+   | **Export custom connectors as API Management actions** | Off | If enabled, custom connectors are created as API Management actions, rather than HTTP actions, so that you can implement custom actions as API operations in API Management. For more information, see [Azure Logic Apps Standard options for connecting to customer services or APIs](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/la-standard-options-for-connecting-to-custom-services-or-apis/ba-p/3814148). |
+
+1. When you're done, select **Next**.
 
 ### Review export validation results
 
@@ -169,7 +178,6 @@ If you export actions that depend on an integration account, you have to manuall
 ### Batch actions and settings
 
 If you export actions that use Batch actions with multiple configurations stored in an integration account, you have to manually configure your Batch actions with the correct values after export. For more information, review [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md#create-batch-receiver).
-
 
 ## Project folder structure
 

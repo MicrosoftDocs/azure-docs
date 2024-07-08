@@ -398,7 +398,7 @@ Here's how to create a workspace using the [Az.DesktopVirtualization](/powershel
 1. In the same PowerShell session, use the `New-AzWvdWorkspace` cmdlet with the following example to create a workspace. More parameters are available, such as to register existing application groups. For more information, see the [New-AzWvdWorkspace PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdworkspace).
 
    ```azurepowershell
-   New-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName>
+   New-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> -Location <Location>
    ```
 
 1. You can view the properties of your new workspace by running the following command:

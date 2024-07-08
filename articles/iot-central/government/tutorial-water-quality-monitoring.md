@@ -3,18 +3,36 @@ title: Tutorial - Azure IoT water quality monitoring
 description: This tutorial shows you how to deploy and use the water quality monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 06/13/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
----
 
+#customer intent: As a developer, I want to learn how to deploy and use the water quality monitoring application template for IoT Central so that I can build water quality monitoring solutions.
+---
 
 # Tutorial: Deploy and walk through the water quality monitoring application
 
-Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. Remote water quality monitoring lets you manage water quality issues before citizens are affected. With advanced analytics, water utilities and environmental agencies can act on early warnings of potential water quality issues and plan for water treatment in advance.
+In this tutorial, you learn how you can use an IoT Central application template to create a water quality monitoring application. Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. Remote water quality monitoring lets you manage water quality issues before citizens are affected. With advanced analytics, water utilities and environmental agencies can act on early warnings of potential water quality issues and plan for water treatment in advance.
 
 The _water quality monitoring_ application template helps you kickstart your IoT solution development and enables water utilities to digitally monitor water quality in smart cities.
+
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Use the **Water quality monitoring** template to create a water quality monitoring application
+> * Explore and customize an dashboard
+> * Explore a water quality monitoring device template
+> * Explore simulated devices
+> * Explore and configure rules
+> * Configure jobs
+> * Customize application branding by using white labeling
+
+## Prerequisites
+
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Solution architecture
 
 :::image type="content" source="media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png" alt-text="Diagram showing the architecture of the water quality monitoring application." border="false":::
 
@@ -22,46 +40,31 @@ The _water quality monitoring_ application template helps you kickstart your IoT
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
-Devices in smart water solutions may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
+Devices in smart water solutions might connect through low-power wide area networks (LPWAN) or through a network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
-When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. You can brand, customize, and integrate your solution with third-party services.
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. You can brand, customize, and integrate your solution with non-Microsoft services.
 
 When you connect your smart water devices to IoT Central, the application provides:
 
-- Device command and control.
-- Monitoring and alerting.
-- A user interface with built-in role-based access controls.
-- Configurable dashboards.
-- Extensibility options.
+* Device command and control.
+* Monitoring and alerting.
+* A user interface with built-in role-based access controls.
+* Configurable dashboards.
+* Extensibility options.
 
 ### Extensibility and integrations (3,4)
 
 You can extend your IoT application in IoT Central and optionally:
 
-- Transform and integrate your IoT data for advanced analytics through data export from your IoT Central application.
-- Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
-- Programmatically access your IoT Central application by using the IoT Central REST APIs.
+* Transform and integrate your IoT data for advanced analytics through data export from your IoT Central application.
+* Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
+* Programmatically access your IoT Central application by using the IoT Central REST APIs.
 
 ### Business applications (5)
 
-You can use IoT data to power various business applications within a water utility. In your [IoT Central water consumption monitoring application](tutorial-water-consumption-monitoring.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
-
-In this tutorial, you learn to:
-
-> [!div class="checklist"]
-> * Use the **Water quality monitoring** template to create a water quality monitoring application.
-> * Explore and customize an dashboard.
-> * Explore a water quality monitoring device template.
-> * Explore simulated devices.
-> * Explore and configure rules.
-> * Configure jobs.
-> * Customize application branding by using white labeling.
-
-## Prerequisites
-
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You can use IoT data to power various business applications within a water utility. In your [IoT Central water consumption monitoring application](tutorial-water-consumption-monitoring.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). To automate workflows across applications and services, configure Power Automate in IoT Central rules. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
 ## Create water quality monitoring application
 
@@ -74,7 +77,7 @@ To create your IoT Central application:
     | Field | Description |
     | ----- | ----------- |
     | Subscription | The Azure subscription you want to use. |
-    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource group | The resource group you want to use. You can create a new resource group or use an existing one. |
     | Resource name | A valid Azure resource name. |
     | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
     | Template | **Water Consumption Monitoring** |
@@ -101,21 +104,21 @@ All data shown in the dashboard is based on simulated device data, which is disc
 
 The dashboard includes the following types of tiles:
 
-- **Wide World water utility image tile**: The first tile in the upper-left corner of the dashboard is an image that shows the fictitious utility named Wide World. You can customize the tile to use your own image, or you can remove the tile.
+* **Wide World water utility image tile**: The first tile in the upper-left corner of the dashboard is an image that shows the fictitious utility named Wide World. You can customize the tile to use your own image, or you can remove the tile.
 
-- **Average pH KPI tiles**: KPI tiles like **Average pH in the last 30 minutes** are at the top of the dashboard pane. You can customize KPI tiles and set each to a different type and time range.
+* **Average pH KPI tiles**: KPI tiles like **Average pH in the last 30 minutes** are at the top of the dashboard pane. You can customize KPI tiles and set each to a different type and time range.
 
-- **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device location. You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
+* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device location. You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
 
-- **Average pH distribution heat-map chart**: You can select different visualizations  to show device telemetry in the way that is most appropriate for your application.
+* **Average pH distribution heat-map chart**: You can select different visualizations  to show device telemetry in the way that is most appropriate for your application.
 
-- **Critical quality indicators line chart**: You can visualize device telemetry plotted as a line chart over a time range.  
+* **Critical quality indicators line chart**: You can visualize device telemetry plotted as a line chart over a time range.  
 
-- **Concentration of chemical agents bar chart**: You can visualize device telemetry in a bar chart.
+* **Concentration of chemical agents bar chart**: You can visualize device telemetry in a bar chart.
 
-- **Reset sensors parameters tile**: The dashboard includes a tile for actions that an operator can initiate directly from the monitoring dashboard such as resetting a device's properties.
+* **Reset sensors parameters tile**: The dashboard includes a tile for actions that an operator can initiate directly from the monitoring dashboard such as resetting a device's properties.
 
-- **Property list tiles**: The dashboard has multiple property tiles that represent threshold information, device health information, and maintenance information.
+* **Property list tiles**: The dashboard has multiple property tiles that represent threshold information, device health information, and maintenance information.
 
 ### Customize the dashboard
 
@@ -152,7 +155,7 @@ Practice customizing the following device template settings:
 
 1. Navigate to the **Water Quality Monitor** device template, and select **+ Add capability**.
 1. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device. One example of such a property is an alert threshold specific to installation area, asset information, or maintenance information.
-1. Enter **Installation area** as the **Display name**, select **Cloud property** as the **Capability type** and choose **String** as the **Schema**.
+1. Enter **Installation area** as the **Display name**, select **Cloud property** as the **Capability type**, and choose **String** as the **Schema**.
 1. Select **Save**.
 
 ### Explore views

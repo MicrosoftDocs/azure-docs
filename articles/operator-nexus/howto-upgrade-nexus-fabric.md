@@ -6,7 +6,7 @@ ms.author: sushrao
 ms.date: 06/11/2023
 ms.topic: how-to
 ms.service: azure-operator-nexus
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Network Fabric upgrade guide

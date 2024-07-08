@@ -3,7 +3,7 @@ title: 'Tutorial: Create an Apache Kafka REST proxy enabled cluster in HDInsight
 description: Learn how to perform Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/26/2023
+ms.date: 06/14/2024
 ms.custom: devx-track-azurecli
 ---
 

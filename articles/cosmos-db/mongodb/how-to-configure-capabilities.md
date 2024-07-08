@@ -41,6 +41,9 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 > <sup>1</sup> This capability cannot be enabled on an Azure Cosmos DB for MongoDB accounts with continuous backup.
 >
 
+> [!IMPORTANT]
+> Changing capabilities using Azure Resource Manager is not available for Azure Cosmos DB for MongoDB accounts.
+
 ## Enable a capability
 
 1. Retrieve your existing account capabilities by using [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show):

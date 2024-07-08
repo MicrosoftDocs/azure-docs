@@ -213,7 +213,6 @@ The following example shows a sample input message to the Azure Data Explorer de
 ## Related content
 
 - [Send data to Microsoft Fabric](howto-configure-destination-fabric.md)
-- [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
 - [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
 - [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)

@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 05/19/2024
+ms.date: 07/01/2024
 ms.author: mbullwin
 ---
 
@@ -28,7 +28,7 @@ Our global deployments will be the first location for all new models and feature
 
 Azure OpenAI offers three types of deployments. These provide a varied level of capabilities that provide trade-offs on: throughput, SLAs, and price. Below is a summary of the options followed by a deeper description of each.
 
-| **Offering** | **Global-Standard** <sup>**1**</sup> | **Standard** | **Provisioned**  |
+| **Offering** | **Global-Standard** | **Standard** | **Provisioned**  |
 |---|:---|:---|:---|
 | **Best suited for**      | Applications that don’t require data residency. Recommended starting place for customers. | For customers with data residency requirements. Optimized for low to medium volume. | Real-time scoring for large consistent volume. Includes the highest commitments and limits.|
 | **How it works**         | Traffic may be routed anywhere in the world | | |
@@ -40,8 +40,6 @@ Azure OpenAI offers three types of deployments. These provide a varied level of 
 | **Sku Name in code**     |    `GlobalStandard`               | `Standard`   |      `ProvisionedManaged`       |
 | **Billing model**        | Pay-per-token | Pay-per-token | Monthly Commitments |
 
-<sup>**1**</sup> Global-Standard deployment type is currently in preview.
-
 ## Provisioned
 
 Provisioned deployments allow you to specify the amount of throughput you require in a deployment. The service then allocates the necessary model processing capacity and ensures it's ready for you. Throughput is defined in terms of provisioned throughput units (PTU) which is a normalized way of representing the throughput for your deployment. Each model-version pair requires different amounts of PTU to deploy and provide different amounts of throughput per PTU. Learn more from our [Provisioned throughput concepts article](../concepts/provisioned-throughput.md).
@@ -52,7 +50,7 @@ Standard deployments provide a pay-per-call billing model on the chosen model. P
 
 Standard deployments are optimized for low to medium volume workloads with high burstiness. Customers with high consistent volume may experience greater latency variability.
 
-## Global standard (preview)
+## Global standard
 
 Global deployments are available in the same Azure OpenAI resources as non-global offers but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request.  Global standard will provide the highest default quota for new models and eliminates the need to load balance across multiple resources.  
 
