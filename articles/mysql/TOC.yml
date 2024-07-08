@@ -1,4 +1,4 @@
-- name: Azure Database for MySQL - Flexible Server documentation
+- name: Azure Database for MySQL
   href: index.yml
 - name: Overview
   expanded: true
