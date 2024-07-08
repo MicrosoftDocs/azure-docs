@@ -296,7 +296,7 @@ The AllowPrivilegeEscalation attribute controls whether a process can gain more 
 **Description**: Microsoft Defender for Containers provides hardening, vulnerability assessment and run-time protections for your Azure, hybrid, and multicloud Kubernetes environments.
 You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Important: Remediating this recommendation will result in charges for protecting your Kubernetes clusters. If you don't have any Kubernetes clusters in this subscription, no charges will be incurred.
+Remediating this recommendation will result in charges for protecting your Kubernetes clusters. If you don't have any Kubernetes clusters in this subscription, no charges will be incurred.
 If you create any Kubernetes clusters on this subscription in the future, they'll automatically be protected and charges will begin at that time.
 Learn more in [Introduction to Microsoft Defender for Containers](container-security.md).
 (No related policy)
@@ -411,7 +411,7 @@ Learn more about [Microsoft Defender for Cloud's security features for container
 **Description**: Microsoft Defender for Containers provides real-time threat protection for containerized environments and generates alerts about suspicious activities.
 Use this information to harden the security of Kubernetes clusters and remediate security issues.
 
-Important: When you enabled Microsoft Defender for Containers and deployed Azure Arc to your EKS clusters, the protections - and charges - will begin. If you don't deploy Azure Arc on a cluster, Defender for Containers won't protect it, and no charges are incurred for this Microsoft Defender plan for that cluster.
+When you enable Microsoft Defender for Containers and deploy Azure Arc to your EKS clusters, the protections - and charges - will begin. If you don't deploy Azure Arc on a cluster, Defender for Containers won't protect it, and no charges are incurred for this Microsoft Defender plan for that cluster.
 
 **Severity**: High
 

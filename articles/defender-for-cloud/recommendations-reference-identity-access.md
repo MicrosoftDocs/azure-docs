@@ -205,7 +205,8 @@ These accounts can be targets for attackers looking to find ways to access your 
 
 **Description**: Microsoft Defender for Cloud includes Microsoft Defender for Key Vault, providing an additional layer of security intelligence.
 Microsoft Defender for Key Vault detects unusual and potentially harmful attempts to access or exploit Key Vault accounts.
-Important: Protections from this plan are charged as shown on the **Defender plans** page. If you don't have any key vaults in this subscription, you won't be charged. If you later create key vaults on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
+
+Protections from this plan are charged as shown on the **Defender plans** page. If you don't have any key vaults in this subscription, you won't be charged. If you later create key vaults on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
 Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md).
 (Related policy: [Azure Defender for Key Vault should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)).
 
@@ -264,7 +265,7 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-ke
 ### [Amazon Elasticsearch Service domains should be in a VPC](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/df952171-786d-44b5-b309-9c982bddeb7c)
 
 **Description**: VPC can't contain domains with a public endpoint.
-Note: this doesn't evaluate the VPC subnet routing configuration to determine public reachability.
+This doesn't evaluate the VPC subnet routing configuration to determine public reachability.
 
 **Severity**: High
 
@@ -493,7 +494,8 @@ Enabling MFA provides increased security for console access as it requires the a
 ### [GuardDuty should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4b32e0a4-44a7-4f18-ad92-549f7d219061)
 
 **Description**: To provide additional protection against intrusions, GuardDuty should be enabled on your AWS account and region.
- Note: GuardDuty might not be a complete solution for every environment.
+
+GuardDuty might not be a complete solution for every environment.
 
 **Severity**: Medium
 
@@ -708,9 +710,9 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 
  Security risks involved in using API-Keys appear below:
 
- 1. API keys are simple encrypted strings
- 2. API keys don't identify the user or the application making the API request
- 3. API keys are typically accessible to clients, making it easy to discover and steal an API key
+- API keys are simple encrypted strings
+- API keys don't identify the user or the application making the API request
+- API keys are typically accessible to clients, making it easy to discover and steal an API key
 
  To avoid the security risk in using API keys, it's recommended to use standard authentication flow instead.
 
@@ -722,9 +724,9 @@ Secrets Manager can rotate secrets. You can use rotation to replace long-term se
 
  Security risks involved in using API-Keys are below:
 
- 1. API keys are simple encrypted strings
- 2. API keys don't identify the user or the application making the API request
- 3. API keys are typically accessible to clients, making it easy to discover and steal an API key
+- API keys are simple encrypted strings
+- API keys don't identify the user or the application making the API request
+- API keys are typically accessible to clients, making it easy to discover and steal an API key
 
 In light of these potential risks, Google recommends using the standard authentication flow instead of API-Keys. However, there are limited cases where API keys are more appropriate. For example, if there's a mobile application that needs to use the Google Cloud Translation API, but doesn't otherwise need a backend server, API keys are the simplest way to authenticate to that API.
 
@@ -738,9 +740,9 @@ In light of these potential risks, Google recommends using the standard authenti
 
  Security risks involved in using API-Keys appear below:
 
- 1. API keys are simple encrypted strings
- 2. API keys don't identify the user or the application making the API request
- 3. API keys are typically accessible to clients, making it easy to discover and steal an API key
+- API keys are simple encrypted strings
+- API keys don't identify the user or the application making the API request
+- API keys are typically accessible to clients, making it easy to discover and steal an API key
 
 In light of these potential risks, Google recommends using the standard authentication flow instead of API keys. However, there are limited cases where API keys are more appropriate.
 For example, if there's a mobile application that needs to use the Google Cloud Translation API, but doesn't otherwise need a backend server, API keys are the simplest way to authenticate to that API.
@@ -755,9 +757,9 @@ For example, if there's a mobile application that needs to use the Google Cloud 
 
  Security risks involved in using API-Keys are listed below:
 
- 1. API keys are simple encrypted strings
- 2. API keys don't identify the user or the application making the API request
- 3. API keys are typically accessible to clients, making it easy to discover and steal an API key
+- API keys are simple encrypted strings
+- API keys don't identify the user or the application making the API request
+- API keys are typically accessible to clients, making it easy to discover and steal an API key
 
 Because of these potential risks, Google recommends using the standard authentication flow instead of API Keys. However, there are limited cases where API keys are more appropriate. For example, if there's a mobile application that needs to use the Google Cloud Translation API, but doesn't otherwise need a backend server, API keys are the simplest way to authenticate to that API.
 
@@ -823,9 +825,10 @@ It facilitates centralized and automated SSH key pair management, which is usefu
 
 Cloud Audit Logging maintains two audit logs for each project, folder, and organization: Admin Activity and Data Access.
 
-1. Admin Activity logs contain log entries for API calls or other administrative actions that modify the configuration or metadata of resources.
- Admin Activity audit logs are enabled for all services and can't be configured.
-1. Data Access audit logs record API calls that create, modify, or read user-provided data. These are disabled by default and should be enabled.
+- Admin Activity logs contain log entries for API calls or other administrative actions that modify the configuration or metadata of resources.
+- Admin Activity audit logs are enabled for all services and can't be configured.
+- Data Access audit logs record API calls that create, modify, or read user-provided data. These are disabled by default and should be enabled.
+
 There are three kinds of Data Access audit log information:
 
 - Admin read: Records operations that read metadata or configuration information. Admin Activity audit logs record writes of metadata and configuration information that can't be disabled.

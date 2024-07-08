@@ -31,7 +31,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [Azure DevOps repositories should have secret scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b5ef903f-8655-473b-9784-4f749eeb25c6/showSecurityCenterCommandBar~/false)
 
-**Description**: Secrets were found in code repositories. Remediate immediately to prevent a security breach. Secrets found in repositories can leak, or be discovered by adversaries, leading to compromise of an application or service. Note: The Microsoft Security DevOps credential scanning tool only scans builds on which it is configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
+**Description**: Secrets were found in code repositories. Remediate immediately to prevent a security breach. Secrets found in repositories can leak, or be discovered by adversaries, leading to compromise of an application or service. The Microsoft Security DevOps credential scanning tool only scans builds on which it is configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
 
 **Severity**: High
 

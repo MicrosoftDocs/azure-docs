@@ -141,7 +141,7 @@ On Azure, managed identities eliminate the need for developers to have to manage
 **Description**: Microsoft Defender for App Service leverages the scale of the cloud, and the visibility that Azure has as a cloud provider, to monitor for common web app attacks.
 Microsoft Defender for App Service can discover attacks on your applications and identify emerging attacks.
 
-Important: Remediating this recommendation will result in charges for protecting your App Service plans. If you don't have any App Service plans in this subscription, no charges will be incurred.
+Remediating this recommendation will result in charges for protecting your App Service plans. If you don't have any App Service plans in this subscription, no charges will be incurred.
 If you create any App Service plans on this subscription in the future, they will automatically be protected and charges will begin at that time.
 Learn more in [Protect your web apps and APIs](defender-for-app-service-introduction.md).
 (Related policy: [Azure Defender for App Service should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)).

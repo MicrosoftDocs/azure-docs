@@ -432,7 +432,9 @@ Configuring geo-redundant storage for backup is only allowed when creating a ser
 
 **Description**: Microsoft Defender for SQL is a unified package that provides advanced SQL security capabilities.
 It includes functionality for surfacing and mitigating potential database vulnerabilities, detecting anomalous activities that could indicate a threat to your database, and discovering and classifying sensitive data.
-Important: Protections from this plan are charged as shown on the [Defender plans](https://aka.ms/pricing-security-center) page. If you don't have any Azure SQL Database servers in this subscription, you won't be charged. If you later create Azure SQL Database servers on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
+
+Protections from this plan are charged as shown on the [Defender plans](https://aka.ms/pricing-security-center) page. If you don't have any Azure SQL Database servers in this subscription, you won't be charged. If you later create Azure SQL Database servers on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
+
 Learn more in [Introduction to Microsoft Defender for SQL](defender-for-sql-introduction.md).
 (Related policy: [Azure Defender for Azure SQL Database servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)).
 
@@ -449,7 +451,7 @@ Learn more in [Introduction to Microsoft Defender for SQL](defender-for-sql-intr
 
 **Description**: Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Learn more in [Introduction to Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
-Important: Enabling this plan will result in charges for protecting your open-source relational databases. If you don't have any open-source relational databases in this subscription, no charges will be incurred. If you create any open-source relational databases on this subscription in the future, they will automatically be protected and charges will begin at that time.
+Enabling this plan will result in charges for protecting your open-source relational databases. If you don't have any open-source relational databases in this subscription, no charges will be incurred. If you create any open-source relational databases on this subscription in the future, they will automatically be protected and charges will begin at that time.
 (No related policy)
 
 **Severity**: High
@@ -476,7 +478,7 @@ Learn more in [Introduction to Microsoft Defender for servers](defender-for-serv
 **Description**: Microsoft Defender for SQL is a unified package that provides advanced SQL security capabilities.
 It includes functionality for surfacing and mitigating potential database vulnerabilities, detecting anomalous activities that could indicate a threat to your database, and discovering and classifying sensitive data.
 
-Important: Remediating this recommendation will result in charges for protecting your SQL servers on machines. If you don't have any SQL servers on machines in this subscription, no charges will be incurred.
+Remediating this recommendation will result in charges for protecting your SQL servers on machines. If you don't have any SQL servers on machines in this subscription, no charges will be incurred.
 If you create any SQL servers on machines on this subscription in the future, they will automatically be protected and charges will begin at that time.
 [Learn more about Microsoft Defender for SQL servers on machines.](/azure/azure-sql/database/advanced-data-security)
 (Related policy: [Azure Defender for SQL servers on machines should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b)).
@@ -500,7 +502,8 @@ If you create any SQL servers on machines on this subscription in the future, th
 ### [Microsoft Defender for Storage should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1be22853-8ed1-4005-9907-ddad64cb1417)
 
 **Description**: Microsoft Defender for storage detects unusual and potentially harmful attempts to access or exploit storage accounts.
-Important: Protections from this plan are charged as shown on the **Defender plans** page. If you don't have any Azure Storage accounts in this subscription, you won't be charged. If you later create Azure Storage accounts on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
+
+Protections from this plan are charged as shown on the **Defender plans** page. If you don't have any Azure Storage accounts in this subscription, you won't be charged. If you later create Azure Storage accounts on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
 Learn more in [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md).
 (Related policy: [Azure Defender for Storage should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)).
 
@@ -945,7 +948,8 @@ HTTPS (TLS) can be used to help prevent potential attackers from using person-in
  The control fails if the account level encryption isn't enabled.
 When encryption is enabled for your account, Amazon EBS volumes and snapshot copies are encrypted at rest. This adds another layer of protection for your data.
 For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the Amazon EC2 User Guide for Linux Instances.
-Note that following instance types don't support encryption: R1, C1, and M1.
+
+The following instance types don't support encryption: R1, C1, and M1.
 
 **Severity**: Medium
 
@@ -1255,7 +1259,9 @@ BigQuery by default encrypts the data as rest by employing Envelope Encryption u
  This is seamless and doesn't require any additional input from the user.
 For greater control over the encryption, customer-managed encryption keys (CMEK) can be used as encryption key management solution for BigQuery Data Sets.
  Setting a Default Customer-managed encryption key (CMEK) for a data set ensure any tables created in future will use the specified CMEK if none other is provided.
-Note: Google doesn't store your keys on its servers and can't access your protected data unless you provide the key.
+
+Google doesn't store your keys on its servers and can't access your protected data unless you provide the key.
+
 This also means that if you forget or lose your key, there's no way for Google to recover the key or to recover any data encrypted with the lost key.
 
 **Severity**: Medium
@@ -1273,7 +1279,8 @@ For greater control over the encryption, customer-managed encryption keys (CMEK)
 The CMEK is used to encrypt the data encryption keys instead of using google-managed encryption keys.
  BigQuery stores the table and CMEK association and the encryption/decryption is done automatically.
 Applying the Default Customer-managed keys on BigQuery data sets ensures that all the new tables created in the future will be encrypted using CMEK but existing tables need to be updated to use CMEK individually.
-Note: Google doesn't store your keys on its servers and can't access your protected data unless you provide the key.
+
+Google doesn't store your keys on its servers and can't access your protected data unless you provide the key.
  This also means that if you forget or lose your key, there's no way for Google to recover the key or to recover any data encrypted with the lost key.
 
 **Severity**: Medium

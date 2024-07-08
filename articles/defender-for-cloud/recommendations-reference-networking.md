@@ -514,7 +514,8 @@ Security monitoring and forensics can't depend solely on IP addresses from VPC f
 and other technology that can obscure the DNS name used by a client from the IP address.
 Monitoring of Cloud DNS logs provides visibility to DNS names requested by the clients within the VPC.
 These logs can be monitored for anomalous domain names, evaluated against threat intelligence, and
-Note: For full capture of DNS, firewall must block egress UDP/53 (DNS)
+
+For full capture of DNS, firewall must block egress UDP/53 (DNS)
 and TCP/443 (DNS over HTTPS) to prevent client from using external DNS name server for resolution.
 
 **Severity**: High

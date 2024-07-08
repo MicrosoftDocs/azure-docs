@@ -136,7 +136,7 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 ### [EDR configuration issues should be resolved on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dc5357d0-3858-4d17-a1a3-072840bff5be)
 
-**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint enabled.
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint enabled.
 
 This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations. 
 
@@ -188,9 +188,9 @@ When the file integrity monitoring solution is enabled, create data collection r
 
 **Description**: Install Guest Attestation extension on supported Linux virtual machine scale sets to allow Microsoft Defender for Cloud to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled Linux virtual machine scale sets.
 
-Important:
- Trusted launch requires the creation of new virtual machines.
-You can't enable trusted launch on existing virtual machines that were initially created without it.
+- Trusted launch requires the creation of new virtual machines.
+- You can't enable trusted launch on existing virtual machines that were initially created without it.
+
 Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
@@ -200,9 +200,9 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Description**: Install Guest Attestation extension on supported Linux virtual machines to allow Microsoft Defender for Cloud to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled Linux virtual machines.
 
-Important:
- Trusted launch requires the creation of new virtual machines.
-You can't enable trusted launch on existing virtual machines that were initially created without it.
+- Trusted launch requires the creation of new virtual machines.
+- You can't enable trusted launch on existing virtual machines that were initially created without it.
+
 Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
@@ -212,9 +212,9 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Description**: Install Guest Attestation extension on supported virtual machine scale sets to allow Microsoft Defender for Cloud to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled virtual machine scale sets.
 
-Important:
- Trusted launch requires the creation of new virtual machines.
-You can't enable trusted launch on existing virtual machines that were initially created without it.
+- Trusted launch requires the creation of new virtual machines.
+- You can't enable trusted launch on existing virtual machines that were initially created without it.
+
 Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
@@ -224,9 +224,9 @@ Learn more about [Trusted launch for Azure virtual machines](../virtual-machines
 
 **Description**: Install Guest Attestation extension on supported virtual machines to allow Microsoft Defender for Cloud to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled virtual machines.
 
-Important:
- Trusted launch requires the creation of new virtual machines.
-You can't enable trusted launch on existing virtual machines that were initially created without it.
+- Trusted launch requires the creation of new virtual machines.
+- You can't enable trusted launch on existing virtual machines that were initially created without it.
+
 Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
@@ -373,7 +373,7 @@ This recommendation helps you to improve server security posture. Defender for C
 **Description**: Microsoft Defender for servers provides real-time threat protection for your server workloads and generates hardening recommendations as well as alerts about suspicious activities.
 You can use this information to quickly remediate security issues and improve the security of your servers.
 
-Important: Remediating this recommendation will result in charges for protecting your servers. If you don't have any servers in this subscription, no charges will be incurred.
+Remediating this recommendation will result in charges for protecting your servers. If you don't have any servers in this subscription, no charges will be incurred.
 If you create any servers on this subscription in the future, they will automatically be protected and charges will begin at that time.
 Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
 (Related policy: [Azure Defender for servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)).
@@ -394,9 +394,10 @@ Learn more in [Introduction to Microsoft Defender for servers](defender-for-serv
 
 **Description**: Enable Secure Boot on supported Windows virtual machines to mitigate against malicious and unauthorized changes to the boot chain. Once enabled, only trusted bootloaders, kernel, and kernel drivers will be allowed to run. This assessment only applies to trusted launch enabled Windows virtual machines.
 
-Important:
- Trusted launch requires the creation of new virtual machines.
-You can't enable trusted launch on existing virtual machines that were initially created without it.
+
+- Trusted launch requires the creation of new virtual machines.
+- You can't enable trusted launch on existing virtual machines that were initially created without it.
+
 Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
@@ -501,8 +502,8 @@ For a comparison of different disk encryption technologies in Azure, see <https:
 Use Azure Disk Encryption to encrypt all this data.
 Disregard this recommendation if:
 
- 1. You're using the encryption-at-host feature, or 2. Server-side encryption on Managed Disks meets your security requirements.
-Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disksse).
+You're using the encryption-at-host feature, or server-side encryption on Managed Disks meets your security requirements. Learn more in [server-side encryption of Azure Disk Storage](https://aka.ms/disksse).
+
 (Related policy: [Disk encryption should be applied on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0961003e-5a0a-4549-abde-af6a37f2724d))
 
 **Severity**: High
@@ -511,9 +512,10 @@ Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disk
 
 **Description**: Enable virtual TPM device on supported virtual machines to facilitate Measured Boot and other OS security features that require a TPM. Once enabled, vTPM can be used to attest boot integrity. This assessment only applies to trusted launch enabled virtual machines.
 
-Important:
- Trusted launch requires the creation of new virtual machines.
-You can't enable trusted launch on existing virtual machines that were initially created without it.
+
+- Trusted launch requires the creation of new virtual machines.
+- You can't enable trusted launch on existing virtual machines that were initially created without it.
+
 Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
@@ -660,7 +662,7 @@ Authentication credentials `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` shoul
 
 ### [EDR configuration issues should be resolved on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/695abd03-82bd-4d7f-a94c-140e8a17666c)
 
-**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint enabled.
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint enabled.
 
 This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
 - These new agentless endpoint recommendations support Azure and multicloud machines. On-premises servers aren't supported.
@@ -733,7 +735,7 @@ To learn more about the supported runtimes that this control checks for the supp
 
 ### [EDR configuration issues should be resolved on GCP virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f36a15fb-61a6-428c-b719-6319538ecfbc)
 
-**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint  enabled.
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint  enabled.
 
 This agentless endpoint recommendation is available if you have Defender for Servers Plan 2 or the Defender CSPM plan. [Learn more](endpoint-detection-response.md) about agentless endpoint protection recommendations.
 
@@ -880,14 +882,17 @@ VMs created by GKE should be excluded. These VMs have names that start with ```g
 
 **Description**: To support principle of least privileges and prevent potential privilege escalation, it's recommended that instances aren't assigned to default service account "Compute Engine default service account" with Scope "Allow full access to all Cloud APIs."
 Along with ability to optionally create, manage, and use user managed custom service accounts, Google Compute Engine provides default service account "Compute Engine default service account" for an instance to access necessary cloud services.
+
 "Project Editor" role is assigned to "Compute Engine default service account" hence, This service account has almost all capabilities over all cloud services except billing.
 However, when "Compute Engine default service account" assigned to an instance it can operate in three scopes.
 
-1. Allow default access: Allows only minimum access required to run an Instance (Least Privileges).
-1. Allow full access to all Cloud APIs: Allow full access to all the cloud APIs/Services (Too much access).
-1. Set access for each API: Allows Instance administrator to choose only those APIs that are needed to perform specific business functionality expected by instance
+- Allow default access: Allows only minimum access required to run an Instance (Least Privileges).
+- Allow full access to all Cloud APIs: Allow full access to all the cloud APIs/Services (Too much access).
+- Set access for each API: Allows Instance administrator to choose only those APIs that are needed to perform specific business functionality expected by instance.
+
 When an instance is configured with "Compute Engine default service account" with Scope "Allow full access to all Cloud APIs," based on IAM roles assigned to the user(s) accessing Instance,
 it might allow user to perform cloud operations/API calls that user isn't supposed to perform leading to successful privilege escalation.
+
 VMs created by GKE should be excluded. These VMs have names that start with ```gke-``` and are labeled ```goog-gke-node```.
 
 **Severity**: Medium
