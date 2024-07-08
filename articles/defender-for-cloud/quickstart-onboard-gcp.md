@@ -45,7 +45,7 @@ To complete the procedures in this article, you need:
 
 - Access to a GCP project.
 
-- **Contributor** permission on the relevant Azure subscription, and **Owner** permission on the GCP organization or project.
+- **Subscription owner** permission on the relevant Azure subscription, and **Owner** permission on the GCP organization or project.
 
 You can learn more about Defender for Cloud pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
