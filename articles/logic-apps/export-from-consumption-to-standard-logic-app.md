@@ -13,7 +13,7 @@ ms.date: 07/05/2024
 
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
-If you want the benefits from Standard workflows, but your workflows run in multi-tenant Azure Logic Apps, you can now move your Consumption workflows to single-tenant Azure Logic Apps. This switch makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
+If you want the benefits from Standard workflows, but your workflows run in multitenant Azure Logic Apps, you can now move your Consumption workflows to single-tenant Azure Logic Apps. This switch makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
 
 You can now export Consumption logic apps to a Standard logic app. Using Visual Studio Code and the latest Azure Logic Apps (Standard) extension, you export your logic apps as stateful workflows to a Standard logic app project. You can then locally update, test, and debug your workflows to get them ready for redeployment. When you're ready, you can deploy either directly from Visual Studio Code or through your own DevOps process.
 
