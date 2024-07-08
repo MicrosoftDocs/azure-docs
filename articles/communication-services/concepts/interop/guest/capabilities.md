@@ -147,7 +147,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | Change spoken language of [Teams closed captions](https://support.microsoft.com/office/use-live-captions-in-microsoft-teams-meetings-4be2d304-f675-4b57-8347-cbd000a21260)      | ✔️ |
 |                   | Communication access real-time translation (CART)                                                                   | ❌ |
 | Larger meetings   | Support [Teams green room](https://support.microsoft.com/office/green-room-for-teams-meetings-5b744652-789f-42da-ad56-78a68e8460d5) | ✔️[4] |
-|                   | Support "[Hide attendee names](https://learn.microsoft.com/microsoftteams/hide-attendee-names)" meeting option      | ❌[5] |
+|                   | Support "[Hide attendee names](/microsoftteams/hide-attendee-names)" meeting option      | ❌[5] |
 |                   | Support "[Manage what attendee see](https://support.microsoft.com/en-us/office/manage-what-attendees-see-in-teams-meetings-19bfd690-8122-49f4-bc04-c2c5f69b4e16) | ❌ |
 |                   | Support [RTMP-in](https://support.microsoft.com/office/use-rtmp-in-in-microsoft-teams-789d6090-8511-4e2e-add6-52a9f551be7f) | ❌ |
 |                   | Support [RTMP-out](https://support.microsoft.com/office/broadcast-audio-and-video-from-teams-with-rtmp-11d5707b-88bf-411c-aff1-f8d85cab58a0) | ✔️ |
