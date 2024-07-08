@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Power BI visual
 description: This article describes how to use the reference layer in Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 12/04/2023
+ms.date: 07/10/2024
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -18,6 +18,7 @@ Reference layers enable the enhancement of spatial visualizations by overlaying 
 - [WKT] (Well-Known Text) files with a `.wkt` extension
 - [KML] (Keyhole Markup Language) files with a `.kml` extension
 - [SHP] (Shapefile) files with a `.shp` extension
+- [CSV] (Comma-separated values) files with a `.csv` extension. Note that the Azure Maps Power BI visual will only parse the column containing WKT (Well-Known Text) strings from the sheet.
 
 ## Add a spatial dataset as a reference layer
 
@@ -30,7 +31,7 @@ To upload a spatial dataset as a reference layer:
 1. Navigate to the **Format** pane.
 1. Expand the **Reference Layer** section.
 1. Select **File Upload** from the **Type** drop-down list.
-1. Select **Browse**. The file selection dialog opens, allowing you to choose a file with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension.
+1. Select **Browse**. The file selection dialog opens, allowing you to choose a file with a `.json`, `.geojson`, `.wkt`, `.kml`, `.shp` or `.csv` extension.
 
     :::image type="content" source="./media/power-bi-visual/reference-layer-upload.png" alt-text="Screenshot showing the reference layers section when uploading a file control.":::
 
@@ -43,7 +44,7 @@ To use a hosted spatial dataset as a reference layer:
 1. Navigate to the **Format** pane.
 1. Expand the **Reference Layer** section.
 1. Select **URL** from the **Type** drop-down list.
-1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial dataset with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` extension. After the link to the hosted file is added to the reference layer, the URL appears in the **Enter a URL** field. To remove the data from the visual simply delete the URL.
+1. Select **Enter a URL** and enter a valid URL pointing to your hosted file. Hosted files must be a valid spatial dataset with a `.json`, `.geojson`, `.wkt`, `.kml`, `.shp` or `.csv` extension. After the link to the hosted file is added to the reference layer, the URL appears in the **Enter a URL** field. To remove the data from the visual simply delete the URL.
 
     :::image type="content" source="./media/power-bi-visual/reference-layer-hosted.png" alt-text="Screenshot showing the reference layers section when using the 'Enter a URL' input control.":::
 
@@ -61,7 +62,7 @@ The following are all settings in the **Format** pane that are available in the 
 
 | Setting              | Description   |
 |----------------------|---------------|
-| Reference layer data | The data file to upload to the visual as another layer within the map. Selecting **Browse** shows a list of files with a `.json`, `.geojson`, `.wkt`, `.kml` or `.shp` file extension that can be opened. |
+| Reference layer data | The data file to upload to the visual as another layer within the map. Selecting **Browse** shows a list of files with a `.json`, `.geojson`, `.wkt`, `.kml`, `.shp` or `.csv` file extension that can be opened. |
 
 ## Styling data in a reference layer
 
@@ -122,6 +123,7 @@ Add more context to the map:
 [WKT]: https://wikipedia.org/wiki/Well-known_text_representation_of_geometry
 [KML]: https://wikipedia.org/wiki/Keyhole_Markup_Language
 [SHP]: https://en.wikipedia.org/wiki/Shapefile
+[CSV]: https://en.wikipedia.org/wiki/Comma-separated_values
 [2016 census tracts for Colorado]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Static/data/geojson
 [supported style properties]: spatial-io-add-simple-data-layer.md#default-supported-style-properties
 [Add a tile layer]: power-bi-visual-add-tile-layer.md
