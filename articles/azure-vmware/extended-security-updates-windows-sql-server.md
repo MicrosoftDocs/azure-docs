@@ -61,7 +61,7 @@ When you contact Support, raise the ticket under the Azure VMware Solution categ
 - Customer name and tenant ID
 - Number of VMs you want to register
 - OS versions
-- ESU years of coverage (for example, Year 1, Year 2, or Year 3)
+- ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availablity and End Dates](https://learn.microsoft.com/en-us/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket will provide you ESU keys for 1 year. You will need to raise a new support request for additional years. We recommend raising the new request as your current ESU End Date Year date is approaching.
 
 > [!WARNING]
 > If you create ESU licenses for Windows through Azure Arc, you're charged for the ESUs.
