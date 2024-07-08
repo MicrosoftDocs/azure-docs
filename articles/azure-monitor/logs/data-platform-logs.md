@@ -21,24 +21,24 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 >
 > Azure Monitor Metrics can only store numeric data in a particular structure, whereas Azure Monitor Logs can store a variety of data types that have their own structures. You can also perform complex analysis on Azure Monitor Logs data by using log queries, which can't be used for analysis of Azure Monitor Metrics data.
 
-## Log Analytics workspace
+## Manage data storage, consumption, and costs in your Log Analytics workspace    
 
 Azure Monitor Logs stores the data that you collect in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md), which consists of tables in which you store various types of data. 
 
 To address the unique data collection and analysis needs of the various personas who use the data in the a Log Analytics workspace, you can:
 
-- [Define table plans]() suited to your data consumption and cost management needs.
+- [Define table plans]() based on your data consumption and cost management needs.
 - [Manage low-cost long-term retention and interactive retention](../logs/data-retention-archive.md) for each table.
 - [Manage access](../logs/manage-access.md) to the workspace and to specific tables.
 - Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and store raw data in a table with a low-cost table plan for however long you need it.
-- Create ready-to-run [saved queries](../logs/save-query.md), [visualizations](../visualize/), and [alerts] tailored to specific personas.  
+- Create ready-to-run [saved queries](../logs/save-query.md), [visualizations](../visualize/), and [alerts](../alerts/alerts-create-log-alert-rule.md) tailored to specific personas.  
 
 :::image type="content" source="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" lightbox="edia/data-platform-logs/log-analytics-workspace-for-all-log-data.png" alt-text="A screenshot of a Log Analytics workspace in the Azure portal.":::
 
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
 
 
-## Built-in monitoring experiences and customized queries based on a powerful query language
+## Built-in and custom monitoring experiences based on a powerful query language
 
 You can analyze log data by using a sophisticated query language that's capable of quickly analyzing millions of records. You might perform a simple query that retrieves a specific set of records or perform sophisticated data analysis to identify critical patterns in your monitoring data. Work with log queries and their results interactively by using Log Analytics, use them in alert rules to be proactively notified of issues, or visualize their results in a workbook or dashboard.
 
