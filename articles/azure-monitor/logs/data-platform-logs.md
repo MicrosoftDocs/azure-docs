@@ -25,8 +25,6 @@ This article provides an overview of how Azure Monitor Logs works and explains h
 
 Azure Monitor Logs stores the data that you collect in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md), which consists of tables in which you store various types of data. 
 
-:::image type="content" source="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" lightbox="edia/data-platform-logs/log-analytics-workspace-for-all-log-data.png" alt-text="A screenshot of a Log Analytics workspace in the Azure portal.":::
-
 To address the unique data collection and analysis needs of the various personas who use the data in the a Log Analytics workspace, you can:
 
 - [Define table plans]() suited to the usage and cost management needs of the data in each table.
@@ -34,6 +32,8 @@ To address the unique data collection and analysis needs of the various personas
 - [Manage access rights](../logs/manage-access.md) to the workspace and to specific tables.
 - Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and enables you to store raw data in a table with a low-cost table plan for however long you need it.
 - Create ready-to-run queries, visulizations, and alerts tailored to specific personas.  
+
+:::image type="content" source="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" lightbox="edia/data-platform-logs/log-analytics-workspace-for-all-log-data.png" alt-text="A screenshot of a Log Analytics workspace in the Azure portal.":::
 
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
 
