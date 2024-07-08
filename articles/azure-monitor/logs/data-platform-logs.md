@@ -33,7 +33,7 @@ To address the unique data collection and analysis needs of the various personas
 - Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and store raw data in a table with a low-cost table plan for however long you need it.
 - Create ready-to-run [saved queries](../logs/save-query.md), [visualizations](../visualize/), and [alerts](../alerts/alerts-create-log-alert-rule.md) tailored to specific personas.  
 
-:::image type="content" source="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" lightbox="edia/data-platform-logs/log-analytics-workspace-for-all-log-data.png" alt-text="A screenshot of a Log Analytics workspace in the Azure portal.":::
+:::image type="content" source="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" lightbox="media/data-platform-logs/log-analytics-workspace-for-all-log-data.png" alt-text="A screenshot of a Log Analytics workspace in the Azure portal.":::
 
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
 
@@ -43,6 +43,8 @@ You can also configure network isolation, replicate your workspace across region
 You can analyze log data by using a sophisticated query language that's capable of quickly analyzing millions of records. You might perform a simple query that retrieves a specific set of records or perform sophisticated data analysis to identify critical patterns in your monitoring data. Work with log queries and their results interactively by using Log Analytics, use them in alert rules to be proactively notified of issues, or visualize their results in a workbook or dashboard.
 
 Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in a Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
+
+:::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
 
 ## Table plans tailored for different data consumption needs
 
