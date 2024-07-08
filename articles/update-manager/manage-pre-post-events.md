@@ -12,6 +12,8 @@ author: SnehaSudhirG
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
+This article describes on how to manage pre and post events in Azure Update Manager.
+
 ## Manage pre and post events
 
 ### View pre and post events
@@ -84,7 +86,9 @@ To check the successful delivery of a pre and post event to an endpoint from Eve
 
 To use application insights to monitor executions in Azure functions, refer [here](/azure/azure-functions/functions-monitoring).
 
-**Cancel a schedule run before it begins to run**
+---
+
+### Cancel a schedule run before it begins to run
 
 To cancel the schedule run, the cancelation API in your pre-event must get triggered at least 10 minutes before the schedule maintenance configuration start time. You must call the cancelation API in your pre-event, that is, Runbook script or Azure function code. 
 
@@ -134,19 +138,23 @@ maintenanceresources
 
 ### Debug pre and post events
 
-Follow the above steps to view the history of the event subscription. To view the job history of an event created through Webhook, follow the below steps:
+#### [Automation-Webhook](#tab/az-webhook)
+
+To view the job history of an event created through Webhook, follow these steps:
 
 1. Find the event name for which you want to view the job logs.
 2. Under the **Job history** column, select **View runbook history** corresponding to the event name. This takes you to the Automation account where the runbooks reside.
 3. Select the specific runbook name that is associated to the pre or post event. In the **overview** page, you can view the recent jobs of the runbook along with the execution and status details.
 
-#### View the history of an event created through Azure Function
+#### [Azure Function](#tab/az-function)
 
-Follow the below steps to view the history of an event created through Azure Function:
+To view the history of an event created through Azure Function, follow these steps:
 
 1. Find the event name for which you want to view the job logs.
 2. Under the **Job history** column, select **View Azure Function history** corresponding to the event name. This takes you to the Azure function **Invocations** page.
 3. You can view the recent invocations along with the execution and status details.
+
+---
 
 ### View the status of a canceled schedule run
 

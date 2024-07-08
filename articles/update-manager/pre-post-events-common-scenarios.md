@@ -124,7 +124,7 @@ For more information on how to retrieve details from Automation account's activi
 
 #### [REST API](#tab/cancel-rest)
 
-1. The cancellation flow is honored from T-40 when the premaintenance event is triggered until T-10. [Learn more](manage-pre-post-events.md#timeline-of-schedules-for-pre-and-post-events). 
+1. The cancellation flow is honored from T-40 when the pre maintenance event is triggered until T-10. [Learn more](pre-post-scripts-overview.md#timeline-of-schedules-for-pre-and-post-events). 
 
    To invoke the cancelation API:
    
