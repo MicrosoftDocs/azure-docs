@@ -99,7 +99,7 @@
     - name: Monitor
       items:
       - name: Monitor metrics
-        href: request-metrics.md
+        href: monitor-metrics.md
       - name: Monitor diagnostics logs
         href: how-to-monitor-diagnostics-logs.md
     - name: Use Azure Private Link

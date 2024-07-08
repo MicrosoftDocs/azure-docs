@@ -58,8 +58,6 @@ landingContent:
             url: how-to-restore-cluster.md
           - text: Monitor diagnostics logs
             url: how-to-monitor-diagnostics-logs.md
-          - text: Request metrics
-            url: request-metrics.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
