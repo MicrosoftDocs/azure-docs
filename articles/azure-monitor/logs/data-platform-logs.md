@@ -44,7 +44,7 @@ You can analyze log data by using a sophisticated query language that's capable 
 
 Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in a Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
 
-## Table plans tailored to data consumption needs
+## Table plans tailored for different data consumption needs
 
 
 The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
