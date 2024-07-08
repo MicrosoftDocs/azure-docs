@@ -43,13 +43,7 @@ To complete this project, you need the following items:
 
 When running Admin for Spring in Azure Container Apps, be aware of the following details:
 
-| Item | Explanation |
-|---|---|
-| **Scope** | The Admin for Spring component runs in the same environment as the connected container app. |
-| **Scaling** | The Admin for Spring component can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
-| **Resources** | The container resource allocation for Admin for Spring component is fixed. The number of the CPU cores is 0.5, and the memory size is 1Gi. |
-| **Pricing** | The Admin for Spring component billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing. |
-| **Binding** | Container apps connect to a Admin for Spring component via a binding. The bindings inject configurations into container app environment variables. Once a binding is established, the container app can read the configuration values from environment variables and connect to the Admin for Spring. |
+[!INCLUDE [container-apps/component-considerations.md](../../includes/container-apps/component-considerations.md)]
 
 ## Setup
 

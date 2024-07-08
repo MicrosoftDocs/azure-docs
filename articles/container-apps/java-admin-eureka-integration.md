@@ -6,7 +6,7 @@ author:
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/03/2024
+ms.date: 07/08/2024
 ms.author: 
 ---
 
@@ -38,13 +38,7 @@ To complete this tutorial, you need the following items:
 
 When running managed Java components in Azure Container Apps, be aware of the following details:
 
-| Item | Explanation |
-|---|---|
-| **Scope** | The Java components run in the same environment as the connected container apps. |
-| **Scaling** | Both the Eureka Server and Admin for Spring have fixed scaling properties (`minReplicas` and `maxReplicas` set to `1`). |
-| **Resources** | The resource allocation for both components is fixed. Each is allocated 0.5 CPU cores and 1Gi of memory. |
-| **Pricing** | Billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at active/idle rates. You can delete components that are no longer in use to stop billing. |
-| **Binding** | Container apps connect to managed Java components via a binding, which injects configurations into container app environment variables. |
+[!INCLUDE [container-apps/component-considerations.md](../../includes/container-apps/component-considerations.md)]
 
 ## Setup
 
