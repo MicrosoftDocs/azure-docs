@@ -31,9 +31,9 @@ New and updated recommendations and alerts are added to the table in date order.
 <!-- 2. In Date, specify the date you added the item.-->
 <!-- 3. In Type specify whether it's a Recommendation or Alert.-->
 <!-- 4. In State specify whether it's GA, Preview, Update, Deprecation, Upcoming Update, or Upcoming Deprecation, or other as needed.-->
-<!-- 3. If you're adding a new recommendation entry to the table, first add the recommendation to the relevant recommendations-reference page. There are multiple pages for recommendations for AI, APIs, App Services, Compute, Container, Data, DevOps, Identity & Access, IoT, networking, and deprecated recommendations.-->
-<!-- 4. If you're adding a new alert here, make sure you also add it to the alerts reference page-->
-<!-- 5. After adding the alert to the alerts reference page or adding the recommendation to the recommendations page, in Name, add the name of the alert or recommendation, and add a link to the relevant entry that you added in the alerts or recommendations reference page. Note that all details about the alert or recommendation should be on the reference page. This page should only have minimum information.-->
+<!-- 5. If you're adding a new recommendation entry to the table, first add the recommendation to the relevant recommendations-reference page. There are multiple pages for recommendations for AI, APIs, App Services, Compute, Container, Data, DevOps, Identity & Access, IoT, networking, and deprecated recommendations.-->
+<!-- 6. If you're adding a new alert here, make sure you also add it to the alerts reference page-->
+<!-- 7. After adding the alert to the alerts reference page or adding the recommendation to the recommendations page, in Name, add the name of the alert or recommendation, and add a link to the relevant entry that you added in the alerts or recommendations reference page. Note that all details about the alert or recommendation should be on the reference page. This page should only have minimum information.-->
 
 
 **Date** | **Type** | **State** | **Name**
