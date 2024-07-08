@@ -1,6 +1,6 @@
 ---
-title: How to network from a Private Access to Public Access or Private Link in Azure Database for MySQL
-description: Learn about moving an Azure Database for MySQL flexible server from Private access (virtual network integrated) to Public access or a Private Link with the Azure portal.
+title: How to network from a private access to public access or Private Link in Azure Database for MySQL
+description: Learn about moving an Azure Database for MySQL from private access (virtual network integrated) to public access or a Private Link with the Azure portal.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
@@ -46,7 +46,7 @@ The steps below describe moving from private access (virtual network integrated)
 
    :::image type="content" source="media/how-to-network-from-private-to-public/allow-public-access.png" alt-text="Screenshot of the Azure allow public access page." lightbox="media/how-to-network-from-private-to-public/allow-public-access.png":::
 
-If you need public access only, you need to check `Allow public access to this resource through the internet using a public IP address`, or If you need private access only, then move to step 2 and don't check `Allow public access to this resource through the internet using a public IP address`. If you need public and private access, check the box for `Allow public access to this resource through the internet using a public IP address` and move to Step 2 to create a private link.
+   If you need public access only, you need to check `Allow public access to this resource through the internet using a public IP address`, or If you need private access only, then move to step 2 and don't check `Allow public access to this resource through the internet using a public IP address`. If you need public and private access, check the box for `Allow public access to this resource through the internet using a public IP address` and move to Step 2 to create a private link.
 
 1. Once you select **Next**, detaching the server is initiated.
 
@@ -58,10 +58,10 @@ If you need public access only, you need to check `Allow public access to this r
 
 1. When the server detaches from the virtual network, the server is put into an updating state. You can monitor the status of the server in the portal.
 
-    > [!NOTE]  
-    > After detaching the server from the virtual network infrastructure, if you didn't opt for "Allow public access to this resource through the internet using a public IP address" and omitted Step 2 or exited the portal before completing the necessary steps, your server becomes inaccessible. You encounter a specific message indicating the server's update status.
-    
-You can select to configure the network setting or move to the networking pane and configure public access, private endpoint, or both.
+   You can select to configure the network setting or move to the networking pane and configure public access, private endpoint, or both.
+
+   > [!NOTE]  
+   > After detaching the server from the virtual network infrastructure, if you didn't opt for "Allow public access to this resource through the internet using a public IP address" and omitted Step 2 or exited the portal before completing the necessary steps, your server becomes inaccessible. You encounter a specific message indicating the server's update status.
 
 ## Related content
 
