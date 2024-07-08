@@ -5,9 +5,9 @@ description: Learn to deploy your MLflow model in Spark jobs to perform inferenc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.date: 12/30/2022
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2
