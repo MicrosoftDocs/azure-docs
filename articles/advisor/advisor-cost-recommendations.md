@@ -43,7 +43,7 @@ Advisor recommends resizing virtual machines when it's possible to fit the curre
 
 * Recommendation criteria include **CPU**, **Memory**, and **Outbound Network utilization**.
 
-* The last 7 days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, it might take up to 48 hours for the recommendations to be updated.
+* The last 7 days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After you change the lookback period, it might take up to 48 hours for the recommendations to be updated.
 
 * Metrics are sampled every 30 seconds, aggregated to 1 minute, and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
 
