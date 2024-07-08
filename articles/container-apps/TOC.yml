@@ -29,8 +29,6 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-        - name: IntelliJ
-          href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
       - name: Deploy from artifact
         items:
         - name: Command line
@@ -348,6 +346,9 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+        displayName: java
+      - name: Get started using IntelliJ
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
