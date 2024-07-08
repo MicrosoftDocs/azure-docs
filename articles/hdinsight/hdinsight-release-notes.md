@@ -23,15 +23,13 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 ### Release date: Jul 05, 2024
 
 > [!NOTE]
-> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider]](.//hdinsight-overview-versioning.md#hdinsight-resource-provider)
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider)
 
 ### Fixed issues 
 
 * HOBO tags overwrite user tags. 
 
    * HOBO tags overwrite user tags on sub-resources in HDI cluster creation. 
-
-## Release Information
 
 ### Release date: Jun 19, 2024
 
