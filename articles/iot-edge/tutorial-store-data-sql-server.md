@@ -207,7 +207,7 @@ You need to select which architecture you're targeting with each solution, becau
 
 ## Add the SQL Server container
 
-A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Azure Microsoft Artifact Registry. You just need to tell the IoT Edge runtime to include it, then configure it on your device.
+A [Deployment manifest](module-composition.md) declares which modules the IoT Edge runtime will install on your IoT Edge device. You provided the code to make a customized Function module in the previous section, but the SQL Server module is already built and available in the Microsoft Artifact Registry. You just need to tell the IoT Edge runtime to include it, then configure it on your device.
 
 1. In Visual Studio Code, open the command palette by selecting **View** > **Command palette**.
 
