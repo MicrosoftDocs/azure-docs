@@ -45,7 +45,7 @@ You retrieve data from a Log Analytics workspace using a [Kusto Query Language (
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
 
-Users who are familiar with KQL can use Log Analytics Advanced mode to edit and create queries, which they can then use to in Azure Monitor features such as alerts and workbooks, or share with other users. 
+Users who are familiar with KQL can use Log Analytics Advanced mode to edit and create queries, which they can then use in Azure Monitor features such as alerts and workbooks, or share with other users. 
 
 For a description of Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). To walk through using Log Analytics features to create a simple log query and analyze its results, see [Log Analytics tutorial](./log-analytics-tutorial.md).
 
