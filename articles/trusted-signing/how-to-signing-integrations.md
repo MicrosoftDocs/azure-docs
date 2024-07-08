@@ -144,7 +144,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **Azure DevOps task**: To use the Trusted Signing Azure DevOps task, see [Trusted Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
 
-- **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) in PowerShell Gallery to install the PowerShell module.
+- **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
 
 - **Azure PowerShell - App Control for Business CI policy**: To use Trusted Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and see [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 
