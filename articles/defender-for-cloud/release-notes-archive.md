@@ -909,7 +909,7 @@ Updates in May include:
 - [The onboarding of selected AWS regions](#onboard-selected-aws-regions).
 - [Changes to identity recommendations](#multiple-changes-to-identity-recommendations).
 - [Deprecation of legacy standards in compliance dashboard](#deprecation-of-legacy-standards-in-compliance-dashboard).
-- [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#defender-for-devops-includes-azure-devops-scan-findings).
+- [Update of two Defender for DevOps recommendations to include Azure DevOps scan findings](#defender-for-devops-includes-azure-devops-scan-findings)
 - [New default setting for the Defender for Servers vulnerability assessment solution](#new-default-setting-for-defender-for-servers-vulnerability-assessment-solution).
 - [Ability to download a CSV report of your cloud security explorer query results (Preview)](#download-a-csv-report-of-your-cloud-security-explorer-query-results-preview).
 - [The release of containers vulnerability assessment with Microsoft Defender Vulnerability Management](#the-release-of-containers-vulnerability-assessment-with-microsoft-defender-vulnerability-management).
@@ -2937,7 +2937,7 @@ Updates in August include:
 - [Deprecated recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecated-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines)
 - [Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link](#azure-defender-for-container-registries-now-scans-for-vulnerabilities-in-registries-protected-with-azure-private-link)
 - [Security Center can now autoprovision the Azure Policy's Guest Configuration extension (in preview)](#security-center-can-now-autoprovision-the-azure-policys-guest-configuration-extension-in-preview)
-- [Recommendations now support "Enforce"](#recommendations-now-support-enforce)
+- [Recommendations now support "Enforce"](#recommendations-now-support-enforce).
 - [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 
