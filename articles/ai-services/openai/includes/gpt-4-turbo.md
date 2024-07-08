@@ -25,7 +25,7 @@ This is the replacement for the following preview models:
 
 ### Differences from gpt-4 vision-preview
 
-- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision aren't supported for `gpt-4` **Version:** `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
+- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision isn't supported for `gpt-4` **Version:** `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
 
 ### GPT-4 Turbo provisioned managed availability
 
