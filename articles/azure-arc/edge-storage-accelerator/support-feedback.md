@@ -10,7 +10,7 @@ ms.date: 04/09/2024
 
 # Support and feedback for Edge Storage Accelerator (preview)
 
-If you experience an issue or need support during the preview, please follow the below steps.
+If you experience an issue or need support during the preview, please follow these steps:
 
 > [!VIDEO <embedded_video_source>]
 
