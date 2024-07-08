@@ -7,7 +7,7 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 06/30/2024
+ms.date: 07/07/2024
 ---
 
 # Compute and storage configurations for Azure Cosmos DB for MongoDB vCore clusters
@@ -77,7 +77,7 @@ For instance, if you need 8 TiB of storage per shard or more, make sure you sele
 
 ### Working set and memory considerations
 
-In MongoDB, *the working set* refers to the portion of your data that is frequently accessed and used by your applications. It includes both the data and the indexes that are regularly read or written to during the application's typical operations. The concept of a working set is important for performance optimization because MongoDB, like many databases, performs best when the working set fits in RAM.
+In Azure Cosmos DB for MongoDB vCore, *the working set* refers to the portion of your data that is frequently accessed and used by your applications. It includes both the data and the indexes that are regularly read or written to during the application's typical operations. The concept of a working set is important for performance optimization because MongoDB, like many databases, performs best when the working set fits in RAM.
 
 To define and understand your MongoDB database working set, consider the following components:
 
@@ -89,7 +89,7 @@ By keeping the working set in RAM, you can minimize slower disk I/O operations, 
 
 ### Choosing optimal configuration for a workload 
 
-Determining the right compute and storage configuration for your MongoDB workload involves evaluating several factors related to your application's requirements and usage patterns. The key steps and considerations to determine the optimal configuration include:
+Determining the right compute and storage configuration for your Azure Cosmos DB for MongoDB vCore workload involves evaluating several factors related to your application's requirements and usage patterns. The key steps and considerations to determine the optimal configuration include:
 
 1. **Understand your workload**
     - **Data volume**: Estimate the total size of your data, including indexes.
@@ -98,7 +98,7 @@ Determining the right compute and storage configuration for your MongoDB workloa
     - **Concurrency**: Assess the number of concurrent operations your database needs to handle.
 
 2. **Monitor current performance**
-    - **Resource utilization**: Use MongoDB monitoring tools to track CPU, memory, disk I/O, and network usage before you move your MongoDB workload to Azure and [monitoring metrics](./how-to-monitor-diagnostics-logs.md) and MongoDB monitoring tools once you start running your MongoDB workload on an Azure Cosmos DB for MongoDB vCore cluster.
+    - **Resource utilization**: Use monitoring tools to track CPU, memory, disk I/O, and network usage before you move your workload to Azure and [monitoring metrics](./how-to-monitor-diagnostics-logs.md) once you start running your MongoDB workload on an Azure Cosmos DB for MongoDB vCore cluster.
     - **Performance metrics**: Monitor key performance metrics such as latency, throughput, and cache hit ratios.
     - **Bottlenecks**: Identify any existing performance bottlenecks, such as high CPU usage, memory pressure, or slow disk I/O.
 
@@ -107,38 +107,38 @@ Determining the right compute and storage configuration for your MongoDB workloa
     - **CPU**: Choose a CPU configuration that can handle your query load and concurrency requirements. CPU-intensive workloads may require more cores. Use 'CPU percent' metric with 'Max' aggregation on your Azure Cosmos DB for MongoDB vCore cluster to see historical compute usage patterns.
     - **Storage IOPS**: Select storage with sufficient IOPS to handle your read and write operations. Use 'IOPS' metric with 'Max' aggregation on your cluster to see historical storage IOPS usage.
     - **Network**: Ensure adequate network bandwidth to handle data transfer between your application and the database, especially for distributed setups. Make sure you configured host for your MongoDB application to support [accelerated networking](../../../virtual-network/accelerated-networking-overview.md) technologies such as SR-IOV.
-    
+
 4. **Scale appropriately**
     - **Vertical scaling**: Scale compute / RAM up and down and scale storage up. 
-        - Compute: Increase the vCore / RAM on a cluster if your workload requires temporary increase or is often crossing over 90% of CPU utilization for prolonged periods. 
-        - Make sure you have appropriate data retention in your MongoDB database. Retention allows you to avoid unnecessary storage use. Monitor storage usage by setting alerts on the 'Storage percent' and/or 'Storage used' metrics with 'Max' aggregation. Consider increase storage as your workload size crosses 70% usage.
-    - **Horizontal scaling**: Consider using multiple shards for your cluster  to distribute your data across multiple MongoDB nodes for performance gains and better capacity management as your workload grows. This is especially useful for large datasets (over 2-4 TiB) and high-throughput applications.
-    
-6. **Test and iterate**
+        - Compute: Increase the vCore / RAM on a cluster if your workload requires temporary increase or is often crossing over 70% of CPU utilization for prolonged periods. 
+        - Make sure you have appropriate data retention in your Azure Cosmos DB for MongoDB vCore database. Retention allows you to avoid unnecessary storage use. Monitor storage usage by setting alerts on the 'Storage percent' and/or 'Storage used' metrics with 'Max' aggregation. Consider increase storage as your workload size crosses 70% usage.
+    - **Horizontal scaling**: Consider using multiple shards for your cluster  to distribute your data across multiple Azure Cosmos DB for MongoDB vCore nodes for performance gains and better capacity management as your workload grows. This is especially useful for large datasets (over 2-4 TiB) and high-throughput applications.
+
+5. **Test and iterate**
     - **Benchmarking**: Perform measurement for the most frequently used queries with different configurations to determine the impact on performance. Use CPU/RAM and IOPS metrics and application-level benchmarking.
     - **Load testing**: Conduct load testing to simulate production workloads and validate the performance of your chosen configuration.
-    - **Continuous monitoring**: Continuously monitor your MongoDB deployment and adjust resources as needed based on changing workloads and usage patterns.
-    
+    - **Continuous monitoring**: Continuously monitor your Azure Cosmos DB for MongoDB vCore deployment and adjust resources as needed based on changing workloads and usage patterns.
+
 By systematically evaluating these factors and continuously monitoring and adjusting your configuration, you can ensure that your MongoDB deployment is well-optimized for your specific workload.
 
 ### Considerations for storage
 
-Deciding on the appropriate storage size for your MongoDB workload involves several considerations to ensure optimal performance and scalability. Here are considerations for the storage size in Azure Cosmos DB for MongoDB vCore:
+Deciding on the appropriate storage size for your workload involves several considerations to ensure optimal performance and scalability. Here are considerations for the storage size in Azure Cosmos DB for MongoDB vCore:
 
 1. **Estimate data size:**
-   - Calculate the expected size of your MongoDB data. Consider:
-     - **Current data size:** If migrating from an existing MongoDB instance.
+   - Calculate the expected size of your Azure Cosmos DB for MongoDB vCore data. Consider:
+     - **Current data size:** If migrating from an existing database.
      - **Growth rate:** Estimate how much data will be added over time.
      - **Document size and structure:** Understand your data schema and document sizes, as they affect storage efficiency.
 
 2. **Factor in indexes:**
-   - MongoDB uses **[indexes](./indexing.md)** for efficient querying. Indexes consume extra disk space.
+   - Azure Cosmos DB for MongoDB vCore uses **[indexes](./indexing.md)** for efficient querying. Indexes consume extra disk space.
    - Estimate the size of indexes based on:
      - **Number of indexes**.
      - **Size of indexed fields**.
 
 3. **Performance considerations:**
-   - Disk performance impacts MongoDB operations, especially for workloads that can't fit their [working set](#working-set-and-memory-considerations) into RAM. Consider:
+   - Disk performance impacts database operations, especially for workloads that can't fit their [working set](#working-set-and-memory-considerations) into RAM. Consider:
      - **I/O throughput:** IOPS, or Input/Output Operations Per Second, is the number of requests that are sent to storage disks in one second. The larger storage size comes with more IOPS. Ensure adequate throughput for read/write operations. Use 'IOPS' metric with 'Max' aggregation to monitor used IOPS on your cluster.
      - **Latency:** Latency is the time it takes an application to receive a single request, send it to storage disks, and send the response to the client. Latency is a critical measure of an application's performance in addition to IOPS and throughput. Latency is largely defined by the type of storage used and storage configuration. In a managed service like Azure Cosmos DB for MongoDB, the fast storage such as Premium SSD disks is used with settings optimized to reduce latency. 
 
