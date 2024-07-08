@@ -1,18 +1,20 @@
 ---
 ms.service: cache
 ms.topic: include
-ms.date: 07/03/2024
+ms.date: 07/08/2024
 ms.author: franlanglois
 author: flang-msft
 ---
 
 ### Enable Microsoft Entra ID authentication on your cache
 
-1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to configure Microsoft Entra token-based authentication.
+If you have a cache already, you first want to check to see if Microsoft Entra Authentication has been enabled. If not, then enable it. We recommend using Microsoft Entra ID for your applications.
+
+1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to use Microsoft Entra token-based authentication.
 
 1. Select **Authentication** from the Resource menu.
 
-1. In the working pane, select **Enable Microsoft Entra Authentication**.
+1. Check in the working pane to see if **Enable Microsoft Entra Authentication** is checked. If so, you can move on.
 
 1. Select **Enable Microsoft Entra Authentication**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 

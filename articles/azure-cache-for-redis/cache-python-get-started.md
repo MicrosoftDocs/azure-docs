@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create a Python App that uses 
 author: flang-msft
 
 ms.author: franlanglois
-ms.date: 07/03/2024
+ms.date: 07/08/2024
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
@@ -42,12 +42,6 @@ The following example used `pip3` for Python 3 to install `redis-py` on Windows 
 ## [Microsoft EntraID Authentication (recommended)](#tab/entraid)
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
-
-<!-- ## Enable Microsoft EntraID and add a User or Service Principal  -->
-<!--
-Fran, we probably need an include file on enabling EntraID
-Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication) 
--->
 
 ### Install the Microsoft Authentication Library
 
@@ -191,7 +185,7 @@ Unlike the first example, If your token expires, this example automatically refr
 
 ## [Access Key Authentication](#tab/accesskey)
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 ## Read and write to the cache from the command line
 
