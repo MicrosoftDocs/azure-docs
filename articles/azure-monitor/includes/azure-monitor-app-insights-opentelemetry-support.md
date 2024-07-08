@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 08/26/2023
 ---
 
-## Troubleshooting
+## Troubleshooting (old)
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -20,6 +20,10 @@ Not working? Check out the troubleshooting page for [.NET](/troubleshoot/azure/a
 
 Not working? Check out the troubleshooting page for [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java).
 
+### [Java native](#tab/java-native)
+
+Not working? Check out the troubleshooting page for [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java).
+
 ### [Node.js](#tab/nodejs)
 
 Not working? Check out the troubleshooting page for [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs).
@@ -27,6 +31,34 @@ Not working? Check out the troubleshooting page for [Node.js](/troubleshoot/azur
 ### [Python](#tab/python)
 
 Not working? Check out the troubleshooting page for [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python).
+
+---
+
+## Troubleshooting (new)
+
+### [ASP.NET Core](#tab/aspnetcore)
+
+...
+
+### [.NET](#tab/net)
+
+...
+
+### [Java](#tab/java)
+
+...
+
+### [Java native](#tab/java-native)
+
+...
+
+### [Node.js](#tab/nodejs)
+
+...
+
+### [Python](#tab/python)
+
+...
 
 ---
 
@@ -40,13 +72,20 @@ Select a tab for the language of your choice to discover support options.
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ### [Java](#tab/java)
+
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For help with troubleshooting, review the [troubleshooting steps](/troubleshoot/azure/azure-monitor/app-insights/java-standalone-troubleshoot).
+- For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
+- For a list of open issues related to Azure Monitor Java Autoinstrumentation, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Java/issues).
+
+### [Java native](#tab/java-native)
 
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For help with troubleshooting, review the [troubleshooting steps](/troubleshoot/azure/azure-monitor/app-insights/java-standalone-troubleshoot).
