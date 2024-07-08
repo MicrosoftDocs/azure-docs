@@ -5,7 +5,6 @@ description:  Learn how you can package a model to deploy outside of Azure Machi
 author: msakande
 ms.author: mopeakande
 ms.reviewer: fasantia
-reviewer: msakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 12/08/2023

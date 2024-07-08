@@ -12,7 +12,6 @@ author: msakande
 ms.author: mopeakande
 ms.date: 11/15/2023
 ms.reviewer: sehan
-reviewer: msakande
 ---
 
 # CLI (v2) online endpoint YAML schema
