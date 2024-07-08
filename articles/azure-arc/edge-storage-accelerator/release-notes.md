@@ -18,7 +18,7 @@ This article provides information about new features and known issues in Edge St
 
 ## Version 1.2.0-preview
 
-- Extension Identity & OneLake Support: ESA now allows use of a system-assigned extension identity for access to blob storage or OneLake lake houses.
+- Extension identity and OneLake support: ESA now allows use of a system-assigned extension identity for access to blob storage or OneLake lake houses.
 - Security fixes: security maintenance (package/module version updates).
 
 ## Next steps
