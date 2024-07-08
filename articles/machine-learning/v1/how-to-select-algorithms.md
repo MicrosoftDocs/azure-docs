@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
-author: lgayhardt
+author: lagayhar
 ms.author: lagayhar
 ms.reviewer: lagayhar
 ms.date: 03/07/2024
