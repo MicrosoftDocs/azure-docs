@@ -137,21 +137,16 @@ Windows Annual Channel versions are based on the Kubernetes version of your node
     If you successfully created a Windows Annual Channel node pool, you should see the following output:
 
     ```output
-    [
-        {
-        ...
-        Name: npwin
-        Roles: agent
-        Labels: agentpool=npwin
-        ...
-            kubernetes.azure.com/os=windows
-        ...
-            kubernetes.azure.com/node-image-version=AKSWindows-23H2-gen2
-        ...
-            kubernetes.azure.com/os-sku=WindowsAnnual
-        }
-    ]
-      ```
+    Name:               npwin
+    Roles:              agent
+    Labels:             agentpool=npwin
+    ...
+                        kubernetes.azure.com/os=windows
+    ...
+                        kubernetes.azure.com/node-image-version=AKSWindows-23H2-gen2
+    ...
+                        kubernetes.azure.com/os-sku=WindowsAnnual
+    ```
 
 ### Upgrade an existing node pool to Windows Annual Channel
 
