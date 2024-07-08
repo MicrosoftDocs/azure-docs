@@ -81,7 +81,7 @@ In the following sections, you can assign the search service's managed identity 
 
 ## Check for semantic ranking
 
-This wizard supports semantic ranking, but only on the Basic tier and higher, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check whether semantic ranking is enabled.
+The wizard supports semantic ranking, but only on the Basic tier and higher, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check whether semantic ranking is enabled.
 
 ## Prepare sample data
 
@@ -106,8 +106,11 @@ This section points you to data that works for this quickstart.
 1. Assign permissions at the workspace level:
 
    1. On the upper-right menu, select **Manage access**.
+
    1. Select **Add people or groups**.
+
    1. Enter the name of your search service. For example, if the URL is `https://my-demo-service.search.windows.net`, the search service name is `my-demo-service`.
+
    1. Select a role. The default is **Viewer**, but you need **Contributor** to pull data into a search index.
 
 1. Load the sample data:
@@ -169,7 +172,7 @@ Use these instructions to assign permissions or get an API key for search servic
 
 1. Make sure your Azure AI Search service is in the same region.
 
-1. After the service is deployed, go to the resource and select **Access control** to assign the **Cognitive Services OpenAI Contributor** role to your search service's managed identity. Optionally, you can use key-based authentication for the connection.
+1. After the service is deployed, go to the resource and select **Access control** to assign the **Cognitive Services OpenAI User** role to your search service's managed identity. Optionally, you can use key-based authentication for the connection.
 
 After you finish these steps, you should be able to select the Azure AI Vision vectorizer in the **Import and vectorize data** wizard.
 
@@ -249,7 +252,7 @@ Azure AI Search and your Azure AI resource must be in the same region.
 
 1. Specify the subscription.
 
-1. For the Azure AI Studio model catalog, specify the project and deployment. For more information, see [Setting up an embedding model](#set-up-embedding-models).
+1. For the Azure AI Studio model catalog, specify the project and deployment. For more information, see [Set up embedding models](#set-up-embedding-models) earlier in this article.
 
 1. Optionally, you can crack binary images (for example, scanned document files) and [use OCR](cognitive-search-skill-ocr.md) to recognize text.
 

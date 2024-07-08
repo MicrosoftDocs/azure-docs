@@ -145,11 +145,11 @@ When the wizard completes the configuration, it creates the following objects:
 
 + A skillset with the following five skills:
 
-  + [OCR skill](cognitive-search-skill-ocr.md) recognizes text in image files.
-  + [Text Merge skill](cognitive-search-skill-textmerger.md) unifies the various outputs of OCR processing.
-  + [Text Split skill](cognitive-search-skill-textsplit.md) adds data chunking. This skill is built into the wizard workflow.
-  + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is used to vectorize text generated from OCR.
-  + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is called again to vectorize images.
+  + The [OCR](cognitive-search-skill-ocr.md) skill recognizes text in image files.
+  + The [Text Merge](cognitive-search-skill-textmerger.md) skill unifies the various outputs of OCR processing.
+  + The [Text Split](cognitive-search-skill-textsplit.md) skill adds data chunking. This skill is built into the wizard workflow.
+  + The [Azure AI Vision multimodal embeddings](cognitive-search-skill-vision-vectorize.md) skill is used to vectorize text generated from OCR.
+  + The [Azure AI Vision multimodal embeddings](cognitive-search-skill-vision-vectorize.md) skill is called again to vectorize images.
 
 ## Check results
 
