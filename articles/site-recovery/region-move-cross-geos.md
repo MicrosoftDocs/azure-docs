@@ -4,7 +4,7 @@ description: Use Azure Site Recovery to move Azure virtual machines between Azur
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/24/2024
+ms.date: 07/08/2024
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 ---
@@ -241,7 +241,7 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 In case you have no plans to reuse any of the source resources please proceed with the next set of steps.
 
-1. Proceed to delete all the relevant network resources in the source region that you listed out as part of Step 4 in [Prepare the source virtual machines](#prepare-the-source-vms) 
+1. Proceed to delete all the relevant network resources in the source region that you listed out as part of Step 4 in [Prepare the source virtual machines](#prepare-the-source-virtual-machines) 
 2. Delete the corresponding storage account in the source region.
 
 

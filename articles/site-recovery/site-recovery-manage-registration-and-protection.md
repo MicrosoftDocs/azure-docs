@@ -4,7 +4,7 @@ description: This article describes how to unregister servers from a Site Recove
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 07/08/2024
 ms.author: ankitadutta
 
 ---
@@ -239,4 +239,4 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
 ## Next steps
 
-- Learn more about [how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery](site-recovery-manage-network-interfaces.md).
+- Learn more about [how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery](site-recovery-manage-network-interfaces-on-premises-to-azure.md).
