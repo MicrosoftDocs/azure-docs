@@ -90,5 +90,6 @@ As with the example before, this example is artificially expanded for readabilit
 
 ## Next steps
 
-- Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)
+* [Function calling fine-tuning scenarios](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/fine-tuning-with-function-calling-on-azure-openai-service/ba-p/4065968).
+* Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
+* Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models).

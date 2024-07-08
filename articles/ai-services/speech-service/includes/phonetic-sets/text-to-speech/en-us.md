@@ -69,9 +69,9 @@ ms.author: eur
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1        | Example&nbsp;2  | Example&nbsp;3   |
 |--------|-------|----------|------------------|------------|-------------|
-| m      | `m`   | 21       | **m**at, smash   | ca**m**era | roo**m**    |
+| m      | `m`   | 21       | **m**at, s**m**ash   | ca**m**era | roo**m**    |
 | n      | `n`   | 19       | **n**o, s**n**ow | te**n**t   | chicke**n** |
-| ng     | `ŋ`   | 20       |                  | li**n**k   | s**ing**    |
+| ng     | `ŋ`   | 20       |                  | li**n**k   | si**ng**    |
 
 #### Fricatives for English
 

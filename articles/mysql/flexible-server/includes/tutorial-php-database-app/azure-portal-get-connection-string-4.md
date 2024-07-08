@@ -1,8 +1,9 @@
 ---
 author: shreyaaithal
 ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.topic: include
-ms.date: 06/19/2022
 ---
 
 Create the following extra app settings by following the same steps, then click on **Save**.

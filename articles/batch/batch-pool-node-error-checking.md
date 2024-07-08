@@ -1,7 +1,7 @@
 ---
 title: Pool and node errors
 description: Learn about background operations, errors to check for, and how to avoid errors when you create Azure Batch pools and nodes.
-ms.date: 06/10/2024
+ms.date: 06/27/2024
 ms.topic: how-to
 ---
 
@@ -142,7 +142,10 @@ After you make sure to retrieve any data you need from the node or upload it to 
 
 You can delete old completed jobs or tasks whose task data is still on the nodes. Look in the `recentTasks` collection in the [taskInformation](/rest/api/batchservice/computenode/get#taskinformation) on the node, or use the [File - List From Compute Node](/rest/api/batchservice/file/listfromcomputenode) API. Deleting a job deletes all the tasks in the job. Deleting the tasks in the job triggers deletion of data in the task directories on the nodes, and frees up space. Once you've freed up enough space, reboot the node. The node should move out of `unusable` state and into `idle` again.
 
-To recover an unusable node in [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools, you can remove the node from the pool by using the [Pool - Remove Nodes](/rest/api/batchservice/pool/removenodes) API. Then you can grow the pool again to replace the bad node with a fresh one. For [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools, you can reimage the node by using the [Compute Node - Reimage](/rest/api/batchservice/computenode/reimage) API to clean the entire disk. Reimage isn't currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+To recover an unusable node in [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools, you can remove the node from the pool by using the [Pool - Remove Nodes](/rest/api/batchservice/pool/removenodes) API. Then you can grow the pool again to replace the bad node with a fresh one. 
+
+> [!Important]
+> Reimage isn't currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
 
 ## Next steps
 

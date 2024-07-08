@@ -87,41 +87,54 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
     // Upload logs
     try
     {
-        Response response = client.Upload(ruleId, streamName, RequestContent.Create(data));
+        var response = await client.UploadAsync(ruleId, streamName, RequestContent.Create(data)).ConfigureAwait(false);
+        if (response.IsError)
+        {
+            throw new Exception(response.ToString());
+        }
+    
+        Console.WriteLine("Log upload completed using content upload");
     }
     catch (Exception ex)
     {
-        Console.WriteLine("Upload failed with Exception " + ex.Message);
+        Console.WriteLine("Upload failed with Exception: " + ex.Message);
     }
     
     // Logs can also be uploaded in a List
-    var entries = new List<Object>();
+    var entries = new List<object>();
     for (int i = 0; i < 10; i++)
     {
-        entries.Add(
-            new {
-                Time = recordingNow,
-                Computer = "Computer" + i.ToString(),
-                AdditionalContext = i
-            }
-        );
+        entries.Add(
+            new
+            {
+                Time = currentTime,
+                Computer = "Computer" + i.ToString(),
+                AdditionalContext = new
+                {
+                    InstanceName = "user" + i.ToString(),
+                    TimeZone = "Central Time",
+                    Level = 3,
+                    CounterName = "AppMetric1" + i.ToString(),
+                    CounterValue = i
+                }
+            }
+        );
     }
     
     // Make the request
-    LogsUploadOptions options = new LogsUploadOptions();
-    bool isTriggered = false;
-    options.UploadFailed += Options_UploadFailed;
-    await client.UploadAsync(TestEnvironment.DCRImmutableId, TestEnvironment.StreamName, entries, options).ConfigureAwait(false);
-    
-    Task Options_UploadFailed(LogsUploadFailedEventArgs e)
+    try
     {
-        isTriggered = true;
-        Console.WriteLine(e.Exception);
-        foreach (var log in e.FailedLogs)
-        {
-            Console.WriteLine(log);
-        }
-        return Task.CompletedTask;
+        var response = await client.UploadAsync(ruleId, streamName, entries).ConfigureAwait(false);
+        if (response.IsError)
+        {
+            throw new Exception(response.ToString());
+        }
+    
+        Console.WriteLine("Log upload completed using list of entries");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Upload failed with Exception: " + ex.Message);
     }
     ```
 

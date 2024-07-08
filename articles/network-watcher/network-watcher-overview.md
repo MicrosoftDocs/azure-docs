@@ -109,7 +109,7 @@ The **Usage + quotas** capability of Network Watcher provides a summary of your 
 
 Network Watcher has the following limits:
 
-[!INCLUDE [network-watcher-limits](~/reusable-content/ce-skilling/azure/includes/network-watcher-limits.md)]
+[!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
 
 ## Pricing
 

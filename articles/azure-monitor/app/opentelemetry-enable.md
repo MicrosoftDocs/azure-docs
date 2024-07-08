@@ -101,7 +101,7 @@ Download the [applicationinsights-agent-3.5.3.jar](https://github.com/microsoft/
 
 For Spring Boot native applications:
 * [Import the OpenTelemetry Bills of Materials (BOM)](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/getting-started/).
-* Add the [Spring Cloud Azure Starter Monitor](https://mvnrepository.com/artifact/com.azure.spring/cloud-starter-azure-monitor) dependency.
+* Add the [Spring Cloud Azure Starter Monitor](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-monitor) dependency.
 * Follow [these instructions](/azure//developer/java/spring-framework/developer-guide-overview#configuring-spring-boot-3) for the Azure SDK JAR (Java Archive) files.
 
 For Quarkus native applications:
@@ -218,7 +218,7 @@ Point the Java virtual machine (JVM) to the jar file by adding `-javaagent:"path
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 
-##### [Java-Native](#tab/java-native)
+##### [Java Native](#tab/java-native)
 
 Several automatic instrumentations are enabled through configuration changes; no code changes are required
 

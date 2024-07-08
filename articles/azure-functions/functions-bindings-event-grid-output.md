@@ -44,7 +44,7 @@ The following example shows how the custom type is used in both the trigger and 
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 

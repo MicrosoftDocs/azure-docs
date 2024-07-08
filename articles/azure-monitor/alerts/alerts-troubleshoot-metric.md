@@ -136,7 +136,7 @@ To alert on guest operating system metrics of virtual machines, such as memory a
 For more information about collecting data from the guest operating system of a virtual machine, see [this website](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE]
-> If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and start showing data *only* after you create an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
+> If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and start showing data *only* after you create an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#methods-for-creating-a-metric-alert-for-logs).
 
 Currently, monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts. But you can use a [log alert rule](./alerts-unified-log.md). To do so, make sure the guest metrics are collected to a Log Analytics workspace and create a log alert rule on the workspace.
 
@@ -148,7 +148,7 @@ If you want to alert on [specific dimension values of a metric](./alerts-metric-
 - The displayed dimension values are based on metric data collected in the last day.
 - If the dimension value isn't yet emitted or isn't shown, you can use the **Add custom value** option to add a custom dimension value.
 - If you want to alert on all possible values of a dimension and even include future values, choose the **Select all current and future values** option.
-- Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and preaggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-preaggregation).
 
 ### You want to configure an alert rule on a custom metric that isn't emitted yet
 

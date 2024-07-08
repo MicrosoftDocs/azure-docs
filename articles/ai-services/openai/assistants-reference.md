@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's Python & REST API with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 06/13/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -35,7 +35,7 @@ Create an assistant with a model and instructions.
 | name | string or null | Optional | The name of the assistant. The maximum length is 256 characters.|
 | description| string or null | Optional | The description of the assistant. The maximum length is 512 characters.|
 | instructions | string or null | Optional | The system instructions that the assistant uses. The maximum length is 256,000 characters.|
-| tools | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can currently be of types `code_interpreter`, or `function`.|
+| tools | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can currently be of types `code_interpreter`, or `function`. A `function` description can be a maximum of 1,024 characters. |
 | file_ids | array | Optional | Defaults to []. A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
 | metadata | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 | temperature | number or null | Optional | Defaults to 1. Determines what sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. |
@@ -360,7 +360,7 @@ Modifies an assistant.
 | `name` | string or null | Optional | The name of the assistant. The maximum length is 256 characters. |
 | `description` | string or null | Optional | The description of the assistant. The maximum length is 512 characters. |
 | `instructions` | string or null | Optional | The system instructions that the assistant uses. The maximum length is 32768 characters. |
-| `tools` | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function. |
+| `tools` | array | Optional | Defaults to []. A list of tools enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function. A `function` description can be a maximum of 1,024 characters. |
 | `file_ids` | array | Optional | Defaults to []. A list of File IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order. If a file was previously attached to the list but does not show up in the list, it will be deleted from the assistant. |
 | `metadata` | map | Optional | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 
@@ -517,7 +517,7 @@ Assistants use the [same API for file upload as fine-tuning](/rest/api/azureopen
 | `description` | string or null | The description of the assistant. The maximum length is 512 characters.|
 | `model` | string | Name of the model deployment name to use.|
 | `instructions` | string or null | The system instructions that the assistant uses. The maximum length is 32768 characters.|
-| `tools` | array | A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function.|
+| `tools` | array | A list of tool enabled on the assistant. There can be a maximum of 128 tools per assistant. Tools can be of types code_interpreter, or function. A `function` description can be a maximum of 1,024 characters.|
 | `file_ids` | array | A list of file IDs attached to this assistant. There can be a maximum of 20 files attached to the assistant. Files are ordered by their creation date in ascending order.|
 | `metadata` | map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
 

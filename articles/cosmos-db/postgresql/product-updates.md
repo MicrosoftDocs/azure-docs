@@ -72,7 +72,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 	* See all supported PostgreSQL versions [here](./reference-versions.md#postgresql-versions).
 	* [Upgrade to PostgreSQL 16](./howto-upgrade.md)
 * General availability: [Citus 12.1 with new features and PostgreSQL 16 support](https://www.citusdata.com/updates/v12-1).
-* General availability: Data encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) (CMK) is now supported for all available regions.
+* General availability: Data encryption at rest using [Customer Managed Keys (CMK)](./concepts-customer-managed-keys.md) is now supported for all available regions.
    * See [this guide](./how-to-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
 * Preview: Geo-redundant backup and restore
     * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md)

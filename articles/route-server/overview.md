@@ -40,7 +40,7 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 Azure Route Server has the following limits (per deployment).
 
-[!INCLUDE [route server limits](~/reusable-content/ce-skilling/azure/includes/route-server-limits.md)]
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 ## Pricing
 

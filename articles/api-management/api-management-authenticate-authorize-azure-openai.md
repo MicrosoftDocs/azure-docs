@@ -7,6 +7,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/20/2024
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Authenticate and authorize access to Azure OpenAI APIs using Azure API Management 

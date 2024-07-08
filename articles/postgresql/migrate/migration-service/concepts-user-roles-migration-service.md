@@ -4,7 +4,7 @@ description: Migration of users/roles, ownerships, and privileges along with sch
 author: shriramm
 ms.author: shriramm
 ms.reviewer: maghan
-ms.date: 03/13/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
@@ -35,6 +35,8 @@ We removed all privileges for non-superusers on the following pg_catalog tables.
 
 - pg_largeobject 
 
+- pg_statistic
+
 - pg_subscription 
 
 - pg_user_mapping 
@@ -58,16 +60,16 @@ Allowing unrestricted access to these system tables and views could lead to unau
 - If you have granted privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. This error will be identified by the following pattern: **"pg_restore error: could not execute query GRANT/REVOKE PRIVILEGES on TABLENAME to username."**
 To resolve this error, it's necessary to revoke the select privileges granted to various users and roles on the pg_catalog tables and views. You can accomplish this by taking the following steps.
    1. Take a pg_dump of the database containing only the schema by executing the following command from a machine with access to your single server.
-    ```bash
+    ```sql
         pg_dump -h <singleserverhostname> -U <username@singleserverhostname> -d <databasename> -s > dump_output.sql  
     ```
    2.  Search for **GRANT** statements associated with the impacted tables and views in the dump file. These GRANT statements follow this format.
-    ```bash
+    ```sql
         GRANT <privileges> to pg_catalog.<impacted tablename/viewname> to <username>; 
     ```
    3. If any such statements exist, ensure to execute the following command on your single server for each GRANT statement. 
-    ```bash
-        REVOKE <privileges> to pg_catalog.<impacted tablename/viewname> from <username>; 
+    ```sql
+        REVOKE <privileges> ON pg_catalog.<impacted tablename/viewname> from <username>; 
     ```    
 
 ##### Understanding pg_pltemplate deprecation
