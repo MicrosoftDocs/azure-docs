@@ -43,7 +43,7 @@ This example takes a prompt as input, sends it directly to the completions API, 
 
 This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response.  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/javascript/src/functions/whois.js" :::
+:::code language="javascript" source="~/functions-openai-extension/samples/textcompletion/javascript/src/functions/whois.js" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
