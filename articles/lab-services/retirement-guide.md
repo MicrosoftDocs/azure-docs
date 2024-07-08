@@ -53,7 +53,7 @@ There are various Microsoft solutions that you might consider as a direct replac
 Our partners specialize in education-focused solutions for training and classrooms. Labs created with these Microsoft partners solutions will be using Azure in the backend, where lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Our recommended partners also provide transition guides and support to help you move your lab scenarios in Azure Lab Services to their respective services: 
 - [Apporto](https://aka.ms/azlabs-apporto)  
 - [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
-- [Nerdio NME](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
+- [Nerdio Manager for Enterprise](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
 - [Skillable Studio](https://aka.ms/azlabs-skillable)
 
 Each partner solution supports browser-based web access, cost controls, Azure compute gallery images, and CPU/GPU-based virtual machines. Labs created with these partner solutions will be hosted on Azure, where provisioning can be configured to specific Azure regions for low latency and data residency requirements.
@@ -65,7 +65,7 @@ For customers who are seeking a solution similar to Azure Lab Services, we recom
 ## Common questions about Azure Lab Services retirement
 
 ### Can I sign up for the service during the retirement period?
-New customers won't be able to sign up for the service starting June 24, 2024. Existing lab accounts, lab plans, and labs will continue to operate until the service is fully retired on June 28, 2027.
+New customers will not be able to sign up for the service from July 15, 2024 onwards. Existing lab accounts, lab plans, and labs will continue to operate until the service is fully retired on June 28, 2027. Azure subscriptions that have actively used Azure Lab Services between July 2023 and July 2024 will be considered existing customers and allowed to create a new lab plan. New lab accounts cannot be created.
 
 ### Will Microsoft continue to support my current labs?
 Yes, support continues for current lab deployments until the service retirement date, including fixes for blocking bugs and security issues.
