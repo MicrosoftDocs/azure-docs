@@ -8,6 +8,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 05/13/2024
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Enable semantic caching for Azure OpenAI APIs in Azure API Management

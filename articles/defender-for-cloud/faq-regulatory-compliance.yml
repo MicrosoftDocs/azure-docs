@@ -124,7 +124,7 @@ sections:
       - question: |
           What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?
         answer: |
-          If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
+          If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data and features.
 
           > [!NOTE]
           > For Defender for Servers you'll get regulatory compliance only for plan 2. Plan 1 doesn't include regulatory compliance.

@@ -47,7 +47,7 @@ The following command shows the most basic way to use DALL-E with code. If this 
 Send a POST request to:
 
 ```
-https://<your_resource_name>.deployments/<your_deployment_name>/images/generations?api-version=<api_version>
+https://<your_resource_name>.openai.azure.com/openai/deployments/<your_deployment_name>/images/generations?api-version=<api_version>
 ```
 
 where:

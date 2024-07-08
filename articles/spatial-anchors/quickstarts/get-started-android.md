@@ -115,7 +115,7 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 
 ![Android Studio Stop](./media/get-started-android/android-studio-stop.png)
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 

@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub](~/reusable-content/ce-skilling/azure/includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Create a new IoT Hub Device Provisioning Service instance
 

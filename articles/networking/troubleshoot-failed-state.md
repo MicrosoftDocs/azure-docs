@@ -49,7 +49,7 @@ The easiest way to achieve this task is to use Azure PowerShell. Issue a resourc
 >
 ## Azure PowerShell cmdlets to restore succeeded provisioning state
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ### Preliminary operations
 

@@ -8,4 +8,4 @@ ms.date: 06/30/2020
 ms.service: azure
 ---
 
-Most sponsored academic offers include a Developer tier of Azure Support for free. Microsoft also offers an [Educator Service Desk](mailto:azuredu@microsoft.com) where your local Microsoft representative or teaching assistant can request support for any questions about the Azure Education Hub, including setup problems.
+Most sponsored academic offers include a Developer tier of Azure Support for free. Microsoft also offers an [Educator Support page](https://www.microsoft.com/en-us/education/support) where your local Microsoft representative or teaching assistant can request support for any questions about the Azure Education Hub, including setup problems.

@@ -16,7 +16,7 @@ ms.service: azure-queue-storage
 
 ## Scale targets for Queue Storage
 
-[!INCLUDE [storage-queues-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-queues-scale-targets.md)]
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
 ## See also
 

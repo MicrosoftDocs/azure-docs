@@ -7,7 +7,7 @@ services: iot-edge
 ms.topic: overview
 ms.date: 06/12/2024
 ms.author: patricka
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 ---
 
 # What is Azure IoT Edge

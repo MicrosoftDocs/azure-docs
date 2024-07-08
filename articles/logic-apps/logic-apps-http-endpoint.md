@@ -10,7 +10,7 @@ ms.date: 02/13/2024
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Some scenarios might require that you create a logic app workflow that can receive inbound requests from other services or workflows, or a workflow that you can call by using a URL. For this task, you can expose a native synchronous HTTPS endpoint on your workflow when you use any of the following request-based trigger types:
 

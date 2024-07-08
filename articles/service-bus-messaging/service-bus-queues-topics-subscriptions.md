@@ -91,6 +91,7 @@ In many scenarios, messages that have specific characteristics must be processed
 For a full working example, see the [TopicFilters sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters) on GitHub. For more information about filters, see [Topic filters and actions](topic-filters.md).
 
 ## Java message service (JMS) 2.0 entities
+
 The following entities are accessible through the Java message service (JMS) 2.0 API.
 
   * Temporary queues
@@ -101,6 +102,14 @@ The following entities are accessible through the Java message service (JMS) 2.0
   * Unshared non-durable subscriptions
 
 Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [use them](how-to-use-java-message-service-20.md).
+
+## Express Entities 
+
+Express entities were created for high throughput and reduced latency scenarios. With express entities, if a message is sent to a queue or topic is, it is not immediately stored in the messaging store. Instead, the message is initially cached in memory. Messages that remain in the entity are written to the message store after a delay, at which point these are protected against loss due to an outage.
+ 
+In regular entities, any runtime operation (like Send, Complete, Abandon, Deadletter) is persisted to the store first, and only after this is acknowledged to the client as successful. In express entities, a runtime operation is acknowledged to the client as successful first, and only later lazily persisted to the store. As a result, in case of a machine reboot or when a hardware issue occurs, some acknowledged runtime operations may not be persisted at all. This means the client gets lower latency and higher throughput with express entities, at the expense of potential data loss and/or redelivery of messages.
+ 
+Additionally, over time many optimizations have been done within Service Bus, meaning that the throughput and latency advantages of express entities are currently minimal. Moreover, the Premium tier of Service Bus does not support [Express entities](service-bus-premium-messaging.md#express-entities). Due to this, it is currently not recommended to use this feature.
 
 ## Next steps
 
@@ -116,4 +125,4 @@ For samples that use the older .NET and Java client libraries, use the following
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
