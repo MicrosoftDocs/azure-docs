@@ -12,4 +12,4 @@ The Azure Functions extension for Visual Studio Code integrates with Azure Funct
 
 In Visual Studio Code, select F1 to open the command palette, and then search for and run the command **Azure Functions: Install or Update Core Tools**.
     
-This command starts a package-based installation of the latest version of Core Tools using npm. If you don't have npm installed on your local computer, you instead must [manually install or update Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
+This command tries to either start a package-based installation of the latest version of Core Tools or update an existing package-based installation. If you don't have npm or Homebrew installed on your local computer, you must instead [manually install or update Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
