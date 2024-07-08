@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 03/25/2024
+ms.date: 07/08/2024
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
