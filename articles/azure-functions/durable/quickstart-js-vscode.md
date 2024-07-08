@@ -148,13 +148,13 @@ You use a template to create the durable function code in your project.
 
 1. In the command palette, search for and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | **Durable Functions orchestrator** | Creates a durable function orchestration. |
-    | **Choose a durable storage type** | **Azure Storage (Default)** | Selects the storage back end that'sused for your durable function. |
-    | **Provide a function name** | **HelloOrchestrator** | The name of your durable function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a durable function orchestration. |
+    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Selects the storage back end that's used for your durable function. |
+    | **Provide a function name** | Enter **HelloOrchestrator**. | The name of your durable function. |
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.js* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
 
@@ -164,12 +164,12 @@ Next, add the referenced `Hello` activity function.
 
 1. In the command palette, search for and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | **Durable Functions activit**y | Creates an activity function. |
-    | **Provide a function name** | **Hello** | The name of your durable function. |
+    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
+    | **Provide a function name** | Enter **Hello**. | The name of your durable function. |
 
 You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
@@ -179,13 +179,13 @@ Finally, add an HTTP-triggered function that starts the orchestration.
 
 1. In the command palette, search for and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | **Durable Functions HTTP starter** | Creates an HTTP starter function. |
-    | **Provide a function name** | **DurableFunctionsHttpStart** | The name of your activity function. |
-    | **Authorization level** | **Anonymous** | For demo purposes, this value allows the function to be called without authentication |
+    | **Select a template for your function** | Select **Durable Functions HTTP starter**. | Creates an HTTP starter function. |
+    | **Provide a function name** | Enter **DurableFunctionsHttpStart**. | The name of your activity function. |
+    | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication |
 
 You added an HTTP-triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/index.js* to see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
 
@@ -201,11 +201,11 @@ One of the benefits of the V4 programming model is the flexibility of where you 
 
 1. Following the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | **Durable Functions orchestrator** | Creates a file that has a durable function orchestration, an activity function, and a durable client starter function. |
-    | **Choose a durable storage type** | **Azure Storage (Default)** | Selects the storage back end to use for your durable function. |
-    | **Provide a function name** | **hello** | Name used for your durable functions |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a durable function orchestration, an activity function, and a durable client starter function. |
+    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your durable function. |
+    | **Provide a function name** | Enter **hello**. | The name of your durable function. |
 
 Open *src/functions/hello.js* to view the functions you created.
 
@@ -221,17 +221,17 @@ You now have a durable function app that you can run locally and deploy to Azure
 
 ## Test the function locally
 
-You can use Azure Functions Core Tools to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
 
 ::: zone pivot="nodejs-model-v3"
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.js*). Select F5 or select **Debug: Start Debugging** in the **Command Palette** to start the function app project. Output from Core Tools is displayed in the terminal panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/index.js*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-1. To test your function, set a breakpoint in the `hello` activity function code (*src/functions/hello.js*). Select F5 or select **Debug: Start Debugging** in the **Command Palette** to start the function app project. Output from Core Tools is displayed in the terminal panel.
+1. To test your function, set a breakpoint in the `hello` activity function code (in *src/functions/hello.js*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
 ::: zone-end
 

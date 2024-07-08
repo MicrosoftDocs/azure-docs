@@ -1,6 +1,6 @@
 ---
-title: "Create your first C# durable function running in the isolated worker"
-description: Create and publish a C# Azure Durable Function running in the isolated worker using Visual Studio or Visual Studio Code.
+title: "Quickstart: Create your first C# durable function running in the isolated worker"
+description: Create and publish a C# Azure durable function that runs in the isolated worker by using Visual Studio or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
 ms.date: 06/05/2024
@@ -10,9 +10,9 @@ ms.devlang: csharp
 ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-dotnet
 ---
 
-# Quickstart: Create your first Durable Function in C #
+# Quickstart: Create your first durable function in C#
 
-Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts for you.
 
 Like Azure Functions, Durable Functions supports two process models for .NET class library functions:
 
@@ -49,7 +49,7 @@ To complete this quickstart, you first need to:
 
 Use Visual Studio Code to create a local Azure Functions project.
 
-1. In the **View** menu, select **Command Palette** (or select Ctrl+Shift+P).
+1. On the **View** menu, select **Command Palette** (or select Ctrl+Shift+P).
 
 1. In the search box at the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
@@ -102,7 +102,7 @@ You can use other storage options for your durable function app. For more inform
 
 ## Test the function locally
 
-You can use Azure Functions Core Tools to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function by using Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function by using Visual Studio Code.
 
 1. In Visual Studio Code, set a breakpoint in the `SayHello` activity function code, and then select F5 to start the function app project. The terminal panel displays output from Core Tools.
 
@@ -155,7 +155,11 @@ After you verify that the function runs correctly on your local computer, it's t
 
 1. Paste the new URL for the HTTP request in your browser's address bar. You must get the same status response that you got when you tested locally when you use the published app.
 
-You used Visual Studio Code to create and publish a C# durable function app, and the app is ready to use.
+The C# durable function app that you created and published by using Visual Studio Code is ready to use.
+
+## Clean up resources
+
+If you no longer need the resources that you created to complete the quickstart, to avoid subscription costs for the resources, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group).
 
 ## Next step
 
@@ -234,7 +238,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Copy the URL of your function from the Azure Functions runtime output.
 
-    :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-debugging.png" alt-text="Screenshot of Azure local runtime.":::
+    :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-debugging.png" alt-text="Screenshot of the Azure local runtime.":::
 
 1. Paste the URL for the HTTP request in your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
@@ -276,7 +280,7 @@ You must have a function app in your Azure subscription before publishing your p
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL.
+1. Copy the base URL of the function app from the **Publish profile** page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL.
 
     The URL that calls your durable function HTTP trigger must be in the following format:
 
@@ -284,7 +288,7 @@ You must have a function app in your Azure subscription before publishing your p
 
 1. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-The C# durable function app that you created and published by using Visual Studio Code is ready to use.
+The C# durable function app that you created and published by using Visual Studio is ready to use.
 
 ## Clean up resources
 

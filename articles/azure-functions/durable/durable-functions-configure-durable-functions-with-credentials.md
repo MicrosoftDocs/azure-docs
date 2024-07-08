@@ -72,18 +72,19 @@ Go to your Azure function app’s **Configuration** page and perform the followi
 
 1. Finalize your managed identity configuration:
 
-   * If **system-assigned identity** should be used, then specify nothing else.
+   * If you use **system-assigned identity**, then specify nothing else.
 
-   * If **user-assigned identity** should be used, then add the following app settings values in your app configuration:  
+   * If you use **user-assigned identity**, then add the following app settings values in your app configuration:
+
      * **AzureWebJobsStorage__credential**: managedidentity
 
      * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from the Microsoft Entra admin center)
 
-     ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
+     ![Screenshot of the user identity client ID.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
 ## Configure your app to use client secret credentials
 
-Registering a client application in Microsoft Entra ID is another way you can configure access to an Azure service. In the following steps, you learn how to use client secret credentials for authentication to your Azure Storage account. This method can be used by function apps both locally and on Azure. However, client secret credential is **less recommended** than managed identity as it's more complicated to configure and manage and it requires sharing a secret credential with the Azure Functions service.
+Registering a client application in Microsoft Entra ID is another way that you can configure access to an Azure service. In the following steps, you learn how to use client secret credentials for authentication to your Azure Storage account. This method can be used by function apps both locally and on Azure. However, client secret credential is **less recommended** than managed identity as it's more complicated to configure and manage and it requires sharing a secret credential with the Azure Functions service.
 
 ### Prerequisites
 
@@ -100,7 +101,7 @@ In particular, this quickstart assumes that you have already:
 
 1. Create a client secret for your client application. In your registered application:  
 
-   1. Select **Certificates & Secrets** and select **New client secret**.  
+   1. Select **Certificates & Secrets** > **New client secret**.  
 
    1. Fill in a **Description** and choose secret valid time in the **Expires** field.  
 

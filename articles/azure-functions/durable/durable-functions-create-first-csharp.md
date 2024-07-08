@@ -43,7 +43,7 @@ To complete this quickstart, you first need to:
 
 Use Visual Studio Code to create a local Azure Functions project.
 
-1. Go to **View**, and then select **Command Palette** (or select Ctrl+Shift+P).
+1. On the **View** menu, select **Command Palette** (or select Ctrl+Shift+P).
 
 1. In the search box at the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
@@ -68,22 +68,22 @@ To use a template to create durable function code in your project:
 
 1. In the command palette search, enter and then select **Azure Functions: Create Function**.
 
-1. At the prompts, select or enter the following values:
+1. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **DurableFunctionsOrchestration**. | Creates a Durable Functions orchestration. |
-    | **Provide a function name** | Select **HelloOrchestration**. | Creates a name of the class in which functions are created. |
+    | **Select a template for your function** | Select **DurableFunctionsOrchestration**. | Creates a durable function orchestration. |
+    | **Provide a function name** | Select **HelloOrchestration**. | A name for the class in which functions are created. |
     | **Provide a namespace** | Select **Company.Function**. | Creates a namespace for the generated class. |
 
-1. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**. At the prompts, select or enter the following values to create a new storage account in Azure:
+1. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**. At the prompts, provide the following information to create a new storage account in Azure:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
     | **Select subscription** | Select the name of your subscription. | Your Azure subscription. |
     | **Select a storage account** | Select **Create a new storage account.** | Opens a dialog to create a new storage account.  |
-    | **Enter the name of the new storage account** | Enter a unique storage account name. | Name of the storage account to create. |
-    | **Select a resource group** | Enter a unique resource group name. | Name of the resource group to create. |
+    | **Enter the name of the new storage account** | Enter a unique storage account name. | The name of the storage account to create. |
+    | **Select a resource group** | Enter a unique resource group name. | The name of the resource group to create. |
     | **Select a location** | Select the Azure region to use. | Select a region that's physically close to you. |
 
 A class that contains the new functions is added to the project. Visual Studio Code also adds the storage account connection string to *local.settings.json*, and it adds a reference to the [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet package to the *.csproj* project file.
@@ -100,7 +100,7 @@ Now that you've created your function project and a durable function, you can te
 
 ## Test the function locally
 
-You can use Azure Functions Core Tools to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function by using Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function by using Visual Studio Code.
 
 1. In Visual Studio Code, set a breakpoint in the `SayHello` activity function code, and then select F5 to start the function app project. The terminal panel displays output from Core Tools.
 
@@ -203,7 +203,7 @@ The Azure Functions template creates a project that can be published to a functi
     | **Function** | Empty | Creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 
-1. Select **Create** to create an empty function project. This project has the basic configuration files needed to run your functions.
+1. Select **Create** to create an empty function project. This project has the basic configuration files that are needed to run your functions.
 
 ## Add functions to the app
 
@@ -231,7 +231,7 @@ You can test it on your local computer now that you've created your function pro
 
 ## Test the function locally
 
-You can use Azure Functions Core Tools to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
 
 1. To test your function, select F5. If prompted, accept the request from Visual Studio to download and install the Azure Functions Core command-line tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 
@@ -278,7 +278,7 @@ You must have a function app in your Azure subscription before you publish your 
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL.
+1. Copy the base URL of the function app from the **Publish profile** page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL.
 
     The URL that calls your durable function HTTP trigger must be in the following format:
 
@@ -286,7 +286,7 @@ You must have a function app in your Azure subscription before you publish your 
 
 1. Paste this new URL for the HTTP request in your browser's address bar. You must get the same status response as before when using the published app.
 
-In this quickstart, you used Visual Studio Code to create and publish a C# durable function app. The app is ready to use.
+The C# durable function app that you created and published by using Visual Studio is ready to use.
 
 ## Clean up resources
 

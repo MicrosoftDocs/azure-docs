@@ -220,21 +220,21 @@ public class DurableFunctionsSample {
 
 # [Bash](#tab/bash)
 
-```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DarchetypeVersion=1.51 -Dtrigger=durablefunctions
-```
+   ```bash
+   mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DarchetypeVersion=1.51 -Dtrigger=durablefunctions
+   ```
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
-```
+   ```powershell
+   mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
+   ```
 
 # [Cmd](#tab/cmd)
 
-```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
-```
+   ```cmd
+   mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
+   ```
 
 ---
 
@@ -252,9 +252,9 @@ Now you have a local project generated with the three functions that are needed 
 
 Check to ensure that `com.microsoft:durabletask-azure-functions` is set as a dependency in your _pom.xml_ file.  
 
-## Configure backend storage provider
+## Configure the back-end storage provider
 
-Durable Functions needs a storage provider to store runtime state. You can configure to use Azure Storage as the storage provider in `local.settings.json` by providing the connection string of your Azure Storage account as the value to `AzureWebJobsStorage`:
+Durable Functions needs a storage provider to store runtime state. You can configure to use Azure Storage as the storage provider in *local.settings.json*` by providing the connection string of your Azure storage account as the value to `AzureWebJobsStorage`:
 
 ```json
 {
@@ -300,7 +300,7 @@ You now have a project with an example HTTP function. You can remove this functi
 
 1. Select the value for **Change template filter** to **All**.
 
-1. Follow the prompts and provide the following information:
+1. At the prompts, provide the following information:
 
     | Prompt | Action |
     | ------ | ----- |
@@ -310,7 +310,7 @@ You now have a project with an example HTTP function. You can remove this functi
   
 1. In the dialog, choose **Select storage account** to set up a storage account, and then follow the prompts.
 
-You should now have the three basic functions for a Durable Functions app generated.
+You should now have the three basic functions generated for a durable function app.
 
 ## Configure pom.xml and host.json
 
@@ -341,15 +341,15 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. If you are using Visual Studio Code, open a new terminal window and run the following commands to build the project:
 
-    ```bash
-    mvn clean package
-    ```
+   ```bash
+   mvn clean package
+   ```
 
-    Then run the durable function:
+   Then run the durable function:
 
-    ```bash
-    mvn azure-functions:run
-    ```
+   ```bash
+   mvn azure-functions:run
+   ```
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 

@@ -83,12 +83,12 @@ You use a template to create the durable function code in your project.
 
 1. In the command palette, search for and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions orchestrator | Create a Durable Functions orchestration |
-    | Provide a function name | HelloOrchestrator | Name of your durable function |
+    | **Select a template for your function** | Enter **Durable Functions orchestrator**. | Creates a durable function orchestration. |
+    | **Provide a function name** | Enter **HelloOrchestrator**. | The name of your durable function. |
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the Invoke-ActivityFunction cmdlet invokes an activity function named `Hello`.
 
@@ -98,12 +98,12 @@ Next, you add the referenced `Hello` activity function.
 
 1. In the command palette, search for and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions activity | Create an activity function |
-    | Provide a function name | Hello | Name of your activity function |
+    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
+    | **Provide a function name** | Enter **Hello**. | The name of your activity function. |
 
 You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
 
@@ -111,15 +111,15 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and then select `Azure Functions: Create Function...`.
+1. In the command palette, search for and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions HTTP starter | Create an HTTP starter function |
-    | Provide a function name | HttpStart | Name of your activity function |
-    | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
+    | **Select a template for your function** | Select **Durable Functions HTTP starter**. | Creates an HTTP starter function. |
+    | **Provide a function name** | Enter **HttpStart**. | The name of your activity function. |
+    | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication. |
 
 You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to see that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
@@ -134,24 +134,24 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/run.ps1*). Select F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/run.ps1*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
     > [!NOTE]
-    > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
+    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
+1. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
     ![Create storage account](media/quickstart-js-vscode/functions-select-storage.png)
 
-1. Following the prompts, provide the following information to create a new storage account in Azure.
+1. At the prompts, provide the following information to create a new storage account in Azure.
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select subscription** | *name of your subscription* | Select your Azure subscription |
-    | Select a storage account | Create a new storage account |  |
-    | Enter the name of the new storage account | *unique name* | Name of the storage account to create |
-    | Select a resource group | *unique name* | Name of the resource group to create |
-    | Select a location | *region* | Select a region close to you |
+    | **Select subscription** | Select the name of your subscription. | Your Azure subscription. |
+    | **Select a storage account** | Select **Create a new storage account**. |  |
+    | **Enter the name of the new storage account** | Enter a unique name. | The name of the storage account to create. |
+    | **Select a resource group** | Enter a unique name. | The name of the resource group to create. |
+    | **Select a location** | Select an Azure region. | Select a region that is close to you. |
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
