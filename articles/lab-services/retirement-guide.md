@@ -94,10 +94,10 @@ To get help and support for Azure Virtual Desktop, Azure DevTest Labs, Windows 3
 ### How can I get transition help and support for a partner solution?
 If you have questions about how to transition to one of the partner’s solutions, refer to the following resources for each partner. 
 
-- [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
-- [Skillable Studio](https://aka.ms/azlabs-skillable)
-- [Nerdio NME](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
 - [Apporto](https://aka.ms/azlabs-apporto)  
+- [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
+- [Nerdio Manager for Enterprise](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
+- [Skillable Studio](https://aka.ms/azlabs-skillable)
 
 ### Can I automatically migrate my existing lab resources from Azure Lab Services to Microsoft and partner solutions?
 Partners might provide migration tooling to automatically migrate labs from Azure Lab Services. However, early customer pilots show that it’s often more efficient to recreate new labs using the optimizations offered by Microsoft and partner solutions, such as multi-session, dynamic virtual machine creation, and changing the storage type to a lower tier when a virtual machine is shut down. In certain situations, reusing custom images exported from your labs to an Azure compute gallery might be beneficial. Microsoft and partner solutions all support the use of or migration of images from your Azure compute gallery. We recommend evaluating whether existing lab images should be recreated when you're:
