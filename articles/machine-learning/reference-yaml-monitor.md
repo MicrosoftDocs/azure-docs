@@ -11,7 +11,6 @@ author: msakande
 ms.author: mopeakande
 ms.date: 02/26/2024
 ms.reviewer: alehughes
-reviewer: msakande
 ---
 
 # CLI (v2) schedule YAML schema for model monitoring (preview)

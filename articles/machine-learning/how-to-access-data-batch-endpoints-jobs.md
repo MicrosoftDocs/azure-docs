@@ -10,7 +10,6 @@ author: msakande
 ms.author: mopeakande
 ms.date: 5/01/2023
 ms.reviewer: cacrest
-reviewer: msakande
 ms.custom:
   - devplatv2
   - devx-track-azurecli
