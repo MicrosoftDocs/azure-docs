@@ -159,12 +159,24 @@ For more information on index tuning and related articles, see the documentation
 
 Index tuning feature is available in the following regions:
 
-- East Asia
+- Australia Southeast
+- Canada Central
 - Central India
+- East Asia
+- East US 2
+- France Central
+- Jio India Central
+- Korea South
+- North Central US
 - North Europe
-- Southeast Asia
+- South Africa North
 - South Central US
+- Southeast Asia
+- Sweden Central
+- Switzerland North
 - UK South
+- West Central US
+- West US
 - West US 3
 
 ### Supported tiers and SKUs
@@ -190,10 +202,6 @@ Currently, index tuning doesn't analyze [prepared statements](https://www.postgr
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
 
 Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, were produced on the primary replica after having analyzed the workload recorded in it.
-
-### Network connectivity method
-
-Index tuning is currently supported on instances whose connectivity method is configured as [Public access (allowed IP addresses)](concepts-networking-public.md). For instances configured with [Private access (VNET Integration)](concepts-networking-private.md) the feature can be enabled, but it won't generate recommendations.
 
 ### Important considerations
 
