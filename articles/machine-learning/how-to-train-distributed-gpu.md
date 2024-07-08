@@ -39,11 +39,7 @@ Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/proj
 > [!TIP]
 > The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org) is included in all the [Azure Machine Learning GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure Machine Learning also provides [curated environments](resource-curated-environments.md) for popular frameworks.
 
-To run distributed training using MPI, follow these steps:
 
-1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environments](resource-curated-environments.md) for popular frameworks. Or [create a custom environment](how-to-manage-environments-v2.md#create-a-custom-environment) with the preferred deep learning framework and MPI.
-1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script is responsible for launching the processes per node.
-1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
 
 ### Horovod
