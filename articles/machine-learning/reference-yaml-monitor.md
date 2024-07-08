@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2
-author: ahughes-msft
-ms.author: alehughes
+author: msakande
+ms.author: mopeakande
 ms.date: 02/26/2024
-ms.reviewer: mopeakande
+ms.reviewer: alehughes
 reviewer: msakande
 ---
 
