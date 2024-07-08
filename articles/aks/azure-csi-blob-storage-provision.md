@@ -7,7 +7,7 @@ author: tamram
 ms.author: tamram
 ms.topic: article
 ms.subservice: aks-storage
-ms.date: 04/22/2024
+ms.date: 07/08/2024
 ---
 
 # Create and use a volume with Azure Blob storage in Azure Kubernetes Service (AKS)
@@ -270,7 +270,6 @@ The following table includes parameters you can use to define a persistent volum
 |--- | **Following parameters are only for feature: blobfuse<br> [Managed Identity and Service Principal Name authentication](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
 |volumeAttributes.AzureStorageAuthType | Specify the authentication type. | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
 |volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID. |  | No ||
-|volumeAttributes.AzureStorageIdentityObjectID | Specify the Identity Object ID. |  | No ||
 |volumeAttributes.AzureStorageIdentityResourceID | Specify the Identity Resource ID. |  | No ||
 |volumeAttributes.MSIEndpoint | Specify the MSI endpoint. |  | No ||
 |volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID. |  | No ||

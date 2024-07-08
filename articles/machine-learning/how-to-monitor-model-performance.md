@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: ahughes-msft
-ms.author: alehughes
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: alehughes
 reviewer: msakande
 ms.date: 01/29/2024
 ms.custom: devplatv2, update-code, devx-track-azurecli
