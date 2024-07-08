@@ -1,6 +1,6 @@
 ---
 title: Security policies in Microsoft Defender for Cloud 
-description: Learn about security policies, standards, and recommendations in Microsoft Defender for Cloud.
+description: Learn about security policies, standards, and recommendations to improve your cloud security posture in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 11/27/2023
 ---
@@ -41,9 +41,9 @@ Recommendations derived from assessments against custom standards appear togethe
 
 ### Custom recommendations
 
-All customers with Azure subscriptions can create custom recommendations based on Azure Policy. With Azure Policy, you create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud.
+Using custom recommendations based on Kusto Query Language (KQL) is the recommended approach and is supported for all clouds, but requires enabling the [Defender CSPM plan](concept-cloud-security-posture-management.md). With these recommendations, you specify a unique name, a description, remediation steps, severity, and relevant standards. You add recommendation logic with KQL. A query editor provides a built-in query template that you can tweak, or you can write your KQL query.
 
-Custom recommendations based on Kusto Query Language (KQL) are available for all clouds, but require enabling the [Defender CSPM plan](concept-cloud-security-posture-management.md). With these recommendations, you specify a unique name, a description, steps for remediation, severity, and which standards the recommendation should be assigned to. You add recommendation logic with KQL. A query editor provides a built-in query template that you can tweak as needed, or you can write your KQL query from scratch.
+Alternatively, all Azure customers can onboard their Azure Policy custom initiatives as custom recommendations (legacy approach).
 
 For more information, see [Create custom security standards and recommendations in Microsoft Defender for Cloud](create-custom-recommendations.md).
 

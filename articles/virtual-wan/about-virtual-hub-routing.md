@@ -69,6 +69,8 @@ A **None route table** is also available for each virtual hub. Propagating to th
 
 Labels provide a mechanism to logically group route tables. This is especially helpful during propagation of routes from connections to multiple route tables. For example, the **Default Route Table** has a built-in label called 'Default'. When users propagate connection routes to 'Default' label, it automatically applies to all the Default Route Tables across every hub in the Virtual WAN.
 
+If no label is specified in the list of labels that a VNet connection is propagating to, then the Vnet connection will automatically propagate to the 'Default' label. 
+
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
 Configuring static routes provides a mechanism to steer traffic from the hub through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.

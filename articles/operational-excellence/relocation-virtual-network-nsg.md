@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/01/2024
 ms.service: azure-storage
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 

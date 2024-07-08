@@ -75,7 +75,7 @@ When migrating to Azure Maps from Bing Maps for Enterprise, the following aspect
 - Unlike Bing Maps for Enterprise, Azure Maps is a pay-as-you-go offering – you only pay for the services that you use.
 - With Azure Maps, billing (invoicing) happens monthly and doesn’t require an annual commitment.
 - Azure Maps has a free monthly allotment of transactions. For more information, see the [Azure Maps pricing].
-- Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every fifteen 15 map tiles loaded.
+- Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every 15 map tiles loaded.
 - The Azure Maps web control (SDK) uses 512 x 512 pixels map tiles, and typically generates one or less transactions per map load.
 
 Licensing and billing related resources for Azure Maps:

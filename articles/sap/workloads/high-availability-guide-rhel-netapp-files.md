@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 01/18/2024
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
 
@@ -154,9 +154,6 @@ During VM configuration, you have an option to create or select exiting load bal
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
 
 ---
-
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need more IP addresses for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) standard load balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).

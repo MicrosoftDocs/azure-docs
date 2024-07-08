@@ -44,8 +44,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. <br/><br/>**Note**: This tag represents the Azure API Management service endpoint for control plane per region. The tag enables customers to perform management operations on the APIs, Operations, Policies, NamedValues configured on the API Management service.  | Inbound | Yes | Yes |
 | **[ApplicationInsightsAvailability](/azure/azure-monitor/app/availability-private-test)** | Application Insights Availability. | Inbound | No | Yes |
 | **AppConfiguration** | App Configuration. | Outbound | No | Yes |
-| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
-| **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
+| **[AppService](/azure/app-service/overview-inbound-outbound-ips)**    | Azure App Service. This tag is recommended for outbound security rules to web apps and function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
+| **[AppServiceManagement](/azure/app-service/environment/management-addresses)** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AzureActiveDirectory** | Microsoft Entra ID. | Outbound | No | Yes |
 | **[AzureActiveDirectoryDomainServices](/entra/identity/domain-services/network-considerations#inbound-connectivity)** | Management traffic for deployments dedicated to Microsoft Entra Domain Services. | Both | No | Yes |
 | **[AzureAdvancedThreatProtection](/defender-for-identity/deploy/configure-proxy#enable-access-with-a-service-tag)** | Microsoft Defender for Identity. | Outbound | No | Yes |
@@ -53,7 +53,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureAttestation** | Azure Attestation. | Outbound | No | Yes | 
 | **[AzureBackup](/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity)** |Azure Backup.<br/><br/>**Note**: This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Both | No | Yes |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). Includes IPv6. | Both | Yes | Yes |
+| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). This tag doesn't include IPv6. | Both | Yes | Yes |
 | **[AzureCognitiveSearch](/azure/search/search-indexer-howto-access-ip-restricted#get-ip-addresses-for-azurecognitivesearch-service-tag)** | Azure AI Search. <br/><br/>This tag specifies the IP ranges of the [multitenant execution environments](../search/search-indexer-securing-resources.md#indexer-execution-environment) used by a search service for indexer-based indexing. <br/><br/> **Note**: The IP of the search service itself isn't covered by this service tag. In the firewall configuration of your Azure resource, you should specify the service tag and also the specific IP address of the search service itself. | Inbound | No | Yes |
 | **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Both | Yes | Yes |
 | **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
@@ -103,8 +103,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[HDInsight](/azure/hdinsight/hdinsight-service-tags#get-started-with-service-tags)** | Azure HDInsight. | Inbound | Yes | Yes |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
 | **KustoAnalytics** | Kusto Analytics. | Both | No | No |
-| **LogicApps** | Logic Apps. | Both | No | Yes |
-| **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | Yes |
+| **[LogicApps](/azure/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration-considerations)** | Logic Apps. | Both | No | Yes |
+| **[LogicAppsManagement](/azure/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration-considerations)** | Management traffic for Logic Apps. | Inbound | No | Yes |
 | **[M365ManagementActivityApi](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **[M365ManagementActivityApiWebhook](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Outbound | No | Yes |

@@ -1,6 +1,6 @@
 ---
 title: Use the side-by-side migration feature to migrate your App Service Environment v2 to App Service Environment v3
-description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 by using the side-by-side migration feature.
+description: Deprecated - Learn how to migrate your App Service Environment v2 to App Service Environment v3 by using the side-by-side migration feature.
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli

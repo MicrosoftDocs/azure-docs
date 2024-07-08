@@ -4,7 +4,7 @@ description: This article describes how to configure the index tuning feature in
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 05/09/2024
+ms.date: 05/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -14,7 +14,7 @@ ms.topic: how-to
 ---
 # Configure index tuning in Azure Database for PostgreSQL - Flexible Server (Preview)
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Index tuning can be enabled, disabled and configured through a [set of parameters](#configuration-options) that control its behavior, such as how often a tuning session can run.
 

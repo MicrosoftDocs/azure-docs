@@ -39,9 +39,9 @@ Before you start, make sure that you meet the following prerequisites:
 
     |Agent resource|Ports |
     |------|---------|
-    |*.ods.opinsights.azure.com |Port 443 |
-    |*.oms.opinsights.azure.com |Port 443 |
-    |*.dc.services.visualstudio.com |Port 443 |
+    |`*.ods.opinsights.azure.com` |Port 443 |
+    |`*.oms.opinsights.azure.com` |Port 443 |
+    |`*.dc.services.visualstudio.com` |Port 443 |
 
 - The containerized agent requires the Kubelet `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend that you configure `secure port: 10250` on the Kubelet cAdvisor if it isn't configured already.
 - The containerized agent requires the following environmental variables to be specified on the container to communicate with the Kubernetes API service within the cluster to collect inventory data: `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.

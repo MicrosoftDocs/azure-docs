@@ -46,7 +46,7 @@ The following table illustrates thumbnails defined by smart-cropping for the exa
 ## Use the API
 
 
-The generate thumbnail feature is available through the [Get Thumbnail](/rest/api/computervision/generate-thumbnail/generate-thumbnail?view=rest-computervision-v3.1&tabs=HTTP) and [Get Area of Interest](/rest/api/computervision/get-area-of-interest/get-area-of-interest?view=rest-computervision-v3.1&tabs=HTTP) API. You can call this API through a native SDK or through REST calls. 
+The generate thumbnail feature is available through the [Get Thumbnail](/rest/api/computervision/generate-thumbnail/generate-thumbnail?view=rest-computervision-v3.2&tabs=HTTP) and [Get Area of Interest](/rest/api/computervision/get-area-of-interest/get-area-of-interest?view=rest-computervision-v3.2&tabs=HTTP) API. You can call this API through a native SDK or through REST calls. 
 
 
 * [Generate a thumbnail (how-to)](./how-to/generate-thumbnail.md)

@@ -15,6 +15,8 @@ ms.author: madsd
 >
 > As of 29 January 2024, you can no longer create new App Service Environment v1 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
+>
 
 ## Overview
 An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created. Instead, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  As of June 2016, ASEs can also be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (private addresses).  For more information, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).

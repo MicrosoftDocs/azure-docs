@@ -12,7 +12,7 @@ To ensure endpoint availability behind firewalls, enable public availability tes
 
 ## Public availability test enablement
 
-Ensure your internal website has a public Domain Name System (DNS) record. Availability tests fail if DNS can't be resolved. For more information, see [Create a custom domain name for internal application](https://microsoft.sharepoint-df.com/teams/GenevaSynthetics-MSRC85155SecurityIncident/cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
+Ensure your internal website has a public Domain Name System (DNS) record. Availability tests fail if DNS can't be resolved. For more information, see [Create a custom domain name for internal application](../../cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain).
 
 > [!WARNING]
 > The IP addresses used by the availability tests service are shared and can expose your firewall-protected service endpoints to other tests. IP address filtering alone doesn't secure your service's traffic, so it's recommended to add extra custom headers to verify the origin of web request. For more information, see [Virtual network service tags](../../virtual-network/service-tags-overview.md#virtual-network-service-tags).
