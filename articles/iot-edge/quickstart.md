@@ -189,7 +189,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. On the upper bar, select **Set Modules**.
 
-   Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Azure Marketplace, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
+   Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Microsoft Artifact Registry, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
 
 1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
 1. Update the following module settings:
