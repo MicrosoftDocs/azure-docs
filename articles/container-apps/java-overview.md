@@ -81,6 +81,8 @@ Keep the following items in mind as you develop your Java applications:
 
 All the [standard observability tools](observability.md) work with your Java application. As you build your Java applications to run on Container Apps, keep in mind the following items:
 
+- **Metrics**: Java Virtual Machine (JVM) metrics are critical for monitoring the health and performance of your Java applications. The data collected includes insights into memory usage, garbage collection, thread count of your JVM. You can check [metrics](java-metrics.md) to help ensure the health and stability of your applications.
+
 - **Logging**: Send application and error messages to `stdout` or `stderror` so they can surface in the log stream. Avoid logging directly to the container's filesystem as is common when using popular logging services.
 
 - **Performance monitoring configuration**: Deploy performance monitoring services as a separate container in your Container Apps environment so it can directly access your application.
