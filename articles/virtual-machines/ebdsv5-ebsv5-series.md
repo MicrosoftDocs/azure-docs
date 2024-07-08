@@ -134,9 +134,6 @@ The Ebsv5 VM families are suitable for various workloads that require high I/O a
 ### What platforms and generations support NVMe VMs? 
 NVMe VMs are only accessible on the platform with the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor. However, support for more platforms and generations is coming soon. Stay informed by following our product launch announcements in Azure updates.
 
-### What are the consequences of selecting an Azure region where NVMe isn't currently enabled?    
-NVMe is currently available only in the following 13 Azure regions: US North Southeast Asia, West Europe, Australia East, North Europe, West US 3, UK South, Sweden Central, East US, Central US, West US 2, East US 2, and South central US. If you choose a nonsupported region, E96bsv5 or E112i are disabled in the size selection drop-down.  Even though you may see the smaller sizes E2-64bsv5 or E2-64bdsv5, NVMe deployment won't be successful due to missing configurations. 
-
 ### The Azure region I need doesn't support NVMe, when will NVMe be available?     
 Watch out for our product launch announcements in the Azure updates. 
 
