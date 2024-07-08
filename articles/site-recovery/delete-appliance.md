@@ -27,12 +27,10 @@ If all the appliance components are in a critical state and there is no connecti
 
 ## Prerequisites
 
-Before you delete the Azure Site Recovery replication appliance, ensure that you have completed the following:
+Before you delete the Azure Site Recovery replication appliance, ensure that you *disable replication of all servers* of all servers using the Azure Site Recovery replication appliance. To do this, go to Azure portal, select the Recovery Services vault > *Replicated items* blade. Select the servers you want to stop replicating, select **Stop replication**, and confirm the action.
 
-- **Disable replication of all servers**: Disable replication of all servers using the Azure Site Recovery replication appliance. To do this, go to Azure portal, select the Recovery Services vault > *Replicated items* blade. Select the servers you want to stop replicating, select **Stop replication**, and confirm the action.
-- **Remove Microsoft Entra Apps**: Remove Microsoft Entra apps associated with the Azure Site Recovery replication appliance. To do this, go to Azure portal > *Microsoft Entra ID* > *App registrations* under the *Manage* blade. Select the app that you should delete, and select **Delete** then confirm the action. You can learn the app names by following the steps [here](#delete-appliance).
 
-### Delete appliance
+### Delete an unhealthy appliance
 
 You can only delete the Azure Site Recovery replication appliance from the Azure portal if all components are in a critical state and the appliance is no longer accessible. To do so, follow these steps:
 
@@ -55,9 +53,10 @@ After successfully deleting the Azure Site Recovery replication appliance, you c
 
 - Free up resources used by the Azure Site Recovery replication appliance, such as the storage account, network interface, and public IP address.
 - Delete the Recovery Services vault if it is no longer needed.
+- Remove Microsoft Entra Apps with the Azure Site Recovery replication appliance. To do this, go to Azure portal > *Microsoft Entra ID* > *App registrations* under the *Manage* blade. Select the app that you should delete, and select **Delete** then confirm the action. You can learn the app names by following the steps [here](#delete-appliance).
 
 
-## Reset appliance
+## Reset a healthy appliance
 
 You can only reset the Azure Site Recovery replication appliance if all components are in a healthy state. To reset the appliance, follow these steps:
 
