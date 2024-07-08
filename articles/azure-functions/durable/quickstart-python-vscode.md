@@ -273,7 +273,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 ::: zone pivot="python-mode-configuration"
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/\_\_init__.py*). Select <kbd>F5</kbd> or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/\_\_init__.py*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 ::: zone-end
 

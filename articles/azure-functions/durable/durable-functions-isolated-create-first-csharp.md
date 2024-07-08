@@ -166,48 +166,52 @@ You used Visual Studio Code to create and publish a C# durable function app, and
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function that run in the isolated worker process. This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2022.
+In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function that runs in the isolated worker process. The function orchestrates and chains together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2022.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-complete.png" alt-text="Screenshot of Visual Studio 2019 window with a durable function.":::
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this quickstart, you need:
 
-* Install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps differ.
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) installed.
 
-* Verify that you have the [Azurite Emulator](../../storage/common/storage-use-azurite.md) installed and running.
+   Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps are different.
+
+* The [Azurite emulator](../../storage/common/storage-use-azurite.md) installed and running.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a function app project
 
-The Azure Functions template creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
+The Azure Functions template creates a project that you can publish to a function app in Azure. You can use a function app to group functions as a logical unit to more easily manage, deploy, scale, and share resources.
 
-1. In Visual Studio, select **New** > **Project** from the **File** menu.
+1. In Visual Studio, on the **File** menu, select **New** > **Project**.
 
-1. In the **Create a new project** dialog, search for `functions`, choose the **Azure Functions** template, and then select **Next**.
+1. In the **Create a new project** dialog, search for **functions**, select the **Azure Functions** template, and then select **Next**.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-project.png" alt-text="Screenshot of new project dialog in Visual Studio.":::
 
-1. Enter a **Project name** for your project, and select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
+1. For **Project name**, enter a name for your project, and then select **OK**.
 
-1. Under **Additional information**, use the settings specified in the table that follows the image.
+   The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
+
+1. Under **Additional information**, use the settings that are described in the table that follows the image.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-function.png" alt-text="Screenshot of create a new Azure Functions Application dialog in Visual Studio.":::
 
-    | Setting      | Suggested value  | Description                      |
+    | Setting      | Action  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | .NET 8 Isolated (Long Term Support) | Creates a function project that supports .NET 8 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
-    | **Function** | Durable Functions Orchestration | Creates a Durable Functions orchestration. |
+    | **Functions worker** | Select **.NET 8 Isolated (Long Term Support)**. | Creates a function project that supports .NET 8 running in an isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target the Azure Functions runtime version](../functions-versions.md).   |
+    | **Function** | Enter **Durable Functions Orchestration**. | Creates a Durable Functions orchestration. |
 
-> [!NOTE]
-> If you don't see .NET 8 isolated in the Functions worker drop-down, it could be because you don't have the latest Azure Functions toolsets and templates. Go to Tools -> Options -> Projects and Solutions -> Azure Functions -> Check for updates to download the latest. 
+   > [!NOTE]
+   > If you don't see **.NET 8 Isolated (Long Term Support)** in the **Functions worker** menu, you might not have the latest Azure Functions toolsets and templates. Go to **Tools** > **Options** > **Projects and Solutions** > **Azure Functions** > **Check for updates to download the latest**.
 
-1. Make sure the box for _"Use Azurite for runtime storage account (AzureWebJobStorage)"_ is checked. This will use Azurite emulator. Select **Create** to create a function project with a Durable Functions orchestration template. This project has the basic configuration files needed to run your functions. 
+1. To use the Azurite emulator, make sure that the **Use Azurite for runtime storage account (AzureWebJobStorage)** checkbox is selected. To create a function project by using a Durable Functions orchestration template, select **Create**. This project has the basic configuration files that you need to run your functions.
 
-> [!NOTE]
-> There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
+   > [!NOTE]
+   > There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
 
 In your function app, you'll see a file called *Function1.cs* containing three functions, which are the basic building blocks of a Durable Functions:
 

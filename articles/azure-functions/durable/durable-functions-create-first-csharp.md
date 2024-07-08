@@ -213,13 +213,13 @@ The following steps use a template to create the durable function code in your p
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-add-function.png" alt-text="Screenshot of Add new function.":::
 
-1. Verify **Azure Function** is selected from the add menu, enter a name for your C# file, and then select **Add**.
+1. Verify that **Azure Function** is selected on the **Add** menu. Enter a name for your C# file, and then select **Add**.
 
-1. Select the **Durable Functions Orchestration** template and then select **Add**.
+1. Select the **Durable Functions Orchestration** template, and then select **Add**.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-select-durable-template.png" alt-text="Screenshot of Select durable template.":::
 
-A new durable function is added to the app. Open the new *.cs* file to view the contents. This durable function is a simple function chaining example with the following methods:  
+A new durable function is added to the app. Open the new *.cs* file to view the contents. This durable function is a simple function chaining example that has the following methods:  
 
 | Method | FunctionName | Description |
 | -----  | ------------ | ----------- |
@@ -231,15 +231,15 @@ You can test it on your local computer now that you've created your function pro
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio.
+You can use Azure Functions Core Tools to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
 
-1. To test your function, select F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core command-line tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
+1. To test your function, select F5. If prompted, accept the request from Visual Studio to download and install the Azure Functions Core command-line tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 
-1. Copy the URL of your function from the Azure Functions runtime output.
+1. In the Azure Functions runtime output, copy the URL of your function.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-debugging.png" alt-text="Screenshot of Azure local runtime.":::
 
-1. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
+1. Paste the URL for the HTTP request in your browser's address bar and execute the request. The following image shows the response in the browser to the local GET request that's returned by the function:
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-status.png" alt-text="Screenshot of the browser window with statusQueryGetUri called out.":::
 
