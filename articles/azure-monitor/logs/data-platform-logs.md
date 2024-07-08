@@ -32,7 +32,7 @@ To address the unique data collection and analysis needs of the various personas
 - [Define table plans]() suited to the usage and cost management needs of the data in each table.
 - [Manage low-cost long-term retention and interactive retention](../logs/data-retention-archive.md) for each table.
 - [Manage access rights](../logs/manage-access.md) to the workspace and to specific tables.
-- Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and enables you to store raw data in low-cost retention for however long you need it.
+- Use summary rules to [aggregate critical data in summary tables](../logs/summary-rules.md). This lets you optimize data for ease of use and actionable insights, and enables you to store raw data in a table with a low-cost table plan for however long you need it.
 - Create ready-to-run queries, visulizations, and alerts tailored to specific personas.  
 
 You can also configure network isolation, replicate your workspace across regions, and [design a workspace architecture based on your business needs](../logs/workspace-design.md).
