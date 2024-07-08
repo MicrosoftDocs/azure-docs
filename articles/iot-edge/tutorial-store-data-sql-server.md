@@ -5,7 +5,7 @@ services: iot-edge
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/04/2020
+ms.date: 07/08/2024
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, devx-track-csharp"
@@ -224,7 +224,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 6. In your solution folder, open the **deployment.template.json** file.
 
-7. Find the **modules** section. You should see three modules. The module *SimulatedTemperatureSensor* is included by default in new solutions, and provides test data to use with your other modules. The module *sqlFunction* is the module that you initially created and updated with new code. Finally, the module *sql* was imported from the Azure Marketplace.
+7. Find the **modules** section. You should see three modules. The module *SimulatedTemperatureSensor* is included by default in new solutions, and provides test data to use with your other modules. The module *sqlFunction* is the module that you initially created and updated with new code. Finally, the module *sql* was imported from the the Microsoft Artifact Registry.
 
    >[!Tip]
    >The SQL Server module comes with a default password set in the environment variables of the deployment manifest. Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](/sql/linux/quickstart-install-connect-docker).
