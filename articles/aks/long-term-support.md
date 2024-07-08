@@ -143,4 +143,4 @@ You can enable the LTS support plan on AKS 1.27 after the end of community suppo
 No, you need to explicitly enable LTS on the cluster to receive LTS support. Enabling LTS also requires being on the Premium tier.
 
 ### What is the pricing model for LTS?
-LTS is available on the Premium tier, please refer to the [Premium tier pricing](https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/) for more information.
+LTS is available on the Premium tier, please refer to the [Premium tier pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
