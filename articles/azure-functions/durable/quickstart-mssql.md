@@ -1,6 +1,6 @@
 ---
-title: Configure storage provider - Microsoft SQL Server (MSSQL)
-description: Configure a Durable Functions app to use MSSQL
+title: "Quickstart: Configure a storage provider by using MSSQL"
+description: Configure a durable function app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: davidmrdavid
 ms.topic: quickstart
 ms.custom: devx-track-dotnet
@@ -8,7 +8,7 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Quickstart: Configure Durable Functions with the Microsoft SQL Server (MSSQL) storage provider
+# Quickstart: Set a durable function to use the Microsoft SQL Server storage provider
 
 Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a durable function app to use the [MSSQL storage provider](durable-functions-storage-providers.md#mssql).
 
@@ -17,7 +17,7 @@ Durable Functions supports several [storage providers](durable-functions-storage
 
 ## Note on data migration
 
-Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL back end. Similarly, the task hub contents created with MSSQL can't be preserved when switching to a different storage provider.
+Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps that have existing runtime data start with a fresh, empty task hub after switching to the MSSQL back end. Similarly, the task hub contents created with MSSQL can't be preserved when switching to a different storage provider.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ docker exec -d mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "
 After running these commands, you should have a local SQL Server running on Docker and listening on port `1443`. If port `1443` conflicts with another service, you can rerun these commands after changing the variable `$port` to a different value.
 
 > [!NOTE]
-> To stop and delete a running container, you may use `docker stop <containerName>` and `docker rm <containerName>` respectively. You may use these commands to re-create your container, and to stop if after you're done with this quickstart. For more assistance, try `docker --help`.
+> To stop and delete a running container, you can use `docker stop <containerName>` and `docker rm <containerName>` respectively. You can use these commands to re-create your container, and to stop if after you're done with this quickstart. For more assistance, try `docker --help`.
 
 To validate your database installation, you can query for your new SQL database using the following Docker command:
 
@@ -146,7 +146,7 @@ Below is an example _local.settings.json_ assigning the default Docker-based SQL
 ```
 
 > [!NOTE]
-> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).
+> The value of `FUNCTIONS_WORKER_RUNTIME` depends on the programming language you use. For more information, see the [runtime reference](../functions-app-settings.md#functions_worker_runtime).
 
 ### Update host.json
 
@@ -173,7 +173,7 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }    
 ```
 
-The snippet above is a fairly _minimal_ `host.json` example. Later, you may want to consider [other parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+The snippet above is a fairly minimal _host.json_ example. Later, you might want to consider adding [more parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
@@ -195,25 +195,25 @@ InstanceID                           RuntimeStatus        CreatedTime           
 
 ## Run your app on Azure
 
-To run your app in Azure, you'll need a publicly accessible SQL Server instance. You can obtain one by creating an Azure SQL database.
+To run your app in Azure, you need a publicly accessible SQL Server instance. You can obtain one by creating an Azure SQL database.
 
 ### Create an Azure SQL database
 
 > [!NOTE]
-> If you already have an Azure SQL database, or some other publicly accessible SQL Server you would like to use, you may skip to the next section.
+> If you already have an Azure SQL database, or some other publicly accessible SQL Server you would like to use, you can skip to the next section.
 
-You can follow [these](/azure/azure-sql/database/single-database-create-quickstart) instructions to create an Azure SQL database on the portal. When configuring the database, make sure to set the _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+You can follow [instructions](/azure/azure-sql/database/single-database-create-quickstart) to create an Azure SQL database in the portal. When you configure the database, make sure that you set the _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE]
 > Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
 
-You may obtain your Azure SQL database's connection string by navigating to the database's blade in the Azure portal. Then, under **Settings**, select **Connection strings** and obtain the **ADO.NET** connection string. Make sure to provide your password in the template provided.
+You can get your Azure SQL database's connection string by going to the database's blade in the Azure portal. Then, under **Settings**, select **Connection strings** and obtain the **ADO.NET** connection string. Make sure that you provide your password in the template provided.
 
 Below is an example of the portal view for obtaining the Azure SQL connection string.
 
 ![An Azure connection string as found in the portal](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
-In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you may reset it by navigating to the database's blade in the Azure portal, selecting your _Server name_ in the **Essentials** view, and also selecting **Reset password** in the resulting page. Below are some guiding images.
+In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you can reset it by going to the database's blade in the Azure portal, selecting your _Server name_ in the **Essentials** view, and also selecting **Reset password** in the resulting page. Below are some guiding images.
 
 ![The Azure SQL database view, with the Server name option highlighted](./media/quickstart-mssql/mssql-azure-reset-pass-1.png)
 

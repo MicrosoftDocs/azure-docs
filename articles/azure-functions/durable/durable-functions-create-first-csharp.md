@@ -150,13 +150,13 @@ After you verify that the function runs correctly on your local computer, it's t
 
    `https://<function-app-name>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
-1. Paste the new URL for the HTTP request in your browser's address bar. You must get the same status response that you got when you tested locally when you use the published app.
+1. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-In this quickstart, you used Visual Studio Code to create and publish a C# durable function app. The app is ready to use.
+The C# durable function app that you created and published by using Visual Studio Code is ready to use.
 
 ## Clean up resources
 
-If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
+If you no longer need the resources that you created to complete the quickstart, to avoid subscription costs for the resources, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group).
 
 ## Next step
 
@@ -173,11 +173,11 @@ In this article, you learn how to use Visual Studio 2022 to locally create and t
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this tutorial, you need
 
-* Install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps differ.
+* Install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps are different.
 
-* Verify that you have the [Azurite Emulator](../../storage/common//storage-use-azurite.md) installed and running.
+* Verify that you have the [Azurite emulator](../../storage/common//storage-use-azurite.md) installed and running.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -185,15 +185,15 @@ To complete this tutorial:
 
 The Azure Functions template creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
-1. In Visual Studio, select **New** > **Project** from the **File** menu.
+1. In Visual Studio, on the **File** menu, select **New** > **Project**.
 
-1. In the **Create a new project** dialog, search for `functions`, choose the **Azure Functions** template, and then select **Next**.
+1. In the **Create a new project** dialog, search for **functions**, select the **Azure Functions** template, and then select **Next**.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-new-project.png" alt-text="Screenshot of new project dialog to create a function in Visual Studio.":::
 
-1. Enter a **Project name** for your project, and select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
+1. For **Project name**, enter a name for your project, and then select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
 
-1. Under **Additional information**, use the settings specified in the table that follows the image.
+1. Under **Additional information**, use the settings that are described in the table after the image.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-new-function.png" alt-text="Screenshot of create a new Azure Functions Application dialog in Visual Studio.":::
 
@@ -247,7 +247,7 @@ You can use Azure Functions Core Tools to run an Azure Functions project on your
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request.
 
-    The request will query the orchestration instance for the status. You must get an eventual response that looks like the following. This output shows us the instance has completed and includes the outputs or results of the durable function.
+    The request queries the orchestration instance for the status. You must get an eventual response that looks like the following. This output shows us the instance has completed and includes the outputs or results of the durable function.
 
     ```json
     {
@@ -284,7 +284,7 @@ You must have a function app in your Azure subscription before you publish your 
 
     `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart`
 
-1. Paste this new URL for the HTTP request into your browser's address bar. You must get the same status response as before when using the published app.
+1. Paste this new URL for the HTTP request in your browser's address bar. You must get the same status response as before when using the published app.
 
 In this quickstart, you used Visual Studio Code to create and publish a C# durable function app. The app is ready to use.
 

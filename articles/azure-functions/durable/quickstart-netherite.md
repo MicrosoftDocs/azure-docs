@@ -1,6 +1,6 @@
 ---
-title: Configure storage provider - Netherite
-description: Configure a Durable Functions app to use Netherite
+title: "Quickstart: Configure a storage provider by using Netherite"
+description: Configure a durable function app to use the Netherite storage provider in Azure Functions.
 author: sebastianburckhardt
 ms.topic: quickstart
 ms.custom: devx-track-dotnet
@@ -8,7 +8,7 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Quickstart: Configure Durable Functions with the Netherite storage provider
+# Quickstart: Set a durable function to use the Netherite storage provider
 
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends", for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
@@ -17,7 +17,7 @@ Durable Functions offers several [storage providers](durable-functions-storage-p
 
 ## Note on data migration
 
-Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the Netherite backend. Similarly, the task hub contents created with Netherite can't be preserved when switching to a different storage provider.
+Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps that have existing runtime data start with a fresh, empty task hub after switching to the Netherite back end. Similarly, the task hub contents created with Netherite can't be preserved when you switch to a different storage provider.
 
 ## Prerequisites
 
@@ -76,11 +76,11 @@ In `local.settings.json`, set the value of `EventHubsConnection` to `SingleHost`
 ```
 
 > [!NOTE]
-> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).
+> The value of `FUNCTIONS_WORKER_RUNTIME` depends on the programming language you use. For more information, see the [runtime reference](../functions-app-settings.md#functions_worker_runtime).
 
 ## Update host.json
 
-Edit the storage provider section of the `host.json` file so it sets the `type` to `Netherite`.
+Edit the storage provider section of the *host.json* file so it sets the `type` to `Netherite`.
 
 ```json
 {
@@ -95,13 +95,13 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }
 ```
 
-The snippet above is just a *minimal* configuration. Later, you may want to consider [other parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
+The snippet above is just a *minimal* configuration. Later, you might want to consider using [more parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
 
 ## Test locally
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
 
-While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table won't be empty; see the example below.
+While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table won't be empty; see the example below.
 
 ![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
 
@@ -109,11 +109,11 @@ While the function app is running, Netherite will publish load information about
 > For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
 
 > [!NOTE]
-> If you are using local storage emulation on a Windows OS, please ensure you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy "Azure Storage Emulator" component. Local storage emulation with Netherite is only supported via Azurite.
+> If you are using local storage emulation on a Windows OS, ensure that you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy _Azure Storage Emulator_ component. Local storage emulation with Netherite is supported only via Azurite.
 
 ## Run your app on Azure
 
-You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](../functions-create-function-app-portal.md).
+You need to create an Azure Functions app on Azure. To do this, follow the instructions in [Create a function app](../functions-create-function-app-portal.md).
 
 ### Set up Event Hubs
 
