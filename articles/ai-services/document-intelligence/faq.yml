@@ -109,7 +109,8 @@ sections:
       - question: |
           Can I process documents with more than two pages in Document Intelligence Studio?
         answer: |
-          **Yes**, for paid-tier resources.
+          **Yes**, for paid-tier resources.</br>
+
           **No**, for free-tier resources.
 
             - For free-tier (F0) resources, **only the first two pages** are analyzed whether you're using Document Intelligence Studio, the REST API, or client libraries.
