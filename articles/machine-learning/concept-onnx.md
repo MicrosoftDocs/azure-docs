@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: concept-article
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: mopeakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: kritifaujdar
 ms.date: 03/18/2024
 
 #customer intent: As a data scientist, I want learn how to use ONNX to create machine learning models and accelerate inferencing.

@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Site Recovery
-description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
+description: Provides a summary of the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.service: site-recovery
@@ -45,7 +45,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Added support for Debian 12 and Ubuntu 18.04 Pro Linux distros. <br><br/> Added capacity reservation support for VMSS Flex machines protected using Site Recovery.
+**Azure VM disaster recovery** | Added support for Debian 12 and Ubuntu 18.04 Pro Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery.
 **VMware VM/physical disaster recovery to Azure** | Added support for Debian 12 and Ubuntu 18.04 Pro Linux distros. <br><br/> Added support to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled. [Learn more](./vmware-azure-enable-replication-added-disk.md)
 
 ## Updates (February 2024)
@@ -59,7 +59,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros.
-**VMware VM/physical disaster recovery to Azure** |   Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros. <br><br/> Added support for Windows 11 server. <br><br/> Enabled the proxy bypass capability in the ASR replication appliance. With this, customers can now bypass proxy settings from the Appliance configuration manager. 
+**VMware VM/physical disaster recovery to Azure** |   Added support for Oracle Linux 9.2, Oracle Linux 9.3, RHEL 9.2, Rocky Linux 9.0 and Rocky Linux 9.1 Linux distros. <br><br/> Added support for Windows 11 server. <br><br/> Enabled the proxy bypass capability in the Azure Site Recovery replication appliance. With this, customers can now bypass proxy settings from the Appliance configuration manager. 
 
 ### Update Rollup 71
 
@@ -108,13 +108,6 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. <br><br/> Added support for Windows 11 servers.
 **VMware VM/physical disaster recovery to Azure** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros.
-
-
-## Updates (November 2023)
-
-### Use Azure Business Continuity center (preview)
-
-You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Lear more about the supported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md).
 
 
 ## Updates (August 2023)
