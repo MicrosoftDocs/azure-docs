@@ -59,13 +59,9 @@ This table provides a brief description of each alert type. For more information
 
 Alerts can be stateful or stateless.
 - Stateless alerts fire each time the condition is met, even if fired previously.
-- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
+- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. Stateful alerts aren't fired if there's already a fired alert on a specific time series. This is the case even if more than one stateful alerts have been applied on different scopes for the same condition, for example scoped on resource level and resource group level.
 
 Alerts are stored for 30 days and are deleted after the 30-day retention period.
-
-> [!NOTE]  
-> Metric alerts are stateful by default, so other alerts aren't fired if there's already a fired alert on a specific time series. This is the case even if more than one metric alert has been applied on different scopes, for example on resource level and resource group level.
-
 
 ### Stateless alerts
 Stateless alerts fire each time the condition is met. The alert condition for all stateless alerts is always `fired`. 
