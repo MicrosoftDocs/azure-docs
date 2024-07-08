@@ -53,7 +53,7 @@ Istio-based service mesh add-on for AKS currently has the following limitations:
 * The add-on doesn't support multi-cluster deployments.
 * Istio doesn't support Windows Server containers.
 * Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`. For `EnvoyFilter`, the add-on only supports customization of Lua filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`) - other `EnvoyFilter` types are currently blocked.
-* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as Static IP address in the Gateway API Istio implementation as part of the Istio add-on in future.
+* Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as static IP address configuration in the Gateway API Istio implementation as part of the Istio add-on in future.
 
 ## Next steps
 
