@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 ms.author: lagayhar
-author: lagayhar
+author: lgayhardt
 ms.reviewer: lagayhar
 ms.date: 01/31/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
