@@ -415,10 +415,10 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. On the **Job function roles** tab, add each of the following roles to the user-assigned identity:
 
-      - Storage Account Contribtor
-      - Storage Blob Data Owner
-      - Storage Queue Data Contributor
-      - Storage Data Data Contributor
+      - **Storage Account Contribtor**
+      - **Storage Blob Data Owner**
+      - **Storage Queue Data Contributor**
+      - **Storage Table Data Contributor**
 
    For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
