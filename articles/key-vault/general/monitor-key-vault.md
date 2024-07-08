@@ -26,7 +26,7 @@ The **Overview** page in the Azure portal for each key vault includes the follow
 - Average Latency
 - Success ratio
 
-You can select "additional metrics" (or the "Metrics" tab in the left-hand sidebar, under "Monitoring") to view these metrics as well:
+You can select **additional metrics** or the **Metrics** tab in the left-hand sidebar, under **Monitoring**, to view these metrics as well:
 
 - Overall service API latency
 - Overall vault availability

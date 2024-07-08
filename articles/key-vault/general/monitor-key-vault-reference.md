@@ -78,19 +78,19 @@ Key Vault uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azu
 
 | Property | Description |
 |:--- |:---|
-| _ResourceId | A unique identifier for the resource that the record is associated with |
+| _ResourceId | A unique identifier for the resource that the record is associated with. |
 | CallerIPAddress | IP address of the user who performed the operation UPN claim or SPN claim based on availability. |
 | DurationMs | The duration of the operation in milliseconds. |
-| httpStatusCode_d | HTTP status code returned by the request (for example, *200*) |
+| httpStatusCode_d | HTTP status code returned by the request, for example, *200*. |
 | Level | Level of the event. One of the following values: Critical, Error, Warning, Informational and Verbose. |
-| OperationName | Name of the operation, for example, Alert |
+| OperationName | Name of the operation, for example, Alert. |
 | properties_s |  |
 | Region_s | |
 | requestUri_s | The URI of the client request. |
 | Resource | |
 | ResourceProvider | Resource provider of the Azure resource reporting the metric. |
 | ResultSignature | |
-| TimeGenerated | Date and time the record was created |
+| TimeGenerated | Date and time the record was created. |
 
 ## Related content
 
