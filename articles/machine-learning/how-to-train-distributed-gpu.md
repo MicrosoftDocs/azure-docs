@@ -18,9 +18,6 @@ ms.custom: sdkv2, update-code1
 
 Learn more about using distributed GPU training code in Azure Machine Learning. This article helps you run your existing distributed training code, and offers tips and examples for you to follow for each framework:
 
-* Message Passing Interface (MPI)
-    * Horovod
-    * Environment variables from Open MPI
 * PyTorch
 * TensorFlow
 * Accelerate GPU training with InfiniBand
