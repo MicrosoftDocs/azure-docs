@@ -35,11 +35,11 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
 + Azure Storage to store image files as blobs. Use Azure Blob Storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
 
-  Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). Data Lake Storage Gen2 isn't supported with this version of the wizard.
+  Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
 All of the preceding resources must have public access enabled so that the portal nodes can access them. Otherwise, the wizard fails. After the wizard runs, you can enable firewalls and private endpoints on the integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
-If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program on a virtual machine that's within the same virtual network as the private endpoint. [Here's a Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. The same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) has samples in other programming languages.
+If private endpoints are already present and you can't disable them, the alternative option is to run the respective end-to-end flow from a script or program on a virtual machine that's within the same virtual network as the private endpoint. [Here's a Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. The same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) has samples in other programming languages.
 
 A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. For connections that are more secure:
 
@@ -157,7 +157,7 @@ Search Explorer accepts text, vectors, and images as query inputs. You can drag 
 
 1. In the Azure portal, go to **Search Management** > **Indexes**, and then select the index that you created. **Search explorer** is the first tab.
 
-1. For **View**, select **Image view**.
+1. On the **View** menu, select **Image view**.
 
    :::image type="content" source="media/search-get-started-portal-images/select-image-view.png" alt-text="Screenshot of the command for selecting image view.":::
 

@@ -41,7 +41,7 @@ For fewer limitations or more data source options, try a code-base approach. For
 
   Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
   
-  Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). Data Lake Storage Gen2 isn't supported with this version of the wizard.
+  Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
 + For vectorization, an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI Service](https://aka.ms/oai/access) endpoint with deployments.
 
@@ -51,13 +51,13 @@ For fewer limitations or more data source options, try a code-base approach. For
 
 + For indexing and queries, Azure AI Search. It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
 
-+ Role assignments or API keys are required for connections to embedding models and data sources. This article provides instructions for role-based access control (RBAC).
++ Role assignments or API keys for connections to embedding models and data sources. This article provides instructions for role-based access control (RBAC).
 
 All of the preceding resources must have public access enabled so that the portal nodes can access them. Otherwise, the wizard fails. After the wizard runs, you can enable firewalls and private endpoints on the integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
-If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program on a virtual machine that's within the same virtual network as the private endpoint. [Here's a Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. The same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) has samples in other programming languages.
+If private endpoints are already present and and you can't disable them, the alternative option is to run the respective end-to-end flow from a script or program on a virtual machine that's within the same virtual network as the private endpoint. [Here's a Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. The same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) has samples in other programming languages.
 
-A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. For connections that are more secure:
+A free search service supports RBAC on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. For connections that are more secure:
 
 + Use the Basic tier or higher.
 + [Configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignments to admit requests from Azure AI Search on other Azure services.
@@ -112,7 +112,7 @@ This section points you to data that works for this quickstart.
 
 1. Load the sample data:
 
-   1. From the **Power BI** switcher located on the lower left, select **Data Engineering**.
+   1. From the **Power BI** switcher on the lower left, select **Data Engineering**.
 
    1. On the **Data Engineering** pane, select **Lakehouse** to create a lakehouse.
 
@@ -147,7 +147,7 @@ Use these instructions to assign permissions or get an API key for search servic
 
    1. Select **Add**, and then select **Add role assignment**.
 
-   1. Under **Job function roles**, select [**Cognitive Services OpenAI User**](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles), and then select **Next**.
+   1. Under **Job function roles**, select [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles), and then select **Next**.
 
    1. Under **Members**, select **Managed identity**, and then select **Members**.
 
@@ -174,11 +174,11 @@ Use these instructions to assign permissions or get an API key for search servic
 After you finish these steps, you should be able to select the Azure AI Vision vectorizer in the **Import and vectorize data** wizard.
 
 > [!NOTE]
-> If you can't select an Azure AI Vision vectorizer, make sure you have an Azure AI Vision resource in a supported region. Also make sure that your search service managed identity has **Cognitive Services OpenAI User** permissions.
+> If you can't select an Azure AI Vision vectorizer, make sure you have an Azure AI Vision resource in a supported region. Also make sure that your search service's managed identity has **Cognitive Services OpenAI User** permissions.
 
 ### [Azure AI Studio model catalog](#tab/model-catalog)
 
-**Import and vectorize data** supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but it doesn't currently support OpenAI-CLIP. Internally, the wizard uses the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
+**Import and vectorize data** supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but it doesn't currently support the OpenAI CLIP model. Internally, the wizard uses the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
 
 Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information available before you run the wizard.
 
@@ -222,13 +222,15 @@ In this step, specify the embedding model for vectorizing chunked data.
 
 1. Specify the Azure subscription.
 
-1. For Azure OpenAI, select the service, model deployment, and authentication type.
+1. Make selections according to the resource:
 
-   For AI Studio catalog, select the project, model deployment, and authentication type.
+   1. For Azure OpenAI, select the service, model deployment, and authentication type.
 
-   For AI Vision vectorization, select the account.
+   1. For AI Studio catalog, select the project, model deployment, and authentication type.
 
-   For more information about these options, see [Set up embedding models](#set-up-embedding-models).
+   1. For AI Vision vectorization, select the account.
+
+   For more information, see [Set up embedding models](#set-up-embedding-models) earlier in this article.
 
 1. Select the checkbox that acknowledges the billing impact of using these resources.
 
@@ -243,7 +245,7 @@ If your content includes images, you can apply AI in two ways:
 
 Azure AI Search and your Azure AI resource must be in the same region.
 
-1. On the **Vectorize your images** page, specify the kind of connection the wizard should make. For image vectorization, it can connect to embedding models in Azure AI Studio or Azure AI Vision.
+1. On the **Vectorize your images** page, specify the kind of connection the wizard should make. For image vectorization, the wizard can connect to embedding models in Azure AI Studio or Azure AI Vision.
 
 1. Specify the subscription.
 
@@ -283,17 +285,17 @@ When the wizard completes the configuration, it creates the following objects:
 
 Search Explorer accepts text strings as input and then vectorizes the text for vector query execution.
 
-1. In the Azure portal, under **Search Management** and **Indexes**, select the index your created.
+1. In the Azure portal, go to **Search Management** > **Indexes**, and then select the index that you created.
 
 1. Optionally, select **Query options** and hide vector values in search results. This step makes your search results easier to read.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/query-options.png" alt-text="Screenshot of the query options button.":::
+   :::image type="content" source="media/search-get-started-portal-import-vectors/query-options.png" alt-text="Screenshot of the button for query options.":::
 
-1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter.
+1. On the **View** menu, select **JSON view** so that you can enter text for your vector query in the `text` vector query parameter.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/select-json-view.png" alt-text="Screenshot of JSON selector.":::
+   :::image type="content" source="media/search-get-started-portal-import-vectors/select-json-view.png" alt-text="Screenshot of the menu command for opening the JSON view.":::
 
-   This wizard offers a default query that issues a vector query on the "vector" field, returning the 5 nearest neighbors. If you opted to hide vector values, your default query includes a "select" statement that excludes the vector field from search results.
+   The wizard offers a default query that issues a vector query on the `vector` field and returns the five nearest neighbors. If you opted to hide vector values, your default query includes a `select` statement that excludes the `vector` field from search results.
 
    ```json
    {
@@ -309,15 +311,15 @@ Search Explorer accepts text strings as input and then vectorizes the text for v
    }
    ```
 
-1. Replace the text `"*"` with a question related to health plans, such as *"which plan has the lowest deductible"*.
+1. For the `text` value, replace the asterisk (`*`) with a question related to health plans, such as `Which plan has the lowest deductible?`.
 
 1. Select **Search** to run the query.
 
    :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
 
-   You should see 5 matches, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
+   Five matches should appear. Each document is a chunk of the original PDF. The `title` field shows which PDF the chunk comes from.
 
-1. To see all of the chunks from a specific document, add a filter for the title field for a specific PDF:
+1. To see all of the chunks from a specific document, add a filter for the `title` field for a specific PDF:
 
    ```json
    {
@@ -336,8 +338,8 @@ Search Explorer accepts text strings as input and then vectorizes the text for v
 
 ## Clean up
 
-Azure AI Search is a billable resource. If it's no longer needed, delete it from your subscription to avoid charges.
+Azure AI Search is a billable resource. If you no longer need it, delete it from your subscription to avoid charges.
 
-## Next steps
+## Next step
 
-This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the objects necessary for integrated vectorization. If you want to explore each step in detail, try an [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb).
+This quickstart introduced you to the **Import and vectorize data** wizard that creates all of the necessary objects for integrated vectorization. If you want to explore each step in detail, try an [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb).
