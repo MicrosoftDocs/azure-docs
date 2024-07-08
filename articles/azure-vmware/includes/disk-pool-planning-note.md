@@ -1,6 +1,6 @@
 ---
-title: Disk pool planning note for vNet
-description: Important note about the importance of deploying a vNet closer to Azure VMware Solution hosts.
+title: Disk pool planning note for virtual networks
+description: Information about the importance of deploying a virtual network closer to Azure VMware Solution hosts.
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 1/03/2024
@@ -15,4 +15,4 @@ ms.custom: engagement-fy23
 ---
 
 
-If you plan to scale your Azure VMware Solution hosts using [Azure NetApp Files datastores](../attach-azure-netapp-files-to-azure-vmware-solution-hosts.md), deploying the vNet close to your hosts with an ExpressRoute virtual network gateway is crucial. The closer the storage is to your hosts, the better the performance.
+If you plan to scale your Azure VMware Solution hosts by using [Azure NetApp Files datastores](../attach-azure-netapp-files-to-azure-vmware-solution-hosts.md), deploying the virtual network close to your hosts with an ExpressRoute virtual network gateway is crucial. The closer the storage is to your hosts, the better the performance.

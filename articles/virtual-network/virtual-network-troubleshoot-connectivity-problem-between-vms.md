@@ -56,7 +56,7 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 ### Step 2: Check whether network traffic is blocked by NSG or UDR
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [Connection troubleshoot](../network-watcher/network-watcher-connectivity-overview.md) to determine whether there's a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow.
+Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [Connection troubleshoot](../network-watcher/network-watcher-connectivity-overview.md) to determine whether there's a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow. You may need to add inbound rules on both NSGs. The rules must be at the subnet level and the virtual machine's interface level.
 
 ### Step 3: Check whether network traffic is blocked by VM firewall
 

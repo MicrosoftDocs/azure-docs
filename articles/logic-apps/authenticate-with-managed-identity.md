@@ -13,7 +13,7 @@ ms.custom: subject-rbac-steps, devx-track-arm-template
 
 # Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 If you want to avoid providing, storing, and managing credentials, secrets, or Microsoft Entra tokens, you can use a managed identity to authenticate access or connections from your logic app workflow to Microsoft Entra protected resources. In Azure Logic Apps, some connector operations support using a managed identity when you must authenticate access to resources protected by Microsoft Entra ID. Azure manages this identity and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
 
@@ -570,7 +570,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
-For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal).
+For more general information about this task, see [Assign a managed identity access to an Azure resource or another resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
 
 <a name="azure-portal-access-policy"></a>
 
@@ -1251,7 +1251,7 @@ This example shows the underlying connection resource definition for a connector
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
     "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
-    "kind": "V1",
+    "kind": "V2",
     "properties": {
         "alternativeParameterValues":{},
         "api": {
