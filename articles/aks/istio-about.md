@@ -71,7 +71,7 @@ Feedback and feature requests for the Istio-based service mesh add-on should be 
 [open-service-mesh-about]: open-service-mesh-about.md
 [istio-meshconfig]: ./istio-meshconfig.md
 [istio-ingress]: ./istio-deploy-ingress.md
-[istio-troubleshooting]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting.md
+[istio-troubleshooting]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting
 [aks-gh-issues]: https://github.com/Azure/AKS/issues
 
 [istio-deploy-addon]: istio-deploy-addon.md
