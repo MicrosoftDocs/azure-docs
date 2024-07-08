@@ -15,7 +15,7 @@ ms.custom: mqtt, devx-track-js
 
 ### Install the Node.js packages
 
-Run these commands to install the install the **azure-iot-device** Device SDK, the **azure-iot-device-mqtt**, and the **@azure/storage-blob** packages: on your development machine:
+Run these commands to install the **azure-iot-device** Device SDK, the **azure-iot-device-mqtt**, and the **@azure/storage-blob** packages: on your development machine:
 
 ```cmd/sh
 npm install azure-iot-device azure-iot-device-mqtt @azure/storage-blob --save
@@ -112,3 +112,7 @@ console.log('uploadStreamToBlockBlob success');
 await client.notifyBlobUploadStatus(blobInfo.correlationId, isSuccess, statusCode, statusDescription);
 
 ```
+
+### Sample
+
+The SDK include an [upload to blob advanced](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample.
