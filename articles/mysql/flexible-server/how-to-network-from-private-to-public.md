@@ -1,5 +1,5 @@
 ---
-title: How to:  Network from a Private Access to Public Access or Private Link in Azure Database for MySQL
+title: How to network from a Private Access to Public Access or Private Link in Azure Database for MySQL
 description: Learn about moving an Azure Database for MySQL flexible server from Private access (virtual network integrated) to Public access or a Private Link with the Azure portal.
 author: SudheeshGH
 ms.author: sunaray
