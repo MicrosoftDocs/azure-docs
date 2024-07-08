@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Connect to OpenAI from Azure Functions in Visual Studio Code'
 description: Learn how to connect Azure Functions to OpenAI by adding an output binding to your Visual Studio Code project.
-ms.date: 07/02/2024
+ms.date: 07/08/2024
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru
@@ -198,26 +198,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
 1. In the new `whois.js` code file, replace the contents of the file with this code:
 
-    ```javascript
-   const { app, input } = require("@azure/functions");
-    
-   const openAICompletionInput = input.generic({
-       prompt: 'Who is {name}?',
-       maxTokens: '100',
-       type: 'textCompletion',
-       model: '%CHAT_MODEL_DEPLOYMENT_NAME%'
-   });
-   app.http('whois', {
-       methods: ['GET'],
-       route: 'whois/{name}',
-       authLevel: 'anonymous',
-       extraInputs: [openAICompletionInput],
-       handler: async (request, context) => {
-           var response = context.extraInputs.get(openAICompletionInput);
-           return { body: response.content.trim() };
-       }
-   });
-    ```
+    :::code language="javascript" source="~/functions-openai-extension/samples/textcompletion/javascript/src/functions/whois.js" ::: 
   
 :::zone-end  
 :::zone pivot="programming-language-typescript"  
@@ -225,7 +206,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
 1. In the new `whois.ts` code file, replace the contents of the file with this code:
 
-    :::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/nodejs/src/functions/whois.ts" ::: 
+    :::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/typescript/src/functions/whois.ts" ::: 
   
 :::zone-end  
 :::zone pivot="programming-language-python" 
