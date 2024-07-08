@@ -19,33 +19,9 @@ You can use one Log Analytics workspace to store any type of log required for an
 - Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
 - Aggregated long-term data trends for **advanced analytics and machine learning** 
 
-Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains what each table plan offers, which use cases it's optimal for, and how to set a table's plan.
+Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains and how to set a table's plan.
 
-## Select a table plan based on usage needs
-
-The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md).
-
-:::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
-
-|                                                        | Analytics                                                    | Basic                                                        | Auxiliary (Preview)                                          |
-| ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Best for                                               | High-value data used for continuous monitoring, real-time detection, and performance analytics. | Medium-touch data needed for troubleshooting and incident response. | Low-touch data, such as verbose logs, and data required for auditing and compliance. |
-| Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](#azure-tables-that-support-the-basic-table-plan) and DCR-based custom tables | DCR-based custom tables                                      |
-| [Log queries](../logs/get-started-queries.md)                                            | Full query capabilities.                                     | Full Kusto Query Language (KQL) on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | Full KQL on a single table, which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
-| Query performance                                      | Fast                                                         | Fast                                                         | Slower<br> Good for auditing. Not optimized for real-time analysis.                                                       |
-| [Alerts](../alerts/alerts-overview.md)                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
-| [Insights](../insights/insights-overview.md)                                             | ✅                                                            |     ❌                                                        |                                             ❌               |
-| [Microsoft Sentinel](/azure/sentinel/overview.md)                                             | ✅                                                         |     ✅                                                        |                                             ❌               |
-| [Dashboards](../visualize/tutorial-logs-dashboards.md)                                             | ✅                                                            |     ❌                                                        |                                             ❌               |
-| [Search jobs](../logs/search-jobs.md)                  | ✅                                                            | ✅                                                            | ✅                                                            |
-| [Summary rules](../logs/summary-rules.md)              | ✅                                                            | ✅ KQL limited to a single table                              | ✅ KQL limited to a single table                              |
-| [Restore](../logs/restore.md)                          | ✅                                                            | ✅                                                            | ❌                                                            |
-| Pricing model                                          | **Ingestion** - Standard cost.<br>**Interactive retention** - 30 days included. Prorated monthly charge for extended interactive retention of up to two years.<br>**Queries** - Unlimited queries included.<br>**Long-term retention** - Prorated monthly long-term retention charge. | **Ingestion** - Reduced cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Long-term retention** - Prorated monthly long-term retention charge. | **Ingestion** - Minimal cost.<br>**Interactive retention** - 30 days included.<br>**Queries** - Pay per query.<br>**Long-term retention** - Prorated monthly long-term retention charge. |
-| Interactive retention                                  | 30 days (90 days for Microsoft Sentinel and Application Insights).<br> Can be extended to up to two years. | 30 days                                                      | 30 days                                                      |
-| Total retention                                        | Up to 12 years                                               | Up to 12 years                                               | Up to 12 years                                               |
-
-> [!NOTE]
-> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+For information about what each table plan offers and which use cases it's optimal for, see [](data-platform-logs.md#table-plans-tailored-for-different-data-consumption-needs).
 
 ## Permissions required
 
