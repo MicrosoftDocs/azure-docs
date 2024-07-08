@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 03/15/2024
+ms.date: 07/07/2024
 ms.author: cshoe
 ---
 
@@ -103,7 +103,6 @@ Now that you have an existing environment, you can create your container app and
       --name $EUREKA_COMPONENT_NAME
     ```
 
-
 1. Optional: Update the Eureka Server for Spring Java component configuration.
 
     ```azurecli
@@ -113,6 +112,7 @@ Now that you have an existing environment, you can create your container app and
       --name $EUREKA_COMPONENT_NAME 
       --configuration eureka.server.renewal-percent-threshold=0.85 eureka.server.eviction-interval-timer-in-ms=10000
     ```
+
 ## Bind your container app to the Eureka Server for Spring Java component
 
 1. Create the container app and bind to the Eureka Server for Spring.
@@ -150,7 +150,7 @@ Now that you have an existing environment, you can create your container app and
 
     You can also [remove a binding](java-eureka-server-usage.md#unbind) from your application.
 
-## View the application in Eureka Server for Spring dashboards
+## View the application through a dashboard
 
 > [!IMPORTANT]
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can either explicitly assign `Owner` or `Contributor` role on the resource or follow the steps to create a custom role definition and assign it to your account.
@@ -159,18 +159,19 @@ Now that you have an existing environment, you can create your container app and
 
     ```azurecli
     az role definition create --role-definition '{
-        "Name": "<your-role-name>",
+        "Name": "<YOUR_ROLE_NAME>",
         "IsCustom": true,
         "Description": "Can access managed Java Component dashboards in managed environments",
         "Actions": [
             "Microsoft.App/managedEnvironments/write"
         ],
-        "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
+        "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>"]
     }'
     ```
-    Please replace the `AssignableScopes` value with your subscription id. And provide a value for `<your-role-name>` as the name of the role definition.
 
-1. Assign the Custom Role to your accound on managed environment resource.
+    Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
+
+1. Assign the custom role to your account on managed environment resource.
 
     Get the resource id of the managed environment:
 
@@ -181,46 +182,52 @@ Now that you have an existing environment, you can create your container app and
     ```
 
 1. Assign the role to the your account.
-    
+
+    Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+
     ```azurecli
-        az role assignment create \
-        --assignee <user-or-service-principal-id> \
-        --role "<your-role-name>" \
-        --scope $ENVIRONMENT_ID
+    az role assignment create \
+      --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
+      --role "<ROLE_NAME>" \
+      --scope $ENVIRONMENT_ID
     ```
+
 > [!NOTE]
-> <user-or-service-principal-id> usually should be the identity that you use to access Azure Portal.
-> <your-role-name> is the name you assigned in step 1.
+> <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal.
+> <ROLE_NAME> is the name you assigned in step 1.
 
 1. Get the URL of the Eureka Server for Spring dashboard.
 
     ```azurecli
-        az containerapp env java-component eureka-server-for-spring show \
-        --environment $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --name $EUREKA_COMPONENT_NAME \
-        --query properties.ingress.fqdn -o tsv
+    az containerapp env java-component eureka-server-for-spring show \
+      --environment $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $EUREKA_COMPONENT_NAME \
+      --query properties.ingress.fqdn -o tsv
     ```
 
-    You should be able to access the Eureka Server for Spring dashboard using the URL provided. And the container app should be visible in the dashboard like the screenshot below:
+    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you container app is also to you as shown in the following screenshot.
 
     :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
 
 ## Optional: Integrate the Eureka Server for Spring and Admin for Spring Java components
 
-If you want to integrate the Eureka Server for Spring and the Admin for Spring Java components, you can follow the steps in the [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md).
+If you want to integrate the Eureka Server for Spring and the Admin for Spring Java components, see [Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md).
 
 ## Clean up resources
 
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-    az group delete \
-    --resource-group $RESOURCE_GROUP
+az group delete \
+  --resource-group $RESOURCE_GROUP
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Configure Eureka Server for Spring settings](java-eureka-server-usage.md)
-> [Tutorial: Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)
+
+## Related content
+
+- [Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)
