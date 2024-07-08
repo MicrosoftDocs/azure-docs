@@ -80,7 +80,7 @@ These models are currently available for use in Azure OpenAI Service.
 
 ## Deprecated models
 
-These models were deprecated on July 6, 2023 and will be retired on June 14, 2024. These models are no longer available for new deployments. Deployments created before July 6, 2023 remain available to customers until June 14, 2024. We recommend customers migrate their applications to deployments of replacement models before the June 14, 2024 retirement.
+These models were deprecated on July 6, 2023 and were retired on June 14, 2024. These models are no longer available for new deployments. Deployments created before July 6, 2023 remain available to customers until June 14, 2024. We recommend customers migrate their applications to deployments of replacement models before the June 14, 2024 retirement.
 
 If you're an existing customer looking for information about these models, see [Legacy models](./legacy-models.md).
 
