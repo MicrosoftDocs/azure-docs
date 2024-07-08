@@ -18,7 +18,7 @@ There are two methods use to configure and filter data being collected in Contai
 | [Data collection rule (DCR)](#configure-data-collection-using-dcr) | [Data collection rules](../essentials/data-collection-rule-overview.md) are sets of instructions supporting data collection using the [Azure Monitor pipeline](../essentials/pipeline-overview.md). A DCR is created when you enable Container insights, and you can modify the settings in this DCR either using the Azure portal or other methods. | 
 | [ConfigMap](#configure-data-collection-using-configmap) | [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect.|
 
-## Tasks
+## Configuration tasks
 The following table describes the different configuration tasks you can perform in Container insights and the method available for each. Details for each task are provided in the following sections.
 
 | Task | ConfigMap | DCR | Description |
@@ -315,7 +315,7 @@ kubectl logs ama-logs-fdf58 -n kube-system
 
 If there are configuration errors from the Azure Monitor Agent pods, the output will show errors similar to the following:
 
-```output
+```output 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
