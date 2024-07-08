@@ -421,7 +421,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
       - **Storage Queue Data Contributor**
       - **Storage Table Data Contributor**
 
-   For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control//role-assignments-portal.md) and [Understand role assignments](../role-based-access-control/role-assignments.md).
+   For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) and [Understand role assignments](../role-based-access-control/role-assignments.md).
 
 1. Go to your Standard logic app. On the logic app menu, select **Overview**.
 
