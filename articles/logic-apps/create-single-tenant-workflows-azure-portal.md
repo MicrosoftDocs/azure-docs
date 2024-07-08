@@ -407,7 +407,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
 
-1. On your storage account, add the necessary [role assignments](../role-based-access-control/role-assignments.md) to your user-assigned identity:
+1. On your storage account, add the necessary [role assignments](../role-based-access-control/role-assignments.md) for your user-assigned identity:
 
    1. On the storage account menu, select **Access control (IAM)**.
 
