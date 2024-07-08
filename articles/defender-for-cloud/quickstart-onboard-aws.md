@@ -15,7 +15,6 @@ The following screenshot shows AWS accounts displayed in the Defender for Cloud 
 
 You can learn more by watching the [New AWS connector in Defender for Cloud](episode-one.md) video from the *Defender for Cloud in the Field* video series.
 
-
 ## **AWS authentication process**
 
 Federated authentication is used between Microsoft Defender for Cloud and AWS. All of the resources related to the authentication are created as a part of the CloudFormation template deployment, including:
@@ -53,7 +52,7 @@ To complete the procedures in this article, you need:
 
 - Access to an AWS account.
 
-- **Contributor** permission for the relevant Azure subscription, and **Administrator** permission on the AWS account.
+- **Subscription owner** permission for the relevant Azure subscription, and **Administrator** permission on the AWS account.
 
 > [!NOTE]
 > The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
