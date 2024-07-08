@@ -197,7 +197,9 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
 
 
-Note: When Teams external users leave the meeting, or the meeting ends, they can no longer exchange new chat messages nor access messages sent and received during the meeting. 
+> [!Note]
+> When Teams external users leave the meeting, or the meeting ends, they can no longer exchange new chat messages nor access messages sent and received during the meeting.
+
 1.  Azure Communication Services users can join a channel Teams meeting with audio and video, but they won't be able to send or receive any chat messages.
 2. Azure Communication Services provides developer tools to integrate Microsoft Teams Data Loss Prevention compatible with Microsoft Teams. For more information, see [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md).
 3. Feature is not available in mobile browsers.
