@@ -40,8 +40,10 @@ The following table provides brief descriptions of the built-in roles. You can a
 
 API Management provides the following built-in roles for collaborators in [workspaces](workspaces-overview.md) in an API Management instance. 
 
-A workspace collaborator must be assigned both a workspace-scoped role and a service-scoped role. Depending on how collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#gateway-constraints): **Reader**, **Contributor**, or **Owner**.
+A workspace collaborator must be assigned both a workspace-scoped role and a service-scoped role. 
 
+> [!NOTE]
+> Depending on how workspace collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
 
 |Role  |Scope  |Description  |
 |---------|---------|---------|
