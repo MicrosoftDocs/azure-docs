@@ -63,9 +63,9 @@ Downloading the JAR in a Maven Build from Maven Central directly.
 > [!IMPORTANT]
 >
 > Make sure the following items are in the class path.
-> 1. Hadoop's `core-site.xml`
-> 1. All the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*`
-> 1. `azure-core-1.49.0.jar, okhttp3-4.9.3` and its transitive dependent jars.
+> - Hadoop's `core-site.xml`
+> - All the client jars from this cluster location `/usr/hdp/<hdi-version>/hadoop/client/*`
+> - `azure-core-1.49.0.jar, okhttp3-4.9.3` and its transitive dependent jars.
 
 ### Structure of access token
 
@@ -144,7 +144,7 @@ KeyVaultSecret secret = secretClient.getSecret("<your-secret-name>");
 
 **If the client is a Event Hub**
 
-Example of Azure Event Hub, which doesn't directly fetch an access token. It uses a TokenCredential to authenticate, and this credential handles fetching the access token.
+Example of Azure Event Hubs, which doesn't directly fetch an access token. It uses a TokenCredential to authenticate, and this credential handles fetching the access token.
 
 ```
 import com.azure.messaging.eventhubs.EventHubClientBuilder;
@@ -165,7 +165,7 @@ EventHubProducerClient producer = new EventHubClientBuilder()
 
 Example of Azure Sql Database, which doesn't directly fetch an access token.
 
-1. Connect using access token callback: The following example demonstrates implementing and setting the accessToken callback
+Connect using access token callback: The following example demonstrates implementing and setting the accessToken callback
 
     ```
     package com.microsoft.azure.hdinsight.oauthtoken;
