@@ -53,9 +53,8 @@ Last called data (UTC): The date when API traffic was last observed going to/fro
 
 Use recommendations to improve your security posture, harden API configurations, identify critical API risks, and mitigate issues by risk priority.
 
-Defender for API provides a number of recommendations, including recommendations to onboard APIs to the Defender for API plan, disable and remove unused APIs, and best practice recommendations for security, authentication, and access control.
+Defender for API provides a [number of recommendations](recommendations-reference-api.md), including recommendations to onboard APIs to the Defender for API plan, disable and remove unused APIs, and best practice recommendations for security, authentication, and access control.
 
-[Review the recommendations reference](recommendations-reference.md).
 
 ## Detecting threats
 

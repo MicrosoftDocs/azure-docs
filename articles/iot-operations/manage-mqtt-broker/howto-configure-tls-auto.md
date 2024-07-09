@@ -256,7 +256,7 @@ Replace `$HOST` with the appropriate host:
 - If connecting from [within the same cluster](howto-test-connection.md#connect-from-a-pod-within-the-cluster-with-default-configuration), replace with the service name given (`my-new-tls-listener` in example) or the service `CLUSTER-IP`.
 - If connecting from outside the cluster, the service `EXTERNAL-IP`.
 
-Remember to specify authentication methods if needed. For example, username and password.
+Remember to specify authentication methods if needed.
 
 ## Default root CA and issuer with Azure IoT Operations Preview
 
