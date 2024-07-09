@@ -811,11 +811,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/advisor/advisor-cost-recommendations.md",
-            "redirect_url": "/azure/advisor/advisor-reference-cost-recommendations",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
             "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
             "redirect_document_id": false
