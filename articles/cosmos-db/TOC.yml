@@ -28,6 +28,8 @@
         items:
         - name: Vector search overview
           href: gen-ai/vector-search-overview.md
+        - name: Retrieval Augmented Generation (RAG)
+          href: gen-ai/rag.md
         - name: Tokens
           href: gen-ai/tokens.md
         - name: Vector embeddings
