@@ -222,7 +222,7 @@ app = Flask(__name__)
 
 ---
 
-[!INCLUDE [Azure Help Support](../../../../includes/azure-help-support.md)]
+[!INCLUDE [Azure Help Support](/troubleshoot/includes/azure-help-support)]
 
 ## Support
 
