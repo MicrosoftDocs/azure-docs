@@ -31,11 +31,11 @@ For information about using Azure Monitor to monitor your resources, see [Monito
  
 ## Built in monitoring for App Service
 
-- On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left navigation to access complete App Service diagnostics for your app. For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](overview-diagnostics.md).
+- On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left navigation to access complete App Service diagnostics for your app. For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics.md).
 
-- App Service provides built-in diagnostics logging to assist with debugging apps. For more information about the built-in logs, see [Stream diagnostics logs](troubleshoot-diagnostic-logs.md#stream-logs).
+- App Service provides built-in diagnostics logging to assist with debugging apps. For more information about the built-in logs, see [Stream diagnostics logs](/azure/app-service/troubleshoot-diagnostic-logs.md#stream-logs).
 
-- You can also use Azure Health check to monitor App Service instances. For more information, see [Monitor App Service instances using Health check](monitor-instances-health-check.md).
+- You can also use Azure Health check to monitor App Service instances. For more information, see [Monitor App Service instances using Health check](/azure/app-service/monitor-instances-health-check.md).
 
 
 ## Analyze monitoring data using Azure Monitor
@@ -111,15 +111,15 @@ Azure Monitor alerts proactively notify you when specific conditions are found i
 
 You can alert on any metric or log data source in the Azure Monitor data platform. There are different types of alerts depending on the services you're monitoring and the monitoring data you're collecting. See [Choose the right monitoring alert type](/azure/azure-monitor/alerts/alerts-types).
 
-This table provides a brief description of each alert type. For more information about each alert type and how to choose which alert type best suits your needs, see [Types of Azure Monitor alerts](alerts-types.md).
+This table provides a brief description of each alert type.
 
 |Alert type|Description|
 |:---------|:---------|
-|[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics, or Application Insights metrics. Metric alerts can also apply multiple conditions and dynamic thresholds.|
-|[Log search alerts](alerts-types.md#log-alerts)|Log search alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
-|[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. Resource Health alerts and Service Health alerts are activity log alerts that report on your service and resource health.|
-|[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
-|[Prometheus alerts](alerts-types.md#prometheus-alerts)|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language.|
+|[Metric alerts](/azure/azure-monitor/alerts/alerts-types#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics, or Application Insights metrics. Metric alerts can also apply multiple conditions and dynamic thresholds.|
+|[Log search alerts](/azure/azure-monitor/alerts/alerts-types.md#log-alerts)|Log search alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
+|[Activity log alerts](/azure/azure-monitor/alerts/alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. Resource Health alerts and Service Health alerts are activity log alerts that report on your service and resource health.|
+|[Smart detection alerts](/azure/azure-monitor/alerts/alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
+|[Prometheus alerts](/azure/azure-monitor/alerts/alerts-types.md#prometheus-alerts)|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language.|
 
 For examples of common alerts for Azure resources, see [Sample log alert queries](/azure/azure-monitor/alerts/alerts-log-alert-query-samples).
 
@@ -152,5 +152,5 @@ For more information on Azure Advisor, see [Azure Advisor overview](/azure/advis
 
 ## Related content
 
-- See [App Service monitoring data reference](/azure/app-service/monitor-app-service-reference.md) for a reference of the metrics, logs, and other important values created for App Service.
+- See [App Service monitoring data reference](/azure/app-service/monitor-app-service-reference) for a reference of the metrics, logs, and other important values created for App Service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
