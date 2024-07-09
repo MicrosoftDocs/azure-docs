@@ -33,7 +33,7 @@ To achieve geo-replication in non-paired regions:
 
 ## Azure Database for MySQL 
 
-Choose [any supported Azure region](../mysql/flexible-server/overview#azure-regions) to spin up your [read replicas](../mysql/flexible-server/concepts-read-replicas#cross-region-replication.md).
+Choose [any supported Azure region](/azure/mysql/flexible-server/overview#azure-regions) to spin up your [read replicas](/azure/mysql/flexible-server/concepts-read-replicas#cross-region-replication).
 
 
 ## Azure Database for PostgreSQL
@@ -106,12 +106,12 @@ To achieve geo-replication in non-paired regions, you can use:
 To achieve geo-replication in non-paired regions, 
 
 - For Azure Object Storage: 
-    - Tools such as [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](../data-factory/connector-azure-blob-storage?tabs=data-factory.md) are options that are supported for both Blob Storage and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
-    - [Azure Storage Object Replication](/azure/storage/blobs/object-replication-overview) for general-purpose v2 storage accounts and premium block blob accounts. Object replication isn't supported for [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
+    - Tools such as [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory.md) are options that are supported for both Blob Storage and [Azure Data Lake Storage](../storage/blobs/data-lake-storage-best-practices.md).
+    - [Azure Storage Object Replication](../storage/blobs/object-replication-overview.md) for general-purpose v2 storage accounts and premium block blob accounts. Object replication isn't supported for [Azure Data Lake Storage](../storage/blobs/data-lake-storage-best-practices.md).
 - For Azure NetApp Files (ANF): 
     - [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction) cross-region replication, you replicate to a set of non-standard pairs besides Azure region pairs.
 - For Azure Files:  
-    - [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md), [Azure PowerShell](/powershell/module/az.storage/?view=azps-12.0.0) or [Azure Data Factory](../data-factory/connector-azure-blob-storage?tabs=data-factory.md) to copy your files to another storage account in a different region. 
+    - [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md), [Azure PowerShell](/powershell/module/az.storage/?view=azps-12.0.0&preserve-view=true) or [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory) to copy your files to another storage account in a different region. 
      
     For a sample script, see [Sync between two Azure file shares for Backup and Disaster Recovery](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR).
 - [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
