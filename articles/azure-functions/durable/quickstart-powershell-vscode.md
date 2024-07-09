@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create your first durable function in Azure by using PowerShell"
-description: Create and publish an Azure durable function by using PowerShell in Visual Studio Code.
+title: "Quickstart: Create your first PowerShell durable function"
+description: Create and publish a PowerShell durable function in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 06/22/2022
@@ -9,13 +9,13 @@ ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
-# Quickstart: Create your first durable function by using PowerShell
+# Quickstart: Create your first PowerShell durable function
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. You then publish the function code to Azure.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. These tools are available as part of the Visual Studio Code extension.
 
-![Running durable function in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Running a durable function in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## Prerequisites
 
@@ -37,24 +37,24 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. In the search box at the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-    ![Create a function.](media/quickstart-js-vscode/functions-create-project.png)
+    ![Screenshot that shows the Create a function command.](media/quickstart-js-vscode/functions-create-project.png)
 
-1. Choose an empty folder location for your project and choose **Select**.
+1. Go to a folder to use for your project and choose **Select**.
 
-1. Following the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a language for your function app project | PowerShell | Create a local PowerShell Functions project. |
-    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Select a template for your project's first function | Skip for now | |
-    | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
+    | **Select a language for your function app project** | Select **PowerShell**. | Creates a local PowerShell Functions project. |
+    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
+    | **Select a template for your project's first function** | Select **Skip for now**. | |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Reopens Visual Studio Code in the folder you selected. |
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A *package.json* file is also created in the root folder.
 
-### Configure function app to use PowerShell 7
+### Configure the function app to use PowerShell 7
 
 Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `~7`. If it's missing or if it's set to another value, update the contents of the file.
 
@@ -79,9 +79,9 @@ The most basic durable function app has three functions:
 
 ### Orchestrator function
 
-You use a template to create the durable function code in your project.
+Use a template to create the durable function code in your project.
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 
@@ -96,7 +96,7 @@ Next, you add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 
@@ -111,7 +111,7 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 
@@ -123,10 +123,10 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
 
 You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to check that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response that contains URLs that can be used to monitor and manage the new orchestration.
 
-You now have a Durable Functions app that you can run locally and deploy to Azure.
+You now have a durable function app that you can run locally and deploy to Azure.
 
 > [!NOTE]
-> The next version of the Durable Functions PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
+> The next version of the durable function PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
 
 ## Test the function locally
 
@@ -139,7 +139,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Create storage account](media/quickstart-js-vscode/functions-select-storage.png)
+    ![Screenshot that shows the Create storage account command.](media/quickstart-js-vscode/functions-select-storage.png)
 
 1. At the prompts, provide the following information to create a new storage account in Azure.
 
@@ -153,7 +153,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](media/quickstart-js-vscode/functions-f5.png)
+    ![Screenshot of Azure local output.](media/quickstart-js-vscode/functions-f5.png)
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 

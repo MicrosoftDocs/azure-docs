@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 > [!IMPORTANT]
 > Deploying to an existing function app always overwrites the contents of that app in Azure.
 
-1. At the command palette, enter and then select **Azure Functions: Deploy to Function App**.  
+1. In the command palette, enter and then select **Azure Functions: Deploy to Function App**.  
 
 1. Select the function app you just created. When prompted about overwriting previous deployments, select **Deploy** to deploy your function code to the new function app resource.
 

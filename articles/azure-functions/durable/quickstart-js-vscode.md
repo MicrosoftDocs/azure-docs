@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create your first durable function in Azure by using JavaScript"
-description: Create and publish an Azure durable function by using JavaScript in Visual Studio Code.
+ttitle: "Quickstart: Create your first JavaScript durable function"
+description: Create and publish a JavaScript durable function in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 02/13/2023
@@ -10,7 +10,7 @@ ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete
 zone_pivot_groups: functions-nodejs-model
 ---
 
-# Quickstart: Create your first durable function by using JavaScript
+# Quickstart: Create your first JavaScript durable function
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
@@ -70,37 +70,37 @@ To complete this quickstart, you need:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), search for and then select **Azure Functions: Create New Project**.
+1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
    :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot that shows the Visual Studio Code command palette with the command Azure Functions Create New Project highlighted.":::
 
-1. Select an empty folder location for your project, and then choose **Select**.
+2. Go to a folder to use for your project, and then choose **Select**.
 
 ::: zone pivot="nodejs-model-v3"
 
-1. Following the prompts, provide the following information:
+3. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a language for your function app project** | **JavaScript** | Creates a local Node.js Functions project. |
-    | **Select a JavaScript programming model** | **Model V3** | Sets the V3 programming model. |
-    | **Select a version** | **Azure Functions v4** | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
-    | **Select a template for your project's first function** | **Skip for now** | |
-    | **Select how you would like to open your project** | **Open in current window** | Reopens Visual Studio Code in the folder you selected. |
+    | **Select a language for your function app project** | Select **JavaScript**. | Creates a local Node.js Functions project. |
+    | **Select a JavaScript programming model** | Select **Model V3**. | Sets the V3 programming model. |
+    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
+    | **Select a template for your project's first function** | Select **Skip for now**. | |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Reopens Visual Studio Code in the folder you selected. |
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-1. Following the prompts, provide the following information:
+3. At the prompts, provide the following information:
 
-    | Prompt | Value | Description |
+    | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a language for your function app project** | **JavaScript** | Creates a local Node.js Functions project. |
-    | **Select a JavaScript programming model** | **Model V4** | Choose the V4 programming model. |
-      | **Select a version** | **Azure Functions v4** | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
-    | **Select a template for your project's first function** | **Skip for now** | |
-    | **Select how you would like to open your project** | **Open in current window** | Reopens Visual Studio Code in the folder you selected. |
+    | **Select a language for your function app project** | Select **JavaScript**. | Creates a local Node.js Functions project. |
+    | **Select a JavaScript programming model** | Select **Model V4**. | Choose the V4 programming model. |
+      | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
+    | **Select a template for your project's first function** | Select **Skip for now**. | |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Reopens Visual Studio Code in the folder you selected. |
 
 ::: zone-end
 
@@ -122,13 +122,13 @@ To use the V4 programming model, you install the preview v3.x version of the *du
 
 ::: zone pivot="nodejs-model-v3"
 
-1. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
+2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-1. Install the durable-functions npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
+2. Install the durable-functions npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
 
 ::: zone-end
 
@@ -146,9 +146,9 @@ The most basic durable function app has three functions:
 
 You use a template to create the durable function code in your project.
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. At the prompts, provide the following information:
+2. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -162,9 +162,9 @@ Next, add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. At the prompts, provide the following information:
+2. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -177,9 +177,9 @@ Finally, add an HTTP-triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. At the prompts, provide the following information:
+2. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -197,9 +197,9 @@ You now have a durable function app that you can run locally and deploy to Azure
 
 One of the benefits of the V4 programming model is the flexibility of where you write your functions. In the V4 model, you can use a single template to create all three functions in one file in your project.
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. Following the prompts, provide the following information:
+2. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -238,11 +238,11 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
  > [!NOTE]
  > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
+2. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Screenshot of a Visual Studio Code alert window. The window says "In order to debug, you must select a storage account for internal use by the Azure Functions runtime." The button titled "Select storage account" is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
+    ![Screenshot of a Visual Studio Code alert window. The button titled Select storage account is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
 
-1. Following the prompts, provide the following information to create a new storage account in Azure.
+3. At the prompts, provide the following information to create a new storage account in Azure:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -252,25 +252,25 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     | Select a resource group | *unique name* | Name of the resource group to create |
     | Select a location | *region* | Select a region close to you |
 
-1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
+4. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Screenshot of the Visual Studio code terminal panel. The terminal shows the output of running an Durable Functions app locally. The table titled "terminal" and the URL of the HTTP starter function are highlighted.](media/quickstart-js-vscode/functions-f5.png)
+    ![Screenshot of the Visual Studio code terminal panel. The terminal shows the output of running an Durable Functions app locally.](media/quickstart-js-vscode/functions-f5.png)
 
 ::: zone pivot="nodejs-model-v3"
 
-1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+5. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
+5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
 
 ::: zone-end
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
     The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
 
@@ -316,7 +316,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     ::: zone-end
 
-1. In Visual Studio Code, select Shift+F5 to stop debugging.
+7. In Visual Studio Code, select Shift+F5 to stop debugging.
 
 After you verify that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -350,7 +350,7 @@ After you verify that the function runs correctly on your local computer, it's t
 
 ::: zone-end
 
-1. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
+2. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
 The JavaScript durable function app that you created and published in Visual Studio Code is ready to use.
 

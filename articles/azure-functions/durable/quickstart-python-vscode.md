@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create your first durable function in Azure by using Python"
-description: Create and publish an Azure durable function by using Python in Visual Studio Code.
+title: "Quickstart: Create your first Python durable function"
+description: Create and publish a Python durable function in Azure Functions by using Visual Studio Code.
 author: davidmrdavid
 ms.topic: quickstart
 ms.date: 06/15/2022
@@ -10,7 +10,7 @@ ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx
 zone_pivot_groups: python-mode-functions
 ---
 
-# Quickstart: Create your first durable function by using Python
+# Quickstart: Create your first Python durable function
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
@@ -42,11 +42,11 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of Create function window.":::
 
-1. Choose an empty folder location for your project and choose **Select**.
+2. Choose an empty folder location for your project and choose **Select**.
 
 ::: zone pivot="python-mode-configuration"
 
-1. At the prompts, provide the following information:
+3. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -60,7 +60,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 ::: zone pivot="python-mode-decorators"
 
-1. At the prompts, provide the following information:
+3. At the prompts, provide the following information:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -130,7 +130,7 @@ The most basic durable function app has three functions:
 
 You use a template to create the durable function code in your project.
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 
@@ -145,7 +145,7 @@ Next, you add the referenced `Hello` activity function.
 
 ### Activity function
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 
@@ -160,7 +160,7 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, search for and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 

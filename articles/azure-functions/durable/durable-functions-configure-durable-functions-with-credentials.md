@@ -130,7 +130,7 @@ To add the roles:
 
    ![Screenshot of the access control pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png)
 
-1. Choose the required role, select **Next**, and then search for your application. Review the role, and then add the role.
+1. Select the required role, select **Next**, and then search for your application. Review the role, and then add the role.
 
    ![Screenshot of the role assignment pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png)
 
