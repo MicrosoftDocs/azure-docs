@@ -85,7 +85,7 @@ x01dev01c01w01  True          Succeeded            Provisioned       The OS is p
 x01dev01c01w01  False         Failed               Preparing         Preparing for provisioning of the machine  Off           platform.afo-nc.microsoft.com/compute-plane=true  2024-05-03T15:12:48.0934793Z
 ```
 
-## BareMetal Machine Details
+## BareMetal Machine details
 To show details and status of a single BMM:
 ```azurecli
 az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME
