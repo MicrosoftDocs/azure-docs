@@ -53,9 +53,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
 
-        - DVDs: First burn the software to the DVD as an image.
-
-        Your physical media must have a minimum of 4-GB storage.
+        - DVDs: First burn the software to the DVD as an image. Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
