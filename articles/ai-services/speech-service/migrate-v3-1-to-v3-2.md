@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 6/6/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -17,14 +17,13 @@ ms.custom: devx-track-csharp
 The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). This article describes changes from version 3.1 to 3.2.
 
 > [!IMPORTANT]
-> Speech to text REST API v3.2 is available in preview. 
-> [Speech to text REST API](rest-speech-to-text.md) v3.1 is generally available. 
-> Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
-
+> Speech to text REST API v3.2 is the latest version that's generally available. Preview versions *3.2-preview.1* and *3*.2-preview.2* will be removed in September 2024.
+> [Speech to text REST API](rest-speech-to-text.md) v3.1 will be retired on a date to be announced.
+> Speech to text REST API v3.0 will be retired on April 1st, 2026. 
 
 ## Base path
 
-You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
+You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
 
 For more information, see [Operation IDs](#operation-ids) later in this guide.
 
@@ -292,12 +291,10 @@ Added a new `copy` property.
 
 ## Operation IDs
 
-You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2-preview.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
+You must update the base path in your code from `/speechtotext/v3.1` to `/speechtotext/v3.2`. For example, to get base models in the `eastus` region, use `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base` instead of `https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base`.
 
 
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.2 (preview)](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2-preview.2&preserve-view=true)
-* [Speech to text REST API v3.1 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1&preserve-view=true)
-* [Speech to text REST API v3.0 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0&preserve-view=true)
+* [Speech to text REST API v3.2 reference](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true)

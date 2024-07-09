@@ -30,8 +30,11 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 ## Create a role assignment in Azure Storage
 
 1. Sign in to Azure portal and find your storage account.
+
 1. Select **Access control (IAM)**.
+
 1. Select **Add** and then select **Role assignment**.
+
 1. From the list of job function roles, select the roles needed for your search service:
 
    | Task | Role assignment |
@@ -45,8 +48,11 @@ You can use a system-assigned managed identity or a user-assigned managed identi
    | Save debug session state | Add **Storage Blob Data Contributor**  |
 
 1. Select **Next**.
+
 1. Select **Managed identity** and then select **Members**.
-1. Filter by system-assigned managed identities or user-assigned managed identities. If you don't have a managed identity, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
+
+1. Filter by system-assigned managed identities or user-assigned managed identities. You should see the managed identity that you previously created for your search service. If you don't have one, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
+
 1. Select the identity and save the role assignment.
 
 ## Specify a managed identity in a connection string
@@ -85,7 +91,7 @@ POST https://[service name].search.windows.net/datasources?api-version=2023-11-0
 
 You must have a [user-assigned managed identity already configured](search-howto-managed-identities-data-sources.md) and associated with your search service, and the identity must have a role-assignment on Azure Storage. 
 
-Connections made through user-assigned managed identities use the same credentials as a system-assigned managed identity, plus an extra identity property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set `userAssignedIdentity` to the user-assigned managed identity..
+Connections made through user-assigned managed identities use the same credentials as a system-assigned managed identity, plus an extra identity property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set `userAssignedIdentity` to the user-assigned managed identity.
 
 Provide a `ResourceId` that has no account key or password. The `ResourceId` must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
 

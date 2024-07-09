@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 06/12/2024
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -228,6 +228,11 @@ sections:
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
           See the [limitations](./concepts/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision concepts guide.
+      - question: |
+          I keep getting truncated responses when I use GPT-4 Turbo vision models. Why is this happening?
+        answer:
+          By default GPT-4 `vision-preview` and GPT-4 `turbo-2024-04-09` have a `max_tokens` value of 16. Depending on your request this value is often too low and can lead to truncated responses. To resolve this issue, pass a larger `max_tokens` value as part of your chat completions API requests. GPT-4o defaults to 4096 max_tokens.
+
   - name: Assistants
     questions:
       - question: |

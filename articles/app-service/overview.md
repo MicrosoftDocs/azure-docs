@@ -60,6 +60,10 @@ If you need to create another web app with an outdated runtime version that is n
 * The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
 * When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
 
+## App Service Environments
+
+An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service offering where supporting ingfrastructure is shared, compute is dedicated to a single customer with App Service Environment. For more information on the differences between App Service Environment and App Service, see the [comparison](./environment/ase-multi-tenant-comparison.md).
+
 ## Next steps
 
 Create your first web app.

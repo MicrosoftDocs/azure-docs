@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-services
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 06/13/2024
 ms.author: aahi
 ---
 
@@ -573,7 +573,10 @@ You can grant a subset of trusted Azure services access to Azure OpenAI, while m
 |Azure AI Search     | `Microsoft.Search`         |
 
 
-You can grant networking access to trusted Azure services by creating a network rule exception using the REST API:
+You can grant networking access to trusted Azure services by creating a network rule exception using the REST API or Azure portal:
+
+### Using the Azure CLI
+
 ```bash
 
 accessToken=$(az account get-access-token --resource https://management.azure.com --query "accessToken" --output tsv)
@@ -595,9 +598,6 @@ curl -i -X PATCH https://management.azure.com$rid?api-version=2023-10-01-preview
 '
 ```
 
-> [!NOTE]
-> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
-
 To revoke the exception, set `networkAcls.bypass` to `None`. 
 
 To verify if the trusted service has been enabled from the Azure portal, 
@@ -609,6 +609,16 @@ To verify if the trusted service has been enabled from the Azure portal,
 1.  Choose your latest API version under **API versions**. Only the latest API version is supported, `2023-10-01-preview` .
 
     :::image type="content" source="media/vnet/virtual-network-trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/vnet/virtual-network-trusted-service.png":::
+
+### Using the Azure portal
+
+1. Navigate to your Azure OpenAI resource, and select **Networking** from the navigation menu. 
+1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this cognitive services account.**
+    > [!TIP]
+    > You can view the **Exceptions** option by selecting either **Selected networks and private endpoints** or **Disabled** under **Allow access from**.    
+
+    :::image type="content" source="media/vnet/toggle-trusted-service.png" alt-text="A screenshot showing the networking settings for a resource in the Azure portal." lightbox="media/vnet/toggle-trusted-service.png":::
+***
 
 ### Pricing
 

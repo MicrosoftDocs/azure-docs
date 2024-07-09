@@ -32,15 +32,10 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 - Allows you to load resources in a nonsequential order of versions.
  
   - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in the FHIR service.
-
   - If import files have resources with duplicate `version` and `lastUpdated` field values, only one resource is randomly ingested in the FHIR service.
+  - If multiple resources share the same resource ID, only one of those resources is imported at random. An error is logged for the resources that share the same resource ID.
 
 - Allows you to ingest soft-deleted resources. This capability is beneficial when you migrate from Azure API for FHIR to the FHIR service in Azure Health Data Services.
-
-> [!IMPORTANT]
-> The `import` operation doesn't support conditional references in resources.
->
-> Also, if multiple resources share the same resource ID, only one of those resources is imported at random. An error is logged for the resources that share the same resource ID.
 
 This table shows the difference between import modes.
 
@@ -56,9 +51,9 @@ This table shows the difference between import modes.
 
 To achieve the best performance with the `import` operation, consider these factors:
 
-- **Use large files for import**. The file size of a single `import` operation should be more than 200 MB. Smaller files might result in slower import times.
+- **Use large files for import**. The optimal NDJSON file size for import is >=50MB (or >=20K resources, no upper limit). Consider combining smaller files together.
 
-- **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. The combined total size of all the files in a single import should be greater than 100 GB or 100 M resources. 
+- **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. For optimal performance total size of files in single import should be large (>=100GB or >=100M resources, no upper limit).
 
 - **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but running multiple jobs might affect the overall throughput of the `import` operation. 
 
@@ -119,7 +114,7 @@ Content-Type:application/fhir+json
                 },
                 {
                     "name": "etag",
-                    "valueUri": "0x8D92A7342657F4F"
+                    "valueUri": "\"0x8D92A7342657F4F\""
                 }
             ]
         }
@@ -291,6 +286,8 @@ Here are the error messages that occur if the `import` operation fails, along wi
 ## Limitations
 - The maximum number of files allowed for each `import` operation is 10,000.
 - The number of files ingested in the FHIR server with same lastUpdated field value upto milliseconds can't exceed beyond 10,000.
+- Import operation is not supported for SearchParameter resource type.
+- The import operation doesn't support conditional references in resources.
 
 ## Next steps
 

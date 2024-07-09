@@ -15,7 +15,7 @@ Operator Nexus instances are deployed at the customer premises. Each instance
 comprises one or more racks of bare metal servers.
 
 When a user creates a Nexus Kubernetes Cluster (NKS), they specify a count and
-a [stock keeping unit](./reference-nexus-kubernetes-cluster-sku.md) (SKU) for
+a [stock keeping unit (SKU)](./reference-nexus-kubernetes-cluster-sku.md) for
 virtual machines (VM) that make up the Kubernetes Control Plane and one or more
 Agent Pools. Agent Pools are the set of Worker Nodes on which a customer's
 containerized network functions run.
