@@ -1,6 +1,6 @@
 ---
 title: Identity
-description: Learn about Managed idenities in the Flexible Server deployment option for Azure Database for PostgreSQL - Flexible Server.
+description: Learn about Managed Idenities in the Flexible Server deployment option for Azure Database for PostgreSQL - Flexible Server.
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
@@ -36,7 +36,7 @@ There are two types of managed identities:
     - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is tied to the lifecycle of that Azure resource. When the Azure resource is deleted, Azure automatically deletes the service principal for you. 
     - By design, only that Azure resource can use this identity to request tokens from Microsoft Entra ID.
     - You authorize the managed identity to have access to one or more services.
-    - The name of the system-assigned service principal is always the same as the name of the Azure resource it is created for. 
+    - The name of the system-assigned service principal is always the same as the name of the Azure resource it's created for. 
     
 
 - **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:
@@ -48,7 +48,7 @@ There are two types of managed identities:
 
 ## How to enable System Assigned Managed Identity on your Flexible Server
 
-## Azure Portal
+## Azure portal
 
 Follow these steps to enable System Assigned Managed Identity on your Azure Database for PostgreSQL flexible server instance.
 
@@ -65,9 +65,9 @@ Follow these steps to enable System Assigned Managed Identity on your Azure Data
 5. A notification confirms that system assigned managed identity is enabled.
 
 
-## ARM  Template
+## ARM  template
 
-Please use below ARM template to enable system assigned managed identity. You can use the 2023-06-01-preview or the latest available API.
+Use below ARM template to enable system assigned managed identity. You can use the 2023-06-01-preview or the latest available API.
 
 ```json
 {
@@ -85,7 +85,7 @@ Please use below ARM template to enable system assigned managed identity. You ca
 }
   ```
 
-Please use below ARM template to disable system assigned managed identity
+Use below ARM template to disable system assigned managed identity
  
 ```json
 {
@@ -108,7 +108,7 @@ You can verify the managed identity created by going to **Enterprise Application
 
 1. Choose  **Application Type == Managed Identity**
 
-2. Provide your flexible server name in **Search by application name or Identity** as shown in below screenshot.
+2. Provide your flexible server name in **Search by application name or Identity** as shown in the screenshot.
 1. 
 ![Screenshot verifying system assigned managed identity.](./media/concepts-Identity/verify-managed-identity.png)
 
