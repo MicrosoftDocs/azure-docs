@@ -1,7 +1,7 @@
 ---
 title: Message Analysis with Azure OpenAI
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you learn how to enable message analysis with Azure OpenAI"
+description: "In this quickstart, you learn how to enable Message Analysis with Azure OpenAI"
 author: gelli
 manager: camilo.ramirez
 ms.author: gelli
@@ -33,31 +33,31 @@ Azure Communication Services now enables you to ...
      :::image type="content" source="./media/message-analysis/channels-page.png" lightbox="./media/message-analysis/channels-page.png" alt-text="Screenshot that shows the channels page.":::
    
 
-   - Click on the channel you would like to enable message analysis on and a channel details page should pop up.
+   - Click on the channel you would like to enable Message Analysis on and a channel details page should pop up.
 
      :::image type="content" source="./media/message-analysis/channel-details-list.png" lightbox="./media/message-analysis/channel-details-list.png" alt-text="Screenshot that shows the channel details page.":::
 
 
-   - Toggle on **Allow Message Analysis**, select one of the connected Azure OpenAI services and select the desired deployment model for the message analysis feature. Then click **Save** button.
+   - Toggle on **Allow Message Analysis**, select one of the connected Azure OpenAI services and select the desired deployment model for the Message Analysis feature. Then click **Save** button.
 
-     :::image type="content" source="./media/message-analysis/enable-message-analysis.png" lightbox="./media/message-analysis/enable-message-analysis.png" alt-text="Screenshot that shows how to enable message analysis.":::
+     :::image type="content" source="./media/message-analysis/enable-message-analysis.png" lightbox="./media/message-analysis/enable-message-analysis.png" alt-text="Screenshot that shows how to enable Message Analysis.":::
 
 
-3. **Set Up Event Grid Subscription:**
+3. **Set up Event Grid subscription:**
    - Follow the instruction on [Handle Advanced Messaging events](../whatsapp/handle-advanced-messaging-events.md)
    - Create an Event Grid subscription for `advancedmessageanalysiscompleted` event.
       
-      :::image type="content" source="./media/message-analysis/create-event-subscription-message-analysis.png" lightbox="./media/message-analysis/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create message analysis event subscription properties.":::
+      :::image type="content" source="./media/message-analysis/create-event-subscription-message-analysis.png" lightbox="./media/message-analysis/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create Message Analysis event subscription properties.":::
       
-4. **See Message analysis in action**
+4. **See Message Analysis in action**
    - Send a message from WhatsApp Customer to Contoso business phone number.
    
       :::image type="content" source="./media/message-analysis/send-a-message.png" lightbox="./media/message-analysis/send-a-message.png" alt-text="Screenshot that shows sending a message from Customer to Contoso.":::
 
-5. **Receive the message analysis event**
-   - Receive the message analysis event in the Event Grid Viewer that has been set up in Step 3.
+5. **Receive the Message Analysis event**
+   - Receive the Message Analysis event in the Event Grid Viewer that has been set up in Step 3.
 
-      :::image type="content" source="./media/message-analysis/event-grid-viewer.png" lightbox="./media/message-analysis/event-grid-viewer.png" alt-text="Screenshot that shows message analysis event being received at Event Grid Viewer.":::
+      :::image type="content" source="./media/message-analysis/event-grid-viewer.png" lightbox="./media/message-analysis/event-grid-viewer.png" alt-text="Screenshot that shows Message Analysis event being received at Event Grid Viewer.":::
 
 ## Clean up resources
 
