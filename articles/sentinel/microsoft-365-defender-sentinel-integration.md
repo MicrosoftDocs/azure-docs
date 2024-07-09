@@ -116,8 +116,8 @@ When the Defender XDR connector is enabled, alerts created by Defender XDR-integ
 
 The exception to this process is Microsoft Defender for Cloud. Although its integration with Defender XDR means that you receive Defender for Cloud *incidents* through Defender XDR, you need to also have a Microsoft Defender for Cloud connector enabled in order to receive Defender for Cloud *alerts*. For the available options and more information, see the following articles:
 
-    - [Microsoft Defender for Cloud in the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud)
-    - [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md)
+- [Microsoft Defender for Cloud in the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud)
+- [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md)
 
 ### Avoiding duplicate incidents
 
