@@ -10,7 +10,7 @@ ms.author: anaharris
 ms.custom: references_regions
 ---
 
-# Cross-region replication for non-paired regions
+# Cross-region replication solutions for non-paired regions
 
 Some Azure services support cross-region replication to ensure business continuity and protect against data loss. These services make use of another secondary region that uses *cross-region replication*. Both the primary and secondary regions together form a [region pair](./cross-region-replication-azure.md#azure-paired-regions).
 
