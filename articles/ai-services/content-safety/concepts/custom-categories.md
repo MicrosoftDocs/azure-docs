@@ -22,10 +22,10 @@ There are multiple ways to define and use custom categories, which are detailed 
 
 | API        | Functionality   |
 | :--------- | :------------ |
-| [Customized categories (standard) API](#custom-categories-standard-api) | Use a customizable machine learning model to create, get, query, and delete a customized category. Or, list all your customized categories for further annotation tasks. |
+| [Custom categories (standard) API](#custom-categories-standard-api) | Use a customizable machine learning model to create, get, query, and delete a customized category. Or, list all your customized categories for further annotation tasks. |
 | [Custom categories (rapid) API](#custom-categories-rapid-api) | Use a large language model (LLM) to quickly learn specific content patterns in emerging content incidents. |
 
-### Customized categories (standard) API
+### Custom categories (standard) API
 
 The Custom categories (standard) API enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and use it to classify new content according to the learned categories. 
 
