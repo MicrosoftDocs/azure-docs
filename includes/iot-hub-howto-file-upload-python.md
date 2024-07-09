@@ -27,12 +27,11 @@ pip install azure.storage.blob
 
 ## Upload file from a device application
 
-Follow this procedure for uploading a file from a device to IoT Hub:
+Follow this procedure for uploading a file from a device to IoT hub:
 
-* Connect to IoT Hub
-* Get a SAS URI from IoT Hub
-* Upload the file to Azure storage
-* Notify IoT Hub that it completed the upload
+* Connect the client to IoT hub and get storage information
+* Upload the file to BloB Storage
+* Notify IoT hub of upload status
 
 ### Import statements
 
@@ -45,18 +44,18 @@ from azure.core.exceptions import AzureError
 from azure.storage.blob import BlobClient
 ```
 
-### Connect the client and get storage information
+### Connect the client to IoT hub and get storage information
 
-Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to connect to IoT Hub.
+Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to connect to IoT hub.
 
 For example:
 
 ```python
-CONNECTION_STRING = "[Device Connection String]"
+CONNECTION_STRING = "[IoT hub Connection String]"
 device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 ```
 
-Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client to an Azure IoT Hub.
+Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client to an Azure IoT hub.
 
 For example:
 
@@ -76,13 +75,14 @@ blob_name = os.path.basename(PATH_TO_FILE)
 storage_info = device_client.get_storage_info_for_blob(blob_name)
 ```
 
-### Upload the file to blob storage
+### Upload a file into Blob Storage
 
-Use [from_blob_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) to create a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) object from a blob URL.
+To upload a file into Blob Storage:
 
-Then call [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-upload-blob) to upload the file into the blob storage.
+* Use [from_blob_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) to create a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) object from a blob URL.
+* Call [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-upload-blob) to upload the file into the Blob Storage.
 
-This example function parses the passed `blob_info` structure passed to create a URL that it uses to initialize an [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). Then it calls `upload_blob` to upload the file into Azure blob storage.
+This example function parses the passed `blob_info` structure to create a URL that it uses to initialize an [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). Then it calls `upload_blob` to upload the file into Blob Storage.
 
 ```python
 def store_blob(blob_info, file_name):
@@ -112,9 +112,9 @@ def store_blob(blob_info, file_name):
         return (False, ex)
 ```
 
-### Wait for upload status
+### Notify IoT hub of upload status
 
-Use [notify_blob_upload_status](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-notify-blob-upload-status) to notify IoT Hub of the status of the blob storage operation. Pass the `correlation_id` obtained by the `get_storage_info_for_blob` method. The `correlation_id` is used by IoT Hub to notify any service that might be listening for a notification regarding the status of the file upload task.
+Use [notify_blob_upload_status](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-notify-blob-upload-status) to notify IoT hub of the status of the Blob Storage operation. Pass the `correlation_id` obtained by the `get_storage_info_for_blob` method. The `correlation_id` is used by IoT Hub to notify any service that might be listening for a notification regarding the status of the file upload task.
 
 For example:
 
@@ -124,16 +124,15 @@ device_client.notify_blob_upload_status(storage_info["correlationId"], True, 200
 
 ### Shut down the device client
 
-Shut down the client for graceful exit. Once this method is called, any attempts at further client calls result in a [ClientError](/python/api/azure-iot-device/azure.iot.device.exceptions.clienterror) being raised.
+Shut down the client. Once this method is called, any attempts at further client calls result in a [ClientError](/python/api/azure-iot-device/azure.iot.device.exceptions.clienterror) being raised.
 
 ```python
-    # Graceful exit
-    device_client.shutdown()
+device_client.shutdown()
 ```
 
 ### Error handling example
 
-This example shows a function that contains the previous steps with error handling logic.
+This example shows a function that contains the previous steps including error handling logic.
 
 ```python
 def run_sample(device_client):

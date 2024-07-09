@@ -13,10 +13,14 @@ ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 
 ## Upload a file from a device
 
-There are two SDK classes that are used to upload files to IoT Hub.
+Follow this procedure for uploading a file from a device to IoT Hub:
 
-* The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class contains methods that a device can use to upload files to IoT Hub.
-* The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class contains methods that services can use to receive file upload notification.
+* Connect to IoT Hub
+* Get a SAS URI from IoT Hub
+* Upload the file to Azure Storage
+* Send file upload status notification to IoT Hub
+
+The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class contains methods that a device can use to upload files to IoT Hub.
 
 ### Connection protocol
 
@@ -35,16 +39,16 @@ String connString = "Your device connection string here";
 DeviceClient client = new DeviceClient(connString, protocol);
 ```
 
-### Retrieve the SAS URI from Iot Hub
+### Get a SAS URI from Iot Hub
 
 Call [getFileUploadSasUri](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-getfileuploadsasuri(com-microsoft-azure-sdk-iot-deps-serializer-fileuploadsasurirequest)) to obtain a [FileUploadSasUriResponse](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadsasuriresponse) object.
 
-FileUploadSasUriResponse includes these methods, which are passed to file upload methods. The Blob URI (SAS URI) is used to upload a file to blob storage.
+`FileUploadSasUriResponse` includes these methods and return values. The return values can be passed to file upload methods.
 
-* Correlation ID - `getCorrelationId())`
-* Container name - `getContainerName())`
-* Blob name - `getBlobName())`
-* Blob Uri - `getBlobUri())`
+* `getCorrelationId())` - Correlation ID
+* `getContainerName())` - Container name
+* `getBlobName())` - Blob name
+* `getBlobUri())` - Blob URI
 
 For example:
 
@@ -58,7 +62,7 @@ System.out.println("Blob name: " + sasUriResponse.getBlobName());
 System.out.println("Blob Uri: " + sasUriResponse.getBlobUri());
 ```
 
-### Upload the file
+### Upload the file to Azure Storage
 
 Pass the blob URI endpoint to [BlobClientBuilder](/java/api/com.azure.storage.blob.blobclientbuilder?#com-azure-storage-blob-blobclientbuilder-buildclient()) to create the [BlobClient](/java/api/com.azure.storage.blob.blobclient) object.
 
@@ -77,6 +81,8 @@ blobClient.uploadFromFile(fullFileName);
 ```
 
 ## Send file upload status notification to IoT Hub
+
+Send an upload status notification to IoT hub after a file upload attempt.
 
 Create a [FileUploadCompletionNotification](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadcompletionnotification?#com-microsoft-azure-sdk-iot-deps-serializer-fileuploadcompletionnotification-fileuploadcompletionnotification(java-lang-string-java-lang-boolean)) object. Pass the `correlationId` and `isSuccess` file upload success status. Pass an `isSuccess` `true` value when file upload was successful, `false` when not.
 
@@ -97,6 +103,50 @@ Free the `client` resources.
 client.closeNow();
 ```
 
-### Samples
+## Receive a file upload notification
+
+You can create an application to receive file upload notifications.
+
+The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
+
+### Connect the client to IoT hub
+
+Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` protocol.
+
+Call `createFromConnectionString` to connect to IoT hub.
+
+```java
+private static final String connectionString = "{Your service connection string here}";
+private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
+ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, protocol);
+```
+
+### Check for file upload status
+
+```java
+FileUploadNotificationReceiver receiver = sc.getFileUploadNotificationReceiver();
+receiver.open();
+FileUploadNotification fileUploadNotification = receiver.receive(2000);
+
+if (fileUploadNotification != null)
+{
+    System.out.println("File Upload notification received");
+    System.out.println("Device Id : " + fileUploadNotification.getDeviceId());
+    System.out.println("Blob Uri: " + fileUploadNotification.getBlobUri());
+    System.out.println("Blob Name: " + fileUploadNotification.getBlobName());
+    System.out.println("Last Updated : " + fileUploadNotification.getLastUpdatedTimeDate());
+    System.out.println("Blob Size (Bytes): " + fileUploadNotification.getBlobSizeInBytes());
+    System.out.println("Enqueued Time: " + fileUploadNotification.getEnqueuedTimeUtcDate());
+}
+else
+{
+    System.out.println("No file upload notification");
+}
+
+// Close the receiver object
+receiver.close();
+```
+
+## Samples
 
 There are two Java file upload [samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot).

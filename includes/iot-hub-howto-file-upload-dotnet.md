@@ -20,10 +20,7 @@ Follow this procedure for uploading a file from a device to IoT Hub:
 * Upload the file to Azure storage
 * Notify IoT Hub that it completed the upload
 
-There are two SDK classes that are used to upload files to IoT Hub.
-
-* The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class contains methods that a device can use to upload files to IoT Hub.
-* The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class contains methods that services can use to receive file upload notification.
+The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class contains methods that a device can use to upload files to IoT Hub.
 
 ### Connect to IoT Hub
 
@@ -95,7 +92,7 @@ await _deviceClient.CompleteFileUploadAsync(successfulFileUploadCompletionNotifi
 
 ## Receive a file upload notification in a backend application
 
-This section describes how to receive file upload notification messages from IoT Hub.
+You can create a backend service to receive file upload notification messages from IoT Hub.
 
 ### Instantiate the service client
 
@@ -115,7 +112,15 @@ serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 
 ### Receive the file upload notification
 
-Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver. Then use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
+You can create a separate backend service to receive file upload notifications.
+
+The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class contains methods that services can use to receive file upload notification.
+
+To receive file upload notification:
+
+* Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?view=azure-dotnet&branch=main#azure-core-httpmessage-cancellationtoken).
+* Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
+* Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
 
 ```csharp
 // Define the cancellation token.
@@ -138,4 +143,4 @@ while (true)
 
 ### Sample
 
-The SDK includes one [sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
+The SDK includes this [sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
