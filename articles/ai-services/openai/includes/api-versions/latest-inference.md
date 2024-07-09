@@ -2159,3 +2159,15 @@ The image url or encoded image if successful, and an error otherwise.
 | content_filter_results | [dalleContentFilterResults](#dallecontentfilterresults) | Information about the content filtering results. | No |  |
 | revised_prompt | string | The prompt that was used to generate the image, if there was any revision to the prompt. | No |  |
 | prompt_filter_results | [dalleFilterResults](#dallefilterresults) | Information about the content filtering category (hate, sexual, violence, self_harm), if it has been detected, as well as the severity level (very_low, low, medium, high-scale that determines the intensity and risk level of harmful content) and if it has been filtered or not. Information about jailbreak content and profanity, if it has been detected, and if it has been filtered or not. And information about customer blocklist, if it has been filtered and its id. | No |  |
+
+### completions extensions
+
+Completions extensions are not part of the latest GA version of the Azure OpenAI data plane inference spec.
+
+### chat message
+
+The Chat message object is not part of the latest GA version of the Azure OpenAI data plane inference spec.
+
+### Text to speech
+
+Is not currently part of the latest Azure OpenAI GA verson of the Azure OpenAI data plane inference spec. Refer to the latest [preview](latest-inference-preview.md#speech---create) version for this capability.

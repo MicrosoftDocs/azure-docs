@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-# Azure OpenAI Service REST API reference
+# Azure OpenAI Service REST API preview reference
 
 This article provides details on the inference REST API endpoints for Azure OpenAI.
 
