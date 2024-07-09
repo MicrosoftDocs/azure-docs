@@ -498,33 +498,43 @@ items:
       items:
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Cost estimation deep dive
-        href: blob-storage-cost-deep-dive.md
-      - name: Azure Storage reserved capacity
-        href: storage-blob-reserved-capacity.md
-      - name: Map each REST operation to a price
-        href: map-rest-apis-transaction-categories.md
-      - name: Estimate the cost of AzCopy transfers
-        href: azcopy-cost-estimation.md
-      - name: Estimate the cost to archive data
-        href: archive-cost-estimation.md
-    - name: Access tiers
-      href: access-tiers-overview.md
-      items:
-      - name: Best practices
-        href: access-tiers-best-practices.md
-      - name: Change a blob's access tier
-        href: access-tiers-online-manage.md
-      - name: Archive and rehydrate
+      - name: Find prices
         items:
-        - name: Blob rehydration overview
-          href: archive-rehydrate-overview.md
-        - name: Archive blobs
-          href: archive-blob.md
-        - name: Rehydrate blobs
-          href: archive-rehydrate-to-online-tier.md
-        - name: Handle an event on blob rehydration
-          href: archive-rehydrate-handle-event.md
+         - name: Azure Blob Storage prices
+           href: https://azure.microsoft.com/pricing/details/storage/blobs/
+         - name: Azure Data Lake Storage prices
+           href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+         - name: Map each REST operation to a price
+           href: map-rest-apis-transaction-categories.md
+      - name: Estimate costs
+        items:
+        - name: Estimate the cost of Azure Blob Storage
+          href: blob-storage-estimate-costs.md
+        - name: Estimate the cost of AzCopy transfers
+          href: azcopy-cost-estimation.md
+        - name: Estimate the cost to archive data
+          href: archive-cost-estimation.md
+      - name: Optimize costs
+        items:
+        - name: Access tiers
+          href: access-tiers-overview.md
+          items:
+          - name: Best practices
+            href: access-tiers-best-practices.md
+          - name: Change a blob's access tier
+            href: access-tiers-online-manage.md
+          - name: Archive and rehydrate
+            items:
+            - name: Blob rehydration overview
+              href: archive-rehydrate-overview.md
+            - name: Archive blobs
+              href: archive-blob.md
+            - name: Rehydrate blobs
+              href: archive-rehydrate-to-online-tier.md
+            - name: Handle an event on blob rehydration
+              href: archive-rehydrate-handle-event.md
+        - name: Azure Storage reserved capacity
+          href: storage-blob-reserved-capacity.md
     - name: Object replication
       items:
       - name: Object replication
