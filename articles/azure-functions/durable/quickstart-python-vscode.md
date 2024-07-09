@@ -81,40 +81,40 @@ When you create the project, the Azure Functions Visual Studio Code extension au
 
 1. Open the *requirements.txt* in the editor and change its content to the following code:
 
-    ```
+    ```txt
     azure-functions
     azure-functions-durable
     ```
 
-1. Open the editor's integrated terminal in the current folder (Ctrl+Shift+`).
+1. In the current folder, open the editor's integrated terminal (Ctrl+Shift+`).
 
-1. In the integrated terminal, activate the virtual environment in the current folder, depending on your operating system:
+1. In the integrated terminal, activate the virtual environment in the current folder, depending on your operating system.
 
 # [Linux](#tab/linux)
 
-    ```bash
-    source .venv/bin/activate
-    ```
+```bash
+source .venv/bin/activate
+```
 
 # [macOS](#tab/macos)
 
-    ```bash
-    source .venv/bin/activate
-    ```
+```bash
+source .venv/bin/activate
+```
 
 # [Windows](#tab/windows)
 
-    ```powershell
-    .venv\scripts\activate
-    ```
+```powershell
+.venv\scripts\activate
+```
 
-    ---
+---
 
-1. In the integrated terminal where the virtual environment is activated, use pip to install the packages you defined.
+Then, in the integrated terminal where the virtual environment is activated, use pip to install the packages you defined.
 
-    ```bash
-    python -m pip install -r requirements.txt
-    ```
+```bash
+python -m pip install -r requirements.txt
+```
 
 ## Create your functions
 
