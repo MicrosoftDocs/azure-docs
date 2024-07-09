@@ -18,7 +18,7 @@ This article describes:
 
 [Azure Monitor](/azure/azure-monitor/overview) collects and aggregates metrics and logs from every component of your system to monitor availability, performance, and resilience, and notify you of issues affecting your system. You can use the Azure portal, PowerShell, Azure CLI, REST API, or client libraries to set up and view monitoring data.
 
-Different metrics and logs are available for different resource types. Your service can be associated with more than one resource type. This table describes how you can collect data to monitor your service, and what you can do with the data once collected:
+Different metrics and logs are available for different resource types. This table describes how you can use Azure Monitor to collect data to monitor your service:
 
 |Data to collect  |Description|Collection Method  |Reference Information  |
 |---------|---------|---------|---------|
@@ -50,7 +50,7 @@ These Azure Monitor tools are available in the Azure portal to help you analyze 
 
 - The [activity log](/azure/azure-monitor/essentials/activity-log) has a user interface in the Azure portal for viewing and basic searches. To do more in-depth analysis, route the data to Azure Monitor logs and run more complex queries in Log Analytics.
 
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the availability, performance, and usage of your web applications, so you can identify and diagnose errors without waiting for a user to report them.</br>Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes. For more information, see [Application monitoring for App Service](/azure/azure-monitor/app/azure-web-apps). 
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the availability, performance, and usage of your web applications, so you can identify and diagnose errors without waiting for a user to report them. Application Insights includes connection points to various development tools and integrates with Visual Studio to support your DevOps processes. For more information, see [Application monitoring for App Service](/azure/azure-monitor/app/azure-web-apps). 
 
 Tools that allow more complex visualization include:
 
@@ -58,17 +58,6 @@ Tools that allow more complex visualization include:
 - [Workbooks](/azure/azure-monitor/visualize/workbooks-overview), customizable reports that you can create in the Azure portal. Workbooks can include text, metrics, and log queries.
 - [Grafana](/azure/azure-monitor/visualize/grafana-plugin), an open platform tool that excels in operational dashboards. You can use Grafana to create dashboards that include data from multiple sources other than Azure Monitor.
 - [Power BI](/azure/azure-monitor/logs/log-powerbi), a business analytics service that provides interactive visualizations across various data sources. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these visualizations.
-
-## Export Azure Monitor data
-
-You can get data out of Azure Monitor into other tools by using the following methods:
-
-- **Metrics:** Use the [REST API for metrics](/rest/api/monitor/operation-groups) to extract metric data from the Azure Monitor metrics database. For more information, see [Azure Monitor REST API reference](/rest/api/monitor/filter-syntax).
-
-- **Logs:** Use the REST API or the [associated client libraries](/rest/api/loganalytics/query/get?tabs=HTTP).
-- Another option is the [workspace data export](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
-
-To get started with the REST API for Azure Monitor, see [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough?tabs=portal).
 
 ## Use Kusto queries to analyze log data
 
@@ -143,6 +132,17 @@ The following table lists common and recommended alert rules for App Service.
 
 >[!NOTE]
 >If you're creating or running an application that runs on your service, [Azure Monitor application insights](/azure/azure-monitor/overview#application-insights) might offer more types of alerts.
+
+## Export Azure Monitor data to other tools
+
+You can get data out of Azure Monitor into other tools by using the following methods:
+
+- **Metrics:** Use the [REST API for metrics](/rest/api/monitor/operation-groups) to extract metric data from the Azure Monitor metrics database. For more information, see [Azure Monitor REST API reference](/rest/api/monitor/filter-syntax).
+
+- **Logs:** Use the REST API or the [associated client libraries](/rest/api/loganalytics/query/get?tabs=HTTP).
+- Another option is the [workspace data export](/azure/azure-monitor/logs/logs-data-export?tabs=portal).
+
+To get started with the REST API for Azure Monitor, see [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough?tabs=portal).
 
 ### Get personalized recommendations using Advisor
 
