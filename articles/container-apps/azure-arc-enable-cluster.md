@@ -44,7 +44,7 @@ Install the following Azure CLI extensions.
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
- add --name connectedk8s  --upgrade --yes
+az extension add --name connectedk8s --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
 az extension remove --name containerapp
