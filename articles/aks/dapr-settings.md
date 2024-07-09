@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli, linux-related-content
 ms.subservice: aks-developer
-ms.date: 04/01/2024
+ms.date: 07/09/2024
 ---
 
 # Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
@@ -370,8 +370,7 @@ properties: {
 
 The Dapr extension for AKS and Arc for Kubernetes requires the following outbound URLs on `https://:443` to function:
 1. `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts.
-2. `https://linuxgeneva-microsoft.azurecr.io/` URL for pulling some Dapr dependencies.
-3. The [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
+1. The [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 
