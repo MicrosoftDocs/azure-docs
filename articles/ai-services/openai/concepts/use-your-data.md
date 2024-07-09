@@ -611,7 +611,8 @@ Each user message can translate to multiple search queries, all of which get sen
 | Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | |  | 
 | UK South | ✅ | ✅ | |✅ |✅  |  |  | | | 
 | West US  |  |✅ | |✅|   |   | ✅ | | | 
-| US Gov Virginia |  || ||   | ✅  |   | ✅ | 
+| US Gov Virginia |  || ||   |   | ✅   | | ✅ | 
+
 \*\*This is a text-only implementation
 
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
