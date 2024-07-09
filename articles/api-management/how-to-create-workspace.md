@@ -36,8 +36,7 @@ Follow the steps in this article to:
         
         The subnet can't have another delegation configured.
 
-    > [!IMPORTANT]
-    > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace. 
+ [!INCLUDE [api-management-virtual-network-workspaces-alert](../../includes/api-management-virtual-network-workspaces-alert.md)]
 
 ## Create a workspace - portal
 
