@@ -37,7 +37,7 @@ You can also configure network isolation, replicate your workspace across region
 
 ## Kusto Query Language (KQL) and Log Analytics 
 
-You retrieve data from a Log Analytics workspace using a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query, which is a read-only request to process data and return results. KQL is a powerful tool that can analyze millions of records quickly, and helps you explore your logs, transform and aggregate data, discover patterns, identify anomalies and outliers, and more.  
+You retrieve data from a Log Analytics workspace using a [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) query, which is a read-only request to process data and return results. KQL is a powerful tool that can analyze millions of records quickly. Use KQL to explore your logs, transform and aggregate data, discover patterns, identify anomalies and outliers, and more.  
 
 Log Analytics is a tool in the Azure portal using which you can run log queries and analyze their results. [Log Analytics Simple mode](log-analytics-simple-mode.md) lets any user, regardless of their knowledge of KQL, retrieve data from one or more tables with one click. A set of controls lets you explore and analyze the retrieved data using the most popular Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience.
 
@@ -67,7 +67,7 @@ You can use one Log Analytics workspace to store any type of log required for an
 
 Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for.
 
-The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md). For information about how to select or modify a table plan, see [Select a table plan](logs-table-plans.md) 
+The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md). For information about how to select or modify a table plan, see [Select a table plan](logs-table-plans.md). 
 
 :::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
 
