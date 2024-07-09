@@ -19,11 +19,11 @@ The Dell PowerEdge R360 is also available for the on-premises management console
 
 The following image shows a view of the Dell PowerEdge R360 front panel:
 <!-- look up images -->
-:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-front-panel.png" alt-text="Picture of the Dell PowerEdge R350 front panel." border="false":::
+:::image type="content" source="../media/tutorial-install-components/r360-front.png" alt-text="Picture of the Dell PowerEdge R360 front panel." border="false":::
 
 The following image shows a view of the Dell PowerEdge R360 back panel:
 <!-- look up images -->
-:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-back-panel.png" alt-text="Picture of the Dell PowerEdge R350 back panel." border="false":::
+:::image type="content" source="../media/tutorial-install-components/r360-rear.png" alt-text="Picture of the Dell PowerEdge R360 back panel." border="false":::
 
 ## Specifications
 
