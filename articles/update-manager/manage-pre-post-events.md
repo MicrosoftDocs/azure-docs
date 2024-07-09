@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/08/2024
+ms.date: 07/09/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -12,7 +12,33 @@ author: SnehaSudhirG
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
-This article describes on how to manage pre and post events in Azure Update Manager.
+This article describes on how to register your subscription and manage pre and post events in Azure Update Manager.
+
+## Register your subscription for public preview
+
+To self-register your subscription for public preview, follow these steps:
+
+#### [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
+1. On the **All services** page, search for **Preview features**.
+1. On the **Preview Features** page, search and select **Pre and Post Events**.
+1. Select the feature and then select **Register** to register the subscription.
+   
+   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
+
+#### [Azure CLI](#tab/cli)
+
+```azurecli-interactive
+az feature register --name InGuestPatchPrePostMaintenanceActivity --namespace Microsoft.Maintenance
+```
+
+#### [PowerShell](#tab/ps)
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName "InGuestPatchPrePostMaintenanceActivity" -ProviderNamespace "Microsoft.Maintenance"
+```
+---
 
 ## Manage pre and post events
 
@@ -31,40 +57,12 @@ To view the pre and post events, follow these steps:
 
       :::image type="content" source="./media/manage-pre-post-events/view-events-inline.png" alt-text="Screenshot that shows how to view the pre and post events." lightbox="./media/manage-pre-post-events/view-events-expanded.png":::
 
-
 ### Edit pre and post events
 
 To edit the pre and post events, follow these steps:
-
-## Register your subscription for public preview
-
-To self-register your subscription for public preview, follow these steps:
-
-#### [Azure portal](#tab/portal)
-
-1. Follow all the steps listed under the [view pre and post events](#view-pre-and-post-events) section.
-2. In the selected **events** page, select the pre or post event you want to edit.
-
-
-   :::image type="content" source="./media/manage-pre-post-events/edit-pre-post-event.png" alt-text="Screenshot that shows how to edit a pre and post event." lightbox="./media/manage-pre-post-events/edit-pre-post-event.png"::: 
-
-#### [Azure CLI](#tab/cli)
-
-```azurecli-interactive
-az feature register --name InGuestPatchPrePostMaintenanceActivity --namespace Microsoft.Maintenance
-```
-
-#### [PowerShell](#tab/ps)
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName "InGuestPatchPrePostMaintenanceActivity" -ProviderNamespace "Microsoft.Maintenance"
-```
----
-
-## Timeline of schedules for pre and post events
-
-
-3. In the selected **pre or post event** page, you can edit the Event handler/endpoint used or the location of the endpoint.
+1. Follow the steps listed in [View pre and post events](#view-pre-and-post-events).
+1. In the selected **events** page, select the pre or post event you want to edit.
+1. In the selected **pre or post event** page, you can edit the Event handler/endpoint used or the location of the endpoint.
 
    :::image type="content" source="./media/manage-pre-post-events/edit-event-handler.png" alt-text="Screenshot that shows how to edit event handler." lightbox="./media/manage-pre-post-events/edit-event-handler.png"::: 
 
