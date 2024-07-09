@@ -148,15 +148,6 @@ sections:
           | :------------------- | :------------------- |
           | 400          | An Azure authentication error. This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON file. For more information, see [DefaultAzureCredential Class (Azure.Identity)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). |
           | 401          |  You aren't authenticated. Sign out and sign back in. |
-          | 403          | - Check Trusted Signing role. <br>     
-                           - Check Trusted Signing account name and Trusted Signing Certificate profile name in your metadata.json. <br>
-                          - Check dlib and dlib path. <br>
-                          - Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>
-                          - Check .Net version, dlib version, and Windows SDK version. <br>
-                          - Check if Trusted Signing role is assigned to the identity trying to sign the file. <br>
-                          - Check if the corresponding Identity Validation is in "Completed" state. <br>
-                          - Verify if you access the Trusted Signing endpoint from this VM or machine?Try executing the action on a different VM or machine. It can be a potential network issue. <br>
-                          - For Private Trust scenarios 403: The user object ID to do the signing is different than the user object ID to call the  Get-azCodeSigningRootCert. The appropriate object ID needs to have the role “Trusted Signing Certificate Profile Signer.|
           | 404          |  Ensure that no changes were made to your configuration or firewalls rules. |
           | "MsalUiRequiredException"           |  Typically occurs due to the local cache. The error resolves after the cache is refreshed from Azure. |
           | No certificates were found that met all the given criteria.         |  Check the dlib path, dlib version, dlib name, filename, and SignTool version. This error means that it's trying to pull certificates from your local machine and not by using Trusted Signing certificates. |
@@ -164,6 +155,15 @@ sections:
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | Azure.Identity.CredentialUnavailableException         |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity". |
+          | 403          | - Check Trusted Signing role.      
+                           - Check Trusted Signing account name and Trusted Signing Certificate profile name in your metadata.json. 
+                          - Check dlib and dlib path. 
+                          - Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170.
+                          - Check .NET version, dlib version, and Windows SDK version. 
+                          - Check if Trusted Signing role is assigned to the identity trying to sign the file. 
+                          - Check if the corresponding Identity Validation is in "Completed" state.
+                          - Verify if you access the Trusted Signing endpoint from this VM or machine?Try executing the action on a different VM or machine. It can be a potential network issue. 
+                          - For Private Trust scenarios 403: The user object ID to do the signing is different than the user object ID to call the  Get-azCodeSigningRootCert. The appropriate object ID needs to have the role “Trusted Signing Certificate Profile Signer.|
   - name: Cost Management and Billing
     questions:  
        - question: How do I view usage costs and billing information for Trusted Signing resources?
