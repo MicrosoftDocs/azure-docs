@@ -137,79 +137,79 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using API](#tab/api)
 
-1. Create a maintenance configuration by following the steps listed [here] (https://learn.microsoft.com/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
+1. Create a maintenance configuration by following the steps listed [here](https://learn.microsoft.com/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
 
 1. **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
-```rest
-PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>?api-version=2022-06-15
-```
- 
-Request Body:
-```
-{
-  "properties": {
-    "source": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenance configuration name> ",
-    "topicType": "Microsoft.Maintenance.MaintenanceConfigurations"
-  },
-  "location": "<location>"
-}
-```
-
-**# Event subscription creation [Learn more](/rest/api/eventgrid/controlplane/system-topic-event-subscriptions/create-or-update)**
-
-Allowed Event types - Microsoft.Maintenance.PreMaintenanceEvent, Microsoft.Maintenance.PostMaintenanceEvent
- 
-**Webhook**
- 
-```rest
-PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
-```
- 
-Request Body:
-
-```
-{
-  "properties": {
-    "destination": {
-      "endpointType": "WebHook",
+    ```rest
+    PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>?api-version=2022-06-15
+    ```
+     
+    Request Body:
+    ```
+    {
       "properties": {
-        "endpointUrl": "<Webhook URL>"
-      }
-    },
-    "filter": {
-      "includedEventTypes": [
-        "Microsoft.Maintenance.PreMaintenanceEvent"
-      ]
+        "source": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Maintenance/maintenanceConfigurations/<maintenance configuration name> ",
+        "topicType": "Microsoft.Maintenance.MaintenanceConfigurations"
+      },
+      "location": "<location>"
     }
-  }
-}
-```
-**Azure Function**
-
-```rest
-PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
-```
- 
-**Request Body**
-```
-{
-    "properties": {
+    ```
+    
+    **# Event subscription creation [Learn more](/rest/api/eventgrid/controlplane/system-topic-event-subscriptions/create-or-update)**
+    
+    Allowed Event types - Microsoft.Maintenance.PreMaintenanceEvent, Microsoft.Maintenance.PostMaintenanceEvent
+     
+    **Webhook**
+     
+    ```rest
+    PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
+    ```
+     
+    Request Body:
+    
+    ```
+    {
+      "properties": {
         "destination": {
-            "endpointType": "AzureFunction",
-            "properties": {
-                "resourceId": "<Azure Function Resource Id>"
-            }
+          "endpointType": "WebHook",
+          "properties": {
+            "endpointUrl": "<Webhook URL>"
+          }
+        },
+        "filter": {
+          "includedEventTypes": [
+            "Microsoft.Maintenance.PreMaintenanceEvent"
+          ]
         }
-    },
-    "filter": {
-        "includedEventTypes": [
-            "Microsoft.Maintenance.PostMaintenanceEvent"
-        ]
+      }
     }
-}
-```
----
+    ```
+    **Azure Function**
+    
+    ```rest
+    PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>/eventSubscriptions/<Event Subscription name>?api-version=2022-06-15
+    ```
+     
+    **Request Body**
+    ```
+    {
+        "properties": {
+            "destination": {
+                "endpointType": "AzureFunction",
+                "properties": {
+                    "resourceId": "<Azure Function Resource Id>"
+                }
+            }
+        },
+        "filter": {
+            "includedEventTypes": [
+                "Microsoft.Maintenance.PostMaintenanceEvent"
+            ]
+        }
+    }
+    ```
+   ---
 
 :::zone-end
 
