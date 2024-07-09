@@ -165,12 +165,12 @@ FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* lab
     az extension update --name aks-preview
     ```
 
-### Register the `UpdateFIPSPreview` feature flag
+### Register the `MutableFipsPreview` feature flag
 
-1. Register the `UpdateFIPSPreview` feature flag using the [`az feature register`][az-feature-register] command.
+1. Register the `MutableFipsPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
     ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "UpdateFIPSPreview"
+    az feature register --namespace "Microsoft.ContainerService" --name "MutableFipsPreview"
     ```
 
     It takes a few minutes for the status to show *Registered*.
@@ -178,7 +178,7 @@ FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* lab
 2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
     ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "UpdateFIPSPreview"
+    az feature show --namespace "Microsoft.ContainerService" --name "MutableFipsPreview"
     ```
 
 3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
