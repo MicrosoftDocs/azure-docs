@@ -24,7 +24,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 * The logic app resource and workflow where you want to set up mock outputs. This article uses a **Recurrence** trigger and **HTTP** action as an example workflow.
 
-  If you're new to logic apps, see [What is Azure Logic Apps](logic-apps-overview.md) and the following documentation:
+  If you're new to logic apps, see the following documentation:
 
   * [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
@@ -54,7 +54,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
    |---------------------|----------|-------------|
    | **Status** | Yes | The action status to return. <br><br>- If you select **Succeeded**, you must also select **Outputs** from the **Select Fields** list. <br><br>- If you select **Failed**, you must also select **Error** from the **Select Fields** list. |
    | **Code** | No | The specific code to return for the action |
-   | **Error** | Yes, when the **Status** is **Failed** | The error message and an optional code to return |
+   | **Error** | Yes, when the **Status** is **Failed** | The error message and an optional error code to return |
    | **Output** | Yes, when the **Status** is **Succeeded** | The status code, header content, and an optional body to return |
 
    The following example shows when **Status** is set to **Failed**, which requires that you select the **Error** field and provide values for the **Error Message** and **Error Code** properties:
@@ -89,7 +89,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
    |---------------------|----------|-------------|
    | **Status** | Yes | The action status to return. <br><br>- If you select **Succeeded**, you must also select **Outputs** from the **Select Fields** list. <br><br>- If you select **Failed**, you must also select **Error** from the **Select Fields** list. |
    | **Code** | No | The specific code to return for the action |
-   | **Error** | Yes, when the **Status** is **Failed** | The error message and an optional code to return |
+   | **Error** | Yes, when the **Status** is **Failed** | The error message and an optional error code to return |
    | **Output** | Yes, when the **Status** is **Succeeded** | The status code, header content, and an optional body to return |
 
    The following example shows when **Status** is set to **Failed**, which requires that you select the **Error** field and provide values for the **Error Message** and **Error Code** properties:
@@ -100,7 +100,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
    The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you've enabled static results.
 
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled-standard.png" alt-text="Screenshot shows Standard workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled-standard.png":::
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Standard workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png":::
 
    To find workflow runs that use mock outputs, see [Find runs that use static results](#find-runs-mock-data) later in this guide.
 
@@ -152,7 +152,7 @@ To find earlier or other workflow runs where the actions use mock outputs, revie
 
    On the run details pane, any actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
 
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result-standard.png" alt-text="Screenshot shows Standard workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result-standard.png":::
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Standard workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
 
 ---
 
@@ -160,7 +160,7 @@ To find earlier or other workflow runs where the actions use mock outputs, revie
 
 ## Reuse previous outputs as mock outputs
 
-If you have a previous workflow run with outputs, you can reuse these outputs as mock outputs by copying and pasting those outputs from that run.
+If you have a previous workflow run with outputs, you can reuse these outputs as mock outputs by copying and pasting the outputs from that run.
 
 ### [Consumption](#tab/consumption)
 
@@ -168,11 +168,13 @@ If you have a previous workflow run with outputs, you can reuse these outputs as
 
 1. On your logic app resource menu, select **Overview**.
 
-1. Under the **Essentials** section, select **Runs history**, if not selected. From the workflow runs list, select the workflow run that you want.
+1. Under the **Essentials** section, select **Runs history**, if not selected.
+
+1. From the **Runs history** list, select the run that has the outputs that you want to reuse.
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run.png" alt-text="Screenshot shows Consumption workflow run history." lightbox="media/test-logic-apps-mock-data-static-results/select-run.png":::
 
-1. After the run details pane opens, expand the action that has the outputs that you want.
+1. After the run details pane opens, select the action with the outputs that you want.
 
 1. In the **Outputs** section, select **Show raw outputs**.
 
@@ -180,57 +182,41 @@ If you have a previous workflow run with outputs, you can reuse these outputs as
 
 1. Review the earlier section about how to [set up mock outputs for an action](#set-up-mock-outputs), and follow the steps to open the action's **Testing** tab.
 
-1. After the **Testing** tab opens, choose either step:
+1. After the **Testing** tab opens, under **Testing**, open the **Select Fields** list, and select **Code**:
 
-   * To paste a complete JSON object, next to the **Testing** label, select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
+1. In the **Code** box that appears, paste your previously copied JSON, for example:
 
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste complete JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/code-box.png" alt-text="Screenshot shows Code box with pasted JSON." lightbox="media/test-logic-apps-mock-data-static-results/code-box.png":::
 
-   * To paste just a JSON section, next to that section's label, such as **Output** or **Headers**, select **Switch to JSON Mode**, for example:
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste a section from a JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output.png)
-
-1. In the JSON editor, paste your previously copied JSON.
-
-   ![Screenshot showing the pasted JSON in the editor.](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
-
-1. When you're finished, select **Done**. Or, to return to the designer, select **Switch Editor Mode** (![Icon for "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. When you're finished, select **Save**.
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
 1. On the workflow menu, select **Overview**.
 
-1. Under the **Essentials** section, select **Run History**, if not already selected.
+1. Under the **Essentials** section, select **Run History**, if not selected.
 
-1. In the **Run History** table, select the run that you want to review.
+1. In the **Run History** table, select the run that has the outputs that you want to reuse.
 
-   ![Screenshot showing the workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
 
-1. After the run details pane opens, select the action that has the outputs that you want.
+1. After the run details pane opens, select the action with the outputs that you want.
 
 1. In the **Outputs** section, select **Show raw outputs**.
 
-1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection you want to use, for example, the outputs section, or even just the headers section.
+1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection that you want to use, for example, the entire outputs section, or just the headers section.
 
 1. Review the earlier section about how to [set up mock outputs](#set-up-mock-outputs) for an action, and follow the steps to open the action's **Testing** tab.
 
-1. After the **Testing** tab opens, choose either step:
+1. After the **Testing** tab opens, under **Testing**, open the **Select Fields** list, and select **Code**:
 
-   * To paste a complete JSON object, next to the **Testing** label, select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
+1. In the **Code** box that appears, paste your previously copied JSON, for example:
 
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste complete JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete-standard.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/code-box.png" alt-text="Screenshot shows Code box with pasted JSON." lightbox="media/test-logic-apps-mock-data-static-results/code-box.png":::
 
-   * To paste just a JSON section, next to that section's label, such as **Output** or **Headers**, select **Switch to JSON Mode**, for example:
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste a section from a JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output-standard.png)
-
-1. In the JSON editor, paste your previously copied JSON.
-
-   ![Screenshot showing the pasted JSON in the editor.](./media/test-logic-apps-mock-data-static-results/json-editing-mode-standard.png)
-
-1. When you're finished, select **Done**. Or, to return to the designer, select **Switch Editor Mode** (![Icon for "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. When you're finished, select **Save**.
 
 ---
 
