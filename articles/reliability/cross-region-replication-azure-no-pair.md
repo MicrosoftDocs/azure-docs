@@ -99,11 +99,8 @@ For geo-replication in non-paired regions with Azure SQL Managed Instance, you c
 
 ## Azure Storage
 
-To achieve geo-replication in non-paired regions, you can use:
 
-
-
-To achieve geo-replication in non-paired regions, 
+To achieve geo-replication in non-paired regions: 
 
 - For Azure Object Storage: 
     - Tools such as [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory.md) are options that are supported for both Blob Storage and [Azure Data Lake Storage](../storage/blobs/data-lake-storage-best-practices.md).
