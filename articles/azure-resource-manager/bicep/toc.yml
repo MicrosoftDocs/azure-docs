@@ -377,6 +377,8 @@
       href: operators-numeric.md
     - name: Safe-dereference operator
       href: operator-safe-dereference.md
+    - name: Spread 
+      href: operator-spread.md
 - name: How to
   items:
   - name: Author
@@ -398,6 +400,9 @@
       - name: Access private virtual networks
         displayName: deployment script
         href: deployment-script-vnet.md
+      - name: Use over private Endpoint
+        displayName: deployment script
+        href: deployment-script-vnet-private-endpoint.md
       - name: Create script development environments
         displayName: deployment script
         href: deployment-script-bicep-configure-dev.md
@@ -409,6 +414,8 @@
       items:
       - name: Kubernetes provider
         href: ./bicep-extensibility-kubernetes-provider.md
+      - name: Microsoft Graph provider
+        href: https://aka.ms/graphbicep
     - name: Patterns
       items:
       - name: Configuration set

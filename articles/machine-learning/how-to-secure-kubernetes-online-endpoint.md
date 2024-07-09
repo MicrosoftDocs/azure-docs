@@ -2,9 +2,9 @@
 title: Configure a secure online endpoint with TLS/SSL
 description: Learn about how to use TLS/SSL to configure a secure Kubernetes online endpoint.
 titleSuffix: Azure Machine Learning
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: chenlujiao
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 10/10/2022
@@ -16,7 +16,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, devx-track-azurecli
 
 This article shows you how to secure a Kubernetes online endpoint that's created through Azure Machine Learning.
 
-You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to online endpoints and help secure the data that clients submit. HTTPS encrypts communications between a client and an online endpoint by using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still called *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to online endpoints and help secure the data that clients submit. HTTPS encrypts communications between a client and an online endpoint by using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still called *Secure Sockets Layer (SSL)*, which was the predecessor of TLS.
 
 > [!TIP]
 > * Specifically, Kubernetes online endpoints support TLS version 1.2 for Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.

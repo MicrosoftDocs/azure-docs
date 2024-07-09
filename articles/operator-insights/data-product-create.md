@@ -245,7 +245,7 @@ az network-analytics data-product create --name <DataProductName> --resource-gro
 Use the following values for \<ProductName\> and \<ProductMajorVersion>.
 
 
-|Date Product  |\<ProductName\> |\<ProductMajorVersion>|
+|Data Product  |\<ProductName\> |\<ProductMajorVersion>|
 |---------|---------|---------|
 |Quality of Experience - Affirmed MCC GIGW |`Quality of Experience - Affirmed MCC GIGW`|`1.0`|
 |Quality of Experience - Affirmed MCC PGW or GGSN |`Quality of Experience - Affirmed MCC PGW or GGSN`|`1.0`|

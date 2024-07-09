@@ -105,7 +105,11 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 1. To enable VPA on a new cluster, use `--enable-vpa` parameter with the [az aks create][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks create \
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --enable-vpa \
+        --generate-ssh-keys
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -113,7 +117,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa 
+    az aks update --name myAKSCluster --resource-group myResourceGroup --enable-vpa 
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -121,7 +125,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
+    az aks update --name myAKSCluster --resource-group myResourceGroup --disable-vpa
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -129,7 +133,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 4. To verify that the Vertical Pod Autoscaler pods have been created successfully, use the [kubectl get][kubectl-get] command.
 
 ```bash
-kubectl get pods -n kube-system
+kubectl get pods --name kube-system
 ```
 
 The output of the command includes the following results specific to the VPA pods. The pods should show a *running* status.
@@ -253,7 +257,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 1. Enable VPA for your cluster by running the following command. Replace cluster name `myAKSCluster` with the name of your AKS cluster and replace `myResourceGroup` with the name of the resource group the cluster is hosted in.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks update --name myAKSCluster --resource-group myResourceGroup --enable-vpa
     ```
 
 2. Create a file named `azure-autodeploy.yaml`, and copy in the following manifest.
@@ -305,7 +309,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     ```output
     NAME                                   READY   STATUS    RESTARTS   AGE
     vpa-auto-deployment-54465fb978-kchc5   1/1     Running   0          52s
-    vpa-auto-deployment-54465fb978-nhtmj   1/1     Running   0          52s
+    vpa-auto-deployment-54465fb978--namehtmj   1/1     Running   0          52s
     ```
 
 5. Create a file named `azure-vpa-auto.yaml`, and copy in the following manifest that describes a `VerticalPodAutoscaler`:
@@ -446,7 +450,7 @@ The following example is an extra recommender that you apply to your existing AK
             image: registry.k8s.io/autoscaling/vpa-recommender:0.13.0 
             imagePullPolicy: Always 
             args: 
-              - --recommender-name=extra-recommender 
+              - --recommender--nameame=extra-recommender 
             resources: 
               limits: 
                 cpu: 200m 

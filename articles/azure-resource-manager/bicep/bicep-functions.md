@@ -1,14 +1,14 @@
 ---
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/10/2024
+ms.date: 05/21/2024
 ---
 
 # Bicep functions
 
-This article describes all the functions you can use in a Bicep file. For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+This article describes all the functions you can use in a Bicep file. To define custom functions, see [User-defined functions](./user-defined-functions.md). For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
 
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
@@ -91,7 +91,9 @@ The following functions are available for loading the content from external file
 The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace.
 
 * [filter](bicep-functions-lambda.md#filter)
+* [groupBy](bicep-functions-lambda.md#groupby)
 * [map](bicep-functions-lambda.md#map)
+* [mapValue](bicep-functions-lambda.md#mapvalues)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)
@@ -120,6 +122,8 @@ The following functions are available for working with objects. All of these fun
 * [items](./bicep-functions-object.md#items)
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
+* [objectKeys](./bicep-functions-object.md#objectkeys)
+* [shallowMerge](./bicep-functions-object.md#shallowmerge)
 * [union](./bicep-functions-object.md#union)
 
 ## Parameters file functions

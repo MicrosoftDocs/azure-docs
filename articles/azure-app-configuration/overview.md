@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 05/13/2024
 ---
 
 # What is Azure App Configuration?
@@ -63,7 +63,6 @@ The easiest way to add an App Configuration store to your application is through
 
 > [!div class="nextstepaction"]
 > [FAQ](faq.yml)
-> 
+
 > [!div class="nextstepaction"]
 > [Create an App Configuration store](quickstart-azure-app-configuration-create.md) 
-

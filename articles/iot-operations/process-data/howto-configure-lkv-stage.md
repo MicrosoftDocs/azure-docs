@@ -1,6 +1,6 @@
 ---
 title: Track last known values in a pipeline
-description: Configure a last known value pipeline stage to track and maintain up to date and complete data in a Azure IoT Data Processor pipeline.
+description: Configure a last known value pipeline stage to track and maintain up to date and complete data in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -35,7 +35,7 @@ The LKV stage enriches incoming messages with the last known values it tracks. T
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
+To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 
 ## Configure the stage
 

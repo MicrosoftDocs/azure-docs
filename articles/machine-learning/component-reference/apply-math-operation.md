@@ -251,8 +251,8 @@ The order for division and subtraction are as follows:
 
 The following table shows some examples
 
-Operation|Num1|Num2|Result column|Result value|
-----|----|----|----|----
+|Operation|Num1|Num2|Result column|Result value|
+|----|----|----|----|----|
 |Addition|1|5|Add(Num2_Num1)| 6|
 |Multiplication|1|5|Multiple(Num2_Num1)|5|
 |Subtraction|5|1|Subtract(Num2_Num1)|4|

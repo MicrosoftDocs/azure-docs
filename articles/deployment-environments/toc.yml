@@ -23,8 +23,6 @@ items:
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
-    - name: Usage scenarios
-      href: concept-environments-scenarios.md
     - name: Parameters and data types in environment.yaml
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
@@ -64,6 +62,9 @@ items:
       displayName: custom image, custom runner, extensibility
     - name: Configure Terraform container image to execute deployments
       href: how-to-configure-extensibility-terraform-container-image.md
+      displayName: custom image, custom runner, extensibility  
+    - name: Configure Pulumi container image to execute deployments
+      href: how-to-configure-extensibility-pulumi-container-image.md
       displayName: custom image, custom runner, extensibility  
 - name: Create and manage environments
   expanded: false

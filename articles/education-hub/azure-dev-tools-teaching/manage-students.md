@@ -1,6 +1,6 @@
 ---
 title: Manage student access in Azure Dev Tools for Teaching
-description: Learn how to enroll and manage student access to Azure Dev Tools for Teaching.
+description: Learn how to manage student access to subscriptions in Azure Dev Tools for Teaching.
 author: v-shmck
 ms.author: rymend
 ms.topic: overview
@@ -8,16 +8,21 @@ ms.service: azure-education
 ms.date: 06/30/2020
 ---
 
-# Enrolling students in Azure Dev Tools for Teaching
+# Manage student access in Azure Dev Tools for Teaching
 
-After purchasing Azure Dev Tools for Teaching, all students located in your institution's domain will automatically get access to this offer. During the purchase process, you will be asked to	enter the Subscription Administrator’s email address. This university-verified domain will unlock students with the same email domain and grant them the ability to log in and redeem their software download benefits. If students do not already have a Microsoft Account (MSA) or are part of a University Active Directory, they will be prompted to create one that matches their university email. If students are having issues accessing the Education Hub, have them look through our Troubleshooting Guide below or contact us at [https://aka.ms/studentsupport](https://aka.ms/studentsupport).
+After you purchase Azure Dev Tools for Teaching, all students in your institution's domain automatically get access to the offer.
 
-## Managing access for students
-You can manage access for students based on the domain they use to log into Azure Dev Tools for Teaching. Go into your [Management Portal](https://azureforeducation.microsoft.com/en-us/account/Subscriptions) for Azure Dev Tools for	Teaching. There, you'll see all of your subscriptions. Choose the subscription you wish to manage access for.
+During the purchase process, you enter the subscription administrator's email address. This university-verified domain unlocks students who have the same email domain. Students can then sign in and redeem their software download benefits.
 
-:::image type="content" source="media/manage-students/manage-student-access.png" alt-text="Manage student access." border="false":::
+If students don't already have a Microsoft account or are part of a university Active Directory instance, they're prompted to create a Microsoft account that matches their university email. If students have trouble accessing the Azure Education Hub, they can use the [Microsoft support webpage](https://aka.ms/studentsupport) or use the resources listed at the end of this article.
 
-## Next steps
-- [Learn how to troubleshoot issues with logging in](troubleshoot-login.md)
+## Manage access for students
 
-- [Support options](program-support.md)
+You can manage access for students based on the domain that they use to sign in to Azure Dev Tools for Teaching. Go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/en-us/account/Subscriptions). The portal lists all of your subscriptions. Choose the subscription that you want to manage access for, and then select **Actions** > **View Users** to make changes.
+
+:::image type="content" source="media/manage-students/manage-student-access.png" alt-text="Screenshot that shows the Actions menu on the Azure Dev Tools for Teaching management portal." border="false":::
+
+## Related content
+
+- [Resolve sign-in problems](troubleshoot-login.md)
+- [Learn about support options](program-support.md)

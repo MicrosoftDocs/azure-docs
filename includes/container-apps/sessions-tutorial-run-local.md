@@ -19,3 +19,5 @@ ms.author: antchu
 1. Enter `What time is it right now?` in the `message` field and select **Execute**.
 
     The agent responds with the current time. In the terminal, you see the logs showing the agent generated Python code to get the current time and ran it in a code interpreter session.
+
+1. To stop the app, enter `Ctrl+C` in the terminal.

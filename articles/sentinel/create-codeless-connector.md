@@ -4,17 +4,13 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 03/06/2024
+ms.date: 06/26/2024
 ---
-# Create a codeless connector for Microsoft Sentinel (Public preview)
+# Create a codeless connector for Microsoft Sentinel
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
 Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
-
-> [!IMPORTANT]
-> The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 **Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
 

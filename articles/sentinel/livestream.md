@@ -2,7 +2,7 @@
 title: Detect threats by using hunting livestream in Microsoft Sentinel 
 description: Learn how to use hunting livestream in Microsoft Sentinel to actively monitor a compromise event.
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 04/24/2024
 ms.author: austinmc
 author: austinmccollum
 ms.collection: usx-security
@@ -14,18 +14,6 @@ appliesto:
 # Detect threats by using hunting livestream in Microsoft Sentinel
 
 Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
-
-- **Test newly created queries as events occur**
-    
-    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecting an option that elevates the session to an alert.
-
-- **Get notified when threats occur**
-    
-    You can compare threat data feeds to aggregated log data and be notified when a match occurs. Threat data feeds are ongoing streams of data that are related to potential or current threats, so the notification might indicate a potential threat to your organization. Create a livestream session instead of a custom alert rule to be notified of a potential issue without the overheads of maintaining a custom alert rule.
-
-- **Launch investigations**
-    
-    If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -68,6 +56,8 @@ You can create a livestream session from an existing hunting query, or create yo
 
 ## View your livestream sessions
 
+Find your livestream sessions on the **Hunting** > **Livestream** tab.
+
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
 
 1. Select the **Livestream** tab.
@@ -81,11 +71,12 @@ You can create a livestream session from an existing hunting query, or create yo
 
 ## Receive notifications when new events occur
 
-Because livestream notifications for new events use Azure portal notifications, you see these notifications whenever you use the Azure portal. For example:
+Livestream notifications for new events appear with the Azure or Defender portal notifications. For example:
 
 ![Azure portal notification for livestream](./media/livestream/notification.png)
 
-Select the notification to open the **Livestream** pane.
+1. In the Azure or Defender portal, go to the notifications on the top right-hand side of the portal page.
+1. Select the notification to open the **Livestream** pane.
  
 ## Elevate a livestream session to an alert
 

@@ -26,7 +26,7 @@ In the source stage, you define:
 
 ## Prerequisites
 
-- A functioning instance of Data Processor is deployed.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - An HTTP endpoint with all necessary raw data available is operational and reachable.
 
 ## Configure the HTTP endpoint source

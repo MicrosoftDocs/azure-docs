@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - register spacecraft
 description: Learn how to register a spacecraft.
-author: apoorvanori
+author: hrshelar
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
 ms.date: 07/13/2022
-ms.author: apoorvanori
+ms.author: hrshelar
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 

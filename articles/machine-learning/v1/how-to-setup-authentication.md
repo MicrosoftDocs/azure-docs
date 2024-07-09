@@ -3,12 +3,12 @@ title: Set up authentication (v1)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning SDK v1.
 services: machine-learning
-author: rastala
-ms.author: roastala
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: roastala
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 07/18/2022
+ms.date: 05/31/2024
 ms.topic: how-to
 ms.custom: UpdateFrequency5, has-adal-ref, subject-rbac-steps, sdkv1
 ---

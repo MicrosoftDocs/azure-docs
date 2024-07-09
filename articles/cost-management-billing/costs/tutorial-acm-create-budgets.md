@@ -63,7 +63,7 @@ To view budgets, you need at least read access for your Azure account.
 
 If you have a new subscription, you can't immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
-You must have read access to view budgets for Azure EA subscriptions. To create and manage budgets, you must have contributor permission.
+Read access is required to view budgets for Azure EA subscriptions. To create and manage budgets, you must have contributor permission.
 
 The following Azure permissions, or scopes, are supported per subscription for budgets by user and group.
 
@@ -82,6 +82,8 @@ The following Azure permissions, or scopes, are supported per subscription for b
 You can create an Azure subscription budget for a monthly, quarterly, or annual period.
 
 To create or view a budget, open a scope in the Azure portal and select **Budgets** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope, like a management group, in Budgets. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+
+If you want to create a budget for a resource group, ensure that you navigate to one first. You can navigate to a resource group by searching for **Resource groups** in the Azure portal search box. Then, select a resource group from the list. Afterward, the **Budgets** option is available in the menu.
 
 After you create budgets, they show a simple view of your current spending against them.
 
@@ -129,7 +131,7 @@ In the preceding example, you created a budget for a subscription. You can also 
 
 ### Create a budget for combined Azure and AWS costs
 
-You can group your Azure and AWS costs together by assigning a management group to your connector along with it's consolidated and linked accounts. Assign your Azure subscriptions to the same management group. Then create a budget for the combined costs.
+You can group your Azure and AWS costs together by assigning a management group to your connector along with its consolidated and linked accounts. Assign your Azure subscriptions to the same management group. Then create a budget for the combined costs.
 
 1. In Cost Management, select **Budgets**.
 1. Select **Add**.
@@ -161,7 +163,7 @@ To create or update action groups, select **Manage action group** while you're c
 
 Next, select **Add action group** and create the action group.
 
-Budget integration with action groups works for action groups that have enabled or disabled common alert schema. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
+You can integrate budgets with action groups, regardless of whether the common alert schema is enabled or disabled in those groups. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
 
 ## Budgets in the Azure mobile app
 

@@ -101,16 +101,16 @@ Use the `-enable-azure-monitor-metrics` option `az aks create` or `az aks update
 
 ```azurecli
 ### Use default Azure Monitor workspace
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+az aks create/update --enable-azure-monitor-metrics --name <cluster-name> --resource-group <cluster-resource-group>
 
 ### Use existing Azure Monitor workspace
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
+az aks create/update --enable-azure-monitor-metrics --name <cluster-name> --resource-group <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
 
 ### Use an existing Azure Monitor workspace and link with an existing Grafana workspace
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
+az aks create/update --enable-azure-monitor-metrics --name <cluster-name> --resource-group <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
 
 ### Use optional parameters
-az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
+az aks create/update --enable-azure-monitor-metrics --name <cluster-name> --resource-group <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
 ```
 
 #### Arc-enabled cluster
@@ -360,16 +360,16 @@ Use one of the following commands to enable monitoring of your AKS and Arc-enabl
 
 ```azurecli
 ### Use default Log Analytics workspace
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name>
+az aks enable-addons --addon monitoring --name <cluster-name> --resource-group <cluster-resource-group-name>
 
 ### Use existing Log Analytics workspace
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id>
+az aks enable-addons --addon monitoring --name <cluster-name> --resource-group <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id>
 ```
 
 **Example**
 
 ```azurecli
-az aks enable-addons -a monitoring -n "my-cluster" -g "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+az aks enable-addons --addon monitoring --name "my-cluster" --resource-group "my-resource-group" --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
 
@@ -756,7 +756,7 @@ ama-logs-rs   1/1     1            1           24d
 Use the `aks show` command to find out whether the solution is enabled, the Log Analytics workspace resource ID, and summary information about the cluster.
 
 ```azurecli
-az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show --resource-group <resourceGroupofAKSCluster> --name <nameofAksCluster>
 ```
 
 The command will return JSON-formatted information about the solution. The `addonProfiles` section should include information on the `omsagent` as in the following example:

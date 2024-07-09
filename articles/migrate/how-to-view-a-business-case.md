@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 01/24/2024
+ms.date: 02/02/2024
 ms.custom: engagement-fy24
 
 ---

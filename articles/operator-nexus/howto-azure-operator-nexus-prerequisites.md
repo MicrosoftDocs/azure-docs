@@ -16,29 +16,32 @@ in your target Azure region.
 
 Each NFC is associated with a CM in the same Azure region and your subscription.
 
-You'll need to complete the prerequisites before you can deploy the first Operator Nexus NFC and CM pair.
-In subsequent deployments of Operator Nexus, you will only need to create the NFC and CM after the [quota](./reference-limits-and-quotas.md#network-fabric) of supported Operator Nexus instances has been reached.
+You need to complete the prerequisites before you can deploy the first Operator Nexus NFC and CM pair.
+In subsequent deployments of Operator Nexus, you'll only need to create the NFC and CM after reaching the [quota](./reference-limits-and-quotas.md#network-fabric) of supported Operator Nexus instances.
 
 ## Resource Provider Registration
 
-- Ensure Azure Subscription for Operator Nexus resources has been permitted access to the
-  necessary Azure Resource Providers:
-  - Microsoft.NetworkCloud
-  - Microsoft.ManagedNetworkFabric
-  - Microsoft.HybridNetwork
-  - Microsoft.Storage 
-  - Microsoft.Keyvault 
-  - Microsoft.Network 
-  - Microsoft.ExtendedLocation 
-  - Microsoft.HybridCompute 
-  - Microsoft.HybridConnectivity 
-  - Microsoft.Insights 
-  - Microsoft.Kubernetes 
-  - Microsoft.KubernetesConfiguration 
-  - Microsoft.OperationalInsights 
-  - Microsoft.OperationsManagement
-  - Microsoft.ResourceConnector 
-  - Microsoft.Resources
+- Permit access to the necessary Azure Resource Providers for the Azure Subscription for Operator Nexus resources:
+  - az provider register --namespace Microsoft.NetworkCloud
+  - az provider register --namespace Microsoft.ManagedNetworkFabric
+  - az provider register --namespace Microsoft.Compute
+  - az provider register --namespace Microsoft.ContainerService
+  - az provider register --namespace Microsoft.ExtendedLocation
+  - az provider register --namespace Microsoft.HybridCompute
+  - az provider register --namespace Microsoft.HybridConnectivity
+  - az provider register --namespace Microsoft.HybridContainerService
+  - az provider register --namespace Microsoft.HybridNetwork
+  - az provider register --namespace Microsoft.Insights
+  - az provider register --namespace Microsoft.Keyvault
+  - az provider register --namespace Microsoft.Kubernetes
+  - az provider register --namespace Microsoft.KubernetesConfiguration
+  - az provider register --namespace Microsoft.ManagedIdentity
+  - az provider register --namespace Microsoft.Network
+  - az provider register --namespace Microsoft.OperationalInsights
+  - az provider register --namespace Microsoft.OperationsManagement
+  - az provider register --namespace Microsoft.ResourceConnector
+  - az provider register --namespace Microsoft.Resources
+  - az provider register --namespace Microsoft.Storage
 
 ## Dependent Azure resources setup
 
@@ -48,7 +51,7 @@ In subsequent deployments of Operator Nexus, you will only need to create the NF
     can be performed via the Azure portal
   - In the ExpressRoute blade, ensure Circuit status indicates the status
     of the circuit on the Microsoft side. Provider status indicates if
-    the circuit has been provisioned or not provisioned on the
+    the circuit is provisioned or not provisioned on the
     service-provider side. For an ExpressRoute circuit to be operational,
     Circuit status must be Enabled, and Provider status must be
     Provisioned
