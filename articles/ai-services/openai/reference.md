@@ -23,7 +23,7 @@ This article provides details on the inference REST API endpoints for Azure Open
 
 The rest of the article covers the latest GA release of the Azure OpenAI data plane inference specification, `2024-06-01`.
 
-If you're looking for documentation on the latest preview API release, refer to the [latest preview data plane inference API](TODO)
+If you're looking for documentation on the latest preview API release, refer to the [latest preview data plane inference API](./reference-preview.md)
 
 [!INCLUDE [API surfaces](./includes/api-versions/latest-inference.md)]
 

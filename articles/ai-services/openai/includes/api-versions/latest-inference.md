@@ -2164,10 +2164,10 @@ The image url or encoded image if successful, and an error otherwise.
 
 Completions extensions aren't part of the latest GA version of the Azure OpenAI data plane inference spec.
 
-### Chat message
+### Chatmessage
 
 The Chat message object isn't part of the latest GA version of the Azure OpenAI data plane inference spec.
 
 ### Text to speech
 
-Is not currently part of the latest Azure OpenAI GA version of the Azure OpenAI data plane inference spec. Refer to the latest [preview](latest-inference-preview.md) version for this capability.
+Is not currently part of the latest Azure OpenAI GA version of the Azure OpenAI data plane inference spec. Refer to the latest [preview](../../reference-preview.md) version for this capability.
