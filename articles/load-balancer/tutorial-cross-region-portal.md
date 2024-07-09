@@ -30,7 +30,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 - An Azure subscription.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
-        - Append the name of the load balancers, virtual machines, and other resources in each region with a **-R1** and **-R2**. 
 
 ## Sign in to Azure portal
 

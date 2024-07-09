@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 06/29/2024
+ms.date: 07/08/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -28,11 +28,11 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 
 
 
-
-
 ## Register your subscription for public preview
 
-To self-register your subscription for public preview in Azure portal:
+To self-register your subscription for public preview, follow these steps:
+
+#### [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
 1. On the **All services** page, search for **Preview features**.
@@ -40,6 +40,19 @@ To self-register your subscription for public preview in Azure portal:
 1. Select the feature and then select **Register** to register the subscription.
    
    :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
+
+#### [Azure CLI](#tab/cli)
+
+```azurecli-interactive
+az feature register --name InGuestPatchPrePostMaintenanceActivity --namespace Microsoft.Maintenance
+```
+
+#### [PowerShell](#tab/ps)
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName "InGuestPatchPrePostMaintenanceActivity" -ProviderNamespace "Microsoft.Maintenance"
+```
+---
 
 ## Timeline of schedules for pre and post events
 

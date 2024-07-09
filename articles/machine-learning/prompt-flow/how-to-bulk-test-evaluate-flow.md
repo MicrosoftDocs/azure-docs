@@ -9,9 +9,9 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: ZikeiWong
-ms.author: ziqiwang
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: ziqiwang
 ms.date: 11/06/2023
 ---
 
