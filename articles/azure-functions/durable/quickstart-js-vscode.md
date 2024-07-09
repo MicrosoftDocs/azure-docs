@@ -1,5 +1,5 @@
 ---
-ttitle: "Quickstart: Create your first JavaScript durable function"
+title: "Quickstart: Create your first JavaScript durable function"
 description: Create and publish a JavaScript durable function in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart

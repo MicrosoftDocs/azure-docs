@@ -229,16 +229,19 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/index.ts*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
+   > [!NOTE]
+   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
+
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
 1. To test your function, set a breakpoint in the `hello` activity function code (in *src/functions/hello.ts*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
-::: zone-end
-
    > [!NOTE]
    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
+
+::: zone-end
 
 2. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
 
@@ -262,15 +265,17 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
+      The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
 5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
 
-::: zone-end
-
   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+
+::: zone-end
 
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
