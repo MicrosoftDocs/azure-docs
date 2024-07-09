@@ -98,10 +98,6 @@ A workspace gateway can optionally be configured in a private virtual network to
 
 Manage gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. 
 
-### Monitoring and logging
-
-* **Azure Monitor logs** - Monitor the workspace gateway by logging data to Azure Monitor logs and sending data to a Log Analytics workspace. Workspace gateway logs are separate from the service-level logs sent to Azure Monitor and can be accessed from the workspace's blade in the Azure portal.
-* **Application Insights logging** - Enable Application Insights logging specifically for your workspace gateway and configure logging settings for the APIs in your workspace.
 
 ### Regional availability
 
