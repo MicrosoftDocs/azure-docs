@@ -56,7 +56,7 @@ Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights
 
 :::image type="content" source="../containers/media/container-insights-overview/azmon-containers-experience.png" lightbox="../containers/media/container-insights-overview/azmon-containers-experience.png" alt-text="A screenshot that shows the built-in Container Insights monitoring experience in Azure Monitor.":::
 
-You can also create custom dashboards, workbooks, and reports for any monitoring, auditing,  
+You can also [create your own visualizations and reports](../best-practices-analysis.md#built-in-visualization-tools) using workbooks, dashboards, and Power BI.  
 
 ## Table plans
 
