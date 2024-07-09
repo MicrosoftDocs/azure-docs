@@ -22,7 +22,7 @@ Azure Premium SSDs deliver high-performance and low-latency disk support for vir
 
 ## Premium SSD v2 (preview)
 
-Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost-efficient while meeting shifting performance needs. For example, a transaction-intensive database might need a large amount of IOPS at a small size, or a gaming application might need a large amount of IOPS but only during peak hours. Because of this, for most general-purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL flexible server instances with Premium SSD v2 disk in limited regions.
+Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost-efficient while meeting shifting performance needs. For example, a transaction-intensive database might need a large amount of IOPS at a small size, or a gaming application might need a large amount of IOPS but only during peak hours. Because of this, for most general-purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL flexible server instances with Premium SSD v2 disk in all supported regions.
 
 > [!NOTE]  
 > Premium SSD v2 is currently in preview for Azure Database for PostgreSQL flexible server.
@@ -56,8 +56,6 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 > Premium SSD v2 is currently in preview for Azure Database for PostgreSQL flexible server.
 
 #### Premium SSD v2 early preview limitations
-
-- Azure Database for PostgreSQL flexible server with Premium SSD V2 disk can be deployed only in Central US, East US, East US2, SouthCentralUS West US2, West Europe, Switzerland North regions during early preview. Support for more regions is coming soon.
 
 - During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Auto-grow features.
 
