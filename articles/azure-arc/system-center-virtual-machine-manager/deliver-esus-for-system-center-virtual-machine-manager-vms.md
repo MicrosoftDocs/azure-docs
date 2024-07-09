@@ -5,8 +5,8 @@ ms.date: 12/05/2023
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 keywords: "VMM, Arc, Azure"
 ---

@@ -22,6 +22,15 @@ The command execution produces an output file containing the results that can be
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
+## Verify Storage Account access
+
+Verify you have access to the Cluster Manager's storage account
+  1. From Azure portal, navigate to Cluster Manager's Storage account.
+  1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+  1. In the Storage browser details, select on **Blob containers**.
+  1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+  1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+ 
 ## Executing a run-read command
 
 The run-read command lets you run a command on the BMM that does not change anything. Some commands have more
@@ -274,6 +283,8 @@ This guide walks you through accessing the output file that is created in the Cl
 1. In the Storage browser details, select on **Blob containers**.
 
 1. Select the baremetal-run-command-output blob container.
+
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer [Verify Storage Account access](#verify-storage-account-access) for procedure to verify/request access. 
 
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 

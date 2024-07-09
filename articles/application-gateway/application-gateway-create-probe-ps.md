@@ -21,7 +21,7 @@ In this article, you add a custom probe to an existing application gateway with 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [azure-ps-prerequisites-include.md](~/reusable-content/ce-skilling/azure/includes/azure-ps-prerequisites-include.md)]
+[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Create an application gateway with a custom probe
 

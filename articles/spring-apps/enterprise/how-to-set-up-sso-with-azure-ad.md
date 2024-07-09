@@ -53,8 +53,6 @@ Register your application to establish a trust relationship between your app and
 1. In *Redirect URI (optional)* select **Web**, then enter the URL from the above section in the text box. The redirect URI is the location where Microsoft Entra ID redirects your client and sends security tokens after authentication.
 1. Select **Register** to finish registering the application.
 
-:::image type="content" source="media/how-to-set-up-sso-with-azure-ad/sso-create-app-registration.png" alt-text="Screenshot of how to fill out the Add App Registration screen." lightbox="media/how-to-set-up-sso-with-azure-ad/sso-create-app-registration.png":::
-
 When registration finishes, you'll see the *Application (client) ID* on the **Overview** screen of the *App registrations** page.
 
 ## Add a redirect URI after app registration

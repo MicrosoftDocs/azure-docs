@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
 ms.topic: troubleshooting
-ms.date: 03/02/2023
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: support-help-page
 ---

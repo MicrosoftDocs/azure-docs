@@ -4,11 +4,13 @@ description: Learn how to set up Microsoft Entra authentication for Azure Databa
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
+  - has-azure-ad-ps-ref
 ---
 
 # Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server

@@ -26,19 +26,19 @@ The DPS SDKs help to provision devices to your IoT hubs. Microsoft also provides
 
 ## Device SDKs
 
-[!INCLUDE [iot-dps-sdks-device](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-device.md)]
+[!INCLUDE [iot-dps-sdks-device](../../includes/iot-dps-sdks-device.md)]
 
 ### Embedded device SDKs
 
-[!INCLUDE [iot-dps-sdks-embedded](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-embedded.md)]
+[!INCLUDE [iot-dps-sdks-embedded](../../includes/iot-dps-sdks-embedded.md)]
 
 ## Service SDKs
 
-[!INCLUDE [iot-dps-sdks-service](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-service.md)]
+[!INCLUDE [iot-dps-sdks-service](../../includes/iot-dps-sdks-service.md)]
 
 ## Management SDKs
 
-[!INCLUDE [iot-dps-sdks-management](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-management.md)]
+[!INCLUDE [iot-dps-sdks-management](../../includes/iot-dps-sdks-management.md)]
 
 ## Next steps
 

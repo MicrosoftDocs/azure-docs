@@ -118,7 +118,7 @@ If you don't allow the [source IP](#probe-source-ip-address) of the probe in you
 
 * HTTPS probes don't support mutual authentication with a client certificate.
 
-* You should assume health probes fail when TCP timestamps are enabled.
+* Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to timeout.
 
 * A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
