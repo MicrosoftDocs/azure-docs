@@ -5821,7 +5821,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-create-notebook-vscode.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-create-notebook.md",
       "redirect_url": "/azure/cosmos-db/nosql/tutorial-create-notebook-vscode",
       "redirect_document_id": false
     }
