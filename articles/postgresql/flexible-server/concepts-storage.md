@@ -63,7 +63,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - During early preview, online migration from PV1 to PV2 is not supported, customers can perform PITR to migrate from PV1 to PV2.
 
-- You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported..
+- You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported.
 
 The storage that you provision is the amount of storage capacity available to your Azure Database for PostgreSQL server. The storage is used for the database files, temporary files, transaction logs, and PostgreSQL server logs. The total amount of storage that you provision also defines the I/O capacity available to your server.
 
