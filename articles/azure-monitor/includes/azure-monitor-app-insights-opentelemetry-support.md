@@ -16,7 +16,7 @@ The Azure Monitor Exporter uses EventSource for its internal logging. The export
 
 #### Step 2: Test connectivity between your application host and the ingestion service
 
-Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](../investigate-missing-telemetry.md).
+Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/investigate-missing-telemetry).
 
 #### Known issues
 
@@ -34,7 +34,7 @@ The Azure Monitor Exporter uses EventSource for its internal logging. The export
 
 #### Step 2: Test connectivity between your application host and the ingestion service
 
-Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](../investigate-missing-telemetry.md).
+Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/investigate-missing-telemetry).
 
 #### Known issues
 
@@ -48,11 +48,11 @@ The following items are known issues for the Azure Monitor OpenTelemetry Exporte
 
 #### Step 1: Enable diagnostic logging
 
-By default, diagnostic logging is enabled in Azure Monitor Application Insights. For more information, see [Troubleshoot guide: Azure Monitor Application Insights for Java](java-standalone-troubleshoot.md).
+By default, diagnostic logging is enabled in Azure Monitor Application Insights. For more information, see [Troubleshoot guide: Azure Monitor Application Insights for Java](/troubleshoot/azure/azure-monitor/app-insights/telemetry/java-standalone-troubleshoot).
 
 #### Step 2: Test connectivity between your application host and the ingestion service
 
-Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](../investigate-missing-telemetry.md).
+Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/investigate-missing-telemetry).
 
 #### Known issues
 
@@ -95,8 +95,10 @@ docker run -e APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL=DEBUG <image-name>
 
 > [!NOTE]
 > Replace *`<image-name>`* with the docker image name accordingly.
-> 
-[!INCLUDE [Third-party disclaimer](../../../../includes/third-party-disclaimer.md)]
+
+**Third-party information disclaimer**
+
+The third-party products that this article discusses are manufactured by companies that are independent of Microsoft. Microsoft makes no warranty, implied or otherwise, about the performance or reliability of these products.
 
 ### [Node.js](#tab/nodejs)
 
@@ -115,7 +117,7 @@ provider.register();
 
 #### Step 2: Test connectivity between your application host and the ingestion service
 
-Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](../investigate-missing-telemetry.md).
+Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/investigate-missing-telemetry).
 
 #### Known issues
 
@@ -151,7 +153,7 @@ logger.addHandler(stream)
 
 #### Step 2: Test connectivity between your application host and the ingestion service
 
-Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](../investigate-missing-telemetry.md).
+Application Insights SDKs and agents send telemetry to get ingested as REST calls at our ingestion endpoints. To test connectivity from your web server or application host computer to the ingestion service endpoints, use cURL commands or raw REST requests from PowerShell. For more information, see [Troubleshoot missing application telemetry in Azure Monitor Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/investigate-missing-telemetry).
 
 #### Step 3: Avoid duplicate telemetry
 
@@ -221,8 +223,6 @@ app = Flask(__name__)
 ```
 
 ---
-
-[!INCLUDE [Azure Help Support](/troubleshoot/includes/azure-help-support)]
 
 ## Support
 
