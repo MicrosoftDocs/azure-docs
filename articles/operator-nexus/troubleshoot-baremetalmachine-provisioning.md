@@ -183,7 +183,7 @@ racadm serveraction powercycle
 ```
 
 ### BMM physical power drain (flea drain)
-For a Physical Flea Drain, the local site hands physically disconnects the power cables from both power adapters for 5 minutes and then restores power. This will ensure the server, capacitors and all components have complete power removal and all cached data will be cleared.
+For a physical flea drain, the local site hands physically disconnects the power cables from both power adapters for 5 minutes and then restores power. This will ensure the server, capacitors and all components have complete power removal and all cached data will be cleared.
 
 ### Reset NVRAM
 If the BareMetal Machine fails to provision but the BMC is available, the credentials are correct and the MAC addresses are correct, it is possible that a OEM or hardware error has locked the boot sequence in the BMC to PXE boot only. 
