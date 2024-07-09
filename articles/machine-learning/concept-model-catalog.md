@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.author: timanghn
-author: tinaem
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: timanghn
 ms.custom: references_regions, build-2024
 ms.date: 05/02/2024
 #Customer intent: As a data scientist, I want to learn about models available in the model catalog.
@@ -141,7 +141,7 @@ Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/p
 Llama-2-7b <br> Llama-2-13b <br> Llama-2-70b | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, East US, West US 3, West US, North Central US, South Central US | West US 3
 Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, East US, West US 3, West US, North Central US, South Central US | Not available
 Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-Mistral-Large | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US, East US 2, France Central, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
+Mistral-Large | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
 TimeGEN-1 | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Mexico <br> Israel| East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 jais-30b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
@@ -153,7 +153,9 @@ Phi-3-medium-4k-instruct, Phi-3-medium-128k-instruct  | [Microsoft Managed Count
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) for language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints when you first deploy a language model or in the deployment details page by selecting the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
+For language models deployed to MaaS, Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters that detect harmful content such as hate, self-harm, sexual, and violent content. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). 
+
+Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you might be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints either at the time when you first deploy a language model or in the deployment details page by selecting the content filtering toggle. If you use a model in MaaS via an API other than the [Azure AI Model Inference API](../ai-studio/reference/reference-model-inference-api.md), content filtering isn't enabled unless you implement it separately by using [Azure AI Content Safety](../ai-services/content-safety/quickstart-text.md). If you use a model in MaaS without content filtering, you run a higher risk of exposing users to harmful content. 
 
 ## Learn more
 

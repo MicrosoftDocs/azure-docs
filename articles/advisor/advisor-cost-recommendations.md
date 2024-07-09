@@ -41,11 +41,11 @@ Advisor identifies resources that weren't used at all over the last seven days a
 
 Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). On virtual machine scale sets, Advisor recommends resizing when it's possible to fit the current load on a more appropriate cheaper SKU, or a lower number of instances of the same SKU.
 
-* Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**.
+* Recommendation criteria include **CPU**, **Memory**, and **Outbound Network utilization**.
 
-* The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After changing the lookback period, be aware that it might take up to 48 hours for the recommendations to be updated.
+* The last 7 days of utilization data are analyzed. You can change your lookback period in the configurations. The available lookback periods are 7, 14, 21, 30, 60, and 90 days. After you change the lookback period, it might take up to 48 hours for the recommendations to be updated.
 
-* Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
+* Metrics are sampled every 30 seconds, aggregated to 1 minute, and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations.
 
 * An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
   * Performance of the workloads on the new SKU won't be impacted.
@@ -74,7 +74,7 @@ A burstable SKU recommendation is made if:
 * The average **CPU utilization** is less than a burstable SKUs' baseline performance
   * If the P95 of CPU is less than two times the burstable SKUs' baseline performance
   * If the current SKU doesn't have accelerated networking enabled, since burstable SKUs don't support accelerated networking yet
-  * If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days.  Note that you can change your lookback period in the configurations.
+  * If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days. You can change your lookback period in the configurations.
 
 The resulting recommendation suggests that a user should resize their current virtual machine or virtual machine scale set to a burstable SKU with the same number of cores. This suggestion is made so a user can take advantage of lower cost and also the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU.
 
@@ -105,7 +105,7 @@ We're constantly working on improving these recommendations. Feel free to share 
 
 ## Configure VM/VMSS recommendations
 
-You can adjust Advisor virtual machine (VM) and Virtual Machine Scale Sets recommendations. Specifically, you can setup a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
+You can adjust Advisor virtual machine (VM) and Virtual Machine Scale Sets recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
 
 > [!NOTE]
 > If you don't have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
@@ -116,7 +116,7 @@ To adjust Advisor VM/Virtual Machine Scale Sets right sizing rules, follow these
 
 1. Select the **VM/Virtual Machine Scale Sets right sizing** tab.
 
-1. Select the subscriptions you’d like to setup a filter for average CPU utilization, and then click **Edit**.
+1. Select the subscriptions you’d like to set up a filter for average CPU utilization, and then click **Edit**.
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
@@ -129,8 +129,3 @@ To learn more about Advisor recommendations, see:
 * [Advisor cost recommendations (full list)](advisor-reference-cost-recommendations.md)
 * [Introduction to Advisor](advisor-overview.md)
 * [Advisor score](azure-advisor-score.md)
-* [Get started with Advisor](advisor-get-started.md)
-* [Advisor performance recommendations](advisor-reference-performance-recommendations.md)
-* [Advisor reliability recommendations](advisor-reference-reliability-recommendations.md)
-* [Advisor security recommendations](advisor-security-recommendations.md)
-* [Advisor operational excellence recommendations](advisor-reference-operational-excellence-recommendations.md)

@@ -113,11 +113,7 @@ If virtualization safeguards are triggered after a test failover, you might see 
 
 - The **GenerationID** value changes:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Generation ID Change":::
-
 - The **InvocationID** value changes:
-
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Invocation ID Change":::
 
 - `SYSVOL` folder and `NETLOGON` shares aren't available.
 
@@ -127,7 +123,6 @@ If virtualization safeguards are triggered after a test failover, you might see 
 
 - DFSR databases are deleted.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="DFSR databases are deleted":::
 
 ### Troubleshoot domain controller issues during test failover
 

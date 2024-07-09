@@ -129,7 +129,7 @@ Fabric provides a disaster recovery switch on the capacity settings page. It's a
 :::image type="content" source="/fabric/security/media/disaster-recovery-guide/disaster-recovery-capacity-setting.png" alt-text="Screenshot of the disaster recovery tenant setting.":::
 
 > [!NOTE]
-> After turning on the disaster recovery capacity setting, it can take up to 72 hours for the data to start replicating.
+> After turning on the disaster recovery capacity setting, it can take up to one week for the data to start replicating.
 
 ### Data replication
 

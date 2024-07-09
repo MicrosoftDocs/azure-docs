@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
-ms.author: bozhlin
-author: bozhong68
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: bozhlin
 ms.date: 11/04/2022
 ---
 
@@ -28,7 +28,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 > [!IMPORTANT]
 > It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](how-to-troubleshoot-deployment-local.md)
 >
-> You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)
 
 ## Prerequisites
 

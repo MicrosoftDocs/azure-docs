@@ -12,4 +12,4 @@ ms.custom: devx-track-azurepowershell
 
 ### Prerequisites
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](./azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]

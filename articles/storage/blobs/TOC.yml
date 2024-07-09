@@ -450,9 +450,7 @@ items:
       items:
       - name: Disaster recovery planning and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: How customer-managed planned failover (preview) works
-        href: ../common/storage-failover-customer-managed-planned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: How customer-managed (unplanned) failover works
+      - name: How customer-managed failover works
         href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -991,8 +989,14 @@ items:
           href: storage-blobs-list-go.md
         - name: Delete and restore blobs
           href: storage-blob-delete-go.md
+        - name: Find blobs using tags
+          href: storage-blob-tags-go.md
         - name: Manage blob properties and metadata
           href: storage-blob-properties-metadata-go.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-go.md
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
@@ -1408,12 +1412,6 @@ items:
           href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
         - name: Migrate an HDFS store online
           href: migrate-gen2-wandisco-live-data-platform.md
-      - name: Migrate from Data Lake Storage Gen1
-        items:
-        - name: Migrate using the Azure portal
-          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
-        - name: Migration guidelines and patterns
-          href: data-lake-storage-migrate-gen1-to-gen2.md
     - name: Transfer data
       items:
       - name: AzCopy

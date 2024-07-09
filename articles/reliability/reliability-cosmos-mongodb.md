@@ -34,23 +34,6 @@ When HA is enabled in a region that supports availability zones, HA replica shar
 If HA is disabled, each shard has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, the Azure Storage service detects the failure, and transparently re-creates the relevant data. For LRS storage durability, see [Summary of redundancy options](/azure/storage/common/storage-redundancy#summary-of-redundancy-options). However, in the case of a region failure,  you run the risk of extensive downtime and possible data loss.
 
 
-### Prerequisites
-
-Your Azure Cosmos DB for MongoDB vCore cluster must be created in the following regions:
-
--	Australia East  
--	Southeast Asia 
--	Canada Central
--	North Europe
--	UK South
--	West Europe
--	Central US
--	East US
--	East US 2
--	South Central US
--	West US 2
-
-
 ### Create a resource with availability zones enabled
 
 To enable availability zones, you must enable High availability (HA) when [creating a cluster](../cosmos-db/mongodb/vcore/quickstart-portal.md) or in the [**Scale** section of an existing cluster](../cosmos-db/mongodb/vcore/how-to-scale-cluster.md) in the Azure portal.
