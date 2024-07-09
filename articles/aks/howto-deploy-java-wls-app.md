@@ -571,7 +571,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    1. For `DB_PASSWORD`, use the value you entered when you created the database.
 
-1. Use the following commands to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*.
+1. Use the following commands to create the Kubernetes Secret. This article uses the secret name `sqlserver-secret` for the secret of the datasource connection. If you use a different name, make sure the value is the same as the one in *dbmodel.yaml*.
 
    In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. To prevent the shell from interfering with them, enclose the value of the `DB_` variables in single quotes.
 
