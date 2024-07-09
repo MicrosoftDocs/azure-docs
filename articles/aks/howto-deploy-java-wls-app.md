@@ -146,7 +146,7 @@ The other values in the outputs are beyond the scope of this article, but are ex
    INSERT INTO SEQUENCE VALUES ('SEQ_GEN',0);
    ```
 
-   After a successful run, you should see the message **Query succeeded: Affected rows: 0**. If you don't see this message, troubleshoot and resolve the problem before proceeding.
+   After a successful run, you should see the message **Query succeeded: Affected rows: 1**. If you don't see this message, troubleshoot and resolve the problem before proceeding.
 
 The database, tables, AKS cluster, and WebLogic Server cluster are created. If you want, you can explore the admin console by opening a browser and navigating to the address of **adminConsoleExternalUrl**. Sign in with the values you entered during the WebLogic Server on AKS deployment.
 
