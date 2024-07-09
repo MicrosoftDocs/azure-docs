@@ -32,7 +32,7 @@ In Azure Cosmos DB, we recommend two primary approaches to managing multi-tenanc
 
 ### 1. Partition key-per-tenant
 
-For a higher density of tenants and lower isolation, the partition key-per-tenant model is effective. Each tenant is assigned a unique partition key within a given container, allowing logical separation of data.
+For a higher density of tenants and lower isolation, the partition key-per-tenant model is effective. Each tenant is assigned a unique partition key within a given container, allowing logical separation of data. This strategy works best when each tenant has roughly the same workload volume. If there is significant skew, customers should consider isolating those tenants in their own account. Additionally, if a single tenant has more than 20GB of data, [hierarchical partition keys (HPK)](#hierarchical-partitioning-enhanced-data-organization) should be used.
 
 **Benefits:**
 - **Cost Efficiency:** Sharing a single Cosmos DB account across multiple tenants reduces overhead.
@@ -47,7 +47,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 
 ### Hierarchical partitioning: enhanced data organization
 
-[Hierarchical partitioning](../hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management.
+[Hierarchical partitioning](../hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management. The lowest level of  hierarchical partitioning should have high cardinality. Typically, it is recommended to use an ID/guid for this level to ensure continuous scalability beyond 20GB per tenant.
 
 **Advantages:**
 - **Optimized Queries:** More precise targeting of subpartitions at the parent partition level reduces query latency.
@@ -58,7 +58,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 - If tenants have very few HPK, this can lead to bottlenecks since all documents with the same first-level key will write to the same physical partition(s).
 
 **Example:**
-ResearchHub can stratify data within each tenant’s partition by organizing it at departmental levels, facilitating efficient management and queries.
+ResearchHub can stratify data within each tenant’s partition by organizing it at various levels such as "DepartmentId" and "ResearcherId," facilitating efficient management and queries.
 
 ![ResearchHub AI Data Stratification](../media/gen-ai/multi-tenant/hpk.png)
 
@@ -175,7 +175,7 @@ Azure Cosmos DB's support for DiskANN vector index capability makes it an excell
 3. **Query Optimization:** Queries are executed using the tenant's partition key, enhancing performance by isolating data access.
 
 **Hierarchical Partitioning:**
-1. **Multi-Level Partition Keys:** Data within a tenant’s partition is further segmented by department, project, or other relevant attributes.
+1. **Multi-Level Partition Keys:** Data within a tenant’s partition is further segmented by "DepartmentId" and "ResearcherId" or other relevant attributes.
 2. **Granular Data Management:** This hierarchical approach allows ResearchHub to manage and query data more efficiently, reducing latency, and improving response times.
 
 **Account-Per-Tenant:**
