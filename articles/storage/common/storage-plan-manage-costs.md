@@ -35,12 +35,12 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their effect on your estimate.
 
-> [!TIP]
-> These in-depth guides can help you predict and forecast costs:
->
-> - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-> - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-> - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+   > [!TIP]
+   > See these in-depth guides to help you predict and forecast costs:
+   >
+   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
 
 ## Understand the full billing model for Azure Blob Storage
 
@@ -183,20 +183,6 @@ If your account does not have the hierarchical namespace feature enabled, but yo
 You can pay for Azure Blob Storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Optimize costs
-
-Consider using these options to reduce costs.
-
-- Analyze existing containers and blobs
-
-- Reserve storage capacity
-
-- Organize data into access tiers
-
-- Automatically move data between access tiers
-
-This section covers each option in more detail.
-
-#### Analyze existing containers and blobs
 
 If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs.
 
