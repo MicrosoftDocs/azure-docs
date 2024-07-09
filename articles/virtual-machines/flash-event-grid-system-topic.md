@@ -29,7 +29,7 @@ This system topic provides in-depth VM [health data](../event-grid/event-schema-
 ### Get started
 
 - Step 1: Users start by [creating a system](../event-grid/create-view-manage-system-topics.md#create-a-system-topic)topic within the Azure subscription for which they want to receive notifications.
-- Step 2: Users then proceed to [create an event subscription](../event-grid/subscribe-through-portal.md#create-event-subscriptions) within the system topic in Step 1. During this step, they specify the [endpoint](../event-grid/event-handlers.md) (such as, Event Hubs, Azure Monitor Alerts) to which the events are routed. Users can also configure event filters to narrow down the scope of delivered events.
+- Step 2: Users then proceed to [create an event subscription](../event-grid/subscribe-through-portal.md#create-event-subscriptions) within the system topic in Step 1. During this step, they specify the [endpoint](../event-grid/event-handlers.md) (such as Event Hubs or Azure Monitor Alerts) to which the events are routed. Users can also configure event filters to narrow down the scope of delivered events.
 
 As you start subscribing to events from the HealthResources system topic, consider the following best practices:
 
