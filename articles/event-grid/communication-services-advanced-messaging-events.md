@@ -19,6 +19,7 @@ Azure Communication Services emits the following Advanced Messaging event types:
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.AdvancedMessageReceived                      | Published when Communication Service receives a WhatsApp message. |
 | Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated             |    Published when the WhatsApp sends status of message notification as sent/read/failed.  |
+| Microsoft.Communication.AdvancedMessageAnalysisCompleted             |    Published when Communication Service completes an AI Analysis with a customer message.  |
 
 ## Event responses
 
@@ -96,6 +97,37 @@ This section contains an example of what that data would look like for each even
 > [!NOTE]
 > Possible values for `Status` are `Sent`, `Delivered`, `Read` and `Failed`.
 
+
+### Microsoft.Communication.AdvancedMessageAnalysisCompleted  event
+
+```json
+[{
+  "id": "df1c2d92-6155-4ad7-a865-cb8497106c52",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/acsxplatmsg-test",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
+  "data": {
+    "originalMessage": "Hello, could u help me order some flowers for Mother’s Day?",
+    "channelType": "whatsapp",
+    "languageDetection": {
+      "language": "English",
+      "confidenceScore": 0.99
+    },
+    "intentAnalysis": "Order request: The customer is contacting customer service to request assistance with ordering flowers for Mother's Day.",
+    "keyPhraseExtraction": [
+      "order",
+      "flowers",
+      "Mother's Day"
+    ],
+    "from": "{sender@id}",
+    "to": "00000000-0000-0000-0000-000000000000",
+    "receivedTimestamp": "2024-07-05T19:10:35.28+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageAnalysisCompleted",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-07-05T19:10:35.2806524Z"
+}]
+```
 
 ## Quickstart
 For a quickstart that shows how to subscribe for Advanced Messaging events using web hooks, see [Quickstart: Handle Advanced Messaging events](../communication-services/quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md). 
