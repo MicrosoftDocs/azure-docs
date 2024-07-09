@@ -28,6 +28,18 @@ The [Send telemetry from a device to an IoT hub](../iot/tutorial-send-telemetry-
 
 These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
 
+For more information, see:
+
+* [Overview of file uploads with IoT Hub](../articles/iot-hub/iot-hub-devguide-file-upload.md)
+
+* [Configure IoT Hub file uploads](../articles/iot-hub/iot-hub-configure-file-upload.md)
+
+* [Azure blob storage documentation](../articles/storage/blobs/storage-blobs-introduction.md)
+
+* [Azure blob storage API reference](../articles/storage/blobs/reference.md)
+
+* [Azure IoT SDKs](../articles/iot-hub/iot-hub-devguide-sdks.md)
+
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites

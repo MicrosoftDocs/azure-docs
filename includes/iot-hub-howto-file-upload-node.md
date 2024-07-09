@@ -64,6 +64,8 @@ To upload a file to IoT Hub:
 4. Call [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient?#@azure-storage-blob-blockblobclient-uploadfile) to upload the file to Blob Storage.
 5. Call [notifyBlobUploadStatus](/javascript/api/azure-iot-device/client?#azure-iot-device-client-notifyblobuploadstatus) to notify IoT Hub that the upload succeeded or failed.
 
+For example:
+
 ```javascript
 // Open the pipeline
 const pipeline = newPipeline(new AnonymousCredential(), {

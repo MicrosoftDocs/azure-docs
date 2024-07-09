@@ -139,15 +139,3 @@ while (true)
 ### Sample
 
 The SDK includes one [sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
-
-For more information, see:
-
-* [Overview of file uploads with IoT Hub](../articles/iot-hub/iot-hub-devguide-file-upload.md)
-
-* [Configure IoT Hub file uploads](../articles/iot-hub/iot-hub-configure-file-upload.md)
-
-* [Azure blob storage documentation](../articles/storage/blobs/storage-blobs-introduction.md)
-
-* [Azure blob storage API reference](../articles/storage/blobs/reference.md)
-
-* [Azure IoT SDKs](../articles/iot-hub/iot-hub-devguide-sdks.md)
