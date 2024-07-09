@@ -596,21 +596,21 @@ Each user message can translate to multiple search queries, all of which get sen
 ## Regional availability and model support
 
 | Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`\*\* | `gpt-4 (turbo-2024-04-09)` | `gpt-35-turbo (0125)` |
-|------|---|---|---|---|---|----|----|----|
-| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | 
-| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
-| East US | ✅ |   |   |  |✅  |  | ✅ |  |
-| East US 2 | ✅ |  |  |✅ |  |  |✅ | ✅|
-| France Central | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
-| Japan East | ✅ |   |   |  |   |   |  | | 
-| North Central US | ✅ |   |   | |✅  |   |✅  | |
-| Norway East | ✅ |   |   |✅ |   |  |  | | 
-| South Central US |  |   |   | | ✅ |   | ✅ |  |
-| South India |  | ✅ |   |✅ |   |    |  | |  
-| Sweden Central | ✅ | ✅ | ✅ |✅ |    | ✅ | | ✅|
-| Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | | 
-| UK South | ✅ | ✅ | |✅ |✅  |  |  | |
-| West US  |  |✅ | |✅|   |   | ✅ | |
+|------|---|---|---|---|---|----|----|----|----|
+| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | |  | 
+| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | |  | 
+| East US | ✅ |   |   |  |✅  |  | ✅ |  | | 
+| East US 2 | ✅ |  |  |✅ |  |  |✅ | ✅| | 
+| France Central | ✅ | ✅ | ✅ |✅ |   | ✅ |  | |  | 
+| Japan East | ✅ |   |   |  |   |   |  | |  | 
+| North Central US | ✅ |   |   | |✅  |   |✅  | | | 
+| Norway East | ✅ |   |   |✅ |   |  |  | |  | 
+| South Central US |  |   |   | | ✅ |   | ✅ |  | | 
+| South India |  | ✅ |   |✅ |   |    |  | |   | 
+| Sweden Central | ✅ | ✅ | ✅ |✅ |    | ✅ | | ✅| | 
+| Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | |  | 
+| UK South | ✅ | ✅ | |✅ |✅  |  |  | | | 
+| West US  |  |✅ | |✅|   |   | ✅ | | | 
 | US Gov Virginia |  || ||   | ✅  |   | ✅ | 
 \*\*This is a text-only implementation
 
