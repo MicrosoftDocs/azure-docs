@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/25/2024
+ms.date: 07/09/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -20,6 +20,8 @@ ms.custom:
 The `azure-openai-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model tokens through Azure OpenAI Service APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
 
 
 ## Prerequisites
