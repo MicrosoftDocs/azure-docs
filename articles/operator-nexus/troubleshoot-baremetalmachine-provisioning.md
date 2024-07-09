@@ -11,7 +11,7 @@ ms.author: bpinto
 
 # Troubleshoot BareMetal Machine Provisioning in Nexus Cluster
 
-As part of cluster deploy action, BareMetal machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues.
+As part of Cluster deploy action, BareMetal Machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues.
 
 ## Prerequisites
 1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
