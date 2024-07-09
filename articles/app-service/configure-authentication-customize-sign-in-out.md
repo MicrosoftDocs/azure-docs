@@ -2,7 +2,7 @@
 title: Customize sign-ins and sign-outs
 description: Use the built-in authentication and authorization in App Service and at the same time customize the sign-in and sign-out behavior.
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 07/08/2024
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
@@ -23,7 +23,7 @@ In **Action to take when request is not authenticated**, select **Allow Anonymou
 In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
 ```html
-<a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
+<a href="/.auth/login/aad">Log in with Microsoft Entra</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -89,7 +89,7 @@ Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/lo
 
 - Clears authentication cookies from the current session.
 - Deletes the current user's tokens from the token store.
-- For Microsoft Entra ID and Google, performs a server-side sign-out on the identity provider.
+- For Microsoft Entra and Google, performs a server-side sign-out on the identity provider.
 
 Here's a simple sign-out link in a webpage:
 
@@ -129,7 +129,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 ## Setting the sign-in accounts domain hint
 
-Both Microsoft Account and Microsoft Entra ID lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Microsoft Entra ID allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Microsoft Entra sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
+Both Microsoft Account and Microsoft Entra lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Microsoft Entra allows any number of custom domains for the sign-in accounts. However, you may want to accelerate your users straight to your own branded Microsoft Entra sign-in page (such as `contoso.com`). To suggest the domain name of the sign-in accounts, follow these steps.
 
 1. In [https://resources.azure.com](https://resources.azure.com), At the top of the page, select **Read/Write**.
 2. In the left browser, navigate to **subscriptions** > **_\<subscription-name_** > **resourceGroups** > **_\<resource-group-name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app-name>_** > **config** > **authsettingsV2**.
@@ -188,7 +188,7 @@ For any Windows app, you can define authorization behavior of the IIS web server
 
 The identity provider may provide certain turn-key authorization. For example:
 
-- For [Azure App Service](configure-authentication-provider-aad.md), you can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly in Microsoft Entra ID. For instructions, see [How to remove a user's access to an application](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- You can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly in Microsoft Entra. For instructions, see [How to remove a user's access to an application](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - For [Google](configure-authentication-provider-google.md), Google API projects that belong to an [organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) can be configured to allow access only to users in your organization (see [Google's **Setting up OAuth 2.0** support page](https://support.google.com/cloud/answer/6158849?hl=en)).
 
 ### Application level
