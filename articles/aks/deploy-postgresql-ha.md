@@ -142,8 +142,14 @@ The following table outlines the key properties set in the YAML deployment manif
           azure.workload.identity/use: "true"
       
       instances: 3
+      startDelay: 30
+      stopDelay: 30
       minSyncReplicas: 1
       maxSyncReplicas: 1
+      replicationSlots:
+        highAvailability:
+          enabled: true
+        updateInterval: 30
       
       topologySpreadConstraints:
       - maxSkew: 1
@@ -159,11 +165,11 @@ The following table outlines the key properties set in the YAML deployment manif
       
       resources:
         requests:
-          memory: '2Gi'
-          cpu: 1.5
+          memory: '8Gi'
+          cpu: 2
         limits:
-          memory: '2Gi'
-          cpu: 1.5
+          memory: '8Gi'
+          cpu: 2
       
       bootstrap:
         initdb:
@@ -196,15 +202,25 @@ The following table outlines the key properties set in the YAML deployment manif
       monitoring:
         enablePodMonitor: true
       
-      replicationSlots:
-        highAvailability:
-          enabled: true
-      
       postgresql:
         parameters:
-          shared_buffers: "256MB"
-          effective_cache_size: "512MB"
-          # max_worker_processes: 64
+          archive_timeout: '5min'
+          auto_explain.log_min_duration: '10s'
+          checkpoint_completion_target: '0.9'
+          checkpoint_timeout: '15min'
+          shared_buffers: '256MB'
+          effective_cache_size: '512MB'
+          pg_stat_statements.max: '1000'
+          pg_stat_statements.track: 'all'
+          max_connections: '400'
+          max_prepared_transactions: '400'
+          max_parallel_workers: '32'
+          max_parallel_maintenance_workers: '8'
+          max_parallel_workers_per_gather: '8'
+          max_replication_slots: '32'
+          max_worker_processes: '32'
+          wal_keep_size: '512MB'
+          max_wal_size: '1GB'
         pg_hba:
           - host all all all scram-sha-256
       
@@ -228,7 +244,7 @@ The following table outlines the key properties set in the YAML deployment manif
 1. Validate that the primary PostgreSQL cluster was successfully created using the [`kubectl get`][kubectl-get] command. The CNPG Cluster CRD specified three instances, which can be validated by viewing running pods once each instance is brought up and joined for replication. Be patient as it can take some time for all three instances to come online and join the cluster.
 
     ```bash
-    kubectl get pods --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    kubectl get pods --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -l cnpg.io/cluster=$PG_PRIMARY_CLUSTER_NAME
     ```
 
     Example output
@@ -292,7 +308,7 @@ Verify that the pod monitor is created (note the difference in the group name).
 kubectl --namespace $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.azmonitoring.coreos.com \
-    $PG_PRIMARY_CLUSTER_NAME \
+    -l cnpg.io/cluster=$PG_PRIMARY_CLUSTER_NAME \
     -o yaml
 ```
 
@@ -361,7 +377,9 @@ In this section, you create a table and insert some data into the app database t
 
     ```bash
     kubectl cnpg psql $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
+    ```sql
     # Run the following PSQL commands to create a small dataset
     # postgres=#
 
@@ -374,22 +392,49 @@ In this section, you create a table and insert some data into the app database t
     # Type \q to exit psql
     ```
 
+    Your output should resemble the following example output:
+
+    ```output
+    CREATE TABLE
+    INSERT 0 1
+    INSERT 0 1
+    INSERT 0 1
+    count
+    -------
+        3
+    (1 row)
+    ```
+
 ## Connect to PostgreSQL read-only replicas
 
 * Connect to the PostgreSQL read-only replicas and validate the sample dataset using the following commands:
 
     ```bash
     kubectl cnpg psql --replica $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    ```
 
+    ```sql
     #postgres=# 
     SELECT pg_is_in_recovery();
+    ```
+
+    Example output
+
+    ```output
     # pg_is_in_recovery
     #-------------------
     # t
     #(1 row)
+    ```
 
+    ```sql
     #postgres=# 
     SELECT COUNT(*) FROM datasample;
+    ```
+
+    Example output
+
+    ```output
     # count
     #-------
     #     3
@@ -403,7 +448,9 @@ In this section, you create a table and insert some data into the app database t
 1. Validate that the PostgreSQL cluster can access the Azure storage account specified in the CNPG Cluster CRD and that `Working WAL archiving` reports as `OK` using the following command:
 
     ```bash
-    kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
     ```
 
     Example output
@@ -411,9 +458,10 @@ In this section, you create a table and insert some data into the app database t
     ```output
     Continuous Backup status
     First Point of Recoverability:  Not Available
-    Working WAL archiving:          FAILING
+    Working WAL archiving:          OK
     WALs waiting to be archived:    0
-    Last Archived WAL:              000000010000000000000009   @   2024-06-05T13:39:23.597668Z
+    Last Archived WAL:              00000001000000000000000A   @   2024-07-09T17:18:13.982859Z
+    Last Failed WAL:                -
     ```
 
 1. Deploy an on-demand backup to Azure Storage, which uses the AKS workload identity integration, using the YAML file with the [`kubectl apply`][kubectl-apply] command.
@@ -436,7 +484,9 @@ In this section, you create a table and insert some data into the app database t
 1. Validate the status of the on-demand backup using the [`kubectl describe`][kubectl-describe] command.
 
     ```bash
-    kubectl describe backup $BACKUP_ONDEMAND_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    kubectl describe backup $BACKUP_ONDEMAND_NAME \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
     ```
 
     Example output
@@ -452,7 +502,9 @@ In this section, you create a table and insert some data into the app database t
 1. Validate that the cluster has a first point of recoverability using the following command:
 
     ```bash
-    kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
     ```
 
     Example output
@@ -485,13 +537,19 @@ In this section, you create a table and insert some data into the app database t
 1. Validate the status of the scheduled backup using the [`kubectl describe`][kubectl-describe] command.
 
     ```bash
-    kubectl describe scheduledbackup $BACKUP_SCHEDULED_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    kubectl describe scheduledbackup $BACKUP_SCHEDULED_NAME \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
     ```
 
 1. View the backup files stored on Azure blob storage for the primary cluster using the [`az storage blob list`][az-storage-blob-list] command.
 
     ```bash
-    az storage blob list --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME --container-name backups --query "[*].name" --only-show-errors 
+    az storage blob list \
+        --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME \
+        --container-name backups \
+        --query "[*].name" \
+        --only-show-errors 
     ```
 
     Your output should resemble the following example output, validating the backup was successful:
@@ -606,8 +664,15 @@ You also create a second federated credential to map the new recovery cluster se
 
     ```bash
     kubectl cnpg psql $PG_PRIMARY_CLUSTER_NAME_RECOVERED --namespace $PG_NAMESPACE
+    ```
 
+    ```sql
     postgres=# SELECT COUNT(*) FROM datasample;
+    ```
+
+    Example output
+
+    ```output
     # count
     #-------
     #     3
@@ -619,7 +684,9 @@ You also create a second federated credential to map the new recovery cluster se
 1. You can now delete the recovered cluster using the following command:
 
     ```bash
-    kubectl cnpg destroy $PG_PRIMARY_CLUSTER_NAME_RECOVERED 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
+    kubectl cnpg destroy $PG_PRIMARY_CLUSTER_NAME_RECOVERED 1 \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE
     ```
 
 1. You can now delete the federated identity credential using the [`az identity federated-credential delete`][az-identity-federated-credential-delete] command.
@@ -645,7 +712,10 @@ You also retrieve the following endpoints from the Cluster IP service:
 1. Get the Cluster IP service details using the [`kubectl get`][kubectl-get] command.
 
     ```bash
-    kubectl get services --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -l cnpg.io/cluster=$PG_PRIMARY_CLUSTER_NAME
+    kubectl get services \
+        --context $AKS_PRIMARY_CLUSTER_NAME \
+        --namespace $PG_NAMESPACE \
+        -l cnpg.io/cluster=$PG_PRIMARY_CLUSTER_NAME
     ```
 
     Example output
@@ -767,19 +837,27 @@ Remember that the primary read-write endpoint maps to TCP port 5432 and the read
     
     psql -h $AKS_PRIMARY_CLUSTER_ALB_DNSNAME \
         -p 5432 -U app -d appdb -W -c "SELECT pg_is_in_recovery();"
+    ```
 
-    # Example output
-    
+    Example output
+
+    ```output
     pg_is_in_recovery
     -------------------
      f
     (1 row)
+    ```
 
-    # Query a replica, pg_is_in_recovery = true
+    ```bash
+    echo "Query a replica, pg_is_in_recovery = true"
     
     psql -h $AKS_PRIMARY_CLUSTER_ALB_DNSNAME \
         -p 5433 -U app -d appdb -W -c "SELECT pg_is_in_recovery();"
+    ```
 
+    Example output
+
+    ```output
     # Example output
     
     pg_is_in_recovery
@@ -820,6 +898,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
         --no-headers \
         -o custom-columns=":metadata.name" \
         -l role=primary)
+    
     kubectl delete pod $PRIMARY_POD --grace-period=1 --namespace $PG_NAMESPACE
     ```
 
