@@ -19,6 +19,7 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: July 2024
 * General availability of [Major Version Upgrade Support for PostgreSQL 16](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
 * General availability of [Pgvector 0.7.0](concepts-extensions.md) extension.
+* General availability support for [Storage-Autogrow with read replicas](concepts-read-replicas.md)
 
 
 ## Release: June 2024
