@@ -182,7 +182,7 @@ racadm jobqueue create BIOS.Setup.1-1
 racadm serveraction powercycle
 ```
 
-### BMM Physical Power Drain (Flea Drain)
+### BMM physical power drain (flea drain)
 For a Physical Flea Drain, the local site hands physically disconnects the power cables from both power adapters for 5 minutes and then restores power. This will ensure the server, capacitors and all components have complete power removal and all cached data will be cleared.
 
 ### Reset NVRAM
