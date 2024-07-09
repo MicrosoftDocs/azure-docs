@@ -12,6 +12,8 @@ ms.date: 07/09/2024
 
 If you experience an issue or need support during the preview, follow these steps:
 
+> [!VIDEO f477de99-2036-41a3-979a-586a39b1854f]
+
 1. Navigate to the desired Arc-connected Kubernetes cluster with the Edge Storage Accelerator extension that you are experiencing issues with.
 1. To expand the menu, select **Settings** on the left blade.
 1. Select **Extensions**.
