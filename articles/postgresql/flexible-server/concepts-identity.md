@@ -41,7 +41,7 @@ There are two types of managed identities:
 
 - **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:
     - A service principal of a special type is created in Microsoft Entra ID for the identity. The service principal is managed separately from the resources that use it. 
-    - User-assigned identities can be used by multiple resources.
+    - Multiple resources can utilize user-assigned identities.
     - You authorize the managed identity to have access to one or more services.
 
 
@@ -67,7 +67,7 @@ Follow these steps to enable System Assigned Managed Identity on your Azure Data
 
 ## ARM  template
 
-Use below ARM template to enable system assigned managed identity. You can use the 2023-06-01-preview or the latest available API.
+Here is the ARM template to enable system assigned managed identity. You can use the 2023-06-01-preview or the latest available API.
 
 ```json
 {
@@ -85,7 +85,7 @@ Use below ARM template to enable system assigned managed identity. You can use t
 }
   ```
 
-Use below ARM template to disable system assigned managed identity
+To disable system assigned managed identity change the type to **None**
  
 ```json
 {
