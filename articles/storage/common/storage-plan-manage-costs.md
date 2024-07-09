@@ -58,24 +58,25 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 | Meter | Unit |
 |---|---|
 | Data storage | Per GB / per month|
+| Metadata | Per GB / per month<sup>1 |
 | Operations | Per transaction |
 | Data transfer | Per GB |
-| Metadata | Per GB / per month<sup>1 |
 | Blob index tags | Per tag<sup>2  |
 | Change feed | Per logged change<sup>2 |
+| SSH File Transfer Protocol (SFTP) | per hour |
+| Blob inventory | per million objects scanned, per report generated |
 | Encryption scopes | Per month<sup>2 |
 | Query acceleration | Per GB scanned & Per GB returned |
+| Point-in-time restore Data Processed | Per MB |
 
 <sup>1</sup> Applies only to accounts that have a hierarchical namespace.<br />
 <sup>2</sup> Applies only if you enable the feature.<br />
 
-Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
-
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
-Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+#### Data storage
 
-#### Storage units
+Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
 Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. Line items on your bill that contain GB as a unit of measurement (For example, per GB / per month) are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
 
@@ -85,6 +86,40 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 | MiB | mebibyte | 1,024 KiB (1,048,576 bytes) |
 | GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
 | TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
+
+#### Metadata
+
+Put something here.
+
+#### Operations
+
+Put something here.
+
+#### Data transfer
+
+Explain when data transfer fees apply. 
+
+Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+
+#### Features
+
+Other than feature-specific billing meters, features can also incur storage and operation costs. The following table summarizes the costs associated with each feature.
+
+| Feature | Charges |
+|---|----|
+| Blob index | Operations (_Other_ and _List and Create Container_), and monthly charge per tag <br>[Learn more](../blobs/storage-manage-find-blobs.md#pricing) |
+| Blob Inventory | Storage, operations (_Write_ and _Read_), and a charge for the number of objects scanned <br>[Learn more](../blobs/blob-inventory.md#pricing-and-billing) |
+| Change feed | Storage, operations (_Write_ and _Read_), and a charge per logged change |
+| Encryption scopes | monthly charge after it is enabled. [Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes) |
+| Last access time tracking | Operations (_Other_) to update to the last access time objects<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
+| Lifecycle management | Operations (_Write_ and _Read_)<br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
+| Soft delete | Storage, operations (_Write_)<br>[Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing) |
+| Versioning | Storage<br>[Learn more](../blobs/versioning-overview.md#pricing-and-billing) |
+| Snapshots | Storage<br>[Learn more](../blobs/snapshots-overview.md#pricing-and-billing) |
+| Point-in-time restore | Storage, and a charge based on the amount of change feed data processed for the restore<br>[Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing) |
+| Object replication | Storage, operations (_Read_ and _Write), network egress<br>[Learn more](../blobs/object-replication-overview.md#billing) |
+| Query acceleration | A charge for the data scanned and a charge for the data returned<br>[Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
+| SFTP support | An hourly charge after it is enabled<br>[Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing) |
 
 ### Finding the unit price for each meter
 
@@ -138,32 +173,6 @@ These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
 
 To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
-### Features that incur costs
-
-You are not billed for enabling features on your account. Instead, you are billed for using them. There are only three features that incur a passive charge after you enable them.
-
-- SFTP support incurs an hourly charge after it is enabled. [Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing).
-- Encryption scopes incur a monthly charge after it is enabled. [Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes).
-- Blob index tags incur a monthly charge after you apply at least one tag. [Learn more](../blobs/storage-manage-find-blobs.md?tabs=azure-portal#pricing).
-
-Some activities can lead to unexpected charges. See [Avoid billing surprises](#avoid-billing-surprises) for a list of those activities. 
-
-The following features incur a cost as you use them:
-
-| Feature | Charges |
-|---|----|
-| Blob Inventory | **Write** operations to add inventory files<br><br>**Read** operations to read inventory files<br><br>A charge for the number of objects scanned<br><br><br><br>The cost of storing reports.[Learn more](../blobs/blob-inventory.md#pricing-and-billing) |
-| Change feed | **Write** operations to add records<br><br>**Read** operations to read records<br><br>The cost of storing change feed records |
-| Blob index | **Other** operations to add records<br><br>**List and Create Container** operations to find blobs by using tags<br><br>The cost of storing tags as metadata<br><br>[Learn more](../blobs/storage-manage-find-blobs.md#pricing) |
-| Last access time tracking | **Other** operations to update to the last access time objects<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
-| Lifecycle management | **Write** operations to set objects to a cooler tier<br><br>**Read** operations to set objects to a warmer tier<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
-| Soft delete | **Write** transactions to undelete soft-deleted objects<br><br><br><br>The cost to store soft-deleted objects<br><br>[Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing) |
-| Versioning | The cost to store versions<br><br>[Learn more](../blobs/versioning-overview.md#pricing-and-billing) |
-| Snapshots | The cost of storing snapshots<br><br>[Learn more](../blobs/snapshots-overview.md#pricing-and-billing) |
-| Point-in-time restore | **Point-in time restore Data Processed** charge based on the amount of change feed data processed for the restore<br><br>[Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing) |
-| Object replication | Read operations to read data from the source account and to read change feed records<br><br>Write operations to write data to the destination account and to write change feed records<br><br>The cost of network egress<br><br>The cost of storage at the destination<br><br>[Learn more](../blobs/object-replication-overview.md#billing) |
-| Query acceleration | **Query Acceleration - Data Scanned** charge based on the amount of data scanned to complete a query<br><br>**Query Acceleration - Data Returned** charge based on the amount of data returned to the caller<br><br>[Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
- 
 ### Using Azure Prepayment with Azure Blob Storage
 
 You can pay for Azure Blob Storage charges with your Azure Prepayment (previously called monetary commitment) credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
