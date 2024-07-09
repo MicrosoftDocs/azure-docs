@@ -12,14 +12,6 @@ ms.author: normesta
 
 # Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage
 
-This article contains a list of valid host keys used to connect to Azure Blob Storage from SFTP clients.
-
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
-
-When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. You can verify the host key by finding that key in the list presented in this article. 
-
-# Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage
-
 When you run an SFTP command that operates on data in your storage account, that command is translated into a REST operation. This article maps SFTP commands to Azure Blob Storage REST operations.  
 
 ## Command mapping

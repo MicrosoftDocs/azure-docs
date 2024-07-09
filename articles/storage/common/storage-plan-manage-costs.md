@@ -133,8 +133,8 @@ Each request made by tools such as AzCopy or Azure Storage Explorer arrives to t
 These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
 
 - [Map of AzCopy v10 commands to Azure Blob Storage REST operations](storage-ref-azcopy-map-commands-to-rest-operations.md)
-- [Map of NFS 3.0 commands to Azure Blob Storage REST operations for Azure Blob Storage](network-file-system-protocol-map-commands-to-rest-operations.md)
-- [Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage](storage-ref-azcopy-map-commands-to-rest-operations.md)
+- [Map of NFS 3.0 commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/network-file-system-protocol-map-commands-to-rest-operations.md)
+- [Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/secure-file-transfer-map-commands-to-rest-operations.md)
 
 To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
@@ -156,7 +156,7 @@ The following features incur a cost as you use them:
 | Change feed | **Write** operations to add records<br><br>**Read** operations to read records<br><br>The cost of storing change feed records |
 | Blob index | **Other** operations to add records<br><br>**List and Create Container** operations to find blobs by using tags<br><br>The cost of storing tags as metadata<br><br>[Learn more](../blobs/storage-manage-find-blobs.md#pricing) |
 | Last access time tracking | **Other** operations to update to the last access time objects<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
-| Lifecycle management | **Write** operations to set objects to a cooler tier<br><br>**Read** operations to set objects to a warmer tier<br><br>[Learn more](../blobs/lifecycle-management-overview#regional-availability-and-pricing) |
+| Lifecycle management | **Write** operations to set objects to a cooler tier<br><br>**Read** operations to set objects to a warmer tier<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
 | Soft delete | **Write** transactions to undelete soft-deleted objects<br><br><br><br>The cost to store soft-deleted objects<br><br>[Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing) |
 | Versioning | The cost to store versions<br><br>[Learn more](../blobs/versioning-overview.md#pricing-and-billing) |
 | Snapshots | The cost of storing snapshots<br><br>[Learn more](../blobs/snapshots-overview.md#pricing-and-billing) |
