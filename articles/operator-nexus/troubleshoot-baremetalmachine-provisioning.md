@@ -17,7 +17,7 @@ As part of Cluster deploy action, BareMetal Machines (BMM) are provisioned with 
 1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
 2. Gather the following information:
   - Subscription ID (SUBSCRIPTION)
-  - Cluster name (CLUSTER), resource group (CLUSTER_RG) and managed resource group (CLUSTER_MRG)
+  - Cluster name (CLUSTER), Resource Group (CLUSTER_RG) and Managed Resource Group (CLUSTER_MRG)
 3. The user needs access to the subscription to run networkfabric and networkcloud CLI extension commands
 4. Login to Azure CLI and select the subscription where the cluster is deployed
 
