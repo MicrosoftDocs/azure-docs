@@ -4479,6 +4479,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-manager/pre-post-events-common-scenarios.md",
+            "redirect_url": "/azure/update-manager/manage-pre-post-events",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-manager/whats-upcoming.md",
             "redirect_url": "/azure/update-manager/whats-new",
             "redirect_document_id": false

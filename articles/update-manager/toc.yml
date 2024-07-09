@@ -68,12 +68,10 @@
       href: manage-alerts.md
     - name: Pre and Post Events (preview)
       items:
-      - name: Create pre and post events (preview)
+      - name: Create Pre and Post events (preview)
         href: pre-post-events-schedule-maintenance-configuration.md
-      - name: Manage pre and post events (preview)
-        href: manage-pre-post-events.md  
-      - name: FAQ
-        href: pre-post-events-common-scenarios.md
+      - name: Manage Pre and Post events (preview)
+        href: manage-pre-post-events.md
     - name: Dynamic scope
       items:
       - name: Overview
