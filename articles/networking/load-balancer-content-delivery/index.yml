@@ -11,14 +11,14 @@ metadata:
   author: mbender-ms
   ms.author: mbender
   manager: kumudD
-  ms.date: 05/03/2024
+  ms.date: 07/31/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
     - title: Choose a load balancing solution 
       itemType: concept
-      url: /azure/load-balancer
+      url: /azure/architecture/guide/technology-choices/load-balancing-overview
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
@@ -53,51 +53,48 @@ conceptualContent:
 
         - title: 'Load balance your applications and workloads in Azure.'
           links:
-            - text: Microsoft Learn Documentation
+            - text: 'Quickstart: Create a public load balancer to load balance VMs using the Azure portal'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
+              url: /azure/load-balancer/quickstart-load-balancer-standard-public-portal
+            - text: 'What is Azure Load Balancer?'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
+              url: /azure/load-balancer/load-balancer-overview
+            - text: 'Azure Load Balancer components'
               itemType: learn
-              url: /azure/networking
-
-        - title: "Deploy network virtual appliances for high performance and availability"
-          links:
-            - text: Microsoft Learn Documentation
+              url: /azure/load-balancer/components
+            - text: 'Gateway Load Balancer'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
-              itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
-              itemType: learn
-              url: /azure/networking
+              url: /azure/load-balancer/gateway-overview
 
         - title: "Improve performance and globally scale your applications in Azure."
           links:
-            - text: Microsoft Learn Documentation
+            - text: 'What is Azure Application Gateway?'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
+              url: /azure/application-gateway/overview
+            - text: 'Application Gateway infrastructure configuration'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
+              url: /azure/application-gateway/configuration-infrastructure
+            - text: 'Rewrite HTTP headers and URL with Application Gateway'
               itemType: learn
-              url: /azure/networking
+              url: /azure/application-gateway/rewrite-http-headers-url
+            - text: 'Generate an Azure Application Gateway self-signed certificate with a custom root CA'
+              itemType: learn
+              url: /azure/application-gateway/self-signed-certificates
 
         - title: "Deploy global applications for high performance and availability."
           links:
-            - text: Microsoft Learn Documentation
+            - text: 'What is Azure Front Door?'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
+              url: /azure/frontdoor/front-door-overview
+            - text: 'Configure HTTPS on an Azure Front Door custom domain by using the Azure portal'
               itemType: learn
-              url: /azure/networking
-            - text: Microsoft Learn Documentation
+              url: /azure/frontdoor/standard-premium/how-to-configure-https-custom-domain
+            - text: 'Comparison between Azure Front Door and Azure CDN services'
               itemType: learn
-              url: /azure/networking
+              url: /azure/frontdoor/front-door-cdn-comparison
+            - text: 'Web Application Firewall (WAF) on Azure Front Door'
+              itemType: learn
+              url: /azure/frontdoor/web-application-firewall
 
     - title: Learn more about Azure load balancing and content delivery
       summary: Explore additional resources to help you design and deploy a load balancing solution
@@ -105,17 +102,17 @@ conceptualContent:
         # Card
         - title: "Training modules"
           links:
-            - text: "Introduction to Azure Load Balancer"
+            - text: "Configure Azure Load Balancer"
               itemType: training
-              url: /training/modules/intro-to-azure-load-balancer/
+              url: /training/modules/configure-azure-load-balancer/
             - text: "Improve application scalability and resiliency by using Azure Load Balancer"
               url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
               itemType: training
-            - text: "Choose an application delivery service"
-              url: /training/modules/design-network-solutions/6-choose-application-delivery-service
+            - text: "Configure Azure Application Gateway"
+              url: /training/modules/configure-azure-application-gateway/
               itemType: training
-            - text: "Troubleshoot inbound network connectivity for Azure Load Balancer"
-              url: /training/modules/troubleshoot-inbound-connectivity-azure-load-balancer/
+            - text: "Introduction to Azure Front Door"
+              url: /training/modules/intro-to-azure-front-door/
               itemType: training
               
         - title: "Azure Well-Architected Framework"
