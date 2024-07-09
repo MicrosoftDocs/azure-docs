@@ -45,7 +45,6 @@ For more information on migrating from Single Server to Flexible Server using ot
 
 ## Prerequisite checks and post-migration actions when migration from Single to Flexible Server
 
-
 ## What happens post sunset date (September 16, 2024)?
 
 Running the Single Server instance post sunset date would be a security risk, as there will be no security and bug fixes maintenance on the deprecated Single Server platform. To ensure our commitment toward running the managed instances on a trusted and secure platform post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance in a phased manner.

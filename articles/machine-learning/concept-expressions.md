@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: zhanxia
-author: xiaoharper
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: zhanxia
 ms.date: 07/26/2023
 ms.custom: cliv2, sdkv2
 ---
