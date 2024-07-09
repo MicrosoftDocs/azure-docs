@@ -118,7 +118,7 @@ The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class con
 
 To receive file upload notification:
 
-* Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?view=azure-dotnet&branch=main#azure-core-httpmessage-cancellationtoken).
+* Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?view=azure-dotnet&#azure-core-httpmessage-cancellationtoken).
 * Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
 * Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
 
