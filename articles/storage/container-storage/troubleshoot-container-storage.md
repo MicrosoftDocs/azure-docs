@@ -1,14 +1,14 @@
 ---
-title: Troubleshoot Azure Container Storage preview
+title: Troubleshoot Azure Container Storage
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 03/20/2024
+ms.date: 07/09/2024
 ms.author: kendownie
 ms.topic: how-to
 ---
 
-# Troubleshoot Azure Container Storage preview
+# Troubleshoot Azure Container Storage
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. Use this article to troubleshoot common issues with Azure Container Storage and find resolutions to problems.
 
@@ -65,11 +65,6 @@ If you created an Elastic SAN storage pool, you might not be able to delete the 
 To resolve this, sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
 
 ## Troubleshoot persistent volume issues
-
-### Can't create persistent volumes from ephemeral disk storage pools
-Because ephemeral disks (local NVMe and Temp SSD) are ephemeral and not durable, we enforce the use of [Kubernetes Generic Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). If you try to create a persistent volume claim using an ephemeral disk pool, you'll see the following error: *Error from server (Forbidden): error when creating "eph-pvc.yaml": admission webhook "pvc.acstor.azure.com" denied the request: only generic ephemeral volumes are allowed in unreplicated ephemeralDisk storage pools*.
-
-If you need a persistent volume, where the volume has a lifecycle independent of any individual pod that's using the volume, Azure Container Storage supports replication for NVMe. You can create a storage pool with replication and create persistent volumes from there. See [Create storage pool with volume replication](use-container-storage-with-local-nvme-replication.md) for guidance. Note that because ephemeral disk storage pools consume all the available NVMe disks, you must delete any existing ephemeral disk storage pools before creating a new storage pool with replication enabled. If you don't need persistence, you can create a generic ephemeral volume.
 
 ### Pod pending creation due to ephemeral volume size above available capacity
 
