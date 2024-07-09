@@ -142,7 +142,7 @@ racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "NIC.Embedd
 
 If the MAC address supplied to the cluster is incorrect, use the BareMetal Machine replace action at [BMM actions](howto-baremetal-functions.md) to correct the addresses.
 
-### Ping Test BMC Connectivity
+### Ping test BMC connectivity
 
 Attempt to run ping against the BMC IPv4 address:
 1. Obtain the IPv4 address (BMC_IP) from `Determine BMC IPv4 Address` above.
