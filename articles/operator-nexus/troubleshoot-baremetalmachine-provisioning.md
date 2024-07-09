@@ -108,7 +108,7 @@ The following conditions can cause provisioning failures
 | DIMM, CPU, OEM Critical Errors | Resolve Hardware Issue, BareMetal Machine Replace |
 | Stuck at Grub Loader | Reset NVRAM, BareMetal Machine Replace |
 
-### Azure Bare Metal Machine Activity Log
+### Azure Bare Metal Machine activity log
 
 1. Login to [Azure Portal](https://portal.azure.com/).
 2. Search on the BMM Name in the top `Search` box.
