@@ -1161,6 +1161,8 @@
       href: billing-monitor-costs.md
     - name: Reduce costs
       href: billing-reduce-costs.md
+    - name: Optimize costs with prepurchase plan
+      href: /sentinel/billing-prepurchase-plan.md
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
     - name: Tutorial - Configure data retention policy
