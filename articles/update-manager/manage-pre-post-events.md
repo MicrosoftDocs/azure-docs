@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/03/2024
+ms.date: 07/08/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -36,10 +36,33 @@ To view the pre and post events, follow these steps:
 
 To edit the pre and post events, follow these steps:
 
+## Register your subscription for public preview
+
+To self-register your subscription for public preview, follow these steps:
+
+#### [Azure portal](#tab/portal)
+
 1. Follow all the steps listed under the [view pre and post events](#view-pre-and-post-events) section.
 2. In the selected **events** page, select the pre or post event you want to edit.
 
+
    :::image type="content" source="./media/manage-pre-post-events/edit-pre-post-event.png" alt-text="Screenshot that shows how to edit a pre and post event." lightbox="./media/manage-pre-post-events/edit-pre-post-event.png"::: 
+
+#### [Azure CLI](#tab/cli)
+
+```azurecli-interactive
+az feature register --name InGuestPatchPrePostMaintenanceActivity --namespace Microsoft.Maintenance
+```
+
+#### [PowerShell](#tab/ps)
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName "InGuestPatchPrePostMaintenanceActivity" -ProviderNamespace "Microsoft.Maintenance"
+```
+---
+
+## Timeline of schedules for pre and post events
+
 
 3. In the selected **pre or post event** page, you can edit the Event handler/endpoint used or the location of the endpoint.
 
