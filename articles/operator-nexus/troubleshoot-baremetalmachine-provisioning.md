@@ -175,7 +175,7 @@ To find the `Network Fabric` port from Azure:
 Perform a remote Flea Drain against the BareMetal Machine through the WEB UI:
 `BMC` -> `Configuration` -> `BIOS Settings` -> `Miscellaneous Settings` -> `Select "Full Power Cycle" under Power Cycle Request` -> `Apply and reboot`
 
-Perform a remote Flea Drain using `racadm` from a Jumpbox that has access the BMC network:
+Perform a remote flea drain using `racadm` from a Jumpbox that has access the BMC network:
 ```bash
 racadm set bios.miscsettings.powercyclerequest FullPowerCycle
 racadm jobqueue create BIOS.Setup.1-1
