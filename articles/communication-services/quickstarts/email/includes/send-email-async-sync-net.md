@@ -156,7 +156,7 @@ var emailClient = new EmailClient(endpoint, key);
 
 #### [Send Email and get status async](#tab/send-email-and-get-status-async)
 
-[!INCLUDE [polling-net](./includes/polling-net.md)]
+[!INCLUDE [polling-net](../send-email-advanced/includes/polling-net.md)]
 
 #### [Send Email and get status sync](#tab/send-smail-and-get-status-sync)
 
