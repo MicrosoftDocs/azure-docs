@@ -31,7 +31,7 @@ The Enterprise deployment plan includes the following Tanzu components:
 * Application Accelerator
 * Application Live View
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 

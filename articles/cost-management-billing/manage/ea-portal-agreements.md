@@ -45,7 +45,7 @@ As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial cus
 
 **Transferred** - Transferred status is applied to enrollments that have their associated accounts and services transferred to a new enrollment. Enrollments don't automatically transfer if a new enrollment number is generated during renewal. The prior enrollment number must be included in the customer's renewal request for an automatic transfer.
 
-**Manually Terminated** - All the subscriptions and accounts under the enrollment are deactivated. Reactivation isn't supported for terminated enrollments. For direct EA, only a non-read-only enterprise administrator can request reactivation with a support request. For indirect EA, the partner can submit a request in the Volume Licensing Center. However, to terminate enrollments with Expired status, the partner must request it using Azure support.
+**Manually Terminated** - All the subscriptions and accounts under the enrollment are deactivated. Reactivation isn't supported for terminated enrollments. For direct EA, only a non-read-only enterprise administrator can request termination with a support request. For indirect EA, the partner can submit a request in the Volume Licensing Center. However, to terminate enrollments with Expired status, the partner must request it using Azure support.
 
 ## Partner markup
 

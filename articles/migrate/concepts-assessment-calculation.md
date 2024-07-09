@@ -6,14 +6,14 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 06/24/2024
 ms.custom: engagement-fy24
 ---
 
 # Assessment overview (migrate to Azure VMs)
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
 
@@ -205,7 +205,6 @@ Assessments also determine readiness of the recommended target for Microsoft Def
    - SUSE Linux Enterprise Server 12, 15+
    - Debian 9, 10, 11
    - Oracle Linux 7.2+, 8
-   - CentOS Linux 7.2+
    - Amazon Linux 2
 - For other Operating Systems, the server is marked as **Ready with Conditions**.
 If a server is not ready to be migrated to Azure, it is marked as **Not Ready** for Microsoft Defender for Servers.

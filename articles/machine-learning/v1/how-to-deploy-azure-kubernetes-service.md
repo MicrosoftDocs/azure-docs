@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
 ms.date: 03/08/2024
 ---
 

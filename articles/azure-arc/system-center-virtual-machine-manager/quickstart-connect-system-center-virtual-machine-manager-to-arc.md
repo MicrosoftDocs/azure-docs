@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 05/15/2024
+ms.date: 07/01/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -35,22 +35,22 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 ## Prepare SCVMM management server
 
--	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 16 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
+-	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 32 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
 -	Ensure that SCVMM administrator account has the appropriate permissions.
 
 ## Download the onboarding script
 
 1. Go to [Azure portal](https://aka.ms/SCVMM/MgmtServers).
 1. Search and select **Azure Arc**.
-1. In the **Overview** page, select **Add** in **Add your infrastructure for free** or move to the **infrastructure** tab.
+1. In the **Overview** page, select **Add resources** under **Manage resources across environments**.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-inline.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure.png":::
 
-1. In the **Platform** section, in **System Center VMM** select **Add**.
+1. In the **Host environments** section, in **System Center VMM** select **Add**.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-inline.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm.png":::
 
-1. Select **Create new resource bridge** and select **Next**.
+1. Select **Create a new resource bridge** and select **Next : Basics >**.
 1. Provide a name for **Azure Arc resource bridge**. For example: *contoso-nyc-resourcebridge*.
 1. Select a subscription and resource group where you want to create the resource bridge.
 1. Under **Region**, select an Azure location where you want to store the resource metadata. The currently supported regions are **East US** and **West Europe**.
@@ -59,7 +59,9 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
-1. Select **Next: Download and run script**.
+1. Select **Next: Tags >**.
+1. Assign Azure tags to your resources in **Value** under **Physical location tags**. You can add additional tags to help you organize your resources to facilitate administrative tasks using custom tags.
+1. Select **Next: Download and run script >**.
 1. If your subscription isn't registered with all the required resource providers, select **Register** to proceed to next step.
 1. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the workstation.
 1. To see the status of your onboarding after you run the script on your workstation, select **Next:Verification**. The onboarding isn't affected when you close this page.

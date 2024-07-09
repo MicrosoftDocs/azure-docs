@@ -13,9 +13,6 @@ ms.custom: GGAL-freshness822, devx-track-azurecli, devx-track-azurepowershell, l
 
 # VMAccess Extension for Linux
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 The VMAccess Extension is used to manage administrative users, configure SSH, and check or repair disks on Azure Linux virtual machines. The extension integrates with Azure Resource Manager templates. It can also be invoked using Azure CLI, Azure PowerShell, the Azure portal, and the Azure Virtual Machines REST API.
 
 This article describes how to run the VMAccess Extension from the Azure CLI and through an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
@@ -30,7 +27,6 @@ This article describes how to run the VMAccess Extension from the Azure CLI and 
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
 | Alma Linux |	9.x+ |	9.x+ |
-| CentOS |	7.x+,  8.x+ |	7.x+ |
 | Debian |	10+ |	11.x+ |
 | Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
 | Azure Linux | 2.x | 2.x |

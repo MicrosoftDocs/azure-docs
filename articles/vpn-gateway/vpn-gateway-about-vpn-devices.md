@@ -142,8 +142,10 @@ In the following tables:
 
 ### Azure VPN Gateway TCP MSS Clamping
 
-MSS clamping is done bidirectionally on the Azure VPN Gateway. The following table lists the packet size under different scenarios. 
+MSS clamping is done bidirectionally on the Azure VPN Gateway. The following table lists the packet size under different scenarios.
+
 | **Packet Flow**               |**IPv4**        | **IPv6**   |
+| ---                           | ---            | ---        |
 | Over Internet                 | 1340 bytes     | 1360 bytes |
 | Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
