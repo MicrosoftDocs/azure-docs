@@ -75,20 +75,20 @@ The following tables compare features available in the following API Management 
 
 | Feature support  | Classic  | V2  | Consumption | Self-hosted  | Workspace |
 | --- | --- | ----- | ----- | ---------- |
-| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
-| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
-| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ | ✔️<sup>1,2</sup> | ✔️ |
-| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ | ❌ |
-| [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  V2  |  ❌ | ❌ | ❌ |
-| [Availability zones](zone-redundancy.md)  |  Premium | ❌ | ❌ | ✔️<sup>1</sup> | ❌ |
-| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> | ✔️ |  
-| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
-| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ✔️ |
-| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
-| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
+| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ |
+| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ | ✔️<sup>1,2</sup> |
+| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ |
+| [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  V2  |  ❌ | ❌ |
+| [Availability zones](zone-redundancy.md)  |  Premium | ❌ | ❌ | ✔️<sup>1</sup> |
+| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ |
+| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ |
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
