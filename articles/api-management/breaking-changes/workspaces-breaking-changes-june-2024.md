@@ -1,5 +1,5 @@
 ---
-title: Azure API Management workspaces preview - breaking changes (June 2024) | Microsoft Docs
+title: Azure API Management workspaces - breaking changes (June 2024) | Microsoft Docs
 description: Azure API Management is updating the workspaces (preview) with breaking changes. If your service uses workspaces, you may need to update workspace configurations.
 services: api-management 
 author: dlepow
@@ -13,7 +13,11 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../../includes/api-management-availability-premium-dev-standard.md)]
 
-After 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
+> [!IMPORTANT]
+> These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release of workspaces in July 2024, using API version 2023-09-01 or later, your workspaces are not affected by these changes.
+> 
+
+After 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) in Azure API Management, we're introducing several breaking changes. 
 
 After 14 June 2024, your workspaces and APIs managed in them may stop working if they still rely on the capabilities set to change. APIs and resources managed outside workspaces aren't affected by this change.
 
@@ -104,7 +108,7 @@ If you have questions, get answers from community experts in [Microsoft Q&A](htt
 ## More information
 
 * [Workspaces overview](../workspaces-overview.md)
-* [Workspaces preview breaking changes (December 2024)](workspaces-breaking-changes-dec-2024.md)
+* [Workspaces breaking changes (December 2024)](workspaces-breaking-changes-dec-2024.md)
 
 
 
