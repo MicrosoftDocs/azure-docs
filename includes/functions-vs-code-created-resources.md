@@ -10,4 +10,4 @@ ms.author: glenga
 + A standard [Azure Storage account](../articles/storage/common/storage-account-create.md), which maintains state and other information about your projects.
 + A function app, which provides the environment for executing your function code. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources within the same hosting plan.
 + An Azure App Service plan, which defines the underlying host for your function app.
-+ An Azure Application Insights instance that's connected to the function app, and which tracks the use of your functions in the app.
++ An Application Insights instance that's connected to the function app, and which tracks the use of your functions in the app.

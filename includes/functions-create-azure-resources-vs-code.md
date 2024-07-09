@@ -9,7 +9,7 @@ ms.custom: devdivchpfy22
 
 In this section, you create a function app and related resources in your Azure subscription.
 
-1. In Visual Studio Code, select F1 to open the command palette. At the search prompt (`>`), enter and then select **Azure Functions: Create Function App in Azure**.
+1. In Visual Studio Code, select F1 to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create Function App in Azure**.
 
 1. At the prompts, provide the following information:
 
@@ -20,11 +20,11 @@ In this section, you create a function app and related resources in your Azure s
     |**Select a runtime stack**| Select the language version you currently run locally. |
     |**Select a location for new resources**| Select an Azure region. For better performance, select a [region](https://azure.microsoft.com/regions/) near you.|
 
-    In the **Azure: Activity Log** panel, the extension shows the status of individual resources as they're created in Azure.
+    In the **Azure: Activity Log** panel, the Azure extension shows the status of individual resources as they're created in Azure.
 
     ![Screenshot that shows the log of Azure resource creation.](media/functions-publish-project-vscode/resource-activity-log.png)
 
-1. When the function app is created, the following Azure resources are created in your subscription. The resources are named based on the name you entered for your function app.
+1. When the function app is created, the following related resources are created in your Azure subscription. The resources are named based on the name you entered for your function app.
 
     [!INCLUDE [functions-vs-code-created-resources](functions-vs-code-created-resources.md)]
 
