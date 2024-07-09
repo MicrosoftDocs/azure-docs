@@ -95,7 +95,7 @@ For important BareMetal Machine details:
 az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{name:name,BootMAC:bootMacAddress,BMCMAC:bmcMacAddress,Connect:bmcConnectionString,SN:serialNumber,rackId:rackId,RackSlot:rackSlot}" -o table
 ```
 
-## Troubleshooing Failed Provisioning State
+## Troubleshooting failed provisioning state
 
 The following conditions can cause provisioning failures
 | Error Type | Resolution |
