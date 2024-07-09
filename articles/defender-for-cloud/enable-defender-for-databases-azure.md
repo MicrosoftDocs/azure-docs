@@ -51,7 +51,7 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 ## Related content
 
-- [Optional configurations after in-place migration from Azure Database for MySQL Single Server to Flexible Server] (https://learn.microsoft.com/en-us/azure/mysql/migrate/whats-happening-to-mysql-single-server#configure-microsoft-defender-for-cloud-properties-in-flexible-server).
+- [Optional configurations after in-place migration from Azure Database for MySQL Single Server to Flexible Server](/azure/mysql/migrate/whats-happening-to-mysql-single-server#configure-microsoft-defender-for-cloud-properties-in-flexible-server).
 
 ## Next step
 
