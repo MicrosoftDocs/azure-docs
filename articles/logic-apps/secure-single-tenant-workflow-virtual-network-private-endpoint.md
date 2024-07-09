@@ -168,7 +168,7 @@ For more information, review the following documentation:
 
    To find this app setting, on the logic app resource menu, under **Settings**, select **Environment variables**.
 
-1. If you use your own domain name server (DNS) with your virtual network, add the **WEBSITE_DNS_SERVER** app setting, if none exist, and set the value to the IP address for your DNS. If you have a secondary DNS, add another app setting named **WEBSITE_DNS_ALT_SERVER**, and set the value to the IP for your secondary DNS.
+1. If you use your own domain name server (DNS) with your virtual network, add the **WEBSITE_DNS_SERVER** app setting, if none exists, and set the value to the IP address for your DNS. If you have a secondary DNS, add another app setting named **WEBSITE_DNS_ALT_SERVER**, and set the value to the IP for your secondary DNS.
 
 1. After Azure successfully provisions the virtual network integration, try to run the workflow again.
 

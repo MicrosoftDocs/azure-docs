@@ -61,7 +61,7 @@ To follow this example, you need these items:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
+* Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
 * An existing [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 that's associated with your Azure subscription and is linked to your logic apps
