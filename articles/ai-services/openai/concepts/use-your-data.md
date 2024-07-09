@@ -319,24 +319,22 @@ A Teams app lets you bring conversational experience to your users in Teams to i
 You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Follow the steps below: 
 
 1. Make sure you have fulfilled the following prerequisites: 
-   * Tutorial - Build Custom Copilot - Teams | Microsoft Learn  TBD
-   * Sign in to you M365 account and enable “custom app upload” 
-   * [Install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
-   * Visual Studio Code installed
-   * You have **Cognitive Service OpenAI user** role with the Azure OpenAI resource you're using.
+   * Sign in to your M365 account (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program))
+   * Enable **custom app upload** in your account (instructions [here](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading))
+   * [Azure CLI](/cli/azure/install-azure-cli) installed
+   * [Visual Studio Code](https://code.visualstudio.com/) installed
+   * You have the **Cognitive Service OpenAI user** role with the Azure OpenAI resource you're using.
 
 1. After you've added your data to the chat model, select **Deploy** and then **a Teams app(preview)**. Enter the name of your Teams app and download the resulting .zip file.
 
 1. Extract the .zip file and open the folder in VSCode.
 
-1. (TBD) If you chose “API key” in data connection, manually copy and paste your Azure AI Search key in `src\prompts\chat\config.json` file. If you chose “system assigned managed identity”, you can skip this step. Learn more about different data connection options [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#data-connection). 
+1. If you chose **API key** in the data connection step, manually copy and paste your Azure AI Search key into the `src\prompts\chat\config.json` file. If you chose **System assigned managed identity**, you can skip this step. Learn more about different data connection options in the [Data connection](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#data-connection) section. 
 
-1. Select the Run menu, and select **Debug (Edge)** to run the app locally only in your environment.  
+1. Select the **Run** menu, and select **Debug (Edge)** to run the app locally in your environment. After you've tested it locally, you can provision, deploy, and publish your Teams app.  
 
-1. After you've tested it locally, you can provision, deploy, and publish your Teams app.  
-
-1. Provision your app: https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/provision 
-    1. Go to the Azure portal and select the newly created Azure App Service 
+1. Provision your app: (detailed instructions in [Provision cloud resources](/microsoftteams/platform/toolkit/provision)) 
+    1. Go to the Azure portal and select the newly created Azure App Service resource
     1. Go to **settings** -> **identity** -> **enable system assigned identity** 
         1. Select **Azure role assignments** and then **add role assignments**. Specify the following parameters:
            * Scope: resource group 
@@ -344,12 +342,11 @@ You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Foll
            * Resource group of your Azure OpenAI resource 
            * Role: Cognitive Service OpenAI user  
 
-1. Deploy your app to Azure: https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/deploy 
+1. Deploy your app to Azure by following the instructions in [Deploy to the cloud](/microsoftteams/platform/toolkit/deploy). 
 
-1. Publish your app to Teams: https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/publish 
+1. Publish your app to Teams by following the instructions in [Publish Teams app](/microsoftteams/platform/toolkit/publish).
 
-
-See also [Tutorial - Build Custom Copilot](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library-tutorial).  TBD
+See also [Tutorial - Build Custom Copilot using Teams](/microsoftteams/platform/teams-ai-library-tutorial) for guided steps.
 
 #### [Web app](#tab/web-app)
 
