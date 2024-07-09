@@ -171,7 +171,7 @@ To find the `Network Fabric` port from Azure:
    az networkfabric interface update-admin-state -g $NF_RG --network-device-name $NF_DEVICE_NAME --resource-name $NF_DEVICE_INERFACE_NAME --state Enable
    ```
 
-### BMM Remote Power Drain (Flea Drain)
+### BMM remote power drain (flea drain)
 Perform a remote Flea Drain against the BareMetal Machine through the WEB UI:
 `BMC` -> `Configuration` -> `BIOS Settings` -> `Miscellaneous Settings` -> `Select "Full Power Cycle" under Power Cycle Request` -> `Apply and reboot`
 
