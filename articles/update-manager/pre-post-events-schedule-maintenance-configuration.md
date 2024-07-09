@@ -56,9 +56,14 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using PowerShell](#tab/powershell)
 
+1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-powershell.md#guest)
 
-```powershell-interactive
+1. ```powershell-interactive
+    # Obtain the Maintenance Configuration ID from Step 1 and assign it to MaintenanceConfigurationResourceId variable  
+    
     $MaintenanceConfigurationResourceId = "/subscriptions/<subId>/resourceGroups/<Resource group>/providers/Microsoft.Maintenance/maintenanceConfigurations/<Maintenance configuration Name>"
+    
+    # Use the same Resource Group that you used to create maintenance configuration in Step 1
     
     $ResourceGroupForSystemTopic = "<Resource Group for System Topic>"
     
@@ -67,15 +72,15 @@ In the **Event Subscription Details** section, provide an appropriate name.
     $TopicType = "Microsoft.Maintenance.MaintenanceConfigurations"
     
     $SystemTopicLocation = "<System topic location>"
- 
+    
     # System topic creation
     
     New-AzEventGridSystemTopic -ResourceGroupName $ResourceGroupForSystemTopic -Name $SystemTopicName -Source $MaintenanceConfigurationResourceId -TopicType $TopicType -Location $SystemTopicLocation
- 
+    
     # Event subscription creation
     
     $IncludedEventTypes = @("Microsoft.Maintenance.PreMaintenanceEvent")
- 
+    
     # Webhook
     
     $EventSubscriptionName = "PreEventWebhook"
@@ -83,47 +88,58 @@ In the **Event Subscription Details** section, provide an appropriate name.
     $PreEventWebhookEndpoint = "<Webhook URL>"
     
     New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes
- 
+    
     # Azure Function
     
     $dest = New-AzEventGridAzureFunctionEventSubscriptionDestinationObject -ResourceId "<Azure Function Resource Id>"
     
     New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Destination $dest -IncludedEventType $IncludedEventTypes
-```
+
+    ```
 
 #### [Using CLI](#tab/cli)
 
-```azurecli-interactive
+1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-cli.md#guest-vms).
 
-   SystemTopicName="<System topic name> 
+1. ```azurecli-interactive
 
-   ResourceGroupName="<Resource Group for System Topic>"
+    SystemTopicName="<System topic name> 
 
-   Source="/subscriptions/<subId>/resourceGroups/<Resource group>/providers/Microsoft.Maintenance/maintenanceConfigurations/<Maintenance configuration Name>"
-   
+    # Use the same Resource Group that you used to create maintenance configuration in Step 1
+    
+    ResourceGroupName="<Resource Group mentioned in Step 1>"
+    
+    # Obtain the Maintenance Configuration ID from Step 1 and assign it to Source variable
+    
+    Source="/subscriptions/<subId>/resourceGroups/<Resource group>/providers/Microsoft.Maintenance/maintenanceConfigurations/<Maintenance configuration Name>"
+    
     TopicType="Microsoft.Maintenance.MaintenanceConfigurations"
     
     Location="<System topic location> "
- 
-   # System topic creation
-     
+    
+    # System topic creation
+    
     az eventgrid system-topic create --name $SystemTopicName --resource-group $ResourceGroupName --source $Source --topic-type $TopicType --location $Location
- 
-   # Event subscription creation
-   
+    
+    # Event subscription creation
+    
     IncludedEventTypes='("Microsoft.Maintenance.PreMaintenanceEvent")'
- 
-   # Webhook
-   
+    
+    # Webhook
+    
     az eventgrid system-topic event-subscription create --name "<Event subscription name>" --resource-group $ResourceGroupName --system-topic-name $SystemTopicName --endpoint-type webhook --endpoint "<webhook URL>" --included-event-types IncludedEventTypes
- 
-   # Azure Function
-   
+    
+    # Azure Function
+    
     az eventgrid system-topic event-subscription create –name "<Event subscription name>" --resource-group $ResourceGroupName --system-topic-name $SystemTopicName --endpoint-type azurefunction --endpoint "<Azure Function ResourceId>" --included-event-types IncludedEventTypes
-```
+    
+  ```
+
 #### [Using API](#tab/api)
 
-**# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
+1. Create a maintenance configuration by following the steps listed [here] (https://learn.microsoft.com/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
+
+1. **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
 ```rest
 PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/systemTopics/<system topic name>?api-version=2022-06-15
