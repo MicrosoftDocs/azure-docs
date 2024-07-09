@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -311,7 +311,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles
 
-The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. It's best to use paragraph roles with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
 | **Predicted role**   | **Description**   | **Supported file types** | 
 | --- | --- | --- |
@@ -577,11 +577,11 @@ Here are a few factors to consider when using the Document Intelligence bale ext
 
 * Is the data that you want to extract presented as a table, and is the table structure meaningful?
 
-* If the data isn't in a table format, can the data fit in a two-dimensional grid?
+* Can the data fit in a two-dimensional grid if the data isn't in a table format?
 
 * Do your tables span multiple pages? If so, to avoid having to label all the pages, split the PDF into pages before sending it to Document Intelligence. After the analysis, post-process the pages to a single table.
 
-* If you're creating custom models, refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
+* Refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables) if you're creating custom models. Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
 
 > [!NOTE]
 > Table is not supported if the input file is XLSX.

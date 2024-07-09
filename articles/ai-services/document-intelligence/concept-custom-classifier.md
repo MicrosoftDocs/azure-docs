@@ -6,7 +6,7 @@ author: vkurpad
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 06/26/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -98,7 +98,7 @@ Classification models can now be trained on documents of different languages. Se
 
 Supported file formats:
 
-|Model | PDF |Image:<br>jpeg/jpg, png, bmp, tiff, heif| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
+|Model | PDF |Image:<br>`jpeg/jpg`, `png`, `bmp`, `tiff`, `heif`| Microsoft Office:<br> Word (docx), Excel (xlxs), PowerPoint (pptx)|
 |--------|:----:|:-----:|:---------------:|
 |Read            | ✔    | ✔    | ✔  |
 |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, and later)  |
@@ -130,7 +130,7 @@ Supported file formats:
 When you have more than one document in a file, the classifier can identify the different document types contained within the input file. The classifier response contains the page ranges for each of the identified document types contained within a file. This response can include multiple instances of the same document type.
 
 ::: moniker range=">=doc-intel-4.0.0"
-The analyze operation now includes a `splitMode` property that gives you granular control over the splitting behavior.
+The `analyze` operation now includes a `splitMode` property that gives you granular control over the splitting behavior.
 
 * To treat the entire input file as a single document for classification set the splitMode to `none`. When you do so, the service returns just one class for the entire input file.
 * To classify each page of the input file, set the splitMode to `perPage`. The service attempts to classify each page as an individual document.

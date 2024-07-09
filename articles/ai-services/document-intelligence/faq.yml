@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-ai-document-intelligence
   ms.custom: references_regions
   ms.topic: faq
-  ms.date: 06/26/2024
+  ms.date: 07/09/2024
   ms.author: lajanuar
 title: Frequently asked questions
 summary: |
@@ -28,7 +28,7 @@ sections:
 
           -  **Pricing changes**: There are no changes to pricing. The names Cognitive Services and Applied AI Services continue to be used in Azure billing, cost analysis, price lists, and price APIs.
 
-          -  **Breaking changes**: There are no breaking changes to APIs or client libraries (SDKs). REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and later are renamed `document intelligence`.
+          -  **Breaking changes**: There are no breaking changes to APIs or client libraries. REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and later are renamed `document intelligence`.
 
       - question: |
          Does Document Intelligence integrate with other Microsoft services?
@@ -54,7 +54,7 @@ sections:
 
           You can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data.
 
-          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages, easily find answers and gain valuable insights, and generate new and engaging content from your existing documents.
+          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
 
           - You can find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
 
@@ -123,7 +123,7 @@ sections:
         answer: |
           **Yes.**
 
-          - To change a directory in Document Intelligence Studio, select the **Settings** (gear) button. Under **Directory**, select the directory from the list, and then select **Switch Directory**. You're prompted to sign in again after you switch the directory.
+          - To change a directory in Document Intelligence Studio, select the **Settings** (gear) button. Under **Directory**, select the directory from the list, and then select **Switch Directory**. Sign in again after you switch the directory.
 
           - To change a subscription or resource, go to the **Resource** tab under **Settings**.
 
@@ -133,7 +133,7 @@ sections:
         answer: |
          **Yes.**
 
-         If your Document Intelligence resource is configured with a firewall or virtual network,you need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
+         If your Document Intelligence resource is configured with a firewall or virtual network, you need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
 
       - question: |
           Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
@@ -163,7 +163,7 @@ sections:
 
           Document Intelligence offers the latest development options within the following platforms:
 
-          - [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
+          - [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31 &preserve-view=true&tabs=HTTP)
 
           - [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
@@ -214,7 +214,7 @@ sections:
 
           We recommend [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio) most of the time because it can reduce your time for configuring Document Intelligence resources and storage services.
 
-           Only consider using the Form OCR Testing Tool (FOTT) for the following scenarios:
+           Only consider using the Form Testing Tool (FOTT) for the following scenarios:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
@@ -319,11 +319,11 @@ sections:
         answer: |
           **Yes.**
 
-          Although the model capabilities are the same for connected and disconneted containers, the billing and connectivity methods differ:
+          Although the model capabilities are the same for connected and disconnected containers, the billing and connectivity methods differ:
 
           - Connected containers send billing information to Azure by using a Document Intelligence resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/install-run.md?tabs=layout#billing) to Azure. Document Intelligence connected containers send billing information to Azure by using a Document Intelligence resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. For an example of the information that connected containers send to Microsoft for billing, see the [Azure AI container FAQ](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work).
 
-          - [Disconnected containers](../../ai-services/containers/disconnected-containers.md) enable you to use APIs that are disconnected from the internet. [Billing information](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet. Instead, you're charged based on a purchased commitment tier. Currently, disconnected container usage is available for Document Intelligence custom and invoice models.
+          - [Disconnected containers](../../ai-services/containers/disconnected-containers.md) enable you to use APIs that are disconnected from the internet. [Billing information](../../ai-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet. Instead, Charges are based on a purchased commitment tier. Currently, disconnected container usage is available for Document Intelligence custom and invoice models.
 
 
       - question: |
@@ -349,7 +349,7 @@ sections:
         answer: |
           **Yes.**
 
-          The containers use the `Mounts:Shared` property while starting up for specifying the shared storage to store the processing files. To see the use of this property, refer to the [containers documentation](containers/install-run.md?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers).
+          The containers use the `Mounts: Shared` property while starting up for specifying the shared storage to store the processing files. To see the use of this property, refer to the [containers documentation](containers/install-run.md?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers).
 
   - name: Security and privacy
     questions:
@@ -363,7 +363,7 @@ sections:
 
           Learn more about [data, privacy, and security for Document Intelligence](/legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json).
 
-          For trained custom models, the interim outputs after analysis and labeling are stored in the same Azure Storage location where you store your training data. The trained custom models are stored in Azure Storage in the same region, and they're logically isolated with your Azure subscription and API credentials.
+          For trained custom models, the interim outputs after analysis and labeling are stored in the same Azure Storage location where you store your training data. The trained custom models are stored in Azure Storage in the same region, and are logically isolated with your Azure subscription and API credentials.
 
   - name: More help and support
     questions:
@@ -379,4 +379,4 @@ sections:
         answer: |
             **Yes.**
 
-            We continually update and improve the Document Intelligence OCR model. You can [email the Document Intelligence team](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.
+            We continually update and improve the Document Intelligence models. You can [email the Document Intelligence team](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.

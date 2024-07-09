@@ -15,7 +15,7 @@ items:
   - name: FAQ
     displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
     href: faq.yml  
-  - name: Document Intelligence SDKs
+  - name: Document Intelligence client libraries
     expanded: true
     items:
       - name: Changelog and migration guide
@@ -58,7 +58,7 @@ items:
     - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-document-intelligence-studio.md
-    - name: "Get started with Document Intelligence SDKs"
+    - name: "Get started with Document Intelligence client libraries"
       displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
@@ -289,7 +289,7 @@ items:
       href: v3-error-guide.md
     - name: v2.1
       href: /rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true
-  - name: SDKs (2023-10-31-preview)
+  - name: Client libraries (2023-10-31-preview)
     items:
     - name: C# / .NET
       href: /dotnet/api/overview/azure/ai.documentintelligence-readme?view=azure-dotnet-preview&preserve-view=true

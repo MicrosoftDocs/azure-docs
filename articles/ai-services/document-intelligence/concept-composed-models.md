@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -57,7 +57,7 @@ With the introduction of [**custom classification models**](./concept-custom-cla
 
 * With the model compose operation, you can assign up to 200 models to a single model ID. If the number of models that I want to compose exceeds the upper limit of a composed model, you can use one of these alternatives:
 
-  * Classify the documents before calling the custom model. You can use the [read model](concept-read.md) and build a classification based on the extracted text from the documents and certain phrases by using sources like code, regular expressions, or search.
+  * Classify the documents before calling the custom model. You can use the [Read model](concept-read.md) and build a classification based on the extracted text from the documents and certain phrases by using sources like code, regular expressions, or search.
 
   * If you want to extract the same fields from various structured, semi-structured, and unstructured documents, consider using the deep-learning [custom neural model](concept-custom-neural.md). Learn more about the [differences between the custom template model and the custom neural model](concept-custom.md#compare-model-features).
 

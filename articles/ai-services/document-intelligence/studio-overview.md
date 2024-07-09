@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 06/27/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -36,7 +36,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 The studio supports Document Intelligence v3.0 and later API versions for model analysis and custom model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
-Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with document analysis or prebuilt models. Build custom models and reference the models in your applications using one of the [language specific `SDKs`](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true). To use Document Intelligence Studio, you need to acquire the following from the Azure portal:
+Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with document analysis or prebuilt models. Build custom models and reference the models in your applications using one of the [language specific `SDKs`](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true). To use Document Intelligence Studio, you need to acquire the following assets from the Azure portal:
 
 * **An Azure subscription** - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -50,7 +50,7 @@ Your organization can opt to disable local authentication and enforce Microsoft 
 
 * Microsoft Entra allows granting minimum privileges and granular control for Azure resources.
 
-* For more information *see* the following guidance:
+* For more information, *see* the following guidance:
 
   * [Disable local authentication for Azure AI Services](../disable-local-auth.md).
   * [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
@@ -67,11 +67,11 @@ Your organization can opt to disable local authentication and enforce Microsoft 
 
 Use the help wizard, labeling interface, training step, and interactive visualizations to understand how each feature works.
 
-* **Read**: Try out Document Intelligence's [Studio Read feature](https://documentintelligence.ai.azure.com/studio/read) with sample documents or your own documents to extract text lines, words, detected languages, and handwritten style if detected. Start with the . To learn more, *see* [Read overview](concept-read.md).
+* **Read**: Try out Document Intelligence's [Studio Read feature](https://documentintelligence.ai.azure.com/studio/read) with sample documents or your own documents and extract text lines, words, detected languages, and handwritten style if detected. To learn more, *see* [Read overview](concept-read.md).
 
-* **Layout**: Try out Document Intelligence's [Studio Layout feature](https://documentintelligence.ai.azure.com/studio/layout) with sample documents or your own documents to extract text, tables, selection marks, and structure information. To learn more, *see* [Layout overview](concept-layout.md). 
+* **Layout**: Try out Document Intelligence's [Studio Layout feature](https://documentintelligence.ai.azure.com/studio/layout) with sample documents or your own documents and extract text, tables, selection marks, and structure information. To learn more, *see* [Layout overview](concept-layout.md). 
 
-* **Prebuilt models**: Document Intelligence's prebuilt models enable you with sample documents or your own documents to add intelligent document processing to your apps and flows without having to train and build your own models. As an example, start with the [Studio Invoice feature](https://documentintelligence.ai.azure.com/studio/prebuilt?formType=invoice). To learn more, *see* [Models overview](concept-model-overview.md).
+* **Prebuilt models**: Document Intelligence's prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. As an example, start with the [Studio Invoice feature](https://documentintelligence.ai.azure.com/studio/prebuilt?formType=invoice). To learn more, *see* [Models overview](concept-model-overview.md).
 
 * **Custom extraction models**: Document Intelligence's [Studio Custom models feature](https://documentintelligence.ai.azure.com/studio/custommodel/projects) enables you to extract fields and values from models trained with your data, tailored to your forms and documents. To extract data from multiple form types, create standalone custom models or combine two, or more, custom models and create a composed model. Test the custom model with your sample documents and iterate to improve the model. To learn more, *see* the [Custom models overview](concept-custom.md).
 
@@ -129,7 +129,7 @@ With Document Intelligence, you can quickly automate your data processing in app
 
 * Once you train a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
 
-* If a low confidence score is returned for some labels, make sure they're correctly labeled. If not, add them to the training dataset and relabel to improve the model quality.
+* If a low confidence score is returned for some labels, make sure to correctly label your content. If not, add them to the training dataset and relabel to improve the model quality.
 
     :::image type="content" source="media/studio/add-from-test.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
 
@@ -150,9 +150,9 @@ Share custom extraction projects with ease. For more information, see [Project s
 |Scenario     |Cause| Resolution|
 |-------------|------|----------|
 |You receive the error message</br> `Form Recognizer Not Found` when opening a custom project.|Your Document Intelligence resource, bound to the custom project was deleted or moved to another resource group.| There are two ways to resolve this problem: </br>&bullet; Re-create the Document Intelligence resource under the same subscription and resource group with the same name.</br>&bullet; Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.|
-|You receive the error message</br> `PermissionDenied` when using prebuilt apps or opening a custom project.|The principal does not have access to API/Operation" when analyzing against prebuilt models or opening a custom project, it is likely the local (key-based) authentication is disabled for your Document Intelligence resource and your do not have enough permission to access the resource.|Reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.|
-|You receive the error message</br> `AuthorizationPermissionMismatch` when opening a custom project.|The request is not authorized to perform the operation using the designated permission.It is likely the local (key-based) authentication is disabled for your storage account and your do not have the granted permission to access the blob data.|Reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.|
-|You cannot sign in to Document Intelligence Studio and receive the error message</br> `InteractionRequiredAuthError:login_required:AADSTS50058:A silent sign-request was sent but no user is signed in`|It is likely that third-party cookies are blocked by your browser so you cannot successfully sign in.|To resolve, see [Manage third-party settings](#manage-third-party-settings-for-studio-access) for your browser.|
+|You receive the error message</br> `PermissionDenied` when using prebuilt apps or opening a custom project.|The principal doesn't have access to API/Operation" when analyzing against prebuilt models or opening a custom project. It's likely the local (key-based) authentication is disabled for your Document Intelligence resource don't have enough permission to access the resource.|Reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.|
+|You receive the error message</br> `AuthorizationPermissionMismatch` when opening a custom project.|The request isn't authorized to perform the operation using the designated permission. It's likely the local (key-based) authentication is disabled for your storage account and you don't have the granted permission to access the blob data.|Reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.|
+|You can't sign in to Document Intelligence Studio and receive the error message</br> `InteractionRequiredAuthError:login_required:AADSTS50058:A silent sign-request was sent but no user is signed in`|It's likely that your browser is blocking third-party cookies so you can't successfully sign in.|To resolve, see [Manage third-party settings](#manage-third-party-settings-for-studio-access) for your browser.|
 
 ### Manage third-party settings for Studio access
 
@@ -179,11 +179,11 @@ Share custom extraction projects with ease. For more information, see [Project s
 **Safari**:
 
 * Choose **Safari** > **Preferences**
-* Click **Privacy**
+* Select **Privacy**
 * Deselect **Block all cookies**
 
 ## Next steps
 
-* To begin using the models presented by the service, visit [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
+* Visit [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Get started with [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).

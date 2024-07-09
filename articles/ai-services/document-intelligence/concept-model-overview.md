@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -76,11 +76,11 @@ The following table shows the available models for each current preview and stab
 |Custom extraction model|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
 |All models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
 
-\* - Contains sub-models. See the model specific information for supported variations and sub-types.
+\* - Contains submodels. See the model specific information for supported variations and subtypes.
 
 ### Latency
 
-Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. The time to analyze a document depends on the size (for example, number of pages) and associated content on each page. Document Intelligence is a multi-tenant service where latency for similar documents is comparable but not always identical. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale. Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
+Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. The time to analyze a document depends on the size (for example, number of pages) and associated content on each page. Document Intelligence is a multi tenant service where latency for similar documents is comparable but not always identical. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale. Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
 
 |**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
@@ -126,7 +126,7 @@ A bounding box (`polygon` in v3.0 and later versions) is an abstract rectangle t
 
 * The bounding box specifies position by using an x and y coordinate plane presented in an array of four numerical pairs. Each pair represents a corner of the box in the following order: upper left, upper right, lower right, lower left.
 
-* For an image, coordinates are presented in pixels. For a PDF, coordinates are presented in inches.
+* Image coordinates are presented in pixels. For a PDF, coordinates are presented in inches.
 
 For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are seven add-on capabilities available for the `2023-07-31` (GA) and later API version:
 
@@ -155,7 +155,7 @@ For more information, see our [Azure geographies](https://azure.microsoft.com/gl
 
 ## Model details
 
-This section describes the output you can expect from each model. Please note that you can extend the output of most models with add-on features.
+This section describes the output you can expect from each model. You can extend the output of most models with add-on features.
 
 ### Read OCR
 
@@ -222,13 +222,13 @@ The US tax document models analyze and extract key fields and line items from a 
 
 :::image type="icon" source="media/studio/mortgage-documents.png":::
 
-The US mortgage document models analyze and extract key fields including borrower, loan and property information from a select group of mortgage documents. The API supports the analysis of English-language US mortgage documents of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The following models are currently supported:
+The US mortgage document models analyze and extract key fields including borrower, loan, and property information from a select group of mortgage documents. The API supports the analysis of English-language US mortgage documents of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The following models are currently supported:
 
   |Model|Description|ModelID|
   |---|---|---|
   |1003 End-User License Agreement (EULA)|Extract loan, borrower, property details.|**prebuilt-mortgage.us.1003**|
-  |1008 Summary document|Extract borrower, seller, property, mortgage and underwriting details.|**prebuilt-mortgage.us.1008**|
-  |Closing disclosure|Extract closing, transaction costs and loan details.|**prebuilt-mortgage.us.closingDisclosure**|
+  |1008 Summary document|Extract borrower, seller, property, mortgage, and underwriting details.|**prebuilt-mortgage.us.1008**|
+  |Closing disclosure|Extract closing, transaction costs, and loan details.|**prebuilt-mortgage.us.closingDisclosure**|
   |Marriage certificate|Extract marriage information details for joint loan applicants.|**prebuilt-marriageCertificate**|
   |US Tax W-2|Extract taxable compensation details for income verification.|**prebuilt-tax.us.W-2**|
   
@@ -295,7 +295,7 @@ Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 s
 
 :::image type="icon" source="media/studio/marriage-certificate-icon.png":::
 
-Use the marriage certificate model to process U.S. marriage certificates to extract key fields including the individuals, date and location.
+Use the marriage certificate model to process U.S. marriage certificates to extract key fields including the individuals, date, and location.
 
 ***Sample U.S. marriage certificate processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=marriageCertificate.us)***:
 
@@ -325,7 +325,7 @@ Custom models can be broadly classified into two types. Custom classification mo
 
 :::image type="content" source="media/custom-models.png" alt-text="Diagram of types of custom models and associated model build modes.":::
 
-Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
+Custom document models analyze and extract data from forms and documents specific to your business. They recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
 
 Version v3.0 and later custom models support signature detection in custom template (form) and cross-page tables in both template and neural models. [Signature detection](quickstarts/try-document-intelligence-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person who signs the document. If the model returns **unsigned** for signature detection, the model didn't find a signature in the defined field.
 
