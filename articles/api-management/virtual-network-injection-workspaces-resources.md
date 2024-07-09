@@ -1,6 +1,6 @@
 ---
 title: Azure API Management workspaces - virtual network injection - network resources
-description: Learn about requirements for network resources when you deploy (inject) your API Management workspace in an Azure virtual network.
+description: Learn about requirements for network resources when you deploy (inject) your API Management workspace gateway in an Azure virtual network.
 author: dlepow
 
 ms.service: api-management
@@ -13,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
-The following are virtual network resource requirements for optionally injecting an API Management [workspace gateway](workspaces-overview.md#workspace-gateway) into a virtual network. Some requirements differ depending on the desired inbound and outbound access mode:
+Network isolation is an optional feature of an API Management [workspace gateway](workspaces-overview.md#workspace-gateway). This article provides network resource requirements for injection of the gateway in an Azure virtual network. Some requirements differ depending on the desired inbound and outbound access mode:
 
 * **External mode**: Public inbound access, private outbound access
 * **Internal mode**: Private inbound access, private outbound access
@@ -51,13 +51,13 @@ For external mode, the subnet needs to be delegated to the **Microsoft.Web/serve
 
 #### [Internal](#tab/internal)
 
-For internal mode, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironment** service.
+For internal mode, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
 
-:::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironment in the portal.":::
+:::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
 
 
 > [!NOTE]
-> You might need to register the `Microsoft.Web/hostingEnvironment` resource provider in the subscription so that you can delegate the subnet to the service.
+> You might need to register the `Microsoft.Web/hostingEnvironments` resource provider in the subscription so that you can delegate the subnet to the service.
 
 ---
 

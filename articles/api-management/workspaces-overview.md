@@ -90,11 +90,9 @@ Each workspace gateway is configured with a default hostname for API traffic in 
 
 ### Network isolation
 
-A workspace gateway can optionally be configured in a private virtual network to isolate inbound and/or outbound traffic. If configured, the workspace gateway must use a dedicated subnet in the virtual network. 
+A workspace gateway can optionally be configured in a private virtual network to isolate inbound and/or outbound traffic. If configured, the workspace gateway must use a dedicated subnet in the virtual network. For detailed requirements, see [Network resource requirements for workspace gateways](virtual-network-injection-workspaces-resources.md).
 
-> [!NOTE]
-> * The network configuration of a workspace gateway is independent of the network configuration of the API Management instance.
-> * The network configuration of a workspace gateway can only be set up when the gateway is created and can't be changed later.
+[!INCLUDE [api-management-virtual-network-workspaces-alert](../../includes/api-management-virtual-network-workspaces-alert.md)]
 
 ### Scale capacity
 

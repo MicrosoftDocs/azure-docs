@@ -27,16 +27,10 @@ Follow the steps in this article to:
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* (Optional) An Azure virtual network and subnet to isolate the workspace gateway.
-    * The virtual network must be in the same region and Azure subscription as the API Management instance.
-    * The subnet can't be shared with another resource and must have a size of /24 (256 IP addresses). 
-    * Configure subnet delegation to enable the desired access:
-        * For public inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/serverFarms**
-        * For private inbound and private outbound access, the subnet needs to be delegated to **Microsoft.Web/hostingEnvironment**. 
-        
-        The subnet can't have another delegation configured.
+* (Optional) An Azure virtual network and subnet to isolate the workspace gateway. You can configure the subnet for external mode (public inbound access, private outbound access) or internal mode (private inbound access, private outbound access). For detailed requirements, see [Network resource requirements for workspace gateways](virtual-network-injection-workspaces-resources.md).
 
- [!INCLUDE [api-management-virtual-network-workspaces-alert](../../includes/api-management-virtual-network-workspaces-alert.md)]
+ > [!IMPORTANT]
+ > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated virtual network and subnet after you create the workspace.
 
 ## Create a workspace - portal
 
@@ -52,7 +46,7 @@ Follow the steps in this article to:
 
     * In **Network**, select a **Network configuration** for your workspace gateway. 
 
-    * If you select a network configuration that includes private inbound or private outbound network access, select or create a **Virtual network** and **Subnet** to isolate the workspace gateway. For network requirements, see [Prerequisites](#prerequisites).
+    * If you select a network configuration that includes private inbound or private outbound network access, select or create a **Virtual network** and **Subnet** to isolate the workspace gateway. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-injection-workspaces-resources.md).
 
 1. Select **Review + create**. After validation completes, select **Create**.
 
@@ -132,6 +126,7 @@ To get started managing, protecting, and publishing APIs in a workspace, see the
 
 
 
-## Next steps
+## Related content
 
 * Learn more about [workspaces in Azure API Management](workspaces-overview.md).
+* [Use a virtual network to secure inbound or outbound traffic for Azure API Management](virtual-network-concepts.md)
