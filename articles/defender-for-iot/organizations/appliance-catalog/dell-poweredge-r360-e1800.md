@@ -1,5 +1,5 @@
 ---
-title: Dell PowerEdge R360 for OT monitoring - Microsoft Defender for IoT
+title: Dell PowerEdge R360 for operational technology (OT) monitoring - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R360 appliance's configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 03/14/2024
 ms.topic: reference
@@ -7,14 +7,14 @@ ms.topic: reference
 
 # Dell PowerEdge R360
 
-This article describes the Dell PowerEdge R360 appliance, supported for OT sensors in an enterprise deployment.
+This article describes the Dell PowerEdge R360 appliance, supported for operational technology (OT) sensors in an enterprise deployment.
 The Dell PowerEdge R360 is also available for the on-premises management console.
 
 |Appliance characteristic  | Description|
 |---------|---------|
 |**Hardware profile** | E1800|
 |**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
-|**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1GbE|
+|**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE|
 |**Status** | Supported, available as a preconfigured appliance|
 
 The following image shows a view of the Dell PowerEdge R360 front panel:
@@ -30,87 +30,64 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 |Component| Technical specifications|
 |:----|:----|
 |Chassis| 1U rack server|
-|Dimensions| Height: 1.68 in / 42.8 mm <br>Width: 18.97 in / 482.0 cm<br>Depth: 23.04 in / 585.3 mm (without bezeq) 23.57 in / 598.9 mm (with bezeq)|
-|Processor| Intel Xeon E-2434 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo , HT (55 W) DDR5-4800|
+|Dimensions| Height: 1.68 in / 42.8 mm <br>Width: 18.97 in / 482.0 cm<br>Depth: 23.04 in / 585.3 mm (without bezel) 23.57 in / 598.9 mm (with bezel)|
+|Processor| Intel Xeon E-2434 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo, HT (55 W) DDR5-4800|
 |Memory|32 GB |
 |Storage| 2.4 TB Hard Drive |
-|Network controller| - PowerEdge R360 Motherboard with with Broadcom 5720 Dual Port 1Gb On-Board LOM, PCIe Blank Filler, Low Profile, Intel Ethernet i350 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile, V2,  
-
-
-On-board: Broadcom 5720 Dual Port 1 Gb On-Board LOM <br>On-board LOM: iDRAC9, Enterprise 15G<br>External: Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile|
-|Management|iDRAC9 Enterprise|
-|Device access| Two rear USB 3.0|
-|One front| USB 3.0|
-|Power| Dual, Hot-Plug, Redundant Power Supply (1+1), 600 W|
+|Network controller| - PowerEdge R360 Motherboard with with Broadcom 5720 Dual Port 1Gb On-Board LOM, <br>- PCIe Blank Filler, Low Profile. <br>- Intel Ethernet i350 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile, V2|
+|Management|iDRAC Group Manager, Disabled|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell PowerEdge R350 - Bill of Materials
+## Dell PowerEdge R360 - Bill of Materials
 
 |Quantity|PN|Description|
 |----|---|----|
-|1|	210-BBTW	|	OEM R350XE Server	|
-|1|	990-10090	|	EX-Works	|
-|1|	412-AAPW	|	Heatsink for 80 W or less CPU	|
-|1|	370-AAIP	|	Performance Optimized	|
-|1|	370-AGNY	|	3200MT/s UDIMM	|
-|2|	370-AGQU	|	16 GB UDIMM, 3200MT/s, ECC	|
-|1|	384-BBBH	|	Power Saving BIOS Settings	|
-|1|	800-BBDM	|	UEFI BIOS Boot Mode with GPT Partition	|
-|1|	450-AADY	|	C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2 m), Power Cord	|
-|1|	330-BBWS	|	Riser Config 0, 1 x8, 1 x16 slots	|
-|1|	384-BCYX	|	OEM R350 Motherboard with Broadcom 5720 Dual Port 1 Gb On-Board LOM	|
-|1|	385-BBQV	|	iDRAC9, Enterprise 15G	|
-|1|	542-BBBP	|	On-Board LOM	|
-|1|	470-AFBU	|	BOSS Blank	|
-|1|	379-BCRF	|	iDRAC, Legacy Password	|
-|1|	379-BCQV	|	iDRAC Group Manager, Enabled	|
-|1|	611-BBBF	|	No Operating System	|
-|1|	605-BBFN	|	No Media Required	|
-|1|	770-BDEL	|	ReadyRails Sliding Rails With Cable Management Arm	|
-|1|	709-BBIJ	|	Parts Only Warranty 15 Months	|
-|1|	865-BBPG	|	ProSupport and Next Business Day Onsite Service Initial, 15 Month(s)	|
-|1|	338-CCOZ	|	Intel Xeon E-2334 3.4 GHz, 8M Cache, 4C/8T, Turbo (65W), 3200 MT/s, XE Only	|
-|1|	325-BEIF	|	Brand/Bezel, Dell Branded, PowerEdge R350XE	|
-|1|	389-ECFF	|	PowerEdge R350 CE and CCC Marking	|
-|1|	321-BGVQ	|	3.5" Chassis with up to 4 Hot Plug Hard Drives	|
-|1|	750-ADOY	|	Standard Fan	|
-|1|	429-ABHN	|	DVD +/-RW, SATA, Internal for Hot Plug Chassis	|
-|1|	405-ABBT	|	PERC H755 Controller Card	|
-|1|	461-AADZ	|	No Trusted Platform Module	|
-|1|	683-11870	|	No Installation Service Selected (Contact Sales Rep for more details)	|
-|1|	865-BBPF	|	ProSupport and Next Business Day Onsite Service Extension, 24 Month(s)	|
-|4|	400-BLLH	|	1 TB Hard Drive SATA 6 Gbps 7.2K 512n 3.5in Hot-Plug	|
-|1|	540-BBDF	|	Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile	|
-|1|	780-BCDQ	|	RAID 10	|
-|2|	450-AKMP	|	Dual, Hot-Plug, Redundant Power Supply (1+1), 600W	|
+|1| 210-BJTR | Base PowerEdge R360 Server|
+|1| 461-AAIG | Trusted Platform Module 2.0 V3 |
+|1| 321-BKHP | 2.5" Chassis with up to 8 Hot Plug Hard Drives, Front PERC |
+|1| 338-CMRB | Intel Xeon E-2434 3.4G, 4C/8T, 8M Cache, Turbo, HT (55 W) DDR5-4800 |
+|1| 412-BBHK | Heatsink |
+|1| 370-AAIP | Performance Optimized |
+|1| 370-BBKS | 4800 MT/s UDIMMs |
+|2| 370-BBKF | 16 GB UDIMM, 4800 MT/s ECC |
+|1| 780-BCDQ | RAID 10 |
+|1| 405-ABCQ | PERC H355 Controller Card |
+|1| 750-ACFR | Front PERC Mechanical Parts, front load |
+|4| 400-BEFU | 1.2 TB Hard Drive SAS 12 Gbps 10k 512n 2.5in Hot Plug |
+|1| 384-BBBH | Power Saving BIOS Settings |
+|1| 387-BBEY | No Energy Star |
+|1| 384-BDML | Standard Fan |
+|1| 528-CTIC | iDRAC9, Enterprise 16G |
+|2| 450-AADY | C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2m), Power Cord |
+|1| 330-BCMK | Riser Config 2, Butterfly Gen4 Riser (x8/x8) |
+|1| 329-BJTH | PowerEdge R360 Motherboard with with Broadcom 5720 Dual Port 1Gb On-Board LOM |
+|1| 414-BBJB | PCIe Blank Filler, Low Profile |
+|1| 540-BDII | Intel Ethernet i350 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile, V2, FIRMWARE RESTRICTIONS APPLY |
+|1| 379-BCRG | iDRAC, Factory Generated Password, No OMQR |
+|1| 379-BCQX | iDRAC Service Module (ISM), NOT Installed |
+|1| 325-BEVH | PowerEdge 1U Standard Bezel |
+|1| 350-BCTP | Dell Luggage Tag R360 |
+|1| 379-BCQY | iDRAC Group Manager, Disabled |
+|1| 470-AFBU | BOSS Blank |
+|1| 770-BCWN | ReadyRails Sliding Rails With Cable Management Arm |
 
-## Optional Components
-|Quantity|PN|Description|
-|----|---|----|
-|2| 450-AMJH | Dual, Hot-Plug, Power Supply, 700W MM HLAC (200-220Vac) Titanium, Redundant (1+1), by LiteOn, NAF|
+## Install Defender for IoT software on the DELL R360
 
-## Optional Storage Controllers
-Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below are tested in our lab for compatibility and sustained performance:
+This procedure describes how to install Defender for IoT software on the Dell R360.
 
-|Quantity|PN|Description|
-|----|---|----|
-|1| 405-ABBT	|	PERC H755 Controller Card (RAID10) |
+The installation process takes about 20 minutes. <!-- During the ?-->After installation, the system restarts several times.
 
-## Optional port expansion
-Optional modules for additional monitoring ports can be installed:
+To install Defender for IoT software:
 
-|Location |Type |Specifications |
-|----|---|----|
-| PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDV<br>Intel QP i350 4 x 1Gbe Copper, PCIe Low Profile  |
-| PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDF<br>Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile |
-| PCIe Expansion <br>Slot 1 or 2 | Dual Port Ethernet | 540-BCSE<br>Intel X710-T2L DP 2 x 10Gbe Copper, PCIe Low Profile  |
-| PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBML<br>Intel X710 DP 2 x 10Gbe SFP+, PCIe Low Profile  |
-| PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBVI<br>Broadcom 57412 Dual Port 10 GbE SFP+ Adapter, PCIe Low Profile |
-| PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BCBN or 407-BBOU - SFP+ 10G SR |
-| PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BBOP - SFP+ 10G LR |
-| PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BBOS - SFP+ 1G COPPER |
-| PCIe Expansion <br>Slot 1 or 2 | INTEL X710 SFP+ Transceiver | 407-BBVJ - SFP+ 1G/10G SR (INTEL ONLY) |
+1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
+1. Connect an external CD or disk-on-key that contains the software you downloaded from the Azure portal.
+
+1. Start the appliance.
+
+1. Continue with the generic procedure for installing Defender for IoT software. For more information, see [Defender for IoT software installation](how-to-install-software.md).
+
+<!--
 ## Dell PowerEdge R350 installation
 
 This section describes how to install Defender for IoT software on the Dell PowerEdge R350 appliance.
@@ -193,7 +170,7 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 1. Select **Boot Settings**.
 
-1. For the **Boot Mode** option, select **UEFI**.<!-- was BIOS-->
+1. For the **Boot Mode** option, select **UEFI**.
 
 1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
@@ -224,10 +201,10 @@ The installation process takes about 20 minutes. After the installation, the sys
 1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Console Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which starts the Ctrl+Alt+Delete sequence.
 
 1. Continue by installing OT sensor or on-premises management software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
-
+-->
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
+Continue learning about the system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
 Then, use any of the following procedures to continue:
 
