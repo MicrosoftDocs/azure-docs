@@ -1,15 +1,17 @@
 ---
 title: Add protection for AI workloads
-description: Learn how to add additional layers of threat protection for AI workloads on your Azure subscription with Microsoft Defender for Cloud.
+description: Learn how to add additional layers of user context for AI workloads alerts on your Azure subscription with Microsoft Defender for Cloud threat protection for AI workloads.
 ms.topic: how-to
 ms.date: 05/05/2024
 ---
 
 # Add protection for AI workloads
 
-Microsoft Defender for Cloud's AI workload protection capabilities help you secure your AI workloads by providing continually identifies threats to generative AI applications in real time and assists in the response process. 
+Microsoft Defender for Cloud allows you to enhance the security of your AI workloads by incorporating the provided code samples provided in this document, into your generative AI applications. 
 
-By adding all or some of the code samples provided, to your AI model, you can add advanced security knowledge and additional layers of threat protection to your AI workloads. Some of the added protection include:
+The code samples allow you to pass critical user context to Microsoft Defender for Cloud, which can then be used to generate more detailed and actionable security alerts. For example, you can improve real-time threat detection and incident response.
+
+The code consists of the `SecurityContext` field which is comprised of several components that describe the application itself, and the end user that interacts with the application. These fields assist your security operations teams to investigate and mitigate security incidents by providing a comprehensive approach to protecting your AI applications.
 
 - End used ID
 - End user type
@@ -26,15 +28,15 @@ By adding all or some of the code samples provided, to your AI model, you can ad
 
 - You must [enable Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- [Enable threat protection for AI workloads (preview)](ai-onboarding.md).
+- [Enable threat protection for AI workloads (preview)](ai-onboarding.md) on an AI application, with Azure OpenAI as its underlying model.
 
-## Add code to your AI model
+## Add security parameters to your Azure OpenAI call
 
-To add the additional layers of threat protection to your AI model, you can add any of the following `SecurityContext` to your AI model. The `SecurityContext` field is comprised of several fields that describe the application itself, and the end user interacting with the application. Microsoft Defender for Cloud uses the `SecurityContext` to create security alerts that contain the user context, for example an incident that involves a malicious end-user. 
+To receive AI security alerts with more context, you can add any or all of the following sample `SecurityContext` code to your [Azure OpenAI API](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference) calls. Defender for Cloud uses the `SecurityContext` code to create security alerts that contain the user context, for example an incident that involves a malicious end-user. 
 
 Application developers should ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
 
-All the fields in the `SecurityContext` are optional. We recommended passing the `EndUserId` and `SourceIP` fields at least, to allow Security Operations Center (SOC) analysts the ability to investigate security incidents that involve AI resources and generative AI applications. For examples, see the schema section.
+All the fields in the `SecurityContext` are optional. We recommended passing the `EndUserId` and `SourceIP` fields at least, to allow Security Operations Center (SOC) analysts the ability to investigate security incidents that involve AI resources and generative AI applications. For examples, see the [SecurityContext schema](#securitycontext-schema) section.
 
 If a field’s name is misspelled, the Azure OpenAI API call will still succeed. No validation of the `SecurityContext` schema is required to pass through the Azure OpenAI user field. 
 
@@ -79,8 +81,11 @@ If a field’s name is misspelled, the Azure OpenAI API call will still succeed.
     ```
     
     ---
-
-1. Save the changes to your AI model.
+Check out the following examples:
+- [sample-app-aoai-chatGPT](https://github.com/microsoft/sample-app-aoai-chatGPT)
+- [ms_defender_utils.py](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/f3f19bf5f4cd9754ff0f759ade72057ca1e01fbc/backend/security/ms_defender_utils.py#L3)
+- [app.py](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/f3f19bf5f4cd9754ff0f759ade72057ca1e01fbc/app.py#L741C1-L742C1).
+1. Save the changes.
 1. ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
 
 ## Next step
