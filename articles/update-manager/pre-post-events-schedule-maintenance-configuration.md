@@ -56,7 +56,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using PowerShell](#tab/powershell)
 
-1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-powershell.md#guest)
+1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-powershell.md#guest).
 
 1. ```powershell-interactive
     # Obtain the Maintenance Configuration ID from Step 1 and assign it to MaintenanceConfigurationResourceId variable  
@@ -386,7 +386,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
 
 
 ## Next steps
-- For an overview of pre and post events (preview) in Azure Update Manager, refer [here](pre-post-scripts-overview.md)
+- For an overview of pre and post events (preview) in Azure Update Manager, refer [here](pre-post-scripts-overview.md).
 - To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
 - To learn how to use pre and post events to turn on and off your VMs using Webhooks, refer [here](tutorial-webhooks-using-runbooks.md).
 - To learn how to use pre and post events to turn on and off your VMs using Azure Functions, refer [here](tutorial-using-functions.md).
