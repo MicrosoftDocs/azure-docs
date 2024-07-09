@@ -20,9 +20,9 @@ This article provides a step-by-step guide for removing the Azure Site Recovery 
 
 ## Before you begin
 
-There are two ways to remove the replication appliance: **delete** and **reset**. If all the components of the appliance are in a healthy state and the appliance is still accessible, you are allowed to only *reset* the appliance. Resetting moves the appliance to its factory state, enabling it to be associated with any Recovery Service vault again. 
+There are two ways to remove the replication appliance: **delete** and **reset**. If all the components of the appliance are in a healthy state and the appliance is still accessible, you're allowed to only *reset* the appliance. Resetting moves the appliance to its factory state, enabling it to be associated with any Recovery Service vault again. 
 
-If all the appliance components are in a critical state and there is no connectivity with the appliance, it can be *deleted* from the Azure portal. Before deleting the Recovery Services vault, you must also *remove infrastructure* to ensure that all the resources created in the background for replication and appliance registration are also removed. However, before you delete the Azure Site Recovery replication appliance, you must complete some preparatory steps to avoid errors.
+If all the appliance components are in a critical state and there's no connectivity with the appliance, it can be *deleted* from the Azure portal. Before deleting the Recovery Services vault, you must also *remove infrastructure* to ensure that all the resources created in the background for replication and appliance registration are also removed. However, before you delete the Azure Site Recovery replication appliance, you must complete some preparatory steps to avoid errors.
 
 
 ## Prerequisites
@@ -32,11 +32,17 @@ Before you delete the Azure Site Recovery replication appliance, ensure that you
 
 ### Delete an unhealthy appliance
 
-You can only delete the Azure Site Recovery replication appliance from the Azure portal if all components are in a critical state and the appliance is no longer accessible. To do so, follow these steps:
+You can only delete the Azure Site Recovery replication appliance from the Azure portal if all components are in a critical state and the appliance is no longer accessible.
+
+> [!IMPORTANT]
+> The appliance must be unhealthy (in a critical state) for at least 30 minutes before it is eligible for deletion. If the appliance is healthy, you can only reset it. Ensure that you have disabled replication for all servers before deleting the appliance.
+
+
+To delete an appliance, follow these steps:
 
 1. Sign in to the Azure portal.
 2. Go to the *Recovery Services vault* > *Site Recovery infrastructure* (under **Manage**), select Azure Site Recovery *replication appliances* under **For VMware & Physical machines**.
-3. For the Azure Site Recovery replication appliance you want to delete, selct **Delete** from its menu.
+3. For the Azure Site Recovery replication appliance you want to delete, select **Delete** from its menu.
 
     :::image type="content" source="./media/delete-appliance/delete.png" alt-text="Screenshot of Site Recovery appliance page.":::
 
@@ -53,7 +59,7 @@ After successfully deleting the Azure Site Recovery replication appliance, you c
 
 - Free up resources used by the Azure Site Recovery replication appliance, such as the storage account, network interface, and public IP address.
 - Delete the Recovery Services vault if it is no longer needed.
-- Remove Microsoft Entra Apps with the Azure Site Recovery replication appliance. To do this, go to Azure portal > *Microsoft Entra ID* > *App registrations* under the *Manage* blade. Select the app that you should delete, and select **Delete** then confirm the action. You can learn the app names by following the steps [here](#delete-appliance).
+- Remove Microsoft Entra Apps with the Azure Site Recovery replication appliance. To do this, go to Azure portal > *Microsoft Entra ID* > *App registrations* under the *Manage* blade. Select the app that you should delete, and select **Delete** then confirm the action. You can learn the app names by following the steps [here](#delete-an-unhealthy-appliance).
 
 
 ## Reset a healthy appliance
