@@ -31,7 +31,7 @@ The following roles are assigned to BMM resources (see [BMM Roles](reference-nea
   - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
 
 ## Listing BareMetal Machine status
-This command will `list` all `bareMetalMachineName` resources in the managed resource group with simple status:
+This command will `list` all `bareMetalMachineName` resources in the Managed Resource Group with simple status:
 
 ```azurecli
 az networkcloud baremetalmachine list -g $CLUSTER_MRG -o table
