@@ -2127,7 +2127,7 @@
         },
         {
             "source_path_from_root": "/articles/devtest/index.md",
-            "redirect_url": "/azure/devtest/offer/index.md",
+            "redirect_url": "/azure/devtest/offer/",
             "redirect_document_id": false
         },
         {
