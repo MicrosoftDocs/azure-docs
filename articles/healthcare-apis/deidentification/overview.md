@@ -1,17 +1,17 @@
 ---
 title:  Overview of the deidentification service in Azure Health Data Services
-description: The deidentification service is a cloud-based solution for xyz. Learn more about its benefits and use cases.
+description: Learn how the Deidentification service in Azure Health Data Services anonymizes clinical data, ensuring HIPAA compliance while retaining data relevance for research and analytics.
 author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: overview
-ms.date: 06/11/2024
+ms.date: 08/15/2024
 ms.author: kimiamavon
 ---
 
 # What is the deidentification service?
 
-The Deidentification service in Azure Health Data Services is a cloud-based API service that enables healthcare organizations to deidentify clinical data such that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities, including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies. The deidentification service is part of Azure Health Data Services.
+The Deidentification service in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities, including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
 ## Use deidentified data in research, analytics, and machine learning
 
@@ -25,7 +25,7 @@ The Deidentification service unlocks data that was previously difficult to deide
 
 - **Deployment flexibility**: The deidentification service offers two ways to interact with the REST API or Client library (Azure SDK). The synchronous endpoint accepts submit raw unstructured text for analysis and the API output is returned in your application. Alternatively, use the asynchronous endpoint process files in bulk from Azure blob storage using tag, redact, or surrogation with consistency within an asynchronous call.
 
-## De-identify clinical data securely and efficiently
+## Dedentify clinical data securely and efficiently
 
 The deidentification service offers many benefits, including:
 
@@ -37,7 +37,10 @@ The deidentification service offers many benefits, including:
 
 ## Synchronous or asynchronous endpoints
 
-The deidentification service offers two ways to interact with the REST API or Client library (Azure SDK). The synchronous endpoint accepts submit raw unstructured text for analysis and the API output is returned in your application. Alternatively, use the asynchronous endpoint process files in bulk from Azure blob storage using tag, redact, or surrogation with consistency within an asynchronous call.
+The deidentification service offers two ways to interact with the REST API or Client library (Azure SDK).
+
+- Use the synchronous endpoint to submit raw unstructured text for analysis. The API output is returned in your application. -OR-
+- Use the asynchronous endpoint process files in bulk from Azure blob storage using tag, redact, or surrogation with consistency within an asynchronous call.
 
 | **Development option** | **Description** |
 | ---------------------- | --------------- |
@@ -60,7 +63,7 @@ The deidentification service is designed to receive unstructured text. For more 
 
 ## Responsible use of AI
 
-An AI system includes the technology, the people who use it, the people who are affected by it, and the environment in which it's deployed. Read the transparency note for the deidentification service to learn about responsible AI use and deployment in your systems.
+An AI system includes the technology, the people who use it, the people affected by it, and the environment where it's deployed. Read the transparency note for the Deidentification service to learn about responsible AI use and deployment in your systems.
 
 Learn more:
 - [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
