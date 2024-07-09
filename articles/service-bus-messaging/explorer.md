@@ -223,9 +223,10 @@ After peeking or receiving a message, we can resend it, which will send a copy o
 
 ## Switch authentication type
 
-   > [!NOTE] To use Microsoft Entra ID (Azure Active Directory) authentication the following are required:
-    > - The user/service principal is assigned the 'Azure Service Bus Data Owner' role. No other built in or customer roles are supported.
-    > - The 'Azure Service Bus Data Owner' role has to be assigned at the namespace scope. Assignment at queue or topic scope is not supported.
+> [!NOTE] 
+> To use Microsoft Entra ID (Azure Active Directory) authentication the following are required:
+> - The user/service principal is assigned the 'Azure Service Bus Data Owner' role. No other built in or customer roles are supported.
+> - The 'Azure Service Bus Data Owner' role has to be assigned at the namespace scope. Assignment at queue or topic scope is not supported.
 
 When working with Service Bus Explorer, it's possible to use either **Access Key** or **Microsoft Entra ID** authentication.
 
