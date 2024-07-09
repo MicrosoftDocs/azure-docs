@@ -48,7 +48,7 @@ az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
 az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 # [PowerShell](#tab/azure-powershell)
