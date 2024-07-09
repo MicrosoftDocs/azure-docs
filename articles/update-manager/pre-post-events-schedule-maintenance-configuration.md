@@ -95,7 +95,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
     
     New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Destination $dest -IncludedEventType $IncludedEventTypes
 
-    ```
+   ```
 
 #### [Using CLI](#tab/cli)
 
@@ -133,7 +133,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
     
     az eventgrid system-topic event-subscription create –name "<Event subscription name>" --resource-group $ResourceGroupName --system-topic-name $SystemTopicName --endpoint-type azurefunction --endpoint "<Azure Function ResourceId>" --included-event-types IncludedEventTypes
     
-  ```
+   ```
 
 #### [Using API](#tab/api)
 
@@ -217,7 +217,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
 
 ### Create pre and post events on an existing schedule maintenance configuration
 
-#### [Using Azure portal](#tab/portal)
+#### [Using Azure portal](#tab/az-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Manage**, select **Machines**, **Maintenance Configurations**.
@@ -241,7 +241,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
 
 1. Select **Create** to configure the pre and post events on an existing schedule.  
 
-#### [Using PowerShell](#tab/powershell)
+#### [Using PowerShell](#tab/az-powershell)
 
 
 ```powershell-interactive
@@ -278,7 +278,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
     New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Destination $dest -IncludedEventType $IncludedEventTypes
 ```
 
-#### [Using CLI](#tab/cli)
+#### [Using CLI](#tab/az-cli)
 
 ```azurecli-interactive
 
@@ -308,7 +308,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
    
     az eventgrid system-topic event-subscription create –name "<Event subscription name>" --resource-group $ResourceGroupName --system-topic-name $SystemTopicName --endpoint-type azurefunction --endpoint "<Azure Function ResourceId>" --included-event-types IncludedEventTypes
 ```
-#### [Using API](#tab/api)
+#### [Using API](#tab/az-api)
 
 **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
