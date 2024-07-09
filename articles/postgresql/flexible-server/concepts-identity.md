@@ -60,8 +60,7 @@ Follow these steps to enable System Assigned Managed Identity on your Azure Data
 
 4. Select **Save** to apply the changes.
 
-   ![Screenshot showing system assigned managed identity.](./media/concepts-Identity/system-assigned-managed-idenity.png)
-
+  ![Screenshot showing system assigned managed identity.](./media/concepts-Identity/system-assigned-managed-idenity.png)
 
 5. A notification confirms that system assigned managed identity is enabled.
 
