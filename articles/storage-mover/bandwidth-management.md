@@ -24,7 +24,7 @@ A schedule is an attribute of a registered **agent**. In the portal, you can set
 
 A bandwidth management schedule describes time windows throughout a week, during which you can set a limit on how much upload bandwidth a Storage Mover agent is allowed to use. 
 
-:::image type="content" source="media/bandwidth-management/bandwidth-full-schedule-small.png" alt-text="Azure portal dialog showing a calendar, similar to Outlook, with scheduled bandwidth limitation windows." lightbox="media/bandwidth-management/bandwidth-full-schedule.png":::
+:::image type="content" source="media/bandwidth-management/bandwidth-full-schedule-small.png" alt-text="A screenshot of an Azure portal dialog showing a calendar, similar to Outlook, with scheduled bandwidth limitation windows." lightbox="media/bandwidth-management/bandwidth-full-schedule.png":::
 
 This schedule looks a lot like a calendar in outlook, but there are a few important differences:
 
@@ -41,7 +41,7 @@ This schedule looks a lot like a calendar in outlook, but there are a few import
 Using the Azure portal, you can enable a bandwidth schedule on a registered agent resource. 
    1. With the portal showing your Storage Mover resource, select "*Registered agents*" in the menu on the left.
    1. You now have two options to set or view a schedule. You can find the column "*Bandwidth management*" and click on the link for your selected agent. Or, you can select the checkbox in front of your agent. That enables and a command button above the list of agents, labeled "*Manage bandwidth limit*". 
-      :::image type="content" source="media/bandwidth-management/bandwidth-registered-agents-command-small.png" alt-text="Azure portal, registered agents blade, showing to select and agent and then select the Bandwidth Management command." lightbox="media/bandwidth-management/bandwidth-registered-agents-command.png":::
+      :::image type="content" source="media/bandwidth-management/bandwidth-registered-agents-command-small.png" alt-text="A screenshot of the Azure portal, registered agents blade, showing first select an agent and then select the Bandwidth Management command." lightbox="media/bandwidth-management/bandwidth-registered-agents-command.png":::
    1. The bandwidth management window opens and displays the schedule currently in effect for the agent. When an empty schedule is shown, there are no bandwidth limitations defined for this agent.
 
 
@@ -52,7 +52,7 @@ Open the bandwidth scheduling window. ([see previous section](#enabling-or-chang
 Here you can create a custom schedule for this selected agent, or you can [reuse a schedule](#reusing-a-schedule-from-another-agent) that was previously created for another agent.
 
 * To create a custom schedule, select the "Add limit" command. A dialog opens, allowing you to define a time slice during which you want to set the maximum bandwidth on your WAN link, that the agent is allowed to use.
-   :::image type="content" source="media/bandwidth-management/bandwidth-add-limit.png" alt-text="An Azure portal dialog showing the inputs to set a limit for a custom time period.":::
+   :::image type="content" source="media/bandwidth-management/bandwidth-add-limit.png" alt-text="A screenshot of an Azure portal dialog showing the inputs to set a limit for a custom time period.":::<br>
     The dialog requires you to set a start and an end-time during which you want to apply an uplink limit for the agent. You can then pick on which days of the week you like to apply your new limit. Select all weekdays during which you like to apply the same limit. You then need to specify the limit in Mbps (Megabits per second). Overlapping times aren't allowed. Any limit you set, applies at the displayed time in the agent's timezone. You can find the agent's timezone displayed at the top of the bandwidth management window. You may need to offset your schedule or adjust the agent's timezone. 
 * To "[reuse a schedule from another agent](#reusing-a-schedule-from-another-agent)", follow the link to an upcoming section.
 * To apply your changes to this agent, select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
@@ -192,7 +192,7 @@ Update-AzStorageMoverAgent `
     -AgentName $registeredAgentName `
     -UploadLimitScheduleWeeklyRecurrence $schedule # Apply your entire, updated schedule. Performing this step on an agent with other limits already configured will override them with this new schedule. Ensure there are no overlapping time spans, otherwise the operation will fail.
 ```
-## Understanding the JSON schema of the bandwidth limit schedule
+## Understanding the JSON schema of a bandwidth limit schedule
 The bandwidth limit schedule is stored as a JSON construct in the property `UploadLimitScheduleWeeklyRecurrence` of a registered agent.
 
 The [previous PowerShell section](#use-powershell-to-configure-a-bandwidth-limit-schedule) shows an example of how you can form and update this agent property by using Azure PowerShell.
@@ -203,7 +203,7 @@ You can, however, manually form that JSON and directly supply it as an argument 
 
 The following two representations of a bandwidth limit schedule are equivalent:
 
-:::image type="content" source="media/bandwidth-management/bandwidth-limit-json-small.png" alt-text="Azure portal dialog showing a calendar with scheduled bandwidth limitations." lightbox="media/bandwidth-management/bandwidth-limit-json.png":::
+:::image type="content" source="media/bandwidth-management/bandwidth-limit-json-small.png" alt-text="A screenshot of the Azure portal showing a calendar with scheduled bandwidth limitations." lightbox="media/bandwidth-management/bandwidth-limit-json.png":::
 
 ```json
 {
