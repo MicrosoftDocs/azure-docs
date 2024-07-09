@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
-ms.author: amipatel
-author: amibp
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: amipatel
 ms.date: 04/22/2023
 ms.topic: how-to
 ---

@@ -5,12 +5,11 @@ description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.author: sehan
-author: dem108
+ms.author: mopeakande
+author: msakande
 ms.date: 04/08/2024
 ms.topic: concept-article
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: sehan
 ms.custom: deploy, docker, prebuilt
 ---
 
