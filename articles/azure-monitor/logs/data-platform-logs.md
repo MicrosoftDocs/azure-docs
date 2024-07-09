@@ -95,9 +95,7 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 
 ## Data collection
 
-After you create a [Log Analytics workspace](#log-analytics-workspaces), configure sources to send their data to your workspace. ../essentials/data-collection-rule-create-edit.md) to collect data from virtual machines. 
-
-To collect data from a resource:
+To collect data from a resource to to your Log Analytics workspace:
 
 1. Set up the relevant data collection tool based on the table below.
 1. Decide which data you need to collect from the resource.
