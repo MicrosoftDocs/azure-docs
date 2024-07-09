@@ -64,7 +64,6 @@ Follow these steps to enable System Assigned Managed Identity on your Azure Data
 
 5. A notification confirms that system assigned managed identity is enabled.
 
-
 ## ARM  template
 
 Here is the ARM template to enable system assigned managed identity. You can use the 2023-06-01-preview or the latest available API.
@@ -109,7 +108,7 @@ You can verify the managed identity created by going to **Enterprise Application
 1. Choose  **Application Type == Managed Identity**
 
 2. Provide your flexible server name in **Search by application name or Identity** as shown in the screenshot.
-1. 
+
 ![Screenshot verifying system assigned managed identity.](./media/concepts-Identity/verify-managed-identity.png)
 
 
