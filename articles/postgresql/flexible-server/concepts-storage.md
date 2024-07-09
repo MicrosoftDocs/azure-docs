@@ -59,7 +59,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - During early preview, features like High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Autogrow features are not supported for PV2.
 
-- During early preview, online migration from PV1 to PV2 is not supported. Customers can perform PITR (Point-In-Time-Restore) to migrate from PV1 to PV2.
+- During early preview, online migration from PV1 to PV2 isn't supported. Customers can perform PITR (Point-In-Time-Restore) to migrate from PV1 to PV2.
 
 - You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported.
 
@@ -103,7 +103,7 @@ We recommend that you actively monitor the disk space that's in use and increase
 
 ### Storage autogrow (Premium SSD)
 
-Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, disk size increases without affecting the workload. Storage Autogrow is only supported for premium ssd storage tier. Premium SSD v2 does not support storage autogrow.
+Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, disk size increases without affecting the workload. Storage Autogrow is only supported for premium ssd storage tier. Premium SSD v2 doesn't support storage autogrow.
 
 For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values is smaller. Conversely, for servers with storage under 1 TiB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
