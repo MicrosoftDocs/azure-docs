@@ -8,7 +8,6 @@ ms.subservice: mlops
 author: msakande
 ms.author: mopeakande
 ms.reviewer: fasantia
-reviewer: msakande
 ms.date: 01/16/2024
 ms.topic: concept-article
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, update-code
