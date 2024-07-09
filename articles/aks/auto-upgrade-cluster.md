@@ -1,7 +1,7 @@
 ---
 title: Automatically upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to automatically upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
-ms.topic: article
+ms.topic: how-to
 ms.author: nickoman
 author: nickomang
 ms.subservice: aks-upgrade

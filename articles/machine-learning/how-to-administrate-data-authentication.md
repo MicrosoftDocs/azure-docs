@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: xunwan
-author: SturgeonMi
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: xunwan
 ms.date: 09/26/2023
 ms.custom: engagement-fy23
 

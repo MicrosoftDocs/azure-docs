@@ -2,7 +2,7 @@
 title: Azure Kubernetes Services (AKS) core concepts
 description: Learn about the core concepts of Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/03/2024
+ms.date: 07/09/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -20,6 +20,13 @@ Kubernetes is an open-source container orchestration platform for automating the
 AKS is a managed Kubernetes service that simplifies deploying, managing, and scaling containerized applications using Kubernetes. For more information, see [What is Azure Kubernetes Service (AKS)?][aks-overview]
 
 ## Cluster components
+
+An AKS cluster is divided into two main components:
+
+* **Control plane**: The control plane provides the core Kubernetes services and orchestration of application workloads.
+* **Nodes**: Nodes are the underlying virtual machines (VMs) that run your applications.
+
+![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
 ### Control plane
 
@@ -43,6 +50,8 @@ Each AKS cluster has at least one node, which is an Azure virtual machine (VM) t
 | *kube-proxy* | The [kube-proxy][kube-proxy] is a network proxy that maintains network rules on nodes. |
 | *container runtime* | The [container runtime][container-runtime] manages the execution and lifecycle of containers. |
 
+![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
+
 ## Node configuration
 
 ### VM size and image
@@ -61,7 +70,7 @@ AKS uses node resources to help the nodes function as part of the cluster. This 
 
 ### OS
 
-AKS supports Ubuntu 22.04 and Azure Linux 2.0 as the node OS for Linux node pools. For Windows node pools, AKS supports Windows Server 2022 as the default OS. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life and isn't supported in future releases. For more information, see [Windows container considerations in Azure Kubernetes Service (AKS)][windows-considerations].
+AKS supports Ubuntu 22.04 and Azure Linux 2.0 as the node OS for Linux node pools. For Windows node pools, AKS supports Windows Server 2022 as the default OS. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life and isn't supported in future releases. If you need to upgrade your Windows OS version, see [Upgrade from Windows Server 2019 to Windows Server 2022][upgrade-2019-2022]. For more information on using Windows Server on AKS, see [Windows container considerations in Azure Kubernetes Service (AKS)][windows-considerations].
 
 ### Container runtime
 
@@ -73,7 +82,7 @@ A *pod* is a group of one or more containers that share the same network and sto
 
 ## Node pools
 
-In AKS, nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying virtual machines (VMs) that run your applications. When you create an AKS cluster, you define the initial number of nodes and their size (SKU), which creates a [*system node pool*][use-system-pool]. System node pools serve the primary purpose of hosting critical system pods, such as CoreDNS and `konnectivity`. To support applications that have different compute or storage demands, you can create *user node pools*. User node pools serve the primary purpose of hosting your application pods.
+In AKS, nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying virtual machine scale sets ad virtual machines (VMs) that run your applications. When you create an AKS cluster, you define the initial number of nodes and their size (SKU), which creates a [*system node pool*][use-system-pool]. System node pools serve the primary purpose of hosting critical system pods, such as CoreDNS and `konnectivity`. To support applications that have different compute or storage demands, you can create *user node pools*. User node pools serve the primary purpose of hosting your application pods.
 
 For more information, see [Create node pools in AKS][create-node-pools] and [Manage node pools in AKS][manage-node-pools].
 
@@ -81,7 +90,11 @@ For more information, see [Create node pools in AKS][create-node-pools] and [Man
 
 When you create an AKS cluster in an Azure resource group, the AKS resource provider automatically creates a second resource group called the *node resource group*. This resource group contains all the infrastructure resources associated with the cluster, including virtual machines (VMs), virtual machine scale sets, and storage.
 
-For more information, see [Why are two resource groups created with AKS?][node-resource-group]
+For more information, see the following resources:
+
+* [Why are two resource groups created with AKS?][node-resource-group]
+* [Can I provide my own name for the AKS node resource group?][custom-nrg]
+* [Can I modify tags and other properties of the resources in the AKS node resource group?][modify-nrg-resources]
 
 ## Namespaces
 
@@ -96,11 +109,19 @@ The following namespaces are created by default in an AKS cluster:
 | *kube-public* | The [kube-public][kubernetes-namespaces] namespace isn't typically used, but can be used for resources to be visible across the whole cluster by any user. |
 | *kube-system* | The [kube-system][kubernetes-namespaces] namespace is used by Kubernetes to manage cluster resources, such as `coredns`, `konnectivity-agent`, and `metrics-server`. |
 
-## Cluster SKUs and pricing tiers
+![Kubernetes namespaces to logically divide resources and applications](media/concepts-clusters-workloads/namespaces.png)
 
-In AKS, you can create a cluster with the **Automatic SKU (preview)** or the **Standard SKU**. AKS Automatic provides a more fully managed experience, managing cluster configuration, including nodes, scaling, security, and other preconfigured settings. AKS Standard provides more control over the cluster configuration, including the ability to manage node pools, scaling, and other settings.
+## Cluster modes
 
-For more information, see [AKS Automatic and Standard feature comparison][automatic-standard] and [Pricing tiers for AKS cluster management][pricing-tiers].
+In AKS, you can create a cluster with the **Automatic (preview)** or **Standard** mode. AKS Automatic provides a more fully managed experience, managing cluster configuration, including nodes, scaling, security, and other preconfigured settings. AKS Standard provides more control over the cluster configuration, including the ability to manage node pools, scaling, and other settings.
+
+For more information, see [AKS Automatic and Standard feature comparison][automatic-standard].
+
+## Pricing tiers
+
+AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. The pricing tier you choose determines the features available for managing your cluster.
+
+For more information, see [Pricing tiers for AKS cluster management][pricing-tiers].
 
 ## Supported Kubernetes versions
 
@@ -130,6 +151,8 @@ For information on more core concepts for AKS, see the following resources:
 [create-node-pools]: ./create-node-pools.md
 [manage-node-pools]: ./manage-node-pools.md
 [node-resource-group]: ./faq.md#why-are-two-resource-groups-created-with-aks
+[custom-nrg]: ./faq.md#can-i-provide-my-own-name-for-the-aks-node-resource-group
+[modify-nrg-resources]: ./faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group
 [kubernetes-namespaces]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#initial-namespaces
 [use-system-pool]: ./use-system-pools.md
 [automatic-standard]: ./intro-aks-automatic.md#aks-automatic-and-standard-feature-comparison
@@ -151,3 +174,4 @@ For information on more core concepts for AKS, see the following resources:
 [containerd]: https://containerd.io/
 [aks-vm-sizes]: ./quotas-skus-regions.md#supported-vm-sizes
 [windows-considerations]: ./windows-vs-linux-containers.md
+[upgrade-2019-2022]: ./upgrade-windows-os.md
