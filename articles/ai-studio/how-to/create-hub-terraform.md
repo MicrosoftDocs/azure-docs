@@ -13,7 +13,7 @@ ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-customer intent: As a Terraform user, I want to see how to create an Azure AI hub and its associated resources.
+#customer intent: As a Terraform user, I want to see how to create an Azure AI hub and its associated resources.
 ---
 
 # Use Terraform to create an Azure AI Studio hub
@@ -47,16 +47,20 @@ In this article, you use Terraform to create an Azure AI hub, an AI project, and
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/providers.tf":::
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/main.tf":::
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/variables.tf":::
+
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/outputs.tf":::
+    
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-ai-studio/outputs.tf":::
 
 ## Initialize Terraform
 
@@ -72,13 +76,49 @@ In this article, you use Terraform to create an Azure AI hub, an AI project, and
 
 ## Verify the results
 
-Run [`az ml workspace show`](/cli/azure/ml/workspace#az_ml_workspace_show) to view the Azure AI hub.
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az ml workspace show --name <workspace_name> --resource-group <resource_group_name>
-```
+1. Get the Azure resource group name.
 
-Replace `<workspace_name>` and `<resource_group_name>` with your Azure AI hub name and resource group name, respectively.
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the workspace name.
+
+    ```console
+    workspace_name=$(terraform output -raw workspace_name)
+    ```
+
+1. Run [az ml workspace show](/cli/azure/ml/workspace#az-ml-workspace-show) to display information about the new workspace.
+
+    ```azurecli
+    az ml workspace show --resource-group $resource_group_name \
+                         --name $workspace_name
+    ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the workspace name.
+
+    ```console
+    $workspace_name=$(terraform output -raw workspace_name)
+    ```
+
+1. Run [Get-AzMLWorkspace](/powershell/module/az.machinelearningservices/get-azmlworkspace) to display information about the new workspace.
+
+    ```azurepowershell
+    Get-AzMLWorkspace -ResourceGroupName $resource_group_name `
+                      -Name $workspace_name
+    ```
+
+---
 
 ## Clean up resources
 
