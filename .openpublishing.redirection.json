@@ -2126,6 +2126,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest/index.md",
+            "redirect_url": "/azure/devtest/offer/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-add-artifact-repo.md",
             "redirect_url": "/azure/devtest-labs/add-artifact-repository",
             "redirect_document_id": false

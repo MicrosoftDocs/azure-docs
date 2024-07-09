@@ -25,6 +25,7 @@ Together with the iterative prompts using other sophisticated Copilot for Securi
 
 For more information on Copilot for Security, see the following articles:
 - [Get started with Microsoft Copilot for Security](/copilot/security/get-started-security-copilot)
+- [Manage plugins in Microsoft Copilot for Security](/copilot/security/manage-plugins#turn-plugins-on-or-off)
 - [Understand authentication in Microsoft Copilot for Security](/copilot/security/authentication)
 
 ## Integrate Microsoft Sentinel with Copilot for Security
