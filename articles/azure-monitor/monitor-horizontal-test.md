@@ -146,7 +146,7 @@ To get started with the REST API for Azure Monitor, see [Azure monitoring REST A
 
 - You can also use Azure Health check to monitor App Service instances. For more information, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md).
 
-## SGet personalized monitoring recommendations using Advisor
+## Get personalized monitoring recommendations using Advisor
 
 For some services, if critical conditions or imminent changes occur during resource operations, an alert displays on the service **Overview** page in the portal. You can find more information and recommended fixes for the alert in **Advisor recommendations** under **Monitoring** in the left menu. During normal operations, no advisor recommendations display.
 
