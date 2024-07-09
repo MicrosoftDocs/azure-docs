@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-You can create an Azure Database for PostgreSQL flexible server instance using Azure managed disks, which are block-level storage volumes managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest.The available types of disks with flexible server are premium solid-state drives (SSD) and Premium SSD v2 and the pricing is calculated based on the compute, memory, and storage tier you provision.
+You can create an Azure Database for PostgreSQL flexible server instance using Azure managed disks, which are block-level storage volumes managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest. Azure Database for PostgreSQL Flexible Server supports premium solid-state drives (SSD) and Premium SSD v2 and the pricing is calculated based on the compute, memory, and storage tier you provision.
 
 ## Premium SSD
 
@@ -57,11 +57,11 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 #### Premium SSD v2 early preview limitations
 
-- During early preview, features like High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Autogrow features are not supported for PV2.
+- During the preview, features like High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Autogrow features aren't supported for PV2.
 
-- During early preview, online migration from PV1 to PV2 isn't supported. Customers can perform PITR (Point-In-Time-Restore) to migrate from PV1 to PV2.
+- During the preview, online migration from PV1 to PV2 isn't supported. Customers can perform PITR (Point-In-Time-Restore) to migrate from PV1 to PV2.
 
-- You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported.
+- During the preview, you can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported.
 
 The storage that you provision is the amount of storage capacity available to your Azure Database for PostgreSQL server. The storage is used for the database files, temporary files, transaction logs, and PostgreSQL server logs. The total amount of storage that you provision also defines the I/O capacity available to your server.
 
@@ -80,7 +80,7 @@ The storage that you provision is the amount of storage capacity available to yo
 | 32 TiB | 20,000 | First 3000 IOPS free can scale up to 80000 |
 | 64 TiB | N/A | First 3000 IOPS free can scale up to 80000 |
 
-The following table provides an overview of premium SSD V2 disk capacities and performance maximums to help you decide which to use. Unlike, Premium SSD SSD cv2
+The following table provides an overview of premium SSD V2 disk capacities and performance maximums to help you decide which to use.
 
 | SSD v2 Disk size | Maximum available IOPS | Maximum available throughput (MB/s) |
 | :--- | :--- | :--- |
@@ -103,15 +103,15 @@ We recommend that you actively monitor the disk space that's in use and increase
 
 ### Storage autogrow (Premium SSD)
 
-Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, disk size increases without affecting the workload. Storage Autogrow is only supported for premium ssd storage tier. Premium SSD v2 doesn't support storage autogrow.
+Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, disk size increases without affecting the workload. Storage Autogrow is only supported for Premium SSD storage tier. Premium SSD v2 doesn't support storage autogrow.
 
-For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values is smaller. Conversely, for servers with storage under 1 TiB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
+For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values are smaller. Conversely, for servers with storage under 1 TiB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
 As an illustration, take a server with a storage capacity of 2 TiB (greater than 1 TiB). In this case, the autogrow limit is set at 64 GiB. This choice is made because 64 GiB is the smaller value when compared to 10% of 2 TiB, which is roughly 204.8 GiB. In contrast, for a server with a storage size of 128 GiB (less than 1 TiB), the autogrow feature activates when there's only 25.8 GiB of space left. This activation is based on the 20% threshold of the total allocated storage (128 GiB), which is smaller than 64 GiB.
 
 The default behavior is to increase the disk size to the next premium SSD storage tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you're managing unpredictable workloads, because it automatically detects low-storage conditions and scales up the storage accordingly.
 
-The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure Managed disks. If a disk is already 4,096 GiB, the storage scaling activity is not triggered, even if storage autogrow is turned on. In such cases, you need to scale your storage manually. Manual scaling is an offline operation that you should plan according to your business requirements.
+The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure Managed disks. If a disk is already 4,096 GiB, the storage scaling activity isn't triggered, even if storage autogrow is turned on. In such cases, you need to scale your storage manually. Manual scaling is an offline operation that you should plan according to your business requirements.
 
 Remember that storage can only be scaled up, not down.
 
@@ -119,7 +119,7 @@ Remember that storage can only be scaled up, not down.
 
 - Disk scaling operations are always online, except in specific scenarios that involve the 4,096-GiB boundary. These scenarios include reaching, starting at, or crossing the 4,096-GiB limit. An example is when you're scaling from 2,048 GiB to 8,192 GiB.
 
-- Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. Any disk that is provisioned up to 4,095 GiB can take advantage of Host Caching. Host caching isn't supported for disk sizes more than or equal to 4,096 GiB. For example, a P50 premium disk provisioned at 4,095 GiB can take advantage of Host caching and a P50 disk provisioned at 4,096 GiB can't take advantage of Host Caching. Customers moving from lower disk size to 4,096 GiB or higher will not get   disk caching ability.
+- Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. Any disk that is provisioned up to 4,095 GiB can take advantage of Host Caching. Host caching isn't supported for disk sizes more than or equal to 4,096 GiB. For example, a P50 premium disk provisioned at 4,095 GiB can take advantage of Host caching and a P50 disk provisioned at 4,096 GiB can't take advantage of Host Caching. Customers moving from lower disk size to 4,096 GiB or higher won't get   disk caching ability.
 
   This limitation is due to the underlying Azure Managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
