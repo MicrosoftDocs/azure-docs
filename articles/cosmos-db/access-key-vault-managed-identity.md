@@ -10,10 +10,12 @@ ms.date: 06/01/2022
 ms.reviewer: thweiss
 ---
 
+
 # Access Azure Key Vault from Azure Cosmos DB using a managed identity
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB may need to read secret/key data from Azure Key Vault. For example, your Azure Cosmos DB may require a customer-managed key stored in Azure Key Vault. To do this, Azure Cosmos DB should be configured with a managed identity, and then an Azure Key Vault access policy should grant the managed identity access.
+
 
 ## Prerequisites
 

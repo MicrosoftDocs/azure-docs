@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: cloga
-ms.author: lochen
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: lochen
 ms.date: 04/12/2023
 ms.custom:
   - sdkv2
