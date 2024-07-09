@@ -27,7 +27,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 ## July 2024 
 |Date | Category | Update|
 |--|--|--|
-| July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
+| July 9 | Upcoming update | [Inventory experience improvement](#update-inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
 
 ### Update: Inventory experience improvement
