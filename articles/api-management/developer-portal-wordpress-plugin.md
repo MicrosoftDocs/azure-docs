@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: 
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 07/09/2024
 ms.author: danlep
 ---
 
@@ -16,14 +16,16 @@ ms.author: danlep
 
 This article shows how to configure an open-source developer portal plugin (preview) to customize the API Management developer portal on WordPress. With the plugin, turn any WordPress site into a developer portal. Take advantage of site capabilities in WordPress to customize and add features to your developer portal including localization, collapsible and expandable menus, custom stylesheets, file downloads, and more. 
 
-Follow the steps in this article to create a WordPress site on Azure App Service and configure the developer portal plugin on the WordPress site. Microsoft Entra ID is configured for authentication to the WordPress site and the developer portal in the API Management instance.
+Follow the steps in this article to create a WordPress site on Azure App Service and configure the developer portal plugin on the WordPress site. Microsoft Entra ID is configured for authentication to the WordPress site and the developer portal.
 
 ## Prerequisites
 
 * An API Management instance. If needed, [create an instance](get-started-create-service-instance.md). The developer portal is available in all tiers except the Consumption tier.
 * Enable and publish the developer portal. For steps, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 * Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription.
-* Download the developer portal WordPress plugin from the [plugin repo](https://aka.ms/apim/wpplugin).
+* Installation files for the developer portal WordPress plugin and customized WordPress theme from the [plugin repo](https://aka.ms/apim/wpplugin). Download the following zip files from the [dist](https://github.com/Azure/AzureAPIM-Wordpress-plugin/tree/main/dist) folder in the repo:
+    * `apim-devportal.zip` - Plugin file
+    * `twentytwentyfour.1.1.zip` - Theme file
 
 ## Step 1: Create WordPress on App Service  
 
@@ -121,21 +123,19 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 
 ## Step 5: Navigate to WordPress admin site and upload the customized theme 
 
-<!-- essential or just an example? Theme Twenty Twenty-Four was already active in my installation...-->
-
-1. Open the WordPress admin website at the following URL, substituting the name of your app service:  `http://<app-service-name>.azurewebsites.net/wp-admin` 
+1. Open the WordPress admin website at the following URL, substituting the name of your app service: `http://<app-service-name>.azurewebsites.net/wp-admin` 
 
     When you open it for the first time, you're prompted to consent to specific permissions.
 
 1. Sign into the WordPress admin site using the username and password you entered while creating WordPress on App Service. 
 1. In the left menu, select **Appearance** > **Themes** and then **Add New Theme** 
-1. Select **Upload Theme**. Select **Choose File** to upload the API Management developer portal theme zip file (`twentytwentyfour.zip`) that you downloaded previously. Select **Install Now**.
+1. Select **Upload Theme**. Select **Choose File** to upload the API Management developer portal theme zip file (`twentytwentyfour.1.1.zip`) that you downloaded previously. Select **Install Now**.
 1. In the next screen, select **Replace active with uploaded**. 
 
 ## Step 6: Install the developer portal plugin 
 
 1. In the WordPress admin site, in the left menu, select **Plugins** > **Add New Plugin**.
-1. Select **Upload Plugin**. Select **Choose File** to upload the API Management developer portal plugin zip file that you downloaded previously. Select **Install Now**.
+1. Select **Upload Plugin**. Select **Choose File** to upload the API Management developer portal plugin zip file (`apim-devportal.zip`) that you downloaded previously. Select **Install Now**.
 1. After successful installation, select **Activate Plugin**.
 1. In the left menu, select **Azure API Management Developer Portal**.
 1. On the **APIM Settings** page, enter the following settings and select **Save Changes**:
