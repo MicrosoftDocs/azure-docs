@@ -116,7 +116,7 @@ To see a working example, refer to the `deploy.sh` script in our [GitHub reposit
 
 ### AWS implementation
 
-The AWS workload uses the AWS boto3 Python library to interact with AWS SQS queues to configure storage queue access. The AWS IAM `AssumeRole` capability authenticates to the SQS endpoint using the IAM identity associated with the EKS pod hosting the application.
+The AWS workload uses the AWS boto3 Python library to interact with Amazon SQS queues to configure storage queue access. The AWS IAM `AssumeRole` capability authenticates to the SQS endpoint using the IAM identity associated with the EKS pod hosting the application.
 
 ```python
 import boto3
@@ -155,7 +155,7 @@ You can review the code for the queue producer (`aqs-producer.py`) in our [GitHu
 
 ### AWS implementation
 
-The original AWS code for DynamoDB access uses the AWS boto3 Python library to interact with AWS SQS queues. The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. The consumer also contains Python code to connect to DynamoDB using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint using the IAM identity associated with the EKS pod hosting the application.
+The original AWS code for DynamoDB access uses the AWS boto3 Python library to interact with Amazon SQS queues. The consumer part of the workload uses the same code as the producer for connecting to the Amazon SQS queue to read messages. The consumer also contains Python code to connect to DynamoDB using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint using the IAM identity associated with the EKS pod hosting the application.
 
 ```python
 # presumes policy deployment ahead of time such as: aws iam create-policy --policy-name <policy_name> --policy-document <policy_document.json>
