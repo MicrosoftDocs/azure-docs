@@ -45,8 +45,6 @@ The following resources can also help you forecast the cost of using Azure Blob 
 
 - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
 
-- [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md)
-
 ## Understand the full billing model for Azure Blob Storage
 
 Azure Blob Storage runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
@@ -72,6 +70,8 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 <sup>1</sup> Applies only to accounts that have a hierarchical namespace.<br />
 <sup>2</sup> Applies only if you enable the feature.<br />
 
+Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
 #### Data storage
@@ -87,39 +87,49 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 | GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
 | TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
 
+> [!TIP]
+> You can save money on storage costs for blob data with Azure Storage reserved capacity. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
+
 #### Metadata
 
-Put something here.
+- List all cases where metadata is generated and stored.
+  - Archived data? What tier is it stored in? 
+  - HNS accounts? - what tier is that data stored in?
+  - Index tags? Is this specially priced metadata?
+- What is the proportion of metadata to stored objects so that customers can estimate?
+- List cases where customers might directly add metadata that results in a cost.
 
 #### Operations
 
-Put something here.
+- Explain the difference between operations and transactions.
+- Transactions are billed per 10,000. Divide the price of a transaction by 10,000 to get the cost of one individual transaction. 
+- Provide an example. 
 
 #### Data transfer
 
-Explain when data transfer fees apply. 
-
-Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+- Explain when data transfer fees apply. 
+- Explain network egress fees and when they would apply.
+- Provide examples
 
 #### Features
 
-Other than feature-specific billing meters, features can also incur storage and operation costs. The following table summarizes the costs associated with each feature.
+The following table summarizes how you're billed for using Blob Storage features.
 
 | Feature | Charges |
 |---|----|
-| Blob index | Operations (_Other_ and _List and Create Container_), and monthly charge per tag <br>[Learn more](../blobs/storage-manage-find-blobs.md#pricing) |
-| Blob Inventory | Storage, operations (_Write_ and _Read_), and a charge for the number of objects scanned <br>[Learn more](../blobs/blob-inventory.md#pricing-and-billing) |
-| Change feed | Storage, operations (_Write_ and _Read_), and a charge per logged change |
-| Encryption scopes | monthly charge after it is enabled. [Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes) |
-| Last access time tracking | Operations (_Other_) to update to the last access time objects<br><br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
-| Lifecycle management | Operations (_Write_ and _Read_)<br>[Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing) |
-| Soft delete | Storage, operations (_Write_)<br>[Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing) |
-| Versioning | Storage<br>[Learn more](../blobs/versioning-overview.md#pricing-and-billing) |
-| Snapshots | Storage<br>[Learn more](../blobs/snapshots-overview.md#pricing-and-billing) |
-| Point-in-time restore | Storage, and a charge based on the amount of change feed data processed for the restore<br>[Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing) |
-| Object replication | Storage, operations (_Read_ and _Write), network egress<br>[Learn more](../blobs/object-replication-overview.md#billing) |
-| Query acceleration | A charge for the data scanned and a charge for the data returned<br>[Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
-| SFTP support | An hourly charge after it is enabled<br>[Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing) |
+| Blob index | _Other_ and _List and Create Container_ operations, and monthly charge per tag ([Learn more](../blobs/storage-manage-find-blobs.md#pricing)) |
+| Blob Inventory | Storage, _Write_ and _Read_ operations, and a charge for the number of objects scanned ([Learn more](../blobs/blob-inventory.md#pricing-and-billing)) |
+| Change feed | Storage, _Write_ and _Read_ operations, and a charge per logged change |
+| Encryption scopes | monthly charge after it is enabled. ([Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes)) |
+| Last access time tracking | _Other_ operations to update to the last access time objects ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
+| Lifecycle management | _Write_ and _Read_ operations ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
+| Soft delete | Storage, _Write_ operations ([Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing)) |
+| Versioning | Storage ([Learn more](../blobs/versioning-overview.md#pricing-and-billing)) |
+| Snapshots | Storage ([Learn more](../blobs/snapshots-overview.md#pricing-and-billing)) |
+| Point-in-time restore | Storage, and a charge based on the amount of change feed data processed for the restore ([Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing)) |
+| Object replication | Storage, _Read_ and _Write operations, network egress ([Learn more](../blobs/object-replication-overview.md#billing)) |
+| Query acceleration | A charge for the data scanned and a charge for the data returned ([Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing)) |
+| SFTP support | An hourly charge after it is enabled ([Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing)) |
 
 ### Finding the unit price for each meter
 
