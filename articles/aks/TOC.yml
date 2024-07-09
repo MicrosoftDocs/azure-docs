@@ -483,6 +483,8 @@
                   href: workload-identity-overview.md
                 - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
+                - name: Configure cross-tenant workload identity
+                  href: workload-identity-cross-tenant.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Microsoft Entra pod identity
@@ -807,6 +809,8 @@
           href: rdp.md
         - name: Use HostProcess containers
           href: use-windows-hpc.md
+        - name: Use Windows Annual Channel for Containers
+          href: windows-annual-channel.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
@@ -903,6 +907,22 @@
           href: /azure/developer/jenkins/deploy-from-github-to-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use Ansible to create AKS clusters
           href: /azure/developer/ansible/aks-configure-clusters?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: AKS for Amazon EKS professionals
+      items:
+      - name: Migrate EKS event-driven workloads
+        items:
+        - name: Overview
+          href: eks-edw-overview.md
+        - name: Understand platform differences
+          href: eks-edw-understand.md
+        - name: Rearchitect for AKS
+          href: eks-edw-rearchitect.md
+        - name: Refactor app
+          href: eks-edw-refactor.md
+        - name: Prepare for deployment
+          href: eks-edw-prepare.md
+        - name: Deploy to Azure
+          href: eks-edw-deploy.md
 - name: Reference
   items:
     - name: Azure CLI

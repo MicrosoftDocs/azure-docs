@@ -14,7 +14,7 @@ ms.date: 01/05/2024
 
 This sample PowerShell script loads only new or updated records from a source data store to a sink data store after the initial full copy of data from the source to the sink.  
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
