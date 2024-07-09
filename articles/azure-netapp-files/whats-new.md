@@ -14,11 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
 * [Transition existing volumes to customer-managed keys](configure-customer-managed-keys.md#transition) (Preview)
 
     <!-- PM text -->
-=======
+
 ## June 2024
 
 * [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
@@ -26,7 +25,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
     - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.
     - Support for [Standard network features](azure-netapp-files-network-topologies.md) for SAP HANA volumes. 
->>>>>>> d683dfa3d09e131cfaa67d11a96c6698ff9add70
 
 ## May 2024
 
