@@ -21,9 +21,9 @@ Azure implements [role-based access control (RBAC)][azure-rbac] differently than
 
 ## Authentication between services
 
-The AWS EDW workload uses service-to-service authentication to connect with a queue and a database. AWS EKS uses `AssumeRole`, a feature of IAM, to acquire temporary security credentials to access AWS users, applications, or services. This implementation allows services to assume an IAM role that grants specific access, providing secure and limited permissions between services.
+The AWS EDW workload uses service communication to connect with a queue and a database. AWS EKS uses `AssumeRole`, a feature of IAM, to acquire temporary security credentials to access AWS users, applications, or services. This implementation allows services to assume an IAM role that grants specific access, providing secure and limited permissions between services.
 
-For Amazon Simple Queue Service (SQS) and Amazon DynamoDB database access using service-to-service authentication, the AWS workflow uses `AssumeRole` with EKS, which is an implementation of Kubernetes [service account token volume projection][service-account-volume-projection]. In the EKS EDW workload, a configuration allows a Kubernetes service account to assume an AWS Identity and Access Management (IAM) role. Pods that are configured to use the service account can then access any AWS service that the role has permissions to access. In the EDW workload, two IAM policies are defined to grant permissions to access Amazon DynamoDB and Amazon SQS.
+For Amazon Simple Queue Service (SQS) and Amazon DynamoDB database access using service communication, the AWS workflow uses `AssumeRole` with EKS, which is an implementation of Kubernetes [service account token volume projection][service-account-volume-projection]. In the EKS EDW workload, a configuration allows a Kubernetes service account to assume an AWS Identity and Access Management (IAM) role. Pods that are configured to use the service account can then access any AWS service that the role has permissions to access. In the EDW workload, two IAM policies are defined to grant permissions to access Amazon DynamoDB and Amazon SQS.
 
 With AKS, you can use [Microsoft Entra Managed Identity][entra-managed-id] with [Microsoft Entra Workload ID][entra-workload-id].
 

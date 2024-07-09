@@ -3,7 +3,7 @@ title: Quickstart creates an Azure IoT Edge device on Linux
 description: Learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal.
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/27/2024
+ms.date: 07/08/2024
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -184,13 +184,13 @@ Manage your Azure IoT Edge device from the cloud to deploy a module that will se
 
 :::image type="content" source="./media/quickstart-linux/deploy-module.png" alt-text="Diagram of how to deploy a module from cloud to device.":::
 
-One of the key capabilities of Azure IoT Edge is deploying code to your IoT Edge devices from the cloud. *IoT Edge modules* are executable packages implemented as containers. In this section, you'll deploy a pre-built module from the [IoT Edge Modules section of Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) directly from Azure IoT Hub.
+One of the key capabilities of Azure IoT Edge is deploying code to your IoT Edge devices from the cloud. *IoT Edge modules* are executable packages implemented as containers. In this section, you'll deploy a pre-built module from the [IoT Edge Modules section of Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name).
 
 The module that you deploy in this section simulates a sensor and sends generated data. This module is a useful piece of code when you're getting started with IoT Edge because you can use the simulated data for development and testing. If you want to see exactly what this module does, you can view the [simulated temperature sensor source code](https://github.com/Azure/iotedge/blob/main/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
 
-Follow these steps to start the **Set Modules** wizard to deploy your first module from Azure Marketplace.
+Follow these steps to deploy your first module.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT Hub.
 
 1. From the menu on the left, under **Device Management**, select **Devices**.
 

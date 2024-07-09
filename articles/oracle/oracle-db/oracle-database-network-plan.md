@@ -32,7 +32,7 @@ The following table describes the network topologies supported by each network f
 |Connectivity over Active/Active VPN gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
 |Transit connectivity via vWAN for Oracle database cluster provisioned in spoke virtual networks| Yes |
-|On-premises connectivity to Oracle database cluster via vWAN attached SD-WAN| No|
+|On-premises connectivity to Oracle database cluster via vWAN attached SD-WAN|Yes|
 |On-premises connectivity via Secured HUB (Firewall NVA) | No|
 |Connectivity from Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|
 
