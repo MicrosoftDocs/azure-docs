@@ -35,7 +35,7 @@ As you start subscribing to events from the HealthResources system topic, consid
 
 - Choose an appropriate [destination or event handler](../event-grid/event-handlers.md) based on the anticipated scale and size of events.
 - For fan-in scenarios where notifications from multiple system topics need to be consolidated, [event hubs](../event-grid/handler-event-hubs.md) are highly recommended as a destination. This practice is especially useful for real-time processing scenarios to maintain data freshness and for periodic processing for analytics, with configurable retention periods.
-- NEW: Customers can now subscribe to Health Resources events and send them to Azure Monitor alerts as new destination. For step-by-step guide, see [Subscribe to Health Resources events and send them to Azure monitor alerts](https://learn.microsoft.com/en-us/azure/event-grid/handle-health-resources-events-using-azure-monitor-alerts).
+- NEW: Customers can now subscribe to Health Resources events and send them to Azure Monitor alerts as new destination. For step-by-step guide, see [Subscribe to Health Resources events and send them to Azure monitor alerts](../event-grid/handle-health-resources-events-using-azure-monitor-alerts.md).
 
 We have plans to transition the preview into a fully fledged general availability feature. As part of the preview, we emit events scoped to changes in VM availability states with the following sample [schema](../event-grid/event-schema.md):
 
