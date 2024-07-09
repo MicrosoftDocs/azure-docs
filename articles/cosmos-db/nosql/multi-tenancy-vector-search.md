@@ -55,7 +55,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 - **Better Resource Allocation:** Evenly distributes workloads, minimizing bottlenecks for high tenant counts.
 
 **Considerations:**
-- If tenants have very few HPK, this can lead to bottlenecks since all documents with the same first-level key will write to the same physical partition(s).
+- If applications have very few tenants and use hierarchical partitioning, this can lead to bottlenecks since all documents with the same first-level key will write to the same physical partition(s).
 
 **Example:**
 ResearchHub can stratify data within each tenant’s partition by organizing it at various levels such as "DepartmentId" and "ResearcherId," facilitating efficient management and queries.
