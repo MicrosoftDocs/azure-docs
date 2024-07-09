@@ -26,7 +26,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of IPs in a virtual network (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
-|  Maximum size of a single capacity pool    |  2048 TiB   |   Yes   |
+|  Maximum size of a single capacity pool    |  2,048 TiB   |   Yes   |
 |  Minimum size of a single regular volume    |    100 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB |     No |
@@ -59,7 +59,7 @@ For limits and constraints related to Azure NetApp Files network features, see [
 
 You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB). If you reach the maximum size limit for a single directory for Azure NetApp Files, the error `No space left on device` occurs.   
 
-For a 320-MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files with non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
+For a 320-MB directory, the number of blocks is 655,360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files with non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
 
 Examples:
 
@@ -79,30 +79,30 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 
 ## `Maxfiles` limits <a name="maxfiles"></a> 
 
-Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. When the `maxfiles` limit is reached, clients receive “out of space” messages when attempting to create new files or folders. If you are experiencing this issue, contact Microsoft technical support for assistance.
+Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. If you experience this issue, contact Microsoft technical support.
 
 The `maxfiles` limit for an Azure NetApp Files volume is based on the size (quota) of the volume, where the service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size and uses the following guidelines.
 
 - For regular volumes less than or equal to 683 GiB, the default `maxfiles` limit is 21,251,126.
-- For regular volumes greater than 683 GiB, the default `maxfiles` limit is approximately 1 file per inode per 32 KiB of allocated volume capacity up to a maximum of 2,147,483,632.
-- For [large volumes](large-volumes-requirements-considerations.md), the default `maxfiles` limit is approximately 1 file per inode per 32 KiB of allocated volume capacity up to a default maximum of 15,938,355,048.
+- For regular volumes greater than 683 GiB, the default `maxfiles` limit is approximately one file per inode per 32 KiB of allocated volume capacity up to a maximum of 2,147,483,632.
+- For [large volumes](large-volumes-requirements-considerations.md), the default `maxfiles` limit is approximately one file per inode per 32 KiB of allocated volume capacity up to a default maximum of 15,938,355,048.
 
 The following table shows examples of the relationship `maxfiles` values based on volume sizes for regular volumes. 
 
 | Volume size | Estimated maxfiles limit |
 | - | - |
 | 0 – 683 GiB | 21,251,126 |
-| 1 TiB (1073741824 KiB) | 31,876,709 |
-| 10 TiB (10737418240 KiB) | 318,767,099 |
-| 50 TiB (53687091200 KiB)	| 1,593,835,519 |
-| 100 TiB (107374182400 KiB) | 2,147,483,632 |
+| 1 TiB (1,073,741,824 KiB) | 31,876,709 |
+| 10 TiB (10,737,418,240 KiB) | 318,767,099 |
+| 50 TiB (53,687,091,200 KiB)	| 1,593,835,519 |
+| 100 TiB (107,374,182,400 KiB) | 2,147,483,632 |
 
 | Volume size | Estimated maxfiles limit |
 | - | - |
-| 50 TiB (53687091200 KiB) |	1,593,835,512 |
-| 100 TiB (107374182400 KiB)	| 3,187,671,024 |
-| 200 TiB (214748364800 KiB)	| 6,375,342,024  |
-| 500 TiB (536870912000 KiB)	| 15,938,355,048 |
+| 50 TiB (53,687,091,200 KiB) |	1,593,835,512 |
+| 100 TiB (107,374,182,400 KiB)	| 3,187,671,024 |
+| 200 TiB (214,748,364,800 KiB)	| 6,375,342,024  |
+| 500 TiB (536,870,912,000 KiB)	| 15,938,355,048 |
 
 To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane.
 
