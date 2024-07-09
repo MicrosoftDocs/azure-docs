@@ -63,9 +63,12 @@ Azure Communication Services now enables you to ...
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../create-communication-resource.md#clean-up-resources).
 
+
 ## Next steps
 
-Advance to the next article to learn how to use Advanced Messaging SDK for WhatsApp messaging.
-> [!div class="nextstepaction"]
-> [Get Started With Advanced Communication Messages SDK](./get-started.md).
+In this quickstart, you learned how to enable Message Analysis for a WhatsApp channel. Next you might also want to see the following articles:
+
+- [Get Started With Advanced Communication Messages SDK](./get-started.md)
+- [AdvancedMessaging for WhatsApp Overview](../../../concepts/advanced-messaging/whatsapp/whatsapp-overview.md)
+- [Advanced Messaging for WhatsApp Terms of Services](../../../concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md)
 
