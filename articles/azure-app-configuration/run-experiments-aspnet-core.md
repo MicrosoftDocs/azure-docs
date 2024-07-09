@@ -502,7 +502,7 @@ To learn more about the experimentation concepts, refer to the following documen
 > [!div class="nextstepaction"]
 > [Experimentation](./concept-experimentation.md)
 
-To get a full feature rundown of `Microsoft.FeatureManagement` package, see the following doc.
+For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)

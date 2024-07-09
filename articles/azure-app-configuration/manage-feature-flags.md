@@ -143,18 +143,25 @@ Feature flags created with the Feature manager are stored as regular key-values.
 
 ## Next steps
 
-To learn how to use feature flags in your applications, continue to the following quickstarts.
-
-> [!div class="nextstepaction"]
-> [.NET/.NET Framework Console App](./quickstart-feature-flag-dotnet.md)
-
-> [!div class="nextstepaction"]
-> [.NET Background Service](./quickstart-feature-flag-dotnet-background-service.md)
+To start using feature flags with Azure App Configuration, continue to the following quickstarts specific to your application’s language or platform.
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 
-To get a full feature rundown of .NET feature management library, see the following document.
+> [!div class="nextstepaction"]
+> [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [.NET Feature Management](./feature-management-dotnet-reference.md)
+> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+
+> [!div class="nextstepaction"]
+> [Java Spring](./quickstart-feature-flag-spring-boot.md)
+
+> [!div class="nextstepaction"]
+> [Python](./quickstart-feature-flag-python.md)
+
+> [!div class="nextstepaction"]
+> [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)
+
+> [!div class="nextstepaction"]
+> [Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)
