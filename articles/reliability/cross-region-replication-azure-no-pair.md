@@ -106,7 +106,7 @@ To achieve geo-replication in non-paired regions, you can use:
 To achieve geo-replication in non-paired regions, 
 
 - For Azure Object Storage: 
-    - [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](../data-factory/connector-azure-blob-storage?tabs=data-factory.md) are options that are supported for both Blob Storage and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
+    - Tools such as [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](../data-factory/connector-azure-blob-storage?tabs=data-factory.md) are options that are supported for both Blob Storage and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
     - [Azure Storage Object Replication](/azure/storage/blobs/object-replication-overview) for general-purpose v2 storage accounts and premium block blob accounts. Object replication isn't supported for [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-best-practices).
 - For Azure NetApp Files (ANF): 
     - [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction) cross-region replication, you replicate to a set of non-standard pairs besides Azure region pairs.
