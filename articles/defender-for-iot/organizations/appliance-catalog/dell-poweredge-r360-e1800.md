@@ -85,7 +85,7 @@ To install Defender for IoT software:
 
 1. Start the appliance.
 
-1. Continue with the generic procedure for installing Defender for IoT software. For more information, see [Defender for IoT software installation](how-to-install-software.md).
+1. Continue with the generic procedure for installing Defender for IoT software. For more information, see [Defender for IoT software installation](/ot-deploy/install-software-ot-sensor.md#install-defender-or-iot-software-on-ot-sensors).
 
 <!--
 ## Dell PowerEdge R350 installation
