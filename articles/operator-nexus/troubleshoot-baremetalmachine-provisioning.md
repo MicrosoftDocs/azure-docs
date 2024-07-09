@@ -193,7 +193,7 @@ For this condition, typically the BMC console shows the BareMetal Machine at the
 To reset the NVRAM, use the following BMC Sequence:
 `Maintenance` -> `Diagnostics` -> `Reset iDrac to Factory Defaults` -> `Discard All Settings, but preserve user and network settings` -> `Apply and reboot`
 
-### Reset BMC Password
+### Reset BMC password
 If Actvity Log indicates invalid credentials on the BMC, the following can be run from a Jumpbox that has access the BMC network:
 ```bash
 racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
