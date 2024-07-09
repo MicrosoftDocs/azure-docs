@@ -1188,7 +1188,7 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Microsoft Copilot for Azure
+  - name: Microsoft Copilot in Azure
     tocHref: /azure/copilot/
     topicHref: /azure/copilot/
   - name: Operator Call Protection

@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-azurecli, devx-track-python
 
-author: vijetajo
-ms.author: vijetaj
+author: fbsolo-ms1
+ms.author: franksolomon 
 ms.topic: conceptual
-ms.reviewer: franksolomon
+ms.reviewer: vijetaj
 ms.date: 04/16/2024
 ---
 

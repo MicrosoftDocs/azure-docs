@@ -85,6 +85,9 @@ To resolve this issue, you need to follow these steps:
 
 Artifact cache currently supports the following upstream registries:
 
+>[!WARNING]
+> We recommend customers to [create a credential set](container-registry-artifact-cache.md#create-new-credentials) when sourcing content from Docker hub.
+
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
 | Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |

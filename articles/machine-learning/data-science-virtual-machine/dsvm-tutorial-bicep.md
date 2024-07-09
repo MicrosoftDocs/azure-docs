@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure Data Science VM - Bicep'
 titleSuffix: Azure Data Science Virtual Machine
 description: In this quickstart, you use Bicep to quickly deploy a Data Science Virtual Machine.
 services: machine-learning
-author: s-polly
-ms.author: scottpolly
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.reviewer: franksolomon
 ms.date: 04/22/2024
 ms.topic: quickstart
