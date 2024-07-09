@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 06/27/2024
+ms.date: 07/09/2024
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and Network Virtual Appliance
@@ -38,7 +38,7 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
 
 1. On the Azure portal home page, search for *virtual network*, and select **Virtual networks** from the search results. 
 
-    :::image type="content" source="./media/configure-route-server-with-nva/portal-search.png" alt-text="Screenshot of searching for virtual networks in the Azure portal." lightbox="./media/configure-route-server-with-nva/portal-search.png":::
+    :::image type="content" source="./media/peer-route-server-with-nva/portal-search.png" alt-text="Screenshot of searching for virtual networks in the Azure portal." lightbox="./media/peer-route-server-with-nva/portal-search.png":::
 
 1. On the **Virtual networks** page, select **+ Create**. 
 
@@ -53,18 +53,18 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
     | Name | Enter *myVirtualNetwork*. |
     | Region | Select **East US**. |
 
+    :::image type="content" source="./media/peer-route-server-with-nva/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of creating a virtual network in the Azure portal." lightbox="./media/peer-route-server-with-nva/create-virtual-network-basics.png":::
 
 1. Select **IP Addresses** tab or **Next** button twice.
 
-1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.1.0.0/16**, then configure the following subnets:
+1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.0.0.0/16**, then configure the following subnets:
 
     | Subnet name | Subnet address range |
     | ----------- | -------------------- |
-    | RouteServerSubnet | 10.1.1.0/25 |
-    | subnet1 | 10.1.2.0/24 |
-    | subnet2 | 10.1.3.0/24 |
-    | subnet3 | 10.1.4.0/24 |
+    | mySubnet | 10.0.0.0/24 |
+    | RouteServerSubnet | 10.0.1.0/24 |
 
+    :::image type="content" source="./media/peer-route-server-with-nva/create-virtual-network-ip-addresses.png" alt-text="Screenshot of the IP addresses tab of creating a virtual network in the Azure portal." lightbox="./media/peer-route-server-with-nva/create-virtual-network-ip-addresses.png":::
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 
