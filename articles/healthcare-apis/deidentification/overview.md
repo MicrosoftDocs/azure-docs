@@ -5,7 +5,7 @@ author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: overview
-ms.date: 08/15/2024
+ms.date: 7/9/2024
 ms.author: kimiamavon
 ---
 
