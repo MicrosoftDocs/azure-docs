@@ -19,13 +19,21 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> |
+| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> - [Newly supported protocols](#newly-supported-protocols)|
 
 ### Malicious URL path alert
 
 The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
 
 For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
+
+### Newly supported protocols
+
+We now support this protocols:
+
+- Open
+
+[See the updated protocol list](concept-supported-protocols.md).
 
 ## April 2024
 
@@ -57,7 +65,7 @@ This update resolves six CVEs, which are listed in [software version 24.1.3 feat
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 24.1.2**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
+| **OT networks** | **Version 24.1.2**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols-1)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
 
 ### Alert suppression rules from the Azure portal (Public preview)
 
