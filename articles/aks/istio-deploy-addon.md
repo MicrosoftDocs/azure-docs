@@ -240,9 +240,9 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 
 ## Next steps
 
-### Feedback and Feature Requests
+### Feedback and feature requests
 
-Feedback and feature requests for the Istio-based service mesh add-on should be raised as a new issue in the [AKS GitHub repository][aks-gh-issues]. Please open a new issue and add the `mesh` label. 
+You can provide feedback or create feature requests for the add-on on [AKS GitHub repository][aks-gh-issues] by creating a new issue with the `mesh` label. 
 
 * [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]
 * [Scale istiod and ingress gateway HPA][istio-scaling-guide]

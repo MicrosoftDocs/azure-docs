@@ -17,7 +17,7 @@ This article shows you how to deploy external or internal ingresses for Istio se
 
 ## Prerequisites
 
-This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy sample applications, and set environment variables.
+This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy a sample application, and set environment variables.
 
 ## Enable external ingress gateway
 
@@ -41,7 +41,7 @@ aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>  
 ```
 
 > [!NOTE]
-> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress specifications are reverted back by the Istio add-on. It's planned to allow these customizations in the Gateway API implementation for the Istio add-on in future.
+> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress specifications are reverted back by the Istio add-on.It's planned to allow these customizations in the Gateway API implementation for the Istio add-on in future.
 
 Applications aren't accessible from outside the cluster by default after enabling the ingress gateway. To make an application accessible, map the sample deployment's ingress to the Istio ingress gateway using the following manifest:
 
@@ -229,7 +229,7 @@ Confirm that the sample application's product page is accessible. The expected o
 If you want to clean up the Istio external or internal ingress gateways, but leave the mesh enabled on the cluster, run the following command:
 
 ```azure-cli-interactive
-az aks mesh disable-ingress-gateway --ingress-gateway-type <external/internal> --resource-group ${RESOURCE_GROUPS}
+az aks mesh disable-ingress-gateway --ingress-gateway-type <external/internal> --resource-group ${RESOURCE_GROUP}
 ```
 
 If you want to clean up the Istio service mesh and the ingresses (leaving behind the cluster), run the following command:
