@@ -35,15 +35,12 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their effect on your estimate.
 
-### Supportive tools and guides
-
-The following resources can also help you forecast the cost of using Azure Blob Storage:
-
-- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-
-- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-
-- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+> [!TIP]
+> These in-depth guides can help you predict and forecast costs:
+>
+> - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+> - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+> - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
 
 ## Understand the full billing model for Azure Blob Storage
 
@@ -105,6 +102,16 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 - Transactions are billed per 10,000. Divide the price of a transaction by 10,000 to get the cost of one individual transaction. 
 - Provide an example. 
 
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
+
+These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
+
+- [Map of AzCopy v10 commands to Azure Blob Storage REST operations](storage-ref-azcopy-map-commands-to-rest-operations.md)
+- [Map of NFS 3.0 commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/network-file-system-protocol-map-commands-to-rest-operations.md)
+- [Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/secure-file-transfer-map-commands-to-rest-operations.md)
+
+To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
+
 #### Data transfer
 
 - Explain when data transfer fees apply. 
@@ -117,17 +124,17 @@ The following table summarizes how you're billed for using Blob Storage features
 
 | Feature | Charges |
 |---|----|
-| Blob index | _Other_ and _List and Create Container_ operations, and monthly charge per tag ([Learn more](../blobs/storage-manage-find-blobs.md#pricing)) |
-| Blob Inventory | Storage, _Write_ and _Read_ operations, and a charge for the number of objects scanned ([Learn more](../blobs/blob-inventory.md#pricing-and-billing)) |
-| Change feed | Storage, _Write_ and _Read_ operations, and a charge per logged change |
-| Encryption scopes | monthly charge after it is enabled. ([Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes)) |
-| Last access time tracking | _Other_ operations to update to the last access time objects ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
-| Lifecycle management | _Write_ and _Read_ operations ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
-| Soft delete | Storage, _Write_ operations ([Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing)) |
+| Blob index | Other operations, List and Create Container operations, and monthly charge per tag ([Learn more](../blobs/storage-manage-find-blobs.md#pricing)) |
+| Blob Inventory | Storage, Write operations, Read operations, and a charge for the number of objects scanned ([Learn more](../blobs/blob-inventory.md#pricing-and-billing)) |
+| Change feed | Storage, Write operations, Read operations, and a charge per logged change |
+| Encryption scopes | A monthly charge after it is enabled. ([Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes)) |
+| Last access time tracking | Other operations ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
+| Lifecycle management | Write operations and Read operations ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
+| Soft delete | Storage, Write operations ([Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing)) |
 | Versioning | Storage ([Learn more](../blobs/versioning-overview.md#pricing-and-billing)) |
 | Snapshots | Storage ([Learn more](../blobs/snapshots-overview.md#pricing-and-billing)) |
 | Point-in-time restore | Storage, and a charge based on the amount of change feed data processed for the restore ([Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing)) |
-| Object replication | Storage, _Read_ and _Write operations, network egress ([Learn more](../blobs/object-replication-overview.md#billing)) |
+| Object replication | Storage, Read operations, Write operations, network egress ([Learn more](../blobs/object-replication-overview.md#billing)) |
 | Query acceleration | A charge for the data scanned and a charge for the data returned ([Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing)) |
 | SFTP support | An hourly charge after it is enabled ([Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing)) |
 
@@ -170,18 +177,6 @@ Requests can originate from any of these sources:
 The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
-
-#### Find the price of each operation
-
-Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
-
-These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
-
-- [Map of AzCopy v10 commands to Azure Blob Storage REST operations](storage-ref-azcopy-map-commands-to-rest-operations.md)
-- [Map of NFS 3.0 commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/network-file-system-protocol-map-commands-to-rest-operations.md)
-- [Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/secure-file-transfer-map-commands-to-rest-operations.md)
-
-To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
 ### Using Azure Prepayment with Azure Blob Storage
 
