@@ -1,48 +1,41 @@
 ---
-title: Use Language service in prompt flow
+title: Use Language in Azure prompt flow
 description: Learn how to use Azure AI Language in prompt flow.
 author: jboback
 ms.author: jboback
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 07/09/2024
 ---
 
-# Use Language service in prompt flow
+# Use Language in Azure prompt flow
+
+> [!IMPORTANT]
+> Some of the features described in this article might only be available in preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 [Prompt flow in Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/prompt-flow) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). You can explore and quickly start to use and fine-tune various natural language processing capabilities from Azure AI Language, reducing your time to value and deploying solutions with reliable evaluation.
 
-The Prompt flow tool is a wrapper for various Azure AI Language APIs. The current list of supported capabilities is as follows:
-
-| Name                                  | Description                                         |
-|---------------------------------------|-----------------------------------------------------|
-| Abstractive Summarization             | Generate abstractive summaries from documents.      |
-| Extractive Summarization              | Extract summaries from documents.                   |
-| Conversation Summarization            | Summarize conversations.                            |
-| Entity Recognition                    | Recognize and categorize entities in documents.     |
-| Key Phrase Extraction                 | Extract key phrases from documents.                 |
-| Language Detection                    | Detect the language of documents.                   |
-| PII Entity Recognition                | Recognize and redact PII entities in documents.      |
-| Conversational PII                    | Recognize and redact PII entities in conversations. |
-| Sentiment Analysis                    | Analyze the sentiment of documents.                 |
-| Conversational Language Understanding | Predict intents and entities from user's utterances.|
-| Translator                            | Translate documents.                                |
+This tutorial will teach you how to use Language in prompt flow utilizing [Azure AI Studio](https://ai.azure.com).                            |
 
 ## Prerequisites
 
-- Install the [prompt flow Azure AI Language PyPl package](https://pypi.org/project/promptflow-azure-ai-language/)
-    - For local users: `pip install promptflow-azure-ai-language`, You may also want to install the [prompt flow for VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow).
+- An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 
-The tool calls APIs from Azure AI Language. To use it, you must create a connection to an [Azure AI Language resource](https://learn.microsoft.com/en-us/azure/ai-services/language-service/). [Create a Language Resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) first, if necessary.
-- In prompt flow, add a new `CustomConnection`
-    - Under the `secrets` field, specify the resource's APi key: `api_key: <Azure AI Language Resource api key>`
-    - Under the `configs` field, specify te resource's endpoint: `endpoint: <Azure AI Language Resource endpoint>`
+- Access granted to Azure OpenAI in the desired Azure subscription.
 
-To use the `Translator` tool, you must set up an additional connection to an [Azure AI Language resource](https://learn.microsoft.com/en-us/azure/ai-services/language-service/). [Create a Language Resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) first, if necessary.
-- In prompt flow, add a new `CustomConnection`
-    - Under the `secrets` field, specify the resource's APi key: `api_key: <Azure AI Translator Resource api key>`
-    - Under the `configs` field, specify te resource's endpoint: `endpoint: <Azure AI Translator Resource endpoint>`
-    - If your Translator Resource is regional and non-global, specify its region under `configs` as well: `region: <Azure AI Translator Resource region>`
+     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+
+- You need an Azure AI Studio hub or permissions to create one. Your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../../../ai-studio/concepts/ai-resources.md) and [Azure AI roles](../../../ai-studio/concepts/rbac-ai-studio.md).
+     - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
+     - If your role is **Azure AI Developer**, the hub must already be created. 
+
+- Your subscription needs to be below your [quota limit](../../../ai-studio/how-to/quota.md) to deploy a new flow in this tutorial.
+
+## Create a project in Azure AI Studio
+
+Your project is used to organize your work and save state. 
+
+[!INCLUDE [Create project](../../../ai-studio/includes/create-projects.md)]
 
 ## Using Azure AI Language via the prompt flow gallery
 
