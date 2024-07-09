@@ -18,7 +18,6 @@ The following table color-codes areas of management, where:
 * Microsoft NC2 team = blue
 * Nutanix = purple
 * Customer = grey
-* Microsoft Azure = white
 
 :::image type="content" source="media/nc2-on-azure-responsibility-matrix.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners.":::
 
