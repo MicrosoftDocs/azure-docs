@@ -56,7 +56,7 @@ A *package.json* file is also created in the root folder.
 
 ### Configure function app to use PowerShell 7
 
-Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `~7`. If it is missing or set to another value, update the contents of the file.
+Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `~7`. If it's missing or if it's set to another value, update the contents of the file.
 
 ```json
 {
@@ -121,14 +121,12 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
     | **Provide a function name** | Enter **HttpStart**. | The name of your activity function. |
     | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication. |
 
-You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to see that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
+You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to check that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response that contains URLs that can be used to monitor and manage the new orchestration.
 
-You now have a Durable Functions app that can be run locally and deployed to Azure.
+You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 > [!NOTE]
-> The next version of the DF PowerShell is now in preview. You can download it from the PowerShell Gallery.
-> Learn about it and how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md).
-> You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions compatible with this quickstart on how to enable it.
+> The next version of the Durable Functions PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
 
 ## Test the function locally
 
@@ -159,11 +157,11 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
-  The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+  The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-   The request queries the orchestration instance for the status. You must get an eventual response, which shows the instance has completed and includes the outputs or results of the durable function. It looks like:
+   The request queries the orchestration instance for the status. You must get an eventual response, which shows the instance completed and includes the outputs or results of the durable function. It looks like this example:
 
     ```json
     {
@@ -182,7 +180,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     }
     ```
 
-1. To stop debugging, select Shift+F5 in VS Code.
+1. To stop debugging, in Visual Studio Code, select Shift+F5.
 
 After you verify that the function runs correctly on your local computer, it's time to publish the project to Azure.
 

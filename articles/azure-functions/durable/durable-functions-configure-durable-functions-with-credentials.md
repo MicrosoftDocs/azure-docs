@@ -1,24 +1,24 @@
 ---
-title: "Configure Durable Functions with Microsoft Entra ID"
-description: Configure Durable Functions with Managed Identity Credentials and Client Secret Credentials.
+title: "Quickstart: Configure Durable Functions by using Microsoft Entra ID"
+description: Configure Durable Functions in Azure Functions by using managed identity credentials and client secret credentials.
 author: naiyuantian
 ms.topic: quickstart
 ms.date: 02/01/2023
 ms.author: azfuncdf
 ---
 
-# Quickstart: Configure Durable Functions with Microsoft Entra ID
+# Quickstart: Configure Durable Functions in Azure Functions by using Microsoft Entra ID
 
-[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions to make authorized requests against Microsoft Entra protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default Azure storage provider, Durable Functions needs to authenticate against an Azure storage account. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **managed identity credentials** and **client secret credentials**.
+[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions, a feature of Azure Functions, to make authorized requests against Microsoft Entra protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default Azure storage provider, Durable Functions needs to authenticate against an Azure storage account. In this quickstart, we walk through the steps to configure a Durable Functions app to use two kinds of Identity-based connections: *managed identity credentials* and *client secret credentials*.
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Configure your app to use managed identity (recommended)
 
-A [managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Microsoft Entra-protected resources such as Azure Key Vault. Managed identity is supported in [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) versions 2.7.0 and later.
+A [managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Microsoft Entra-protected resources such as Azure Key Vault. A managed identity is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
 
 > [!NOTE]
-> Strictly speaking, a managed identity is only available to apps when executing on Azure. When configured to use identity-based connections, a locally executing app uses your *developer credentials* to authenticate with Azure resources. Then, when deployed on Azure, it uses your managed identity configuration instead.
+> A managed identity is available to apps only when they execute on Azure. When an app is configured to use identity-based connections, a locally executing app uses your *developer credentials* to authenticate with Azure resources. Then, when deployed on Azure, it uses your managed identity configuration instead.
 
 ## Prerequisites
 
@@ -47,28 +47,32 @@ Go to your app's storage resource on the Azure portal. Follow [these instruction
 * Storage Blob Data Contributor
 * Storage Table Data Contributor
 
-### Add managed identity configuration in the Azure portal
+### Add a managed identity configuration in the Azure portal
 
 Go to your Azure function app’s **Configuration** page and perform the following changes:
 
-1. Remove the default value "AzureWebJobsStorage".
+1. Remove the default value **AzureWebJobsStorage**.
 
-  [Screenshot of default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png#lightbox)
+   ![Screenshot of the default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)
 
-1. Link your Azure storage account by adding **either one** of the following value settings:
+1. Link your Azure storage account by adding *either one* of the following value settings:
 
-   * **AzureWebJobsStorage__accountName**: For example: `mystorageaccount123`
+   * An account name:
 
-   * **AzureWebJobsStorage__blobServiceUri**: Example: `https://mystorageaccount123.blob.core.windows.net/`
+     * `AzureWebJobsStorage__accountName` (example: `mystorageaccount123`)
 
-     **AzureWebJobsStorage__queueServiceUri**: Example: `https://mystorageaccount123.queue.core.windows.net/`
+   * A specific service URL:
 
-     **AzureWebJobsStorage__tableServiceUri**: Example: `https://mystorageaccount123.table.core.windows.net/`
+     * `AzureWebJobsStorage__blobServiceUri` (example: `https://mystorageaccount123.blob.core.windows.net/`)
+
+     * `AzureWebJobsStorage__queueServiceUri` (example: `https://mystorageaccount123.queue.core.windows.net/`)
+
+     * `AzureWebJobsStorage__tableServiceUri` (example: `https://mystorageaccount123.table.core.windows.net/`)
 
      > [!NOTE]
-     > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, then you need to use this second option to provide specific service URLs. The values for these settings can be found in the storage account under the **Endpoints** tab. For more information on using Azure Storage with Azure Government, see the [Develop with Storage API on Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md) documentation.
+     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you need to use this second option to provide specific service URLs. The values for these settings can be found in the storage account under the **Endpoints** tab. For more information about using Azure Storage with Azure Government, see [Develop with Storage API on Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
 
-   ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
+   ![Screenshot of an endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 1. Finalize your managed identity configuration:
 
@@ -76,9 +80,9 @@ Go to your Azure function app’s **Configuration** page and perform the followi
 
    * If you use **user-assigned identity**, then add the following app settings values in your app configuration:
 
-     * **AzureWebJobsStorage__credential**: managedidentity
+     * For **AzureWebJobsStorage__credential**, enter **managedidentity**.
 
-     * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from the Microsoft Entra admin center)
+     * For **AzureWebJobsStorage__clientId**, get this GUID value from the Microsoft Entra admin center.
 
      ![Screenshot of the user identity client ID.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
@@ -89,7 +93,8 @@ Registering a client application in Microsoft Entra ID is another way that you c
 ### Prerequisites
 
 The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
-In particular, this quickstart assumes that you have already:
+
+Specifically, this quickstart assumes that you have already:
 
 * Created a Durable Functions project on your local machine or in the Azure portal.
 
@@ -97,35 +102,39 @@ In particular, this quickstart assumes that you have already:
 
 ### Register a client application on Microsoft Entra ID
 
-1. Register a client application under Microsoft Entra ID in the Azure portal according to [these instructions](../../healthcare-apis/register-application.md).
+1. In the Azure portal under Microsoft Entra ID, [register a client application](../../healthcare-apis/register-application.md).
 
-1. Create a client secret for your client application. In your registered application:  
+1. Create a client secret for your client application. In your registered application, complete these steps:  
 
    1. Select **Certificates & Secrets** > **New client secret**.  
 
-   1. Fill in a **Description** and choose secret valid time in the **Expires** field.  
+   1. For **Description**, enter a value.
 
-   1. Copy and save the secret value carefully because it doesn't appear again after you leave the page.
+   1. For **Expires**, enter a valid time for the secret to expire.  
+
+   1. Copy and save the secret value carefully. The secret value doesn't appear again after you leave the pane.
 
    ![Screenshot of the client secret page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png)
 
-### Assign Role-based Access Controls (RBAC) to the client application
+### Assign role-based access control (RBAC) roles to the client application
 
-Assign these three roles to your client application with the following steps.
+Assign these three roles to your client application by using the steps that are described next:
 
 * Storage Queue Data Contributor
 * Storage Blob Data Contributor
 * Storage Table Data Contributor
 
-1. Go to your function’s storage account **Access Control (IAM)** page and add a new role assignment.
+To add the roles:
 
-   ![Screenshot of access control page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png)
+1. Go to your function’s storage account **Access Control (IAM)** pane and add a new role assignment.
 
-1. Choose the required role, click next, then search for your application, review and add.
+   ![Screenshot of the access control pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png)
 
-   ![Screenshot of role assignment page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png)
+1. Choose the required role, select **Next**, and then search for your application. Review the role, and then add the role.
 
-### Add client secret configuration
+   ![Screenshot of the role assignment pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png)
+
+### Add the client secret configuration
 
 To run and test in Azure, specify the followings in your Azure function app’s **Configuration** page in the Azure portal. To run and test locally, specify the following in the function’s *local.settings.json* file.
 
@@ -133,26 +142,26 @@ To run and test in Azure, specify the followings in your Azure function app’s 
 
 1. Link your Azure storage account by adding any of the following value settings:
 
-   * **AzureWebJobsStorage__accountName**: For example: `mystorageaccount123`
+   * **AzureWebJobsStorage__accountName**: For example, `mystorageaccount123`.
 
-   * **AzureWebJobsStorage__blobServiceUri**: Example: `https://mystorageaccount123.blob.core.windows.net/`
+   * **AzureWebJobsStorage__blobServiceUri**: For example, `https://mystorageaccount123.blob.core.windows.net/`.
 
-     **AzureWebJobsStorage__queueServiceUri**: Example: `https://mystorageaccount123.queue.core.windows.net/`
+     **AzureWebJobsStorage__queueServiceUri**: For example, `https://mystorageaccount123.queue.core.windows.net/`.
 
-     **AzureWebJobsStorage__tableServiceUri**: Example: `https://mystorageaccount123.table.core.windows.net/`
+     **AzureWebJobsStorage__tableServiceUri**: For example, `https://mystorageaccount123.table.core.windows.net/`.
 
    You can get the values for these URI variables in the storage account on the **Endpoints** tab.
 
-   ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
+   ![Screenshot of an endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 1. Add a client secret credential by specifying the following values:
 
-   * **AzureWebJobsStorage__clientId**: (this is a GUID value found in the Microsoft Entra application page)
+   * **AzureWebJobsStorage__clientId**: Get this GUID value on the Microsoft Entra application pane.
 
-   * **AzureWebJobsStorage__ClientSecret**: (this is the secret value generated in the Microsoft Entra admin center in a previous step)
+   * **AzureWebJobsStorage__ClientSecret**: This secret value was generated in the Microsoft Entra admin center in a previous step.
 
-   * **AzureWebJobsStorage__tenantId**: (this is the tenant ID that the Microsoft Entra application is registered in)
+   * **AzureWebJobsStorage__tenantId**: The tenant ID that the Microsoft Entra application is registered in.
 
-   The client ID and tenant ID values can be found on your client application’s overview page. The client secret value is the one that was carefully saved in the previous step. It isn't available after the page is refreshed.
+   The values to use for the client ID and the tenant ID appear on your client application’s overview pane. The client secret value is the one that you saved in the previous step. It isn't available after the page is refreshed.
 
    ![Screenshot of application's overview page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)

@@ -96,7 +96,7 @@ When you create the project, the Azure Functions Visual Studio Code extension au
     source .venv/bin/activate
     ```
 
-# [MacOS](#tab/macos)
+# [macOS](#tab/macos)
 
     ```bash
     source .venv/bin/activate
@@ -269,7 +269,7 @@ Review the following table for an explanation of each function and its purpose i
 
 ## Test the function locally
 
-Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. If you don't have it installed, you're prompted to install these tools the first time you start a function from Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. If it isn't installed, you're prompted to install these tools the first time you start a function from Visual Studio Code.
 
 ::: zone pivot="python-mode-configuration"
 

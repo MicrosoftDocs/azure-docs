@@ -113,7 +113,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
 
-   The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
@@ -247,7 +247,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request.
 
-    The request queries the orchestration instance for the status. You must get an eventual response that looks like the following. This output shows us the instance has completed and includes the outputs or results of the durable function.
+    The request queries the orchestration instance for the status. You must get an eventual response that looks like the following. This output shows us the instance completed and includes the outputs or results of the durable function.
 
     ```json
     {
@@ -268,7 +268,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. To stop debugging, select Shift+F5.
 
-After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
+After you verify that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 ## Publish the project to Azure
 
