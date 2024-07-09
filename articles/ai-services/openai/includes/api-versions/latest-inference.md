@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 07/09/2024
 ---
 
-## Completions - Create
+## Completions
 
 ```HTTP
 POST https://{endpoint}/openai/deployments/{deployment-id}/completions?api-version=2024-06-01
@@ -136,7 +136,7 @@ Status Code: 200
 }
 ```
 
-## Embeddings - Create
+## Embeddings
 
 ```HTTP
 POST https://{endpoint}/openai/deployments/{deployment-id}/embeddings?api-version=2024-06-01
@@ -259,7 +259,7 @@ Status Code: 200
 }
 ```
 
-## Chat completions - Create
+## Chat completions
 
 ```HTTP
 POST https://{endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=2024-06-01
@@ -636,7 +636,7 @@ Status Code: 200
 }
 ```
 
-## Transcriptions - Create
+## Transcriptions
 
 ```HTTP
 POST https://{endpoint}/openai/deployments/{deployment-id}/audio/transcriptions?api-version=2024-06-01
@@ -722,7 +722,7 @@ Status Code: 200
 }
 ```
 
-## Translations - Create
+## Translations
 
 ```HTTP
 POST https://{endpoint}/openai/deployments/{deployment-id}/audio/translations?api-version=2024-06-01
@@ -809,7 +809,7 @@ Status Code: 200
 }
 ```
 
-## Image generations - Create
+## Image generation
 
 ```HTTP
 POST https://{endpoint}/openai/deployments/{deployment-id}/images/generations?api-version=2024-06-01
