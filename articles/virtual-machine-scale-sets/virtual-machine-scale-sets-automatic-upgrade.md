@@ -55,8 +55,6 @@ The availability-first model for platform orchestrated updates described below e
 
 The platform orchestrated updates process is followed for rolling out supported OS platform image upgrades every month. For custom images through Azure Compute Gallery, an image upgrade is only kicked off for a particular Azure region when the new image is published and [replicated](../virtual-machines/azure-compute-gallery.md#replication) to the region of that scale set.
 
-
-
 ### Upgrading VMs in a scale set
 
 The region of a scale set becomes eligible to get image upgrades either through the availability-first process for platform images or replicating new custom image versions for Share Image Gallery. The image upgrade is then applied to an individual scale set in a batched manner as follows:
@@ -462,7 +460,7 @@ Customers will receive three types of notifications related to Automatic OS Upgr
 
 ![activity_log_portal](https://github.com/MicrosoftDocs/azure-docs-pr/assets/108891433/b282f885-f0be-40e8-a281-4c829cd4a9ed)
 
-### Setting up Action Groups for Activity log alerts![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/108891433/cb9abbda-ea69-415e-a6b7-469cb31cd217)
+### Setting up Action Groups for Activity log alerts
 
 An [action group](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. 
 
