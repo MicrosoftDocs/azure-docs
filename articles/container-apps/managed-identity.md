@@ -350,11 +350,16 @@ To get a token for a resource, make an HTTP `GET` request to the endpoint, inclu
 
 ---
 
-## Use managed identity for scale rules
+## <a name="scale-rules"></a>Use managed identity for scale rules
 
-Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity
+You can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity.
 
-The following example shows how to use a managed identities with an Azure Queue Storage scale rule. The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
+> [!NOTE]
+> Managed identity authentication in scale rules is in public preview. It's available in API version `2024-02-02-preview`.
+
+The following ARM template example shows how to use a managed identity with an Azure Queue Storage scale rule:
+
+The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
 
 ```json
 "scale": {
@@ -371,19 +376,20 @@ The following example shows how to use a managed identities with an Azure Queue 
     }]
 }
 ```
+To learn more about using managed identity with scale rules, see [Set scaling rules in Azure Container Apps](scale-app.md?pivots=azure-portal#authentication-2).
 
 ## Control managed identity availability
 
-Container Apps allow you to specify [init containers](containers.md#init-containers) and main containers. By default, both main and init containers in a consumption workload profile environment can use managed identity to access other Azure services. In consumption-only environments and dedicated workload profile environments, only main containers can use managed identity. Managed identity access tokens are available for every managed identity configured on the container app. However, in some situations only the init container or the main container require access tokens for a managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the container image, and your application itself doesn't need to have access to your Azure Container Registry.
+Container Apps allows you to specify [init containers](containers.md#init-containers) and main containers. By default, both main and init containers in a consumption workload profile environment can use managed identity to access other Azure services. In consumption-only environments and dedicated workload profile environments, only main containers can use managed identity. Managed identity access tokens are available for every managed identity configured on the container app. However, in some situations only the init container or the main container require access tokens for a managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the container image, and your application itself doesn't need to have access to your Azure Container Registry.
 
 Starting in API version `2024-02-02-preview`, you can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
 
-- `Init`: available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
-- `Main`: available only to main containers. Use this if your init container does not need managed identity.
-- `All`: available to all containers. This is the default setting.
-- `None`: not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
+- `Init`: Available only to init containers. Use this when you want to perform some initialization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
+- `Main`: Available only to main containers. Use this if your init container does not need managed identity.
+- `All`: Available to all containers. This value is the default setting.
+- `None`: Not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
 
-The following example shows how to configure a container app on a workload profile consumption environment that:
+The following ARM template example shows how to configure a container app on a workload profile consumption environment that:
 
 - Restricts the container app's system-assigned identity to main containers only.
 - Restricts a specific user-assigned identity to init containers only.
@@ -413,15 +419,15 @@ This approach limits the resources that can be accessed if a malicious actor wer
             "identitySettings":[
             {
                 "identity": "ACR_IMAGEPULL_IDENTITY_RESOURCE_ID",
-                "lifecycle": "none"
+                "lifecycle": "None"
             },
             {
                 "identity": "<IDENTITY1_RESOURCE_ID>",
-                "lifecycle": "init"
+                "lifecycle": "Init"
             },
             {
                 "identity": "system",
-                "lifecycle": "main"
+                "lifecycle": "Main"
             }]
         },
         "template": {

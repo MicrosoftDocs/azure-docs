@@ -13,7 +13,7 @@ ms.custom: include file, linux-related-content
 ## Supported distributions and drivers
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 ### NVIDIA CUDA drivers
 

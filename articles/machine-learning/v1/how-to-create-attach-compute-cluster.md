@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 05/02/2022
 ---
 
