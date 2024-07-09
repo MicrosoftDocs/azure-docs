@@ -932,7 +932,7 @@
     items:
     - name: What are Azure reservations?
       displayName: Reserved Instances, RI, prepay, flexibility
-      href: /azure/cost-management-billing/reservations/save-compute-costs-reservations.md
+      href: /azure/cost-management-billing/reservations/save-compute-costs-reservations?toc=/azure/virtual-machines/toc.json
     - name: Prepay for VMs
       displayName: Reserved Instances, RI, prepay, flexibility
       href: ./prepay-reserved-vm-instances.md
