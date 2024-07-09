@@ -38,6 +38,7 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
 
 1. On the Azure portal home page, search for *virtual network*, and select **Virtual networks** from the search results. 
 
+    :::image type="content" source="./media/configure-route-server-with-nva/portal-search.png" alt-text="Screenshot of searching for virtual networks in the Azure portal." lightbox="./media/configure-route-server-with-nva/portal-search.png":::
 
 1. On the **Virtual networks** page, select **+ Create**. 
 
@@ -53,7 +54,7 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
     | Region | Select **East US**. |
 
 
-1. Select **IP Addresses** tab or **Next : IP Addresses >** button.
+1. Select **IP Addresses** tab or **Next** button twice.
 
 1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.1.0.0/16**, then configure the following subnets:
 
