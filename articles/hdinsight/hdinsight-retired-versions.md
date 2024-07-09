@@ -8,14 +8,14 @@ ms.date: 07/09/2024
 
 # Retired HDInsight versions
 
-This page lists all the versions of HDInsight which are retired and/or out-of-support. If you’re currently on one of the versions below, we recommend that you immediately migrate to the latest version. If you choose to not migrate and continue using any of the below versions, be aware of the following terms and risks associated with your continued usage of retired and unsupported software:  ​
+This page lists all the versions of HDInsight, which are retired and/or out-of-support. If you’re currently on one of the versions as follows, we recommend that you immediately migrate to the latest version. If you choose to not migrate and continue using any of the below versions, be aware of the following terms, and risks associated with your continued usage of retired and unsupported software:  ​
 
-1. As a retired version of an Azure service, HDInsight hasn't been shipping and won't ship any updates or security patches to these versions. Some of the OSS components in these versions haven't been updated for several years.  ​
+1. As a retired version of an Azure service, HDInsight hasn't been shipping and we don't ship any updates or security patches to these versions. Some of the OSS components in these versions haven't been updated for several years.  ​
 1. By continuing to use these versions, there are security risks that may lead to vulnerabilities, system instability, and potential data loss for you and your customers.  ​
-1. HDInsight team won't be able to provide support or help if a security compromise as we do not have pipelines and patching mechanisms for these versions.  ​
+1. HDInsight team can't able to provide support or help if a security compromise as we do not have pipelines and patching mechanisms for these versions.  ​
 1. In the case of operational issues, we're unable to provide support for root cause analysis, investigation of failures, or performance degradation/issues.  ​
 1. There's no guarantee that all the existing functionality of your clusters will continue to work as-is, because underlying dependencies will determine the availability of the existing features in these versions. If there's a breaking change due to these dependencies, there's no way to recover the impacted clusters.  ​
-1. New service capabilities developed by HDInsight won't be applicable to these versions.  ​
+1. New service capabilities developed by HDInsight not applicable to these versions.  ​
 1. In the extreme event of a serious security threat to the service caused by the outdated version you're using, HDInsight might choose to stop/delete your clusters immediately to secure the service. In such cases, there's no way to recover the impacted HDInsight clusters but your data in Azure storage and BYO Azure SQL DBs are not deleted and they can be utilized to migrate to the latest HDInsight version.  ​
 
 ## Retired version list
