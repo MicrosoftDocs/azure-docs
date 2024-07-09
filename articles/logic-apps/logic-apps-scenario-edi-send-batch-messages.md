@@ -218,50 +218,48 @@ batch sender because they're not visible to each other.
 
 1. Create another logic app with this name: "SendX12MessagesToBatch" 
 
-2. In the search box, enter "when a http request" as your filter. 
+1. In the search box, enter "when a http request" as your filter. 
 Select this trigger: **When a HTTP request is received** 
    
    ![Add the Request trigger](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-3. Add an action for sending messages to a batch.
+1. Add an action for sending messages to a batch.
 
    1. Under the HTTP request action, choose **New step**.
 
-   2. In the search box, enter "batch" as your filter. 
+   1. In the search box, enter "batch" as your filter. 
    Select the **Actions** list, and then select this action: 
    **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
 
       ![Select "Choose a Logic Apps workflow with batch trigger"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
-   3. Now select your "BatchX12Messages" logic app that you previously created.
+   1. Now select your "BatchX12Messages" logic app that you previously created.
 
       ![Select "batch receiver" logic app](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Select this action: **Batch_messages - <*your-batch-receiver*>**
+   1. Select this action: **Batch_messages - <*your-batch-receiver*>**
 
       ![Select "Batch_messages" action](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
-4. Set the batch sender's properties.
+1. Set the batch sender's properties.
 
    | Property | Description | 
    |----------|-------------| 
    | **Batch Name** | The batch name defined by the receiver logic app, which is "TestBatch" in this example <p>**Important**: The batch name gets validated at runtime and must match the name specified by the receiver logic app. Changing the batch name causes the batch sender to fail. | 
    | **Message Content** | The content for the message you want to send, which is the **Body** token in this example | 
-   ||| 
    
    ![Set batch properties](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
 
-5. Save your logic app. 
+1. Save your logic app. 
 
    Your batch sender logic app looks like this example:
 
    ![Save your batch sender logic app](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png)
 
-## Test your logic apps
+## Test your workflows
 
 To test your batching solution, post X12 messages to your batch sender logic 
-app from [Postman](https://www.getpostman.com/postman) or a similar tool. 
-Soon, you start getting X12 messages in your request bin, 
+app from a local tool or app that can send HTTP requests, such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/). Soon, you start getting X12 messages in your request bin, 
 either every 10 minutes or in batches of 10, all with the same partition key.
 
 ## Next steps

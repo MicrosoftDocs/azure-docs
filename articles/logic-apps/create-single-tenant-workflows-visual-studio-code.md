@@ -730,6 +730,7 @@ To test your logic app workflow, follow these steps to start a debugging session
    If you created a stateful workflow, after the request that you sent triggers the workflow, the overview page shows the workflow's run status and history.
 
    > [!TIP]
+   >
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 

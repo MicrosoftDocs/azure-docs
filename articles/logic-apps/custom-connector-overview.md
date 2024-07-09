@@ -37,7 +37,6 @@ In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [cust
 
   * [Create an Azure Logic Apps connector](/connectors/custom-connectors/create-logic-apps-connector)
   * [Create a custom connector from an OpenAPI definition](/connectors/custom-connectors/define-openapi-definition)
-  * [Create a custom connector from a Postman collection](/connectors/custom-connectors/define-postman-collection)
   * [Use a custom connector from a logic app](/connectors/custom-connectors/use-custom-connector-logic-apps)
   * [Share custom connectors in your organization](/connectors/custom-connectors/share)
   * [Submit your connectors for Microsoft certification](/connectors/custom-connectors/submit-certification)

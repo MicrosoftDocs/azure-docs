@@ -91,7 +91,7 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
    To trigger the workflow, you call or send a request to this URL.
 
-1. Make sure that the URL works by calling or sending a request to the URL. You can use any tool you want to send the request, for example, Postman.
+1. Make sure that the URL works by calling or sending a request to the URL. You can use any local tool or app that you want for creating and sending HTTP requests, such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
 
 ### Set up private endpoint connection
 

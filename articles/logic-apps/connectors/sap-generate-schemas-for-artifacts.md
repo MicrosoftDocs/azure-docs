@@ -186,7 +186,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
 
    For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
@@ -220,7 +220,7 @@ For more information about reviewing workflow run history, see [Monitor logic ap
 
 1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a tool such as [Postman](https://www.getpostman.com/apps).
+1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
 
    For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
