@@ -21,7 +21,7 @@ As part of Cluster deploy action, BareMetal Machines (BMM) are provisioned with 
 3. The user needs access to the subscription to run networkfabric and networkcloud CLI extension commands
 4. Login to Azure CLI and select the subscription where the cluster is deployed
 
-## BMM Roles
+## BMM roles
 For a given SKU, there are required roles to manage and operate the underlying kubernetets cluster.
 
 The following roles are assigned to BMM resources (see [BMM Roles](reference-near-edge-baremetal-machine-roles.md)):
