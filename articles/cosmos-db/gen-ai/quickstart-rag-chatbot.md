@@ -305,17 +305,34 @@ def generate_completion(user_prompt, vector_search_results, chat_history):
     return response.model_dump()
 
 def chat_completion(cache_container, movies_container, user_input):
+    print("starting completion")
+    # Generate embeddings from the user input
     user_embeddings = generate_embeddings(user_input)
-    cache_results = vector_search(container=cache_container, vectors=user_embeddings, similarity_score=0.99, num_results=1)
-
+    # Query the chat history cache first to see if this question has been asked before
+    cache_results = get_cache(container = cache_container, vectors = user_embeddings, similarity_score=0.99, num_results=1)
     if len(cache_results) > 0:
-        return cache_results[0]['document']['completion'], True
-    
-    search_results = vector_search(movies_container, user_embeddings)
-    chat_history = get_chat_history(cache_container, completions=3)
-    completions_results = generate_completion(user_input, search_results, chat_history)
-    cache_response(cache_container, user_input, user_embeddings, completions_results)
-    return completions_results['choices'][0]['message']['content'], False
+        print("Cached Result\n")
+        return cache_results[0]['completion'], True
+        
+    else:
+        #perform vector search on the movie collection
+        print("New result\n")
+        search_results = vector_search(movies_container, user_embeddings)
+
+        print("Getting Chat History\n")
+        #chat history
+        chat_history = get_chat_history(cache_container, 3)
+        #generate the completion
+        print("Generating completions \n")
+        completions_results = generate_completion(user_input, search_results, chat_history)
+
+        print("Caching response \n")
+        #cache the response
+        cache_response(cache_container, user_input, user_embeddings, completions_results)
+
+        print("\n")
+        # Return the generated LLM completion
+        return completions_results['choices'][0]['message']['content'], False
 ```
 
 ### 11. Cache Generated Responses
