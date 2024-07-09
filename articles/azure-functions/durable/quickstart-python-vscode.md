@@ -86,9 +86,9 @@ When you create the project, the Azure Functions Visual Studio Code extension au
     azure-functions-durable
     ```
 
-1. In the current folder, open the editor's integrated terminal (Ctrl+Shift+`).
+2. In the current folder, open the editor's integrated terminal (Ctrl+Shift+`).
 
-1. In the integrated terminal, activate the virtual environment in the current folder, depending on your operating system.
+3. In the integrated terminal, activate the virtual environment in the current folder, depending on your operating system.
 
    # [Linux](#tab/linux)
 
@@ -132,7 +132,7 @@ You use a template to create the durable function code in your project.
 
 1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. At the prompts, provide the following information:
+2. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -147,7 +147,7 @@ Next, you add the referenced `Hello` activity function.
 
 1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-1. At the prompts, provide the following information:
+2. At the prompts, provide the following information:
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
@@ -313,21 +313,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
   The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
-::: zone-end
-
-::: zone pivot="python-mode-decorators"
-
-5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`hello_orchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/hello_orchestrator`.
-
-  The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
-
-::: zone-end
-
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
     The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
-
-::: zone pivot="python-mode-configuration"
 
     ```json
     {
@@ -349,7 +337,15 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 ::: zone-end
 
 ::: zone pivot="python-mode-decorators"
-    
+
+5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`hello_orchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/hello_orchestrator`.
+
+  The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+
+6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
+
     ```json
     {
         "name": "hello_orchestrator",
@@ -368,6 +364,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     ```
 
 ::: zone-end
+
 
 7. To stop debugging, in Visual Studio Code, select Shift+F5.
 

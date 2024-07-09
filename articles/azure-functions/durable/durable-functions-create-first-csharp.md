@@ -247,7 +247,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-status.png" alt-text="Screenshot of the browser window with statusQueryGetUri called out.":::
 
-    The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
+    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request.
 

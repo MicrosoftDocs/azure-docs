@@ -117,7 +117,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
 
-   The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 
    At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
 
@@ -242,7 +242,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-status.png" alt-text="Screenshot of the browser window with statusQueryGetUri called out.":::
 
-   The response is the HTTP function's initial result. It lets you know that the durable orchestration has started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 
    At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
 

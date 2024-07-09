@@ -1,21 +1,21 @@
 ---
-title: "Quickstart: Configure Durable Functions by using Microsoft Entra ID"
-description: Configure Durable Functions in Azure Functions by using managed identity credentials and client secret credentials.
+title: "Quickstart: Configure durable function by using Microsoft Entra ID"
+description: Configure durable function in Azure Functions by using managed identity credentials and client secret credentials.
 author: naiyuantian
 ms.topic: quickstart
 ms.date: 02/01/2023
 ms.author: azfuncdf
 ---
 
-# Quickstart: Configure Durable Functions in Azure Functions by using Microsoft Entra ID
+# Quickstart: Configure durable function in Azure Functions by using Microsoft Entra ID
 
-[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions, a feature of Azure Functions, to make authorized requests against Microsoft Entra protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default Azure storage provider, Durable Functions needs to authenticate against an Azure storage account. In this quickstart, we walk through the steps to configure a Durable Functions app to use two kinds of Identity-based connections: *managed identity credentials* and *client secret credentials*.
+[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions, a feature of Azure Functions, to make authorized requests against Microsoft Entra protected resources, like an Azure Storage account, without the need to manage secrets manually. When Durable Functions uses the default Azure storage provider, it must authenticate against an Azure storage account. In this quickstart, we walk through the steps to configure a durable function app to use two kinds of identity-based connections: *managed identity credentials* and *client secret credentials*.
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Configure your app to use managed identity (recommended)
 
-A [managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Microsoft Entra-protected resources such as Azure Key Vault. A managed identity is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
+Your app can use a [managed identity](../../app-service/overview-managed-identity.md) to easily access other Microsoft Entra-protected resources, such as Azure Key Vault. A managed identity is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
 
 > [!NOTE]
 > A managed identity is available to apps only when they execute on Azure. When an app is configured to use identity-based connections, a locally executing app uses your *developer credentials* to authenticate with Azure resources. Then, when deployed on Azure, it uses your managed identity configuration instead.
@@ -24,10 +24,10 @@ A [managed identity](../../app-service/overview-managed-identity.md) allows your
 
 To complete this quickstart, you need:
 
-* An existing Durable Functions project created in the Azure portal or a local Durable Functions project deployed to Azure.
+* An existing durable function project created in the Azure portal or a local durable function project deployed to Azure.
 * Familiarity running a durable function app in Azure.
 
-If you don't have an existing Durable Functions project deployed in Azure, we suggest you start with one of the following quickstarts to create and deploy the prerequisite project:
+If you don't have an existing durable function project deployed in Azure, we suggest you start with one of the following quickstarts to create and deploy the prerequisite project:
 
 * [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 * [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -39,9 +39,9 @@ If you don't have an existing Durable Functions project deployed in Azure, we su
 
 Only one identity is needed for your function, either a **system assigned managed identity** or a **user assigned managed identity**. To enable a managed identity for your function and learn more about the differences between the two identities, read the detailed instructions [here](../../app-service/overview-managed-identity.md).
 
-### Assign Role-based Access Controls (RBAC) to managed identity
+### Assign role-based access control roles to the managed identity
 
-Go to your app's storage resource on the Azure portal. Follow [these instructions](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) to assign the following roles to your managed identity resource.
+Go to your app's storage resource on the Azure portal and [assign](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) the following role-based access control (RBAC) roles to your managed identity resource:
 
 * Storage Queue Data Contributor
 * Storage Blob Data Contributor
@@ -49,7 +49,7 @@ Go to your app's storage resource on the Azure portal. Follow [these instruction
 
 ### Add a managed identity configuration in the Azure portal
 
-Go to your Azure function app’s **Configuration** page and perform the following changes:
+Go to your Azure function app’s **Configuration** pane and perform the following changes:
 
 1. Remove the default value **AzureWebJobsStorage**.
 
@@ -92,11 +92,11 @@ Registering a client application in Microsoft Entra ID is another way that you c
 
 ### Prerequisites
 
-The following steps assume that you're starting with an existing Durable Functions app and are familiar with how to operate it.
+The following steps assume that you're starting with an existing durable function app and are familiar with how to operate it.
 
 Specifically, this quickstart assumes that you have already:
 
-* Created a Durable Functions project on your local machine or in the Azure portal.
+* Created a durable function project on your local machine or in the Azure portal.
 
 <a name='register-a-client-application-on-azure-active-directory'></a>
 
@@ -114,9 +114,9 @@ Specifically, this quickstart assumes that you have already:
 
    1. Copy and save the secret value carefully. The secret value doesn't appear again after you leave the pane.
 
-   ![Screenshot of the client secret page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png)
+   ![Screenshot of the client secret pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png)
 
-### Assign role-based access control (RBAC) roles to the client application
+### Assign RBAC roles to the client application
 
 Assign these three roles to your client application by using the steps that are described next:
 
@@ -136,7 +136,7 @@ To add the roles:
 
 ### Add the client secret configuration
 
-To run and test in Azure, specify the followings in your Azure function app’s **Configuration** page in the Azure portal. To run and test locally, specify the following in the function’s *local.settings.json* file.
+To run and test in Azure, go to your Azure function app’s **Configuration** pane in the Azure portal. To run and test locally, specify the following settings in the function’s *local.settings.json* file:
 
 1. Remove the default value **AzureWebJobsStorage**.
 
@@ -164,4 +164,4 @@ To run and test in Azure, specify the followings in your Azure function app’s 
 
    The values to use for the client ID and the tenant ID appear on your client application’s overview pane. The client secret value is the one that you saved in the previous step. It isn't available after the page is refreshed.
 
-   ![Screenshot of application's overview page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)
+   ![Screenshot of an application's overview pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)

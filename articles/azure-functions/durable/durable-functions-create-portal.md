@@ -1,6 +1,6 @@
 ---
-title: Create a durable function by using the Azure portal  
-description: Learn how to use the Durable Functions feature of Azure Functions for app development in the Azure portal.
+title: Create Durable Functions using the Azure portal  
+description: Learn how to install the Durable Functions extension for Azure Functions for portal development.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
@@ -9,38 +9,38 @@ ms.devlang: csharp
 ms.custom: devx-track-js
 ---
 
-# Create a durable function by using the Azure portal
+# Create Durable Functions using the Azure portal
 
-The [Durable Functions](durable-functions-overview.md) feature of Azure Functions is provided in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). This article describs how to install the Durable Functions extension so that you can develop durable functions in the Azure portal.
+The [Durable Functions](durable-functions-overview.md) extension for Azure Functions is provided in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). This extension must be installed in your function app. This article shows how to install this package so that you can develop durable functions in the Azure portal.
 
 > [!NOTE]
->
-> * If you develop a durable function by using C#, consider instead developing by using [Visual Studio 2019](durable-functions-create-first-csharp.md).
-> * If you develop a durable function by using JavaScript, consider instead developing by using [Visual Studio Code](./quickstart-js-vscode.md).
+> 
+> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * If you are developing durable functions in JavaScript, you should instead consider [Visual Studio Code development](./quickstart-js-vscode.md).
 
 ## Create a function app
 
-You must have a function app to host the execution of any function. You can use a function app to group your functions as a logical unit for easier management, deployment, scaling, and sharing resources. You can create a .NET or JavaScript function app.
+You must have a function app to host the execution of any function. A function app lets you group your functions as a logical unit for easier management, deployment, scaling, and sharing of resources. You can create a .NET or JavaScript app.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-By default, the function app you create uses version 2.x of the Azure Functions runtime. In C#, the Durable Functions extension works both with version 1.x and with version 2.x of the Azure Functions runtime. In JavaScript, it works only with version 2.x of the Azure Functions runtime. However, *templates* are available only when you target version 2.x of the runtime, regardless of the language you choose to use.
+By default, the function app created uses version 2.x of the Azure Functions runtime. The Durable Functions extension works on both versions 1.x and 2.x of the Azure Functions runtime in C#, and version 2.x in JavaScript. However, templates are only available when targeting version 2.x of the runtime regardless of the chosen language.
 
-## Install the Durable Functions npm package (JavaScript only)
+## Install the durable-functions npm package (JavaScript only)
 
-If you create a durable function by using JavaScript, you must install the [Durable Functions npm package](https://www.npmjs.com/package/durable-functions):
+If you are creating JavaScript Durable Functions, you'll need to install the [`durable-functions` npm package](https://www.npmjs.com/package/durable-functions):
 
-1. On your function app pane, in the left menu under **Development Tools**, select **Advanced Tools**.
+1. From your function app's page, select **Advanced Tools** under **Development Tools** in the left pane.
 
    :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Functions platform features choose Kudu":::
 
-1. On the **Advanced Tools** pane, select **Go**.
+2. In the **Advanced Tools** page, select **Go**.
 
-1. Inside the Kudu console, select **Debug console**, and then select **CMD**.
+3. Inside the Kudu console, select **Debug console**, and then **CMD**.
 
    :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu debug console":::
 
-1. Your function app's file directory structure appears. Go to the *site/wwwroot* folder. From there, you can upload a *package.json* file by dragging and dropping it into the file directory window. Here's an example of a *package.json* file:
+3. Your function app's file directory structure should display. Navigate to the `site/wwwroot` folder. From there, you can upload a `package.json` file by dragging and dropping it into the file directory window. A sample `package.json` is below:
 
     ```json
     {
@@ -50,15 +50,15 @@ If you create a durable function by using JavaScript, you must install the [Dura
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu upload the package.json file.":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu upload package.json":::
 
-1. When your *package.json* is uploaded, in the Kudu Remote Execution Console, run the `npm install` command:
+4. Once your `package.json` is uploaded, run the `npm install` command from the Kudu Remote Execution Console.
 
    ![Kudu run npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
-
+   
 ## Create an orchestrator function
 
-1. On your function app pane, on the left menu, select **Functions**. Then select **Add** from the top menu.
+1. In your function app, select **Functions** from the left pane, and then select **Add** from the top menu. 
 
 1. In the search field of the **New Function** page, enter `durable`, and then choose the **Durable Functions HTTP starter** template.
 
@@ -74,9 +74,9 @@ If you create a durable function by using JavaScript, you must install the [Dura
 
 ## Test the durable function orchestration
 
-1. Go back to the `HttpStart` function, select **Get function Url**, and then select the **Copy to clipboard** icon to copy the URL. You use this URL to start the `HelloSequence` function.
+1. Go back to the **HttpStart** function, choose **Get function Url**, and select the **Copy to clipboard** icon to copy the URL. You use this URL to start the **HelloSequence** function.
 
-1. In an HTTP tool like Postman or cURL, send a POST request to the URL that you copied. The following example is a cURL command that sends a POST request to the durable function:
+1. Use an HTTP tool like Postman or cURL to send a POST request to the URL that you copied. The following example is a cURL command that sends a POST request to the durable function:
 
     ```bash
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/{functionName} --header "Content-Length: 0"
@@ -106,7 +106,7 @@ If you create a durable function by using JavaScript, you must install the [Dura
         }
     ```
 
-1. Continue calling the `statusQueryGetUri` endpoint until the status changes to **Completed** and you see a response that looks like the following example:
+1. Continue calling the `statusQueryGetUri` endpoint until the status changes to **Completed**, and you see a response like the following example:
 
     ```json
     {
@@ -124,7 +124,7 @@ If you create a durable function by using JavaScript, you must install the [Dura
 
 Your first durable function is now up and running in Azure.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
