@@ -111,6 +111,9 @@ AccessToken token = tokenUtils.getAccessToken(msiResourceUri);
 
 Provided `HdiIdentityTokenCredential` feature java class, which is the standard implementation of `com.azure.core.credential.TokenCredential` interface.
 
+> [!NOTE]
+> The HdiIdentityTokenCredential class can be used with various Azure SDK client libraries to authenticate requests and access Azure services without manual access token management.
+
 ### Examples
 
 Following are the HDInsight oauth utility examples, which can be used in job applications to fetch access tokens for the given target resource uri:
@@ -138,9 +141,6 @@ SecretClient secretClient = new SecretClientBuilder()
 // Replace with your secret name.
 KeyVaultSecret secret = secretClient.getSecret("<your-secret-name>");
 ```
-
-> [!NOTE]
-> The HdiIdentityTokenCredential class can be used with various Azure SDK client libraries to authenticate requests and access Azure services without manual access token management.
 
 **If the client is a Event Hub**
 
@@ -236,67 +236,11 @@ Example of Azure Sql Database, which doesn't directly fetch an access token.
     	}
     }
     ```
-
-1. Connect using access token: The following example demonstrates implementing and setting the `accessToken`. `accessToken` can only be set using the Properties parameter of the getConnection() method in the DriverManager class. It can't be used in the connection string.
-package com.microsoft.azure.hdinsight.oauthtoken;
-
-    ```
-    import com.azure.core.credential.AccessToken;
-    import com.microsoft.azure.hdinsight.oauthtoken.utils.HdiIdentityTokenServiceUtils;
-    import java.sql.DriverManager;
-    import java.util.Properties;
-    
-    
-    public class HdiTokenBasedConnectionWithDriver {
-    
-        public static void main(String[] args) throws Exception {
-    
-    		String resourceURI = "https://database.windows.net/";
-    
-    		HdiIdentityTokenServiceUtils provider = new HdiIdentityTokenServiceUtils();
-    		AccessToken token = provider.getAccessToken(resourceURI);
-    
-    		java.util.Properties props = new Properties();
-    		props.setProperty("accessToken", accessToken.getToken());
-    		props.setProperty("authenticationMethod", "ActiveDirectoryAccessToken");
-    		props.setProperty("authenticationMethod", "ActiveDirectoryMSI");
-    		
-    		DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-    		DriverManager.getConnection(connectionUrl,props);
-    	}
-    }
-    
-    
-    package com.microsoft.azure.hdinsight.oauthtoken;
-    
-    import com.microsoft.azure.hdinsight.oauthtoken.HdiSQLAccessTokenCallback;
-    import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-    import java.sql.Connection;
-    
-    public class HdiTokenClassBasedConnectionWithDS {
-    
-        public static void main(String[] args) throws Exception {
-    		
-    		String resourceURI = "https://database.windows.net/"
-    
-    		HdiIdentityTokenServiceUtils provider = new HdiIdentityTokenServiceUtils()
-    		AccessToken token = provider.getAccessToken(resourceURI)
-    
-            SQLServerDataSource ds = new SQLServerDataSource();
-            ds.setServerName("<db-server>"); // Replaces <db-server> with your server name.
-            ds.setDatabaseName("<dbname>"); // Replace <dbname> with your database name.
-            ds.setAccessToken(token.getToken());
-    
-            ds.getConnection();
-    	}
-    }
-    ```
-    
 **If the client is a Kusto**
 
 Example of Azure Sql Database, which doesn't directly fetch an access token.
 
-Connect using tokenproviderCallback: 
+Connect using tokenproviderCallback:
 
 The following example demonstrates accessToken callback provider,
 
