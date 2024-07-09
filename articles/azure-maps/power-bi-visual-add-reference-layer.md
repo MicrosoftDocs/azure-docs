@@ -119,7 +119,7 @@ The _Custom style for reference layer via format pane_ feature in Azure Maps ena
 
 To use the custom styling options for reference layers, follow these steps:
 
-1. **Upload Geospatial Files**: Start by uploading your supported geospatial files (GeoJSON, KML, WKT, or Shapefile) to Azure Maps as a reference layer.
+1. **Upload Geospatial Files**: Start by uploading your supported geospatial files (GeoJSON, KML, WKT, CSV, or Shapefile) to Azure Maps as a reference layer.
 2. **Access Format Settings**: Navigate to the Reference Layer blade within the Azure Maps Power BI visual settings.
 3. **Customize Styles**: Use to adjust the appearance of your reference layer by setting the fill color, border color, border width, and transparency for points, lines, and polygons.
 
