@@ -38,7 +38,7 @@ To add a new step to your workflow by using the Azure Communication Services Ema
 
    1. From the actions list, select **Send email**.
 
-      :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email-ga.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action."::: 
+      :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email-general-availability.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action."::: 
 
    **Standard**
    
@@ -62,7 +62,7 @@ To add a new step to your workflow by using the Azure Communication Services Ema
 
 1. In the **From** field, use the email address that you configured in the [prerequisites](#prerequisites). Enter the values for the **To Email**, **Subject**, and **Body** fields, for example:
  
-   :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email-input-ga.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action input.":::
+   :::image type="content" source="../media/logic-app/azure-communication-services-connector-send-email-input-general-availability.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action input.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
