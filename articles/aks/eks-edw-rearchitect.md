@@ -17,7 +17,7 @@ The AWS workload is a basic example of the [competing consumers design pattern][
 
 A producer app generates load through sending messages to a queue, and a consumer app running in a Kubernetes pod processes the messages and writes the results to a database. KEDA manages pod autoscaling through a declarative binding to the producer queue, and Karpenter manages node autoscaling with just enough compute to optimize for cost. Authentication to the queue and the database uses OAuth-based [service account token volume projection][service-account-volume-projection].
 
-The workload consists of an AWS EKS cluster to orchestrate consumers reading messages from an Amazon Simple Queue Service (SQS) and saving processed messages to an AWS DynamoDB table. A producer app generates messages and queues them in the AWS SQS queue. KEDA and Karpenter dynamically scale the number of EKS nodes and pods used for the consumers.
+The workload consists of an AWS EKS cluster to orchestrate consumers reading messages from an Amazon Simple Queue Service (SQS) and saving processed messages to an Amazon DynamoDB table. A producer app generates messages and queues them in the Amazon SQS queue. KEDA and Karpenter dynamically scale the number of EKS nodes and pods used for the consumers.
 
 The following diagram represents the architecture of the EDW workload in AWS:
 
