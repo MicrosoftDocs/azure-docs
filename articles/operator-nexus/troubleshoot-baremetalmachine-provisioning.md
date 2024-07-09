@@ -30,7 +30,7 @@ The following roles are assigned to BMM resources (see [BMM Roles](reference-nea
   - `Management plane`: The BMM runs the Nexus platform agents including controllers and extensions.
   - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
 
-## Listing BareMetal Machine Status
+## Listing BareMetal Machine status
 This command will `list` all `bareMetalMachineName` resources in the managed resource group with simple status:
 
 ```azurecli
