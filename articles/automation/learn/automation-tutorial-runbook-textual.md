@@ -3,9 +3,9 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/21/2022
+ms.date: 07/04/2024
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
+ms.custom:
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal.
 
 >[!NOTE]
->  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) and PowerShell 7.2 don't support workflows.
+> This article is applicable only for PowerShell 5.1. PowerShell 7+ versions do not support Workflows, and outdated runbooks cannot be updated. We recommend you to use PowerShell 7.2 textual runbooks for advanced features such as parallel job execution. [Learn more](../automation-runbook-types.md#limitations) about limitations of PowerShell Workflow runbooks.
 
 In this tutorial, you learn how to:
 
@@ -314,7 +314,7 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
    |VMs|Enter the names of the virtual machines using the following syntax: `["VM1","VM2","VM3"]`|
    |Action|Enter `stop` or `start`.|
 
-1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start sequentially, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
+1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start in parallel, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
 
 ## Clean up resources
 

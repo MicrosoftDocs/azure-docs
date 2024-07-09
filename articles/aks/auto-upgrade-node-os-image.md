@@ -1,7 +1,7 @@
 ---
 title: Auto-upgrade Node OS Images 
 description: Learn how to choose an upgrade channel that best supports your needs for cluster's node OS security and maintenance. 
-ms.topic: article
+ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ms.author: kaarthis
 author: kaarthis
@@ -41,7 +41,11 @@ The following upgrade channels are available. You're allowed to choose one of th
 * Set the node OS auto-upgrade channel on a new cluster using the [`az aks create`][az-aks-create] command with the `--node-os-upgrade-channel` parameter. The following example sets the node OS auto-upgrade channel to `SecurityPatch`.
 
     ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-os-upgrade-channel SecurityPatch \
+        --generate-ssh-keys
     ```
 
 ### [Azure portal](#tab/azure-portal)

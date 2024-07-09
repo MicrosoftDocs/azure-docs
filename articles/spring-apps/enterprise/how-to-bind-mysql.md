@@ -4,7 +4,7 @@ description: Learn how to connect an Azure Database for MySQL instance to your a
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, passwordless-java, service-connector
 ---

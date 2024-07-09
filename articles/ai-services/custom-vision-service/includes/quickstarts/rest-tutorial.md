@@ -40,7 +40,7 @@ Copy the command to a text editor and make the following changes:
 
 * Replace `{subscription key}` with your valid Face key.
 * Replace `{endpoint}` with the endpoint that corresponds to your key.
-   [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
+   [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 * Replace `{name}` with the name of your project.
 * Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](/rest/api/customvision/training/projects/create?view=rest-customvision-training-v3.3&tabs=HTTP) for options.
 

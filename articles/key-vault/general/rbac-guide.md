@@ -5,10 +5,10 @@ services: key-vault
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: mbaldwin
-
 ---
 
 # Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control

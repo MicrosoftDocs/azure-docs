@@ -39,6 +39,15 @@ Using Teams in a virtualized environment is different from using Teams in a nonv
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
+## Remote Desktop WebRTC Redirector Service
+
+The Remote Desktop WebRTC Redirector Service isn't pre-installed on the following Azure marketplace images:
+
+- Windows 11 Enterprise multi-session + Microsoft 365 Apps Version 23H2 (build 22631.3593).
+- Windows 11 Enterprise multi-session + Microsoft 365 Apps Version 22H2 (build 22621.3593).
+
+To resolve the issue, either redeploy session hosts using the latest marketplace image where the WebRTC Redirector Service is pre-installed, or install it separately. You can find the download link and steps at [Install the Remote Desktop WebRTC Redirector Service](teams-on-avd.md#install-the-remote-desktop-webrtc-redirector-service).
+
 ## Collect Teams logs
 
 If you encounter issues with the Teams desktop app in your Azure Virtual Desktop environment, collect client logs under **%appdata%\Microsoft\Teams\logs.txt** on the host VM.

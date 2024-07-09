@@ -23,9 +23,6 @@ Developer portal usage logs include data about activity in the developer portal,
 * Views of API details, API operation details, and products
 * API testing in the interactive test console 
 
-> [!NOTE]
-> Developer portal usage logs in API Management are currently in preview.
-
 ## Enable diagnostic setting for developer portal logs
 
 To configure a diagnostic setting for developer portal usage logs:

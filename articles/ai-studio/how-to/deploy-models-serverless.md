@@ -10,14 +10,12 @@ ms.author: mopeakande
 author: msakande
 ms.reviewer: fasantia
 reviewer: santiagxf
-ms.custom: 
- - build-2024
- - serverless
+ms.custom: build-2024, serverless, devx-track-azurecli
 ---
 
 # Deploy models as serverless APIs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token based billing.
 
@@ -185,7 +183,6 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
                 "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
                 "apiVersion": "2024-04-01",
                 "name": "[concat(parameters('project_name'), '/', parameters('subscription_name'))]",
-                "location": "[parameters('location')]",
                 "properties": {
                     "modelId": "[parameters('model_id')]"
                 }

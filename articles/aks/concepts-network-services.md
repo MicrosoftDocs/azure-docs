@@ -54,4 +54,4 @@ Learn more about Services in the [Kubernetes docs][k8s-service].
 [service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
 <!-- LINKS - Internal -->
-[ingress-controllers]:concepts-network.md#ingress-controllers
+[ingress-controllers]:concepts-network-ingress.md#ingress-controllers

@@ -142,7 +142,8 @@ For more information to help you decide which network model to use, see [Compare
         --service-cidr 10.0.0.0/16 \
         --dns-service-ip 10.0.0.10 \
         --pod-cidr 10.244.0.0/16 \
-        --vnet-subnet-id $SUBNET_ID    
+        --vnet-subnet-id $SUBNET_ID \
+        --generate-ssh-keys 
     ```
 
   Deployment parameters:
@@ -158,7 +159,7 @@ For more information to help you decide which network model to use, see [Compare
 
 #### Create a managed identity
 
-* Create a managed identity using the [`az identity`][az-identity-create] command. If you have an existing managed identity, find the Principal ID using the `az identity show --ids <identity-resource-id>` command instead.
+* Create a managed identity using the [`az identity`][az-identity-create] command. If you have an existing managed identity, find the principal ID using the `az identity show --ids <identity-resource-id>` command instead.
 
     ```azurecli-interactive
     az identity create --name myIdentity --resource-group myResourceGroup
@@ -214,7 +215,8 @@ If you're using the Azure CLI, the role is automatically added and you can skip 
         --node-count 3 \
         --network-plugin kubenet \
         --vnet-subnet-id $SUBNET_ID \
-        --assign-identity <identity-resource-id>
+        --assign-identity <identity-resource-id> \
+        --generate-ssh-keys
     ```
 
 When you create an AKS cluster, a network security group and route table are automatically created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
@@ -237,7 +239,7 @@ Kubenet networking requires organized route table rules to successfully route re
 * Using the same route table with multiple AKS clusters isn't supported.
 
 > [!NOTE]
-> When you create and use your own VNet and route table with the kubenet network plugin, you need to use a [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For a system-assigned control plane identity, you can't retrieve the identity ID before creating a cluster, which causes a delay during role assignment.
+> When you create and use your own VNet and route table with the kubenet network plugin, you must configure a [user-assigned managed identity][bring-your-own-control-plane-managed-identity] for the cluster. With a system-assigned managed identity, you can't retrieve the identity ID before creating a cluster, which causes a delay during role assignment.
 >
 > Both system-assigned and user-assigned managed identities are supported when you create and use your own VNet and route table with the Azure network plugin. We highly recommend using a user-assigned managed identity for BYO scenarios.
 
@@ -252,10 +254,15 @@ You need to use the subnet ID for where you plan to deploy your AKS cluster. Thi
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myAKSVnet [--subscription]
     ```
 
-2. Create an AKS cluster with a custom subnet pre-configured with a route table using the [`az aks create`][az-aks-create] command and providing your values for the `--vnet-subnet-id`, `--enable-managed-identity`, and `--assign-identity` parameters.
+2. Create an AKS cluster with a custom subnet pre-configured with a route table using the [`az aks create`][az-aks-create] command and providing your values for the `--vnet-subnet-id` and `--assign-identity` parameters.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --vnet-subnet-id mySubnetIDResourceID --enable-managed-identity --assign-identity controlPlaneIdentityResourceID
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --vnet-subnet-id mySubnetIDResourceID \
+        --assign-identity controlPlaneIdentityResourceID \
+        --generate-ssh-keys
     ```
 
 ## Next steps
@@ -288,4 +295,4 @@ This article showed you how to deploy your AKS cluster into your existing virtua
 [custom-route-table]: ../virtual-network/manage-route-table.yml
 [network-comparisons]: concepts-network-cni-overview.md
 [Create an AKS cluster with user-assigned managed identity]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identity
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#enable-a-user-assigned-managed-identity

@@ -4,6 +4,7 @@ description: Learn to use code interpreter sessions in LlamaIndex on Azure Conta
 services: container-apps
 author: anthonychu
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/08/2024
 ms.author: antchu

@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 5/24/2024
+ms.date: 6/12/2024
 ---
 
 # What's new in Azure VMware Solution
@@ -14,6 +14,8 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 ## May 2024
 
 Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+VMware HCX 4.8.2 is now available. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 ## April 2024
 

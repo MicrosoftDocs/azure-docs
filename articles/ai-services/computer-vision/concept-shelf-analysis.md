@@ -10,7 +10,7 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 02/14/2024
 ms.author: pafarley
-ms.custom: references_regions, build-2023, build-2023-dataai
+ms.custom: build-2023, build-2023-dataai
 ---
 
 # Product Recognition (version 4.0 preview)
@@ -172,7 +172,7 @@ It returns a JSON response that accounts for each position in the planogram docu
 
 ## Limitations
 
-* Product Recognition is only available in the **East US** and **West US 2** Azure regions.
+* Product Recognition is only available in certain [Azure regions](./overview-image-analysis.md#region-availability).
 * Shelf images can be up to 20 MB in size. The recommended size is 4 MB.
 * We recommend you do [stitching and rectification](./how-to/shelf-modify-images.md) on the shelf images before uploading them for analysis.
 * Using a [custom model](./how-to/shelf-model-customization.md) is optional in Product Recognition, but it's required for the [planogram matching](./how-to/shelf-planogram.md) function.
