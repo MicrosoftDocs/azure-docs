@@ -21,7 +21,7 @@ You can use one Log Analytics workspace to store any type of log required for an
 
 Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains and how to set a table's plan.
 
-For information about what each table plan offers and which use cases it's optimal for, see [Table plans for a variety of data consumption needs](data-platform-logs.md#table-plans-for-a-variety-of-data-consumption-needs).
+For information about what each table plan offers and which use cases it's optimal for, see [Table plans](data-platform-logs.md#table-plans).
 
 ## Permissions required
 
