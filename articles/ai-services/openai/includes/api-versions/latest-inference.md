@@ -20,7 +20,7 @@ Creates a completion for the provided prompt, parameters and chosen model.
 
 | Name | In | Required | Type | Description |
 |------|------|----------|------|-----------|
-| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). | https://{your-resource-name}.openai.azure.com |
+| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). https://{your-resource-name}.openai.azure.com |
 | deployment-id | path | Yes | string | Deployment id of the model which was deployed. |
 | api-version | query | Yes | string | API version |
 
@@ -148,7 +148,7 @@ Get a vector representation of a given input that can be easily consumed by mach
 
 | Name | In | Required | Type | Description |
 |------|------|----------|------|-----------|
-| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). | https://{your-resource-name}.openai.azure.com |
+| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). https://{your-resource-name}.openai.azure.com |
 | deployment-id | path | Yes | string |  |
 | api-version | query | Yes | string | API version |
 
@@ -271,7 +271,7 @@ Creates a completion for the chat message
 
 | Name | In | Required | Type | Description |
 |------|------|----------|------|-----------|
-| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). | https://{your-resource-name}.openai.azure.com |
+| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). https://{your-resource-name}.openai.azure.com |
 | deployment-id | path | Yes | string | Deployment id of the model which was deployed. |
 | api-version | query | Yes | string | API version |
 
@@ -648,7 +648,7 @@ Transcribes audio into the input language.
 
 | Name | In | Required | Type | Description |
 |------|------|----------|------|-----------|
-| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). | https://{your-resource-name}.openai.azure.com |
+| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). https://{your-resource-name}.openai.azure.com |
 | deployment-id | path | Yes | string | Deployment id of the whisper model. |
 | api-version | query | Yes | string | API version |
 
@@ -734,7 +734,7 @@ Transcribes and translates input audio into English text.
 
 | Name | In | Required | Type | Description |
 |------|------|----------|------|-----------|
-| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). | https://{your-resource-name}.openai.azure.com |
+| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). https://{your-resource-name}.openai.azure.com |
 | deployment-id | path | Yes | string | Deployment id of the whisper model which was deployed. |
 | api-version | query | Yes | string | API version |
 
@@ -821,7 +821,7 @@ Generates a batch of images from a text caption on a given DALLE model deploymen
 
 | Name | In | Required | Type | Description |
 |------|------|----------|------|-----------|
-| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). | https://{your-resource-name}.openai.azure.com |
+| endpoint | path | Yes | string<br>url | Supported Azure OpenAI endpoints (protocol and hostname, for example: `https://aoairesource.openai.azure.com`. Replace "aoairesource" with your Azure OpenAI resource name). https://{your-resource-name}.openai.azure.com |
 | deployment-id | path | Yes | string | Deployment id of the `dall-e` model which was deployed. |
 | api-version | query | Yes | string | API version |
 

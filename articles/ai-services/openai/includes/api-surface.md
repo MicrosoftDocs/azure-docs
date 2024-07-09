@@ -29,9 +29,9 @@ Each API surface/specification encapsulates a different set of Azure OpenAI capa
 
 Azure OpenAI provides two methods for authentication. You can use  either API Keys or Microsoft Entra ID.
 
-- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides guidance for how to make calls with this type of authentication.
+- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](../chatgpt-quickstart.md) provides guidance for how to make calls with this type of authentication.
 
-- **Microsoft Entra ID authentication**: You can authenticate an API call using a Microsoft Entra token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Microsoft Entra ID](./how-to/managed-identity.md).
+- **Microsoft Entra ID authentication**: You can authenticate an API call using a Microsoft Entra token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Microsoft Entra ID](../how-to/managed-identity.md).
 
 ### REST API versioning
 
