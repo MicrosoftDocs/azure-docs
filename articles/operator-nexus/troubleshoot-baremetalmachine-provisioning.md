@@ -123,7 +123,7 @@ Look for failures related to invalid credentials or BMC unavailable.
 ### Determine BMC IPv4 address
 The IPv4 address of the BMC (BMC_IP) is the `Connect` value returned from the `BareMetal Machine Details` section above.
 
-### Validate MAC Address of BMM against BMC Data
+### Validate MAC address of BMM against BMC data
 
 To get the MAC address information from the BareMetal Machine:
 ```azurecli
