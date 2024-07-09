@@ -125,10 +125,19 @@ Congratulations, you've successfully completed this quickstart.
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+> [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+
+> [!div class="nextstepaction"]
+> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+
+> [!div class="nextstepaction"]
+> [Azure Monitor overview](/azure/azure-monitor/overview)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
@@ -137,16 +146,11 @@ The App Service app pulls from the container registry every time it starts. If y
 > [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
 
 > [!div class="nextstepaction"]
-> [Azure Monitor overview](/azure/azure-monitor/overview)
+> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+> [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
 
 > [!div class="nextstepaction"]
-> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+> [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)
 
-> [!div class="nextstepaction"]
-> [Configure custom container](../../configure-custom-container.md)
-
-> [!div class="nextstepaction"]
-> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
