@@ -88,6 +88,34 @@ To delete a replica in the portal, follow the steps below.
 
 --- -->
 
+## Automatic replica discovery
+
+You can specify one or more endpoints of a geo-replication-enabled App Configuration store that you want your application to connect or failover to. However, if none of these endpoints are accessible, the App Configuration provider libraries can automatically discover any additional replicas and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
+
+The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
+
+### [.NET](#tab/dotnet)
+
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    // Disable automatic replica discovery
+    options.ReplicaDiscoveryEnabled = false;
+
+    // Other changes to options
+});
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **7.1.0-preview** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+---
+
 ## Scale and failover with replicas
 
 Each replica you create has its dedicated endpoint. If your application resides in multiple geo-locations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
@@ -159,7 +187,7 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 ```
 
 > [!NOTE]
-> The failover support is available if you use version of **4.7.0** or later of any of the following packages.
+> The failover support is available if you use version **4.7.0** or later of any of the following packages.
 > - `spring-cloud-azure-appconfiguration-config`
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`
@@ -173,29 +201,33 @@ The failover may occur if the App Configuration provider observes the following 
 
 The failover won't happen for client errors like authentication failures.
 
-## Automatic replica discovery
+## Load balance with replicas
 
-You can specify one or more endpoints of a geo-replication-enabled App Configuration store that you want your application to connect or failover to. However, if none of these endpoints are accessible, the App Configuration provider libraries can automatically discover any additional replicas and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
+In addition to failover, replicas can be used to balance the load of requests. By proactively distributing requests across multiple replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall performance of your application.
 
-The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
+The App Configuration provider libraries offer built-in support for automatically load balancing across replicas.  You can use the following code samples to enable this feature in your application. 
+
+### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
-    // Disable automatic replica discovery
-    options.ReplicaDiscoveryEnabled = false;
+    // Enable load balancing
+    options.LoadBalancingEnabled = true;
 
     // Other changes to options
 });
 ```
 
 > [!NOTE]
-> The automatic replica discovery support is available if you use version **7.1.0-preview** or later of any of the following packages.
+> Load balancing support is available if you use version **8.0.0-preview.3** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+---
 
 ## Next steps
 
