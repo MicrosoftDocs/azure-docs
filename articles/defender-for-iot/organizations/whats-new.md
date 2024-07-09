@@ -29,11 +29,7 @@ For more information, this alert is described in the [Malware engine alerts tabl
 
 ### Newly supported protocols
 
-We now support this protocols:
-
-- Open
-
-[See the updated protocol list](concept-supported-protocols.md).
+We now support the Open protocol. [See the updated protocol list](concept-supported-protocols.md).
 
 ## April 2024
 
