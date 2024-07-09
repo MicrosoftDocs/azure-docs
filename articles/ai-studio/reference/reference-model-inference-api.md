@@ -47,6 +47,8 @@ Models deployed to [serverless API endpoints](../how-to/deploy-models-serverless
 > * [Meta Llama 3 instruct](../how-to/deploy-models-llama.md) family of models
 > * [Mistral-Small](../how-to/deploy-models-mistral.md)
 > * [Mistral-Large](../how-to/deploy-models-mistral.md)
+> * [Jais](../how-to/deploy-jais-models.md) family of models
+> * [Jamba](../how-to/deploy-models-jamba.md) family of models
 > * [Phi-3](../how-to/deploy-models-phi-3.md) family of models
 
 Models deployed to [managed inference](../concepts/deployments-overview.md):
@@ -57,6 +59,9 @@ Models deployed to [managed inference](../concepts/deployments-overview.md):
 > * Mixtral famility of models
 
 The API is compatible with Azure OpenAI model deployments.
+
+> [!NOTE]
+> The Azure AI model inference API is available in managed inference (Managed Online Endpoints) for __models deployed after June 24th, 2024__. To take advance of the API, redeploy your endpoint if the model has been deployed before such date.
 
 ## Capabilities
 

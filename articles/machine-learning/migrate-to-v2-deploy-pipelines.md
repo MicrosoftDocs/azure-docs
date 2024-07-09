@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: santiagxf
-ms.author: fasantia
+author: sdgilley
+ms.author: sgilley
 ms.date: 05/01/2023
-ms.reviewer: sgilley
+ms.reviewer: fasantia
 ms.custom:
   - migration
   - ignite-2023
