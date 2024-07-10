@@ -52,15 +52,11 @@ Istio-based service mesh add-on for AKS currently has the following limitations:
 * The add-on doesn't yet support the sidecar-less Ambient mode. Microsoft is currently contributing to Ambient workstream under Istio open source. Product integration for Ambient mode is on the roadmap and is being continuously evaluated as the Ambient workstream evolves.
 * The add-on doesn't yet support multi-cluster deployments.
 * Istio doesn't support Windows Server containers.
-* Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`. 
+* Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin, EnvoyFilter`. 
 * For `EnvoyFilter`, the add-on only supports customization of Lua filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`). Note that this EnvoyFilter is allowed but any issue arising from the Lua script itself is not supported (to learn more about our support policy and distinction between "allowed" and "supported" configurations, see [the following section][istio-meshconfig-support]). Other `EnvoyFilter` types are currently blocked. other `EnvoyFilter` types are currently blocked.
 * Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as ingress static IP address configuration as part of the Gateway API implementation for the add-on in future.
 
 ## Next steps
-
-### Feedback and feature requests
-
-You can provide feedback or create feature requests for the add-on on [AKS GitHub repository][aks-gh-issues] by creating a new issue with the `mesh` label. 
 
 * [Deploy Istio-based service mesh add-on][istio-deploy-addon]
 * [Troubleshoot Istio-based service mesh add-on][istio-troubleshooting]
@@ -73,7 +69,6 @@ You can provide feedback or create feature requests for the add-on on [AKS GitHu
 [istio-meshconfig]: ./istio-meshconfig.md
 [istio-ingress]: ./istio-deploy-ingress.md
 [istio-troubleshooting]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting
-[aks-gh-issues]: https://github.com/Azure/AKS/issues
 [istio-meshconfig-support]: ./istio-meshconfig.md#allowed-supported-and-blocked-values
 
 [istio-deploy-addon]: istio-deploy-addon.md

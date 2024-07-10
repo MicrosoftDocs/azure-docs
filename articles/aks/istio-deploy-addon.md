@@ -240,10 +240,6 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 
 ## Next steps
 
-### Feedback and feature requests
-
-You can provide feedback or create feature requests for the add-on on [AKS GitHub repository][aks-gh-issues] by creating a new issue with the `mesh` label. 
-
 * [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]
 * [Scale istiod and ingress gateway HPA][istio-scaling-guide]
 
@@ -262,4 +258,3 @@ You can provide feedback or create feature requests for the add-on on [AKS GitHu
 [az-aks-mesh-get-revisions]: /cli/azure/aks/mesh#az-aks-mesh-get-revisions(aks-preview)
 [bicep-aks-resource-definition]: /azure/templates/microsoft.containerservice/managedclusters
 [istio-scaling-guide]: istio-scale.md#scaling
-[aks-gh-issues]: https://github.com/Azure/AKS/issues
