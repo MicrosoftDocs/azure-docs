@@ -23,12 +23,15 @@ This article shows you how to securely scale your applications with the Kubernet
 
 [!INCLUDE [KEDA workload ID callout](./includes/keda/keda-workload-identity-callout.md)]
 
-## Provision Azure Resources
+## Create a resource group
+
+* Create a resource group using the [`az group create`][az-group-create] command. Make sure you replace the placeholder values with your own values.
 
     ```azurecli-interactive
-    LOC_name=eastus
-    RG_NAME=rg-keda-demo
-    az group create -n $RG_NAME -l $LOC_NAME
+    LOCATION=<azure-region>
+    RG_NAME=<resource-group-name>
+
+    az group create --name $RG_NAME --location $LOCATION
     ```
 
 ## Deploy an AKS cluster with workload identity and KEDA add-ons enabled
