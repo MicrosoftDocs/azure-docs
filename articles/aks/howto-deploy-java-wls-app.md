@@ -4,7 +4,7 @@ description: Shows how to quickly stand up WebLogic Server on Azure Kubernetes S
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 07/10/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 ---
