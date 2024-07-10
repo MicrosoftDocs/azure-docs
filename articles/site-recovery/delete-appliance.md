@@ -27,7 +27,7 @@ If all the appliance components are in a critical state and there's no connectiv
 
 ## Prerequisites
 
-Before you delete the Azure Site Recovery replication appliance, ensure that you *disable replication of all servers* of all servers using the Azure Site Recovery replication appliance. To do this, go to Azure portal, select the Recovery Services vault > *Replicated items* blade. Select the servers you want to stop replicating, select **Stop replication**, and confirm the action.
+Before you delete the Azure Site Recovery replication appliance, ensure that you *disable replication of all servers* using the Azure Site Recovery replication appliance. To do this, go to Azure portal, select the Recovery Services vault > *Replicated items* blade. Select the servers you want to stop replicating, select **Stop replication**, and confirm the action.
 
 
 ### Delete an unhealthy appliance
