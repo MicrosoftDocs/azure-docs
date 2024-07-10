@@ -73,7 +73,7 @@ Only one identity is needed for your function, either a **system assigned manage
 
 ### Assign Role-based Access Controls (RBAC) to managed identity
 
-Navigate to your app's Azure Storage resource on the Azure portal and [assign the following roles](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource) to your managed identity resource:
+Navigate to your app's Azure Storage resource on the Azure portal and [assign the following roles](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource) to your managed identity resource:
 
 * Storage Queue Data Contributor 
 * Storage Blob Data Contributor 
