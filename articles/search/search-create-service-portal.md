@@ -16,7 +16,7 @@ ms.date: 07/09/2024
 
 # Create an Azure AI Search service in the portal
 
-[**Azure AI Search**](search-what-is-azure-search.md) is a comprehensive information retrieval platform for the enterprise. It supports traditional search and conversational AI-driven search for "chat with your data" experiences over your proprietary content.
+[**Azure AI Search**](search-what-is-azure-search.md) is an information retrieval platform for the enterprise. It supports traditional search and conversational AI-driven search for "chat with your data" experiences over your proprietary content.
 
 The easiest way to create a service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. 
 
@@ -91,63 +91,14 @@ Service name requirements:
 
 Review the [supported regions list](search-region-support.md) for supported regions at the service and feature level.
 
-<!-- We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after specific dates.
+Some features are subject to [regional availability](search-region-support.md):
 
-| Country | Regions providing extra capacity per partition |
-|---------|------------------------------------------------|
-| **United States** | East US​, East US 2, East US 2 EUAP/PPE, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
-| **United Kingdom** | UK South​, UK West​ ​ |
-| **United Arab Emirates** | UAE North​​ |
-| **Switzerland** | Switzerland West​ |
-| **Sweden** | Sweden Central​​ |
-| **South Africa** | South Africa North​ |
-| **Poland** | Poland Central​​ |
-| **Norway** | Norway East​​ |
-| **Korea** | Korea Central, Korea South​ ​ |
-| **Japan** | Japan East, Japan West​ |
-| **Italy** | Italy North​​ |
-| **India** | Central India, Jio India West​ ​ |
-| **Germany** | Germany North​, Germany West Central​ ​|
-| **France** | France Central​​ |
-| **Europe** | North Europe​​ |
-| **Canada** | Canada Central​, Canada East​​ |
-| **Bazil** | Brazil South​​ |
-| **Asia Pacific** |  East Asia, Southeast Asia​ ​ |
-| **Australia** | Australia East​, Australia Southeast​​ |
-| **Azure Government** | Texas, Arizona, Virginia |
-| **Azure operated by 21Vianet** | China North 3, China East 3 | -->
++ [Availability Zones](search-reliability.md#availability-zones)
++ [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
++ [Semantic ranker](semantic-search-overview.md)
++ [AI enrichment](cognitive-search-concept-intro.md)
 
-<!-- ### Roll out on May 2024
-
-| Country | Regions providing extra capacity per partition |
-|---------|------------------------------------------------|
-| **United States** | East US 2 EUAP/PPE |
-| **South Africa** | South Africa North​ |
-| **Germany** | Germany North​, Germany West Central​ ​|
-| **Azure Government** | Texas, Arizona, Virginia |
-
-### Roll out on April 2024
-
-| Country | Regions providing extra capacity per partition |
-|---------|------------------------------------------------|
-| **United States** | East US​, East US 2, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
-| **United Kingdom** | UK South​, UK West​ ​ |
-| **United Arab Emirates** | UAE North​​ |
-| **Switzerland** | Switzerland West​ |
-| **Sweden** | Sweden Central​​ |
-| **South Africa** | South Africa North​ |
-| **Poland** | Poland Central​​ |
-| **Norway** | Norway East​​ |
-| **Korea** | Korea Central, Korea South​ ​ |
-| **Japan** | Japan East, Japan West​ |
-| **Italy** | Italy North​​ |
-| **India** | Central India, Jio India West​ ​ |
-| **France** | France Central​​ |
-| **Europe** | North Europe​​ |
-| **Canada** | Canada Central​, Canada East​​ |
-| **Bazil** | Brazil South​​ |
-| **Asia Pacific** |  East Asia, Southeast Asia​ ​ |
-| **Australia** | Australia East​, Australia Southeast​​ | -->
+AI enrichment refers to Azure AI services and Azure OpenAI, and integration is through an Azure AI multi-service account. The account must be in the same physical region as Azure AI Search. There are just a few regions that *don't* provide both. 
 
 If you use multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among same-region services.
 
@@ -156,15 +107,6 @@ Two notable exceptions might warrant provisioning Azure services in separate reg
 + [Outbound connections from Azure AI Search to Azure Storage](search-indexer-securing-resources.md). You might want search and storage in different regions if you're enabling a firewall.
 
 + Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
-
-Some features are subject to [regional availability](search-region-support.md):
-
-+ [Availability Zones](search-reliability.md#availability-zones)
-+ [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
-+ [Semantic ranker](semantic-search-overview.md)
-+ [Azure AI integration](cognitive-search-concept-intro.md)
-
-Azure AI integration refers to Azure AI services and Azure OpenAI, and integration is through an Azure AI multi-service account. The account must be in the same physical region as Azure AI Search. There are just a few regions that *don't* provide both. 
 
 ## Choose a tier
 
