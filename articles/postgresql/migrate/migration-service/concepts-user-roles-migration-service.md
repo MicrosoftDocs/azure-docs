@@ -98,7 +98,6 @@ GROUP BY
 The output of the above query will show the list of privileges granted to roles on the impacted tables and views.
 
 For example:
-
 | Privileges | Relation name | Grantee |
 | :--- | :--- | :--- | 
 | SELECT | pg_authid | adminuser1
@@ -113,6 +112,8 @@ REVOKE SELECT ON pg_authid FROM adminuser1;
 REVOKE SELECT ON pg_shadow FROM adminuser2;
 REVOKE UPDATE ON pg_shadow FROM adminuser2;
 ```
+> [!NOTE]
+> Make sure you perform the above steps for all the databases included in the migration to avoid any permission-related issues during the migration..
 
 After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration service. You should not encounter permission-related issues during this process.
 
