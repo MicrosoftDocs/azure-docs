@@ -114,7 +114,7 @@ To achieve geo-replication in non-paired regions:
 
 
 
-- **For Azure NetApp Files (ANF)**, you can replicate to a set of non-standard pairs besides Azure region pairs.  See [Azure NetApp Files (ANF)](/azure/azure-netapp-files/cross-region-replication-introduction).
+- **For Azure NetApp Files (ANF)**, you can replicate to a set of non-standard pairs besides Azure region pairs.  See [Azure NetApp Files (ANF) cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction).
 
 - **For Azure Files:**
 
