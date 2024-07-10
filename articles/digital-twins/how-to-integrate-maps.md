@@ -35,8 +35,8 @@ Before proceeding with this article, start by setting up your individual Azure D
 
 * For Azure Digital Twins: Follow the instructions in [Connect an end-to-end solution](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance with a sample twin graph and simulated data flow.
     * In this article, you'll extend that solution with another endpoint and route. You'll also add another function to the function app from that tutorial.
-* For Azure Maps: Follow the instructions in [Use Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) and [Create a feature stateset](../azure-maps/tutorial-creator-feature-stateset.md) to create an Azure Maps indoor map with a *feature stateset*.
-    * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps instructions above, the feature stateset stores room status that you'll be displaying on a map.
+* For Azure Maps: Follow the instructions in [Use Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) and create an Azure Maps indoor map with a *feature stateset*.
+    * Feature statesets are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps instructions above, the feature stateset stores room status that you'll be displaying on a map.
     * You'll need your Azure Maps **subscription key**, feature **stateset ID**, and **mapConfiguration**.
 
 ### Topology
@@ -84,7 +84,7 @@ Replace the function code with the following code. It will filter out only updat
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateMaps.cs":::
 
-You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-subscription-key-for-your-account), and one is your [Azure Maps stateset ID](../azure-maps/tutorial-creator-feature-stateset.md).
+You'll need to set two environment variables in your function app. One is your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-subscription-key-for-your-account), and one is your Azure Maps stateset ID.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <your-function-app-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
