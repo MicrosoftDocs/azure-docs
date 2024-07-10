@@ -355,7 +355,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
    ![Screenshot of Azure local output.](media/quickstart-java/maven-functions-run.png)
 
-1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. The response should look similar to the following example:
+1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. The response should look similar to the following example:
 
     ```json
     {
@@ -367,7 +367,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     }
     ```
 
-  The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can continue to use Postman to issue the GET request.
 

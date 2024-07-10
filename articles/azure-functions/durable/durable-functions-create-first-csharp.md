@@ -18,7 +18,7 @@ Durable Functions is a feature of [Azure Functions](../functions-overview.md) th
 
 To use Durable Functions in Visual Studio Code, install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. These tools are available as part of the Visual Studio Code extension.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available as part of the Visual Studio Code extension.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vscode-complete.png" alt-text="Screenshot that shows a Visual Studio Code window with a durable function.":::
 
@@ -68,7 +68,7 @@ Visual Studio Code installs Azure Functions Core Tools if it's required to creat
 
 Use a template to create durable function code in your project:
 
-1. At the command palette prompt, enter and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. At the prompts, provide the following information:
 
@@ -102,7 +102,7 @@ Now that you've created your Functions project and a durable function, you can t
 
 ## Test the function locally
 
-Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function by using Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
 
 1. In Visual Studio Code, set a breakpoint in the `SayHello` activity function code, and then select F5 to start the function app project. The terminal panel displays output from Core Tools.
 
@@ -113,7 +113,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     :::image type="content" source="media/durable-functions-create-first-csharp/functions-vscode-f5.png" alt-text="Screenshot of Azure local output window.":::
 
-1. In a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
+1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint.
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
@@ -169,7 +169,7 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function that runs in the isolated worker process. The function orchestrates and chains together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2022.
+In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function that runs in the isolated worker process. The function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the *Azure development workload* in Visual Studio 2022.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-complete.png" alt-text="Screenshot of a Visual Studio 2019 terminal that contains code for a durable function.":::
 

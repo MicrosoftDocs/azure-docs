@@ -13,7 +13,7 @@ ms.custom: mode-api, vscode-azure-extension-update-complete
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. These tools are available as part of the Visual Studio Code extension.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
 ![Running a durable function in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
@@ -134,12 +134,12 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/run.ps1*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
-    > [!NOTE]
-    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
+   > [!NOTE]
+   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
 1. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Screenshot that shows the Create storage account command.](media/quickstart-js-vscode/functions-select-storage.png)
+   ![Screenshot that shows the Create storage account command.](media/quickstart-js-vscode/functions-select-storage.png)
 
 1. At the prompts, provide the following information to create a new storage account in Azure.
 
@@ -155,9 +155,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
    ![Screenshot of Azure local output.](media/quickstart-js-vscode/functions-f5.png)
 
-1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
-  The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 

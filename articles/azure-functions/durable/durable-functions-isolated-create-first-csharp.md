@@ -22,7 +22,7 @@ To learn more about the two processes, see [Differences between in-process and i
 
 ::: zone pivot="code-editor-vscode"
 
-In this quickstart, you use Visual Studio Code to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. Then, you publish the function code in Azure. Durable Functions is available via the Visual Studio Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+In this quickstart, you use Visual Studio Code to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. Then, you publish the function code in Azure. The tools you use are available via the Visual Studio Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vscode-complete.png" alt-text="Screenshot of durable function code in Visual Studio Code.":::
 
@@ -115,7 +115,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of Azure local output window." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
 
-1. In a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
+1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint.
 
    The response is the HTTP function's initial result. It lets you know that the durable function orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 
@@ -149,6 +149,8 @@ After you verify that the function runs correctly on your local computer, it's t
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
+## Test your function in Azure
+
 1. In the Visual Studio Code output panel, copy the URL of the HTTP trigger. The URL that calls your HTTP-triggered function must be in the following format:
 
    `https://<function-app-name>.azurewebsites.net/api/HelloOrchestration_HttpStart`
@@ -170,7 +172,7 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this quickstart, you use Visual Studio 2022 to locally create and test a "hello world" durable function that runs in the isolated worker process. The function orchestrates and chains together calls to other functions. Then you publish the function code in Azure. Durable Functions is available via the Azure development workload in Visual Studio 2022.
+In this quickstart, you use Visual Studio 2022 to locally create and test a "hello world" durable function that runs in the isolated worker process. The function orchestrates and chains together calls to other functions. Then, you publish the function code in Azure. The tools you use are available via the *Azure development workload* in Visual Studio 2022.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-complete.png" alt-text="Screenshot of durable function code in Visual Studio 2019.":::
 

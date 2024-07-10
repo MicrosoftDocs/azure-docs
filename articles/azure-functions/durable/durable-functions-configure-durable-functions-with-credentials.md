@@ -11,7 +11,7 @@ ms.author: azfuncdf
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions, a feature of Azure Functions, to make authorized requests against Microsoft Entra-protected resources, such as an Azure Storage account, without using manually managed secrets. When Durable Functions uses the default Azure storage provider, it must authenticate against an Azure storage account.
 
-In this quickstart, we walk through the steps to configure a durable function app to use *two kinds* of identity-based connections:
+In this quickstart, we demonstrate how to configure a durable function app to use two different kinds of identity-based connections:
 
 * Managed identity credentials (recommended)
 * Client secret credentials
@@ -25,7 +25,7 @@ To complete this quickstart, you need:
 * An existing durable function project created in the Azure portal or a local durable function project deployed to Azure.
 * Familiarity running a durable function app in Azure.
 
-If you don't have an existing durable function project deployed in Azure, we suggest that you start with one of the following quickstarts to create and deploy the prerequisite project:
+If you don't have an existing durable function project deployed in Azure, we recommend that you start with one of the following quickstarts:
 
 * [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 * [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -38,11 +38,11 @@ If you don't have an existing durable function project deployed in Azure, we sug
 Your app can use a [managed identity](../../app-service/overview-managed-identity.md) to easily access other Microsoft Entra-protected resources, such as Azure Key Vault. A managed identity is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
 
 > [!NOTE]
-> A managed identity is available to apps only when they execute in Azure. When an app is configured to use identity-based connections, a locally executing app uses your *developer credentials* to authenticate with Azure resources. Then, when the app is deployed in Azure, it uses your managed identity configuration instead.
+> A managed identity is available to apps only when they execute in Azure. When an app is configured to use identity-based connections, a locally executing app instead uses your *developer credentials* to authenticate with Azure resources. Then, when the app is deployed in Azure, it uses your managed identity configuration.
 
 ### Enable a managed identity
 
-First, enable a managed identity for your application. Your function app must have either a *system assigned managed identity* or a *user assigned managed identity*. To enable a managed identity for your function app, and to learn more about the differences between the two types of identities, see the [managed identity overview](../../app-service/overview-managed-identity.md).
+To begin, enable a managed identity for your application. Your function app must have either a *system assigned managed identity* or a *user assigned managed identity*. To enable a managed identity for your function app, and to learn more about the differences between the two types of identities, see the [managed identity overview](../../app-service/overview-managed-identity.md).
 
 ### Assign access roles to the managed identity
 
@@ -54,7 +54,7 @@ Next, in the Azure portal, [assign](/entra/identity/managed-identities-azure-res
 
 ### Configure the managed identity
 
-You need to make some changes to the configuration of your app's managed identity in the Azure portal:
+Before you can use your app's managed identity, make some changes to the app configuration:
 
 1. In the Azure portal, in your function app resource menu under **Settings**, select **Configuration**.
 
@@ -66,15 +66,23 @@ You need to make some changes to the configuration of your app's managed identit
 
    * An account name:
 
-     * `AzureWebJobsStorage__accountName` (example: `mystorageaccount123`)
+     * `AzureWebJobsStorage__<accountName>`
+
+       Example: `AzureWebJobsStorage__mystorageaccount123`
 
    * A specific service URL (endpoint):
 
-     * `AzureWebJobsStorage__blobServiceUri` (example: `https://mystorageaccount123.blob.core.windows.net/`)
+     * `AzureWebJobsStorage__<blobServiceUri>`
 
-     * `AzureWebJobsStorage__queueServiceUri` (example: `https://mystorageaccount123.queue.core.windows.net/`)
+       Example: `AzureWebJobsStorage__https://mystorageaccount123.blob.core.windows.net/`
 
-     * `AzureWebJobsStorage__tableServiceUri` (example: `https://mystorageaccount123.table.core.windows.net/`)
+     * `AzureWebJobsStorage__<queueServiceUri>`
+
+       Example: `AzureWebJobsStorage__https://mystorageaccount123.queue.core.windows.net/`
+
+     * `AzureWebJobsStorage__<tableServiceUri>`
+
+       Example: `AzureWebJobsStorage__https://mystorageaccount123.table.core.windows.net/`
 
      You can get the values for these URI variables in the storage account on the **Endpoints** tab.
 
@@ -85,9 +93,9 @@ You need to make some changes to the configuration of your app's managed identit
 
 1. Finish your managed identity configuration:
 
-   * If you use *system-assigned identity*, make no other changes.
+   * If you use a *system-assigned identity*, make no other changes.
 
-   * If you use *user-assigned identity*, add the following settings to your app configuration:
+   * If you use a *user-assigned identity*, add the following settings to your app configuration:
 
      * For **AzureWebJobsStorage__credential**, enter **managedidentity**.
 
@@ -109,7 +117,7 @@ Registering a client application in Microsoft Entra ID is another way that you c
 
    1. Select **Certificates & secrets** > **New client secret**.  
 
-   1. For **Description**, enter a description.
+   1. For **Description**, enter a unique description.
 
    1. For **Expires**, enter a valid time for the secret to expire.  
 
@@ -151,28 +159,36 @@ In the Azure portal, run and test the application. To run and test the app local
 
    * An account name:
 
-     * `AzureWebJobsStorage__accountName` (example: `mystorageaccount123`)
+     * `AzureWebJobsStorage__<accountName>`
+
+       Example: `AzureWebJobsStorage__mystorageaccount123`
 
    * A specific service URL (endpoint):
 
-     * `AzureWebJobsStorage__blobServiceUri` (example: `https://mystorageaccount123.blob.core.windows.net/`)
+     * `AzureWebJobsStorage__<blobServiceUri>`
 
-     * `AzureWebJobsStorage__queueServiceUri` (example: `https://mystorageaccount123.queue.core.windows.net/`)
+       Example: `AzureWebJobsStorage__https://mystorageaccount123.blob.core.windows.net/`
 
-     * `AzureWebJobsStorage__tableServiceUri` (example: `https://mystorageaccount123.table.core.windows.net/`)
+     * `AzureWebJobsStorage__<queueServiceUri>`
+
+       Example: `AzureWebJobsStorage__https://mystorageaccount123.queue.core.windows.net/`
+
+     * `AzureWebJobsStorage__<tableServiceUri>`
+
+       Example: `AzureWebJobsStorage__https://mystorageaccount123.table.core.windows.net/`
 
      You can get the values for these URI variables in the storage account on the **Endpoints** tab.
 
-     ![Screenshot of an endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
+     ![Screenshot that shows an example of an endpoint as a specific service URL.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 1. To add client secret credentials, specify the following values:
 
    * **AzureWebJobsStorage__clientId**: Get this GUID value on the Microsoft Entra application pane.
 
-   * **AzureWebJobsStorage__ClientSecret**: This secret value you generated in the Microsoft Entra admin center in an earlier step.
+   * **AzureWebJobsStorage__ClientSecret**: The secret value that you generated in the Microsoft Entra admin center in an earlier step.
 
-   * **AzureWebJobsStorage__tenantId**: The tenant ID that the Microsoft Entra application is registered in.
+   * **AzureWebJobsStorage__tenantId**: The tenant ID that the Microsoft Entra application is registered in. Get this GUID value on the Microsoft Entra application pane.
 
    The values to use for the client ID and the tenant ID appear on your client application’s Overview pane. The client secret value is the one that you saved in an earlier step. It isn't available after the page is refreshed.
 
-   ![Screenshot of an application's Overview pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)
+   ![Screenshot that shows the tenant ID and client ID on a Microsoft Entra application pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)

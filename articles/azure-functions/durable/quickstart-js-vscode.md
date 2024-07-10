@@ -14,7 +14,7 @@ zone_pivot_groups: functions-nodejs-model
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
@@ -221,11 +221,14 @@ You now have a durable function app that you can run locally and deploy to Azure
 
 ## Test the function locally
 
-Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
 
 ::: zone pivot="nodejs-model-v3"
 
 1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/index.js*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
+
+   > [!NOTE]
+   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
 ::: zone-end
 
@@ -233,14 +236,14 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. To test your function, set a breakpoint in the `hello` activity function code (in *src/functions/hello.js*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
 
-::: zone-end
+   > [!NOTE]
+   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
- > [!NOTE]
- > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
+::: zone-end
 
 2. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
+   ![Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
 
 3. At the prompts, provide the following information to create a new storage account in Azure:
 
