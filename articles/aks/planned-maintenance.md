@@ -64,7 +64,7 @@ A `default` maintenance window has the following legacy properties (no longer re
 |`notAllowedTime`|A range of dates that maintenance can't run, determined by `start` and `end` child properties. This property is applicable only when you're creating the maintenance window by using a configuration file.|Not applicable|
 
 > [!NOTE] 
-> Starting 2023-05-01 API version onwards please use the below properties for `default` configuration.
+> From the 2023-05-01 API version onwards, please use the below properties for `default` configuration.
 
 An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window and `default` configuration from 2023-05-01 API version onwards has the following properties:
 
