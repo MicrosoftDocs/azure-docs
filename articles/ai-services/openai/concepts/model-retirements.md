@@ -25,7 +25,7 @@ Azure OpenAI Service models are continually refreshed with newer and more capabl
 * Deprecation
 	* When a model is deprecated, it's no longer available for new customers. It continues to be available for use by customers with existing deployments until the model is retired.
 
-## Preretirement notification
+## Notifications
 
 Azure OpenAI notifies customers of active Azure OpenAI Service deployments for models with upcoming retirements. We notify customers of upcoming retirements as follows for each deployment:
 
