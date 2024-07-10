@@ -227,7 +227,7 @@ To check the routes learned by the Route Server, use [Get-AzRouteServerPeerLearn
 Get-AzRouteServerPeerLearnedRoute -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer' -PeerName 'myNVA'
 ```
 
-The output should look like the following: 
+The output should look like the following example. The output shows the two learned routes from the NVA: 
 
 ```output
 LocalAddress Network       NextHop  SourcePeer Origin AsPath Weight
