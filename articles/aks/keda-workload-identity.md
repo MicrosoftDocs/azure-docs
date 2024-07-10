@@ -232,41 +232,42 @@ Assign the managed identity and yourself the Azure Service Bus Data Owner role
     kubectl logs $POD_ID -f
     ```
 
-## Scale the workload using KEDA
+## Validate the deployment details
 
-Get the KEDA version
+1. Get the KEDA version of the deployment using the [`kubectl get`][kubectl-get] command.
 
-```azurecli-interactive
-kubectl get deploy -n kube-system keda-operator -ojsonpath='{.metadata.labels.app\.kubernetes\.io/version}'
-```
+    ```bash
+    kubectl get deploy -n kube-system keda-operator -ojsonpath='{.metadata.labels.app\.kubernetes\.io/version}'
+    ```
 
-Ensure the keda operators have the proper env vars
+1. Ensure the KEDA operators have the proper environment variables using the [`kubectl get`][kubectl-get] command.
 
-```azurecli-interactive
-kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator
-```
+    ```bash
+    kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator
+    ```
 
-Check on one of the keda-operator pods and see if the azure identity values have been injected into the pod
+1. Check one of the keda-operator pods to verify that the Azure identity values were injected into the pod using the [`kubectl describe`][kubectl-describe] command.
 
-```azurecli-interactive
-POD_ID=$(kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator -ojsonpath='{.items[0].metadata.name}')
-kubectl describe po $POD_ID -n kube-system
-```
+    ```bash
+    POD_ID=$(kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator -ojsonpath='{.items[0].metadata.name}')
 
-If the following values are missing, restart the deployment
+    kubectl describe po $POD_ID -n kube-system
+    ```
 
-```azurecli-interactive
-AZURE_CLIENT_ID:
-AZURE_TENANT_ID:             4f2c4f7e-805b-4624-ac65-ae0275a28c03
-AZURE_FEDERATED_TOKEN_FILE: /var/run/secrets/azure/tokens/azure-identity-token
-AZURE_AUTHORITY_HOST: https://login.microsoftonline.com/
-```
+    If the following values are missing in the output, you need to restart the deployment:
 
-Restart the deployment then you will see them injected into the pods
+    ```bash
+    AZURE_CLIENT_ID:
+    AZURE_TENANT_ID:             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+    AZURE_FEDERATED_TOKEN_FILE: /var/run/secrets/azure/tokens/azure-identity-token
+    AZURE_AUTHORITY_HOST: https://login.microsoftonline.com/
+    ```
 
-```azurecli-interactive
-kubectl rollout restart deploy keda-operator -n kube-system
-```
+1. If your output was missing the values shown in the previous example output, restart the deployment using the [`kubectl rollout restart`][kubectl-rollout-restart] command.
+
+   ```bash
+    kubectl rollout restart deploy keda-operator -n kube-system
+    ```
 
 Deploy a scaler of your choosing (LINK TO SCALER)
 
