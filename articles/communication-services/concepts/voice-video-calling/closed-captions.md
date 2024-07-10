@@ -6,17 +6,12 @@ author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: concept
-ms.date: 02/27/2024
+ms.date: 07/08/2024
 ms.author: kpunjabi
 ms.custom: public_preview
 ---
 
 # Closed Captions overview
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
->[!NOTE]
->Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.
 
 Closed captions are a textual representation of a voice or video conversation that is displayed to users in real-time. Azure Communication Services Closed captions offer developers the ability to allow users to select when they wish to toggle captions on or off. These captions are only available during the call/meeting for the user that has selected to enable captions, Azure Communication Services does **not** store these captions anywhere. Here are main scenarios where Closed Captions are useful:
 
@@ -45,6 +40,9 @@ Closed captions are only available during the call or meeting for the participan
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when closed captions are enabled in a Teams call or meeting and being stored.
  
 Microsoft indicates to you via the Azure Communication Services API that recording or closed captions has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
+
+## Billing
+To learn more about 
 
 ## Known limitations
 - Closed captions feature isn't supported on Firefox. 
