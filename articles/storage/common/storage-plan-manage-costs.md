@@ -63,7 +63,7 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 | Blob inventory | Per million objects scanned | Applies to each report generated. |
 | Encryption scopes | Per month | Applies only if you enable the feature. |
 | Query acceleration | Per GB | Per GB scanned & Per GB returned.  |
-| Point-in-time restore Data Processed | Per MB | The amount of change feed data processed. |
+| Point-in-time restore Data Processed | Per MB | Applies only when you perform a restore operation and is based on the amount of data being restored. |
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
@@ -133,7 +133,7 @@ The following table summarizes how you're billed for using Blob Storage features
 | Snapshots | Storage ([Learn more](../blobs/snapshots-overview.md#pricing-and-billing)) |
 | Point-in-time restore | Storage, and a charge based on the amount of change feed data processed for the restore ([Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing)) |
 | Object replication | Storage, Read operations, Write operations, network egress ([Learn more](../blobs/object-replication-overview.md#billing)) |
-| Query acceleration | A charge for the data scanned and a charge for the data returned () |
+| Query acceleration | A charge for the data scanned and a charge for the data returned [Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
 | SFTP support | An hourly charge after it is enabled ([Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing)) |
 
 ### Finding the unit price for each meter

@@ -19,7 +19,7 @@ All calculations are based on a fictitious price. You can find each price in the
 > [!IMPORTANT]
 > These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
-## Data storage
+## The cost to store data
 
 Something here about how to calculate storage costs.
 Something here about the percentage of storage that goes to metadata
@@ -27,15 +27,15 @@ Example calculation here.
 Describe storage reservations
 Example of the impact of storage reservations.
 
-## Transactions and fees
+## The cost to move data
 
 Define basic terms and point to the primary plan and manage costs section.
 
-## Uploading blobs
+### Uploading blobs
 
 When you run the [azcopy copy](../common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a destination endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost of using each endpoint to upload **1,000** blobs that are **5 GiB** each in size.
 
-### Cost of uploading to the Blob Service endpoint
+#### Cost of uploading to the Blob Service endpoint
 
 If you upload data to the Blob Service endpoint, then by default, AzCopy uploads each blob in 8-MiB blocks. This size is configurable.
 
@@ -68,7 +68,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 > [!NOTE]
 > If you upload to the archive tier, each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. Each [Put Block List](/rest/api/storageservices/put-block-list) operation is charged the price of an **archive** write operation.  
 
-### Cost of uploading to the Data Lake Storage endpoint
+#### Cost of uploading to the Data Lake Storage endpoint
 
 If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is not configurable.
 
@@ -99,11 +99,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 Put something here.
 
-## Downloading blobs
+### Downloading blobs
 
 When you run the [azcopy copy](../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command,  you'll specify a source endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost of using each endpoint to download **1,000** blobs that are **5 GiB** each in size.
 
-### Cost of downloading from the Blob Service endpoint
+#### Cost of downloading from the Blob Service endpoint
 
 If you download blobs from the Blob Service endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs. A [List Blobs](/rest/api/storageservices/list-blobs) is billed as a _List and create container_ operation. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. Therefore, in this example, only one [List Blobs](/rest/api/storageservices/list-blobs) operation is required. 
 
@@ -129,7 +129,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$0.051**     | **$0.161**     |
 
 
-### Cost of downloading from the Data Lake Storage endpoint
+#### Cost of downloading from the Data Lake Storage endpoint
 
 If you download blobs from the Data Lake Storage endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs. A [List Blobs](/rest/api/storageservices/list-blobs) is billed as a _List and create container_ operation. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. Therefore, in this example, only one [List Blobs](/rest/api/storageservices/list-blobs) operation is required. 
 
@@ -163,14 +163,14 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$1.716**     | **$16.804**    |
 
 
-## Copying between containers
+### Copying between containers
 
 When you run the [azcopy copy](../common/storage-use-azcopy-blobs-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a source and destination endpoint. These endpoints can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost to copy **1,000** blobs that are **5 GiB** each in size.
 
 > [!NOTE]
 > Blobs in the archive tier can be copied only to an online tier. Because all of these examples assume the same tier for source and destination, the archive tier is excluded from these tables. 
 
-### Copying blobs within the same account
+#### Copying blobs within the same account
 
 Regardless of which endpoint you specify (Blob Service or Data Lake Storage), AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs at the source location. A [List Blobs](/rest/api/storageservices/list-blobs) is billed as a _List and create container_ operation. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. Therefore, in this example, only one [List Blobs](/rest/api/storageservices/list-blobs) operation is required. 
 
@@ -186,7 +186,7 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 | **Cost to write (1000 * operation price)**               | **$0.0055**    | **$0.01**      | **$0.018**     |
 | **Total cost (listing + properties + write)**            | **$0.0064**    | **$0.0109**    | **$0.0190**    |
 
-### Copying blobs to another account in the same region
+#### Copying blobs to another account in the same region
 
 This scenario is identical to the previous one except that you're also billed for data retrieval and for read operation that is based on the source tier. 
 
@@ -199,7 +199,7 @@ This scenario is identical to the previous one except that you're also billed fo
 | **Cost of data retrieval (5 * operation price)**      | **$0.00**    | **$.05**    | **$.15**    |
 | **Total cost (previous section + retrieval + read)**  | **$3.53134** | **$0.0574** | **$0.171**  |
 
-### Copying blobs to an account located in another region
+#### Copying blobs to an account located in another region
 
 This scenario is identical to the previous one except you are billed for network egress charges. 
 
@@ -210,25 +210,17 @@ This scenario is identical to the previous one except you are billed for network
 | **Total cost of network egress (5 * price of egress)** | **$.10**     | **$.10**    | **$.10**    |
 | **Total cost (previous section + egress)**                      | **$3.5513**  | **$0.0774** | **$0.191** |
 
-## Listing objects
+## The cost to rename objects
 
 Put something here.
 
-## Searching for objects
+## The cost to change access tiers
 
 Put something here.
 
-## Updating tags, metadata and properties
+## Comprehensive examples
 
-Put something here.
-
-## Renaming directories and objects
-
-Put something here.
-
-## Working with access tiers
-
-Put something here.
+Example here that includes LCM, changing tiers, continuously reading and writing to different tiers. Storage cost and transaction costs incorporated.
 
 ## Sample prices
 
