@@ -32,24 +32,24 @@ In AKS, reserved memory consists of the sum of two values:
 
 **AKS 1.29 and later**
 
-1. **`kubelet` daemon** has the *memory.available < 100 Mi* eviction rule by default. This rule ensures that a node has at least 100 Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
-2. **A rate of memory reservations** set according to the lesser value of: *20 MB * Max Pods supported on the Node + 50 MB* or *25% of the total system memory resources*.
+* **`kubelet` daemon** has the *memory.available < 100 Mi* eviction rule by default. This rule ensures that a node has at least 100 Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
+* **A rate of memory reservations** set according to the lesser value of: *20 MB * Max Pods supported on the Node + 50 MB* or *25% of the total system memory resources*.
 
     **Examples**:
-   * If the virtual machine (VM) provides 8 GB of memory and the node supports up to 30 pods, AKS reserves *20 MB * 30 Max Pods + 50 MB = 650 MB* for kube-reserved. `Allocatable space = 8 GB - 0.65 GB (kube-reserved) - 0.1 GB (eviction threshold) = 7.25 GB or 90.625% allocatable.`
-   * If the VM provides 4 GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4 GB = 1000 MB* for kube-reserved, as this is less than *20 MB * 70 Max Pods + 50 MB = 1450 MB*.
+    * If the virtual machine (VM) provides 8 GB of memory and the node supports up to 30 pods, AKS reserves *20 MB * 30 Max Pods + 50 MB = 650 MB* for kube-reserved. `Allocatable space = 8 GB - 0.65 GB (kube-reserved) - 0.1 GB (eviction threshold) = 7.25 GB or 90.625% allocatable.`
+    * If the VM provides 4 GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4 GB = 1000 MB* for kube-reserved, as this is less than *20 MB * 70 Max Pods + 50 MB = 1450 MB*.
 
     For more information, see [Configure maximum pods per node in an AKS cluster][maximum-pods].
 
 **AKS versions prior to 1.29**
 
-1. **`kubelet` daemon** has the *memory.available < 750 Mi* eviction rule by default. This rule ensures that a node has at least 750 Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and free up memory on the host machine.
-2. **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
-   * 25% of the first 4 GB of memory
-   * 20% of the next 4 GB of memory (up to 8 GB)
-   * 10% of the next 8 GB of memory (up to 16 GB)
-   * 6% of the next 112 GB of memory (up to 128 GB)
-   * 2% of any memory more than 128 GB
+* **`kubelet` daemon** has the *memory.available < 750 Mi* eviction rule by default. This rule ensures that a node has at least 750 Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and free up memory on the host machine.
+* **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
+    * 25% of the first 4 GB of memory
+    * 20% of the next 4 GB of memory (up to 8 GB)
+    * 10% of the next 8 GB of memory (up to 16 GB)
+    * 6% of the next 112 GB of memory (up to 128 GB)
+    * 2% of any memory more than 128 GB
 
 > [!NOTE]
 > AKS reserves an extra 2 GB for system processes in Windows nodes that isn't part of the calculated memory.

@@ -26,7 +26,7 @@ An AKS cluster is divided into two main components:
 * **Control plane**: The control plane provides the core Kubernetes services and orchestration of application workloads.
 * **Nodes**: Nodes are the underlying virtual machines (VMs) that run your applications.
 
-![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
+![Screenshot of Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
 ### Control plane
 
@@ -50,7 +50,7 @@ Each AKS cluster has at least one node, which is an Azure virtual machine (VM) t
 | *kube-proxy* | The [kube-proxy][kube-proxy] is a network proxy that maintains network rules on nodes. |
 | *container runtime* | The [container runtime][container-runtime] manages the execution and lifecycle of containers. |
 
-![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
+![Screenshot of Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
 ## Node configuration
 
@@ -109,7 +109,7 @@ The following namespaces are created by default in an AKS cluster:
 | *kube-public* | The [kube-public][kubernetes-namespaces] namespace isn't typically used, but can be used for resources to be visible across the whole cluster by any user. |
 | *kube-system* | The [kube-system][kubernetes-namespaces] namespace is used by Kubernetes to manage cluster resources, such as `coredns`, `konnectivity-agent`, and `metrics-server`. |
 
-![Kubernetes namespaces to logically divide resources and applications](media/concepts-clusters-workloads/namespaces.png)
+![Screenshot of Kubernetes namespaces to logically divide resources and applications](media/concepts-clusters-workloads/namespaces.png)
 
 ## Cluster modes
 
