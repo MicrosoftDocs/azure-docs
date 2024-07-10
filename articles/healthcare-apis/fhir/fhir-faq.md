@@ -47,11 +47,15 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 ### What is the difference between Azure API for FHIR and the FHIR service in the Azure Health Data Services?
 
-Azure API for FHIR was our initial generally available product and is being retired as of September 30, 2026. The Azure Health Data Services FHIR service supports additional capabilities such as: 
+Azure API for FHIR was our initial generally available product and is being retired as of September 30, 2026. Below table provides difference between Azure API for FHIR and Azure Health Data Services, FHIR service
 
-- [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-- [Incremental Import](configure-import-data.md)
-- [Autoscaling](fhir-service-autoscale.md) enabled by default
+|Capabilities|Azure API for FHIR|Azure Health Data Services|
+|------------|------------------|--------------------------|
+|**Data ingress**|Tools available in OSS|$import operation. For information visit [Import operation](configure-import-data.md)|
+|**Autoscaling**|Supported on request and incurs charge|[Autoscaling](fhir-service-autoscale.md) enabled by default at no extra charge|
+|**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • [Selectable search parameters](selectable-search-parameters.md)  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
+|**Events**|Not Supported|Supported|
+|**Business continutity**|Supported:<br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery) <br> • Availability zone support|
 
 By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4TB.
 To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
