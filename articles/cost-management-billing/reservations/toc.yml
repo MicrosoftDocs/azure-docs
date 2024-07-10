@@ -122,7 +122,7 @@
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Microsoft Fabric
       href: fabric-capacity.md
-    - name: Microsoft Sentinel prepurchase
+    - name: Microsoft Sentinel Pre-Purchase
       href: /azure/sentinel/billing-prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
