@@ -160,25 +160,25 @@ Assign the managed identity and yourself the Azure Service Bus Data Owner role
     ```
 
 
-### Deploy a message sender to AKS
+## Deploy a message sender to AKS
 
-Clone the sample app
+1. Clone the sample application and then change into the appropriate directory using the following commands:
 
-    ```azurecli-interactive
+    ```bash
     git clone git@github.com:pauldotyu/go-azure-service-bus-sender.git
     cd go-azure-service-bus-sender
     ```
 
-Publish the receiver to ttl.sh
+1. Publish the receiver to ttl.sh using the following commands:
 
-    ```azurecli-interactive
+    ```bash
     export KO_DOCKER_REPO=ttl.sh
     export IMG=$(ko build . --tags=4h)
     ```
 
-Deploy a sender
+1. Deploy a sender to AKS using the [`kubectl apply`][kubectl-apply] command with the sample YAML manifest.
 
-    ```azurecli-interactive
+    ```bash
     kubectl apply -f - <<EOF
     apiVersion: v1
     kind: ServiceAccount
@@ -219,14 +219,14 @@ Deploy a sender
     EOF
     ```
 
-Ensure the environment variables for workload identity was injected into the sender pod
+1. Ensure the environment variables for workload identity were injected into the sender pod using the [`kubectl describe`][kubectl-describe] command.
 
-    ```azurecli-interactive
+    ```bash
     POD_ID=$(kubectl get po -lapp=mysender -o jsonpath='{.items[0].metadata.name}')
     kubectl describe pod $POD_ID
     ```
 
-Follow the logs
+1. Follow the pod logs using the [`kubectl logs`][kubectl-logs] command.
 
     ```azurecli-interactive
     kubectl logs $POD_ID -f
