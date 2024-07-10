@@ -1,5 +1,5 @@
 ---
-title: Relocate Log Analytics workspace to another reason
+title: Relocate Log Analytics workspace to another region
 description: Learn how to relocate Log Analytics workspace to a new region.
 author: anaharris-ms
 ms.author: anaharris
