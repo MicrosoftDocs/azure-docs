@@ -167,7 +167,7 @@ Example of Azure Sql Database, which doesn't directly fetch an access token.
 
 Connect using access token callback: The following example demonstrates implementing and setting the accessToken callback
 
-    ```
+```
     package com.microsoft.azure.hdinsight.oauthtoken;
     
     import com.azure.core.credential.AccessToken;
@@ -235,7 +235,10 @@ Connect using access token callback: The following example demonstrates implemen
             ds.getConnection();
     	}
     }
-    ```
+```
+
+    
+
 **If the client is a Kusto**
 
 Example of Azure Sql Database, which doesn't directly fetch an access token.
