@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 07/10/2024
 
 ---
 
@@ -13,9 +13,9 @@ ms.date: 06/26/2024
 
 This article provides answers to some of the frequently asked questions asked about Azure Extended Zones.
 
-## Will data be 100% inside the geography to which the Azure Extended Zone belongs?
+## Where is customer data stored and processed when deploying to an Azure Extended Zone?
 
-For the Los Angeles Azure Extended Zone, the data remains in California. For questions about compliance with data residency policies, confirm with your legal team that Microsoft’s offerings work for your requirements. For future sites, the control plane and certain telemetry run in the closest region, which might or might not be inside the stated geography.
+An Azure Extended Zone might be associated with a parent region in the same or a different country. Customer Data will be stored and processed in the Extended Zone location, which may be outside of the associated geography and parent region. For Extended Zones with parent regions in the same country, customer Data will remain within the associated geography.
 
 ## Are all Azure services offered at the Azure Extended Zone?
 
@@ -23,13 +23,11 @@ No, given the size, hardware, and targeted use cases for the Azure Extended Zone
 
 ## Will there be SKUs specific to the Azure Extended Zones?
 
-No, SKUs are consistent across the corresponding Azure Region, so VMs offered in the Azure Extended Zones won't have specific SKUs.
+No, SKUs are consistent across the corresponding Azure Region, so VMs offered in the Azure Extended Zones don't have specific SKUs.
 
 ## Can I use the parent region network security groups (NSGs) or user defined routes (UDRs)?
 
 Yes. In Azure Extended Zone, you can use network security groups and user defined routes that you created in the parent region.
-
-
 
 ## Related content
 
