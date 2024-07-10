@@ -415,7 +415,7 @@ az aks maintenanceconfiguration delete --resource-group myResourceGroup --cluste
 
 * I configured a maintenance window, but the upgrade didn't happen. Why?
 
-  AKS auto-upgrade needs a certain amount of time usually not more than 15 minutes to take the maintenance window into consideration. We recommend at least 15 minutes between the creation or update of a maintenance configuration and the scheduled start time.
+  AKS auto-upgrade needs a certain amount of time, usually not more than 15 minutes, to take the maintenance window into consideration. We recommend at least 15 minutes between the creation or update of a maintenance configuration and the scheduled start time.
 
   Also, ensure that your cluster is started when the planned maintenance window starts. If the cluster is stopped, its control plane is deallocated and no operations can be performed.
 
