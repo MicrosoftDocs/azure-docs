@@ -316,13 +316,11 @@ kubectl describe scaledobject myreceiver-scaledobject
 
 ## Next steps
 
-This article showed you how to ise KEDA and Workload Identity to scale workloads on AKS.
+This article showed you how to securely scale your applications using the KEDA add-on and workload identity in AKS.
 
-With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
+With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps. For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
 
-For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
-
-To learn more, view the [upstream KEDA docs][keda].
+To learn more about KEDA, see the [upstream KEDA docs][keda].
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register
