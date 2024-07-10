@@ -284,7 +284,7 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
 
 ---
 
-## Assign a multiple desktops to a single user (preview)
+## Assign multiple desktops to a single user (preview)
 
 Multi-personal desktop assignment is a feature that allows you to assign more than one personal desktop to a single user in a single host pool. This feature is particularly useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments. Previously, users were restricted to one personal desktop per host pool, necessitating the creation of multiple host pools for additional desktops. This feature streamlines the process, eliminating the need for numerous host pools and simplifying user assignment management.  
 
