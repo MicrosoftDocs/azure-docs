@@ -39,7 +39,7 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Your cloud services are impacted by this retirement if the `osFamily` column in the script output contains a `2`, `3`, `4`, or is empty. If empty, the default `osFamily` column value is `5`. 
+Your cloud services are impacted by this retirement if the `osFamily` column in the script output contains a `2`, `3`, `4`, or is empty.  If empty, the default `osFamily` attribute will point to `osFamily` `5`. 
 
 ## Recommendations
 
