@@ -5,7 +5,7 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/21/2022
+ms.date: 07/10/2024
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -20,5 +20,5 @@ These samples show how to use Azure Policy with subscriptions that have been onb
 | [policy-delegate-management-groups](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups) | Assigns a policy to confirm that [subscriptions within a management group have been delegated to a managing tenant](../articles/lighthouse/how-to/onboard-management-group.md), and if not, creates the assignment.
 | [policy-enforce-keyvault-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring) | Assigns a policy that enables diagnostics on Azure Key Vault resources in a delegated subscriptions (using the deployIfNotExists effect). For more info, see [Deploy a policy that can be remediated within a delegated subscription](../articles/lighthouse/how-to/deploy-policy-remediation.md). |
 | [policy-enforce-sub-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-sub-monitoring) | Assigns several policies to enable diagnostics on a delegated subscription, and connects all Windows & Linux VMs to the Log Analytics workspace created by the policy. For more info, see [Deploy a policy that can be remediated within a delegated subscription](../articles/lighthouse/how-to/deploy-policy-remediation.md). |
-| [policy-initiative](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-initiative) | Applies an initiative (multiple related policy definitions) to a delegated subscription. |
+| [policy-initiative](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-initiative) | Applies a [policy initiative](/azure/governance/policy/overview#initiative-definition) (multiple related policy definitions) to a delegated subscription. |
 
