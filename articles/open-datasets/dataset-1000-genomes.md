@@ -37,15 +37,15 @@ This dataset is stored in the **West US 2** and **West Central US** Azure region
 
 ## Data Access
 
-West US 2: ['https://dataset1000genomes.blob.core.windows.net/dataset']('https://dataset1000genomes.blob.core.windows.net/dataset')
+West US 2: ['https://dataset1000genomes.blob.core.windows.net/dataset'](https://dataset1000genomes.blob.core.windows.net/dataset)
 
-West Central US: ['https://dataset1000genomes-secondary.blob.core.windows.net/dataset']('https://dataset1000genomes-secondary.blob.core.windows.net/dataset')
+West Central US: ['https://dataset1000genomes-secondary.blob.core.windows.net/dataset'](https://dataset1000genomes-secondary.blob.core.windows.net/dataset)
 
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 
 ## Data Access: Curated 1000 genomes dataset in parquet format
 
-East US: ['https://curated1000genomes.blob.core.windows.net/dataset']('https://curated1000genomes.blob.core.windows.net/dataset')
+East US: ['https://curated1000genomes.blob.core.windows.net/dataset'](https://curated1000genomes.blob.core.windows.net/dataset)
 
 SAS Token: **sv=2018-03-28&si=prod&sr=c&sig=BgIomQanB355O4FhxqBL9xUgKzwpcVlRZdBewO5%2FM4E%3D**
 
