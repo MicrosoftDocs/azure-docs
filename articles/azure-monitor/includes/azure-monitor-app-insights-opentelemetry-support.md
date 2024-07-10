@@ -71,6 +71,9 @@ Application Insights SDKs and agents send telemetry to get ingested as REST call
 
 ### [Java native](#tab/java-native)
 
+
+The following steps are applicable to Spring Boot native applications.
+
 #### Step 1: Verify the OpenTelemetry version
 
 You might notice the following message during the application startup:
