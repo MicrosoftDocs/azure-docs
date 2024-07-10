@@ -532,7 +532,7 @@ Use the following steps to build the image:
 
 ### Apply the auxiliary image
 
-In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WebLogic Server cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
+In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WebLogic Server cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in *dbmodel.yaml*.
 
 1. Connect to the AKS cluster by copying the **shellCmdtoConnectAks** value that you saved aside previously, pasting it into the Bash window, then running the command. The command should look similar to the following example:
 
