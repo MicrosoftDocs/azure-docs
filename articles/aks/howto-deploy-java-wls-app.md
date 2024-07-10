@@ -686,9 +686,9 @@ Use the following steps to verify the functionality of the deployment by viewing
 
 1. In the **Domain Structure** box, select **Deployments**.
 
-1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` value in your *appmodel.yaml* file. Select the name.
+1. In the **Deployments** table, there should be one row. The name should be the same value as the `Application` value in your *appmodel.yaml* file. Click on the name.
 
-1. In the **Settings** panel, select the **Testing** tab.
+1. Select the **Testing** tab.
 
 1. Select **weblogic-cafe**.
 
