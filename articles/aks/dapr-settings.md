@@ -11,10 +11,10 @@ ms.date: 07/09/2024
 
 # Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
 
-Once you've [created the Dapr extension](./dapr.md), you can configure the [Dapr](https://dapr.io/) extension to work best for you and your project using various configuration options, like:
+After [creating the Dapr extension](./dapr.md), you can configure the [Dapr](https://dapr.io/) extension to work best for you and your project using various configuration options, like:
 
 - Limiting which of your nodes use the Dapr extension
-- Setting automatic CRD updates
+- Setting automatic custom resource definition (CRD) updates
 - Configuring the Dapr release namespace
 
 The extension enables you to set Dapr configuration options by using the `--configuration-settings` parameter in the Azure CLI or `configurationSettings` property in a Bicep template. 
@@ -137,7 +137,7 @@ properties: {
 
 ## Install Dapr in multiple availability zones while in HA mode
 
-By default, the placement service uses a storage class of type `standard_LRS`. It is recommended to create a **zone redundant storage class** while installing Dapr in HA mode across multiple availability zones. For example, to create a `zrs` type storage class, add the `storageaccounttype` parameter: 
+By default, the placement service uses a storage class of type `standard_LRS`. It's recommended to create a **zone redundant storage class** while installing Dapr in HA mode across multiple availability zones. For example, to create a `zrs` type storage class, add the `storageaccounttype` parameter: 
 
 ```yaml
 kind: StorageClass
@@ -186,7 +186,7 @@ You can configure the release namespace.
 
 # [Azure CLI](#tab/cli)
 
-The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.
+The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. To redefine the namepsace, include the cluster `--scope`.
 
 ```azurecli
 az k8s-extension create \
@@ -218,7 +218,7 @@ properties: {
 
 ---
 
-[Learn how to configure the Dapr release namespace if you already have Dapr installed](./dapr-migration.md).
+[Learn how to configure the Dapr release namespace when migrating from Dapr OSS to the Dapr extension](./dapr-migration.md).
 
 ## Show current configuration settings
 
@@ -240,7 +240,7 @@ az k8s-extension show --cluster-type managedClusters \
 >
 > HA is enabled by default. Disabling it requires deletion and recreation of the extension.
 
-To update your Dapr configuration settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
+To update your Dapr configuration settings, recreate the extension with the desired state. For example, let's say you previously created and installed the extension using the following configuration:
 
 ```azurecli-interactive
 az k8s-extension create --cluster-type managedClusters \
@@ -368,13 +368,13 @@ properties: {
 
 ## Meet network requirements
 
-The Dapr extension for AKS and Arc for Kubernetes requires the following outbound URLs on `https://:443` to function:
+The Dapr extension requires the following outbound URLs on `https://:443` to function on AKS and Arc for Kubernetes:
 1. `https://mcr.microsoft.com/daprio` URL for pulling Dapr artifacts.
 1. The [outbound URLs required for AKS or Arc for Kubernetes](../azure-arc/kubernetes/network-requirements.md). 
 
 ## Next Steps
 
-Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
+Once you successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
