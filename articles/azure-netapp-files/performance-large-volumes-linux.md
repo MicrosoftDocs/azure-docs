@@ -27,7 +27,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
     * Ultra service level: 10,240 MiB/s
     * Premium service level: 6,400 MiB/s
     * Standard service level: 1,600 MiB/s
-    * [Flexible service](azure-netapp-files-service-levels.md#flexible): The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS
+    * [Flexible service](azure-netapp-files-service-levels.md#Flexible): The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS
 
     The Ultra service level was used in these tests. 
 
