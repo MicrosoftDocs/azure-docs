@@ -603,8 +603,8 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
 1. Apply the auxiliary image by patching the domain custom resource definition (CRD) using the `kubectl patch` command.
 
-   The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as shown in the following example. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
-
+   The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as shown in the following example.
+   
    ```yaml
    spec:
      clusters:
