@@ -17,7 +17,7 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 

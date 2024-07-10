@@ -56,7 +56,7 @@ To send data to Azure Monitor with a REST API call, make a POST call over HTTP. 
 
 ### Endpoint URI
 
-The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. The immutable ID is generated for the DCR when it's created. You can retrieve it from the [JSON view of the DCR in the Azure portal](../essentials/data-collection-rule-overview.md?tabs=portal#view-data-collection-rules). `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
+The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. The immutable ID is generated for the DCR when it's created. You can retrieve it from the [JSON view of the DCR in the Azure portal](../essentials/data-collection-rule-view.md). `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
 
 ```
 {Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2023-01-01
@@ -113,6 +113,7 @@ Data sent to the ingestion API can be sent to the following tables:
 | Azure tables | The following Azure tables are currently supported. Other tables may be added to this list as support for them is implemented.<br><br>
 - [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)<br>
 - [ADSecurityAssessmentRecommendation](/azure/azure-monitor/reference/tables/adsecurityassessmentrecommendation)<br>
+- [Anomalies](/azure/azure-monitor/reference/tables/anomalies)<br>
 - [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/asimauditeventlogs)<br>
 - [ASimAuthenticationEventLogs](/azure/azure-monitor/reference/tables/asimauthenticationeventlogs)<br>
 - [ASimDhcpEventLogs](/azure/azure-monitor/reference/tables/asimdhcpeventlogs)<br>

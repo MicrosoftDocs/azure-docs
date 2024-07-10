@@ -24,27 +24,26 @@ NVIDIA Tesla (CUDA) drivers for all NC* and ND*-series VMs (optional for NV*-ser
 > As an alternative to manual CUDA driver installation on a Windows Server VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Windows Server 2016 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
 
 
-### NVIDIA GRID drivers
+### NVIDIA GRID/vGPU drivers
 > [!Note]
 >For Azure NVads A10 v5 VMs we recommend customers to always be on the latest driver version. The latest NVIDIA major driver branch(n) is only backward compatbile with the previous major branch(n-1). For eg, vGPU 17.x is backward compatible with vGPU 16.x only. Any VMs still runnig n-2 or lower may see driver failures when the latest drive branch is rolled out to Azure hosts.
 >>
 >NVs_v3 VMs only support **vGPU 16 or lower** driver version.
 >
-
+>>
+>Windows server 2016 support will go away from vGPU 17.x onwards.
+>
 Microsoft redistributes NVIDIA GRID driver installers for NV, NVv3 and NVads A10 v5-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You don't need to set up a NVIDIA vGPU software license server.
 
 The GRID drivers redistributed by Azure don't work on non-NV series VMs like NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers enable the graphics functionalities similar to NV-series.
 
 The Nvidia extension always installs the latest driver. 
 
-For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
+For Windows 11 up to and including 23H2, Windows 10 up to and including  22H2, Server 2019/2022:
 
-- [GRID 16.3 (538.15)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 16.5 (538.46)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 
 The following links to previous versions are provided to support dependencies on older driver versions.
-
-For Windows 11, Windows 10  and Server 2019/20
-- [GRID 16.2 (537.13)](https://download.microsoft.com/download/9/d/6/9d6f3611-ff0c-43bc-8958-fe7fb0ded78d/537.13_grid_win10_win11_server2019_server2022_dch_64bit_international_azure_swl.exe) (.exe) 
 
 For Windows Server 2016 1607, 1709:
 - [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe)  is the last supported driver from NVIDIA. The newer 15.x and above don't support Windows Server 2016. 
@@ -64,8 +63,6 @@ For Windows Server 2012 R2:
 >"EnableOTA"=dword:00000000
 >
 >To enable the remote call again, change the setting to 1 or simply delete the regkey.
-
-
 
 
 For links to all previous Nvidia GRID driver versions, visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json).

@@ -22,7 +22,7 @@ For this tutorial, you create three virtual networks:
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
-![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
+:::image type="content" source="media/tutorial-hybrid-ps/hybrid-network-firewall.png" alt-text="Diagram of Firewall in a hybrid network." lightbox="media/tutorial-hybrid-ps/hybrid-network-firewall.png":::
 
 In this tutorial, you learn how to:
 
@@ -241,7 +241,7 @@ In this step, you create the connection from the hub virtual network to the on-p
 1. Open the **FW-Hybrid-Test** resource group and select the **GW-hub** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
-4. The the connection name, type **Hub-to-Onprem**.
+4. For the connection name, type **Hub-to-Onprem**.
 5. Select **VNet-to-VNet** for **Connection type**.
 6. For the **Second virtual network gateway**, select **GW-Onprem**.
 7. For **Shared key (PSK)**, type **AzureA1b2C3**.
@@ -426,7 +426,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 10. For **Boot diagnostics**, Select **Disable**.
 10. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test the firewall
 

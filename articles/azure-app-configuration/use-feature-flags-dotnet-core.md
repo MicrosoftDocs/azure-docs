@@ -2,23 +2,26 @@
 title: Tutorial for using feature flags in a .NET app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in .NET apps.
 services: azure-app-configuration
-author: maud-lv
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2024
-ms.author: malev
+ms.date: 07/02/2024
+ms.author: zhiyuanliang
 ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to control feature availability in my app by using the .NET Feature Manager library.
 ---
 
 # Tutorial: Use feature flags in an ASP.NET Core app
 
-The .NET Feature Management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
+> [!IMPORTANT]
+> This document has been superseded by the [.NET Feature Management](./feature-management-dotnet-reference.md) reference document, which provides the most current and detailed rundown of the features available in the .NET feature management libraries.
+>
+> To get started with feature flags in your apps, follow the quickstarts for [.NET console apps](./quickstart-feature-flag-dotnet.md) or [ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md).
 
-The Feature Management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
+The .NET feature management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
 
-For the ASP.NET Core feature management API reference documentation, see [Microsoft.FeatureManagement Namespace](/dotnet/api/microsoft.featuremanagement).
+The feature management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
 
 In this tutorial, you will learn how to:
 
@@ -82,7 +85,7 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
     app.UseAzureAppConfiguration();
     ```
    
-In a typical scenario, you will update your feature flag values periodically as you deploy and enable and different features of your application. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes by setting the [CacheExpirationInterval](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.featuremanagement.featureflagoptions.cacheexpirationinterval) in the call to **UseFeatureFlags**.
+In a typical scenario, you will update your feature flag values periodically as you deploy and enable different features of your application. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes by setting the [CacheExpirationInterval](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.featuremanagement.featureflagoptions.cacheexpirationinterval) in the call to **UseFeatureFlags**.
 
 ```csharp
 config.AddAzureAppConfiguration(options =>
@@ -102,7 +105,8 @@ When a feature flag has multiple filters, the filter list is traversed in order 
 The feature manager supports *appsettings.json* as a configuration source for feature flags. The following example shows how to set up feature flags in a JSON file:
 
 ```JSON
-{"FeatureManagement": {
+{
+    "FeatureManagement": {
         "FeatureA": true, // Feature flag set to on
         "FeatureB": false, // Feature flag set to off
         "FeatureC": {
@@ -270,5 +274,6 @@ app.UseForFeature(featureName, appBuilder => {
 In this tutorial, you learned how to implement feature flags in your ASP.NET Core application by using the `Microsoft.FeatureManagement` libraries. For more information about feature management support in ASP.NET Core and App Configuration, see the following resources:
 
 * [ASP.NET Core feature flag sample code](./quickstart-feature-flag-aspnet-core.md)
-* [Microsoft.FeatureManagement documentation](/dotnet/api/microsoft.featuremanagement)
+* [Microsoft.FeatureManagement Feature Reference](./feature-management-dotnet-reference.md)
+* [Microsoft.FeatureManagement API Reference](/dotnet/api/microsoft.featuremanagement)
 * [Manage feature flags](./manage-feature-flags.md)

@@ -223,7 +223,7 @@ The Azure services that support each encryption model:
 | Queue Storage                    | Yes                | Yes, including Managed HSM | Yes                |
 | Data Lake Storage Gen2           | Yes                | Yes, including Managed HSM | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
-| Azure Cache for Redis            | Yes                | N/A\*              | -                  |
+| Azure Cache for Redis            | Yes                | Yes\*\*\*, including Managed HSM | -                  |
 | Azure NetApp Files               | Yes                | Yes                | Yes                |
 | Archive Storage                  | Yes                | Yes                | -                  |
 | StorSimple                       | Yes                | Yes                | Yes                |
@@ -236,6 +236,8 @@ The Azure services that support each encryption model:
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 
 \*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
+
+\*\*\* Any transient data stored temporarily on disk such as pagefiles or swap files are encrypted with a Microsoft key (all tiers) or a customer-managed key (using the Enterprise and Enterprise Flash tiers). For more information, see [Configure disk encryption in Azure Cache for Redis](../../azure-cache-for-redis/cache-how-to-encryption.md).
 
 ## Next steps
 

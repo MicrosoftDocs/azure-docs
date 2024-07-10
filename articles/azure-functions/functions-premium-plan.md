@@ -3,9 +3,9 @@ title: Azure Functions Premium plan
 description: Details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 04/07/2024
 ms.author: thalme
-ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell
+ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
 
 # Azure Functions Premium plan
@@ -22,6 +22,7 @@ Premium plan hosting provides the following benefits to your functions:
 * [Choice of Premium instance sizes](#available-instance-skus).
 * More predictable pricing, compared with the Consumption plan.
 * High-density app allocation for plans with multiple function apps.
+* Supports [Linux container deployments](./container-concepts.md).
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the [Consumption plan](consumption-plan.md). Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.
 
@@ -124,7 +125,7 @@ $Resource | Set-AzResource -Force
 
 ### Maximum function app instances
 
-In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale out limit cannot exceed the maximum burst instances of the plan. 
+In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale-out limit cannot exceed the maximum burst instances of the plan. 
 
 ## Private network connectivity
 
@@ -160,7 +161,7 @@ This migration isn't supported on Linux.
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
+If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale-out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
 
 ### [Portal](#tab/portal)
 
@@ -262,6 +263,7 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Jio India West| 100 | 20 |
 |Korea Central| 100 | 20 |
 |Korea South| 40 | 20 |
+|Mexico Central| 20 | 20 |
 |North Central US| 100 | 20 |
 |North Europe| 100 | 100 |
 |Norway East| 100 | 20 |
@@ -270,6 +272,7 @@ These are the currently supported maximum scale-out values for a single plan in 
 |South Central US| 100 | 100 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
+|Spain Central| 20 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
 |UAE North| 100 | 20 |

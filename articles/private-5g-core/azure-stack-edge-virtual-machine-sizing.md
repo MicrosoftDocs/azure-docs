@@ -20,8 +20,8 @@ The following table lists the maximum supported limits for a range of parameters
 |------------------------|-------------------|-------------------|
 | PDU sessions           | 10,000 per Packet Core |       |
 | Bandwidth              | Over 25 Gbps combined uplink and downlink per Packet Core |       |
-| RAN nodes (eNB/gNB)    | 200 per Packet Core | 20 per Packet Core |
-| Active UEs             | 10,000 per Packet Core | 500 per Packet Core |
+| RAN nodes (eNB/gNB)    | 200 per Packet Core | 50 per Packet Core |
+| Active UEs             | 10,000 per Packet Core |  |
 | SIMs                   | 20,000 per Mobile Network |       |
 | SIM provisioning       | 10,000 per JSON file via Azure portal, 4MB per REST API call |       |
 

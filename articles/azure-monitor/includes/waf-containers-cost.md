@@ -9,7 +9,7 @@ ms.date: 03/30/2023
 ### Design checklist
 
 > [!div class="checklist"]
-> - Don't enable Container insights collection of Prometheus metrics.
+> - Enable collection of metrics through the Azure Monitor managed service for Prometheus.
 > - Configure agent collection to modify data collection in Container insights.
 > - Modify settings for collection of metric data by Container insights.
 > - Disable Container insights collection of metric data if you don't use the Container insights experience in the Azure portal.
@@ -23,7 +23,7 @@ ms.date: 03/30/2023
 
 | Recommendation | Benefit |
 |:---|:---|
-| Don't enable Container insights collection of Prometheus metrics in Log Analytics workspace if you've enabled scraping of metrics with Prometheus.  | In addition to scraping Prometheus metrics from your cluster using [Azure Monitor managed service for Prometheus](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana), you can configure Container insights to [collect Prometheus metrics in your Log Analytics workspace](../containers/container-insights-prometheus-logs.md). This is redundant with the data in Managed Prometheus and will result in additional cost. |
+| Enable collection of metrics through the Azure Monitor managed service for Prometheus. Be sure you do not enable to also send Prometheus metrics to Log Analytics Workspace.  | You can use [Azure Monitor managed service for Prometheus](https://aka.ms/managedpromdocumentation) for scraping Prometheus metrics from your cluster by [enabling Managed Prometheus](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana). Note that you can configure Container insights to [collect Prometheus metrics in your Log Analytics workspace](../containers/container-insights-prometheus-logs.md), however this is not recommended as this is redundant with the data in Managed Prometheus and will result in additional cost. For details, see [Managed Prometheus pricing](https://azure.microsoft.com/pricing/details/monitor/). |
 | Configure agent to modify data collection in Container insights. |  Analyze the data collected by Container insights as described in [Controlling ingestion to reduce cost](../containers/container-insights-cost.md#control-ingestion-to-reduce-cost) and adjust your configuration to stop collection of data you don't need. |
 | Modify settings for collection of metric data by Container insights. | See [Enable cost optimization settings](../containers/container-insights-cost-config.md) for details on modifying both the frequency that metric data is collected and the namespaces that are collected by  Container insights. |
 | Disable Container insights collection of metric data if you don't use the Container insights experience in the Azure portal. | Container insights collects many of the same metric values as [Managed Prometheus](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana). You can disable collection of these metrics by configuring Container insights to only collect **Logs and events** as described in [Enable cost optimization settings in Container insights](../containers/container-insights-cost-config.md#enable-cost-settings). This configuration disables the Container insights experience in the Azure portal, but you can use Grafana to visualize Prometheus metrics and Log Analytics to analyze log data collected by Container insights. |

@@ -55,9 +55,12 @@ This section is for informational purposes only. An enterprise administrator doe
 
 When you request to transfer an old enterprise enrollment to a new enrollment, the following actions occur:
 
-- Usage transferred might take up to 72 hours to be reflected in the new enrollment.
+- Usage transferred might take up to 72 hours to be reflected in the new enrollment. 
+
+- Prices for the new enrolment might take at least 72 hours to be reflected in the Price sheet download and the Azure Pricing calculator.  
+
 - If department administrator (DA) or account owner (AO) view charges were enabled on the previously transferred enrollment, they must be enabled on the new enrollment.
-- If you're using API reports or Power BI, [generate a new API access key](enterprise-rest-apis.md#api-key-generation) under your new enrollment. For API use, the API access key is used for authentication to older enterprise APIs that are retiring. For more information about retiring APIs that use the API access key, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
+- If you're using API reports or Power BI, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
     - All APIs use either the old enrollment or the new one, not both, for reporting purposes. If you need reports from APIs for the old and new enrollments, you must create your own reports.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to `Transferred` for the old enrollment. The old enrollment that was transferred is available for historic usage reporting purposes only.
@@ -90,14 +93,21 @@ Other points to keep in mind before an enrollment transfer:
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - The source enrollment status is updated to `Transferred` and is available for historic usage reporting purposes only.
 - There's no downtime during an enrollment transfer.
-- Usage might take up to 24 - 48 hours to be reflected in the target enrollment.
+- Usage might take up to 24 - 48 hours to be reflected in the target enrollment. 
+
 - Cost view settings for department administrators or account owners don't carry over.
   - If previously enabled, settings must be enabled for the target enrollment.
-- Any API keys used in the source enrollment must be regenerated for the target enrollment.
+- Exports, Views, Budget alert, Scheduled actions - The existing rules at billing scopes (billing account, enrollment account and department scopes) need to be recreated after the enrolment transfer. All rules at management group, subscription and resource group scopes will be transferred to the new enrolment and no further action will be required.  
+
+- Reservation utilization alert, Cost allocation rules - These features are supported only at billing account scope and hence they need to be recreated after the enrolment transfer.  
+
+- Anomaly alerts - This feature is supported at subscription scope and hence will be transferred to the new enrolment requiring no further action.    
+
 - If the source and destination enrollments are on different cloud instances, the transfer fails. Support personnel can transfer only within the same cloud instance. Cloud instances are the global Azure cloud and individual national clouds. For more information about national clouds, see [National clouds](../../active-directory/develop/authentication-national-cloud.md).
 - For reservations (reserved instances):
   - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
-        :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
+    :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
+
   - When there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You might have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
 - If there's a backdated enrollment transfer, any savings plan benefit is applicable from the transfer request submission date - not from the effective transfer date.

@@ -9,7 +9,7 @@ items:
     - name: FHIR service autoscale
       href: autoscale.md
     - name: FHIR REST API capabilities
-      href: fhir-rest-api-capabilities.md
+      href: rest-api-capabilities.md
     - name: Versioning policy and history management
       href: fhir-versioning-policy-and-history-management.md
     - name: Migration from Azure API for FHIR

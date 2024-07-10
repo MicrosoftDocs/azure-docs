@@ -37,7 +37,7 @@ Bing Maps for Enterprise only supports API key authentication. Azure Maps suppor
 
 The following table lists the Bing Maps _Calculate a Route_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter | Bing Maps Request Parameter Alias  | Azure Maps Request Parameter | Required in Azure Maps  | Azure Maps Data Type  | Description|
+| Bing Maps request parameter | Bing Maps request parameter alias  | Azure Maps request parameter | Required in Azure Maps  | Azure Maps data type  | Description|
 |-----------------------------------|------------------------------------|------------------------------------|-------------------------|-----------------------|------------|
 | avoid       |       | avoid  | False | string   | Here are the Bing Maps Calculate a Route API to Azure Maps Route Directions API avoid equivalents, where supported: <br><br>tolls: tollRoads<br>ferry: ferries<br>borderCrossings: borderCrossings<br>minimizeDrivingSideTurn: Not supported<br><br>minimizeAgainstDrivingSideTurn: Not supported<br>minimizeUTurn: Not supported<br>minimizeTolls: Not supported<br>highways: limitedAccessHighways<br>minimizeHighways: Not supported<br> |
 | dateTime    | dt    | departAt  | False | string   | Azure Maps Route Directions API also supports arriveAt parameter that is used to specify the desired date and time of arrival. It can't be used with departAt.|

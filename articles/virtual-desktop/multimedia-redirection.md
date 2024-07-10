@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 06/27/2024
 ms.author: daknappe
 ---
 # Use multimedia redirection on Azure Virtual Desktop
@@ -12,14 +12,14 @@ ms.author: daknappe
 > Multimedia redirection call redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article will show you how to use multimedia redirection for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
+This article will show you how to use multimedia redirection for Azure Virtual Desktop and Windows 365 with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
 
 ## Prerequisites
 
-Before you can use multimedia redirection on Azure Virtual Desktop, you'll need the following things:
+Before you can use multimedia redirection on Azure Virtual Desktop and Windows 365, you'll need the following things:
 
-- An Azure Virtual Desktop deployment.
-- Microsoft Edge or Google Chrome installed on your session hosts.
+- An Azure Virtual Desktop or Windows 365 deployment.
+- Microsoft Edge or Google Chrome installed on your session hosts or Cloud PCs.
 - Windows Desktop client:
    - To use video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
@@ -96,7 +96,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
    
-   - To configure it from an AD Domain, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   - To configure it from an AD Domain, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
    
    - To configure it locally, open the **Local Group Policy Editor** on the session host.
 
@@ -128,7 +128,7 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
    
-   - To configure it from an AD Domain, open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+   - To configure it from an AD Domain, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
    
    - To configure it locally, open the **Local Group Policy Editor** on the session host.
 

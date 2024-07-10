@@ -13,8 +13,6 @@ ms.custom: template-concept
 
 In this article, you learn about how configurations are applied to your network resources. Also, you explore how updating a configuration deployment is different for each membership type. Then we go into details about *Deployment status* and *Goal state model*.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Deployment
 
 *Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Configurations don't take effect until they're deployed. When a deployment request is sent to Azure Virtual Network Manager, it calculates the [goal state](#goalstate) of all resources under your network manager in that region. Goal state is a combination of deployed configurations and network group membership. Network manager applies the necessary changes to your infrastructure.

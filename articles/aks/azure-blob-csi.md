@@ -4,7 +4,7 @@ description: Learn how to use the Container Storage Interface (CSI) driver for A
 ms.topic: article
 ms.custom:
 ms.subservice: aks-storage
-ms.date: 11/24/2023
+ms.date: 06/24/2024
 author: tamram
 ms.author: tamram
 
@@ -34,7 +34,7 @@ Azure Blob storage CSI driver supports the following features:
 
 ## Before you begin
 
-- You need the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- Make sure that you have the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]. If you have installed the Azure CLI `aks-preview` extension, make sure that you update the extension to the latest version by calling `az extension update --name aks-preview`.
 
 - Perform the steps in this [link][csi-blob-storage-open-source-driver-uninstall-steps] if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
 > [!NOTE]
@@ -47,7 +47,11 @@ Using the Azure CLI, you can enable the Blob storage CSI driver on a new or exis
 To enable the driver on a new cluster, include the `--enable-blob-driver` parameter with the `az aks create` command as shown in the following example:
 
 ```azurecli
-az aks create --enable-blob-driver --name myAKSCluster --resource-group myResourceGroup
+az aks create \
+    --enable-blob-driver \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --generate-ssh-keys
 ```
 
 To enable the driver on an existing cluster, include the `--enable-blob-driver` parameter with the `az aks update` command as shown in the following example:
@@ -137,7 +141,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
             "kubernetes.io/os": linux
           containers:
             - name: statefulset-blob-nfs
-              image: mcr.microsoft.com/oss/nginx/nginx:1.19.5
+              image: mcr.microsoft.com/oss/nginx/nginx:1.22
               volumeMounts:
                 - name: persistent-storage
                   mountPath: /mnt/blob
@@ -186,7 +190,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
             "kubernetes.io/os": linux
           containers:
             - name: statefulset-blob
-              image: mcr.microsoft.com/oss/nginx/nginx:1.19.5
+              image: mcr.microsoft.com/oss/nginx/nginx:1.22
               volumeMounts:
                 - name: persistent-storage
                   mountPath: /mnt/blob

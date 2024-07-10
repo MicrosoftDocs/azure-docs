@@ -34,7 +34,12 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Enable auto-rotation of secrets on a new cluster using the [`az aks create`][az-aks-create] command and enable the `enable-secret-rotation` add-on.
 
     ```azurecli-interactive
-    az aks create --name myAKSCluster2 --resource-group myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
+    az aks create \
+        --name myAKSCluster2 \
+        --resource-group myResourceGroup \
+        --enable-addons azure-keyvault-secrets-provider \
+        --enable-secret-rotation \
+        --generate-ssh-keys
     ```
 
 #### Enable auto-rotation on an existing AKS cluster

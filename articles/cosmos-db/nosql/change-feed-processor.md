@@ -8,9 +8,10 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 07/10/2024
 ms.custom: devx-track-csharp, build-2023
 ---
+
 
 # Change feed processor in Azure Cosmos DB
 
@@ -19,6 +20,12 @@ ms.custom: devx-track-csharp, build-2023
 The change feed processor is part of the Azure Cosmos DB [.NET V3](https://github.com/Azure/azure-cosmos-dotnet-v3) and [Java V4](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos) SDKs. It simplifies the process of reading the change feed and distributes the event processing across multiple consumers effectively.
 
 The main benefit of using the change feed processor is its fault-tolerant design, which assures an "at-least-once" delivery of all the events in the change feed.
+
+## Supported SDKs
+
+|  .Net V3  |   Java    |  Node.JS  |  Python   |
+| --------- | --------- | --------- | --------- |
+|     ✓     |    ✓     |     ✕     |    ✕     |
 
 ## Components of the change feed processor
 
@@ -244,6 +251,20 @@ The change feed processor can be hosted in any platform that supports long-runni
 * An [ASP.NET hosted service](/aspnet/core/fundamentals/host/hosted-services)
 
 Although the change feed processor can run in short-lived environments because the lease container maintains the state, the startup cycle of these environments adds delays to the time it takes to receive notifications (due to the overhead of starting the processor every time the environment is started).
+
+## Role-based access requirements
+
+When using Microsoft Entra ID as authentication mechanism, make sure the identity has the proper [permissions](../how-to-setup-rbac.md#permission-model):
+
+* On the monitored container:
+  * `Microsoft.DocumentDB/databaseAccounts/readMetadata`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed`
+* On the lease container:
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/executeQuery`
 
 ## Additional resources
 

@@ -96,6 +96,10 @@ items:
         href: tutorial-python-aks-keyvault-csi-driver.md
       - name: Connect to Azure Storage using workload identity
         href: tutorial-python-aks-storage-workload-identity.md
+      - name: Connect to Azure OpenAI in AKS using a connection string
+        href: tutorial-python-aks-openai-connection-string.md
+      - name: Connect to Azure OpenAI in AKS using workload identity
+        href: tutorial-python-aks-openai-workload-identity.md  
 - name: Concepts
   expanded: false
   items: 
@@ -107,6 +111,8 @@ items:
       href: concept-region-support.md
     - name: Permission requirements
       href: concept-permission.md
+    - name: Microsoft Entra roles
+      href: concept-microsoft-entra-roles.md
 - name: How-to guides
   expanded: false
   items: 

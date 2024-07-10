@@ -2,7 +2,7 @@
 title: Update language versions in Azure Functions
 description: Learn how to update the version of the native language used by a function app in Azure Functions.
 ms.topic: how-to
-ms.custom: devx-track-extended-java, devx-track-azurecli, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-azurecli, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 12/06/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -11,14 +11,17 @@ zone_pivot_groups: programming-languages-set-functions
 
 The support for any given language stack in Azure Functions is limited to [specific versions](functions-versions.md#languages). As new versions become available, you might want to update your apps to take advantage of their features. Support in Functions may also end for older versions, typically aligned to the community end-of-support timelines. See the [Language runtime support policy](./language-support-policy.md) for details. To ensure your apps continue to receive support, you should follow the instructions outlined in this article to update them to the latest available versions.
 
-The way that you update your function app depends on: 
+The way that you update your function app depends on:
 
 + The language you use to author your functions; make sure to choose your programming language at the [top](#top) of the article. 
 + The operating system on which your app runs in Azure: Windows or Linux. 
 + The [hosting plan](./functions-scale.md).
 
 ::: zone pivot="programming-language-csharp"   
-This article shows you how to update the .NET version of an app using the [isolated worker model](dotnet-isolated-process-guide.md). Apps that run on [the in-process model](functions-dotnet-class-library.md) can't yet be updated to .NET 8 without switching to the isolated worker model. To migrate to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md). For information about .NET 8 plans, including future options for the in-process model, see the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap). 
+
+> [!NOTE]
+> This article shows you how to update the .NET version of an app using the [isolated worker model](dotnet-isolated-process-guide.md). Apps that run on older versions of .NET with [the in-process model](functions-dotnet-class-library.md) can [update to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8), or they can [migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md).
+
 ::: zone-end  
 
 ## Prepare to update
@@ -38,9 +41,12 @@ Use these steps to update the project on your local computer:
 
 1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the `.csproj` file. See [Target frameworks](/dotnet/standard/frameworks) for specifics related to the chosen version.
 
+    Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in VS Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that may exist outside of your project code, as part of build steps or a CI/CD pipeline.
+
 1. Make any updates to your project code that are required by the new .NET version. Check the version's release notes for specifics. You can also use the [.NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) to help you update your code in response to changes across major versions.
 
-After you've made those changes, rebuild your project and test it to confirm your app runs as expected. 
+After you've made those changes, rebuild your project and test it to confirm your app runs as expected.
+
 ::: zone-end  
 
 ### 2. Move to the latest Functions runtime
@@ -110,22 +116,35 @@ When using a [staging slot](functions-deployment-slots.md), make sure to target 
 ::: zone-end 
 
 ### [Windows](#tab/windows/azure-cli)
+
 ::: zone pivot="programming-language-python"  
+
 Python apps aren't supported on Windows. Select the **Linux** tab instead.
+
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-powershell" 
-First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:  
-::: zone-end  
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language. Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the language version of your function app:
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp" 
+
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for .NET on the isolated worker model:
-::: zone-end  
-::: zone pivot="programming-language-java"  
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
 ```azurecli
 az functionapp list-runtimes --os "windows" --query "[?runtime == 'java'].{Version:version}" --output table
 
 az functionapp config set --java-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
-::: zone-end  
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ```azurecli
@@ -138,8 +157,10 @@ Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functiona
 az functionapp config set --net-framework-version "v<VERSION>.0" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
+
 First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language stack (Node.js). Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version of your function app:
 
 ```azurecli
@@ -147,59 +168,94 @@ az functionapp list-runtimes --os "windows" --query "[?runtime == 'node'].{Versi
 
 az functionapp config appsettings set --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --settings "WEBSITE_NODE_DEFAULT_VERSION=~<VERSION>" --slot "staging"  
 ```
-::: zone-end  
-::: zone pivot="programming-language-powershell" 
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
 ```azurecli
 az functionapp list-runtimes --os "windows" --query "[?runtime == 'powershell'].{Version:version}" --output table
 
 az functionapp config set --powershell-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
-```  
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
+
 In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively. Also replace `<VERSION>` with the supported language version to which you're updating. If you aren't using a staging slot, remove the `--slot` parameter.
 ::: zone-end   
 ### [Linux](#tab/linux/azure-cli)
 ::: zone pivot="programming-language-python"  
 > [!NOTE]   
 > You can't change the Python version when running in a Consumption plan. 
-::: zone-end  
+
+::: zone-end
+
 ::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"
+
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language version:
-::: zone-end  
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
+
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language stack version:
-::: zone-end  
-::: zone pivot="programming-language-java"  
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'python'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
-::: zone-end  
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
+
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'dotnet-isolated'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'node'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
-::: zone-end  
-::: zone pivot="programming-language-python"  
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'python'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
-::: zone-end 
-::: zone pivot="programming-language-powershell"  
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'powershell'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
-::: zone-end 
-::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"  
+
+::: zone-end
+
+::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"
+
 Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new language version of your function app: 
-::: zone-end 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript" 
-Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new stack version of your function app: 
-::: zone-end  
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
+
+Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new stack version of your function app:
+
+::: zone-end
+
 ```azurecli
 az functionapp config set --linux-fx-version "<LANGUAGE|VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
@@ -216,23 +272,37 @@ If you have been performing your code project deployment and updating settings i
 
 ## Next steps
 
-::: zone pivot="programming-language-java"   
+::: zone pivot="programming-language-java"
+
 > [!div class="nextstepaction"]
 > [Java developer guide](./functions-reference-java.md)
-::: zone-end 
-::: zone pivot="programming-language-csharp"   
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
 > [!div class="nextstepaction"]
 > [C# isolated worker process guide](./dotnet-isolated-process-guide.md)
-::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-typescript"   
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
 > [!div class="nextstepaction"]
 > [Node.js developer guide](./functions-reference-node.md)
-::: zone-end 
-::: zone pivot="programming-language-python"   
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 > [!div class="nextstepaction"]
 > [Python developer guide](./functions-reference-python.md)
-::: zone-end 
-::: zone pivot="programming-language-powershell"   
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
 > [!div class="nextstepaction"]
 > [PowerShell developer guide](./functions-reference-powershell.md)
-::: zone-end 
+
+::: zone-end

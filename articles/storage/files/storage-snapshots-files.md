@@ -4,7 +4,7 @@ description: A share snapshot is a read-only version of an Azure file share that
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 06/24/2024
 ms.author: kendownie
 ---
 
@@ -48,11 +48,11 @@ A share snapshot of a file share is identical to its base file share. The only d
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
-Share snapshots persist until they are explicitly deleted. A share snapshot can't outlive its base file share. You can enumerate the snapshots associated with the base file share to track your current snapshots. 
+Share snapshots persist until they are explicitly deleted, or until the file share is deleted. A share snapshot can't outlive its base file share. You can enumerate the snapshots associated with the base file share to track your current snapshots. 
 
 When you create a share snapshot of a file share, the files in the share's system properties are copied to the share snapshot with the same values. The base files and the file share's metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
 
-You can't delete a share that has share snapshots unless you first delete all the snapshots for that share.
+You can't delete a file share and keep the share snapshots. The delete workflow will automatically delete the snapshots when you delete the share.
 
 ## Space usage
 
@@ -62,7 +62,7 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium file shares and standard file shares with large file shares enabled. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium and standard file shares. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply.
 
 ## Limits
 

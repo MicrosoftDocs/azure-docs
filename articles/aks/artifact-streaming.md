@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/16/2023
 ms.subservice: aks-nodes
 ---
@@ -18,7 +18,7 @@ Artifact Streaming can reduce time to pod readiness by over 15%, depending on th
 
 This article describes how to enable the Artifact Streaming feature on your AKS node pools to stream artifacts from ACR.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Prerequisites
 

@@ -2,12 +2,11 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 04/11/2023
-
+ms.date: 06/25/2024
 ---
 # Nodes and pools in Azure Batch
 
-In an Azure Batch workflow, a *compute node* (or *node*) is a virtual machine that processes a portion of your application's workload. A *pool* is a collection of these nodes for your application to runs on. This article explains more about nodes and pools, along with considerations when creating and using them in an Azure Batch workflow.
+In an Azure Batch workflow, a *compute node* (or *node*) is a virtual machine that processes a portion of your application's workload. A *pool* is a collection of these nodes for your application to run on. This article explains more about nodes and pools, along with considerations when creating and using them in an Azure Batch workflow.
 
 ## Nodes
 
@@ -43,7 +42,6 @@ The pool can be created manually, or [automatically by the Batch service](#autop
   - [Operating system and version](#operating-system-and-version)
   - [Configurations](#configurations)
     - [Virtual Machine Configuration](#virtual-machine-configuration)
-    - [Cloud Services Configuration](#cloud-services-configuration)
     - [Node Agent SKUs](#node-agent-skus)
     - [Custom images for Virtual Machine pools](#custom-images-for-virtual-machine-pools)
     - [Container support in Virtual Machine pools](#container-support-in-virtual-machine-pools)
@@ -70,11 +68,6 @@ When you create a Batch pool, you specify the Azure virtual machine configuratio
 
 ## Configurations
 
-There are two types of pool configurations available in Batch.
-
-> [!IMPORTANT]
-> While you can currently create pools using either configuration, new pools should be configured using Virtual Machine Configuration and not Cloud Services Configuration. All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Services Configuration pools do not support all features and no new capabilities are planned. You won't be able to create new 'CloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-
 ### Virtual Machine Configuration
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
@@ -83,17 +76,6 @@ The **Virtual Machine Configuration** specifies that the pool is composed of Azu
 > Currently, Batch does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md). 
 
 The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
-
-### Cloud Services Configuration
-
-> [!WARNING]
-> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead. For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
-
-The **Cloud Services Configuration** specifies that the pool is composed of Azure Cloud Services nodes. Cloud Services provides only Windows compute nodes.
-
-Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md), and available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). When you create a pool that contains Cloud Services nodes, you specify the node size and its *OS Family* (which determines which versions of .NET are installed with the OS). Cloud Services is deployed to Azure more quickly than virtual machines running Windows. If you want pools of Windows compute nodes, you may find that Cloud Services provide a performance benefit in terms of deployment time.
-
-As with worker roles within Cloud Services, you can specify an *OS Version*. We recommend that you specify `Latest (*)` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed. Any running tasks will be interrupted and requeued.
 
 ### Node Agent SKUs
 

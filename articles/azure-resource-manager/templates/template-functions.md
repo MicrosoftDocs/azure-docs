@@ -1,7 +1,7 @@
 ---
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-arm-template
 ms.date: 05/10/2024
 ---
@@ -131,6 +131,7 @@ For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) fu
 
 <a id="filter" aria-hidden="true"></a>
 <a id="map" aria-hidden="true"></a>
+<a id="mapValues" aria-hidden="true"></a>
 <a id="reduce" aria-hidden="true"></a>
 <a id="sort" aria-hidden="true"></a>
 <a id="toObject" aria-hidden="true"></a>
@@ -140,10 +141,14 @@ For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) fu
 Resource Manager provides the following functions for working with lambda expressions.
 
 * [filter](template-functions-lambda.md#filter)
+* [groupBy](template-functions-lambda.md#groupby)
 * [map](template-functions-lambda.md#map)
+* [mapValues](template-functions-lambda.md#mapvalues)
 * [reduce](template-functions-lambda.md#reduce)
 * [sort](template-functions-lambda.md#sort)
 * [toObject](template-functions-lambda.md#toobject)
+
+For Bicep files, use the [lambda](../bicep/bicep-functions-lambda.md) functions.
 
 <a id="and" aria-hidden="true"></a>
 <a id="bool" aria-hidden="true"></a>
@@ -216,7 +221,9 @@ Resource Manager provides several functions for working with objects.
 * [items](template-functions-object.md#items)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [objectKeys](template-functions-object.md#objectkeys)
 * [null](template-functions-object.md#null)
+* [shallowMerge](template-functions-object.md#shallowmerge)
 * [union](template-functions-object.md#union)
 
 For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.

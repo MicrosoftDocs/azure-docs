@@ -14,7 +14,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
@@ -33,19 +33,7 @@ You can input your image by one of two methods: **local filestream** or **blob s
 - **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 
 - **Blob storage URL**: Upload your image to an Azure Blob Storage account. Follow the [blob storage quickstart](/azure/storage/blobs/storage-quickstart-blobs-portal) to learn how to do this. Then open Azure Storage Explorer and get the URL to your image. Save it to a temporary location. 
 
-   Next, you need to give your Content Safety resource access to read from the Azure Storage resource. Enable system-assigned Managed identity for the Azure AI Content Safety instance and assign the role of **Storage Blob Data Contributor/Owner/Reader** to the identity:
-   
-   1. Enable managed identity for the Azure AI Content Safety instance. 
-
-      :::image type="content" source="../../media/role-assignment.png" alt-text="Screenshot of Azure portal enabling managed identity.":::
-
-   1. Assign the role of **Storage Blob Data Contributor/Owner/Reader** to the Managed identity. Any roles highlighted below should work.
-
-      :::image type="content" source="../../media/add-role-assignment.png" alt-text="Screenshot of the Add role assignment screen in Azure portal.":::
-
-      :::image type="content" source="../../media/assigned-roles.png" alt-text="Screenshot of assigned roles in the Azure portal.":::
-
-      :::image type="content" source="../../media/managed-identity-role.png" alt-text="Screenshot of the managed identity role.":::
+   [!INCLUDE [storage-account-access](../storage-account-access.md)]
 
 ### Analyze image content
 
