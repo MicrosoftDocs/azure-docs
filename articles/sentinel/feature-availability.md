@@ -126,6 +126,12 @@ While Microsoft Sentinel is also available in the [Microsoft Defender portal](mi
 |[Workspace manager](workspace-manager.md) |Public preview | &#x2705; |&#x2705; |&#10060; |
 |[SIEM migration experience](siem-migration.md) | GA | &#x2705; |&#10060; |&#10060; |
 
+## Microsoft unified security operations platform
+
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Microsoft Sentinel within the Microsoft unified security operations platform](/defender-xdr/microsoft-sentinel-onboard) |GA| &#x2705; |&#10060; |&#10060; |
+
 ## Normalization
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
