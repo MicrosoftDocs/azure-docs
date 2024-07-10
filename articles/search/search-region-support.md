@@ -38,7 +38,7 @@ You can create an Azure AI Search resource in any of the following Azure public 
 |--|--|--|--|
 | Brazil South​​ ​ | ✅ | ✅ | |
 | Canada Central​​ | ✅ | ✅ | ✅ |
-| Canada East​​ ​ |  | ✅ | | 
+| Canada East​​ ​ |  | ✅ | |
 | East US​ | ✅ | ✅ | ✅ |
 | East US 2 ​ | ✅ | ✅ | ✅ |
 | ​Central US​ ​ | ✅ | ✅ | ✅ |
@@ -273,22 +273,15 @@ You can create an Azure AI Search resource in any of the following Azure public 
 
 ## Azure Government regions
 
-All of these regions support [higher capacity tiers](search-limits-quotas-capacity.md#service-limits). None of these regions support Azure [role-based access for data plane operations](search-security-rbac.md). You must use key-based authentication for indexing and query workloads.
+All of these regions support [higher capacity tiers](search-limits-quotas-capacity.md#service-limits). 
+
+None of these regions support Azure [role-based access for data plane operations](search-security-rbac.md). You must use key-based authentication for indexing and query workloads.
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
 | Arizona | ✅ |  | |
 | Texas |  |  |  |
 | Virginia | ✅ |  | ✅ |
-
-### Canary (US)
-
-| Region | AI enrichment | Semantic ranking | Availability zones |
-|--|--|--|--|
-| Central US EUAP​ <sup>1</sup> | | ✅ | |
-| East US 2 EUAP ​ | | ✅ | |
-
-<sup>1</sup> This region runs on older infrastructure that has lower capacity per partition at every tier. You can't create a search service with [higher capacity](search-limits-quotas-capacity.md#service-limits) in this region.
 
 ## Azure operated by 21Vianet
 
@@ -304,6 +297,17 @@ You can install Azure AI Search in any of the following regions. If you need sem
 | China North 3 | | ✅ | ✅ |
 
 <sup>1</sup> These regions run on older infrastructure that has lower capacity per partition at every tier. Choose a different region if you want [higher capacity](search-limits-quotas-capacity.md#service-limits).
+
+<!-- ## Early Update Access Program (EUAP)
+
+These regions
+
+| Region | AI enrichment | Semantic ranking | Availability zones |
+|--|--|--|--|
+| Central US EUAP​ <sup>1</sup> | | ✅ | |
+| East US 2 EUAP ​ | | ✅ | |
+
+<sup>1</sup> This region runs on older infrastructure that has lower capacity per partition at every tier. You can't create a search service with [higher capacity](search-limits-quotas-capacity.md#service-limits) in this region. -->
 
 ## See also
 
