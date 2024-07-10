@@ -357,7 +357,6 @@ You can follow the steps in the [Troubleshooting](#troubleshooting) to check the
 
 - **RESPONSE 403: 403 Forbidden**: It indicates that configured authentication doesn't have the necessary permission to access the App Configuration store. Please follow the [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure the associated managed identity is assigned proper role.
 - **A Key Vault reference is found in App Configuration, but 'spec.secret' was not configured**: It's because a Key Vault reference is selected by the `spec.configuration.selectors` field, but the `spec.secret` field is missed to conduct the Azure App Configuration Provider how the resolve the selected Key Vault reference. Please follow the [use Key Vault reference](./reference-kubernetes-provider.md#key-vault-references) to configure the `spec.secret` field.
-- **spec.configuration.selectors: one of keyFilter and snapshotName field must be set**: It's because the `spec.configuration.selectors` field is misconfigured. For each *selector*, you should either set the `keyFilter` to select key-values or `snapshotName` field to select key-values from snapshot. Please refer to the [key-value selection](./reference-kubernetes-provider.md#key-value-selection) for more information.
 
 #### Why does the generated ConfigMap not contain the expected data?
 
@@ -365,7 +364,7 @@ Ensure that you specify the correct key-value selectors to match the expected da
 
 #### What customizations can I make to install the Azure App Configuration Kubernetes Provider?
 
-You can customize the installation by providing additional helm values when installing the Azure App Configuration Kubernetes Provider, e.g., setting the log level, configuring the `nodeSelector` to let the provider running on target node, disabling the replica discovery, etc. You can find all supported helm values [here](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml).
+You can customize the installation by providing additional helm values when installing the Azure App Configuration Kubernetes Provider, e.g., setting the log level, configuring the `nodeSelector` to let the provider running on target node, disabling the workload identity, etc. You can find all supported helm values [here](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml).
 
 ## Clean up resources
 
