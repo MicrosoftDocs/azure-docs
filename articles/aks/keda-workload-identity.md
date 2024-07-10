@@ -9,9 +9,9 @@ ms.date: 07/08/2024
 ms.custom: template-how-to
 ---
 
-# Scale with Kubernetes Event-driven Autoscaling (KEDA) and Workload Identity on AKS
+# Securely scale your applications using the KEDA add-on and workload identity on Azure Kubernetes Service (AKS)
 
-This article shows you how to scale your applications with the Kubernetes Event-driven Autoscaling (KEDA) add-on and Workload Identity on Azure Kubernetes Service (AKS).
+This article shows you how to securely scale your applications with the Kubernetes Event-driven Autoscaling (KEDA) add-on and workload identity on Azure Kubernetes Service (AKS).
 
 [!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
