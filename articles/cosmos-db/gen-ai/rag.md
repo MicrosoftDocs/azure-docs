@@ -28,7 +28,7 @@ Azure Cosmos DB supports real-time ingestion and querying, making it ideal for a
 Designed for large-scale applications, Azure Cosmos DB offers global distribution and automatic scaling. This ensures that your RAG-enabled application can handle high query volumes and deliver consistent performance irrespective of user location.
 
 ### 4. High Availability and Reliability
-Azure Cosmos DB offers comprehensive SLAs for throughput, latency, and [availability](/articles/reliability/reliability-cosmos-db-nosql.md). This reliability ensures that your RAG system is always available to generate responses with minimal downtime.
+Azure Cosmos DB offers comprehensive SLAs for throughput, latency, and [availability](../../reliability/reliability-cosmos-db-nosql.md). This reliability ensures that your RAG system is always available to generate responses with minimal downtime.
 
 ### 5. Multi-Tenancy with Hierarchical Partition Keys
 Azure Cosmos DB supports [multi-tenancy](../nosql/multi-tenancy-vector-search.md) through various performance and security isolation models, making it easier to manage data for different clients or user groups within the same database. This feature is particularly useful for SaaS applications where separation of tenant data is crucial for security and compliance.
