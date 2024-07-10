@@ -7,7 +7,7 @@ ms.subservice: azure-arc-scvmm
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
-ms.date: 07/08/2024
+ms.date: 07/10/2024
 keywords: "VMM, Arc, Azure"
 
 # Customer intent: As a VI admin, I want to understand the support matrix for System Center Virtual Machine Manager.
@@ -79,17 +79,15 @@ Any roles with higher permissions on the same scope, such as Owner or Contributo
 
 ### Azure connected machine agent (Guest Management) requirements
 
-Ensure the following before you install Arc agents using a script for SCVMM VMs:
+Ensure the following before you install Arc agents at scale for SCVMM VMs:
 
 - The Resource Bridge must be in a running state.
 - The SCVMM management server must be in a connected state.
 - The user account must have permissions listed in Azure Arc-enabled SCVMM Administrator role.
-- The target machine:
-     - Is powered on and the Resource Bridge has network connectivity to the host running the VM.
-     - Is running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
-     - Is able to connect through the firewall to communicate over the Internet and [these URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
-     - Has Azure CLI [installed](/cli/azure/install-azure-cli).
-     - Has the Arc agent installation script downloaded from [here](https://download.microsoft.com/download/7/1/6/7164490e-6d8c-450c-8511-f8191f6ec110/arcscvmm-enable-guest-management.ps1) for a Windows VM or from [here](https://download.microsoft.com/download/0/9/b/09bd9ef4-a7af-49e5-ad5f-9e8f85fae75b/arcscvmm-enable-guest-management.sh) for a Linux VM.
+- All the target machines are:
+     - Powered on and the resource bridge has network connectivity to the host running the VM.
+     - Running a [supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
+     - Able to connect through the firewall to communicate over the Internet and [these URLs](/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) aren't blocked.
 
 ### Supported SCVMM versions
 
