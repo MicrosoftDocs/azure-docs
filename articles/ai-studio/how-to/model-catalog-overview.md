@@ -153,7 +153,7 @@ Azure AI Studio implements a default configuration of [Azure AI Content Safety](
 
 ### Network isolation for models deployed via Serverless APIs
 
-Endpoints for models deployed as Serverless APIs follow the public_network_access flag setting of the AI Studio Hub which has the project in which the deployment exists. To secure your MaaS endpoint, disable the public_network_access flag on your AI Studio Hub. Secure inbound communication from a client to your endpoint is possible by using a private endpoint for the hub.
+Endpoints for models deployed as Serverless APIs follow the public_network_access flag setting of the AI Studio Hub which has the project in which the deployment exists. To secure your MaaS endpoint, disable the public_network_access flag on your AI Studio Hub. Securing inbound communication from a client to your endpoint is possible by using a private endpoint for the hub.
 
 **Setting the public_network_access flag for the Azure AI hub:**
 * Go to the [Azure Portal](https://ms.portal.azure.com/)
