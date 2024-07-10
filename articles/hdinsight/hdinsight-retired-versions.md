@@ -8,13 +8,9 @@ ms.date: 07/10/2024
 
 # Retired HDInsight versions
 
- 
-
 This page lists all the versions of HDInsight that are retired and/or out of support. If you’re currently on one of the versions mentioned on this page, we recommend that you immediately migrate to the latest version. If you choose not to migrate and continue using any of the following versions, be aware of the following terms and risks associated with your continued usage of retired and unsupported software:  ​
 
-​
-
-As a retired version of an Azure service, HDInsight hasn't been shipping and won’t ship any updates or security patches to these versions. Some of the OSS components in these versions haven't updated for several years.  ​
+1. As a retired version of an Azure service, HDInsight hasn't been shipping and won’t ship any updates or security patches to these versions. Some of the OSS components in these versions haven't updated for several years.  ​
 
 1. By continuing to use these versions, there are security risks that may lead to vulnerabilities, system instability, and potential data loss for you and your customers.  ​
 
