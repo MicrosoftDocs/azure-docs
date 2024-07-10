@@ -91,12 +91,12 @@ Service name requirements:
 
 Review the [supported regions list](search-region-support.md) for supported regions at the service and feature level.
 
-Some features are subject to [regional availability](search-region-support.md):
+Some features are subject to regional availability:
 
++ [AI enrichment](cognitive-search-concept-intro.md)
++ [Semantic ranker](semantic-search-overview.md)
 + [Availability Zones](search-reliability.md#availability-zones)
 + [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
-+ [Semantic ranker](semantic-search-overview.md)
-+ [AI enrichment](cognitive-search-concept-intro.md)
 
 AI enrichment refers to Azure AI services and Azure OpenAI, and integration is through an Azure AI multi-service account. The account must be in the same physical region as Azure AI Search. There are just a few regions that *don't* provide both. 
 
