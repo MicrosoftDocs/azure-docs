@@ -61,6 +61,12 @@ To proper functionalities and healthy state to your VPN Gateway, consider one of
 1. Revert to the default native Azure DNS by removing the custom DNS within the VNet settings (recommended configuration).
 2. Add in your custom DNS configuration a DNS forwarder pointing to the native Azure DNS (IP address: 168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup may not resolve and fix the issue as expected.
 
+### Could point-to-site VPN connections be affected from potential vulnerability known as 'tunnel vision'?
+
+Microsoft is aware of reports discussing network technique that bypasses VPN encapsulation. This is an industry-wide issue impacting any operating system that implements a DHCP client according to its RFC specification and has support for DHCP option 121 routes, including Windows.
+As the research notes, mitigations include running the VPN inside of a VM that obtains a lease from a virtualized DHCP server to prevent the local networks DHCP server from installing routes altogether.
+More information about vulnerability can be found at [NVD - CVE-2024-3661 (nist.gov)](https://nvd.nist.gov/vuln/detail/CVE-2024-3661)
+
 ## <a name="privacy"></a>Privacy
 
 ### Does the VPN service store or process customer data?
