@@ -164,4 +164,3 @@ Deleting a workspace deletes all its child resources (APIs, products, and so on)
 
 * [Create a workspace](how-to-create-workspace.md)
 * [Workspaces breaking changes - June 2024](breaking-changes/workspaces-breaking-changes-june-2024.md)
-* [Workspaces breaking changes - December 2024](breaking-changes/workspaces-breaking-changes-dec-2024.md)
