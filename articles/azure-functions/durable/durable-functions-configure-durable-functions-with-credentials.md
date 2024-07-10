@@ -58,7 +58,7 @@ You need to make some changes to the configuration of your app's managed identit
 
 1. In the Azure portal, in your function app resource menu under **Settings**, select **Configuration**.
 
-1. In the list of settings, select **AzureWebJobsStorage**, and then select the **Delete** icon.
+1. In the list of settings, select **AzureWebJobsStorage** and select the **Delete** icon.
 
    ![Screenshot of the default storage settings and deleting AzureWebJobsStorage.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)
 
@@ -141,13 +141,11 @@ To add the roles:
 
 ### Configure the client secret
 
-You can run and test the application in the Azure portal.
-
-To run and test the app locally, specify the following settings in the function’s *local.settings.json* file.
+In the Azure portal, run and test the application. To run and test the app locally, specify the following settings in the function’s *local.settings.json* file.
 
 1. In the Azure portal, in your function app resource menu under **Settings**, select **Configuration**.
 
-1. In the list of settings, select **AzureWebJobsStorage**, and then select the **Delete** icon.
+1. In the list of settings, select **AzureWebJobsStorage** and select the **Delete** icon.
 
 1. To link your Azure storage account to the application, add *any* of the following settings:
 

@@ -22,7 +22,7 @@ The most basic durable function app has three functions:
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
 * **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
-This quickstart shows you how to create this "hello world" app, which you can do in different ways. Use the selector at the top of the page to set your preferred approach.
+This quickstart describes different ways to create this "hello world" app. Use the selector at the top of the page to set your preferred approach.
 
 ## Prerequisites
 
@@ -216,7 +216,7 @@ public class DurableFunctionsSample {
 
 ## Create a local project by using the Maven command
 
-Run the following command to generate a project with the basic functions of a durable function app:
+Run the following command to generate a project that contains the basic functions of a durable function app:
 
 # [Bash](#tab/bash)
 
@@ -248,13 +248,13 @@ At the prompts, provide the following information:
   | **package** | Enter **com.function**. |
   | **Y** | Enter **Y** and select Enter to confirm. |
 
-Now you have a local project generated with the three functions that are needed for a basic durable function app.
+Now you have a local project that has the three functions that are in a basic durable function app.
 
 Check to ensure that `com.microsoft:durabletask-azure-functions` is set as a dependency in your _pom.xml_ file.  
 
 ## Configure the back-end storage provider
 
-Durable Functions needs a storage provider to store runtime state. You can set Azure Storage as the storage provider in _local.settings.json_. Use the connection string of your Azure storage account as the value for `AzureWebJobsStorage`:
+Durable Functions needs a storage provider to store runtime state. You can set Azure Storage as the storage provider in _local.settings.json_. Use the connection string of your Azure storage account as the value for `AzureWebJobsStorage` like in this example:
 
 ```json
 {
@@ -276,7 +276,7 @@ Durable Functions needs a storage provider to store runtime state. You can set A
 
     ![Screenshot of the create new functions project command.](media/quickstart-js-vscode/functions-create-project.png)
 
-1. Go to a folder to use for your project and choose **Select**.
+1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
 1. At the prompts, provide the following information:
 
@@ -292,11 +292,11 @@ Durable Functions needs a storage provider to store runtime state. You can set A
     | **Select the build tool for Java project** | Select **Maven**. |
     | **Select how you would like to open your project** | Select **Open in new window**. |
 
-You now have a project with an example HTTP function. You can remove this function if you'd like because you add the basic functions of a durable function app in the next step.  
+You now have a project that has an example HTTP function. You can remove this function if you'd like to, because you add the basic functions of a durable function app in the next step.  
 
 ## Add functions to the project
 
-1. In the command palette, enter for and then select **Azure Functions: Create Function**.
+1. At the command palette prompt, enter and then select **Azure Functions: Create Function**.
 
 1. For **Change template filter**, select **All**.
 
@@ -345,7 +345,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
    mvn clean package
    ```
 
-   Then run the durable function:
+   Then, run the durable function:
 
    ```bash
    mvn azure-functions:run
