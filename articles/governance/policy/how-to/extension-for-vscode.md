@@ -3,7 +3,7 @@ title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
 ms.date: 04/12/2022
 ms.topic: how-to
-ms.custom: timwarner, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # Use Azure Policy extension for Visual Studio Code
 
@@ -185,6 +185,10 @@ When selecting a policy or assignment, whether through the search interface or b
 the tree view, the Azure Policy extension opens the JSON that represents the policy or assignment and
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
+
+> [!NOTE]
+> The VS Code extension will only show the latest version of the policy definition. For more
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
 
 ### Export objects
 

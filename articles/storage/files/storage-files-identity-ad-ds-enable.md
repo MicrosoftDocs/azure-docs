@@ -1,16 +1,16 @@
 ---
-title: Enable AD DS authentication for Azure file shares
-description: Learn how to enable Active Directory Domain Services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials. 
+title: Enable AD DS authentication for Azure Files
+description: Learn how to enable Active Directory Domain Services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/12/2024
+ms.date: 05/09/2024
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
 ---
 
-# Enable AD DS authentication for Azure file shares
+# Enable Active Directory Domain Services authentication for Azure file shares
 
 This article describes the process for enabling Active Directory Domain Services (AD DS) authentication on your storage account in order to use on-premises Active Directory (AD) credentials for authenticating to Azure file shares.
 
@@ -269,6 +269,6 @@ DomainSid:<yourSIDHere>
 AzureStorageID:<yourStorageSIDHere>
 ```
 
-## Next steps
+## Next step
 
 You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions](storage-files-identity-ad-ds-assign-permissions.md).

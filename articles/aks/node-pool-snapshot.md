@@ -93,7 +93,11 @@ SNAPSHOT_ID=$(az aks nodepool snapshot show --name MySnapshot --resource-group m
 Now, we can use this command to create this cluster off of the snapshot configuration.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
+az aks create \
+    --name myAKSCluster2 \
+    --resource-group myResourceGroup \
+    --snapshot-id $SNAPSHOT_ID \
+    --generate-ssh-keys
 ```
 
 ## Next steps

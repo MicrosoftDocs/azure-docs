@@ -122,13 +122,17 @@ Regardless of whether you start on smart or customizable views, if you need more
 
 :::image type="content" source="./media/quick-acm-cost-analysis/automate-download.png" alt-text="Screenshot showing the Download - Automate the download options." lightbox="./media/quick-acm-cost-analysis/automate-download.png" :::
 
-## Understand your forecast
+## Forecasting costs in Cost Analysis 
 
-Forecast costs are available from both smart and custom views. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future.
+Forecast costs are available from both smart and custom views. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
 
-Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast.
+Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range, and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast. A few key considerations: 
 
-When you select a budget in a custom view, you can also see if or when your forecast would exceed your budget.
+1. Forecasting employs a 'time series linear regression' model, which adjusts to factors such as reserved instance purchases that temporarily affect forecasted costs. Following such purchases, the forecasted costs typically stabilize in alignment with usage trends within a few days. You have the option to filter out these temporary spikes to obtain a more normalized forecasted cost.
+
+1. For accurate long-term forecasting, it's essential to have sufficient historical data. New subscriptions or contracts with limited historical data may result in less accurate forecasts. At least 90 days of historical data are recommended for a more precise annual forecast.
+
+1. When you select a budget in a custom view, you can also see if or when your forecast would exceed your budget.
 
 ## More information
 

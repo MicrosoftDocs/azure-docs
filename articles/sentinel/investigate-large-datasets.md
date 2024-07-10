@@ -48,7 +48,7 @@ Before you start a search job, be aware of the following limitations:
 - Search date range is up to seven years.
 - Supports long running searches up to a 24-hour time-out.
 - Results are limited to one million records in the record set.
-- Concurrent execution is limited to five search jobs per workspace.
+- Concurrent execution per user is limited to five search jobs per workspace.
 - Limited to 100 search results tables per workspace.
 - Limited to 100 search job executions per day per workspace.
 

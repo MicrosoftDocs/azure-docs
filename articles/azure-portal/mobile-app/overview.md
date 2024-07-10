@@ -1,8 +1,8 @@
 ---
 title: What is the Azure mobile app?
 description: The Azure mobile app is a tool that allows you to monitor and manage your Azure resources and services from your mobile device. 
-ms.date: 11/02/2023
-ms.topic: conceptual
+ms.date: 06/06/2024
+ms.topic: overview
 ---
 
 # What is the Azure mobile app?
@@ -36,7 +36,7 @@ For more information, see [Azure mobile app Home](home.md).
 
 ## Hamburger menu
 
-The hamburger menu lets you select the environment, account, and directory you want to manage. The hamburger menu also houses several other settings and features, including:
+The hamburger menu lets you select the environment, account, and directory (Azure tenant) you want to work in. The hamburger menu also houses several other settings and features, including:
 
 - Billing/Cost management
 - Settings
@@ -48,7 +48,9 @@ The hamburger menu lets you select the environment, account, and directory you w
 
 The Azure mobile app provides several areas that allow you to navigate to different sections of the app. On the bottom navigation bar, you'll find **Home**, **Subscriptions**, **Resources**, and **Notifications**.
 
-On the top toolbar, you'll find the hamburger button to open the hamburger menu, the search magnifying glass to explore your services and resources, the edit button to change the layout of the Azure mobile app home, and the filter button to filter what content currently appears.
+On the top navigation bar, you'll find the hamburger button to open the hamburger menu, the search magnifying glass to explore your services and resources, the edit button to change the layout of the Azure mobile app **Home**, and the filter button to filter what content currently appears.
+
+If available in your tenant, you can also access [Microsoft Copilot in Azure (preview)](microsoft-copilot-in-azure.md) by selecting the **Copilot** icon from the top navigation bar.
 
 ## Download the Azure mobile app
 

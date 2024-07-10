@@ -1,16 +1,13 @@
 ---
 title: Run queries with Azure Resource Graph Power BI connector
 description: In this quickstart, you learn how to run queries with the Azure Resource Graph Power BI connector.
-ms.date: 02/22/2024
+ms.date: 05/08/2024
 ms.topic: quickstart
 ---
 
 # Quickstart: Run queries with the Azure Resource Graph Power BI connector
 
 In this quickstart, you learn how to run queries with the Azure Resource Graph Power BI connector. By default the Power BI connector runs queries at the tenant level but you can change the scope to subscription or management group. Azure Resource Graph by default returns a maximum of 1,000 records but the Power BI connector has an optional setting to return all records if your query results have more than 1,000 records.
-
-> [!NOTE]
-> The Azure Resource Graph Power BI connector is in public preview.
 
 > [!TIP]
 > If you participated in the private preview, delete your _AzureResourceGraph.mez_ preview file. If the file isn't deleted, your custom connector might be used by Power Query instead of the certified connector.

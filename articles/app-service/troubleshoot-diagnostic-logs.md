@@ -12,6 +12,8 @@ ai-usage: ai-assisted
 
 # Enable diagnostics logging for apps in Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This video shows you how to enable diagnostics logging for apps.
 > [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
 
@@ -188,7 +190,7 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 
 ## Send logs to Azure Monitor
 
-With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
+With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. When you add a diagnostic setting, App Service adds app settings to your app, which triggers an app restart.
 
 > [!div class="mx-imgBorder"]
 > ![Diagnostic Settings](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)

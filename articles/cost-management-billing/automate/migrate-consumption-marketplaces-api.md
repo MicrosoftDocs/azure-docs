@@ -13,7 +13,7 @@ ms.reviewer: jojoh
 
 # Migrate from Consumption Marketplaces API
 
-This article discusses migration away from the [Consumption Marketplaces API](/rest/api/consumption/marketplaces/list). The Consumption Marketplaces API is deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the API as soon as possible.
+This article discusses migration away from the [Consumption Marketplaces API](/rest/api/consumption/marketplaces/list). Upgraded solutions are now available, offering enhanced features and improved performance. It is advisable for customers to transition to these updated alternatives for optimal results.
 
 This article only applies to customers with an Enterprise Agreement or an MSDN, pay-as-you-go, or Visual Studio subscription.
 
@@ -70,6 +70,6 @@ Usage records can be identified as marketplace records in the combined dataset t
 | unitOfMeasure | UnitOfMeasure |  |
 | isRecurringCharge |  | Where applicable, use the Frequency and Term fields moving forward. |
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management automation at [Cost Management automation overview](automation-overview.md).

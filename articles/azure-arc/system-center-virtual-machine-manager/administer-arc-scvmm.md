@@ -6,8 +6,8 @@ ms.date: 12/04/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 ms.custom: devx-track-azurecli
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ---
 

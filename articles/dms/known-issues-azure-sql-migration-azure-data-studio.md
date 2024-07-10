@@ -45,7 +45,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Cause**: Before migrating data, you need to migrate the certificate of the source SQL Server instance from a database that is protected by Transparent Data Encryption (TDE) to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
-- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](tutorial-transparent-data-encryption-migration-ads.md).
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.`
 
@@ -387,6 +387,26 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
+
+## Error code: No such host is known OR urlopen error [Errno 11001] getaddrinfo failed
+
+- **Message**: `No such host is known`
+
+- **Cause**: While migrating logins using PowerShell command [New-AzDataMigrationLoginsMigration](/powershell/module/az.datamigration/new-azdatamigrationloginsmigration), it fails with the previous message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure PowerShell - Database Migration Service cmdlets - Az.DataMigration above minimum 0.14.5 version.
+  Latest version of Az.Datamigration can be downloaded from [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DataMigration/) or the following command can be used to upgrade.
+```Command
+ Update-Module -Name Az.DataMigration
+```
+- **Message**: `urlopen error [Errno 11001] getaddrinfo failed`
+
+- **Cause**: While migrating logins using Azure CLI [Az dataMigration login-migration](/cli/azure/datamigration), it fails with the previous message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure CLI - Database Migration Service extension - az dataMigration to 1.0.0b1 or a later version. Run the following command to upgrade.
+```Command
+ az extension update -n datamigration
+```
 
 ## Azure Database Migration Service Naming Rules
 

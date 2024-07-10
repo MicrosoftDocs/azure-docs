@@ -7,7 +7,7 @@ manager: dcscontentpm
 audience: ITPro
 ms.topic: troubleshooting
 ms.service: virtual-network
-localization_priority: Normal
+ms.localizationpriority: medium
 ms.date: 08/29/2019
 ---
 

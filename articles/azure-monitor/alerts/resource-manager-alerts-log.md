@@ -101,12 +101,18 @@ param timeAggregation string = 'Average'
 @allowed([
   'PT1M'
   'PT5M'
+  'PT10M'
   'PT15M'
   'PT30M'
+  'PT45M'
   'PT1H'
+  'PT2H'
+  'PT3H'
+  'PT4H'
+  'PT5H'
   'PT6H'
-  'PT12H'
   'PT24H'
+  'PT48H'
 ])
 param windowSize string = 'PT5M'
 
@@ -461,7 +467,7 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "80"
+      "value": 80
     },
     "timeAggregation": {
       "value": "Average"

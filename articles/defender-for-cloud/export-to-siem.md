@@ -46,9 +46,6 @@ You can enable the **bi-directional alert synchronization** feature to automatic
 
 Learn how to [connect alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
-> [!NOTE]
-> The bi-directional alert synchronization feature isn't available in the Azure Government cloud.
-
 ### Configure ingestion of all audit logs into Microsoft Sentinel
 
 Another alternative for investigating Defender for Cloud alerts in Microsoft Sentinel is to stream your audit logs into Microsoft Sentinel:
