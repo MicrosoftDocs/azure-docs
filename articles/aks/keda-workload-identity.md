@@ -50,7 +50,7 @@ This article shows you how to securely scale your applications with the Kubernet
         --generate-ssh-keys 
     ```
 
-### Validate the deployment has KEDA, workload identity, and OIDC endpoint enabled
+1. Validate the deployment was successful and make sure the cluster has KEDA, workload identity, and OIDC issuer enabled using the [`az aks show`][az-aks-show] command with the `--query` flag set to `"[workloadAutoScalerProfile, securityProfile, oidcIssuerProfile]"`.
 
     ```azurecli-interactive
     az aks show \
@@ -59,13 +59,13 @@ This article shows you how to securely scale your applications with the Kubernet
         --query "[workloadAutoScalerProfile, securityProfile, oidcIssuerProfile]"
     ```
 
-### Connect to the AKS cluster
+1. Connect to the cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
     az aks get-credentials \
         --name $AKS_NAME \
         --resource-group $RG_NAME \
-        --overwrite
+        --overwrite-existing
     ```
 
 ## Deploy Azure Service Bus
