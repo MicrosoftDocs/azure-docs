@@ -72,7 +72,7 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
     `https://<apim-instance-name>.developer.azure-api.net/`
 
 1. Under **Implicit grant and hybrid flows**, select **ID tokens** and select **Save**.
-1. In the left menu, under **Manage**, select **Token configuration** > **+ Add optional claim**>
+1. In the left menu, under **Manage**, select **Token configuration** > **+ Add optional claim**.
 1. On the **Add optional claim** page, select **ID** and then select the following claims: **email, family_name, given_name, onprem_sid, preferred_username, upn**. Select **Add**. 
 1. When prompted, select **Turn on the Microsoft Graph email, profile permission**. Select **Add**.
 1. In the left menu, under **Manage** select **API permissions** and confirm that the following Microsoft Graph permissions are present: **email, profile, User.Read**.
@@ -128,7 +128,7 @@ Configure the same Microsoft Entra app registration as an identity provider for 
     When you open it for the first time, you're prompted to consent to specific permissions.
 
 1. Sign into the WordPress admin site using the username and password you entered while creating WordPress on App Service. 
-1. In the left menu, select **Appearance** > **Themes** and then **Add New Theme** 
+1. In the left menu, select **Appearance** > **Themes** and then **Add New Theme**.
 1. Select **Upload Theme**. Select **Choose File** to upload the API Management developer portal theme zip file (`twentytwentyfour.1.1.zip`) that you downloaded previously. Select **Install Now**.
 1. In the next screen, select **Replace active with uploaded**. 
 
