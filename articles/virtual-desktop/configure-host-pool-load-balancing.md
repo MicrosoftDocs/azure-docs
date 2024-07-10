@@ -5,7 +5,7 @@ ms.custom:
 ms.topic: how-to
 author: sipastak
 ms.author: sipastak 
-ms.date: 06/11/2024
+ms.date: 07/09/2024
 ---
 
 # Configure host pool load balancing in Azure Virtual Desktop
@@ -123,6 +123,9 @@ Here's how to configure load balancing with Azure PowerShell:
    ----------- ---------------- ---------------
    contosohp01 DepthFirst                    10
    ```
+
+> [!TIP]
+> Another value for LoadBalancerType is MultiplePersistant, which is used for assigning a multiple personal desktops to a single user. For more information, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multi-personal-desktop-assignment).
 
 ### [Azure CLI](#tab/cli)
 
