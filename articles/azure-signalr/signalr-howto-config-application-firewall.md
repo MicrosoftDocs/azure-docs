@@ -45,15 +45,12 @@ Use Visual Studio Code or your favorite editor to create a file with the followi
 @description('The name for your SignalR service')
 param resourceName string = 'contoso'
 
-@description('The name for your SignalR service')
-param resourceName string = 'contoso'
-
 resource signalr 'Microsoft.SignalRService/signalr@2024-04-01-preview' = {
   name: resourceName
   properties: {
     applicationFirewall:{
         clientConnectionCountRules:[
-          // Add or remove rules as needed
+            // Add or remove rules as needed
             {
                 type: 'ThrottleByUserIdRule'
                 count: 5
