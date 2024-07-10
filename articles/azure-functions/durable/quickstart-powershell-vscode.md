@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create your first PowerShell durable function"
+title: "Quickstart: Create a PowerShell durable function"
 description: Create and publish a PowerShell durable function in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
-# Quickstart: Create your first PowerShell durable function
+# Quickstart: Create a PowerShell durable function
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
@@ -35,11 +35,11 @@ To complete this quickstart, you need:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. In the search box at the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
+1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-    ![Screenshot that shows the Create a function command.](media/quickstart-js-vscode/functions-create-project.png)
+   ![Screenshot that shows the Create a function command.](media/quickstart-js-vscode/functions-create-project.png)
 
-1. Go to a folder to use for your project and choose **Select**.
+1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
 1. At the prompts, provide the following information:
 
@@ -48,9 +48,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | **Select a language for your function app project** | Select **PowerShell**. | Creates a local PowerShell Functions project. |
     | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
     | **Select a template for your project's first function** | Select **Skip for now**. | |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Reopens Visual Studio Code in the folder you selected. |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
+Visual Studio Code installs Azure Functions Core Tools if it's required to create a project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A *package.json* file is also created in the root folder.
 
@@ -153,7 +153,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Screenshot of Azure local output.](media/quickstart-js-vscode/functions-f5.png)
+   ![Screenshot of Azure local output.](media/quickstart-js-vscode/functions-f5.png)
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 

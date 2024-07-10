@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create your first Python durable function"
+title: "Quickstart: Create a Python durable function"
 description: Create and publish a Python durable function in Azure Functions by using Visual Studio Code.
 author: davidmrdavid
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx
 zone_pivot_groups: python-mode-functions
 ---
 
-# Quickstart: Create your first Python durable function
+# Quickstart: Create a Python durable function
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
@@ -38,7 +38,7 @@ To complete this quickstart, you need:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. In the search box at the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
+1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of Create function window.":::
 
@@ -54,7 +54,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
     | **Python version** | Select **Python 3.7**, **Python 3.8**, **Python 3.9**, or **Python 3.10**. | Visual Studio Code creates a virtual environment by using the version you select. |
     | **Select a template for your project's first function** | Select **Skip for now**. | |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Reopens Visual Studio Code in the folder you selected. |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
 
 ::: zone-end
 
@@ -67,11 +67,11 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | **Select a language** | Select **Python (Programming Model V2)**. | Creates a local Python Functions project by using the V2 programming model. |
     | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
     | **Python version** | Select **Python 3.7**, **Python 3.8**, **Python 3.9**, or **Python 3.10**. | Visual Studio Code creates a virtual environment by using the version you select. |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Reopens Visual Studio Code in the folder you selected. |
+    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
 
 ::: zone-end
 
-Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
+Visual Studio Code installs Azure Functions Core Tools if it's required to create a project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A *requirements.txt* file is also created in the root folder. It specifies the Python packages required to run your function app.
 
@@ -193,7 +193,7 @@ The following application setting is required to run the v2 programming model:
 * **Name**: `AzureWebJobsFeatureFlags`
 * **Value**: `EnableWorkerIndexing`
 
-If you're running locally by using [Azure Functions Core Tools](../functions-run-local.md), you should add this setting to your *local.settings.json* file. If you're running in Azure, follow these steps with the tool of your choice:
+If you're running locally by using [Azure Functions Core Tools](../functions-run-local.md), add this setting to your *local.settings.json* file. If you're running in Azure, complete these steps by using a relevant tool:
 
 # [Azure CLI](#tab/azure-cli-set-indexing-flag)
 
@@ -213,9 +213,9 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 # [Visual Studio Code](#tab/vs-code-set-indexing-flag)
 
-1. Make sure that you have the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed
-2. Select F1 to open the command palette. In the search box at the prompt (`>`), enter and then select **Azure Functions: Add New Setting**.
-3. Choose your subscription and function app when prompted
+1. Make sure that you have the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
+2. Select F1 to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Add New Setting**.
+3. Select your subscription and function app when you are prompted.
 4. For the name, enter **AzureWebJobsFeatureFlags**, and then select Enter.
 5. For the value, enter **EnableWorkerIndexing**, and then select Enter.
 

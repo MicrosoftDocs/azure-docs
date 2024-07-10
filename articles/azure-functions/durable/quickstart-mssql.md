@@ -8,12 +8,13 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Quickstart: Set a durable function to use the Microsoft SQL Server storage provider
+# Quickstart: Set a durable function to use the MSSQL storage provider
 
-Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through the steps to set up a durable function app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql).
+Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a durable function app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql).
 
 > [!NOTE]
-> - The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data state so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
+>
+> - The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data state so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 
@@ -23,11 +24,11 @@ The following steps assume that you're starting with an existing Durable Functio
 
 Specifically, this quickstart assumes that you have already:
 
-1. Created an Azure Functions project on your local computer.
-1. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
-1. Configured the project for local debugging.
+- Created an Azure Functions project on your local computer.
+- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
+- Configured the project for local debugging.
 
-If you don't meet these prerequisites, we suggest that you start with one of the following articles:
+If you don't meet these prerequisites, we recommend that you start with one of the following quickstarts:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -40,7 +41,7 @@ If you don't meet these prerequisites, we suggest that you start with one of the
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-You need to install the latest version of the MSSQL storage provider extension from NuGet. For .NET, this means adding a reference to it in your *.csproj* file and building the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
+First, install the latest version of the MSSQL storage provider extension from NuGet. For .NET, you add a reference to it in your _.csproj_ file and building the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
 
 Which extension package you install depends on the .NET worker you're using:
 
@@ -58,7 +59,7 @@ For more information about installing Azure Functions extensions via the Core To
 ## Set up your database
 
 > [!NOTE]
-> If you already have an MSSQL-compatible database, you can skip this section and its sub-section on setting up a Docker-based local database.
+> If you already have an MSSQL-compatible database, you can skip this section and the next section on setting up a Docker-based local database.
 
 Because the MSSQL back end is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
 
@@ -213,7 +214,7 @@ Here's an example of how to get the Azure SQL connection string in the portal:
 
 ![Screenshot that shows an Azure connection string in the Azure portal.](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
-In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that placeholder with the password that you used to create the database earlier in this section. If you forgot your password, you can reset it by going to the database overview pane in the Azure portal. In the **Essentials** view, select your server name. Then, select **Reset password**. See the following figures for examples.
+In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that placeholder with the password that you used to create the database earlier in this section. If you forgot your password, you can reset it by going to the database overview pane in the Azure portal. In the **Essentials** view, select your server name. Then, select **Reset password**. See the following screenshots for examples.
 
 ![Screenshot that shows the Azure SQL database view, with the server name option highlighted.](./media/quickstart-mssql/mssql-azure-reset-pass-1.png)
 
@@ -221,7 +222,7 @@ In the Azure portal, the connection string has the database's password removed: 
 
 ### Add the connection string as an application setting
 
-Next, add your database's connection string as an application setting. To add it in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. See the following figures for examples.
+Next, add your database's connection string as an application setting. To add it in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. See the following screenshots for examples.
 
 ![Screenshot that shows the database pane and New application setting highlighted.](./media/quickstart-mssql/mssql-azure-environment-variable-1.png)
 

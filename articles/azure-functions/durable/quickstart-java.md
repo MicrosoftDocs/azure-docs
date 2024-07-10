@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create your first Java durable function"
+title: "Quickstart: Create a Java durable function"
 description: Create and publish a Java durable function in Azure Functions. Choose manual setup, Maven, or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.custom: mode-api, devx-track-extended-java
 zone_pivot_groups: create-java-durable-options
 ---
 
-# Quickstart: Create your first Java durable function
+# Quickstart: Create a Java durable function
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts for you.
 
@@ -296,7 +296,7 @@ You now have a project that has an example HTTP function. You can remove this fu
 
 ## Add functions to the project
 
-1. At the command palette prompt, enter and then select **Azure Functions: Create Function**.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
 1. For **Change template filter**, select **All**.
 

@@ -10,7 +10,7 @@ ms.reviewer: azfuncdf
 
 # Quickstart: Set a durable function to use the Netherite storage provider
 
-Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through the steps to set up a durable function app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
+Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a durable function app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
 > - Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
@@ -23,12 +23,12 @@ The following steps assume that you're starting with an existing Durable Functio
 
 Specifically, this quickstart assumes that you have already:
 
-1. Created an Azure Functions project on your local computer.
-1. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
-1. Configured the project for local debugging.
-1. Learned how to deploy an Azure Functions project to Azure.
+- Created an Azure Functions project on your local computer.
+- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
+- Configured the project for local debugging.
+- Learned how to deploy an Azure Functions project to Azure.
 
-If you don't meet these prerequisites, we suggest that you start with one of the following articles:
+If you don't meet these prerequisites, we recommend that you start with one of the following quickstarts:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -41,7 +41,7 @@ If you don't meet these prerequisites, we suggest that you start with one of the
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-You need to install the latest version of the Netherite storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
+First, install the latest version of the Netherite storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
 
 Which extension package you install depends on the .NET worker you're using:
 
@@ -99,7 +99,7 @@ This code snippet is a basic configuration. Later, you might want to [add parame
 
 Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root, and then execute a basic orchestrator function.
 
-While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table isn't empty. See the following figure for an example.
+While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table isn't empty. See the following screenshot for an example.
 
 ![Screenshot that shows data in the DurableTaskPartitions table in Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
 
@@ -136,7 +136,7 @@ To get the connection string for your Event Hubs namespace, go to your Event Hub
 
 ### Add the connection string as an application setting
 
-Next, add your connection string as an application setting in your function app. To add it in the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. You can assign `EventHubsConnection` to map to your connection string. The following figures show some examples.
+Next, add your connection string as an application setting in your function app. To add it in the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. You can assign `EventHubsConnection` to map to your connection string. The following screenshots show some examples.
 
 ![Screenshot that shows the function app view, Configuration, and select New application setting.](./media/quickstart-netherite/add-configuration.png)
 
