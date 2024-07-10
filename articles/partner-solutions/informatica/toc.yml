@@ -33,7 +33,7 @@ items:
   - name: Java
     href: /java/api/overview/azure/resourcemanager-informaticadatamanagement-readme
   - name: Go 
-    href: https://pkg.go.dev/github.com//azure-sdk-for-go/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
 # - name: REST API
 #   href: /rest/api/informatica
 # - name: Azure PowerShell
