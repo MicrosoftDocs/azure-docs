@@ -299,6 +299,8 @@
       href: vmware-physical-azure-classic-deprecation.md
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
+    - name: Delete or reset an appliance
+      href: delete-appliance.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
