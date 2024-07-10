@@ -127,6 +127,10 @@ You can view the status of all State Configuration-managed nodes in your Automat
 
 ![DSC Node Status](./media/dsc-configuration/dsc-node-status.png)
 
+> [!NOTE]  
+> When a VM that has Azure Automation State Configuration enabled stops, you can simply start it again. The Azure Automation State Configuration will ensure that the VM is configured according to the desired state as defined in your configuration. 
+
+
 ## Next steps
 
 In this quickstart, you enabled an Azure Linux VM for State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
