@@ -81,6 +81,7 @@ Dsv4-series sizes run on Intel® Xeon® Platinum 8473C (Sapphire Rapids), Intel�
 
 <sup>1</sup>  Dsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> Accelerated networking can only be applied to a single NIC. 
+<B>I accidentally found there's no disk through/IOPS for cached performance after all kinds of VM SKU from v4 to later. Could you align temp storage IOPS / throughput, cached disk IOPS / throughput, and uncached disk IOPS / throughput to all pages of VM SKU? customers are confused with what they're seeing between different pages. Thanks!</B>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
