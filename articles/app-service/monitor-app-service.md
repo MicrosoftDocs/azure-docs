@@ -31,20 +31,12 @@ The following table lists monitoring methods to use for different scenarios.
 
 |Scenario|Monitoring method |
 |----------|-----------|
-|I want to monitor platform metrics and logs | (Azure Monitor) [Diagnostic Settings](#diagnostic-settings-via-azure-monitor)|
+|I want to monitor platform metrics and logs | [Azure Monitor platform metrics](#platform-metrics)|
 |I want to monitor application performance and usage | (Azure Monitor) [Application Insights](#application-insights)|
 |I want to monitor built-in logs for testing and development|[Log stream](troubleshoot-diagnostic-logs.md#stream-logs)|
 |I want to monitor resource limits and configure alerts|[Quotas and alerts](web-sites-monitor.md)|
 |I want to monitor web app resource events|[Activity logs](#activity-log)|
 |I want to monitor metrics visually|[Metrics](web-sites-monitor.md#metrics-granularity-and-retention-policy)|
-
-## Diagnostic Settings (via Azure Monitor)
-
-The Azure Monitor data platform collects data into logs and metrics where they can be analyzed. App Service monitoring data can be shipped to Azure Monitor through [Diagnostic Settings](/azure/azure-monitor/essentials/diagnostic-settings).
-
-Diagnostic Settings lets you export logs to other services, such as Log Analytics, Storage account, and Event Hubs. Large amounts of data using SQL-like Kusto can be queried with Log Analytics. You can capture platform logs in Azure Monitor Logs as configured via Diagnostic Settings, and instrument your app further with the dedicated application performance management feature (Application Insights) for additional telemetry and logs.
-
-For an end-to-end tutorial on Diagnostic Settings, see the article [Troubleshoot an App Service app with Azure Monitor](tutorial-troubleshoot-monitor.md).
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -59,6 +51,7 @@ For more information about the resource types for App Service, see [App Service 
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
+<a name="platform-metrics"></a>
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md#metrics).
 
