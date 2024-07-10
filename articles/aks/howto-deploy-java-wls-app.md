@@ -549,7 +549,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
    Merged "<name>" as current context in /Users/<username>/.kube/config
    ```
 
-1. Use the following steps to get values for the variables shown in the following table. You use these values later to create the secret for the datasource connection.
+1. Use the following steps to get values for the variables shown in the following table. You use these values to create the secret for the datasource connection.
 
    | Variable               | Description                                | Example                                                                                       |
    |------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
