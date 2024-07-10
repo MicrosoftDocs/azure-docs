@@ -185,8 +185,6 @@
       href: how-to-configure-connection-monitor.md
     - name: Configure ExpressRoute Traffic Collector
       href: how-to-configure-traffic-collector.md
-    - name: ExpressRoute monitoring, metrics, and alerts
-      href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts
       href: maintenance-alerts.md
     - name: Configure custom alerts to monitor advertised routes

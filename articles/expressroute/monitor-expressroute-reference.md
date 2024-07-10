@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure ExpressRoute
 description: This article contains important reference material you need when you monitor Azure ExpressRoute by using Azure Monitor.
-ms.date: 06/24/2024
+ms.date: 07/11/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: duongau

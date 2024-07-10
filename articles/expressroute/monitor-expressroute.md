@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure ExpressRoute
 description: Start here to learn how to monitor Azure ExpressRoute by using Azure Monitor. This article includes links to other resources.
-ms.date: 06/24/2024
+ms.date: 07/11/2024
 ms.custom: horz-monitor, subject-monitoring, FY 23 content-maintenance
 ms.topic: conceptual
 author: duongau
@@ -33,9 +33,9 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 For a list of available metrics for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#metrics).
 
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
+> [!NOTE]
+> Using **Classic Metrics** is not recommended.
+>
 
 ## Analyzing metrics
 
@@ -51,13 +51,50 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 Once a metric is selected, the default aggregation is applied. Optionally, you can apply splitting, which shows the metric with different dimensions.
 
+### ExpressRoute metrics
+
+To view **Metrics**, go to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
+
+After a metric is selected, the default aggregation is applied. Optionally, you can apply splitting, which shows the metric with different dimensions.
+
+> [!IMPORTANT]
+> When viewing ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
+>
+> :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metric-granularity.png" alt-text="Screenshot of time granularity options.":::
+
+For the ExpressRoute metrics, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md).
+
+### Aggregation Types
+
+Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
+
+- Sum: The sum of all values captured during the aggregation interval.
+- Count: The number of measurements captured during the aggregation interval.
+- Average: The average of the metric values captured during the aggregation interval.
+- Min: The smallest value captured during the aggregation interval.
+- Max: The largest value captured during the aggregation interval.
+
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
+### More metrics in Log Analytics
+
+You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output contains the following columns.
+
+| **Column** | **Type** | **Description** | 
+|  ---  |  ---  |  ---  | 
+| TimeGrain | string | PT1M (metric values are pushed every minute) | 
+| Count | real | Usually is 2 (each MSEE pushes a single metric value every minute) | 
+| Minimum | real | The minimum of the two metric values pushed by the two MSEEs | 
+| Maximum | real | The maximum of the two metric values pushed by the two MSEEs | 
+| Average | real | Equal to (Minimum + Maximum)/2 | 
+| Total | real | Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried) | 
+
 <a name="collection-and-routing"></a>
+
 ## Analyzing logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
@@ -179,6 +216,18 @@ The following table lists some suggested alert rules for ExpressRoute. These ale
 1. Select **Review + create** and then **Create** to deploy the alert into your subscription.
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+
+### Alerts based on each peering
+
+After you select a metric, certain metric allow you to set up dimensions based on peering or a specific peer (virtual networks).
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerts-peering-dimensions.png" alt-text="Screenshot of an alert rule based on ExpressRoute peering setup.":::
+
+### Configure alerts for activity logs on circuits
+
+When selecting signals to be alerted on, you can select **Activity Log** signal type.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/activity-log.png" alt-text="Screenshot of activity log signals from the select a signal page.":::
 
 ## Related content
 
