@@ -138,7 +138,11 @@ The other values in the outputs are beyond the scope of this article, but are ex
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
-2. Create a schema for the sample application. Follow [Query the database](/azure/azure-sql/database/single-database-create-quickstart#query-the-database) to open the **Query editor** pane. Enter and run the following query:
+Then, create a schema for the sample application by using the following steps:
+
+1. Open the **Query editor** pane by following the steps in the [Query the database](/azure/azure-sql/database/single-database-create-quickstart#query-the-database) section of [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
+
+1. Enter and run the following query:
 
    ```sql
    CREATE TABLE COFFEE (ID NUMERIC(19) NOT NULL, NAME VARCHAR(255) NULL, PRICE FLOAT(32) NULL, PRIMARY KEY (ID));
