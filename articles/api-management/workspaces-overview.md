@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/01/2024
+ms.date: 07/09/2024
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -84,7 +84,7 @@ Each workspace has a dedicated API gateway for use by the workspace collaborator
 
 The workspace gateway is a top-level Azure resource that's managed independently of the API Management instance and gateways for other workspaces. Key features and constraints of workspace gateways are in the following sections. For a detailed comparison of API Management gateways, see [API Management gateways](api-management-gateways-overview.md).
 
-### Gateway configuration
+### Gateway hostname
 
 Each workspace gateway is configured with a default hostname for API traffic in the format `<workspace-name>.gateway.<region>.azure-api.net`. Currently, custom hostnames aren't supported for workspace gateways.
 
@@ -92,14 +92,17 @@ Each workspace gateway is configured with a default hostname for API traffic in 
 
 A workspace gateway can optionally be configured in a private virtual network to isolate inbound and/or outbound traffic. If configured, the workspace gateway must use a dedicated subnet in the virtual network. 
 
-> [!NOTE]
-> * The network configuration of a workspace gateway is independent of the network configuration of the API Management instance.
-> * The network configuration of a workspace gateway can only be set up when the gateway is created and can't be changed later.
+For detailed requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+
+[!INCLUDE [api-management-virtual-network-workspaces-alert](../../includes/api-management-virtual-network-workspaces-alert.md)]
 
 ### Scale capacity
 
-Manage gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. 
+Manage gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
 
+### Observability
+
+* **Application Insights logging** - Enable Application Insights logging specifically for your workspace gateway and configure logging settings for the APIs in your workspace.
 
 ### Regional availability
 
@@ -117,9 +120,10 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways support only internal cache; external cache isn't supported 
 * Workspace gateways don't support GraphQL APIs and WebSocket APIs
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
+* Azure monitor logs are aggregated at the service level; workspace-level logs aren't available
 * Workspace gateways don't support CA certificates
 * Workspace gateways don't support autoscaling
-* Workspace gateways don't support managed identities
+* Workspace gateways don't support managed identities, including related features including storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
 
 ## RBAC roles for workspaces
 
@@ -151,7 +155,9 @@ Certain features of API Management aren't available in workspaces or have constr
     > Specifying API authorization server information (for example, for the developer portal) isn't supported in workspaces.
     >    
 
-* **Deleting a workspace** - Deleting a workspace deletes all its child resources (APIs, products, and so on) and its associated gateway. It doesn't delete the API Management instance or other workspaces.
+## Deleting a workspace
+
+Deleting a workspace deletes all its child resources (APIs, products, and so on) and its associated gateway. It doesn't delete the API Management instance or other workspaces.
     
 
 ## Related content
