@@ -16,7 +16,7 @@ ms.author: danlep
 
 This article shows how to configure an open-source developer portal plugin (preview) to customize the API Management developer portal on WordPress. With the plugin, turn any WordPress site into a developer portal. Take advantage of site capabilities in WordPress to customize and add features to your developer portal including localization, collapsible and expandable menus, custom stylesheets, file downloads, and more. 
 
-Follow the steps in this article to create a WordPress site on Azure App Service and configure the developer portal plugin on the WordPress site. Microsoft Entra ID is configured for authentication to the WordPress site and the developer portal.
+In this article, you create a WordPress site on Azure App Service and configure the developer portal plugin on the WordPress site. Microsoft Entra ID is configured for authentication to the WordPress site and the developer portal.
 
 ## Prerequisites
 
@@ -140,10 +140,121 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 1. In the left menu, select **Azure API Management Developer Portal**.
 1. On the **APIM Settings** page, enter the following settings and select **Save Changes**:
     * **APIM service name** - Name of your API Management instance
-    * Settings to enable **Create default pages** and **Create navigation menu**
+    * Enable **Create default pages** and **Create navigation menu**
+
+## Step 8: Add a custom stylesheet 
+
+Add a custom stylesheet for the API Management developer portal.
+
+ 1. In the WordPress admin site, in the left menu, select **Appearance** > **Themes**.
+ 1. Select **Customize** and then navigate to **Styles**. 
+ 1. Select the pencil icon (**Edit Styles**).
+ 1. In the **Styles pane**, select **More** (three dots) > **Additional CSS**.
+ 1. In **Additional CSS**, enter the following CSS:  
+
+    ```css
+    .apim-table {
+      width: 100%;
+      border: 1px solid #D1D1D1;
+      border-radius: 4px;
+      border-spacing: 0;
+    }
+
+    .apim-table th {
+      background: #E6E6E6;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .apim-table th,
+    .apim-table td {
+      padding: .7em 1em;
+    }
+
+    .apim-table td {
+      border-top: #E6E6E6 solid 1px;
+    }
+
+    .apim-input,
+    .apim-button,
+    .apim-nav-link-btn {
+        border-radius: .33rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .apim-button,
+    .apim-nav-link-btn {
+        background-color: var(--wp--preset--color--contrast);
+        border-color: var(--wp--preset--color--contrast);
+        border-width: 0;
+        color: var(--wp--preset--color--base);
+        font-size: var(--wp--preset--font-size--small);
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .25s ease;
+    }
+
+    .apim-nav-link-btn:hover {
+        background: var(--wp--preset--color--base);
+        color: var(--wp--preset--color--contrast);
+    }
+
+    .apim-button:hover {
+        background: var(--wp--preset--color--vivid-cyan-blue);
+    }
+
+    .apim-button:disabled {
+        background: var(--wp--preset--color--contrast-2);
+        cursor: not-allowed;
+    }
+
+    .apim-label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .apim-input {
+        border: solid 1px var(--wp--preset--color--contrast);
+    }
+
+    .apim-grid {
+        display: grid;
+        grid-template-columns: 11em max-content;
+    }
+
+    .apim-link,
+    .apim-nav-link {
+        text-align: inherit;
+        font-size: inherit;
+        padding: 0;
+        background: none;
+        border: none;
+        font-weight: inherit;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--wp--preset--color--vivid-cyan-blue);
+    }
+
+    .apim-nav-link {
+        font-weight: 500;
+    }
+
+    .apim-link:hover,
+    .apim-nav-link:hover {
+        text-decoration: underline;
+    }
+
+    #apim-signIn {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+    ```
+1. **Save** the changes. Select **Save** again to save the changes to the theme.
 1. **Log Out** of the WordPress admin site.
 
-## Step 8: Add the WordPress site to the list of origins for the developer portal 
+## Step 9: Add the WordPress site to the list of origins for the developer portal 
 
 Update the settings of the developer portal in the API Management instance to include the WordPress site as a portal origin.
 
@@ -152,7 +263,7 @@ Update the settings of the developer portal in the API Management instance to in
 1. On the **Self-hosted portal configuration** tab, enter the hostname of your WordPress on App Service site as a portal origin, substituting the name of your app service in the following URL: `https://<yourapp-service-name>.azurewebsites.net`
 1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
 
-## Step 9: Sign into the API Management developer portal deployed on WordPress 
+## Step 10: Sign into the API Management developer portal deployed on WordPress 
 
 Sign into the WordPress site to see your new API Management developer portal deployed on WordPress and hosted on App Service.
 
