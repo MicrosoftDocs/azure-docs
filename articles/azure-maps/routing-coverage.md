@@ -479,7 +479,6 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Kazakhstan                             | Good                |                       | ✓                 | ✓                         |
 | Kenya                                  | Good                | ✓                     | ✓                 | ✓                         |
 | Kiribati                               | Major Roads Only    |                       | ✓                 |                            |
-| Korea                                  | Good                | ✓                     |                   |                            |
 | Kosovo                                 | Good                |                       |                   |                            |
 | Kuwait                                 | Good                | ✓                     | ✓                 | ✓                         |
 | Kyrgyzstan                             | Major Roads Only    |                       | ✓                 |                            |

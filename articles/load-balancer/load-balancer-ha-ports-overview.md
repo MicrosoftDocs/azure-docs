@@ -5,7 +5,7 @@ description: Learn about high availability ports load balancing on an internal l
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---

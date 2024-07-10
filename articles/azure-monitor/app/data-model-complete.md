@@ -49,7 +49,7 @@ You can group requests by logical `name` and define the `source` of this request
 
 Request telemetry supports the standard extensibility model by using custom `properties` and `measurements`.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Name
 

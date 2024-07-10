@@ -103,7 +103,7 @@ There are several approaches to view the benefits a workspace receives from offe
 1. [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
 > [!NOTE]
-> To receive the Defender for Servers data allowance on your Log Analytics workspace, the **Security** solution must have been [created on the workspace](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution).
+> To receive the Defender for Servers data allowance on your Log Analytics workspace, the **Security** solution must have been [created on the workspace](/cli/azure/monitor/log-analytics/solution).
 
 ### View benefits in a usage export
 

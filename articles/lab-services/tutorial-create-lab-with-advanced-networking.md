@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-[!INCLUDE [resource group definition](../../includes/resource-group.md)]
+[!INCLUDE [resource group definition](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
 The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, you create all resources for this tutorial in the same resource group.  
 
