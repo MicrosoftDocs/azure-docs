@@ -18,16 +18,16 @@ As part of Cluster deploy action, BareMetal machines (BMM) are provisioned with 
 2. Gather the following information:
   - Subscription ID (SUBSCRIPTION)
   - Cluster name (CLUSTER), Resource Group (CLUSTER_RG) and Managed Resource Group (CLUSTER_MRG)
-3. The user needs access to the subscription to run networkfabric and networkcloud CLI extension commands
-4. Login to Azure CLI and select the subscription where the cluster is deployed
+3. The user needs access to the subscription to run Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands
+4. Log in to Azure CLI and select the subscription where the cluster is deployed
 
 ## BMM roles
-For a given SKU, there are required roles to manage and operate the underlying kubernetets cluster.
+For a given SKU, there are required roles to manage and operate the underlying Kubernetes cluster.
 
 The following roles are assigned to BMM resources (see [BMM Roles](reference-near-edge-baremetal-machine-roles.md)):
 
   - `Control plane`: BMM responsible for running the Kubernetes control plane agents for Nexus platform cluster.
-  - `Management plane`: BMM responsible for runnning the Nexus platform agents including controllers and extensions.
+  - `Management plane`: BMM responsible for running the Nexus platform agents including controllers and extensions.
   - `Compute plane`: BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
 
 ## Listing BareMetal Machine status
@@ -56,10 +56,10 @@ These phases are defined as follows:
 | `Deprovisioning` | BMM provisioning failed and retrying |
 | `Failed` | BMM provisioning failed and requires recovery action, all retries exhausted |
 
-During any phase, the BMM detailed status will be set to failed and the phase will be blocked if the following occurs:
-- BMC becomes unavailabl
-- network port is down
-- hardware component fails
+During any phase, the BMM detailed status will be set to failed and the phase will be blocked if any of the following occurs:
+- BMC is unavailable
+- Network port is down
+- Hardware component fails
 
 To get a more detailed status of the BMM:
 ```azurecli
@@ -76,7 +76,7 @@ Where the output fields are the following:
 | BMM_NAME | BareMetal Machine Name |
 | RSTATE | Cluster Participation Status (`True`,`False`) |
 | PROV_STATE | Provisioning State (`Succeeded`,`Failed`) |
-| STATUS | Provisioning Detailed Staus (`Registering`,`Preparing`,`Inspecting`,`Available`,`Provisioning`,`Provisioned`,`Deprovisioning`,`Failed`) |
+| STATUS | Provisioning Detailed Status (`Registering`,`Preparing`,`Inspecting`,`Available`,`Provisioning`,`Provisioned`,`Deprovisioning`,`Failed`) |
 | STATUS_MSG | Detailed Provisioning Status Message |
 | POWER_STATE | Power State of BMM (`On`,`Off`) |
 | BMM_ROLE | BMM Cluster Role contains (`control-plane`,`management-plane`,`compute-plane`) |
@@ -109,7 +109,7 @@ The following conditions can cause provisioning failures
 | Boot Network Data not Retrieved from Redfish | Bounce Port, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | Disk Data not retrieved from Redfish | Re-seat Disk, Re-seat PERC, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | BMC Unreachable | Bounce Port, Reseat Cable, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
-| BMC fails login | Update Credentials on BMC, BareMetal Machine Replace |
+| BMC fails log in | Update Credentials on BMC, BareMetal Machine Replace |
 | DIMM, CPU, OEM Critical Errors | Resolve Hardware Issue, BareMetal Machine Replace |
 | Stuck at Grub Loader | Reset NVRAM, BareMetal Machine Replace |
 
@@ -139,7 +139,7 @@ Verify the MAC address data against the BMC through the WEB UI:
 `BMC` -> `Dashboard` # Shows BMC MAC Address
 `BMC` -> `System Info` -> `Network` -> `Embedded.1-1-1` # Shows Boot MAC Address
 
-Verify the MAC address using `racadm` from a Jumpbox that has access the BMC network:
+Verify the MAC address using `racadm` from a Jumpbox that has access to the BMC network:
 ```bash
 racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "MAC Address "        #BMC MAC
 racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "NIC.Embedded.1-1-1"  #Boot MAC
@@ -153,7 +153,7 @@ Attempt to run ping against the BMC IPv4 address:
 1. Obtain the IPv4 address (BMC_IP) from `Determine BMC IPv4 Address` above.
 2. Test ping to the BMC:
 
-   To test from a Jumpbox that has access the BMC network:
+   To test from a Jumpbox that has access to the BMC network:
    ```bash 
    ping $BMC_IP -c 3
    ```
@@ -168,8 +168,8 @@ If the BMC_IP is not responsive, a reset of the fabric port will retry the auto-
 
 To find the `Network Fabric` port from Azure:
 1. Obtain the RackID, RackSlot from the `BareMetal Machine Details` section above.
-2. In `Azure Portal`, drill-down to the `Network Rack` RackID for the BareMetal Machine Rack.
-3. Select `Network Devices` tab and the Management (Mgmt) swich for the rack.
+2. In `Azure Portal`, drill down to the `Network Rack` RackID for the BareMetal Machine Rack.
+3. Select `Network Devices` tab and the Management (Mgmt) switch for the rack.
 4. Under `Resources`, select `Network Interfaces` and select the interface for the BMC (iDRAC) or Boot (PXE - Preboot eXecution Environment) interface for the port that requires reset and collect the following:
    - Network Fabric Resource Group (NF_RG)
    - Device Name (NF_DEVICE_NAME)
@@ -186,7 +186,7 @@ To find the `Network Fabric` port from Azure:
 Perform a remote Flea Drain against the BareMetal Machine through the WEB UI:
 `BMC` -> `Configuration` -> `BIOS Settings` -> `Miscellaneous Settings` -> `Select "Full Power Cycle" under Power Cycle Request` -> `Apply and reboot`
 
-Perform a remote flea drain using `racadm` from a Jumpbox that has access the BMC network:
+Perform a remote flea drain using `racadm` from a Jumpbox that has access to the BMC network:
 ```bash
 racadm set bios.miscsettings.powercyclerequest FullPowerCycle
 racadm jobqueue create BIOS.Setup.1-1
@@ -194,7 +194,7 @@ racadm serveraction powercycle
 ```
 
 ### BMM physical power drain (flea drain)
-For a physical flea drain, the local site hands physically disconnects the power cables from both power adapters for 5 minutes and then restores power. This will ensure the server, capacitors and all components have complete power removal and all cached data will be cleared.
+For a physical flea drain, the local site hands physically disconnect the power cables from both power adapters for 5 minutes and then restores power. This will ensure the server, capacitors and all components have complete power removal and all cached data will be cleared.
 
 ### Reset NVRAM
 If the BareMetal Machine fails to provision but the BMC is available, the credentials are correct and the MAC addresses are correct, it is possible that a OEM or hardware error has locked the boot sequence in the BMC to PXE boot only. 
@@ -205,7 +205,7 @@ To reset the NVRAM, use the following BMC Sequence:
 `Maintenance` -> `Diagnostics` -> `Reset iDrac to Factory Defaults` -> `Discard All Settings, but preserve user and network settings` -> `Apply and reboot`
 
 ### Reset BMC password
-If Actvity Log indicates invalid credentials on the BMC, the following can be run from a Jumpbox that has access the BMC network:
+If the Activity Log indicates invalid credentials on the BMC, the following can be run from a Jumpbox that has access to the BMC network:
 ```bash
 racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
 ```
