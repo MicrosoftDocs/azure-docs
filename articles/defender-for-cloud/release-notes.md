@@ -34,11 +34,11 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 ### Compliance standards are now GA
 
-July 7, 2024
+July 10, 2024
 
 In March, we added preview versions of many new compliance standards for customers to validate their AWS and GCP resources against.
 
-Those standards included CIS Google Kubernetes Engine (GKE) Benchmark, GDPR, ISO/IEC 27001 and ISO/IEC 27002, CRI Profile, CSA Cloud Controls Matrix (CCM), Brazilian General Personal Data Protection Law (LGPD), California Consumer Privacy Act (CCPA), and more.
+Those standards included CIS Google Kubernetes Engine (GKE) Benchmark, ISO/IEC 27001 and ISO/IEC 27002, CRI Profile, CSA Cloud Controls Matrix (CCM), Brazilian General Personal Data Protection Law (LGPD), California Consumer Privacy Act (CCPA), and more.
 
 Those preview standards are now generally available (GA).
 
