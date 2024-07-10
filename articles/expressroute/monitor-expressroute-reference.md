@@ -52,7 +52,7 @@ The following table lists the metrics available for the Microsoft.Network/expres
 
 Follow links in these lists for more information about metrics from the preceding tables.
 
-ExpressRoute circuit metrics:
+ExpressRoute circuits metrics:
 
 - [ARP Availability](#arp)
 - [BGP Availability](#bgp)
@@ -67,7 +67,7 @@ ExpressRoute circuit metrics:
 > [!NOTE]
 > Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 
-ExpressRoute gateways metrics
+ExpressRoute gateways metrics:
 
 - [Bits received per second](#gwbits)
 - [CPU utilization](#cpu)
@@ -79,12 +79,12 @@ ExpressRoute gateways metrics
 - [Active flows](#activeflows)
 - [Max flows created per second](#maxflows)
 
-ExpressRoute gateway connections metrics
+ExpressRoute gateway connections metrics:
 
 - [BitsInPerSecond](#connectionbandwidth)
 - [BitsOutPerSecond](#connectionbandwidth)
 
-ExpressRoute Direct metrics
+ExpressRoute Direct metrics:
 
 - [BitsInPerSecond](#directin)
 - [BitsOutPerSecond](#directout)
@@ -96,7 +96,33 @@ ExpressRoute Direct metrics
 - [TxLightLevel](#txlight)
 - [FastPathRoutesCount](#fastpath-routes-count-at-port-level)
 
+ExpressRoute Traffic Collector metrics:
+
+- [CPU utilization](#cpu-utilization---split-by-instance-1)
+- [Memory Utilization](#memory-utilization---split-by-instance)
+- [Count of flow records processed](#count-of-flow-records-processed---split-by-instances-or-expressroute-circuit)
+
 ### Circuits metrics
+
+#### <a name = "arp"></a>ARP Availability - Split by Peering  
+
+Aggregation type: *Avg*
+
+You can view near to real-time availability of [ARP](./expressroute-troubleshooting-arp-resource-manager.md) (Layer-2 connectivity) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session status is up across both peers, but down for Microsoft peering for both peers. The default aggregation (Average) was utilized across both peers.  
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="ARP availability per peer":::
+
+#### <a name = "bgp"></a>BGP Availability - Split by Peer  
+
+Aggregation type: *Avg*
+
+You can view near to real-time availability of BGP (Layer-3 connectivity) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session status is up for private peering and the Second BGP session status is down for private peering. 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="BGP availability per peer":::
+
+>[!NOTE]
+>During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+>
 
 #### <a name = "circuitbandwidth"></a>Bits In and Out - Metrics across all peerings
 
@@ -114,18 +140,6 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="metrics per peering":::
 
-#### <a name = "bgp"></a>BGP Availability - Split by Peer  
-
-Aggregation type: *Avg*
-
-You can view near to real-time availability of BGP (Layer-3 connectivity) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session status is up for private peering and the Second BGP session status is down for private peering. 
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="BGP availability per peer":::
-
->[!NOTE]
->During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
->
-
 #### FastPath routes count (at circuit level)
 
 Aggregation type: *Max*
@@ -134,97 +148,21 @@ This metric shows the number of FastPath routes configured on a circuit. Set an 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-circuit.png" alt-text="Screenshot of FastPath routes count at circuit level metric.":::
 
-#### <a name = "arp"></a>ARP Availability - Split by Peering  
-
-Aggregation type: *Avg*
-
-You can view near to real-time availability of [ARP](./expressroute-troubleshooting-arp-resource-manager.md) (Layer-2 connectivity) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session status is up across both peers, but down for Microsoft peering for both peers. The default aggregation (Average) was utilized across both peers.  
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="ARP availability per peer":::
-
-### ExpressRoute Direct Metrics
-
-#### <a name = "admin"></a>Admin State - Split by link
-
-Aggregation type: *Avg*
-
-You can view the Admin state for each link of the ExpressRoute Direct port pair. The Admin state represents if the physical port is on or off. This state is required to pass traffic across the ExpressRoute Direct connection.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="ER Direct admin state":::
-
-#### <a name = "directin"></a>Bits In Per Second - Split by link
-
-Aggregation type: *Avg*
-
-You can view the bits in per second across both links of the ExpressRoute Direct port pair. Monitor this dashboard to compare inbound bandwidth for both links.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER Direct bits in per second":::
-
-#### <a name = "directout"></a>Bits Out Per Second - Split by link
-
-Aggregation type: *Avg*
-
-You can also view the bits out per second across both links of the ExpressRoute Direct port pair. Monitor this dashboard to compare outbound bandwidth for both links.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER Direct bits out per second":::
-
-#### <a name = "line"></a>Line Protocol - Split by link
-
-Aggregation type: *Avg*
-
-You can view the line protocol across each link of the ExpressRoute Direct port pair. The Line Protocol indicates if the physical link is up and running over ExpressRoute Direct. Monitor this dashboard and set alerts to know when the physical connection goes down.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="ER Direct line protocol":::
-
-#### <a name = "rxlight"></a>Rx Light Level - Split by link
-
-Aggregation type: *Avg*
-
-You can view the Rx light level (the light level that the ExpressRoute Direct port is **receiving**) for each port. Healthy Rx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Rx light level falls outside of the healthy range.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
-
->[!NOTE]
-> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Rx light levels by lane. However, this is not supported on all deployments.
->
-
-#### <a name = "txlight"></a>Tx Light Level - Split by link
-
-Aggregation type: *Avg*
-
-You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Tx light level falls outside of the healthy range.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
-
->[!NOTE]
-> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
->
-
-#### FastPath routes count (at port level)
-
-Aggregation type: *Max*
-
-This metric shows the number of FastPath routes configured on an ExpressRoute Direct port. 
-
-*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
-
-### ExpressRoute Virtual Network Gateway Metrics
+### Virtual network gateway metrics
 
 Aggregation type: *Avg*
 
 When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are six gateway metrics available to you to better understand the performance of your gateway:
 
-* Bits received per second
-* CPU Utilization
-* Packets per seconds
-* Count of routes advertised to peers
-* Count of routes learned from peers
-* Frequency of routes changed
-* Number of VMs in the virtual network
-* Active flows
-* Max flows created per second
+- Bits received per second
+- CPU Utilization
+- Packets per seconds
+- Count of routes advertised to peers
+- Count of routes learned from peers
+- Frequency of routes changed
+- Number of VMs in the virtual network
+- Active flows
+- Max flows created per second
 
 We highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
 
@@ -288,7 +226,7 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 > To maintain reliability of the service, Microsoft often performs platform or OS maintenance on the gateway service. During this time, this metric may fluctuate and report inaccurately.
 >
 
-### <a name = "activeflows"></a>Active flows
+#### <a name = "activeflows"></a>Active flows
 
 Aggregation type: *Avg*
 
@@ -298,7 +236,7 @@ This metric displays a count of the total number of active flows on the ExpressR
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/active-flows.png" alt-text="Screenshot of number of active flows per second metrics dashboard.":::
 
-### <a name = "maxflows"></a>Max flows created per second
+#### <a name = "maxflows"></a>Max flows created per second
 
 Aggregation type: *Max*
 
@@ -308,13 +246,81 @@ This metric displays the maximum number of flows created per second on the Expre
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/max-flows-per-second.png" alt-text="Screenshot of the maximum number of flows created per second metrics dashboard.":::
 
-### <a name = "connectionbandwidth"></a>ExpressRoute gateway connections in bits/seconds
+### <a name = "connectionbandwidth"></a>Gateway connections in bits/seconds
 
 Aggregation type: *Avg*
 
 This metric shows the bits per second for ingress and egress to Azure through the ExpressRoute gateway. You can split this metric further to see specific connections to the ExpressRoute circuit.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="Screenshot of gateway connection bandwidth usage metric.":::
+
+### ExpressRoute Direct metrics
+
+#### <a name = "directin"></a>Bits In Per Second - Split by link
+
+Aggregation type: *Avg*
+
+You can view the bits in per second across both links of the ExpressRoute Direct port pair. Monitor this dashboard to compare inbound bandwidth for both links.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER Direct bits in per second":::
+
+#### <a name = "directout"></a>Bits Out Per Second - Split by link
+
+Aggregation type: *Avg*
+
+You can also view the bits out per second across both links of the ExpressRoute Direct port pair. Monitor this dashboard to compare outbound bandwidth for both links.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER Direct bits out per second":::
+
+#### <a name = "admin"></a>Admin State - Split by link
+
+Aggregation type: *Avg*
+
+You can view the Admin state for each link of the ExpressRoute Direct port pair. The Admin state represents if the physical port is on or off. This state is required to pass traffic across the ExpressRoute Direct connection.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="ER Direct admin state":::
+
+#### <a name = "line"></a>Line Protocol - Split by link
+
+Aggregation type: *Avg*
+
+You can view the line protocol across each link of the ExpressRoute Direct port pair. The Line Protocol indicates if the physical link is up and running over ExpressRoute Direct. Monitor this dashboard and set alerts to know when the physical connection goes down.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="ER Direct line protocol":::
+
+#### <a name = "rxlight"></a>Rx Light Level - Split by link
+
+Aggregation type: *Avg*
+
+You can view the Rx light level (the light level that the ExpressRoute Direct port is **receiving**) for each port. Healthy Rx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Rx light level falls outside of the healthy range.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
+
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Rx light levels by lane. However, this is not supported on all deployments.
+>
+
+#### <a name = "txlight"></a>Tx Light Level - Split by link
+
+Aggregation type: *Avg*
+
+You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Tx light level falls outside of the healthy range.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
+
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
+>
+
+#### FastPath routes count (at port level)
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on an ExpressRoute Direct port. 
+
+*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
 
 ### ExpressRoute Traffic Collector metrics
 
@@ -353,12 +359,6 @@ You can view the count of number of flow records processed by ExpressRoute Traff
 **Guidance:** Splitting by circuits is recommended when multiple ExpressRoute circuits are associated with an ExpressRoute Traffic Collector deployment. This metric helps determine the flow count of each ExpressRoute circuit and ExpressRoute Traffic Collector utilization by each ExpressRoute circuit. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/flow-records.png" alt-text="Screenshot of average flow records for an ExpressRoute circuit." lightbox="./media/expressroute-monitoring-metrics-alerts/flow-records.png":::
-
-#### ExpressRoute Traffic Collector
-
-- CPU utilization
-- Memory Utilization
-- Count of flow records processed
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 

@@ -84,14 +84,14 @@ For the available resource log categories, their associated Log Analytics tables
 
 You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output contains the following columns.
 
-| **Column** | **Type** | **Description** | 
-|  ---  |  ---  |  ---  | 
-| TimeGrain | string | PT1M (metric values are pushed every minute) | 
-| Count | real | Usually is 2 (each MSEE pushes a single metric value every minute) | 
-| Minimum | real | The minimum of the two metric values pushed by the two MSEEs | 
-| Maximum | real | The maximum of the two metric values pushed by the two MSEEs | 
-| Average | real | Equal to (Minimum + Maximum)/2 | 
-| Total | real | Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried) | 
+| Column | Type | Description |
+|:-------|:-----|:------------|
+| TimeGrain | string | PT1M (metric values are pushed every minute) |
+| Count     | real   | Usually is 2 (each MSEE pushes a single metric value every minute) |
+| Minimum   | real   | The minimum of the two metric values pushed by the two MSEEs |
+| Maximum   | real   | The maximum of the two metric values pushed by the two MSEEs | 
+| Average   | real   | Equal to (Minimum + Maximum)/2 |
+| Total     | real   | Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried) |
 
 <a name="collection-and-routing"></a>
 
@@ -99,14 +99,14 @@ You can also view ExpressRoute metrics by going to your ExpressRoute circuit res
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas). 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform logging that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 ExpressRoute stores data in the following tables.
 
 | Table | Description |
-| ----- | ----------- |
+|:------|:------------|
 | AzureDiagnostics | Common table used by multiple services to store Resource logs. Resource logs from ExpressRoute can be identified with `MICROSOFT.NETWORK`. |
 | AzureMetrics | Metric data emitted by ExpressRoute that measure their health and performance. 
 
@@ -201,7 +201,7 @@ The following table lists some suggested alert rules for ExpressRoute. These ale
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/monitor-overview.png" alt-text="Screenshot of the alerts option from the monitor overview page.":::
 
-1. Select **+ Create > Alert rule** and select the ExpressRoute gateway connection resource. Select **Next: Condition >** to configure the signal.
+1. Select **+ Create** > **Alert rule** and select the ExpressRoute gateway connection resource. Select **Next: Condition >** to configure the signal.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/select-expressroute-gateway.png" alt-text="Screenshot of the selecting ExpressRoute virtual network gateway from the select a resource page.":::
 
