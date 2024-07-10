@@ -49,7 +49,7 @@ After the lab account is created, you can do the following tasks:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** on the left menu. Select **Lab Services** in the **DEVOPS** section. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
 
-    ![All Services -> Lab Services](./media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+    ![All Services -> Lab Services](./media/how-to-attach-detach-shared-image-gallery/select-lab-accounts-service.png)
 3. Select your lab account to see the **Lab Account** page.
 4. Select **Shared image gallery** on the left menu, and select **+ Create** on the toolbar.  
 
