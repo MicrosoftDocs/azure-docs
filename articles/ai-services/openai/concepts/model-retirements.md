@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 06/19/2024
+ms.date: 07/10/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -29,11 +29,37 @@ Azure OpenAI Service models are continually refreshed with newer and more capabl
 
 Azure OpenAI notifies customers of active Azure OpenAI Service deployments for models with upcoming retirements. We notify customers of upcoming retirements as follows for each deployment:
 
-* At least 60 days before retirement 
-* At least 30 days before retirement 
-* At retirement
+1. At model launch, we programmatically designate a "not sooner than" retirement date (typically six months to one year out).
+2. At least 60 days notice before model retirement for Generally Available (GA) models.
+3. At least 14 days notice before preview model version upgrades.  
 
 Retirements are done on a rolling basis, region by region.
+
+## Model availability
+
+1. At least 1 year of model availability for GA models after the release date of model in at least one region worldwide
+2. For global deployments, all future model versions starting with `gpt-4o` and `gpt-4 0409` will be available with their `N` next succeeding model `N+1` for comparison together. 
+1. Customers will have 60 days to try out a new GA model, in at least one global or standard region, before any upgrades happen to a newer GA model.  
+
+### Important caveats
+
+Be aware of the following: 
+
+1. All model version combinations will **not** be available in all regions.
+2. Model version `N` and `N+1` may not always be available in same region 
+3. GA model version `N` may upgrade to a future model version `N+X` in some regions based on capacity limitations, and without the new model version `N+X` separately being available to test in the same region. The new model version will be available to test in other regions before any upgrades are scheduled.   
+4. Preview model versions and GA versions of the same model will not always be available to test together in the same region. There will be preview and GA versions available to test in different regions. 
+5.	We reserve the right to limit future customers using a particular region to balance service quality for existing customers.
+6.	As always at Microsoft, security is of the utmost importance. If a model or model version is found to have compliance or security issues, we reserve the retire to invoke the need to do emergency retirements. See the terms of service for more information.
+
+### Special considerations for government clouds (US Gov, Secret, and Top Secret)
+1.	Global standard deployments will not be available in government clouds.
+2.	Not all models or model versions available in commercial / public cloud will be available in government clouds.
+3.	In the government cloud, we intend to only support two model versions at a time.
+    1. For example `gpt-35-turbo 0125`, `gpt-4 1106-preview`
+4.	There will however be a 30 day overlap between new model versions, where more than two will be available.
+    1. For example if gpt-4 version `1106-preview` is updated to the GA version `turbo-2024-04-09`.
+
 
 ### Who is notified of upcoming retirements
 
