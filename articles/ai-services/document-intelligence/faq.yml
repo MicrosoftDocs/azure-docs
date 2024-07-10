@@ -59,11 +59,11 @@ sections:
           - You can find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
 
       - question: |
-          Does Document Intelligence offer a semantic chunking solution for retrieval-augmented generation?
+         Can Document Intelligence help with semantic chunking within documents for retrieval-augmented generation?
         answer: |
           **Yes.**
-
-          Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval.
+          
+          Document Intelligence can provide the building blocks to enable semantic chunking. Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval.
 
           - Document Intelligence provides a layout model that segments documents into coherent units based on their semantic content.
 
