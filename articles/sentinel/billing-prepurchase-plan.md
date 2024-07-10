@@ -32,7 +32,7 @@ For more information, see the following articles:
 - [Set or change commitment tier](billing-reduce-costs.md#set-or-change-pricing-tier)
 
 >[!IMPORTANT]
-> The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/).
+> The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 The Microsoft Sentinel prepurchase CUs are applied to all Microsoft Sentinel costs. From your Microsoft Sentinel bill, these are all the costs with the **Sentinel** service name. Keep in mind, Microsoft Sentinel integrates with many other Azure services which have separate costs. For more information, see [Costs and pricing for other services](billing.md#costs-and-pricing-for-other-services).
 
@@ -52,7 +52,7 @@ Purchase Microsoft Sentinel prepurchase plans in the [Azure portal reservations]
    - Management group - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select how many Microsoft Sentinel commit units you want to purchase.
    **Need screenshot here**
-   :::image type="content" source="" alt-text="Screenshot showing prepurchase plan discount tiers and their term lengths.":::
+   :::image type="content" source="../cost-management-billing/reservations/media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" alt-text="Screenshot showing prepurchase plan discount tiers and their term lengths.":::
 
 ## Change scope and ownership
 

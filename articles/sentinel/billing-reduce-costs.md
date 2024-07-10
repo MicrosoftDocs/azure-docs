@@ -35,7 +35,7 @@ For workspaces still using classic pricing tiers, the Microsoft Sentinel pricing
 
 ## Buy a prepurchase plan
 
-You can save on your Microsoft Sentinel costs when you prepurchase Microsoft Sentinel commit units (CUs). You can use the prepurchased CUs at any time during the one year purchase term.
+Save on your Microsoft Sentinel costs when you prepurchase Microsoft Sentinel commit units (CUs). Use the prepurchased CUs at any time during the one year purchase term.
 
 Any eligible Microsoft Sentinel costs deduct first from the prepurchased CUs automatically. You don't need to redeploy or assign a prepurchased plan to your Microsoft Sentinel workspaces for the CU usage to get the prepurchase discounts.
 
