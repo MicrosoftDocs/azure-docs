@@ -5,9 +5,9 @@ description: Use an isolated Azure Virtual Network to secure your Azure Machine 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 07/08/2024
 ms.topic: how-to
 ms.custom: tracking-python, security, cliv2, sdkv2, engagement-fy23, build-2023
