@@ -54,7 +54,7 @@ The `default` option is meant exclusively for AKS weekly releases. You can switc
 
 Planned maintenance windows are specified in Coordinated Universal Time (UTC).
 
-A `default` maintenance window has the following legacy properties (no longer recommended)
+A `default` maintenance window has the following legacy properties (no longer recommended):
 
 |Name|Description|Default value|
 |--|--|--|
