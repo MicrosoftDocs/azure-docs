@@ -11,13 +11,13 @@ ms.author: bpinto
 
 # Troubleshoot BareMetal Machine Provisioning in Nexus Cluster
 
-As part of Cluster deploy action, BareMetal machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure Portal and the server Baseboard Management Controller (BMC). For the Operator Nexus Platform, the underlying Dell server hardware uses Integrated Dell Remote Access Controller (iDRAC) as the BMC.
+As part of Cluster deploy action, BareMetal machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure Portal, and the server Baseboard Management Controller (BMC). For the Operator Nexus Platform, the underlying Dell server hardware uses Integrated Dell Remote Access Controller (iDRAC) as the BMC.
 
 ## Prerequisites
 1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
 2. Gather the following information:
   - Subscription ID (SUBSCRIPTION)
-  - Cluster name (CLUSTER), Resource Group (CLUSTER_RG) and Managed Resource Group (CLUSTER_MRG)
+  - Cluster name (CLUSTER), Resource Group (CLUSTER_RG), and Managed Resource Group (CLUSTER_MRG)
 3. The user needs access to the subscription to run Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands
 4. Log in to Azure CLI and select the subscription where the cluster is deployed
 
@@ -49,14 +49,14 @@ These phases are defined as follows:
 | --- | --- |
 | `Registering` | Verify BMC Connectivity and BMC Credentials, Add BMM to Provisioning Service |
 | `Preparing` | Reboot BMM, reset BMC, verify power state |
-| `Inspecting` | Update firmware, apply BIOS settings, configure RAID |
+| `Inspecting` | Update firmware, apply BIOS settings, and configure RAID |
 | `Available` | BMM ready to install OS |
 | `Provisioning` | OS image installing on the BMM, BMM attempts to join Cluster |
 | `Provisioned` | BMM successfully provisioned and joined Cluster |
 | `Deprovisioning` | BMM provisioning failed and retrying |
 | `Failed` | BMM provisioning failed and requires recovery action, all retries exhausted |
 
-During any phase, the BMM detailed status will be set to failed and the phase will be blocked if any of the following occurs:
+During any phase, the BMM detailed status is set to failed and the phase is blocked if any of the following occurs:
 - BMC is unavailable
 - Network port is down
 - Hardware component fails
@@ -100,11 +100,12 @@ az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{nam
 
 ## Troubleshooting failed provisioning state
 
-The following conditions can cause provisioning failures
+The following conditions can cause provisioning failures:
+
 | Error Type | Resolution |
-| --- | --- |
+| ---------- | ---------- |
 | BMC shows Backplane Comm | Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
-| Boot MAC Address mismatch | BareMetal Machine Replace |
+| Preboot eXecution Environment (PXE) MAC Address mismatch | BareMetal Machine Replace |
 | BMC MAC Address mismatch | BareMetal Machine Replace |
 | Boot Network Data not Retrieved from Redfish | Bounce Port, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | Disk Data not retrieved from Redfish | Re-seat Disk, Re-seat PERC, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
@@ -115,7 +116,7 @@ The following conditions can cause provisioning failures
 
 ### Azure Bare Metal Machine activity log
 
-1. Login to [Azure Portal](https://portal.azure.com/).
+1. Log in to [Azure Portal](https://portal.azure.com/).
 2. Search on the BMM Name in the top `Search` box.
 3. Select the `Bare Metal Machine (Operator Nexus)` from the search results.
 4. Select `Activity log` on the left side menu.
@@ -126,7 +127,7 @@ The following conditions can cause provisioning failures
 Look for failures related to invalid credentials or BMC unavailable.
 
 ### Determine BMC IPv4 address
-The IPv4 address of the BMC (BMC_IP) is the `Connect` value returned from the `BareMetal Machine Details` section above.
+The IPv4 address of the BMC (BMC_IP) is the `Connect` value returned from the `BareMetal Machine Details` section (see above).
 
 ### Validate MAC address of BMM against BMC data
 
@@ -164,13 +165,15 @@ Attempt to run ping against the BMC IPv4 address:
    ```
 
 ### Reset Port on Fabric Device
-If the BMC_IP is not responsive, a reset of the fabric port will retry the auto-negotiation on the port and may bring it back online.
+If the BMC_IP is not responsive, a reset of the fabric port retriggers autonegotiation on the port and may bring it back online.
 
 To find the `Network Fabric` port from Azure:
-1. Obtain the RackID, RackSlot from the `BareMetal Machine Details` section above.
+1. Obtain the RackID and RackSlot from the previous `BareMetal Machine Details` section (see above).
 2. In `Azure Portal`, drill down to the `Network Rack` RackID for the BareMetal Machine Rack.
 3. Select `Network Devices` tab and the Management (Mgmt) switch for the rack.
-4. Under `Resources`, select `Network Interfaces` and select the interface for the BMC (iDRAC) or Boot (PXE - Preboot eXecution Environment) interface for the port that requires reset and collect the following:
+4. Under `Resources`, select `Network Interfaces` and then the interface for the BMC (iDRAC) or Boot (PXE) for the port that requires reset.
+
+   Collect the following information:
    - Network Fabric Resource Group (NF_RG)
    - Device Name (NF_DEVICE_NAME)
    - Interface Name (NF_DEVICE_INTERFACE_NAME).
@@ -194,12 +197,12 @@ racadm serveraction powercycle
 ```
 
 ### BMM physical power drain (flea drain)
-For a physical flea drain, the local site hands physically disconnect the power cables from both power adapters for 5 minutes and then restores power. This will ensure the server, capacitors and all components have complete power removal and all cached data will be cleared.
+For a physical flea drain, the local site hands physically disconnect the power cables from both power adapters for 5 minutes and then restore power. This process ensures the server, capacitors, and all components have complete power removal and all cached data are cleared.
 
 ### Reset NVRAM
-If the BareMetal Machine fails to provision but the BMC is available, the credentials are correct and the MAC addresses are correct, it is possible that a OEM or hardware error has locked the boot sequence in the BMC to PXE boot only. 
+If provisioning failed due to an OEM or hardware error, the boot sequence may be locked in NVRAM to `PXE boot` instead of transitioning to `hdd` or `hard drive` boot. . 
 
-For this condition, typically the BMC console shows the BareMetal Machine at the GRUB Bootloader and will not continue without keyboard intervention. 
+This condition typically shows the BareMetal Machine at the GRUB Bootloader on the console and is blocked without intervention. 
 
 To reset the NVRAM, use the following BMC Sequence:
 `Maintenance` -> `Diagnostics` -> `Reset iDrac to Factory Defaults` -> `Discard All Settings, but preserve user and network settings` -> `Apply and reboot`
