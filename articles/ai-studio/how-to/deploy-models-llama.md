@@ -550,7 +550,7 @@ For reference about how to invoke Llama models deployed to managed compute, see 
 
 | **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/llama2/openaisdk)                                    |
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/openaisdk.ipynb)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/samples/llama2/langchain)                                |
 | WebRequests     | [webrequests.ipynb]((https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/webrequests.ipynb))                                 |
 | LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/litellm.ipynb) |
