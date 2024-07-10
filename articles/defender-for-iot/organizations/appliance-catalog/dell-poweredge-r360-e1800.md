@@ -75,7 +75,7 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 
 This procedure describes how to install Defender for IoT software on the Dell R360.
 
-The installation process takes about 20 minutes. <!-- During the ?-->After installation, the system restarts several times.
+The installation process takes about 20 minutes. During the installation, the system restarts several times.
 
 To install Defender for IoT software:
 
