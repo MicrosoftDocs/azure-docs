@@ -56,6 +56,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum request/response payload size in diagnostic logs | 8,192 bytes | 8,192 bytes | 
 | Maximum request URL size<sup>2</sup> | 16,384 bytes | 16,384 bytes |
 | Maximum length of URL path segment | 1,024 characters | 1,024 characters  |
+| Maximum character length of named value | 4,096 characters | 4,096 characters |
 | Maximum size of request or response body in [validate-content policy](/azure/api-management/validate-content-policy) | 100 KiB |  100 KiB |
 | Maximum size of API schema used by [validation policy](/azure/api-management/validation-policies) | 4 MB | 4 MB |
 | Maximum number of active WebSocket connections per unit<sup>3</sup> | 5,000 | 5,000 |

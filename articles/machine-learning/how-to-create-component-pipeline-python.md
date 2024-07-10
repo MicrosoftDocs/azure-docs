@@ -5,9 +5,9 @@ description: Build a machine learning pipeline for image classification. Focus o
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 12/30/2023
 ms.custom:
   - devx-track-python

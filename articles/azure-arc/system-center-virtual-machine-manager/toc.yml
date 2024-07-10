@@ -22,6 +22,8 @@
   items:
   - name: Deploy
     items:
+    - name: Plan for deployment
+      href: support-matrix-for-system-center-virtual-machine-manager.md
     - name: Enable SCVMM inventory resources in Azure
       href: enable-scvmm-inventory-resources.md
     - name: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
