@@ -13,7 +13,7 @@ ms.date: 07/09/2024
 
 ---
 
-# Azure AI Search feature availability across clouds regions
+# Azure AI Search feature availability across cloud regions
 
 This article identifies the cloud regions in which Azure AI Search is available. It also lists which premium features are available in each region:
 
@@ -37,7 +37,6 @@ You can create an Azure AI Search resource in any of the following Azure public 
 |--|--|--|
 | East US​ | ✅ | ✅ |
 | East US 2 ​ | ✅ | ✅ |
-| East US 2 EUAP/PPE ​ | ✅ | ✅ |
 | ​Central US​ ​ | ✅ | ✅ |
 | North Central US​ ​ | ✅ | ✅ |
 | South Central US​ ​ | ✅ | ✅ |
@@ -51,13 +50,13 @@ You can create an Azure AI Search resource in any of the following Azure public 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
 | UK South​ | ✅ | ✅ |
-| UK West​ ​| ✅ | ✅ |
+| UK West​ ​|  | ✅ |
 
 ### United Arab Emirates
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| UAE North​​ | ✅ | ✅ |
+| UAE North​​ | ✅ |  |
 
 ### Switzerland
 
@@ -69,32 +68,33 @@ You can create an Azure AI Search resource in any of the following Azure public 
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| Sweden Central​​ | ✅ | ✅ |
+| Sweden Central​​ | ✅ |  |
+| Sweden North​ | ✅ | ✅ |
 
 ### South Africa
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| South Africa North​ | ✅ | ✅ |
+| South Africa North​ | ✅ |  |
 
 ### Poland
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| Poland Central​​ | ✅ | ✅ |
+| Poland Central​​ |  |  |
 
 ### Norway
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| Norway East​​ | ✅ | ✅ |
+| Norway East​​ | ✅ | |
 
 ### Korea
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
 | Korea Central | ✅ | ✅ |
-| Korea South​ ​ | ✅ | ✅ |
+| Korea South​ ​ |  | ✅ |
 
 ### Japan
 
@@ -107,7 +107,7 @@ You can create an Azure AI Search resource in any of the following Azure public 
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| Italy North​​ | ✅ | ✅ |
+| Italy North​​ |  |  |
 
 ### India
 
@@ -120,8 +120,8 @@ You can create an Azure AI Search resource in any of the following Azure public 
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
-| Germany North ​| ✅ | ✅ |
-| Germany West Central​ ​| ✅ | ✅ |
+| Germany North ​|  |  |
+| Germany West Central​ ​| ✅ |  |
 
 ### France
 
@@ -134,13 +134,21 @@ You can create an Azure AI Search resource in any of the following Azure public 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
 | North Europe​​ | ✅ | ✅ |
+| West Europe​​ | ✅ | ✅ |
+
+### Canary (US)
+
+| Region | Azure AI integration | Semantic ranking |
+|--|--|--|
+| Central US EUAP​ | | ✅ |
+| East US 2 EUAP ​ | | ✅ |
 
 ### Canada
 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
 | Canada Central​​ | ✅ | ✅ |
-| Canada East​​ ​ | ✅ | ✅ |
+| Canada East​​ ​ |  | ✅ |
 
 ### Bazil
 
@@ -160,7 +168,7 @@ You can create an Azure AI Search resource in any of the following Azure public 
 | Region | Azure AI integration | Semantic ranking |
 |--|--|--|
 | Australia East​ ​ | ✅ | ✅ |
-| Australia Southeast​​​ | ✅ | ✅ |
+| Australia Southeast​​​ |  | ✅ |
 
 ## Azure Government regions
 

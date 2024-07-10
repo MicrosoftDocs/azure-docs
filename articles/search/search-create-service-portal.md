@@ -18,29 +18,29 @@ ms.date: 07/09/2024
 
 [**Azure AI Search**](search-what-is-azure-search.md) is a comprehensive information retrieval platform for the enterprise. It supports traditional search and conversational AI-driven search for "chat with your data" experiences over your proprietary content.
 
-The easiest way to create a service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md#create-or-delete-a-service), [Azure CLI](search-manage-azure-cli.md#create-or-delete-a-service), the [Management REST API](search-manage-rest.md#create-or-update-a-service), an [Azure Resource Manager service template](search-get-started-arm.md), a [Bicep file](search-get-started-bicep.md), or [Terraform](search-get-started-terraform.md).
+The easiest way to create a service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. 
+
+You can also use [Azure PowerShell](search-manage-powershell.md#create-or-delete-a-service), [Azure CLI](search-manage-azure-cli.md#create-or-delete-a-service), the [Management REST API](search-manage-rest.md#create-or-update-a-service), an [Azure Resource Manager service template](search-get-started-arm.md), a [Bicep file](search-get-started-bicep.md), or [Terraform](search-get-started-terraform.md).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 ## Before you start
 
-A few service properties are fixed for the lifetime of the service. Before you create the service, decide on a name, region, and tier. 
+A few service properties are fixed for the lifetime of the service. Before creating the service, decide on a name, region, and tier. 
 
 + [Service name](#name-the-service) becomes part of the URL endpoint. The name must be unique and it must conform to naming rules.
 
-+ [Region](search-region-support.md) determines data residency and the availability of certain features. Semantic ranking, Azure AI integration, and availability zones come with region requirements. Make sure your region of choice supports the features you need.
++ [Region](search-region-support.md) determines data residency and the availability of certain features. Semantic ranking and Azure AI integration come with region requirements. Make sure your region of choice supports the features you need.
 
-+ [Service tier](search-sku-tier.md) (Free, Basic, Standard, and so forth) determines infrastructure, service limits, and billing. Some features aren't available on lower or specialized tiers.
++ [Service tier](search-sku-tier.md) determines infrastructure, service limits, and billing. Some features aren't available on lower or specialized tiers.
 
 ## Subscribe (free or paid)
 
-Free services have limitations, but you can complete all of the quickstarts and most tutorials, except for those featuring semantic ranking (it requires a billable service).
+Paid (or billable) search occurs when you choose a billable tier (Basic or higher) when creating the resource on a billable Azure subscription.
 
-To try search for free, [open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and then create your search service by choosing the **Free** tier. You can have one free search service per Azure subscription. Free search services are intended for short-term evaluation of the product for nonproduction applications. If you want to move forward with a production application, create a new search service on a billable tier.
+To try Azure AI Search for free, [open a trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and then create your search service by choosing the **Free** tier. You can have one free search service per Azure subscription. Free search services are intended for short-term evaluation of the product for nonproduction applications. Generally, you can complete all of the quickstarts and most tutorials, except for those featuring semantic ranking (it requires a billable service).
 
 Alternatively, you can use free credits to try out paid Azure services. With this approach, you can create your search service at **Basic** or higher to get more capacity. Your credit card is never charged unless you explicitly change your settings and ask to be charged. Another approach is to [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
-
-Paid (or billable) search occurs when you choose a billable tier (Basic or higher) when creating the resource on a billable Azure subscription.
 
 ## Find the Azure AI Search offering
 
@@ -91,7 +91,7 @@ Service name requirements:
 
 Review the [supported regions list](search-region-support.md) for supported regions at the service and feature level.
 
-We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after specific dates.
+<!-- We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after specific dates.
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
@@ -115,7 +115,7 @@ We strongly recommend the following regions because they provide [more storage p
 | **Asia Pacific** |  East Asia, Southeast Asia​ ​ |
 | **Australia** | Australia East​, Australia Southeast​​ |
 | **Azure Government** | Texas, Arizona, Virginia |
-| **Azure operated by 21Vianet** | China North 3, China East 3 |
+| **Azure operated by 21Vianet** | China North 3, China East 3 | -->
 
 <!-- ### Roll out on May 2024
 
@@ -162,13 +162,15 @@ Some features are subject to [regional availability](search-region-support.md):
 + [Availability Zones](search-reliability.md#availability-zones)
 + [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
 + [Semantic ranker](semantic-search-overview.md)
-+ [Applied AI](cognitive-search-concept-intro.md)
++ [Azure AI integration](cognitive-search-concept-intro.md)
 
-Applied AI includes Azure AI services and Azure OpenAI, and integration is through an Azure AI multi-service account. The account must be in the same physical region as Azure AI Search. There are just a few regions that *don't* provide both. 
+Azure AI integration refers to Azure AI services and Azure OpenAI, and integration is through an Azure AI multi-service account. The account must be in the same physical region as Azure AI Search. There are just a few regions that *don't* provide both. 
 
 ## Choose a tier
 
-Azure AI Search is offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). There are also several [features that are tier-dependent](search-sku-tier.md#feature-availability-by-tier).
+Azure AI Search is offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). There are also several features that are tier-dependent.
+
+Review the [tier descriptions](search-sku-tier.md) for computing characteristics and feature availability.
 
 Basic and Standard are the most common choices for production workloads, but many customers start with the Free service. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
 
