@@ -11,20 +11,23 @@ ms.date: 07/01/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
+This how-to contains two sections:
+
+* Upload a file from a device application
+* Receive file upload notification in a backend application
+
 ## Upload a file from a device application
 
-Follow this procedure for uploading a file from a device to IoT Hub:
+Follow this procedure to upload a file from a device to IoT Hub:
 
 * Connect to IoT Hub
 * Get a SAS URI from IoT Hub
 * Upload the file to Azure storage
 * Notify IoT Hub that it completed the upload
 
-The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class contains methods that a device can use to upload files to IoT Hub.
-
 ### Connect to IoT Hub
 
-Supply the IoT Hub primary connection string to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
+Supply the IoT Hub primary connection string to [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
 
 ``` csharp
 static string connectionString = "{IoT Hub connection string}";
@@ -34,8 +37,6 @@ deviceClient = DeviceClient.CreateFromConnectionString(connectionString);
 ### Get a SAS URI from IoT Hub
 
 Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload SAS URI, which the Azure Storage SDK can use to upload a file to blob for this device.
-
-For example:
 
 ```csharp
 const string filePath = "TestPayload.txt";
@@ -54,11 +55,11 @@ Uri uploadUri = sasUri.GetBlobUri();
 
 Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI.
 
-Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Azure storage, passing the SAS URI.
+Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Blob Storage, passing the SAS URI.
 
-The Azure blob client always uses HTTPS as the protocol to upload the file Azure storage.
+The Azure Blob client always uses HTTPS as the protocol to upload the file to Azure Storage.
 
-In this example, `BlockBlobClient` is passed the SAS URI to create an Azure storage block blob client and uploads the file:
+In this example, `BlockBlobClient` is passed the SAS URI to create an Azure Storage block blob client and uploads the file:
 
 ```csharp
 var blockBlobClient = new BlockBlobClient(uploadUri);
@@ -110,9 +111,9 @@ static string connectionString = "{IoT Hub connection string}";
 serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 ```
 
-### Receive the file upload notification
+### Receive file upload notification in a backend application
 
-You can create a separate backend service to receive file upload notifications.
+You can create a separate backend application to receive file upload notifications.
 
 The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class contains methods that services can use to receive file upload notification.
 

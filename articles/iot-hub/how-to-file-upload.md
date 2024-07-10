@@ -16,7 +16,7 @@ ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 
 This article demonstrates how to:
 
-* Use [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml), using an Azure IoT device and service SDKs.
+* Use [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure Blob Storage](../storage/index.yml), using an Azure IoT device and service SDKs.
 * Notify IoT Hub that the file was successfully uploaded and create a backend service to receive file upload notifications from IoT Hub.
 
 The [Send telemetry from a device to an IoT hub](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json&pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](c2d-messaging-dotnet.md) article show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) article shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
@@ -32,8 +32,8 @@ For more information, see:
 
 * [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
 * [Configure IoT Hub file uploads](iot-hub-configure-file-upload.md)
-* [Azure blob storage documentation](../storage/blobs/storage-blobs-introduction.md)
-* [Azure blob storage API reference](../storage/blobs/reference.md)
+* [Azure Blob Storage documentation](../storage/blobs/storage-blobs-introduction.md)
+* [Azure Blob Storage API reference](../storage/blobs/reference.md)
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]

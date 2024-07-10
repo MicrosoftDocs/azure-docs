@@ -11,22 +11,23 @@ ms.date: 07/01/2024
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
-## Upload a file from a device
+This how-to contains two sections:
 
-Follow this procedure for uploading a file from a device to IoT Hub:
+* Upload a file from a device application
+* Receive file upload notification in a backend application
+
+## Upload a file from a device application
+
+Follow this procedure to upload a file from a device to IoT Hub:
 
 * Connect to IoT Hub
 * Get a SAS URI from IoT Hub
 * Upload the file to Azure Storage
 * Send file upload status notification to IoT Hub
 
-The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class contains methods that a device can use to upload files to IoT Hub.
-
 ### Connection protocol
 
-File upload operations always use HTTPS. `DeviceClient` can define the `IotHubClientProtocol` for other services like telemetry, device method, and device twin.
-
-For example:
+File upload operations always use HTTPS, but [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) can define the [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol) for other services like telemetry, device method, and device twin.
 
 ```java
 IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
@@ -34,8 +35,10 @@ IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 
 ### Connect to IoT Hub
 
+Instantiate the DeviceClient to connect to IoT hub using the connection string and protocol parameters.
+
 ```java
-String connString = "Your device connection string here";
+String connString = "IoT hub connection string";
 DeviceClient client = new DeviceClient(connString, protocol);
 ```
 
@@ -45,10 +48,12 @@ Call [getFileUploadSasUri](/java/api/com.microsoft.azure.sdk.iot.device.devicecl
 
 `FileUploadSasUriResponse` includes these methods and return values. The return values can be passed to file upload methods.
 
-* `getCorrelationId())` - Correlation ID
-* `getContainerName())` - Container name
-* `getBlobName())` - Blob name
-* `getBlobUri())` - Blob URI
+| Method                | Return value   |
+| --------------------- | -------------- |
+| `getCorrelationId()`  | Correlation ID |
+| `getContainerName()`  | Container name |
+| `getBlobName()`       | Blob name      |
+| `getBlobUri()`        | Blob URI       |
 
 For example:
 
@@ -103,9 +108,9 @@ Free the `client` resources.
 client.closeNow();
 ```
 
-## Receive a file upload notification
+## Receive a file upload notification in a backend application
 
-You can create an application to receive file upload notifications.
+You can create a backend application to receive file upload notifications.
 
 The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
 
@@ -116,7 +121,7 @@ Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` p
 Call `createFromConnectionString` to connect to IoT hub.
 
 ```java
-private static final String connectionString = "{Your service connection string here}";
+private static final String connectionString = "{IoT hub service connection string}";
 private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
 ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, protocol);
 ```
