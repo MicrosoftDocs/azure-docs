@@ -2,7 +2,7 @@
 title: Create resources using guided deployments from Microsoft Copilot in Azure
 description: Learn how Microsoft Copilot in Azure (preview) can provide one-click or step-by-step deployment assistance.
 ms.date: 05/28/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom: build-2024, linux-related-content
 ms.author: jenhayes
