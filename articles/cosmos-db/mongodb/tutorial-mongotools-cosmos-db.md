@@ -19,7 +19,7 @@ ms.date: 08/26/2021
 
 This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
-![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png)
 
 ## Overview of data migration using MongoDB native tools
 
@@ -57,11 +57,11 @@ Customers migrating from MongoDB to Azure Cosmos DB benefit from resource govern
 
 You can find the Server Side Retry capability in the *Features* blade of the Azure Cosmos DB portal
 
-![Screenshot of MongoDB SSR feature.](~/reusable-content/ce-skilling/azure/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+![Screenshot of MongoDB SSR feature.](~/reusable-content/ce-skilling/azure/media/dms/mongo-server-side-retry-feature.png)
 
 And if it is *Disabled*, then we recommend you enable it as shown below
 
-![Screenshot of MongoDB SSR enable.](~/reusable-content/ce-skilling/azure/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
+![Screenshot of MongoDB SSR enable.](~/reusable-content/ce-skilling/azure/media/dms/mongo-server-side-retry-enable.png)
 
 ## Choose the proper MongoDB native tool
 

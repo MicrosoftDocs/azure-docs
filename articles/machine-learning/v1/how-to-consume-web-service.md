@@ -5,9 +5,9 @@ description: Learn how to call a web service endpoint that was generated when a 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.author: aashishb
-author: aashishb
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: aashishb
 ms.date: 11/16/2022
 ms.topic: how-to
 ms.devlang: csharp
@@ -105,7 +105,7 @@ The following table shows what these URIs look like:
 
 ### Secured web service
 
-If you secured the deployed web service using a TLS/SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+If you secured the deployed web service using a TLS/SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer (SSL)*, which was the predecessor of TLS.
 
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.

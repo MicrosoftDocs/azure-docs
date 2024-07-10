@@ -53,7 +53,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 #### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ### Create new .NET console app
 

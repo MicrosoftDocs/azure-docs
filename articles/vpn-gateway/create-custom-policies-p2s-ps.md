@@ -22,7 +22,7 @@ Verify that you have a functioning point-to-site VPN already configured. If you 
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## Create and set a policy
 

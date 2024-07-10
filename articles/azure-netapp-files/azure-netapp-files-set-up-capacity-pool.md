@@ -68,7 +68,7 @@ Creating a capacity pool enables you to create volumes within it.
 
    * **Service level**   
      This field shows the target performance for the capacity pool.  
-     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), [**Standard**],(azure-netapp-files-service-levels.md#Standard) or [**Flexible**](azure-netapp-files-service-levels.md#Flexible).
+     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), [**Standard**](azure-netapp-files-service-levels.md#Standard), or [**Flexible**](azure-netapp-files-service-levels.md#Flexible).
 
     >[!NOTE]
     >The **Flexible** service level is only supported for manual QoS capacity pools.

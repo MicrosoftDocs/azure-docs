@@ -56,7 +56,7 @@ Tests observed performance thresholds of a single large volume on scale-out and 
 
 ### 256-KiB sequential workloads (MiB/s) 
 
-The graph represents a 256 KiB sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 9,970 MiB/s pure sequential reads. 
+The graph represents a 256-KiB sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 9,970 MiB/s pure sequential reads. 
 
 :::image type="content" source="./media/performance-large-volumes-linux/256-kib-sequential-reads.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume." lightbox="./media/performance-large-volumes-linux/256-kib-sequential-reads.png":::
 
@@ -87,7 +87,7 @@ The following graphs compare the advantages of `nconnect` with an NFS-mounted vo
 
 ### Linux read throughput 
 
-The following graphs show 256-KiB sequential reads of ~10,000MiB/s with `nconnect`, which is roughly ten times the throughput achieved without `nconnect`.  
+The following graphs show 256-KiB sequential reads of ~10,000MiB/s with `nconnect`, which is roughly 10 times the throughput achieved without `nconnect`.  
 
 Note that 10,000 MiB/s bandwidth is offered by a large volume in the Ultra service level. 
 

@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 05/31/2024
+ms.date: 06/24/2024
 ---
 
 # Deployment stacks
@@ -25,13 +25,13 @@ To create your first deployment stack, work through [Quickstart: create deployme
 Deployment stacks provide the following benefits:
 
 - Streamlined provisioning and management of resources across different scopes as a unified entity.
-- Prevention of undesired modifications to managed resources via [deny settings](#protect-managed-resources-against-deletion).
+- Prevention of undesired modifications to managed resources via [deny settings](#protect-managed-resources).
 - Efficient environment cleanup using delete flags during deployment stack updates.
 - Use of standard templates such as Bicep, ARM templates, or Template specs for your deployment stacks.
 
 ### Known limitations
 
-- Implicitly created resources aren't managed by the stack. Therefore, no deny-assignments or cleanup is possible.
+- Implicitly created resources aren't managed by deployment stack. Therefore, no [deny-assignments](../../role-based-access-control/deny-assignments.md) or cleanup is possible.
 - Deny-assignments don't support tags.
 - Deny-assignments aren't supported at the management group scope. However, they're supported in a management group stack if the deployment is pointed at the subscription scope.
 - Deployment stacks can't delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
@@ -43,11 +43,12 @@ Deployment stacks provide the following benefits:
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 - The PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When this value is used, the command detaches the managed resources and the resource groups. This value will be removed in the next update. Don't use this value.
 - In some cases, the New and Set cmdlets of Azure PowerShell may return a generic template validation error that is not clearly actionable. This bug will be fixed in the next release, but for now, if the error is unclear, you can run the cmdlet in debug mode to see a more detailed error in the raw response.
+- Deploy stacks are not supported by [Microsoft Graph provider](https://aka.ms/graphbicep).
 
 ## Built-in roles
 
 > [!WARNING]
-> Enforcement of the RBAC permission [Microsoft.Resources/deploymentStacks/manageDenySetting/action](/azure/role-based-access-control/permissions/management-and-governance) is rolling out across regions, including Government Clouds. 
+> Enforcement of the RBAC permission [Microsoft.Resources/deploymentStacks/manageDenySetting/action](/azure/role-based-access-control/permissions/management-and-governance) is rolling out across regions, including Government Clouds.
 
 There are two built-in roles for deployment stack:
 
@@ -62,7 +63,7 @@ A deployment stack resource can be created at resource group, subscription, or m
 - A stack at subscription scope can deploy the template passed-in to a resource group scope (if specified) or the same subscription scope where the deployment stack exists.
 - A stack at management group scope can deploy the template passed-in to the subscription scope specified.
 
-It's important to note that where a deployment stack exists, so is the deny-assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode `DenyDelete`, you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny-assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
+It's important to note that where a deployment stack exists, so is the deny-assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode `DenyDelete`, you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny-assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources).
 
 The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
 
@@ -137,7 +138,7 @@ To create a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzManagmentGroupDeploymentStack `
+New-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -320,7 +321,7 @@ To update a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzManagmentGroupDeploymentStack `
+Set-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -664,24 +665,29 @@ To add a managed resource, add the resource definition to the underlying Bicep f
 
 To delete a managed resource, remove the resource definition from the underlying Bicep files, and then run the update command or rerun the create command. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
-## Protect managed resources against deletion
+## Protect managed resources
 
-When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
+You can assign specific permissions to the managed resources of a deployment stack to prevent unauthorized security principals from deleting or updating them. These permissions are referred to as deny settings. You want to store stacks at parent scope. For example, to protect resources in a subscription, you must place the stack at the parent scope, which is the immediate parent management group.
+
+The deny setting only applies to the [control plane operations](../management/control-plane-and-data-plane.md#control-plane), not the [data plane operations](../management/control-plane-and-data-plane.md#data-plane). For example, storage accounts and key vaults are created through the control plane, allowing them to be managed by a deployment stack. However, child resources like secrets or blob containers, which are created through the data plane, cannot be managed by a deployment stack.
+
+The deny setting only applies to explicitly created resources, not implicitly created ones. For example, a managed AKS cluster creates multiple other services to support it, such as a virtual machine. In this case, since the virtual machine is not defined in the Bicep file and is an implicitly created resource, it is not subject to the deployment stack deny settings.
 
 > [!NOTE]
 > The latest release requires specific permissions at the stack scope in order to:
 >
-> - Create or update a deployment stack and set the deny setting to a value other than "None".
-> - Update or delete a deployment stack with an existing deny setting of something other than "None"
+> - Create or update a deployment stack and configure deny setting to a value other than `None`.
+> - Update or delete a deployment stack with an existing deny setting of a value other than `None`.
 >
-> Use the [built-in roles](#built-in-roles) to grant the permissions.
+> Use the deployment stack [built-in roles](#built-in-roles) to grant permissions.
 
 # [PowerShell](#tab/azure-powershell)
 
 The Azure PowerShell includes these parameters to customize the deny-assignment:
 
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
-- `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
+- `DenySettingsApplyToChildScopes`: When specified, the deny setting mode configuration also applies to the child scope of the managed resources. For example, a
+Bicep file defines a _Microsoft.Sql/servers_ resource (parent) and a _Microsoft.Sql/servers/databases_ resource (child). If a deployment stack is created using the Bicep file with the `DenySettingsApplyToChildScopes` setting enabled and the `DenySettingsMode` set to `DenyWriteAndDelete`, you can't add any additional child resources to either the _Microsoft.Sql/servers_ resource or the _Microsoft.Sql/servers/databases_ resource.
 - `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
 - `DenySettingsExcludedPrincipal`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are permitted.
 
@@ -690,7 +696,8 @@ The Azure PowerShell includes these parameters to customize the deny-assignment:
 The Azure CLI includes these parameters to customize the deny-assignment:
 
 - `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
-- `deny-settings-apply-to-child-scopes`: Deny settings are applied to nested resources under managed resources.
+- `deny-settings-apply-to-child-scopes`: When specified, the deny setting mode configuration also applies to the child scope of the managed resources. For example, a
+Bicep file defines a _Microsoft.Sql/servers_ resource (parent) and a _Microsoft.Sql/servers/databases_ resource (child). If a deployment stack is created using the Bicep file with the `deny-settings-apply-to-child-scopes` setting enabled and the `deny-settings-mode` set to `denyWriteAndDelete`, you can't add any additional child resources to either the _Microsoft.Sql/servers_ resource or the _Microsoft.Sql/servers/databases_ resource. 
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
 - `deny-settings-excluded-principals`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are allowed.
 
@@ -777,7 +784,7 @@ To apply deny settings at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzManagmentGroupDeploymentStack `
+New-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -869,7 +876,7 @@ To export a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Save-AzManagmentGroupDeploymentStack `
+Save-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ManagementGroupId "<management-group-id>"
 ```

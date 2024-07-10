@@ -457,7 +457,7 @@ spec:
 
 ### Feature Flags
 
-In the following sample, feature flags with keys starting with `app1` and labels equivalent to `common` are downloaded and refreshed every 10 minutes.
+In the following sample, feature flags with keys starting with `app1` and labels equivalent to `common` are downloaded and refreshed every 10 minutes. Note that to populate feature flags in the generated ConfigMap, the `configMapData.type` property must be `json` or `yaml`.
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -468,6 +468,9 @@ spec:
   endpoint: <your-app-configuration-store-endpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
+    configMapData:
+      type: json
+      key: appSettings.json
   featureFlag:
     selectors:
       - keyFilter: app1*

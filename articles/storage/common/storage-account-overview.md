@@ -170,7 +170,7 @@ Azure Storage bills based on your storage account usage. All objects in a storag
 
 The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage) provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers pricing details](https://azure.microsoft.com/pricing/details/data-transfers) provides detailed pricing information for data egress. You can use the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
-[!INCLUDE [cost-management-horizontal](~/reusable-content/ce-skilling/azure/includes/cost-management-horizontal.md)]
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Legacy storage account types
 
@@ -185,7 +185,7 @@ The following table describes the legacy storage account types. These account ty
 
 ## Scalability targets for standard storage accounts
 
-[!INCLUDE [azure-storage-account-limits-standard](~/reusable-content/ce-skilling/azure/includes/azure-storage-account-limits-standard.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Learn how to develop .NET applications and services that use Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 07/08/2024
 ms.author: kendownie
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
@@ -89,7 +89,7 @@ Replace `myaccount` with your storage account name and `mykey` with your storage
 :::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config" highlight="5,6,7":::
 
 > [!NOTE]
-> The Azurite storage emulator does not currently support Azure Files. Your connection string must target an Azure storage account in the cloud to work with Azure Files.
+> The Azurite storage emulator doesn't currently support Azure Files. Your connection string must target an Azure storage account in the cloud to work with Azure Files.
 
 ## Add using directives
 
@@ -132,7 +132,7 @@ Beginning with version 5.x of the Azure Files client library, you can copy a fil
 You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json).
 
 > [!NOTE]
-> If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authorize access to the source object, even if you are copying within the same storage account.
+> If you're copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authorize access to the source object, even if you are copying within the same storage account.
 
 ### Copy a file to another file
 
@@ -200,18 +200,8 @@ If you encounter any problems, refer to [Troubleshoot Azure Files](/troubleshoot
 
 For more information about Azure Files, see the following resources:
 
-### Conceptual articles and videos
-
-- [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [Use Azure Files with Linux](storage-how-to-use-files-linux.md)
-
-### Tooling support for File storage
-
 - [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)
 - [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
-
-### Reference
-
 - [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage)
 - [File Service REST API](/rest/api/storageservices/File-Service-REST-API)
 
