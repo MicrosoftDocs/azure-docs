@@ -34,7 +34,7 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
 + [Azure AI services multiservice account](/azure/ai-services/multi-service-resource), in a region that provides Azure AI Vision multimodal embeddings.
 
-  Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval) for an updated list.
+  Currently, those regions are: EastUS, WestUS, WestUS2, NorthEurope, WestEurope, FranceCentral, SwedenCentral, SwitzerlandNorth, SoutheastAsia, KoreaCentral, AustraliaEast, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/overview-image-analysis#region-availability) for an updated list.
 
 + Azure AI Search, on any tier, but in the same region as Azure AI services. 
 
