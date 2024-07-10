@@ -327,18 +327,31 @@ To learn more about KEDA, see the [upstream KEDA docs][keda].
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
-[az-aks-create]: /cli/azure/aks#az-aks-create
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 [aks-firewall-requirements]: outbound-rules-control-egress.md#azure-global-required-network-rules
 [az-aks-update]: /cli/azure/aks#az-aks-update
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-group-create]: /cli/azure/group#az-group-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-servicebus-namespace-create]: /cli/azure/servicebus/namespace#az-servicebus-namespace-create
+[az-servicebus-queue-create]: /cli/azure/servicebus/queue#az-servicebus-queue-create
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
+[az-role-definition-list]: /cli/azure/role/definition#az-role-definition-list
+[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-servicebus-namespace-show]: /cli/azure/servicebus/namespace#az-servicebus-namespace-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
 [keda]: https://keda.sh/docs/2.12/
+[kubectl-apply]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/
+[kubectl-describe]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/
+[kubectl-logs]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/
+[kubectl-get]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/
+[kubectl-rollout-restart]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/
 
