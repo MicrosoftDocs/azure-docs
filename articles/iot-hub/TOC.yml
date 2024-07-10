@@ -345,9 +345,6 @@
             - name: Node.js
               displayName: module twins, module identity
               href: module-twins-node.md
-            - name: C
-              displayName: module twins, module identity
-              href: module-twins-c.md
         - name: Get started with device management
           items:
             - name: CLI
