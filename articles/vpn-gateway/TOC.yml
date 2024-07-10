@@ -19,7 +19,7 @@
     items:
     - name: Support for working remotely
       href: ../networking/working-remotely-support.md?toc=/azure/vpn-gateway/toc.json
-    - name: Leveraging Azure VPN
+    - name: Leveraging Azure VPN connections
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md

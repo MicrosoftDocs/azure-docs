@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 07/10/2024
 ms.custom: template-concept, references_regions
 ---
 
@@ -62,8 +62,9 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure SQL Database         | All public regions <br/> All Government regions<br/>All China regions      |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn how to create a private endpoint for Azure SQL](./tutorial-private-endpoint-sql-portal.md)      |
-|Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn how to create a private endpoint for Azure Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
-|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
+| Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn how to create a private endpoint for Azure Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
+|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Single Server.](../postgresql/concepts-data-access-and-security-private-link.md)      |
+|  Azure Database for PostgreSQL - Flexible server         | All public regions <br/> All Government regions<br/>All China regions     |   | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Flexible Server.](../postgresql/flexible-server/concepts-networking-private-link.md)      |
 |  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
 | Azure Cache for Redis | All public regions<br/> All Government regions<br/>All China regions |  | GA <br/> [Learn how to create a private endpoint for Azure Cache for Redis.](../azure-cache-for-redis/cache-private-link.md) |

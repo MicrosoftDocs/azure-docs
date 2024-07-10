@@ -31,7 +31,7 @@ Automatic configurations run for the first time shortly after the configuration 
 
 ## CLI prerequisites
 
-* An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
 
