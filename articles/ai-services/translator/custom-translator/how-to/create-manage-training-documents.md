@@ -88,7 +88,7 @@ In workspace page you can view history of all document uploads details like docu
 2. This page shows the status of all of your past uploads. It displays
     uploads from most recent to least recent. Each upload status shows document name, created by, upload status, upload date, number of files uploaded, type of file uploaded, and language pairs. You can use filter to quickly find documents by name, status, language, and date range.
 
-       :::image type="content" source="../media/how-to/upload-history-page.png" alt-text="Screenshot showing the upload history page.":::
+   :::image type="content" source="../media/how-to/upload-history-page.png" alt-text="Screenshot showing the upload history page.":::
 
 3. The upload history details page shows the files uploaded as part of the uploaded status of the file, language of the file, and error message (if there's an error in upload).
 
