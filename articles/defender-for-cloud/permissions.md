@@ -2,7 +2,7 @@
 title: User roles and permissions
 description: Learn how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: limits-and-quotas
-ms.date: 05/12/2024
+ms.date: 07/10/2024
 ---
 
 # User roles and permissions
@@ -49,6 +49,23 @@ To allow the Security Admin role to automatically provision agents and extension
 | Defender for Containers provisioning Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
 | Defender for Containers provisioning Azure Policy for Kubernetes  | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor |
 | Defender for Containers provisioning Policy extension for Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor |
+
+## Permissions on AWS
+
+When you onboard an Amazon Web Services (AWS) connector, Defender for Cloud will create roles and assign permissions on your AWS account. The following table shows the roles and permission assigned by each plan on your AWS account.
+
+| Defender for Cloud plan | Role created | Permission assigned on AWS account |
+|--|--|--|
+| Defender CSPM | CspmMonitorAws  | To discover AWS resources permissions,read all resources except: "consolidatedbilling:*", "freetier:*", "invoicing:*", "payments:*", "billing:*", "tax:*", "cur:*" |
+| Defender CSPM <br> Defender for Servers | DefenderForCloud-AgentlessScanner | To create and clean up disk snapshots (scoped by tag) - “CreatedBy”: "Microsoft Defender for Cloud" Permissions: "ec2:DeleteSnapshot" "ec2:ModifySnapshotAttribute", "ec2:DeleteTags", "ec2:CreateTags", "ec2:CreateSnapshots", "ec2:CopySnapshot", "ec2:CreateSnapshot", "ec2:DescribeSnapshots", "ec2:DescribeInstanceStatus", Permission to EncryptionKeyCreation "kms:CreateKey", "kms:ListKeys", Permissions to EncryptionKeyManagement "kms:TagResource", "kms:GetKeyRotationStatus", "kms:PutKeyPolicy", "kms:GetKeyPolicy", "kms:CreateAlias", "kms:TagResource", "kms:ListResourceTags", "kms:GenerateDataKeyWithoutPlaintext", "kms:DescribeKey","kms:RetireGrant", "kms:CreateGrant", "kms:ReEncryptFrom" |
+| Defender CSPM <br>> Defender for Storage | SensitiveDataDiscovery | Permissions to discover S3 buckets in the AWS account, permission for the Defender for Cloud scanner to access data in the S3 buckets. S3 read only; KMS decrypt "kms:Decrypt" |
+| CIEM | DefenderForCloud-Ciem <br> DefenderForCloud-OidcCiem | Permissions for Ciem Discovery "sts:AssumeRole", "sts:AssumeRoleWithSAML", "sts:GetAccessKeyInfo", "sts:GetCallerIdentity", "sts:GetFederationToken", "sts:GetServiceBearerToken", "sts:GetSessionToken", "sts:TagSession" |
+| Defender for Servers | DefenderForCloud-DefenderForServers | Permissions to configure JIT Network Access: "ec2:RevokeSecurityGroupIngress", "ec2:AuthorizeSecurityGroupIngress","ec2:DescribeInstances", "ec2:DescribeSecurityGroupRules", "ec2:DescribeVpcs", "ec2:CreateSecurityGroup", "ec2:DeleteSecurityGroup","ec2:ModifyNetworkInterfaceAttribute", "ec2:ModifySecurityGroupRules", "ec2:ModifyInstanceAttribute", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" |
+| Defender for Containers | DefenderForCloud-Containers-K8s | Permissions to List EKS clusters and Collect Data from EKS clusters. "eks:UpdateClusterConfig", "eks:DescribeCluster" |
+| Defender for Containers | DefenderForCloud-DataCollection | Permissions to CloudWatch Log Group created by Defender for Cloud “logs:PutSubscriptionFilter", "logs:DescribeSubscriptionFilters", "logs:DescribeLogGroups" autp "logs:PutRetentionPolicy" Permissions to use SQS queue created by Defender for Cloud "sqs:ReceiveMessage",  "sqs:DeleteMessage" |
+| Defender for Containers | DefenderForCloud-Containers-K8s-cloudwatch-to-kinesis | Permissions to access Kinesis Data Firehose delivery stream created by Defender for Cloud "firehose:*" |
+| Defender for Containers | DefenderForCloud-Containers-K8s-kinesis-to-s3 | Permissions to access S3 bucket created by Defender for Cloud "s3:GetObject", "s3:GetBucketLocation", "s3:AbortMultipartUpload",  "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:PutObject" |
+|
 
 ## Next steps
 
