@@ -53,14 +53,14 @@ There are various Microsoft solutions that you might consider as a direct replac
 Our partners specialize in education-focused solutions for training and classrooms. Labs created with these Microsoft partners solutions will be using Azure in the backend, where lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Our recommended partners also provide transition guides and support to help you move your lab scenarios in Azure Lab Services to their respective services: 
 - [Apporto](https://aka.ms/azlabs-apporto)  
 - [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
-- [Nerdio Manager for Enterprise](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
-- [Skillable Studio](https://aka.ms/azlabs-skillable)
+- [Nerdio Manager for Enterprise (NME)](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
+- [Skillable](https://aka.ms/azlabs-skillable)
 
 Each partner solution supports browser-based web access, cost controls, Azure compute gallery images, and CPU/GPU-based virtual machines. Labs created with these partner solutions will be hosted on Azure, where provisioning can be configured to specific Azure regions for low latency and data residency requirements.
 
 For customers that plan to transition their Windows lab scenarios to **Azure Virtual Desktop**, we recommend **Nerdio Manager for Enterprise (NME)**. NME adds value on top of native Azure Virtual Desktop and Windows 365 management tools, equipping IT professionals in education with the resources they need to efficiently deploy and oversee Azure Virtual Desktop, Windows 365, Windows applications, and endpoint devices, including bring your own device (BYOD).
 
-For customers who are seeking a solution similar to Azure Lab Services, we recommend **Apporto**, **CloudLabs by Spektra Systems**, and **Skillable Studio**. Each of these partners specializes in education-focused solutions for training and classrooms. These partner solutions support various educational needs including Linux, nested virtualization/multi-virtual machine environments, over-the-shoulder monitoring, student admin/non-admin access, and learning management systems (LMS) integration.
+For customers who are seeking a solution similar to Azure Lab Services, we recommend **Apporto**, **CloudLabs by Spektra Systems**, and **Skillable**. Each of these partners specializes in education-focused solutions for training and classrooms. These partner solutions support various educational needs including Linux, nested virtualization/multi-virtual machine environments, over-the-shoulder monitoring, student admin/non-admin access, and learning management systems (LMS) integration.
 
 ## Common questions about Azure Lab Services retirement
 
@@ -83,7 +83,7 @@ Azure Lab Services operates on a consumption-based model where you only pay for 
 Yes, the Microsoft and partner solutions will be available in similar regions as Azure Lab Services. 
 
 ### Do these lab solutions offer feature parity with Azure Lab Services?
-Compared to Azure Lab Services, other Microsoft and partner solutions provide a more comprehensive set of features, such as browser-based web access, over-the-shoulder access, and remote control access. However, some Azure Lab Services features might require a paradigm shift, because the other solutions might offer a different way to achieve a similar outcome. For example, although other solutions don't offer Teams integration, a comparable experience can be achieved by embedding a lab URL within a Teams channel and using auto-scaling or dynamic virtual machine creation. Similarly, Canvas integration might not be necessary when lab URLs can be shared directly with students, though partners like Apporto, Spektra Systems, and Skillable do offer LMS integration.
+Compared to Azure Lab Services, other Microsoft and partner solutions provide a more comprehensive set of features, such as browser-based web access, over-the-shoulder access, and remote control access. However, some Azure Lab Services features might require a paradigm shift, because the other solutions might offer a different way to achieve a similar outcome. For example, although other solutions don't offer Teams integration, a comparable experience can be achieved by embedding a lab URL within a Teams channel and using auto-scaling or dynamic virtual machine creation. Partners like Apporto, Spektra Systems, and Skillable support LMS integrations with platforms such as Canvas, as well as alternate delivery options like REST API or URLS that can be shared directly with students.
 
 ### Can I continue to get support for Azure Lab Services until retirement?
 Yes, you can continue to get help and support for Azure Lab Services by either creating a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) through the Azure portal or by posting a question in the [Microsoft Q&A](https://aka.ms/azlabs-microsoftqa) community forums. 
@@ -96,8 +96,8 @@ If you have questions about how to transition to one of the partner’s solution
 
 - [Apporto](https://aka.ms/azlabs-apporto)  
 - [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
-- [Nerdio Manager for Enterprise](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
-- [Skillable Studio](https://aka.ms/azlabs-skillable)
+- [Nerdio Manager for Enterprise (NME)](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
+- [Skillable](https://aka.ms/azlabs-skillable)
 
 ### Can I automatically migrate my existing lab resources from Azure Lab Services to Microsoft and partner solutions?
 Partners might provide migration tooling to automatically migrate labs from Azure Lab Services. However, early customer pilots show that it’s often more efficient to recreate new labs using the optimizations offered by Microsoft and partner solutions, such as multi-session, dynamic virtual machine creation, and changing the storage type to a lower tier when a virtual machine is shut down. In certain situations, reusing custom images exported from your labs to an Azure compute gallery might be beneficial. Microsoft and partner solutions all support the use of or migration of images from your Azure compute gallery. We recommend evaluating whether existing lab images should be recreated when you're:
