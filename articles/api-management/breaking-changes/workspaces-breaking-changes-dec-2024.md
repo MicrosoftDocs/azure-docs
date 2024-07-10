@@ -49,7 +49,7 @@ Ensure that your API Management instance is running in the **Premium** tier to c
 
 ### Confirm the region for your instance
 
-Adding a dedicated gateway to a workspace requires that the gateway is in the same region as your instance. Currently, workspace gateways are supported in a [subset of regions](../workspaces-overview.md#supported-gateway-features) in which API Management instances can run.
+Adding a dedicated gateway to a workspace requires that the gateway is in the same region as your instance. Currently, workspace gateways are supported in a [subset of regions](../workspaces-overview.md#workspace-gateway) in which API Management instances can run.
 
 To determine if a preview workspace is in a supported region:
 
