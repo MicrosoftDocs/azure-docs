@@ -37,7 +37,7 @@ Retirements are done on a rolling basis, region by region.
 
 ## Model availability
 
-1. At least 1 year of model availability for GA models after the release date of model in at least one region worldwide
+1. At least 1 year of model availability for GA models after the release date of a model in at least one region worldwide
 2. For global deployments, all future model versions starting with `gpt-4o` and `gpt-4 0409` will be available with their (`N`) next succeeding model (`N+1`) for comparison together. 
 1. Customers will have 60 days to try out a new GA model, in at least one global or standard region, before any upgrades happen to a newer GA model.  
 
