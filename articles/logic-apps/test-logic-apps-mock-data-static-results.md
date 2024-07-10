@@ -249,15 +249,15 @@ If you have a previous workflow run with outputs, you can reuse these outputs as
 
 Turning off static results on an action doesn't remove the values from your last setup. So, if you turn on static results again on the same action, you can continue using your previous values.
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer. Find the action where you want to disable mock outputs.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Select the action where you want to disable mock outputs.
+1. Find and select the action where you want to disable mock outputs.
 
 1. In the action details pane, select the **Testing** tab.
 
 1. Select **Disable Static Result** > **Done**.
 
-   ![Screenshot shows logic app workflow, HTTP action, and Testing tab with Disable Static Result selected.](./media/test-logic-apps-mock-data-static-results/disable-static-result.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/disable-static-result.png" alt-text="Screenshot shows logic app workflow, HTTP action, and Testing tab with Disable Static Result selected." lightbox="media/test-logic-apps-mock-data-static-results/disable-static-result.png":::
 
 ## Reference
 
