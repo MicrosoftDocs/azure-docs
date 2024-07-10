@@ -19,6 +19,61 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## [2024](#tab/2024)
 
+## June 2024
+
+|Subservice | Article | Description |
+|---|---|---|
+|Agents|[Azure Monitor Agent Migration Helper workbook](agents/azure-monitor-agent-migration-helper-workbook.md)|Guidance for using the AMA migration workbook.|
+|Agents|[Migrate to Azure Monitor Agent from Log Analytics agent](agents/azure-monitor-agent-migration.md)|Refreshed guidance for migrating to Azure Monitor Agent.|
+|Alerts|[Action groups](alerts/action-groups.md)|Added list of supported roles to which action groups can send emails.|
+|Alerts|[Action groups](alerts/action-groups.md)|Updated PowerShell script for action groups using secure webhook.|
+|Alerts|[Create or edit a log search alert rule](alerts/alerts-create-log-alert-rule.md)|Added limitation of log search alert rules to indicate that log search alert rules don't support linked storage.|
+|Alerts|[Common alert schema](alerts/alerts-common-schema.md)|A link to Azure Monitor Investigator was added to the alerts common schema.|
+|App|[Live metrics: Monitor and diagnose with 1-second latency](app/live-stream.md)|Update Distro Feature Matrix|
+|Application-Insights|[Migrate to workspace-based Application Insights resources](app/convert-classic-resource.md)|Migration guidance for Classic to Workspace-based resources has been updated. Classic Application Insights resources are fully retired and Continuous Export is disabled.|
+|Application-Insights|[OpenTelemetry on Azure](app/opentelemetry.md)|Our OpenTelemetry on Azure offerings are fully documented here, as well as a link to our OpenTelemetry roadmap.|
+|Application-Insights|[Application Insights availability tests](app/availability-overview.md)|Availability Test TLS support is now fully documented.|
+|Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](app/opentelemetry-enable.md)|A tab for Azure Monitor Application Insights OpenTelemetry support of Java Native images is available.|
+|Application-Insights|[Live metrics: Monitor and diagnose with 1-second latency](app/live-stream.md)|We've updated our Live Metrics documentation so that it links out to both OpenTelemetry and the Classic API code.|
+|Application-Insights|[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|For Java OpenTelemetry, we've documented how to locally disable ingestion sampling. (preview feature)|
+|Containers|[Enable private link with Container insights](containers/container-insights-private-link.md)|Added guidance for CLI.|
+|Containers|[Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](containers/prometheus-metrics-scrape-configuration.md)|Updated and refrehed|
+|Containers|[Use Prometheus exporters for common workloads with Azure Managed Prometheus](containers/prometheus-exporters.md)|New article listing supported exporters.|
+|Essentials|[Send Prometheus metrics from virtual machines, scale sets, or Kubernetes clusters to an Azure Monitor workspace](essentials/prometheus-remote-write-virtual-machines.md)|Configure remote write for self-managed Prometheus on a Kubernetes cluster|
+|General|[Create a metric alert with dynamic thresholds](alerts/alerts-dynamic-thresholds.md)|Added possible values for alert User Response field.|
+|Logs|[Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](logs/tutorial-logs-ingestion-api.md)|Updated to use DCR endpoint instead of DCE.|
+|Logs|[Create and manage a dedicated cluster in Azure Monitor Logs](logs/logs-dedicated-clusters.md)|Added new process for configuring dedicated clusters in Azure portal.|
+|Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|The Basic Logs table plan now includes 30 days of interactive retention.|
+|Logs|[Aggregate data in a Log Analytics workspace by using summary rules (Preview)](logs/summary-rules.md)|Summary rules final 2|
+|Visualizations|[Link actions](visualize/workbooks-link-actions.md)|Added clarification that the user must have permissions to all resources referenced in a workbook as well as to the workbook itself.<p>Updated process and screenshots for custom views in workbook link actions.|
+
+
+## May 2024
+
+|Subservice | Article | Description |
+|---|---|---|
+|Agents|[Migrate to Azure Monitor Agent from Log Analytics agent](agents/azure-monitor-agent-migration.md)|Updated support policy for the legacy Log Analytics agent, which will be retired on August 31, 2024.|
+|Alerts|[Create a metric alert with dynamic thresholds](alerts/alerts-dynamic-thresholds.md)|Clarify look-back period|
+|Alerts|[Action groups](alerts/action-groups.md)|Updated the description of action groups to clarify that you can use automatic workflows for any scenario, not only to let users know that alert has been raised.|
+|Alerts|[Supported resources for Azure Monitor metric alerts](alerts/alerts-metric-near-real-time.md)|Removed references to the deprecated Microsoft.Web/containerApps namespace, and replaced with Microsoft.app/containerApps namespace.|
+|Alerts|[Action groups](alerts/action-groups.md)|Updated action group ARM role group notification functionality.|
+|Alerts|[Create or edit a log search alert rule](alerts/alerts-create-log-alert-rule.md)|Updated article to indicate that log search alert rule queries support 'ago()' with timespan literals only.|
+|Application-Insights|[Configure Azure Monitor OpenTelemetry](app/opentelemetry-configuration.md)|The OpenTelemetry live metrics feature preview is available for .NET Core, Node.js, and Python.|
+|Application-Insights|[Testing behind a firewall](app/availability-private-test.md)|New guidance is available for availability testing behind firewalls.|
+|Application-Insights|[Application Insights availability tests](app/availability-overview.md)|We added clarification on both running availability tests on an intranet server and the user agent string used for availability tests.|
+|Application-Insights|[Application map: Triage distributed applications](app/app-map.md)|This article has been refreshed with all new screenshots.|
+|Application-Insights|[Downtime, SLA, and outages workbook](app/sla-report.md)|This article has been refreshed with all new screenshots.|
+|Application-Insights|[Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)|Clarification added for Java and JavaScript automatic flushing behavior and configuration.|
+|Containers|[Switch to using managed Prometheus visualizations for Container Insights (preview)](containers/container-insights-experience-v2.md)|V2 docs updates|
+|Essentials|[Built-in policies for Azure Monitor](essentials/diagnostics-settings-policies-deployifnotexists.md)|New built-in policies for "allLogs" category |
+|Logs|[Define Azure Monitor Agent network settings](agents/azure-monitor-agent-data-collection-endpoint.md)|When you create a data collection rule, Azure Monitor now automatically creates a data collection endpoint and associates it to the data collection rule.|
+|Logs|[Azure Monitor customer-managed key](logs/customer-managed-keys.md)|Azure Monitor Logs now supports running search jobs in Log Analytics workspaces with customer managed keys.|
+|Logs|[Enhance resilience by replicating your Log Analytics workspace across regions (Preview)](logs/workspace-replication.md)|You can now replicate your Log Analytics workspace across regions and switch over to the replicated workspace if there's a regional failure.|
+|Logs|[Analyze data using Log Analytics Simple mode (Preview)](logs/log-analytics-simple-mode.md)|Simple mode provides the most commonly used Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time.|
+|Profiler|[Troubleshoot Application Insights Profiler](profiler/profiler-troubleshooting.md)|Update Troubleshooting guide with instructions for stopping unused slots.|
+|Profiler|[Troubleshoot Application Insights Profiler](profiler/profiler-troubleshooting.md)|Update Troubleshooting guide with prerequisite for latest ASP.NET Core runtime and explanation for limit on active profiling sessions.|
+
+
 ## April 2024
 
 |Subservice | Article | Description |
@@ -163,7 +218,7 @@ Application-Insights|[Application Insights availability tests](app/availability-
 Containers|[Data transformations in Container insights](containers/container-insights-transformations.md)|New article describes how to transform data using a DCR transformation in Container insights|
 Containers|[Enable Container insights](containers/container-insights-onboard.md)|New article: Enable private link with Container insights|
 Essentials|[Azure Monitor managed service for Prometheus rule groups](essentials/prometheus-rule-groups.md)|Create or edit Prometheus rule group in the Azure portal (preview)|
-Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot for Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
+Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot in Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
 Logs|[Best practices for Azure Monitor Logs](./best-practices-logs.md)|More guidance on Azure Monitor Logs features that provide enhanced resilience.|
 Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-archive.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added Basic logs support for Network managers tables.|

@@ -3,8 +3,8 @@ title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/03/2023
-ms.topic: conceptual
+ms.date: 06/10/2024
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -174,6 +174,19 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. Select **Apply** to save changes.
 
+1. Select **Review + create**, review the deployment as seen in the JSON file, and select **Create**.
+
+## Update partner module URIs
+
+If you use partner modules, update your module deployments with image URIs provided by the partner. Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1) to obtain the updated container image URI. Update your device configurations with the new image URI provided by the publisher.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
+1. On the left pane, select **Devices** under the **Device management** menu.
+1. Select the IoT Edge device that uses the partner module from the list.
+1. On the upper bar, select **Set Modules**.
+1. Choose the IoT Edge partner module that you want to update with the new image URI.
+1. Update the **Image URI** value with the new image URI provided by the publisher.
+1. Select **Apply** to save changes.
 1. Select **Review + create**, review the deployment as seen in the JSON file, and select **Create**.
 
 ## Verify versions match

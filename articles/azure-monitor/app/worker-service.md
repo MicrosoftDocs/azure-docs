@@ -24,7 +24,7 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
 
 You must have a valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Connection Strings](./sdk-connection-string.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Use Application Insights SDK for Worker Service
 
@@ -311,9 +311,9 @@ This approach also ensures all the telemetry generated, both automatic and manua
 
 The following sections list the full telemetry automatically collected by Application Insights.
 
-### Live Metrics
+### Live metrics
 
-[Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. Although it might take a few minutes before telemetry appears in the portal and analytics, Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if application monitoring with Application Insights is configured correctly. Telemetry can take a few minutes to appear in the Azure portal, but the live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
 
 ### ILogger logs
 
@@ -382,7 +382,7 @@ public void ConfigureServices(IServiceCollection services)
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
 
-    // Disables QuickPulse (Live Metrics stream).
+    // Disables live metrics (also known as QuickPulse).
     aiOptions.EnableQuickPulseMetricStream = false;
     services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
 }
@@ -394,10 +394,10 @@ The following table lists commonly used settings in `ApplicationInsightsServiceO
 
 |Setting | Description | Default
 |---------------|-------|-------
-|EnableQuickPulseMetricStream | Enable/Disable the Live Metrics feature. | True
+|EnableQuickPulseMetricStream | Enable/Disable the live metrics feature. | True
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling. | True
 |EnableHeartbeat | Enable/Disable the Heartbeats feature, which periodically (15-min default) sends a custom metric named "HeartBeatState" with information about the runtime like .NET version and Azure environment, if applicable. | True
-|AddAutoCollectedMetricExtractor | Enable/Disable the AutoCollectedMetrics extractor, which is a telemetry processor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | True
+|AddAutoCollectedMetricExtractor | Enable/Disable the AutoCollectedMetrics extractor, which is a telemetry processor that sends preaggregated metrics about Requests/Dependencies before sampling takes place. | True
 |EnableDiagnosticsTelemetryModule | Enable/Disable `DiagnosticsTelemetryModule`. Disabling this setting will cause the following settings to be ignored: `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, and `EnableAppServicesHeartbeatTelemetryModule`. | True
 
 For the most up-to-date list, see the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs).
@@ -593,7 +593,7 @@ No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-ag
 
 Yes. Feature support for this SDK is the same in all platforms, with the following exceptions:
 
-* Performance counters are supported only in Windows except for Process CPU/Memory shown in Live Metrics.
+* Performance counters are supported only in Windows except for Process CPU/Memory shown in live metrics.
 * Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
   ```csharp

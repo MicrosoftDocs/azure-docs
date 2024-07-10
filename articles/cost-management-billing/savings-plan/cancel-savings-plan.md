@@ -19,7 +19,7 @@ All savings plan purchases are final. After you buy a savings plan, you can't ca
 
 While you cannot cancel or exchange a savings plan, you can trade in select Azure reservations for a new savings plan. For more information about reservation trade ins, see [Self-service trade-in for Azure savings plans](reservation-trade-in.md).
 
-## Next steps
+## Related content
 
 - Learn more about savings plan at [What are Azure savings plans for compute?](savings-plan-compute-overview.md)
 - Learn about [Self-service trade-in for Azure savings plans](reservation-trade-in.md).

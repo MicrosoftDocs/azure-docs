@@ -3,7 +3,7 @@ title: Use Image Cleaner on Azure Kubernetes Service (AKS)
 description: Learn how to use Image Cleaner to clean up vulnerable stale images on Azure Kubernetes Service (AKS)
 ms.author: nickoman
 author: nickomang
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/22/2024
 ---
@@ -67,9 +67,10 @@ You can manually trigger the cleanup by defining a CRD object,`ImageList`. This 
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myManagedCluster \
-      --enable-image-cleaner
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-image-cleaner \
+        --generate-ssh-keys
     ```
 
 ### Enable Image Cleaner on an existing cluster
@@ -90,17 +91,18 @@ You can manually trigger the cleanup by defining a CRD object,`ImageList`. This 
     ```azurecli-interactive
     # Create a new cluster with specifying the interval
     az aks create \
-      --resource-group myResourceGroup \
-      --name myManagedCluster \
-      --enable-image-cleaner \
-      --image-cleaner-interval-hours 48
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-image-cleaner \
+        --image-cleaner-interval-hours 48 \
+        --generate-ssh-keys
 
     # Update the interval on an existing cluster
     az aks update \
-      --resource-group myResourceGroup \
-      --name myManagedCluster \
-      --enable-image-cleaner \
-      --image-cleaner-interval-hours 48
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-image-cleaner \
+        --image-cleaner-interval-hours 48
     ```
 
 ## Manually remove images using Image Cleaner
@@ -247,7 +249,7 @@ The `eraser-aks-xxxxx` pod deletes within 10 minutes after work completion. You 
 2. Get the Log Analytics resource ID using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-      az aks show -g myResourceGroup -n myManagedCluster
+      az aks show --resource-group myResourceGroup --name myManagedCluster
     ```
 
      After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID:

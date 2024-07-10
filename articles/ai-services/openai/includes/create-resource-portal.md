@@ -6,7 +6,7 @@ description: Learn how to use the Azure portal to create an Azure OpenAI resourc
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 01/30/2024
+ms.date: 05/20/2024
 ---
 
 ## Prerequisites
@@ -89,7 +89,9 @@ As an option, you can add a private endpoint for access to your resource. Select
 
 1. Confirm your configuration settings, and select **Create**.
 
-The Azure portal displays a notification when the new resource is available.
+1. The Azure portal displays a notification when the new resource is available. Select **Go to resource**.
+
+   :::image type="content" source="../media/create-resource/create-resource-go-to-resource.png" alt-text="Screenshot showing the Go to resource button in the Azure portal.":::
 
 ## Deploy a model
 
@@ -109,6 +111,7 @@ To deploy a model, follow these steps:
    |---|---|
    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability). |
    | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs. |
+   |**Deployment type** | **Standard**, **Global-Standard**, **Provisioned-Managed**. Learn more about [deployment type options](../how-to/deployment-types.md). |  
    | **Advanced options** (Optional) | You can set optional advanced settings, as needed for your resource. <br> - For the **Content Filter**, assign a content filter to your deployment.<br> - For the **Tokens per Minute Rate Limit**, adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time by using the [**Quotas**](../how-to/quota.md) menu. [**Dynamic Quota**](../how-to/dynamic-quota.md) allows you to take advantage of more quota when extra capacity is available. |
 
 5. Select a model from the dropdown list.

@@ -246,12 +246,12 @@ call.off('isLocalVideoStartedChanged', () => {
 
 ## Start and stop screen sharing while on a call
 To start screen sharing while on a call, you can use the asynchronous method `startScreenSharing()` on a `Call` object:
-
 ### Start screen sharing
 ```js
 // Start screen sharing
 await call.startScreenSharing();
 ```
+Note: Sending screenshare is only supported on desktop browser.
 
 ### Find the screen sharing in the collection of LocalVideoStream
 After you successfully start sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing`, is added to the `localVideoStreams` collection on the call instance.

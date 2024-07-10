@@ -3,7 +3,7 @@ title: Overview of deployment troubleshooting for Bicep files and ARM templates
 description: Describes deployment troubleshooting when you use Bicep files or Azure Resource Manager templates (ARM templates) to deploy Azure resources.
 ms.topic: overview
 ms.custom: troubleshooting-overview, devx-track-arm-template, devx-track-bicep
-ms.date: 04/05/2023
+ms.date: 06/20/2024
 ---
 
 # What is deployment troubleshooting?

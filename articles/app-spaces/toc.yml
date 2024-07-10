@@ -8,10 +8,19 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy a web app
-      href: quickstart-deploy-web-app.md
+    - name: Deploy a starter app
+      href: quickstart-deploy-starter-app.md
+    - name: Deploy your app
+      href: quickstart-deploy-your-app.md
 - name: How-to guides
   expanded: true
   items:
-    - name: Deploy a sample web app
-      href: deploy-app-spaces-template.md
+    - name: Add components
+      href: how-to-add-components.md  
+    - name: Manage components
+      href: how-to-manage-components.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Full stack app
+      href: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/app-spaces-building-a-full-stack-app-with-google-authentication/ba-p/4141994

@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Create an SMB Azure file share and connect it to a Windows virtual machine using the Azure portal
+title: Create an SMB Azure file share and connect it to a Windows VM
 description: This tutorial covers how to create an SMB Azure file share using the Azure portal, connect it to a Windows VM, upload a file to the file share, create a snapshot, and restore the share from the snapshot.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 05/06/2024
+ms.date: 05/13/2024
 ms.author: kendownie
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
@@ -25,6 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > * Create and delete a share snapshot
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -184,7 +185,7 @@ Just like with on-premises VSS snapshots, you can view the snapshots from your m
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Use an Azure file share with Windows](storage-how-to-use-files-windows.md)

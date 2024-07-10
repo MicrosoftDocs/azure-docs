@@ -310,7 +310,7 @@ Applies to: Iot Hub, Device Provisioning Service, IoT Central
 
 A REST API you can use on a [device](#device) to send [device-to-cloud](#device-to-cloud) messages to an [IoT hub](#iot-hub), and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [Azure IoT device SDKs](#azure-iot-device-sdks).
 
-[Learn more](/rest/api/iothub/device)
+[Learn more](/rest/api/iothub/device/device)
 
 Casing rules: Always *device REST API*.
 

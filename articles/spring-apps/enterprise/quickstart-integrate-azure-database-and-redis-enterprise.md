@@ -120,7 +120,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
 The following instructions describe how to provision an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server by using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
 

@@ -93,6 +93,7 @@ This video clip is important if you build a real-time conversation with the cust
   - Maintain status 0, don't speak, but still feel relaxed.
   - Even remaining in status 0, don't keep completely still; you can move a little bit but not too much. Perform like you're waiting.
   - Maintain a smile as if listening or waiting patiently.
+  - Avoid nodding frequently.
   - Length: 1 minute.
     
 **Samples of silent status:** 
@@ -130,9 +131,9 @@ High-quality avatar models are built from high-quality video recordings, includi
 
 ## Data requirements
 
-Doing some basic processing of your video data is helpful for model training efficiency, such as:
+Doing some basic processing of your video data is helpful for model training efficiency, such as: 
 
-- Make sure that the character is in the middle of the screen, the size and position are consistent during the video processing. Each video processing parameter such as brightness, contrast remains the same and doesn't change.
+- Make sure that the character is in the middle of the screen, the size and position are consistent during the video processing. Each video processing parameter such as brightness, contrast remains the same and doesn't change. The output avatar's size, position, brightness, contrast will directly reflect those present in the training data. We don't apply any alterations during processing or model building.
 - The start and end of the clip should be kept in state 0; the actors should close their mouths and smile, and look ahead. The video should be continuous, not abrupt.
 
 **Avatar training video recording file format:** .mp4 or .mov.

@@ -147,4 +147,4 @@ Confirm that the SIP OPTIONS status of each SIP trunk is Active.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure a test customer](configure-test-customer-teams-direct-routing.md)
+> [Prepare for live traffic](prepare-for-live-traffic-teams-direct-routing.md)

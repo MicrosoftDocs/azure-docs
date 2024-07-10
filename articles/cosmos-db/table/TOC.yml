@@ -22,8 +22,6 @@
       href: tutorial-query.md
     - name: Distribute data globally
       href: tutorial-global-distribution.md
-    - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
     - name: Kusto Query Language (KQL) transformations
       displayName: KQL, workspace, data
       href: ../tutorial-log-transformation.md
@@ -233,12 +231,6 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Jupyter notebooks
-      items:
-        - name: Overview
-          href: ../notebooks-overview.md
-        - name: FAQ
-          href: ../notebooks-faq.yml    
     - name: Emulator
       href: ../emulator.md
     - name: Network bandwidth
@@ -278,7 +270,7 @@
           items:
             - name: Use explorer
               href: ../data-explorer.md
-            - name: Keyboard shorcuts
+            - name: Keyboard shortcuts
               href: ../data-explorer-shortcuts.md
     - name: Migrate data
       items:

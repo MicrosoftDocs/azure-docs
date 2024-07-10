@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 07/08/2022
+ms.date: 06/10/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -22,7 +22,7 @@ IoT Edge modules need an IoT Edge environment to run and debug. You can use an I
 
 1. In the Visual Studio Code command palette, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module**.
 1. Provide the names of any inputs that you want to test with your module. If you're using the default sample code, use the value **input1**.
-1. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the output similar to the following in the integrated terminal if the simulator has been started in single module mode successfully. The output includes an example `curl` command to send a message to the simulator. You'll use the `curl` command later.
+1. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the output similar to the following in the integrated terminal if the simulator is started in single module mode successfully. The output includes an example `curl` command to send a message to the simulator. You'll use the `curl` command later.
 
     ```output
     D:\Workspaces\EdgeSolution>iotedgehubdev start -i "input1"
@@ -37,6 +37,6 @@ IoT Edge modules need an IoT Edge environment to run and debug. You can use an I
 
 ### Debug module in launch mode
 
-After the simulator has been started successfully, you can debug your module code.
+After the simulator is started successfully, you can debug your module code.
 
 Prepare your environment for debugging, set a breakpoint in your module, and select the debug configuration to use.

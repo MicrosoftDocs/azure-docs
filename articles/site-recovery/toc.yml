@@ -4,12 +4,16 @@
   items:
   - name: About Site Recovery
     href: site-recovery-overview.md
-  - name: What's new in Site Recovery
-    href: site-recovery-whats-new.md
-  - name: Archive for What's new
-    href: site-recovery-whats-new-archive.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
+- name: What's New
+  items:
+  - name: Release notes
+    href: site-recovery-whats-new.md
+  - name: Feature releases
+    href: feature-updates-whats-new.md
+  - name: What's new - Archive
+    href: site-recovery-whats-new-archive.md
 - name: Quickstarts
   expanded: true
   items:
@@ -102,7 +106,7 @@
     - name: Move Azure VMs between Government & Public regions
       href: region-move-cross-geos.md
     - name: Move a vault to a different region
-      href: move-vaults-across-regions.md      
+      href: ../operational-excellence/relocation-site-recovery.md?toc=/azure/site-recovery/toc.json
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
@@ -155,6 +159,8 @@
     items:
     - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
+    - name: Azure trusted launch VMs
+      href: concepts-trusted-vm.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery
@@ -293,6 +299,8 @@
       href: vmware-physical-azure-classic-deprecation.md
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
+    - name: Delete or reset an appliance
+      href: delete-appliance.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
@@ -539,7 +547,7 @@
     href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
-  - name: Monitor
+  - name: Monitor Site Recovery
     href: monitor-site-recovery.md
   - name: Use Recovery Services dashboard
     href: site-recovery-monitor-and-troubleshoot.md
@@ -549,8 +557,14 @@
     href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
+  - name: Monitoring data reference
+    href: monitor-site-recovery-reference.md  
   - name: Monitor using Backup center
     href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+- name: Reporting
+  items:
+  - name: Configure Site Recovery reports
+    href: report-site-recovery.md
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
@@ -597,8 +611,6 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
     href: /rest/api/site-recovery
-  - name: Monitoring data reference
-    href: monitor-site-recovery-reference.md
   - name: Azure Well-Architected Framework
     href: /azure/well-architected
 - name: Related

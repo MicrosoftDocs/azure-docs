@@ -32,7 +32,7 @@ By default key management for Azure NetApp Files is handled by the service, usin
 
 Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. The feature is generally available (GA) in [supported regions](configure-customer-managed-keys.md#supported-regions).
 
-Also, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access at [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com). As capacity becomes available, requests will be approved.
+Also, customer-managed keys using Azure Dedicated HSM is supported on a controlled basis. Support is currently available in the East US, South Central US, West US 2, and US Gov Virginia regions. You can request access [with the Azure NetApp Files feedback form](https://aka.ms/ANFFeedback). As capacity becomes available, requests will be approved.
 
 ## Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
