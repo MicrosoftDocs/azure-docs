@@ -34,10 +34,12 @@ This article shows you how to securely scale your applications with the Kubernet
     az group create --name $RG_NAME --location $LOCATION
     ```
 
-## Deploy an AKS cluster with workload identity and KEDA add-ons enabled
+## Create an AKS cluster
+
+1. Create an AKS cluster with the KEDA add-on, workload identity, and OIDC issuer enabled using the [`az aks create`][az-aks-create] command with the `--enable-workload-identity`, `--enable-keda`, and `--enable-oidc-issuer` flags. Make sure you replace the placeholder value with your own value.
 
     ```azurecli-interactive
-    AKS_NAME=aks-keda-demo
+    AKS_NAME=<cluster-name>
 
     az aks create \
         --name $AKS_NAME \
