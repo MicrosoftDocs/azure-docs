@@ -19,7 +19,7 @@ This article explains the  HDInsight interface and code details to fetch OAuth t
 * HDInsight Cluster must be with ADL-Gen2 storage as primary storage, which enables MSI based access for this storage. This same MSI used for all job resources access. Ensure the required IAM permissions given to this MSI to access Azure resources.
 * IMDS endpoint can't work for HDI worker nodes and the access tokens can be fetched using this HDInsight utility only.
 
-There are two Jave client implementations provided to fetch the access token.
+There are two Java client implementations provided to fetch the access token.
 
 * Option 1: HDInsight utility and  API usage to fetch access token.
 * Option 2: HDInsight utility, TokenCredential Implementation to fetch Access Token.
