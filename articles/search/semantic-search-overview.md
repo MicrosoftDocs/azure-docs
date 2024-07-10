@@ -20,7 +20,7 @@ In Azure AI Search, *semantic ranking* is a feature that measurably improves sea
 Semantic ranker is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search)
+> * [Check regional availability](search-region-support.md)
 > * [Sign in to Azure portal](https://portal.azure.com) to verify your search service is Basic or higher
 > * [Enable semantic ranking and choose a pricing plan](semantic-how-to-enable-disable.md)
 > * [Set up a semantic configuration in a search index](semantic-how-to-configure.md)
