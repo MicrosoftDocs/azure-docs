@@ -186,7 +186,7 @@ You can configure the release namespace.
 
 # [Azure CLI](#tab/cli)
 
-The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. To redefine the namepsace, include the cluster `--scope`.
+The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. To redefine the namespace, include the cluster `--scope`.
 
 ```azurecli
 az k8s-extension create \
@@ -218,7 +218,7 @@ properties: {
 
 ---
 
-[Learn how to configure the Dapr release namespace when migrating from Dapr OSS to the Dapr extension](./dapr-migration.md).
+[Learn how to configure the Dapr release namespace when migrating from Dapr open source to the Dapr extension](./dapr-migration.md).
 
 ## Show current configuration settings
 
