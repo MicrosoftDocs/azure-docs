@@ -55,7 +55,7 @@ For more information about the resource types for App Service, see [App Service 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md#metrics).
 
-For help understanding metrics in App Service, see [Understand metrics](web-sites-monitor.md#understand-metrics). Metrics can be viewed by aggregates on data (ie. average, max, min, etc), instances, time range, and other filters. Metrics can monitor performance, memory, CPU, and other attributes.
+For help understanding metrics in App Service, see [Understand metrics](web-sites-monitor.md#understand-metrics). Metrics can be viewed by aggregates on data (ie. average, max, min, etc.), instances, time range, and other filters. Metrics can monitor performance, memory, CPU, and other attributes.
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md#resource-logs).
