@@ -10,7 +10,7 @@ ms.date: 07/09/2024
 
 # Support and feedback for Edge Storage Accelerator (preview)
 
-If you experience an issue or need support during the preview, follow these steps:
+If you experience an issue or need support during the preview, see the following video and steps to request support for Edge Storage Accelerator in the Azure portal:
 
 > [!VIDEO f477de99-2036-41a3-979a-586a39b1854f]
 
