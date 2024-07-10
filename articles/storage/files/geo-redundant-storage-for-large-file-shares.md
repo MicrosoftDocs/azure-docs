@@ -4,7 +4,7 @@ description: Azure Files geo-redundancy for large file shares significantly impr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/29/2024
+ms.date: 07/05/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -37,7 +37,7 @@ If the primary region becomes unavailable for any reason, you can [initiate an a
 
 ## New limits for geo-redundant shares
 
-In regions that are now generally available, all standard SMB file shares that are geo-redundant (both new and existing) now support up to 100TiB capacity and have higher performance limits: 
+All standard SMB file shares that are geo-redundant (both new and existing) now support up to 100TiB capacity and have higher performance limits: 
 
 | **Attribute** | **Previous limit** | **New limit** |
 |---------------|-------------------|---------------|
@@ -46,37 +46,16 @@ In regions that are now generally available, all standard SMB file shares that a
 | Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) (150x increase) |
 
 ## Region availability
-Azure Files geo-redundancy for large file shares is generally available in all regions except China East 2 and China North 2, which are still in preview. 
+Azure Files geo-redundancy for large file shares is generally available in all regions. 
 
 ## Pricing
 
 Pricing is based on the standard file share tier and redundancy option configured for the storage account. To learn more, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## Register for the feature
-
-To get started, register for the feature using Azure portal or PowerShell. This step is required for regions that are in preview and is no longer required for regions that are generally available. 
-
-# [Azure portal](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-2. Search for and select **Preview features**.
-3. Click the **Type** filter and select **Microsoft.Storage**.
-4. Select **Azure Files geo-redundancy for large file shares** and click **Register**.
-
-# [Azure PowerShell](#tab/powershell)
-
-To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
-
-```azurepowershell-interactive
-Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
-Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Microsoft.Storage 
-```
----
-
 ## Configure geo-redundancy and 100 TiB capacity for standard SMB file shares 
 
-In regions that are now generally available:
-- All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100 TiB capacity, the large file share (LargeFileSharesState) property on storage accounts is no longer used and will be removed in the future. 
+In all regions that support geo-redundancy:
+- Standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100 TiB capacity, the large file share (LargeFileSharesState) property on storage accounts is no longer used and will be removed in the future. 
 - If you have existing file shares, you can now increase the file share size up to 100 TiB (share quotas aren't automatically increased).
 - Performance limits (IOPS and throughput) for your file shares have automatically increased to the storage account limits. 
 
