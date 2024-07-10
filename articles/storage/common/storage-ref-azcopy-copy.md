@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/31/2024
+ms.date: 07/09/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -20,7 +20,7 @@ Copies source data to a destination location.
 Copies source data to a destination location. The supported directions are:
 
 - local <-> Azure Blob (SAS or OAuth authentication)
-- local <-> Azure Files (Share/directory SAS authentication)
+- local <-> Azure Files (Share/directory SAS authentication or OAuth authentication)
 - local <-> Azure Data Lake Storage Gen2 (SAS, OAuth, or SharedKey authentication)
 - Azure Blob (SAS or public) -> Azure Blob (SAS or OAuth authentication)
 - Azure Data Lake Storage Gen2 (SAS or public) -> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
@@ -28,7 +28,7 @@ Copies source data to a destination location. The supported directions are:
 - Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
 - Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication)
 - Azure Blob (SAS or public) -> Azure Files (SAS)
-- Azure Files (SAS) -> Azure Files (SAS)
+- Azure File (SAS or OAuth authentication) <-> Azure File (SAS or OAuth authentication)
 - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
 - AWS S3 (Access Key) -> Azure Block Blob (SAS or OAuth authentication)
 - Google Cloud Storage (Service Account Key) -> Azure Block Blob (SAS or OAuth authentication)

@@ -25,9 +25,18 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 <!-- 6. In the Update column, add a bookmark to the H3 paragraph that you created (#<bookmark-name>) .-->
 
 ## July 2024 
-|Date | Category | Update
+|Date | Category | Update|
 |--|--|--|
+| July 9 | Upcoming update | [Inventory experience improvement](#update-inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
+
+### Update: Inventory experience improvement
+
+July 9, 2024
+
+**Estimated date for change: July 11, 2024**
+
+The inventory experience will be updated to improve performance, including improvements to the blade's 'Open query' query logic in Azure Resource Graph. Updates to the logic behind Azure resource calculation may result in additional resources counted and presented.
 
 ### Container mapping tool to run by default in GitHub
 
