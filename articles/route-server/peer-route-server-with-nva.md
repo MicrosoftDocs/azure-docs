@@ -254,4 +254,4 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 ## Related content
 
-In this tutorial, you learned how to create and configure an Azure Route Server with a network virtual appliance (NVA). To learn more about Route Servers, see [Azure Route Server frequently asked questions (FAQs)](route-server-faq.md).
+In this tutorial, you learned how to create and configure an Azure Route Server with a network virtual appliance (NVA). To learn more about Route Servers, see [Azure Route Server frequently asked questions (FAQ)](route-server-faq.md).
