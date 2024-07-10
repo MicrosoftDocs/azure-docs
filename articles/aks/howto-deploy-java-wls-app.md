@@ -15,7 +15,7 @@ This article demonstrates how to:
 
 - Run your Java application on Oracle WebLogic Server (WLS).
 - Stand up a WebLogic Server cluster on AKS using an Azure Marketplace offer.
-- Build the application Docker image that includes WebLogic Deploy Tooling (WDT) models.
+- Build an application Docker image that includes WebLogic Deploy Tooling (WDT) models.
 - Deploy the containerized application to the WebLogic Server cluster on AKS with connection to Microsoft Azure SQL.
 
 This article uses the [Azure Marketplace offer for WebLogic Server](https://aka.ms/wlsaks) to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following resources:
@@ -29,7 +29,7 @@ This article uses the [Azure Marketplace offer for WebLogic Server](https://aka.
 
 Then, the article introduces building an image to update the WebLogic Server cluster. The image provides the application and WDT models.
 
-If you prefer a less automated approach to deploying WebLogic on AKS, refer to the step-by-step guidance included in the official documentation from Oracle for [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
+If you prefer a less automated approach to deploying WebLogic on AKS, see the step-by-step guidance included in the official documentation from Oracle for [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on AKS solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -53,7 +53,7 @@ If you're interested in providing feedback or working closely on your migration 
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed. Use `zip/unzip -v` to test whether `zip/unzip` works.
   > [!NOTE]
-  > All of the steps in this article, except for those involving Docker, can also be executed in the Azure Cloud Shell. To learn more about Azure Cloud Shell, see [What is Azure Cloud Shell?](/azure/cloud-shell/overview).
+  > You can perform all the steps of this article in the Azure Cloud Shell, except for those involving Docker. To learn more about Azure Cloud Shell, see [What is Azure Cloud Shell?](/azure/cloud-shell/overview)
 
 ## Deploy WebLogic Server on AKS
 
@@ -96,7 +96,7 @@ The following steps make it so the WebLogic Server admin console and the sample 
 1. Select **Next** to see the **Load balancing** pane.
 1. Next to **Load Balancing Options**, select **Application Gateway Ingress Controller**.
 
-:::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal that shows the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal that shows the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
 
 1. Under the **Application Gateway Ingress Controller**, you should see all fields prepopulated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
 1. For **Create ingress for Administration Console**, select **Yes**.
@@ -129,7 +129,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WebLogic Server admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WebLogic Server on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of the WDT model that is used to build the container image. Save this value aside for later.
-1. The **shellCmdtoOutputWlsImageProperties** value is the base64 string of the WDT model properties that is used to built the container image. Save this value aside for later.
+1. The **shellCmdtoOutputWlsImageProperties** value is the base64 string of the WDT model properties that is used to build the container image. Save this value aside for later.
 1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster.
 
 The other values in the outputs are beyond the scope of this article, but are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs).
