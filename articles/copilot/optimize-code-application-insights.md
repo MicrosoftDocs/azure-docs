@@ -2,7 +2,7 @@
 title: Discover performance recommendations with Code Optimizations using Microsoft Copilot in Azure
 description: Learn about scenarios where Microsoft Copilot in Azure can use Application Insight Code Optimizations to help optimize your apps.
 ms.date: 11/20/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
