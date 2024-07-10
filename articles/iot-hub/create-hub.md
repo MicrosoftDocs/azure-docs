@@ -1,13 +1,13 @@
 ---
 title: Create an Azure IoT hub
 titleSuffix: Azure IoT Hub
-description: How to create, manage, and delete Azure IoT hubs through the Azure portal and CLI. Includes information about retrieving the service connection string.
+description: How to create, manage, and delete Azure IoT hubs through the Azure portal, CLI, and PowerShell. Includes information about retrieving the service connection string.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 07/10/2024
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -29,9 +29,19 @@ Prepare the following prerequisites, depending on which tool you use.
 
 * A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
 
-  ```azurecli
+  ```azurecli-interactive
   az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
   ```
+
+### [Azure PowerShell](#tab/powershell)
+
+* Azure PowerShell installed on your development machine. If you don't have Azure PowerShell, follow the steps to [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+* A resource group in your Azure subscription. If you want to create a new resource group, use the [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) command:
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name <RESOURCE_GROUP_NAME> -Location "<REGION>"
+   ```
 
 ---
 
@@ -43,12 +53,26 @@ Prepare the following prerequisites, depending on which tool you use.
 
 ### [Azure CLI](#tab/cli)
 
-Use the Azure CLI to create a resource group and then add an IoT hub.
-
 Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub in your resource group, using a globally unique name for your IoT hub. For example:
 
 ```azurecli-interactive
 az iot hub create --name <NEW_NAME_FOR_YOUR_IOT_HUB> --resource-group <RESOURCE_GROUP_NAME> --sku S1
+```
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+The previous command creates an IoT hub in the S1 pricing tier. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+
+### [Azure PowerShell](#tab/powershell)
+
+Use the [New-AzIotHub](/powershell/module/az.IotHub/New-azIotHub) command to create an IoT hub in your resource group. The name of the IoT hub must be globally unique. For example:
+
+```azurepowershell-interactive
+New-AzIotHub `
+    -ResourceGroupName <RESOURCE_GROUP_NAME> `
+    -Name <NEW_NAME_FOR_YOUR_IOT_HUB> `
+    -SkuName S1 -Units 1 `
+    -Location "<REGION>"
 ```
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
@@ -81,15 +105,29 @@ To get the IoT Hub connection string for the **service** policy, follow these st
 
 #### [Azure CLI](#tab/cli)
 
-Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get a connection string for your IoT hub that adheres to the service policy:
+Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get a connection string for your IoT hub that grants the service policy permissions:
 
 ```azurecli-interactive
-az iot hub connection-string show --hub-name YOUR_IOT_HUB_NAME --policy-name service
+az iot hub connection-string show --hub-name <YOUR_IOT_HUB_NAME> --policy-name service
 ```
 
 The service connection string should look similar to the following example:
 
-```javascript
+```text
+"HostName=<IOT_HUB_NAME>.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=<SHARED_ACCESS_KEY>"
+```
+
+#### [Azure PowerShell](#tab/powershell)
+
+Use the [Get-AzIotHubConnectionString](/powershell/module/az.iothub/get-aziothubconnectionstring) command to get a connection string for your IoT hub that grants the service policy permissions.
+
+```azurepowershell-interactive
+Get-AzIotHubConnectionString -ResourceGroupName "<YOUR_RESOURCE_GROUP>" -Name "<YOUR_IOT_HUB_NAME>" -KeyName "service"
+```
+
+The service connection string should look similar to the following example:
+
+```text
 "HostName=<IOT_HUB_NAME>.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=<SHARED_ACCESS_KEY>"
 ```
 
@@ -117,21 +155,27 @@ To delete an IoT hub, run the [az iot hub delete](/cli/azure/iot/hub#az-iot-hub-
 az iot hub delete --name <IOT_HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
+### [Azure PowerShell](#tab/powershell)
+
+To delete the IoT hub, use the [Remove-AzIotHub](/powershell/module/az.iothub/remove-aziothub) command.
+
+```azurepowershell-interactive
+Remove-AzIotHub `
+    -ResourceGroupName MyIoTRG1 `
+    -Name MyTestIoTHub
+```
+
 ---
 
 ## Other tools for managing IoT hubs
 
 In addition to the Azure portal and CLI, the following tools are available to help you work with IoT hubs in whichever way supports your scenario:
 
-* **PowerShell cmdlets**
-
-  Use the [Az.IoTHub](/powershell/module/az.iothub) set of commands.
-
 * **IoT Hub resource provider REST API**
 
   Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations.
 
-* **Azure resource manager templates, Bicep, or Terraform**    
+* **Azure resource manager templates, Bicep, or Terraform**
 
   Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
 

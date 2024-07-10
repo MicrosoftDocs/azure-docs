@@ -307,7 +307,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
+      "redirect_url": "/azure/iot-hub/create-hub",
       "redirect_document_id": true
     },
     {
