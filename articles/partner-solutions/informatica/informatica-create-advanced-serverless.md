@@ -17,8 +17,6 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 - After an Organization is created, make sure to sign in to the Informatica Portal from Overview tab of the Organization. Creating a serverless runtime environment fails if you don't first sign in to Informatica portal at least once.
 
-- A NAT gateway is enabled for the subnet used for creation of serverless runtime environment. Refer to [Quickstart: Create a NAT gateway using the Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal).
-
 - A subnet used in serverless runtime environment must be delegated to _Informatica.DataManagement/organizations_.
 
  :::image type="content" source="media/informatica-create-advanced-serverless/informatica-subnet-delegation.png" alt-text="Screenshot showing how to delegate a subnet to the Informatica resource provider.":::
