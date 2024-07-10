@@ -15,7 +15,7 @@ keywords: "VMM, Arc, Azure"
 
 # Support matrix for Azure Arc-enabled System Center Virtual Machine Manager
 
-This article documents the prerequisites and support requirements for using [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](overview.md) to manage your SCVMM managed on-prem VMs through Azure Arc.
+This article documents the prerequisites and support requirements for using [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](overview.md) to manage your SCVMM managed on-premises VMs through Azure Arc.
 
 To use Arc-enabled SCVMM, you must deploy an Azure Arc Resource Bridge in your SCVMM managed environment. The Resource Bridge provides an ongoing connection between your SCVMM management server and Azure. Once you've connected your SCVMM management server to Azure, components on the Resource Bridge discover your SCVMM management server inventory. You can [enable them in Azure](enable-scvmm-inventory-resources.md) and start performing virtual hardware and guest OS operations on them using Azure Arc.
 
