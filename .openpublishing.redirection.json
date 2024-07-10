@@ -811,11 +811,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/advisor/advisor-cost-recommendations.md",
-            "redirect_url": "/azure/advisor/advisor-reference-cost-recommendations",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
             "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
             "redirect_document_id": false
@@ -2128,6 +2123,11 @@
         {
             "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
             "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest/index.md",
+            "redirect_url": "/azure/devtest/offer/",
             "redirect_document_id": false
         },
         {
@@ -4501,6 +4501,11 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
+            "redirect_url": "/azure/aks/network-observability-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
