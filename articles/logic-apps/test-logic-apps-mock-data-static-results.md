@@ -255,7 +255,7 @@ Turning off static results on an action doesn't remove the values from your last
 
 1. In the action details pane, select the **Testing** tab.
 
-1. Select **Disable Static Result** > **Done**.
+1. Select **Disable Static Result** > **Save**.
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/disable-static-result.png" alt-text="Screenshot shows logic app workflow, HTTP action, and Testing tab with Disable Static Result selected." lightbox="media/test-logic-apps-mock-data-static-results/disable-static-result.png":::
 
