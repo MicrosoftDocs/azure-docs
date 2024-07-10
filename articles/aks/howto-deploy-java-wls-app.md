@@ -15,7 +15,7 @@ This article demonstrates how to:
 
 - Run your Java application on Oracle WebLogic Server (WLS).
 - Stand up a WebLogic Server cluster on AKS using an Azure Marketplace offer.
-- Build the application Docker image to serve as auxiliary image to provide WebLogic Deploy Tooling (WDT) models and applications.
+- Build the application Docker image that includes WebLogic Deploy Tooling (WDT) models.
 - Deploy the containerized application to the WebLogic Server cluster on AKS with connection to Microsoft Azure SQL.
 
 This article uses the [Azure Marketplace offer for WebLogic Server](https://aka.ms/wlsaks) to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following resources:
