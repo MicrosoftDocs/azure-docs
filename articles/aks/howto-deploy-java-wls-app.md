@@ -128,8 +128,8 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WebLogic Server admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WebLogic Server on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
-1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of WDT model that built in the container image. Save this value aside for later.
-1. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later.
+1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of the WDT model that is used to build the container image. Save this value aside for later.
+1. The **shellCmdtoOutputWlsImageProperties** value is the base64 string of the WDT model properties that is used to built the container image. Save this value aside for later.
 1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster.
 
 The other values in the outputs are beyond the scope of this article, but are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs).
