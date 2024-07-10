@@ -98,10 +98,10 @@ GROUP BY
 The output of the query shows the list of privileges granted to roles on the impacted tables and views.
 
 For example:
-|Privileges|Relation name| Grantee|
-|:---|:---|:---| 
-|SELECT|pg_authid|adminuser1|
-|SELECT, UPDATE|pg_shadow|adminuser2|
+| Privileges | Relation name | Grantee |
+| :--- |:--- |:--- | 
+| SELECT | pg_authid | adminuser1 |
+| SELECT, UPDATE  |pg_shadow | adminuser2 |
 
 **Step 3: Undo the privileges**
 
