@@ -19,7 +19,7 @@ The [Azure virtual network service tags](../../virtual-network/service-tags-over
 Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
 >[!NOTE]
-> Data collection endpoint public IP addresses are not part of the abovementioned network service tags. If you have custom logs or IIS log data collection rules, consider allowing the data collection endpoint's public IP addresses for these scenarios to work until these scenarios are supported by network service tags. 
+> Data collection endpoint public IP addresses are not part of the above mentioned network service tags. If you have custom logs or IIS log data collection rules, consider allowing the data collection endpoint's public IP addresses for these scenarios to work until these scenarios are supported by network service tags. 
 
 ## Firewall endpoints
 The following table provides the endpoints that firewalls need to provide access to for different clouds. Each is an outbound connection to port 443.
@@ -31,7 +31,7 @@ The following table provides the endpoints that firewalls need to provide access
 |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
 | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database  | - |
 | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | westus2.monitoring.azure.com |
-| `<data-collection-endpoint>`.`<virtual-machine-region-name>`.ingest.monitor.azure.com  | Only needed if sending data to Log Analytics [Custom Logs](./data-collection-text-log.md) table | 275test-01li.eastus2euap-1.canary.ingest.monitor.azure.com |
+
 
 Replace the suffix in the endpoints with the suffix in the following table for different clouds.
 

@@ -40,7 +40,7 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
   - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
   - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
   - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
-- **A single agent** that serves all data collection needs across [supported](#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
+- **A single agent** that serves all data collection needs across [supported](./azure-monitor-agent-supported-operating-systems.md) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
 
 ## Before you begin
 

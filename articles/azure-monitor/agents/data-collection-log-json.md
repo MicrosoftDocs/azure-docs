@@ -10,9 +10,9 @@ ms.reviewer: jeffwo
 
 # Collect logs from a JSON file with Azure Monitor Agent 
 
-Many applications and services will log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This data can be collected with [Azure Monitor Agent](azure-monitor-agent-overview.md) and stored in a Log Analytics workspace with data collected from other sources.
+Many applications and services will log information to a JSON files instead of standard logging services such as Windows Event log or Syslog. This data can be collected with [Azure Monitor Agent](azure-monitor-agent-overview.md) and stored in a Log Analytics workspace with data collected from other sources.
 
-**Custom Text Logs** and **Custom JSON Logs** are two of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
+**Custom JSON Logs** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
 
 
 ## Prerequisites
@@ -47,7 +47,6 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 - Create a new log file every day so that you can easily clean up old files.
 - Continuously clean up log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
-- Don't rename a monitored file and then open a new file with the same name. This could cause data loss.
 - Don't rename a file that matches the file scan pattern to another name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
 - Don't rename or copy large log files that match the file scan pattern into the monitored directory. If you must, do not exceed 50MB per minute.
 

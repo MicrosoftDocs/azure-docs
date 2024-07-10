@@ -718,7 +718,9 @@ items:
         - name: Virtual machines
           href: agents/azure-monitor-agent-manage.md
         - name: Windows clients
-          href: agents/azure-monitor-agent-windows-client.md   
+          href: agents/azure-monitor-agent-windows-client.md
+        - name: Azure Policy
+          href: agents/azure-monitor-agent-policy.md
       - name: Configure data collection
         items:
         - name: Create data collection rule

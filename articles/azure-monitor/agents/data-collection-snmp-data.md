@@ -42,10 +42,8 @@ You can collect SNMP data in two ways:
  
 ## Set up the trap receiver log options and format
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-To set up the snmptrapd trap receiver on a CentOS 7, Red Hat Enterprise Linux 7, Oracle Linux 7 server:
+To set up the snmptrapd trap receiver on a Red Hat Enterprise Linux 7 or Oracle Linux 7 server:
 
 1. Install and enable snmptrapd: 
 

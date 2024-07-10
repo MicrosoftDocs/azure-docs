@@ -38,6 +38,9 @@ By default, the agent will collect all events that are sent by the Syslog config
 
 **Azure Monitor Logs** is the only destination allowed for Syslog events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Syslog](/azure/azure-monitor/reference/tables/syslog) table. You can only modify the destination table mby manually editing the DCR.
 
+> [!NOTE]
+> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
+
 :::image type="content" source="media/data-collection-windows-event/destination-workspace.png" lightbox="media/data-collection-windows-event/destination-workspace.png" alt-text="Screenshot that shows configuration of an Azure Monitor Logs destination in a data collection rule." :::
 
 ## Configure Syslog on the Linux agent

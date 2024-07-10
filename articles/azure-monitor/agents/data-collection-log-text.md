@@ -46,7 +46,6 @@ Adhere to the following recommendations to ensure that you don't experience data
   
 - Create a new log file every day so that you can easily clean up old files.
 - Continuously clean up log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
-- Don't rename a monitored file and then open a new file with the same name. This could cause data loss.
 - Don't rename a file that matches the file scan pattern to another name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
 - Don't rename or copy large log files that match the file scan pattern into the monitored directory. If you must, do not exceed 50MB per minute.
 
@@ -259,7 +258,7 @@ source | project d = split(RawData,",") | project TimeGenerated=todatetime(d[0])
 
 Retrieving this data with a log query would return the following results.
 
-:::image type="content" source="media/data-collection-log-text/delimited-configuration.png" lightbox="media/data-collection-log-text/delimited-configuration.png" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
+:::image type="content" source="media/data-collection-log-text/delimited-results.png" lightbox="media/data-collection-log-text/delimited-results.png" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
 
 
 ## Troubleshooting
