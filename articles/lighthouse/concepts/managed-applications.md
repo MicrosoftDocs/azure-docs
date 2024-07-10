@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure Lighthouse and Azure managed applications
 
-Both [Azure managed applications](azure/azure-resource-manager/managed-applications) and [Azure Lighthouse](../overview.md) work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work, the scenarios that they help to enable, and how they can be used together.
+Both [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) and [Azure Lighthouse](../overview.md) work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work, the scenarios that they help to enable, and how they can be used together.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes and tools.
