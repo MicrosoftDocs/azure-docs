@@ -31,24 +31,6 @@ This dataset is a mirror of [this](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/) FT
 
 This dataset contains approximately 815 TB of data. It receives daily updates.
 
-## Storage location
-
-This dataset is stored in the **West US 2** and **West Central US** Azure regions. Allocation of compute resources in **West US 2** or **West Central US** is recommended for affinity.
-
-## Data Access
-
-West US 2: ['https://dataset1000genomes.blob.core.windows.net/dataset'](https://dataset1000genomes.blob.core.windows.net/dataset)
-
-West Central US: ['https://dataset1000genomes-secondary.blob.core.windows.net/dataset'](https://dataset1000genomes-secondary.blob.core.windows.net/dataset)
-
-[SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
-
-## Data Access: Curated 1000 genomes dataset in parquet format
-
-East US: ['https://curated1000genomes.blob.core.windows.net/dataset'](https://curated1000genomes.blob.core.windows.net/dataset)
-
-SAS Token: **sv=2018-03-28&si=prod&sr=c&sig=BgIomQanB355O4FhxqBL9xUgKzwpcVlRZdBewO5%2FM4E%3D**
-
 ## Use Terms
 
 Following the final publications, data from the 1000 Genomes Project is publicly available, without embargo, to anyone for use under the terms provided by the [dataset source](http://www.internationalgenome.org/data). Use of the data should be cited per details available in the 1000 Genome Project [FAQ resource](https://www.internationalgenome.org/faq).
