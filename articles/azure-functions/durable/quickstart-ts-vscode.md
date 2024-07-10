@@ -179,7 +179,7 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
 
 ### Client function (HTTP starter)
 
-1. In the command palette, enter and then select `Azure Functions: Create Function...`.
+1. In the command palette, enter and then select `Azure Functions: Create Function`.
 
 2. At the prompts, provide the following information:
 
