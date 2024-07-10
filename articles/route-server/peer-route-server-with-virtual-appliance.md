@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 07/10/2024
+ms.date: 07/11/2024
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)
@@ -178,24 +178,24 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
 
 1. In PowerShell, execute the following cmdlets:
 
-```powershell
-# Install required Windows features.
-Install-WindowsFeature RemoteAccess
-Install-WindowsFeature RSAT-RemoteAccess-PowerShell
-Install-WindowsFeature Routing
-Install-RemoteAccess -VpnType RoutingOnly
-
-# Configure BGP & Router ID on the Windows Server
-Add-BgpRouter -BgpIdentifier 10.0.0.4 -LocalASN 65001
- 
-# Configure Azure Route Server as a BGP Peer.
-Add-BgpPeer -LocalIPAddress 10.0.0.4 -PeerIPAddress 10.0.1.4 -PeerASN 65515 -Name RS_IP1
-Add-BgpPeer -LocalIPAddress 10.0.0.4 -PeerIPAddress 10.0.1.5 -PeerASN 65515 -Name RS_IP2
-
-# Originate and announce BGP routes.
-Add-BgpCustomRoute -network 172.16.1.0/24
-Add-BgpCustomRoute -network 172.16.2.0/24
-```
+    ```powershell
+    # Install required Windows features.
+    Install-WindowsFeature RemoteAccess
+    Install-WindowsFeature RSAT-RemoteAccess-PowerShell
+    Install-WindowsFeature Routing
+    Install-RemoteAccess -VpnType RoutingOnly
+    
+    # Configure BGP & Router ID on the Windows Server
+    Add-BgpRouter -BgpIdentifier 10.0.0.4 -LocalASN 65001
+     
+    # Configure Azure Route Server as a BGP Peer.
+    Add-BgpPeer -LocalIPAddress 10.0.0.4 -PeerIPAddress 10.0.1.4 -PeerASN 65515 -Name RS_IP1
+    Add-BgpPeer -LocalIPAddress 10.0.0.4 -PeerIPAddress 10.0.1.5 -PeerASN 65515 -Name RS_IP2
+    
+    # Originate and announce BGP routes.
+    Add-BgpCustomRoute -network 172.16.1.0/24
+    Add-BgpCustomRoute -network 172.16.2.0/24
+    ```
 
 ## Configure Route Server peering
 
