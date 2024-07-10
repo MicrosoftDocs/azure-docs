@@ -41,9 +41,9 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 
 There are some cases when modify operations are skipped during evaluation:
 - When the condition of an operation in the `operations` array is evaluated to _false_, that particular operation is skipped.
-- If an alias specified for an operation is not modifiable in the request's API version, then evaluation uses the conflict effect. If the conflict effect is set to _deny_, the request will be blocked. If the conflict effect is set to _audit_, the request will be allowed through but the modify operation will be skipped.
-- In some cases, modifiable properties are nested within other properties and have an alias like `Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled`. If the "parent" property, in this case `deleteRetentionPolicy`, is not present in the request, modification is skipped because this is assumed to be ommitted intentionally.
-- When a modify operation attempts to add or replace the `identity.type` field on a resource other than a Virtual Machine or Virtual Machine Scale Set, policy evaluation is skipped altogether so the modification is not performed. In this case, the resource is considered not [applicable](../concepts/policy-applicability.md) to the policy.
+- If an alias specified for an operation isn't modifiable in the request's API version, then evaluation uses the conflict effect. If the conflict effect is set to _deny_, the request is blocked. If the conflict effect is set to _audit_, the request is allowed through but the modify operation is skipped.
+- In some cases, modifiable properties are nested within other properties and have an alias like `Microsoft.Storage/storageAccounts/blobServices/deleteRetentionPolicy.enabled`. If the "parent" property, in this case `deleteRetentionPolicy`, isn't present in the request, modification is skipped because that property is assumed to be omitted intentionally.
+- When a modify operation attempts to add or replace the `identity.type` field on a resource other than a Virtual Machine or Virtual Machine Scale Set, policy evaluation is skipped altogether so the modification isn't performed. In this case, the resource is considered not [applicable](../concepts/policy-applicability.md) to the policy.
 
 When a policy definition using the `modify` effect is run as part of an evaluation cycle, it doesn't make changes to resources that already exist. Instead, it marks any resource that meets the `if` condition as non-compliant.
 
