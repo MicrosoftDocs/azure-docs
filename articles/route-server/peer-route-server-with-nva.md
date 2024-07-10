@@ -221,7 +221,7 @@ Add-BgpCustomRoute -network 172.16.2.0/24
     
 ## Check learned routes
 
-To check the routes learned by the Route Server, use [Get-AzRouteServerPeerLearnedRoute](/powershell/module/az.network/get-azrouteserverpeerlearnedroute) cmdlet.
+Use [Get-AzRouteServerPeerLearnedRoute](/powershell/module/az.network/get-azrouteserverpeerlearnedroute) cmdlet to check the routes learned by the Route Server.
 
 ```azurepowershell-interactive
 Get-AzRouteServerPeerLearnedRoute -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer' -PeerName 'myNVA'
