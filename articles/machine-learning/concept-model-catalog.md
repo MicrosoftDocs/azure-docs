@@ -161,7 +161,7 @@ Endpoints for models deployed as Serverless APIs follow the public_network_acces
 
 **Setting the public_network_access flag for the workspace:**
 * Go to the [Azure Portal](https://ms.portal.azure.com/)
-* Search for the Resource group to which the workspace belongs, and click on your workspace from the resources shown under this Resource group
+* Search for 'Azure Machine Learning', and choose your workspace
 * On the overview page, use the left navigation bar to go to Settings > Networking
 * Here under the Public Access tab you will have the option to set the Public Network Access flag settings
 * Save your changes (changes may take upto five minutes to propagate)
