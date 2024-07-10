@@ -191,7 +191,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 
 * Use [API for NoSQL to build a console app using .NET](nosql/quickstart-dotnet.md) to manage data in Azure Cosmos DB.
 * Use [API for MongoDB to build a sample app using Python](mongodb/quickstart-python.md) to manage data in Azure Cosmos DB.
-* [Create a Jupyter notebook](notebooks-overview.md) and analyze your data.
+* [Create a notebook](nosql/tutorial-create-notebook-vscode.md) and analyze your data.
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
   * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
