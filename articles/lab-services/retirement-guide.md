@@ -50,7 +50,8 @@ There are various Microsoft solutions that you might consider as a direct replac
 
 ### Partner solutions
 
-Our partners specialize in education-focused solutions for training and classrooms. Labs created with these Microsoft partners solutions will be using Azure in the backend, where lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Our recommended partners also provide transition guides and support to help you move your lab scenarios in Azure Lab Services to their respective services: 
+Our partners specialize in education-focused solutions for training and classrooms. Labs created with these Microsoft partners solutions will be using Azure in the backend, where lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Our recommended partners also provide transition guides and support to help you move your lab scenarios in Azure Lab Services to their respective services (the following list is in alphabetical order):
+ 
 - [Apporto](https://aka.ms/azlabs-apporto)  
 - [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
 - [Nerdio Manager for Enterprise (NME)](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
@@ -92,7 +93,7 @@ Yes, you can continue to get help and support for Azure Lab Services by either c
 To get help and support for Azure Virtual Desktop, Azure DevTest Labs, Windows 365 Cloud PC, and Microsoft Dev Box you can use the usual Microsoft support channels for the particular service. 
 
 ### How can I get transition help and support for a partner solution?
-If you have questions about how to transition to one of the partner’s solutions, refer to the following resources for each partner. 
+If you have questions about how to transition to one of the partner’s solutions, refer to the following resources for each partner (listed alphabetically). 
 
 - [Apporto](https://aka.ms/azlabs-apporto)  
 - [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
