@@ -363,7 +363,7 @@ You don't need to disable socket activation on a distribution where socket activ
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
-### Message queue not being cleaned up
+### Message queue clean up is slow
 
 #### Symptoms
 
