@@ -52,9 +52,9 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 
     ![Change QoS throughput](./media/manage-manual-qos-capacity-pool/change-qos-throughput.png)
 
-## Modify the throughput of an Optimum service level capacity pool 
+## Modify the throughput of a Flexible service level capacity pool 
 
-With the Optimum service level, you can adjust the throughput of the capacity pool pool as needed. 
+With the Flexible service level, you can adjust the throughput of the capacity pool as needed. 
 
 1. From your NetApp account, select **Capacity pools** to display existing capacity pools.   
  

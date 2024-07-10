@@ -13,7 +13,7 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 ## Supported service levels
 
-Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Standard*.   
+Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*, and *Flexible*.   
 
 * <a name="Standard"></a>Standard storage:   
     The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
@@ -27,13 +27,13 @@ Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Stand
 * <a name="Ultra"></a>Ultra storage:   
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-* <a name="Optimum"></a>Optimum storage:
-    The Optimum service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Optimum service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
+* <a name="Flexible"></a>Flexible storage:
+    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Flexible service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
 
-    Optimum storage capacity pools enforce single encryption. They do not support double encryption. 
+    Flexible storage capacity pools enforce single encryption. They do not support double encryption. 
 
     >[!IMPORTANT]
-    >The Optimum service level is only supported for _manual QoS_ capacity pools. 
+    >The Flexible service level is only supported for _manual QoS_ capacity pools. 
 
 ## Throughput limits
 
