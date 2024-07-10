@@ -434,7 +434,7 @@ The following example creates a Python feed connection. This connection is authe
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
 
 
 name = "my_pfeed_conn"
@@ -501,25 +501,82 @@ The following example creates an Azure Container Registry connection. This conne
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration
 
-
-name = "my_acr_conn"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
-
+# Using ManagedIdentityConfiguration
 wps_connection = WorkspaceConnection(
-    name=name,
+    name=<my_acr_conn>,
     type="container_registry",
-    target=target,
+    target=<my_acr_url>,
     credentials=ManagedIdentityConfiguration (client_id="xxxxx", resource_id="xxxxx"),    
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
+
+# Using UsernamePasswordConfiguration
+wps_connection = WorkspaceConnection(
+    name=<my_acr_conn>,
+    type="container_registry",
+    target=<my_acr_url>,
+    credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"),
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+
+#Note: You can also set these credentials as environment variables or secrets in your keyvault for added security.
 ```
 
 # [Studio](#tab/azure-studio)
 
 You can't create an Azure Container Registry connection in studio.
+
+---
+
+### Third-Party Container Registries
+
+# [Azure CLI](#tab/cli)
+
+Create a connection to other third-party container registries with the following YAML file. Be sure to update the appropriate values:
+
+* Connect using a username and password:
+
+   ```yml
+   name: test_ws_conn_cr_user_pass
+   type: container_registry
+   target: https://test-feed.com2
+   credentials:
+      type: username_password
+      username: contoso
+      password: pass
+   ```
+
+Create the Azure Machine Learning connection in the CLI:
+
+```azurecli
+az ml connection create --file connection.yaml
+```
+
+# [Python SDK](#tab/python)
+
+The following example creates an Azure Container Registry connection. This connection is authenticated using a managed identity:
+
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities import UsernamePasswordConfiguration
+
+wps_connection = WorkspaceConnection(
+    name=<my_acr_conn>,
+    type="container_registry",
+    target=<my_acr_url>,
+    credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"),
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+
+#Note: You can also set these credentials as environment variables or secrets in your keyvault for added security.
+```
+
+# [Studio](#tab/azure-studio)
+
+You can't create an Azure Container Registry connection in studio.
+
 
 ---
 
