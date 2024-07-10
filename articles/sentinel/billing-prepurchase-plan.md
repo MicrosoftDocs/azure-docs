@@ -11,7 +11,7 @@ ms.author: austinmc
 
 # Optimize Microsoft Sentinel costs with a prepurchase plan
 
-Save on your Microsoft Sentinel costs when you prepurchase Microsoft Sentinel commit units (CUs). Think of the prepurchase plan as a pool of credits, called commit units (CUs), where CUs are equivalent to your purchase currency value. So, in US dollars (USD), 1 CU = $1 USD. Use the prepurchased CUs at any time during the one year purchase term. Any eligible Microsoft Sentinel costs deduct first from the prepurchased CUs automatically. You don't need to redeploy or assign a prepurchased plan to your Microsoft Sentinel workspaces for the CU usage to get the prepurchase discounts.
+Save on your Microsoft Sentinel costs when you buy a Microsoft Sentinel prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), where CUs are equivalent to your purchase currency value. So, in US dollars (USD), 1 CU = $1 USD. Use prepurchased CUs at any time during a one year purchase term. Any eligible Microsoft Sentinel costs deduct first from the prepurchased CUs automatically. Your prepurchase plan CUs, bought at a discount, start paying for your Microsoft Sentinel workspaces without needing to redeploy or reassign the plan.
 
 ## Prerequisites
 
