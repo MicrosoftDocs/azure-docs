@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 04/11/2024
+ms.date: 07/10/2024
 ms.custom: references_regions
 ms.reviewer: jeffwo
 
@@ -29,7 +29,7 @@ The agent can be installed using different methods as described in [Manage Azure
 All data collected by the Azure Monitor agent is done with a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) where you define the following:
 
 - Data type being collected.
-- Configuration of the data including filtering for required data.
+- Transforming the data, including filtering, aggregating, and shaping.
 - Destination for collected data.
 
 A single DCR can contain multiple data sources of different types. Depending on your requirements, you can choose whether to include several data sources in a few DCRs or create separate DCRs for each data source. This allows you to centrally define the logic for different data collection scenarios and apply them to different sets of machines. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
