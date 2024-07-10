@@ -114,11 +114,11 @@ To achieve geo-replication in non-paired regions:
 
 
 
-- **For Azure NetApp Files (ANF)**, you can replicate to a set of non-standard pairs besides Azure region pairs.  See [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction).
+- **For Azure NetApp Files (ANF)**, you can replicate to a set of non-standard pairs besides Azure region pairs.  See [Azure NetApp Files (ANF)](/azure/azure-netapp-files/cross-region-replication-introduction).
 
 - **For Azure Files:**
 
-    - To copy your files to another storage account in a different region, choose one of the following methods:
+    - To copy your files to another storage account in a different region, use tools such as:
 
         -  [AZCopy](../storage/common/storage-use-azcopy-blobs-copy.md)
         -  [Azure PowerShell](/powershell/module/az.storage/?view=azps-12.0.0&preserve-view=true) 
