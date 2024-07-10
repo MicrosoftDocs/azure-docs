@@ -59,7 +59,7 @@ sections:
           - You can find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
 
       - question: |
-         Can Document Intelligence help with semantic chunking retrieval within documents for retrieval-augmented generation?
+         Can Document Intelligence help with semantic chunking within documents for retrieval-augmented generation?
         answer: |
           **Yes.**
           
