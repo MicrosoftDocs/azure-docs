@@ -25,15 +25,15 @@ items:
 - name: Reference
   items:
   - name: Python
-    href: /python/api/overview/azure/informatica
+    href: /en-us/python/api/overview/azure/mgmt-informaticadatamanagement-readme?view=azure-python-preview&preserve-view=true
   - name: JavaScript
-    href: /javascript/api/overview/azure/informatica
+    href: /javascript/api/overview/azure/arm-informaticadatamanagement-readme
   - name: .NET
-    href: /dotnet/api/overview/azure/informatica
+    href: /Azure.ResourceManager.InformaticaDataManagement/1.0.0-beta.1/index.html
   - name: Java
-    href: /java/api/overview/azure/informatica
-  - name: REST API
-    href: /rest/api/informatica
-#  - name: Azure PowerShell
+    href: /java/api/overview/azure/resourcemanager-informaticadatamanagement-readme?view=azure-java-preview&preserve-view=true
+# - name: REST API
+#   href: /rest/api/informatica
+# - name: Azure PowerShell
 #    href: 
 
