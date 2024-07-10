@@ -71,7 +71,7 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                         |
 | Frontend IP configurations              | 600                           |
 | Rules (Load Balancer + Inbound NAT) per resource  | 1,500               |
-| Rules per NIC (across all IPs on a NIC) | 300                           |
+| Rules configured to NIC (across all IPs on a NIC) | 300                           |
 | High-availability ports rule            | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Backend pool size                       | 5,000                         |
