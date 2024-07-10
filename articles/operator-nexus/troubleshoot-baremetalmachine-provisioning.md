@@ -26,9 +26,9 @@ For a given SKU, there are required roles to manage and operate the underlying k
 
 The following roles are assigned to BMM resources (see [BMM Roles](reference-near-edge-baremetal-machine-roles.md)):
 
-  - `Control plane`: These BMM runs the Kubernetes control plane agents for Nexus platform cluster.
-  - `Management plane`: The BMM runs the Nexus platform agents including controllers and extensions.
-  - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
+  - `Control plane`: BMM responsible for running the Kubernetes control plane agents for Nexus platform cluster.
+  - `Management plane`: BMM responsible for runnning the Nexus platform agents including controllers and extensions.
+  - `Compute plane`: BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
 
 ## Listing BareMetal Machine status
 This command will `list` all `bareMetalMachineName` resources in the Managed Resource Group with simple status:
@@ -41,10 +41,10 @@ Name          ResourceGroup                  DetailedStatus    DetailedStatusMes
 BMM_NAME      CLUSTER_MRG                    STATUS            STATUS_MSG
 ```
 
-`STATUS` will go through the following phases throughout the BareMetal Machine provisioning process:
+`STATUS` goes through the following phases throughout the BareMetal Machine provisioning process:
 `Registering` -> `Preparing` -> `Inspecting` -> `Available` -> `Provisioning` -> `Provisioned`
 
-Where the output fields are the following:
+These phases are defined as follows:
 | Phase | Definition |
 | --- | --- |
 | `Registering` | Verify BMC Connectivity and BMC Credentials, Add BMM to Provisioning Service |
@@ -56,7 +56,10 @@ Where the output fields are the following:
 | `Deprovisioning` | BMM provisioning failed and retrying |
 | `Failed` | BMM provisioning failed and requires recovery action, all retries exhausted |
 
-During any phase, if BMC becomes unavailable, a network port is down or a hardware component fails, the BMM detailed status will be set to failed and the phase will be blocked from continuing.
+During any phase, the BMM detailed status will be set to failed and the phase will be blocked if the following occurs:
+- BMC becomes unavailabl
+- network port is down
+- hardware component fails
 
 To get a more detailed status of the BMM:
 ```azurecli
@@ -167,7 +170,7 @@ To find the `Network Fabric` port from Azure:
 1. Obtain the RackID, RackSlot from the `BareMetal Machine Details` section above.
 2. In `Azure Portal`, drill-down to the `Network Rack` RackID for the BareMetal Machine Rack.
 3. Select `Network Devices` tab and the Management (Mgmt) swich for the rack.
-4. Under `Resources`, select `Network Interfaces` and select the interface for the BMC (iDRAC) or Boot (PXE) interface for the port that requires reset and collect the following:
+4. Under `Resources`, select `Network Interfaces` and select the interface for the BMC (iDRAC) or Boot (PXE - Preboot eXecution Environment) interface for the port that requires reset and collect the following:
    - Network Fabric Resource Group (NF_RG)
    - Device Name (NF_DEVICE_NAME)
    - Interface Name (NF_DEVICE_INTERFACE_NAME).
