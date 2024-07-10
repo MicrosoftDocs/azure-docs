@@ -1,12 +1,12 @@
 ---
 title: SignalR Application Firewall (Preview)
 description: An introduction about why and how to setup Application Firewall for Azure SignalR service
-author: vicancy
+author: biqian
 ms.service: signalr
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/29/2023
-ms.author: lianwei
+ms.date: 07/10/2024
+ms.author: biqian
 ---
 # Application Firewall for Azure SignalR Service
 
@@ -15,8 +15,23 @@ Application Firewall brings more sophisticated control over client connections o
 1. It's not intended to replace Authentication. The firewall works behind the client conenction authentication layer.
 2. It's not related to the network layer access control. 
 
+## Prerequisites
+
+* An Azure SignalR Service in [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/).
+
+## Typical Scenarios
+
+   Contoso is a software company. Its product uses Azure SignalR service to send/receive messages. 
+
+   ### Scenario 1: Limit the connections per user
+   ### Scenario 2: Limit the token reuse
+   ### Scenario 3: Advanced control by custom claim
+
+
+## Setup Application Firewall 
+
 # [Portal](#tab/Portal)
-To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
+To use Application Firewall, Navigate to the SignalR **Application Firewall** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
 ![Screenshot of creating replica for Azure SignalR on Portal.](./media/howto-enable-geo-replication/signalr-replica-create.png "Replica create")
 
@@ -51,7 +66,5 @@ Deploy the Bicep file using Azure CLI
    ```
 
 ----
-
-## Regenerate access keys
 
 
