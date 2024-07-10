@@ -57,14 +57,8 @@
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
-    - name: Jupyter notebooks
-      items:
-        - name: Create notebook (Visual Studio Code)
-          href: tutorial-create-notebook-vscode.md
-        - name: Create notebook (Azure portal)
-          href: tutorial-create-notebook.md
-        - name: Import notebooks from GitHub
-          href: tutorial-import-notebooks.md
+    - name: Create Visual Studio Code notebook
+      href: tutorial-create-notebook-vscode.md
     - name: Deploy app on Azure Kubernetes Service (AKS) cluster using Bicep
       href: tutorial-deploy-app-bicep-aks.md
     - name: Kusto Query Language (KQL) transformations
@@ -476,12 +470,6 @@
       href: ../optimize-costs.yml
     - name: Network bandwidth
       href: ../network-bandwidth.md
-    - name: Jupyter notebooks
-      items:
-        - name: Overview
-          href: ../notebooks-overview.md
-        - name: FAQ
-          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Configure vector database capabilities
