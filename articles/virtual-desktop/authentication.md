@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 07/16/2024
 ms.author: helohr
 ---
 # Supported identities and authentication methods
@@ -25,7 +25,7 @@ Since users must be discoverable through Microsoft Entra ID to access the Azure 
 
 ### Hybrid identity
 
-Azure Virtual Desktop supports [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) through Microsoft Entra ID, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Microsoft Entra ID using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect). You can also use Microsoft Entra ID to manage these identities and sync them to [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md).
+Azure Virtual Desktop supports [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) through Microsoft Entra ID, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Microsoft Entra ID using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect). You can also use Microsoft Entra ID to manage these identities and sync them to [Microsoft Entra Domain Services](/entra/identity/domain-services/overview).
 
 When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Microsoft Entra ID don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Microsoft Entra ID. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Microsoft Entra ID accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Microsoft Entra ID.
 
@@ -40,29 +40,32 @@ Azure Virtual Desktop supports cloud-only identities when using [Microsoft Entra
 
 If you're using an Identity Provider (IdP) other than Microsoft Entra ID to manage your user accounts, you must ensure that:
 
-- Your IdP is [federated with Microsoft Entra ID](../active-directory/devices/azureadjoin-plan.md#federated-environment).
-- Your session hosts are Microsoft Entra joined or [Microsoft Entra hybrid joined](../active-directory/devices/hybrid-join-plan.md).
+- Your IdP is [federated with Microsoft Entra ID](/entra/identity/devices/device-join-plan#federated-environment).
+- Your session hosts are Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra/identity/devices/hybrid-join-plan).
 - You enable [Microsoft Entra authentication](configure-single-sign-on.md) to the session host.
 
 ### External identity
 
-Azure Virtual Desktop currently doesn't support [external identities](../active-directory/external-identities/index.yml).
+Azure Virtual Desktop currently doesn't support [external identities](/entra/external-id/external-identities-overview).
 
 ## Authentication methods
 
-For users connecting to a remote session, there are three separate authentication points:
+When accessing Azure Virtual Desktop resources, there are three separate authentication points:
 
-- **Service authentication to Azure Virtual Desktop**: retrieving a list of resources the user has access to when accessing the client. The experience depends on the Microsoft Entra account configuration. For example, if the user has multifactor authentication enabled, the user is prompted for their user account and a second form of authentication, in the same way as accessing other services. 
+- **Cloud service authentication**: Authenticating to the service, which includes subscribing to resources and authenticating to the Gateway, is with Microsoft Entra ID.
+- **Remote session authentication**: Authenticating to the remote VM. There are multiple ways to authenticate to the remote session, including the recommended single sign-on (SSO).
+- **In-session authentication**: Authenticating to applications and web sites within the remote session.
 
-- **Session host**: when starting a remote session. A username and password is required for a session host, but this is seamless to the user if single sign-on (SSO) is enabled.
+For the list of credential available on the different clients for each of the authentication point, [compare the clients across platforms](compare-remote-desktop-clients.md?pivots=azure-virtual-desktop).
 
-- **In-session authentication**: connecting to other resources within a remote session.
+>[!IMPORTANT]
+>In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
 
-The following sections explain each of these authentication points in more detail.
+The following sections provide additional information on these authentication points.
 
-### Service authentication
+### Cloud service authentication
 
-To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with a Microsoft Entra account. Authentication happens whenever you subscribe to a workspace to retrieve your resources and connect to apps or desktops. You can use [third-party identity providers](../active-directory/devices/azureadjoin-plan.md#federated-environment) as long as they federate with Microsoft Entra ID.
+To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with a Microsoft Entra ID account. Authentication happens whenever you subscribe to a workspace to retrieve your resources, connect to the Gateway when launching a connection or when sending diagnostic information to the service. The Entra ID resource used for this authentication is Azure Virtual Desktop (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07).
 
 <a name='multi-factor-authentication'></a>
 
@@ -72,28 +75,19 @@ Follow the instructions in [Enforce Microsoft Entra multifactor authentication f
 
 #### Passwordless authentication
 
-You can use any authentication type supported by Microsoft Entra ID, such as [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](../active-directory/authentication/concept-authentication-passwordless.md) (for example, FIDO keys), to authenticate to the service.
+You can use any authentication type supported by Microsoft Entra ID, such as [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](/entra/identity/authentication/concept-authentication-passwordless) (for example, FIDO keys), to authenticate to the service.
 
 #### Smart card authentication
 
-To use a smart card to authenticate to Microsoft Entra ID, you must first [configure AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication) or [configure Microsoft Entra certificate-based authentication](../active-directory/authentication/concept-certificate-based-authentication.md).
+To use a smart card to authenticate to Microsoft Entra ID, you must first [configure Microsoft Entra certificate-based authentication](/entra/identity/authentication/concept-certificate-based-authentication) or [configure AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication).
 
-### Session host authentication
+#### Third-party identity providers
 
-If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports. Some clients might require a specific version to be used, which you can find in the link for each authentication type.
+You can use [third-party identity providers](/entra/identity/devices/device-join-plan#federated-environment) as long as they federate with Microsoft Entra ID.
 
-|Client  |Supported authentication type(s)  |
-|---------|---------|
-|Windows Desktop client    | Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Microsoft Entra authentication](configure-single-sign-on.md)               |
-|Azure Virtual Desktop Store app     |  Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Microsoft Entra authentication](configure-single-sign-on.md)           |
-|Remote Desktop app     |  Username and password       |
-|Web client    | Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
-|Android client   | Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
-|iOS client     |   Username and password<br>[Microsoft Entra authentication](configure-single-sign-on.md)      |
-|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.<br>[Microsoft Entra authentication](configure-single-sign-on.md)        |
+### Remote session authentication
 
->[!IMPORTANT]
->In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
+If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection.
 
 #### Single sign-on (SSO)
 
@@ -123,11 +117,11 @@ To disable passwordless authentication on your host pool, you must [customize an
 
 When enabled, all WebAuthn requests in the session are redirected to the local PC. You can use Windows Hello for Business or locally attached security devices to complete the authentication process.
 
-To access Microsoft Entra resources with Windows Hello for Business or security devices, you must enable the FIDO2 Security Key as an authentication method for your users. To enable this method, follow the steps in [Enable FIDO2 security key method](../active-directory/authentication/howto-authentication-passwordless-security-key.md#enable-fido2-security-key-method).
+To access Microsoft Entra resources with Windows Hello for Business or security devices, you must enable the FIDO2 Security Key as an authentication method for your users. To enable this method, follow the steps in [Enable FIDO2 security key method](/entra/identity/authentication/how-to-enable-passkey-fido2#enable-fido2-security-key-method).
 
 #### In-session smart card authentication
 
-To use a smart card in your session, make sure you've installed the smart card drivers on the session host and enabled [smart card redirection](configure-device-redirections.md#smart-card-redirection). Review the [client comparison chart](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare#other-redirection-devices-etc) to make sure your client supports smart card redirection.
+To use a smart card in your session, make sure you've installed the smart card drivers on the session host and enabled [smart card redirection](configure-device-redirections.md#smart-card-redirection). Review the [client comparison chart](compare-remote-desktop-clients.md?pivots=azure-virtual-desktop#in-session-authentication) to make sure your client supports smart card redirection.
 
 ## Next steps
 
