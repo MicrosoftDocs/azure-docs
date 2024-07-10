@@ -61,7 +61,7 @@ throw new errors.ArgumentError('Invalid upload parameters');
 To upload a file to IoT Hub:
 
 1. Create a stream pipeline.
-2. Constructs the blob URL.
+2. Construct the blob URL.
 3. Create a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) for file upload to Blob Storage.
 4. Call [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient?#@azure-storage-blob-blockblobclient-uploadfile) to upload the file to Blob Storage.
 5. Call [notifyBlobUploadStatus](/javascript/api/azure-iot-device/client?#azure-iot-device-client-notifyblobuploadstatus) to notify IoT Hub that the upload succeeded or failed.
@@ -133,7 +133,7 @@ const serviceClient = Client.fromConnectionString(connectionString);
 ### Check for a file upload notification
 
 To check for file upload notifications:
-* [Open](/javascript/api/azure-iothub/client?view=azure-node-latest#azure-iothub-client-open-1) the connection to IoT Hub
+* [Open](/javascript/api/azure-iothub/client?#azure-iothub-client-open-1) the connection to IoT Hub
 * Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that will be called when notification messages are received.
 * Process file upload notifications in the callback method.
 
