@@ -15,7 +15,7 @@ ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
 
-> [!WARNING] 
+> [!CAUTION]
 >  Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.1 
 > * End of Support for Azure Synapse Runtime for Apache Spark 3.1 announced January 26, 2023.
 > * Effective January 26, 2024, the Azure Synapse has stopped official support for Spark 3.1 Runtimes.
