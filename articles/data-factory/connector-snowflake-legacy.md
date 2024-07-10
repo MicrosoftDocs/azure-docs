@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/22/2024
+ms.date: 07/02/2024
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics (legacy)
@@ -253,7 +253,7 @@ If your sink data store and format meet the criteria described in this section, 
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MYTABLE",
+                "query": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -304,7 +304,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",               
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "query": "SELECT * FROM MyTable",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand"
                 }
