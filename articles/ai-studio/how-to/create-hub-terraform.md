@@ -18,7 +18,7 @@ ai-usage: ai-assisted
 
 # Use Terraform to create an Azure AI Studio hub
 
-In this article, you use Terraform to create an Azure AI hub, an AI project, and AI services connection. Azure AI hub is a central place for data scientists and developers to collaborate on machine learning projects. It provides a shared, collaborative space to build, train, and deploy machine learning models. Azure AI hub is integrated with Azure Machine Learning and other Azure services, making it a comprehensive solution for machine learning tasks. The hub also allows you to manage and monitor your AI deployments, ensuring they're performing as expected.
+In this article, you use Terraform to create an Azure AI Studio hub, a project, and AI services connection. A hub is a central place for data scientists and developers to collaborate on machine learning projects. It provides a shared, collaborative space to build, train, and deploy machine learning models. The hub is integrated with Azure Machine Learning and other Azure services, making it a comprehensive solution for machine learning tasks. The hub also allows you to manage and monitor your AI deployments, ensuring they're performing as expected.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
