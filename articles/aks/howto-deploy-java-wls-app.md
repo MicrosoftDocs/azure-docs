@@ -709,7 +709,7 @@ Use the following steps to verify the functionality of the deployment by viewing
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command. The following command removes the resource group, container service, container registry, and all related resources:
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command. The following command removes the resource group, container service, container registry, database, and all related resources:
 
 ```azurecli
 az group delete --name <resource-group-name> --yes --no-wait
