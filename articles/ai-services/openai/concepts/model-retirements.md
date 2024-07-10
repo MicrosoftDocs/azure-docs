@@ -37,26 +37,26 @@ Retirements are done on a rolling basis, region by region.
 
 ## Model availability
 
-1. At least 1 year of model availability for GA models after the release date of a model in at least one region worldwide
+1. At least one year of model availability for GA models after the release date of a model in at least one region worldwide
 2. For global deployments, all future model versions starting with `gpt-4o` and `gpt-4 0409` will be available with their (`N`) next succeeding model (`N+1`) for comparison together. 
-1. Customers will have 60 days to try out a new GA model, in at least one global or standard region, before any upgrades happen to a newer GA model.  
+1. Customers have 60 days to try out a new GA model in at least one global, or standard region, before any upgrades happen to a newer GA model.  
 
 ### Considerations for the Azure public cloud
 
 Be aware of the following: 
 
 1. All model version combinations will **not** be available in all regions.
-2. Model version `N` and `N+1` may not always be available in the same region. 
-3. GA model version `N` may upgrade to a future model version `N+X` in some regions based on capacity limitations, and without the new model version `N+X` separately being available to test in the same region. The new model version will be available to test in other regions before any upgrades are scheduled.   
-4. Preview model versions and GA versions of the same model will not always be available to test together in the same region. There will be preview and GA versions available to test in different regions. 
+2. Model version `N` and `N+1` might not always be available in the same region. 
+3. GA model version `N` might upgrade to a future model version `N+X` in some regions based on capacity limitations, and without the new model version `N+X` separately being available to test in the same region. The new model version will be available to test in other regions before any upgrades are scheduled.   
+4. Preview model versions and GA versions of the same model won't always be available to test together in the same region. There will be preview and GA versions available to test in different regions. 
 5.	We reserve the right to limit future customers using a particular region to balance service quality for existing customers.
 6.	As always at Microsoft, security is of the utmost importance. If a model or model version is found to have compliance or security issues, we reserve the right to invoke the need to do emergency retirements. See the terms of service for more information.
 
 ### Special considerations for Azure Government clouds
 
-1.	Global standard deployments will not be available in government clouds.
+1.	Global standard deployments won't be available in government clouds.
 2.	Not all models or model versions available in commercial / public cloud will be available in government clouds.
-3.	In the Azure government clouds, we intend to support only one version of a given model at a time.
+3.	In the Azure Government clouds, we intend to support only one version of a given model at a time.
     1. For example only one version of `gpt-35-turbo 0125` and `gpt-4o (2024-05-13)`.
 4.	There will however be a 30 day overlap between new model versions, where more than two will be available.
     1. For example if `gpt-35-turbo 0125` or `gpt-4o (2024-05-13)` is updated to a future version, or
