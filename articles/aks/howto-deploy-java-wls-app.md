@@ -466,7 +466,7 @@ Use the following steps to build the image:
    model-in-image   WLS-v1    76abc1afdcc6   2 hours ago   8.61MB
    ```
 
-   After the image is created, it should have the WDT executables in */auxiliary/weblogic-deploy*, and WDT model, property, and archive files in */auxiliary/models*. Use the following command to run the image:
+   After the image is created, it should have the WDT executables in */auxiliary/weblogic-deploy*, and WDT model, property, and archive files in */auxiliary/models*. Use the following command to verify the contents of the image:
 
    ```bash
    docker run -it --rm model-in-image:WLS-v1 find /auxiliary -maxdepth 2 -type f -print
