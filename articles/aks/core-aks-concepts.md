@@ -2,7 +2,7 @@
 title: Azure Kubernetes Services (AKS) core concepts
 description: Learn about the core concepts of Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/09/2024
+ms.date: 07/10/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -82,7 +82,7 @@ A *pod* is a group of one or more containers that share the same network and sto
 
 ## Node pools
 
-In AKS, nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying virtual machine scale sets ad virtual machines (VMs) that run your applications. When you create an AKS cluster, you define the initial number of nodes and their size (SKU), which creates a [*system node pool*][use-system-pool]. System node pools serve the primary purpose of hosting critical system pods, such as CoreDNS and `konnectivity`. To support applications that have different compute or storage demands, you can create *user node pools*. User node pools serve the primary purpose of hosting your application pods.
+In AKS, nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying virtual machine scale sets and virtual machines (VMs) that run your applications. When you create an AKS cluster, you define the initial number of nodes and their size (SKU), which creates a [*system node pool*][use-system-pool]. System node pools serve the primary purpose of hosting critical system pods, such as CoreDNS and `konnectivity`. To support applications that have different compute or storage demands, you can create *user node pools*. User node pools serve the primary purpose of hosting your application pods.
 
 For more information, see [Create node pools in AKS][create-node-pools] and [Manage node pools in AKS][manage-node-pools].
 
