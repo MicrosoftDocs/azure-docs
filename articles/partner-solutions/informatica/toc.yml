@@ -32,8 +32,8 @@ items:
     # href: /Azure.ResourceManager.InformaticaDataManagement/1.0.0-beta.1
   - name: Java
     href: /java/api/overview/azure/resourcemanager-informaticadatamanagement-readme
-  - name: Go 
-    href: /azure-sdk-for-go/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
+  # - name: Go 
+  #   href: /azure-sdk-for-go/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
 # - name: REST API
 #   href: /rest/api/informatica
 # - name: Azure PowerShell
