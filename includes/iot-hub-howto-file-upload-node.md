@@ -65,7 +65,7 @@ throw new errors.ArgumentError('Invalid upload parameters');
 
 ### Upload the file to IoT hub
 
-To upload a file to IoT hub:
+To upload a file from a device IoT hub:
 
 1. Create a stream pipeline.
 2. Construct the blob URL.
@@ -176,6 +176,6 @@ serviceClient.open(function (err) {
 });
 ```
 
-### Sample
+### SDK file upload sample
 
 The SDK includes an [upload to blob advanced](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample.

@@ -31,10 +31,9 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 For more information, see:
 
 * [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
-* [Configure IoT Hub file uploads](iot-hub-configure-file-upload.md)
-* [Azure Blob Storage documentation](../storage/blobs/storage-blobs-introduction.md)
-* [Azure Blob Storage API reference](../storage/blobs/reference.md)
-* [Azure IoT SDKs](iot-hub-devguide-sdks.md)
+* [Configure IoT Hub file uploads using the Azure portal](iot-hub-configure-file-upload.md)
+* [Introduction to Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
+* [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md)
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 

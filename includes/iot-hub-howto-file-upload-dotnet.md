@@ -32,13 +32,13 @@ Follow this procedure to upload a file from a device to IoT Hub:
 Supply the IoT Hub primary connection string to [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
 
 ``` csharp
-static string connectionString = "{IoT Hub connection string}";
+static string connectionString = "{IoT Hub primary connection string}";
 deviceClient = DeviceClient.CreateFromConnectionString(connectionString);
 ```
 
 ### Get a SAS URI from IoT Hub
 
-Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload SAS URI, which the Azure Storage SDK can use to upload a file to blob for this device.
+Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload SAS URI, which the Azure Storage SDK can use to upload a file from a device to Blob Storage.
 
 ```csharp
 const string filePath = "TestPayload.txt";
@@ -144,6 +144,6 @@ while (true)
 }
 ```
 
-### Sample
+### SDK file upload sample
 
-The SDK includes this [sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
+The SDK includes this [file upload sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).

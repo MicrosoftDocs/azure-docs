@@ -162,7 +162,7 @@ def run_sample(device_client):
 
 ### Sample
 
-The SDK includes two samples:
+The SDK includes two file upload samples:
 
 * [Upload to blob](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/upload_to_blob.py)
 * [Upload to blob using an X.509 certificate](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/upload_to_blob_x509.py)

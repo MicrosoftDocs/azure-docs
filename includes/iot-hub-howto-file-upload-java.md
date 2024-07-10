@@ -160,6 +160,6 @@ else
 receiver.close();
 ```
 
-## Samples
+### SDK file upload samples
 
 There are two Java file upload [samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/file-upload-sample/src/main/java/samples/com/microsoft/azure/sdk/iot).
