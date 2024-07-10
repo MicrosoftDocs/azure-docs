@@ -63,12 +63,8 @@ You can add subscriptions to the management group that you created.
    > [!IMPORTANT]
    > Management groups can contain both subscriptions and child management groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children.
 
-   > [!NOTE]  
-   > Users have access to all adjacend resources and sub-resources. For example, imagine that tenant root group 
-   > contains User1 and Management-Group1. And Management-group1 contains User2 and Subscription1. And Subscription1
-   > contains Resource1. In this secanrio, User1 has access to all resources within tenant root group which means
-   > Management-Group1, Subscription1 and Resource1. User2 has access to all resources within Management-Group1
-   > which means Subscription1 and Resource1. ![image](https://github.com/MicrosoftDocs/azure-docs/assets/21277296/9e652a6a-a9da-43ea-a9c4-55d91553bc3c)
+   > [!NOTE]
+   > Users have access to all adjacent resources and sub-resources. For example, imagine that tenant root group contains User1 and Management-Group1. And Management-group1 contains User2 and Subscription1. And Subscription1 contains Resource1. In this scenario, User1 has access to all resources within tenant root group which means Management-Group1, Subscription1 and Resource1. User2 has access to all resources within Management-Group1 which means Subscription1 and Resource1.  ![image](https://github.com/MicrosoftDocs/azure-docs/assets/21277296/9e652a6a-a9da-43ea-a9c4-55d91553bc3c)
 
 
 
