@@ -25,7 +25,7 @@ Azure Communication Services now enables you to ...
 ## Setup
 
 1. **Connect Azure Communication Services with Azure OpenAI Services:**
-   - Follow the instructions on the [Azure Communication Services and Azure Cognitive Services Integration page](../../../../communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration#azure-portal-experience.md) to set up the connection between your Azure Communication Services and Azure OpenAI Services.
+   - Follow the instructions on the [Azure Communication Services and Azure Cognitive Services Integration page](../../../../communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md#azure-portal-experience) to set up the connection between your Azure Communication Services and Azure OpenAI Services.
 
 2. **Enable Message Analysis:**
    - Go to the **Channels** page of the **Advanced Messaging** tab in your Azure Communication Services resource.
