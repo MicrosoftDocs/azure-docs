@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for Cloud features
 description: What's new and updated in Microsoft Defender for Cloud features
 ms.topic: overview
-ms.date: 03/24/2024
+ms.date: 07/10/2024
 ---
 
 # What's new in Defender for Cloud features
@@ -24,13 +24,27 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 <!-- 5. Under the relevant month, add a short paragraph about the new feature. Give the paragraph an H3 (###) heading. Keep the title short and not rambling. -->
 <!-- 6. In the Update column, add a bookmark to the H3 paragraph that you created (#<bookmark-name>) .-->
 
-## July 2024 
+## July 2024
+
 |Date | Category | Update|
 |--|--|--|
-| July 9 | Upcoming update | [Inventory experience improvement](#update-inventory-experience-improvement) |
+| July 10 | GA | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
+| July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
 
-### Update: Inventory experience improvement
+### Compliance standards are now GA
+
+July 10, 2024
+
+In March, we added preview versions of many new compliance standards for customers to validate their AWS and GCP resources against.
+
+Those standards included CIS Google Kubernetes Engine (GKE) Benchmark, ISO/IEC 27001 and ISO/IEC 27002, CRI Profile, CSA Cloud Controls Matrix (CCM), Brazilian General Personal Data Protection Law (LGPD), California Consumer Privacy Act (CCPA), and more.
+
+Those preview standards are now generally available (GA).
+
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
+
+### Inventory experience improvement
 
 July 9, 2024
 
@@ -48,7 +62,7 @@ With DevOps security capabilities in Microsoft Defender Cloud Security Posture M
 
 ## June 2024
 
-|Date | Category | Update
+|Date | Category | Update |
 |--|--|--|
 | June 27 | GA | [Checkov IaC Scanning in Defender for Cloud](#ga-checkov-iac-scanning-in-defender-for-cloud). |
 | June 24 | Update | [Change in pricing for multicloud Defender for Containers](#update-change-in-pricing-for-defender-for-containers-in-multicloud) |
