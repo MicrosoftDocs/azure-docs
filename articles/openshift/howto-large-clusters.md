@@ -5,11 +5,11 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 07/05/2024
+ms.date: 07/10/2024
 ---
 # Deploy a large Azure Red Hat OpenShift cluster
 
-This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 180 nodes. For clusters of that size, a combination of control plane nodes and infrastructure nodes to ensure the cluster functions properly.
+This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 180 nodes. For clusters of that size, a combination of control plane nodes and infrastructure nodes to ensure the cluster functions properly is recommended.
 
 ## Deploy a cluster
 
@@ -19,7 +19,7 @@ For clusters with over 101 nodes, use the following [virtual machine instance ty
 - Standard_D32s_v4
 - Standard_D32s_v5
 
-Following is a sample script using Azure CLI to deploy a cluster with Standard_D32s_v5 as the control plane nodes:
+Following is a sample script using Azure CLI to deploy a cluster with Standard_D32s_v5 as the control plane node:
 
 ```azurecli
 #az aro create \ --resource-group $RESOURCEGROUP \ --name $CLUSTER \ --vnet aro-vnet \ --master-subnet master-subnet \ --worker-subnet worker-subnet --master-vm-size Standard_D32s_v5
@@ -30,7 +30,7 @@ Following is a sample script using Azure CLI to deploy a cluster with Standard_D
 For clusters with over 101 nodes, infrastructure nodes are required to separate cluster workloads (such as prometheus) to minimize contention with other workloads.
  
 > [!NOTE]
-> It's recommended that you deploy 3 infrastructure nodes per cluster for redundancy and scalability needs. 
+> It's recommended that you deploy three (3) infrastructure nodes per cluster for redundancy and scalability needs. 
 > 
 
 The following instance types are recommended for infrastructure nodes:
@@ -42,9 +42,9 @@ For instructions on configuring infrastructure nodes, see [Deploy infrastructure
 
 ## Add IP addresses to the cluster
 
-A maximum of 20 IP addresses can be added to a load balancer. One (1) OP addresses is needed per 65 nodes, so a cluster with 180 nodes requires a minimum of three (3) IP addresses.
+A maximum of 20 IP addresses can be added to a load balancer. One (1) IP address is needed per 65 nodes, so a cluster with 180 nodes requires a minimum of three (3) IP addresses.
 
-To add IP addresses to the load balancer using Azure CLI, run the following:
+To add IP addresses to the load balancer using Azure CLI, run the following command:
 
 `az aro update -n [clustername] –g [resourcegroup]  --lb-ip-count 20`
 
