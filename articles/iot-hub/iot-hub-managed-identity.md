@@ -20,7 +20,7 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
 - Understand the managed identity differences between *system-assigned* and *user-assigned* in [What are managed identities for Azure resources?](./../active-directory/managed-identities-azure-resources/overview.md)
 
-- An [IoT hub](iot-hub-create-through-portal.md) 
+- An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## System-assigned managed identity
 
