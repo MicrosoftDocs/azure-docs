@@ -33,7 +33,7 @@ In the managed service, you can't access the underlying data. This is to ensure 
 
 ### What identity provider do you support?
 
-We support Microsoft Entra ID as the identity provider.
+We support Microsoft Entra ID and third party identity provider that support OpenID connect.
 
 ### Can I use Azure AD B2C with the FHIR service?
 
@@ -121,21 +121,10 @@ We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-b
 
 We support the [$patient-everything operation](patient-everything.md) which will get you all data related to a single patient. 
 
-### What is the default sort when searching for resources in the FHIR service?
-
-We support sorting by string and dateTime fields in the FHIR service. For more information about other supported search parameters, see [Overview of FHIR search](overview-of-search.md).
-
 ### Does the FHIR service support any terminology operations?
 
 No, the FHIR service doesn't support terminology operations today.
 
-### What are the differences between delete types in the FHIR service? 
-
-There are two basic Delete types supported within the FHIR service. They are [Delete and Conditional Delete](rest-api-capabilities.md#delete-and-conditional-delete).
-
-* With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
-* With Conditional Delete, you can pass search criteria to delete a resource one item at a time or several at a time.
-* If you passed the `hardDelete` parameter with either Delete or Conditional Delete, all the records and history are deleted and unrecoverable.
 
 ## Using the FHIR service
 
