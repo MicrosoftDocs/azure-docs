@@ -27,7 +27,7 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
 + An [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) to use for image vectorization and optical character recognition (OCR). The account must be in a region that provides Azure AI Vision multimodal embeddings.
 
-  Currently, eligible regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval) for an updated list.
+  Currently, those regions are: EastUS, WestUS, WestUS2, NorthEurope, WestEurope, FranceCentral, SwedenCentral, SwitzerlandNorth, SoutheastAsia, KoreaCentral, AustraliaEast, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/overview-image-analysis#region-availability) for an updated list.
 
 + Azure AI Search for indexing and queries. It can be on any tier, but it must be in the same region as Azure AI services.
 
