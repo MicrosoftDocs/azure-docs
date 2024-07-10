@@ -131,4 +131,4 @@ In this article, you use Terraform to create an Azure AI Studio hub, a project, 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure ai hub](/search/?terms=Azure%20ai%20hub%20and%20terraform)
+> [See more articles about Azure AI Studio hub](/search/?terms=Azure%20ai%20hub%20and%20terraform)
