@@ -79,6 +79,50 @@ If you know exactly which credential type you'll use to authenticate users, you 
 
 To learn more about authorizing management operations, see [Assign management permissions with Azure RBAC](authorization-resource-provider.md#assign-management-permissions-with-azure-role-based-access-control-azure-rbac).
 
+## Register the Storage resource provider with a subscription
+
+A resource provider must be registered with your Azure subscription before you can work with it. This step only needs to be done once per subscription, and only applies if the resource provider **Microsoft.Storage** is not currently registered with your subscription.
+
+You can register the Storage resource provider, or check the registration status, using [Azure portal](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), [Azure CLI](/azure/azure-resource-manager/management/resource-providers-and-types#azure-cli), or [Azure PowerShell](/azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell).
+
+You can also use the Azure management libraries to check the registration status and register the Storage resource provider, as shown in the following example:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_RegisterSRP":::
+
+> [!NOTE]
+> To perform the register operation, you need permissions for the following Azure RBAC action: **Microsoft.Storage/register/action**. This permission is included in the **Contributor** and **Owner** built-in roles.
+
+## Create a client to manage storage account resources
+
+After creating an `ArmClient` object and registering the Storage resource provider, you can create client objects to manage storage account resources. The following code example shows how to create client objects for a resource group and a storage account:
+
+```csharp
+ArmClient armClient = new(credential);
+
+// Create a resource identifier, then get the subscription resource
+ResourceIdentifier resourceIdentifier = new($"/subscriptions/{subscriptionId}");
+SubscriptionResource subscription = armClient.GetSubscriptionResource(resourceIdentifier);
+
+// Get a resource group
+ResourceGroupResource resourceGroup = await subscription.GetResourceGroupAsync(rgName);
+
+// Get a collection of storage account resources
+StorageAccountCollection accountCollection = resourceGroup.GetStorageAccounts();
+
+// Get a specific storage account resource
+StorageAccountResource storageAccount = await accountCollection.GetAsync(storageAccountName);
+```
+
+## Understand client resource hierarchy
+
+To reduce both the number of clients needed to perform common tasks, and the number of redundant parameters that each of those clients take, the management SDK provides an object hierarchy that reflects the object hierarchy in Azure. Each resource client in the SDK has methods to access the resource clients of its children that are already scoped to the proper subscription and resource group.
+
+There are three standard levels of hierarchy for each resource type. For storage account resources, the hierarchy is as follows:
+
+- [StorageAccountCollection](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection): Represents the operations you can perform on a collection of storage accounts belonging to a specific parent resource, such as a resource group.
+- [StorageAccountResource](/dotnet/api/azure.resourcemanager.storage.storageaccountresource): Represents a full storage account client object and contains a **Data** property exposing the details as a `StorageAccountData` type. A class instance has access to all operations on that resource without needing to pass in scope parameters such as subscription ID or resource name.
+- [StorageAccountData](/dotnet/api/azure.resourcemanager.storage.storageaccountdata): Represents the model that makes up a given resource. Typically, this class is the response data from a service call and provides details about the resource.
+
 ## Build your application
 
 The following guides show you how to manage resources and perform specific actions using the Azure Storage management library for .NET:
