@@ -57,13 +57,13 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 | Operations | Per transaction | See the [Operations](#operations) section of this article. |
 | Data transfer | Per GB | See the [Data transfer](#data-transfer) section of this article. |
 | Data retrieval | Per GB | Applies only to the cool, cold, and archive tiers. |
-| Blob index tags | Per tag  | Applies only if you enable the feature. [Learn more](../blobs/storage-manage-find-blobs.md#pricing)) |
+| Blob index tags | Per tag  | Applies only if you enable the feature. |
 | Change feed | Per logged change | Applies only if you enable the feature. |
-| SSH File Transfer Protocol (SFTP) | per hour | Applies only if you enable the feature. [Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing)|
-| Blob inventory | Per million objects scanned | Applies to each report generated. [Learn more](../blobs/blob-inventory.md#pricing-and-billing)|
-| Encryption scopes | Per month | Applies only if you enable the feature. [Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes) |
-| Query acceleration | Per GB scanned & Per GB returned | [Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
-| Point-in-time restore Data Processed | Per MB | [Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing) |
+| SSH File Transfer Protocol (SFTP) | Per hour | Applies only if you enable the feature. |
+| Blob inventory | Per million objects scanned | Applies to each report generated. |
+| Encryption scopes | Per month | Applies only if you enable the feature. |
+| Query acceleration | Per GB | Per GB scanned & Per GB returned.  |
+| Point-in-time restore Data Processed | Per MB | The amount of change feed data processed. |
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
@@ -89,6 +89,7 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
   - Archived data? What tier is it stored in? 
   - HNS accounts? - what tier is that data stored in?
   - Index tags? Is this specially priced metadata?
+  - Metadata vs properties vs tags.
 - What is the proportion of metadata to stored objects so that customers can estimate?
 - List cases where customers might directly add metadata that results in a cost.
 
@@ -181,39 +182,21 @@ You can pay for Azure Blob Storage charges with your Azure Prepayment (previousl
 
 ## Optimize costs
 
-If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs.
-
-See any of these articles to itemize and analyze your existing containers and blobs:
+If you've been using Blob Storage for some time, you should periodically review the contents of your containers to identify opportunities to reduce your costs. By understanding how your blobs are stored, organized, and used in production, you can better optimize the tradeoffs between availability, performance, and cost of those blobs. See any of these articles to itemize and analyze your existing containers and blobs:
 
 - [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md)
-
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
-
 - [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
 
-#### Reserve storage capacity
+If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
-You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data.
-
-To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
-
-#### Organize data into access tiers
-
-You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. 
-
-See any of these articles:
+You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See any of these articles:
 
 - [Access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal)
-
 - [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
-
 - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 
-#### Automatically move data between access tiers
-
-Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
-
-To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
+Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs. To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
 
 ## Create budgets
 
