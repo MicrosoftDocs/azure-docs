@@ -27,7 +27,7 @@ This article uses the [Azure Marketplace offer for WebLogic Server](https://aka.
 - A container image including the WebLogic runtime
 - A WebLogic Server cluster without an application
 
-Then, the article introduces building an image to update the WebLogic Server cluster. The image provides application and WDT models.
+Then, the article introduces building an image to update the WebLogic Server cluster. The image provides the application and WDT models.
 
 If you prefer a less automated approach to deploying WebLogic on AKS, refer to the step-by-step guidance included in the official documentation from Oracle for [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
