@@ -1,14 +1,17 @@
 ---
-title: .NET feature management - Azure App Configuration
-description: Overview of .NET Feature Management library
+title: .NET feature flag management
+titleSuffix: Azure App Configuration
+description: In this tutorial, you learn how to use feature flags in .NET apps. The feature management library provides various out-of-the-box solutions for application development, ranging from simple feature toggles to complex feature experimentation.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
+ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 05/22/2024
 zone_pivot_groups: feature-management
+#Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
 # .NET Feature Management
@@ -323,10 +326,10 @@ By default, the feature manager retrieves feature flag configuration from the "F
 
 > [!NOTE]
 > You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
-
-``` C#
-services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
-```
+>
+> ``` C#
+> services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
+> ```
 
 ### Dependency Injection
 
@@ -1423,3 +1426,32 @@ To use an implementation of `IFeatureDefinitionProvider`, it must be added into 
 services.AddSingleton<IFeatureDefinitionProvider, InMemoryFeatureDefinitionProvider>()
         .AddFeatureManagement()
 ```
+
+## Next steps
+
+To learn how to use feature flags in your applications, continue to the following quickstarts.
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [.NET/.NET Framework console app](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+
+To learn how to use feature filters, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)
+
+To learn how to run experiments with variant feature flags, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Run experiments with variant feature flags](./howto-feature-filters.md)
