@@ -7,7 +7,6 @@ ms.service: lighthouse
 ms.topic: include
 ms.date: 07/10/2024
 ms.author: jenhayes
-ms.custom: include file
 ---
 
 These samples show how to use Azure Policy with subscriptions that have been onboarded to Azure Lighthouse.
