@@ -12,7 +12,7 @@ ms.date: 07/09/2024
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To test your workflow without affecting your production environments, you can set up and return mock outputs, or *static results*, from your workflow operations. That way, you don't have to call or access your live apps, data, services, or systems. For example, you might want to test different action paths based on various conditions, force errors, provide specific message response bodies, or even try skipping some steps. Setting up mock results from an action doesn't run the operation, but returns the test oputput instead.
+To test your workflow without affecting your production environments, you can set up and return mock outputs, or *static results*, from your workflow operations. That way, you don't have to call or access your live apps, data, services, or systems. For example, you might want to test different action paths based on various conditions, force errors, provide specific message response bodies, or even try skipping some steps. Setting up mock results from an action doesn't run the operation, but returns the test output instead.
 
 For example, if you set up mock outputs for the Outlook 365 send mail action, Azure Logic Apps just returns the mock outputs that you provided, rather than call Outlook and send an email.
 
@@ -63,7 +63,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
-1. On the designer, select the action where you want to return mock outputs, which shows the action information pane.
+1. On the designer, select the action where you want to return mock outputs.
 
 1. On the action information pane, select **Testing**, for example:
 
@@ -98,7 +98,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
-1. On the designer, select the action where you want to return mock outputs, which shows the action information pane.
+1. On the designer, select the action where you want to return mock outputs.
 
 1. On the action information pane, select **Testing**, for example:
 
