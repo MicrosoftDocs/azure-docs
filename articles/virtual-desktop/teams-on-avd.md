@@ -8,7 +8,7 @@ ms.author: helohr
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 
-Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
+Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. You can still use Microsoft Teams on Azure Virtual Desktop on other platforms without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
 
 There are two versions of Teams, *Classic Teams* and *[New Teams](/microsoftteams/new-teams-desktop-admin)*, and you can use either with Azure Virtual Desktop. New Teams has with feature parity with Classic Teams, but improves performance, reliability, and security.
 
