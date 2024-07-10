@@ -59,11 +59,18 @@ You can create an Azure AI Search resource in any of the following Azure public 
 |--|--|--|--|
 | UAE North​​ | ✅ |  | ✅ |
 
+### Taiwan
+
+| Region | AI enrichment | Semantic ranking | Availability zones |
+|--|--|--|--|
+| Taiwan North​ |  |  |  |
+
 ### Switzerland
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
 | Switzerland North​ | ✅ | ✅ | ✅ |
+| Switzerland West​ | ✅ | ✅ | ✅ |
 
 ### Sweden
 
@@ -71,6 +78,12 @@ You can create an Azure AI Search resource in any of the following Azure public 
 |--|--|--|--|
 | Sweden Central​​ | ✅ |  | ✅ |
 | Sweden North​ | ✅ | ✅ | |
+
+### Spain
+
+| Region | AI enrichment | Semantic ranking | Availability zones |
+|--|--|--|--|
+| Spain Central |  |  | ✅  |
 
 ### South Africa
 
@@ -98,6 +111,12 @@ You can create an Azure AI Search resource in any of the following Azure public 
 |--|--|--|--|
 | Norway East​​ | ✅ |  | ✅ |
 
+### Mexico
+
+| Region | AI enrichment | Semantic ranking | Availability zones |
+|--|--|--|--|
+| Mexico Central |  |  | ✅ |
+
 ### Korea
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
@@ -116,13 +135,13 @@ You can create an Azure AI Search resource in any of the following Azure public 
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
-| Italy North​​ |  |  |  |
+| Italy North​​ |  |  | ✅ |
 
 ### Israel
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
-| Israel Central​ <sup>1</sup> |  |  |  | 
+| Israel Central​ <sup>1</sup> |  |  | ✅  | 
 
 <sup>1</sup> This region runs on older infrastructure that has lower capacity per partition at every tier. You can't create a search service with [higher capacity](search-limits-quotas-capacity.md#service-limits) in this region.
 
