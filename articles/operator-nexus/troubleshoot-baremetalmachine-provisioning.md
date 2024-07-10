@@ -167,8 +167,13 @@ To find the `Network Fabric` port from Azure:
 1. Obtain the RackID, RackSlot from the `BareMetal Machine Details` section above.
 2. In `Azure Portal`, drill-down to the `Network Rack` RackID for the BareMetal Machine Rack.
 3. Select `Network Devices` tab and the Management (Mgmt) swich for the rack.
-4. Under `Resources`, select `Network Interfaces` and select the interface for the BMC (iDRAC) or Boot (PXE) interface for the port that requires reset and collect the, Network Fabric Resource Group (NF_RG), the Device Name (NF_DEVICE_NAME) and the interface (NF_DEVICE_INTERFACE_NAME).
-5. To reset the port from Azure CLI:
+4. Under `Resources`, select `Network Interfaces` and select the interface for the BMC (iDRAC) or Boot (PXE) interface for the port that requires reset and collect the following:
+   - Network Fabric Resource Group (NF_RG)
+   - Device Name (NF_DEVICE_NAME)
+   - Interface Name (NF_DEVICE_INTERFACE_NAME).
+5. Reset the port:
+
+   To reset the port using Azure CLI:
    ```azurecli
    az networkfabric interface update-admin-state -g $NF_RG --network-device-name $NF_DEVICE_NAME --resource-name $NF_DEVICE_INTERFACE_NAME --state Disable
    az networkfabric interface update-admin-state -g $NF_RG --network-device-name $NF_DEVICE_NAME --resource-name $NF_DEVICE_INERFACE_NAME --state Enable
