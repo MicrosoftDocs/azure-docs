@@ -165,7 +165,7 @@ Endpoints for models deployed as Serverless APIs follow the public_network_acces
 **Limitations:**
 * If you have an AI Studio hub with private endpoint created before July 11, new MaaS endpoints added to projects in this hub will not follow the networking configuration of the hub. New private endpoint and serverless API deployments need to be created. 
 * If you have an AI studio hub with MaaS deployments created before July 11 and you enable private endpoint on this hub, the existing MaaS endpoints will not follow the hub's networking configuration. New serverless API deployments need to be created.
-* Currently [On Your Data]() support is not available for MaaS deployments in private hubs (public_network_access flag disabled).
+* Currently [On Your Data](#rag-with-models-deployed-as-serverless-apis) support is not available for MaaS deployments in private hubs (public_network_access flag disabled).
 * Any network cofiguration change (eg. enabling or disabling the public_network_access flag) may take upto five minutes to propagate.
 
 ## Next steps
