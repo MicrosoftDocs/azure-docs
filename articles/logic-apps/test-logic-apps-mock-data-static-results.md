@@ -48,7 +48,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
     "runtimeConfiguration": {
         "staticResult": {
             "name": "{action-name-ordinal}",
-            "staticResultoptions": "Enabled"
+            "staticResultOptions": "Enabled"
         }
     }
     ```
