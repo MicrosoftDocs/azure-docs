@@ -42,6 +42,8 @@ const path = require('path');
 
 Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS Token from IoT Hub.
 
+For example:
+
 ```javascript
 // make sure you set these environment variables prior to running the sample.
 const deviceConnectionString = process.env.DEVICE_CONNECTION_STRING;
@@ -58,7 +60,7 @@ throw new errors.ArgumentError('Invalid upload parameters');
 
 To upload a file to IoT Hub:
 
-1. Creates a communication pipeline.
+1. Create a stream pipeline.
 2. Constructs the blob URL.
 3. Create a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) for file upload to Blob Storage.
 4. Call [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient?#@azure-storage-blob-blockblobclient-uploadfile) to upload the file to Blob Storage.
@@ -112,7 +114,58 @@ console.log('uploadStreamToBlockBlob success');
 
 // Notify the blob upload status
 await client.notifyBlobUploadStatus(blobInfo.correlationId, isSuccess, statusCode, statusDescription);
+```
 
+## Receive a file upload notification
+
+You can create a separate application to check the IoT Hub service client for device file upload notifications.
+
+### Connect to the IoT Hub service client
+
+Create the [Client](/javascript/api/azure-iothub/client) using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring).
+
+```javascript
+const Client = require('azure-iothub').Client;
+const connectionString = "{IoT hub connection string}";
+const serviceClient = Client.fromConnectionString(connectionString);
+```
+
+### Check for a file upload notification
+
+To check for file upload notifications:
+* [Open](/javascript/api/azure-iothub/client?view=azure-node-latest#azure-iothub-client-open-1) the connection to IoT Hub
+* Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that will be called when notification messages are received.
+* Process file upload notifications in the callback method.
+
+This example sets up a `receiveFileUploadNotification` notification  callback receiver. The receiver interprets the file upload status information and prints a status messsage to the console.
+
+```javascript
+//Open the connection to IoT hub
+serviceClient.open(function (err) {
+  if (err) {
+    console.error('Could not connect: ' + err.message);
+  } else {
+    console.log('Service client connected');
+    //Set up the receiveFileUploadNotification notification message callback receiver
+    serviceClient.getFileNotificationReceiver(function receiveFileUploadNotification(err, receiver){
+      if (err) {
+        console.error('error getting the file notification receiver: ' + err.toString());
+      } else {
+        receiver.on('message', function (msg) {
+          console.log('File upload from device:')
+          console.log(msg.getData().toString('utf-8'));
+          receiver.complete(msg, function (err) {
+            if (err) {
+              console.error('Could not finish the upload: ' + err.message);
+            } else {
+              console.log('Upload complete');
+            }
+          });
+        });
+      }
+    });
+  }
+});
 ```
 
 ### Sample
