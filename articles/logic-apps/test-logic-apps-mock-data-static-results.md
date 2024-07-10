@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/09/2024
+ms.date: 07/10/2024
 ---
 
 # Test workflows with mock outputs in Azure Logic Apps
