@@ -11,7 +11,7 @@ ms.author: bpinto
 
 # Troubleshoot BareMetal Machine Provisioning in Nexus Cluster
 
-As part of Cluster deploy action, BareMetal Machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues.
+As part of Cluster deploy action, BareMetal machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure Portal and the server Baseboard Management Controller (BMC). For the Operator Nexus Platform, the underlying Dell server hardware uses Integrated Dell Remote Access Controller (iDRAC) as the BMC.
 
 ## Prerequisites
 1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
@@ -99,8 +99,10 @@ az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{nam
 
 The following conditions can cause provisioning failures
 | Error Type | Resolution |
+| --- | --- |
 | BMC shows Backplane Comm | Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | Boot MAC Address mismatch | BareMetal Machine Replace |
+| BMC MAC Address mismatch | BareMetal Machine Replace |
 | Boot Network Data not Retrieved from Redfish | Bounce Port, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | Disk Data not retrieved from Redfish | Re-seat Disk, Re-seat PERC, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | BMC Unreachable | Bounce Port, Reseat Cable, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
@@ -147,7 +149,8 @@ If the MAC address supplied to the cluster is incorrect, use the BareMetal Machi
 Attempt to run ping against the BMC IPv4 address:
 1. Obtain the IPv4 address (BMC_IP) from `Determine BMC IPv4 Address` above.
 2. Test ping to the BMC:
-   To check fr0m a Jumpbox that has access the BMC network:
+
+   To test from a Jumpbox that has access the BMC network:
    ```bash 
    ping $BMC_IP -c 3
    ```
@@ -202,3 +205,6 @@ racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password 
 ## Adding servers back into the Cluster after a repair
 
 After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md).
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
