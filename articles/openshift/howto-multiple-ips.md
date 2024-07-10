@@ -15,7 +15,7 @@ ARO public clusters are created with a public load balancer that's used for outb
 You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
 
 > [!NOTE]
-> The [API](/rest/api/openshift/) method for using this feature is generally available. General availability for using the CLI for this feature is coming soon. The [preview version](#download-aro-extension-wheel-file-preview-only) of this feature can still be used through the CLI.
+> The [API](/rest/api/openshift/open-shift-clusters/update?view=rest-openshift-2023-11-22&tabs=HTTP) method for using this feature is generally available. General availability for using the CLI for this feature is coming soon. The [preview version](#download-aro-extension-wheel-file-preview-only) of this feature can still be used through the CLI.
 > 
 
 ## Requirements
