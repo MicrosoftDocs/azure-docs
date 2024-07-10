@@ -1,7 +1,7 @@
 ---
-title: Azure Lighthouse in  ISV scenarios
+title: Azure Lighthouse in ISV scenarios
 description: The capabilities of Azure Lighthouse can be used by ISVs for more flexibility with customer offerings.
-ms.date: 05/10/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
