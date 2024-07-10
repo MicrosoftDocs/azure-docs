@@ -11,6 +11,8 @@ ms.date: 07/01/2024
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
+## Overview
+
 This how-to contains two sections:
 
 * Upload a file from a device application
@@ -78,7 +80,7 @@ BlobClient blobClient =
         .buildClient();
 ```
 
-Call [uploadFromFile](/java/api/com.azure.storage.blob.blobclient?#com-azure-storage-blob-blobclient-uploadfromfile(java-lang-string)) to upload the file to blob storage.
+Call [uploadFromFile](/java/api/com.azure.storage.blob.blobclient?#com-azure-storage-blob-blobclient-uploadfromfile(java-lang-string)) to upload the file to Blob Storage.
 
 ```java
 String fullFileName = "Path of the file to upload";

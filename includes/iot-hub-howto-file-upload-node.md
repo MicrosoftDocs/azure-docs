@@ -11,6 +11,8 @@ ms.date: 07/01/2024
 ms.custom: mqtt, devx-track-js
 ---
 
+## Overview
+
 This how-to contains two sections:
 
 * Upload a file from a device application

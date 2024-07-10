@@ -12,7 +12,7 @@ zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---
 
-# Upload files from your device to the cloud with Azure IoT Hub
+# Upload files from a device to the cloud with Azure IoT Hub
 
 This article demonstrates how to:
 
