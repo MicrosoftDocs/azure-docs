@@ -21,9 +21,9 @@ This article identifies the cloud regions in which Azure AI Search is available.
 - [AI enrichment](cognitive-search-concept-intro.md) refer to skills and vectorizers that make internal calls to Azure AI and Azure OpenAI. AI enrichment requires that Azure AI Search coexist with an [Azure AI multi-service account](/azure/ai-services/multi-service-resource) in the same physical region. The following tables indicate whether Azure AI is offered in the same region as Azure AI Search.
 - [Availability zones](search-reliability.md#availability-zone-support) are an Azure platform capability that divides a region's data centers into distinct physical location groups to provide high-availability, within the same region.
 
-We recommend that you [check Azure AI Studio region availability](/azure/ai-studio/reference/region-support) for an updated list of regions for that feature. 
+We recommend that you check [Azure AI Studio region availability](/azure/ai-studio/reference/region-support) and [Azure OpenAI model region availability](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) for the most current list of regions for those features. 
 
-Also, if you're using Azure AI Vision 4.0 multimodal APIs for image vectorization, it's available in a more limited set of regions. [Check the Azure AI Vision region list for multimodal embeddings](/azure/ai-services/computer-vision/overview-image-analysis#region-availability) and be sure to create both your Azure AI multi-service account and Azure AI Search service in one of those supported regions.
+Also, if you're using Azure AI Vision 4.0 multimodal APIs for image vectorization, it's available on a more limited basis. [Check the Azure AI Vision region list for multimodal embeddings](/azure/ai-services/computer-vision/overview-image-analysis#region-availability) and be sure to create both your Azure AI multi-service account and Azure AI Search service in one of those supported regions.
 
 > [!NOTE]
 > Higher capacity partitions became available in selected regions starting in April 2024. A second wave of higher capacity partitions released in May 2024. If you're using an older search service, consider creating a new search service to benefit from more capacity at the same billing rate as before. For more information, see [Service limits](search-limits-quotas-capacity.md#service-limits)
@@ -218,4 +218,7 @@ You can install Azure AI Search in any of the following regions. If you need sem
 
 ## See also
 
-[Azure product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search)
+- [Azure AI Studio region availability](/azure/ai-studio/reference/region-support)
+- [Azure OpenAI model region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability)
+- [Availability zone region availability](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support)
+- [Azure product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search)
