@@ -8,9 +8,15 @@ ms.reviewer: viviandiec
 
 # Optimize monitoring costs for Container insights
 
-Kubernetes clusters generate a large amount of log data. You can collect all of this data in Container insights, but since you're charged for the ingestion and retention of this data, that may result in charges for data that you don't use. You can significantly reduce your monitoring costs by filtering out data that you don't need and also by optimizing the configuration of the Log Analytics workspace where you're storing your data.
+Kubernetes clusters generate a large amount of data that's collected by Container insights. Since you're charged for the ingestion and retention of this data, you want to configure your environment to optimize your costs. You can significantly reduce your monitoring costs by filtering out data that you don't need and also by optimizing the configuration of the Log Analytics workspace where you're storing your data.
 
 Once you've analyzed your collected data and determined if there's any data that you're collecting that you don't require, there are several options to filter any data that you don't want to collect. This includes selecting from a set of predefined cost configurations and filtering out specific namespaces that you don't require. This article provides a walkthrough of guidance on how to analyze and reduce your costs for Azure Monitor Container insights. 
+
+| Step | Description |
+|:---|:---|
+| [Analyze your data ingestion](#analyze-your-data-ingestion) | Use workbooks and log queries in Azure Monitor to identify the amount of billable data that you're collecting in different tables populated by Container insights. Identify any data that you're not using for analysis or alerting and data that you require but rarely access. |
+| [Filter collected data](#filter-collected-data) | Once you've identified data that you can filter, use different configuration options in Container insights to filter out data that you don't require. Options are available to select predefined configurations, set individual parameters, and use custom log queries for detailed filtering. |
+| [Configure pricing tiers](#configure-pricing-tiers) | Analyze whether configuring basic pricing tier for your container logs will reduce your costs based on your particular usage. You can also use transformations to break up different data into multiple tables using different tiers. |
 
 ## Analyze your data ingestion
 
@@ -18,7 +24,7 @@ To identify your best opportunities for cost savings, analyze the amount of data
 
 You can visualize how much data is ingested in each workspace by using the **Container Insights Usage** runbook, which is available from the **Workspace** page of of a monitored cluster. 
 
-:::image type="content" source="media/container-insights-cost/workbooks-dropdown.png" lightbox="media/container-insights-cost/workbooks-dropdown.png" alt-text="Screenshot that shows the View Workbooks dropdown list.":::
+:::image type="content" source="media/container-insights-cost/workbooks-page.png" lightbox="media/container-insights-cost/workbooks-page.png" alt-text="Screenshot that shows the View Workbooks dropdown list.":::
 
 The report will let you view the data usage by different categories such as table, namespace, and log source.
 
@@ -28,40 +34,24 @@ Select the option to open the query in Log Analytics where you can perform more 
 ](./container-insights-log-query.md) for additional queries you can use to analyze your collected data.
 
 ## Filter collected data
-The most obvious way to reduce costs is to filter out data that you don't need. There are multiple methods that you can use to filter data being collected by Container insights as described in the following sections.
+Use the **By Table** tab in the usage workbook to see the amount of billable data being collected in each table.
 
-### Filter tables
-Your first option is to stop population of any tables that you don't use. Use the **By Table** tab in the usage workbook to see the amount of billable data being collected in each table.
-
-Select from common sets of tables using the [cost presets](./container-insights-data-collection-configure.md#configure-dcr-with-azure-portal) in the Azure portal. 
+Select from common sets of tables using the [cost presets](./container-insights-data-collection-configure.md#configure-dcr-with-azure-portal) in the Azure portal. These include different sets of tables to collect based on different operation and cost profiles. The cost presets are designed to help you quickly configure your data collection based on common scenarios.
 
 :::image type="content" source="media/container-insights-cost-config/collected-data-options.png" alt-text="Screenshot that shows the collected data options." lightbox="media/container-insights-cost-config/collected-data-options.png" :::
 
-If you want to select individual tables to populate other than the cost preset groups, you must manually modify the DCR. See [Stream values in DCR](./container-insights-data-collection-configure.md#stream-values-in-dcr) for a list of the streams to use in the DCR.
+The following table describes options for additional filtering beyond the cost presets.
 
-> [!TIP]
-> If you've configured your cluster to use the Prometheus experience for Container insights, then you can disable collection of the `Perf` and `InsightsMetrics` tables since performance data is being collected by Prometheus.
-
-### Filter container logs
-
-`ContainerLogV2` stores the stdout/stderr records generated by the containers in the cluster. While you can disable collection of the entire table using the DCR, you can configure the collection of stderr and stdout logs separately using the ConfigMap for the cluster. Since `stdout` and `stderr` settings can be configured separately, you can enable one and not the other.
-
-### Filter by namespace
-Namespaces in Kubernetes are used to group resources within a cluster. You can filter out data from resources in specific namespaces that you don't require. 
-
-- Using the DCR, you can only filter performance data by namespace, if you've enabled collection for the `Perf` table. 
-- Use ConfigMap to filter data for particular namespaces in `stdout` and `stderr` logs. See [Filter by namespace](./container-insights-data-collection-configure.md#filter-by-namespace) for details.
+| Filter by | Description | 
+|:---|:--|
+| Tables | If you want to select individual tables to populate other than the cost preset groups, you must manually modify the DCR. See [Stream values in DCR](./container-insights-data-collection-configure.md#stream-values-in-dcr) for a list of the streams to use in the DCR. If you've configured your cluster to use the Prometheus experience for Container insights, then you can disable collection of the `Perf` and `InsightsMetrics` tables since performance data is being collected by Prometheus. |
+| Container logs | `ContainerLogV2` stores the stdout/stderr records generated by the containers in the cluster. While you can disable collection of the entire table using the DCR, you can configure the collection of stderr and stdout logs separately using the ConfigMap for the cluster. Since `stdout` and `stderr` settings can be configured separately, you can enable one and not the other. |
+| Namespace | Namespaces in Kubernetes are used to group resources within a cluster. You can filter out data from resources in specific namespaces that you don't require. Using the DCR, you can only filter performance data by namespace, if you've enabled collection for the `Perf` table. Use ConfigMap to filter data for particular namespaces in `stdout` and `stderr` logs. See [Filter by namespace](./container-insights-data-collection-configure.md#filter-by-namespace) for details. |
+| Pods and containers | Annotation filtering allows you to filter out container logs based on annotations that you make to the pod. Using the ConfigMap you can specify whether stdout and stderr logs should be collected for individual pods and containers. See [Annotation filtering](./container-insights-data-collection-configure.md#annotation-filtering) for details. |
+| Transformations | [Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. This allows you to filter data based on that you can't perform with the other options. For example, you may choose to filter container logs based on the log level in ContainerLogV2. |
 
 
-### Filter by pods and containers
-Annotation filtering allows you to filter out container logs based on annotations that you make to the pod. Using the ConfigMap you can specify whether stdout and stderr logs should be collected for individual pods and containers. See [Annotation filtering](./container-insights-data-collection-configure.md#annotation-filtering) for details.
-
-
-### Filter using transformations
-[Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. This allows you to filter data based on that you can't perform with the other options. For example, you may choose to filter container logs based on the log level in ContainerLogV2. 
-
-
-## Configure Log Analytics workspace tiers
+## Configure pricing tiers
 
 [Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you primarily use for debugging, troubleshooting, and auditing. Tables configured for basic logs offer a significant cost discount for data ingestion in exchange for a cost for log queries. You can reduce your monitoring cost for container logs by configuring [ContainerLogV2](container-insights-logs-schema.md) for basic logs if you query the data infrequently.
 
