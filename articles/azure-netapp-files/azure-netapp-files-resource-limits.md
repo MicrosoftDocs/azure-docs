@@ -108,7 +108,7 @@ The following table shows examples of the relationship `maxfiles` values based o
 
 To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane.
 
-:::image type="content" source="./media/azure-netapp-files-resource-limits/maximum-number-files.png" alt-text="Screenshot of volume overview menu":::
+:::image type="content" source="./media/azure-netapp-files-resource-limits/maximum-number-files.png" alt-text="Screenshot of volume overview menu" lightbox="./media/azure-netapp-files-resource-limits/maximum-number-files.png":::
 
 You can't set `maxfiles` limits for data protection volumes via a quota request. Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume. When a failover happens on a data protection volume, the `maxfiles` limit remains the last value before the failover. In this situation, you can submit a `maxfiles` [quota request](#request-limit-increase) for the volume.
 
