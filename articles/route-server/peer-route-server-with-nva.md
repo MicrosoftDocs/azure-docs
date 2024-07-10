@@ -5,12 +5,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 07/09/2024
+ms.date: 07/10/2024
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and Network Virtual Appliance
 
-This tutorial shows you how to deploy an Azure Route Server into a virtual network and establish a BGP peering connection with a Windows Server network virtual appliance (NVA). You'll configure the NVA to exchange routes with the Route Server. Lastly, you'll test to make sure routes are properly exchanged between the Route Server and NVA.
+This tutorial shows you how to deploy an Azure Route Server and a Windows Server network virtual appliance (NVA) into a virtual network and establish a BGP peering connection between them. 
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An active Azure subscription 
+- An active Azure subscription.
 
 ## Sign in to Azure
 
@@ -42,13 +42,13 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
 
 1. On the **Virtual networks** page, select **+ Create**. 
 
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Settings | Value |
     | -------- | ----- |
     | **Project details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource group | Select **Create new**. </br> In **Name** enter **myResourceGroup**. </br> Select **OK**. | 
+    | Resource group | Select **Create new**. </br>In **Name** enter **myResourceGroup**. </br>Select **OK**. | 
     | **Instance details** |  |
     | Name | Enter *myVirtualNetwork*. |
     | Region | Select **East US**. |
@@ -68,15 +68,15 @@ You need a virtual network to deploy both the Route Server and the NVA. Azure Ro
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 
-## Create the Azure Route Server
+## Create an Azure Route Server
 
-The Route Server is used to communicate with your NVA and exchange virtual network routes using a BGP peering connection.
+In this section, you create an Azure Route Server.
 
 1. On the Azure portal, search for *route server*, and select **Route Servers** from the search results. 
 
 1. On the **Route Servers** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create a Route Server** page, enter or select the following information:
+1. On the **Basics** tab of **Create a Route Server** page, enter, or select the following information:
 
     | Settings | Value |
     | -------- | ----- |
@@ -86,26 +86,40 @@ The Route Server is used to communicate with your NVA and exchange virtual netwo
     | **Instance details** |  |
     | Name | Enter *myRouteServer*. |
     | Region | Select **East US** region. |
+    | Routing Preference | Select the default **ExpressRoute** option. Other available options are:  **VPN** and **ASPath**. <br>You can change your selection later. |
     | **Configure virtual networks** |  |
     | Virtual Network | Select **myVirtualNetwork**. |
-    | Subnet | Select **RouteServerSubnet (10.1.0.0/25)**. This subnet is a dedicated Route Server subnet. |
+    | Subnet | Select **RouteServerSubnet (10.0.1.0/24)**. This subnet is a dedicated Route Server subnet. |
     | **Public IP address** |  |
-    | Public IP address | Select **Create new**, and then enter *myRouteServer-ip*. This Standard IP address ensures connectivity to the backend service that manages the Route Server configuration. |
+    | Public IP address | Select **Create new** and accept the default name **myVirtualNetwork-ip** or enter a different one. This Standard IP address ensures connectivity to the backend service that manages the Route Server configuration. |
 
+    :::image type="content" source="./media/peer-route-server-with-nva/create-route-server.png" alt-text="Screenshot of creating a Route Server in the Azure portal." lightbox="./media/peer-route-server-with-nva/create-route-server.png":::
 
 1. Select **Review + create** and then select **Create** after validation passes. The Route Server takes about 15 minutes to deploy.
 
-## Create the network virtual appliance (NVA)
+1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myRouteServer**.  
 
-To create an NVA for this tutorial, deploy a Windows Server virtual machine, and then configure its BGP settings.
+1. Take a note of the ASN and Peer IPs in the **Overview** page. You'll need this information to configure the NVA in the next section.
 
-### Create a virtual machine
+    :::image type="content" source="./media/peer-route-server-with-nva/route-server-overview.png" alt-text="Screenshot that shows the Route Server ASN and Peer IPs in the Overview page." lightbox="./media/peer-route-server-with-nva/route-server-overview.png":::
+
+    > [!NOTE]
+    > - The ASN of Azure Route Server is always 65515.
+    > - The Peer IPs are the private IP addresses of the Route Server in the RouteServerSubnet.
+ 
+## Create a network virtual appliance (NVA)
+
+In this section, you create an NVA that communicates and exchanges routes with the Route Server over a BGP peering connection.
+
+### Create a virtual machine (VM)
+
+In this section, you create a Windows Server VM in the virtual network you created earlier to act as a network virtual appliance.
 
 1. On the Azure portal, search for *virtual machine*, and select **Virtual machines** from the search results.
 
 1. Select **Create**, then select **Azure virtual machine**.
 
-1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+1. On the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
 
     | Settings | Value |
     | -------- | ----- |
@@ -125,73 +139,105 @@ To create an NVA for this tutorial, deploy a Windows Server virtual machine, and
     | Password | Enter a password. |
     | Confirm password | Reenter the password. |
 
- 
+     :::image type="content" source="./media/peer-route-server-with-nva/create-virtual-machine-basics.png" alt-text="Screenshot of the Basics tab of creating a VM in the Azure portal." lightbox="./media/peer-route-server-with-nva/create-virtual-machine-basics.png":::
+
+1. Select **Networking** tab or **Next: Disks >** then **Next: Networking >**.
+
 1. On the **Networking** tab, select the following network settings:
 
     | Settings | Value |
     | -------- | ----- |
     | Virtual network | Select **myVirtualNetwork**. |
-    | Subnet | Select **subnet3 (10.1.4.0/24)**. |
+    | Subnet | Select **mySubnet (10.0.0.0/24)**. |
     | Public IP | Leave as default. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **RDP (3389)**. |
 
-> [!CAUTION]
-> Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md?toc=/azure/route-server/toc.json) to securely connect to your virtual machine from the Azure portal.
+    > [!CAUTION]
+    > Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md?toc=/azure/route-server/toc.json) to securely connect to your virtual machine from the Azure portal.
+
+     :::image type="content" source="./media/peer-route-server-with-nva/create-virtual-machine-networking.png" alt-text="Screenshot of the Networking tab of creating a VM in the Azure portal." lightbox="./media/peer-route-server-with-nva/create-virtual-machine-networking.png":::
 
 1. Select **Review + create** and then **Create** after validation passes.
 
-1. Once the virtual machine has deployed, go to the **Networking** page of the virtual machine and select the network interface.
-
-
-1. Select **IP configuration** under **Settings** and then select **ipconfig1**.
-
-
-1. Under **Private IP address Settings**, change the **Assignment**  from **Dynamic** to **Static**, and then change the **IP address** from **10.1.4.4** to **10.1.4.10**.
-
-1. Take note of the public IP, and select **Save** to update the IP configurations of the virtual machine. 
-
+1. Once the virtual machine is deployed, go to its **Overview** page and take note of the public IP.
 
 ### Configure BGP on the virtual machine
 
+In this section, you configure BGP settings on the VM so it acts as an NVA and can exchange routes with the Route Server.
 
+1. Go to **myNVA** virtual machine and select **Connect**.
+
+    :::image type="content" source="./media/peer-route-server-with-nva/connect-vm.png" alt-text="Screenshot that shows how to connect to a VM using RDP in the Azure portal." lightbox="./media/peer-route-server-with-nva/connect-vm.png":::
+
+1. On the **Connect** page, select **Download RDP file** under **Native RDP**.
+
+1. Open the downloaded file.
+
+1. Select **Connect** and then enter the username and password that you created in the previous steps. Accept the certificate if prompted.
+
+1. Run PowerShell as an administrator.
+
+1. In PowerShell, execute the following cmdlets:
+
+```powershell-interactive
+# Install required Windows features.
+Install-WindowsFeature RemoteAccess
+Install-WindowsFeature RSAT-RemoteAccess-PowerShell
+Install-WindowsFeature Routing
+Install-RemoteAccess -VpnType RoutingOnly
+
+# Configure BGP & Router ID on the Windows Server
+Add-BgpRouter -BgpIdentifier 10.0.0.4 -LocalASN 65001
+ 
+# Configure Azure Route Server as a BGP Peer.
+Add-BgpPeer -LocalIPAddress 10.0.0.4 -PeerIPAddress 10.0.1.4 -PeerASN 65515 -Name RS_IP1
+Add-BgpPeer -LocalIPAddress 10.0.0.4 -PeerIPAddress 10.0.1.5 -PeerASN 65515 -Name RS_IP2
+
+# Originate and announce BGP routes.
+Add-BgpCustomRoute -network 172.16.1.0/24
+Add-BgpCustomRoute -network 172.16.2.0/24
+```
 
 ## Configure Route Server peering
 
-1. Go to the Route Server you created in the previous step.
+1. Go to the Route Server you created in the previous steps.
 
 1. Select **Peers** under **Settings**. Then, select **+ Add** to add a new peer.
-
 
 1. On the **Add Peer** page, enter the following information, and then select **Add** to save the configuration:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter *myNVA*. This name is used to identify the peer. |
-    | ASN | Enter *65001*. This ASN is defined in NVA. |
-    | IPv4 Address | Enter *10.1.4.10*. This IPv4 is the private IP of the NVA. |
+    | Name | Enter *myNVA*. Use this name to identify the peer. It doesn't have to be the same name of the VM that you configured as an NVA. |
+    | ASN | Enter *65001*. This is the ASN of the NVA. You configured it in the previous section. |
+    | IPv4 Address | Enter *10.0.0.4*. This is the private IP address of the NVA. |
 
+    :::image type="content" source="./media/peer-route-server-with-nva/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the Route Server as a peer." lightbox="./media/peer-route-server-with-nva/add-peer.png":::
 
 1. Once you add the NVA as a peer, the **Peers** page should look like this:
 
+    :::image type="content" source="./media/peer-route-server-with-nva/route-server-peers.png" alt-text="Screenshot that shows the peers of a Route Server." lightbox="./media/peer-route-server-with-nva/route-server-peers.png":::
     
 ## Check learned routes
 
-1. To check the routes learned by the Route Server, use this command in Azure portal Cloud Shell:
+To check the routes learned by the Route Server, use this PowerShell cmdlet:
 
-    ```azurepowershell-interactive
-    $routes = @{
-        RouteServerName = 'myRouteServer'
-        ResourceGroupName = 'myResourceGroup'
-        PeerName = 'myNVA'
-    }
-    Get-AzRouteServerPeerLearnedRoute @routes | ft
-    ```
+```azurepowershell-interactive
+Get-AzRouteServerPeerLearnedRoute -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer' -PeerName 'myNVA'
+```
 
-    The output should look like the following output: 
+The output should look like the following output: 
 
-
+```output
+LocalAddress Network       NextHop  SourcePeer Origin AsPath Weight
+------------ -------       -------  ---------- ------ ------ ------
+10.0.1.5     172.16.1.0/24 10.0.0.4 10.0.0.4   EBgp   65001  32768
+10.0.1.5     172.16.2.0/24 10.0.0.4 10.0.0.4   EBgp   65001  32768
+10.0.1.4     172.16.1.0/24 10.0.0.4 10.0.0.4   EBgp   65001  32768
+10.0.1.4     172.16.2.0/24 10.0.0.4 10.0.0.4   EBgp   65001  32768
+```
 
 ## Clean up resources
 
