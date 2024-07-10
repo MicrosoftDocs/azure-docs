@@ -155,6 +155,23 @@ Phi-3-medium-4k-instruct, Phi-3-medium-128k-instruct  | [Microsoft Managed Count
 
 Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) for language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints when you first deploy a language model or in the deployment details page by selecting the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
 
+### Network isolation for models deployed via Serverless APIs
+
+Endpoints for models deployed as Serverless APIs follow the public_network_access flag setting of the workspace in which the deployment exists. To secure your MaaS endpoint, disable the public_network_access flag on your workspace. Securing inbound communication from a client to your endpoint is possible by using a private endpoint for the workspace.
+
+**Setting the public_network_access flag for the workspace:**
+* Go to the [Azure Portal](https://ms.portal.azure.com/)
+* Search for the Resource group to which the workspace belongs, and click on your workspace from the resources shown under this Resource group
+* On the overview page, use the left navigation bar to go to Settings > Networking
+* Here under the Public Access tab you will have the option to set the Public Network Access flag settings
+* Save your changes (changes may take upto five minutes to propagate)
+
+**Limitations:**
+* If you have a workspace with private endpoint created before July 11, new MaaS endpoints added to this workspace will not follow the networking configuration of the hub. New private endpoint and serverless API deployments need to be created. 
+* If you have a workspace with MaaS deployments created before July 11 and you enable private endpoint on this workspace, the existing MaaS endpoints will not follow the workspace's networking configuration. New serverless API deployments need to be created.
+* Currently [On Your Data](#rag-with-models-deployed-as-serverless-apis) support is not available for MaaS deployments in private workspaces (public_network_access flag disabled).
+* Any network cofiguration change (eg. enabling or disabling the public_network_access flag) may take upto five minutes to propagate.
+
 ## Learn more
 
 * Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
