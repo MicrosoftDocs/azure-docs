@@ -27,7 +27,7 @@ In this article, you learn how to request and gain access to Azure Extended Zone
 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This article requires the Azure PowerShell version 11.6.0 or later. Run [Get-Module -ListAvailable Az](/powershell/module/microsoft.powershell.core/get-module) to find the installed version. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This article requires the [Az.EdgeZones](/powershell/module/az.edgezones) module version 0.1.0 or later. Run [Get-Module -ListAvailable Az.EdgeZones](/powershell/module/microsoft.powershell.core/get-module) to find the installed version. Run [Install-Module -Name Az.EdgeZones](/powershell/module/powershellget/install-module) to install Az.EdgeZones module. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 # [**Azure CLI**](#tab/cli)
 
@@ -37,7 +37,7 @@ In this article, you learn how to request and gain access to Azure Extended Zone
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.57.0 or later. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the [edgezones](/cli/azure/edge-zones) extension for Azure CLI version 2.57.0 or higher. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 
 ---
