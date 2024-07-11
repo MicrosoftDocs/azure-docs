@@ -21,7 +21,9 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
 - To ingest into Microsoft Sentinel, you need an active Log Analytics Workspace.
 - To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides.
 - To use Microsoft Sentinel, you need either Microsoft Sentinel Contributor or Microsoft Sentinel Reader permissions on the resource group that the workspace belongs to.
-- To install or manage solutions in the content hub, you need the Microsoft Sentinel Contributor role on the resource group that the workspace belongs to## Enable Sentinel
+- To install or manage solutions in the content hub, you need the Microsoft Sentinel Contributor role on the resource group that the workspace belongs to
+
+## Enable Sentinel
 
 1. [Enable Azure Sentinel Workspace](../../sentinel/quickstart-onboard).
 2. Send Logs to Log Analytics Workspace:
