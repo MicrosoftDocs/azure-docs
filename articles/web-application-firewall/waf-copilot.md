@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: firewall
 ms.localizationpriority: high
 ms.collection: Tier1
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Azure Web Application Firewall integration in Copilot for Security (preview)
