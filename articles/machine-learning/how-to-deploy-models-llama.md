@@ -561,10 +561,12 @@ For reference about how to invoke Meta Llama 3 models deployed to real-time endp
 
 # [Meta Llama 3](#tab/llama-three)
 
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/openaisdk.ipynb)                              |
+| **Package**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/openaisdk.ipynb)                     |
 | LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/langchain.ipynb)                                |
-| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/webrequests.ipynb)                                 |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/litellm.ipynb) |
+| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/webrequests.ipynb)                           |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/litellm.ipynb)         |
 
 # [Meta Llama 2](#tab/llama-two)
 
