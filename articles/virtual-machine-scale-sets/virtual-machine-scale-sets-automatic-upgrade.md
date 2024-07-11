@@ -449,31 +449,33 @@ az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScale
 [Activity Log](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell) is a subscription log that provides insight into subscription-level events that have occurred in Azure. Customers are able to:
 * See events related to operations performed on their resources in Azure portal
 * Create action groups to tune notification methods like email, sms, webhooks, or ITSM
-*  Set up suitable alerts using different criteria using Portal, ARM resource template, Powershell or CLI to be sent to action groups
+*  Set up suitable alerts using different criteria using Portal, ARM resource template, PowerShell or CLI to be sent to action groups
 
 Customers will receive three types of notifications related to Automatic OS Upgrade operation:
-	1. Submission of upgrade request for a particular resource
-	2. Outcome of submission request along with any error details
-	3. Outcome of upgrade completion along with any error details
+* Submission of upgrade request for a particular resource
+* Outcome of submission request along with any error details
+* Outcome of upgrade completion along with any error details
 
- The following is an example of an activity log in Azure Portal:
+The screenshot below is an example of an activity log from the Azure portal.
 
-![activity_log_portal](https://github.com/MicrosoftDocs/azure-docs-pr/assets/108891433/b282f885-f0be-40e8-a281-4c829cd4a9ed)
+![screenshot of an activity log from the Azure portal.](https://github.com/user-attachments/assets/1afb2180-6a42-457a-9d4c-ba711e8abcc7)
+![Operation level information](https://github.com/user-attachments/assets/ccf83780-f874-48ed-8664-3c8a7c407a99)
+
 
 ### Setting up Action Groups for Activity log alerts
 
 An [action group](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. 
 
 Action groups can be created and managed using: 
-	1. [ARM Resource Manager](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template)
-	2. [Portal](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) 
-	3. Powershell:
-		a. [New-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/new-azactiongroup?view=azps-12.0.0)  
-		b. [Get-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/get-azactiongroup?view=azps-12.0.0)
-		c. [Remove-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-12.0.0)
-	4. [CLI](https://learn.microsoft.com/cli/azure/monitor/action-group?view=azure-cli-latest#az-monitor-action-group-create)
+* [ARM Resource Manager](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template)
+* [Portal](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) 
+* PowerShell:
+  *  [New-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/new-azactiongroup?view=azps-12.0.0)  
+  *  [Get-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/get-azactiongroup?view=azps-12.0.0)
+  *  [Remove-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-12.0.0)
+* [CLI](https://learn.microsoft.com/cli/azure/monitor/action-group?view=azure-cli-latest#az-monitor-action-group-create)
 
-Customers can set up the following using action groups::
+Customers can set up the following using action groups:
 * [SMS and/or Email notifications](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#email-azure-resource-manager)
 * [Webhooks](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks)
 * [ITSM Connections](https://learn.microsoft.com/azure/azure-monitor/alerts/itsmc-overview)
