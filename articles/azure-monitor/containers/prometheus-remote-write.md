@@ -33,7 +33,7 @@ Configuring remote write depends on your cluster configuration and the type of a
 
 See the following articles for more information on how to configure remote write for Kubernetes clusters:
 
-- (**Recommended**)[Send Prometheus data to Azure Monitor by directly configuring Prometheus remote-write](../essentials/prometheus-remote-write-virtual-machines.md#set-up-authentication-for-remote-write). This option can be used for self-managed Prometheus running in any environment. The supported authentication options are user-assigned managed identity and Microsoft Entra ID application.
+- (**Recommended**) [Send Prometheus data to Azure Monitor by directly configuring Prometheus remote-write](../essentials/prometheus-remote-write-virtual-machines.md#set-up-authentication-for-remote-write). This option can be used for self-managed Prometheus running in any environment. The supported authentication options are user-assigned managed identity and Microsoft Entra ID application.
 - [Send Prometheus data from AKS to Azure Monitor using side car container with managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
 - [Send Prometheus data from AKS to Azure Monitor using side car container with Microsoft Entra ID authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
 - [Send Prometheus data to Azure Monitor using side car container with Microsoft Entra ID pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)
