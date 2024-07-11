@@ -44,17 +44,21 @@ This service mesh add-on uses and builds on top of open-source Istio. The add-on
 
 ## Limitations
 
-Istio-based service mesh add-on for AKS currently has the following limitations:
+Istio-based service mesh add-on for AKS has the following limitations:
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
 * The add-on doesn't work on AKS clusters with self-managed installations of Istio.
 * The add-on doesn't support adding pods associated with virtual nodes to be added under the mesh.
 * The add-on doesn't yet support egress gateways for outbound traffic control.
 * The add-on doesn't yet support the sidecar-less Ambient mode. Microsoft is currently contributing to Ambient workstream under Istio open source. Product integration for Ambient mode is on the roadmap and is being continuously evaluated as the Ambient workstream evolves.
 * The add-on doesn't yet support multi-cluster deployments.
-* Istio doesn't support Windows Server containers.
+* The add-on doesn't yet support Windows Server containers as this is not available in open source Istio right now. Issue tracking this feature ask can be found [here][istio-oss-windows-issue].
 * Customization of mesh through the following custom resources is blocked for now - `ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin, EnvoyFilter`. 
-* For `EnvoyFilter`, the add-on only supports customization of Lua filters (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`). Note that this EnvoyFilter is allowed but any issue arising from the Lua script itself is not supported (to learn more about our support policy and distinction between "allowed" and "supported" configurations, see [the following section][istio-meshconfig-support]). Other `EnvoyFilter` types are currently blocked. other `EnvoyFilter` types are currently blocked.
+* For `EnvoyFilter`, the add-on only supports filter of the type Lua for now (`type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua`). While this EnvoyFilter is allowed, any issue arising from the Lua script itself is not supported. Other `EnvoyFilter` types are currently blocked.
 * Gateway API for Istio ingress gateway or managing mesh traffic (GAMMA) are currently not yet supported with Istio addon. It's planned to allow customizations such as ingress static IP address configuration as part of the Gateway API implementation for the add-on in future.
+
+## Feedback and feature asks
+
+Feedback and feature asks for the Istio add-on can be provided by creating [issues with label 'service-mesh' on AKS GitHub repository][aks-github-service-mesh-issues].
 
 ## Next steps
 
@@ -70,5 +74,7 @@ Istio-based service mesh add-on for AKS currently has the following limitations:
 [istio-ingress]: ./istio-deploy-ingress.md
 [istio-troubleshooting]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting
 [istio-meshconfig-support]: ./istio-meshconfig.md#allowed-supported-and-blocked-values
-
 [istio-deploy-addon]: istio-deploy-addon.md
+
+[istio-oss-windows-issue]: https://github.com/istio/istio/issues/27893
+[aks-github-service-mesh-issues]: https://github.com/Azure/AKS/issues?q=is%3Aopen+is%3Aissue+label%3Aservice-mesh
