@@ -258,7 +258,7 @@ The following table outlines the key properties set in the YAML deployment manif
 
 ### Validate the Prometheus PodMonitor is running
 
-The CNPG operator automatically creates a PodMonitor for the primary instance using the recording rules created during the [Prometheus Community installation](#install-the-cnpg-operator).
+The CNPG operator automatically creates a PodMonitor for the primary instance using the recording rules created during the [Prometheus Community installation](#install-the-prometheus-podmonitors).
 
 1. Validate the PodMonitor is running using the [`kubectl get`][kubectl-get] command.
 
