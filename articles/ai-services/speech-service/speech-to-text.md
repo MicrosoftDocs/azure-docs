@@ -39,7 +39,7 @@ Fast transcription API is used to transcribe audio files with returning results 
 - Video dubbing  
 
 > [!NOTE]
-> Fast transcription API is only available via the speech to text REST API version 3.3. 
+> Fast transcription API is only available via the speech to text REST API version 2024-05-15-preview and later. 
 
 To get started with fast transcription, see [use the fast transcription API (preview)](fast-transcription-create.md).
 

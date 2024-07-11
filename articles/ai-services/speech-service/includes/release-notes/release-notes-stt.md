@@ -6,10 +6,14 @@ ms.date: 7/12/2024
 ms.author: eur
 ---
 
+### July 2024 release
 
 #### Fast Transcription API (Preview)
 
 Fast transcription is now available in public preview. Fast transcription allows you to transcribe audio file to text accurately and synchronously, with a high speed factor. It can transcribe a 30-minutes audio in less than 1 minute. For more information, see the [fast transcription API guide](../../fast-transcription-create.md).
+
+> [!TIP]
+> Try out fast transcription in [Azure AI Studio](https://aka.ms/fasttranscription/studio).
 
 ### June 2024 release
 
