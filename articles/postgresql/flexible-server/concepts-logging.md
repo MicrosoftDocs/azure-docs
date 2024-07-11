@@ -32,7 +32,7 @@ Azure Database for PostgreSQL flexible server is integrated with Azure Monitor d
 
 ## Data retention policy and pricing
 
-If you select Event Hubs or a Storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. Logs ingested into your **Log Analytics** workspace can be retained at no charge for up to first 31 days. Logs retained beyond these no-charge periods will be charged for each GB of data retained for a month (pro-rated daily). For more details, refer[Azure Monitor pricing](https://azure.microsoft.com/en-gb/pricing/details/monitor/).
+If you select Event Hubs or a Storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. Logs ingested into your **Log Analytics** workspace can be retained at no charge for up to first 31 days. Logs retained beyond these no-charge periods will be charged for each GB of data retained for a month (pro-rated daily). For more details, refer [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Log format
 
