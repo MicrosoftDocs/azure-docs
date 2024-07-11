@@ -1,6 +1,6 @@
 ---
 title: Azure VPN Gateway FAQ
-description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and VNet-to-VNet configuration settings.
+description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and network-to-network configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
@@ -10,62 +10,71 @@ ms.author: cherylmc
 
 # VPN Gateway FAQ
 
+This article answers frequently asked questions about Azure VPN Gateway connections and configuration settings.
+
 ## <a name="connecting"></a>Connecting to virtual networks
 
 ### Can I connect virtual networks in different Azure regions?
 
-Yes. There's no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
+Yes. There's no region constraint. One virtual network can connect to another virtual network in the same region or in a different Azure region.
 
 ### Can I connect virtual networks in different subscriptions?
 
 Yes.
 
-### Can I specify private DNS servers in my VNet when configuring a VPN gateway?
+### Can I specify private DNS servers in my virtual network when configuring a VPN gateway?
 
-If you specified a DNS server or servers when you created your virtual network, VPN Gateway uses the DNS servers that you specified. If you specify a DNS server, verify that your DNS server can resolve the domain names needed for Azure.
+If you specified a DNS server or servers when you created your virtual network, the VPN gateway uses the DNS servers that you specified. If you specify a DNS server, verify that your DNS server can resolve the domain names needed for Azure.
 
 ### Can I connect to multiple sites from a single virtual network?
 
-You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-site and VNet-to-VNet Connectivity](#V2VMulti) FAQ section.
+You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-site and network-to-network connectivity](#V2VMulti) FAQ section.
 
 ### Is there an additional cost for setting up a VPN gateway as active-active?
 
-No. However, costs for any additional public IPs will be charged accordingly. See [IP Address Pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+No. However, costs for any additional public IPs are charged accordingly. See [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ### What are my cross-premises connection options?
 
 The following cross-premises virtual network gateway connections are supported:
 
-* **Site-to-site:** VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-site](./tutorial-site-to-site-portal.md).
-* **Point-to-site:** VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection doesn't require a VPN device. For more information, see [Point-to-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-* **VNet-to-VNet:** This type of connection is the same as a site-to-site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It doesn't require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-* **ExpressRoute:** ExpressRoute is a private connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
+* **Site-to-site:** VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or RRAS. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
+* **Point-to-site:** VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* **Network-to-network:** This type of connection is the same as a site-to-site configuration. A connection between virtual networks is a VPN connection over IPsec (IKEv1 and IKEv2). It doesn't require a VPN device. For more information, see the [Configure a network-to-network VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* **Azure ExpressRoute:** ExpressRoute is a private connection to Azure from your wide area network, not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
-For more information about VPN Gateway connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+For more information about VPN gateway connections, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
 
 ### What is the difference between a site-to-site connection and point-to-site?
 
-**Site-to-site** (IPsec/IKE VPN tunnel) configurations are between your on-premises location and Azure. This means that you can connect from any of your computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing and permissions. It's a great option for an always-available cross-premises connection and is well suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware device or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have an externally facing IPv4 address.
+* **Site-to-site** (IPsec/IKE VPN tunnel) configurations are between your on-premises location and Azure. You can connect from any of your computers located on your premises to any virtual machine (VM) or role instance within your virtual network, depending on how you choose to configure routing and permissions. It's a great option for an always-available cross-premises connection and is well suited for hybrid configurations.
 
-**Point-to-site** (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.
+  This type of connection relies on an IPsec VPN appliance (hardware device or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have an externally facing IPv4 address.
 
-You can configure your virtual network to use both site-to-site and point-to-site concurrently, as long as you create your site-to-site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
+* **Point-to-site** (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client.
 
-### Does a misconfiguration of custom DNS break the normal operation of Azure VPN Gateway?
+  As part of the point-to-site configuration, you install a certificate and a VPN client configuration package. The package contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network.
+  
+  This configuration useful when you want to connect to a virtual network but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.
 
-For normal functioning, the Azure VPN Gateway must establish a secure, mandatory connection with the Azure control plane, facilitated through Public IPs. This connection relies on resolving communication endpoints via public URLs. By default, Azure Virtual Networks (VNets) utilize the built-in Azure DNS (168.63.129.16) to resolve these public URLs, ensuring seamless communication between the Azure VPN Gateway and the Azure control plane.
+You can configure your virtual network to use both site-to-site and point-to-site concurrently, as long as you create your site-to-site connection by using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
-In implementation of a custom DNS within the VNet, it's crucial to configure a DNS forwarder that points to the Azure native DNS (168.63.129.16), to maintain uninterrupted communication between the VPN Gateway and control plane. Failure to set up a DNS forwarder to the native Azure DNS can prevent Microsoft from performing operations and maintenance on the Azure VPN Gateway, posing a security risk.
+### Does a misconfiguration of custom DNS break the normal operation of a VPN gateway?
 
-To proper functionalities and healthy state to your VPN Gateway, consider one of the following configurations DNS configurations in VNet:
-1. Revert to the default native Azure DNS by removing the custom DNS within the VNet settings (recommended configuration).
-2. Add in your custom DNS configuration a DNS forwarder pointing to the native Azure DNS (IP address: 168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup might not resolve and fix the issue as expected.
+For normal functioning, the VPN gateway must establish a secure connection with the Azure control plane, facilitated through public IP addresses. This connection relies on resolving communication endpoints via public URLs. By default, Azure virtual networks use the built-in Azure DNS service (168.63.129.16) to resolve these public URLs. This default behavior helps ensure seamless communication between the VPN gateway and the Azure control plane.
 
-### Could point-to-site VPN connections be affected by a potential vulnerability known as "tunnel vision"?
+When you're implementing a custom DNS within the virtual network, it's crucial to configure a DNS forwarder that points to the Azure DNS (168.63.129.16), to maintain uninterrupted communication between the VPN gateway and control plane. Failure to set up a DNS forwarder to Azure DNS can prevent Microsoft from performing operations and maintenance on the VPN gateway, which poses a security risk.
 
-Microsoft is aware of reports discussing network technique that bypasses VPN encapsulation. This is an industry-wide issue impacting any operating system that implements a DHCP client according to its RFC specification and has support for DHCP option 121 routes, including Windows.
-As the research notes, mitigations include running the VPN inside of a VM that obtains a lease from a virtualized DHCP server to prevent the local networks DHCP server from installing routes altogether.
-More information about vulnerability can be found at [NVD - CVE-2024-3661 (nist.gov)](https://nvd.nist.gov/vuln/detail/CVE-2024-3661).
+To help ensure proper functionality and healthy state for your VPN gateway, consider one of the following DNS configurations in the virtual network:
+
+* Revert to the Azure DNS default by removing the custom DNS within the virtual network settings (recommended configuration).
+* Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
+
+### Could a potential vulnerability known as "tunnel vision" affect point-to-site VPN connections?
+
+Microsoft is aware of reports about a network technique that bypasses VPN encapsulation. This is an industry-wide issue. It affects any operating system that implements a Dynamic Host Configuration Protocol (DHCP) client according to its RFC specification and has support for DHCP option 121 routes, including Windows.
+
+As the research notes, mitigations include running the VPN inside a VM that obtains a lease from a virtualized DHCP server to prevent the local network's DHCP server from installing routes altogether. You can find more information about this vulnerability on the [NIST National Vulnerability Database](https://nvd.nist.gov/vuln/detail/CVE-2024-3661).
 
 ## <a name="privacy"></a>Privacy
 
@@ -77,110 +86,119 @@ No.
 
 ### Is a VPN gateway a virtual network gateway?
 
-A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the `-GatewayType` value `Vpn`. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 ### Why can't I specify policy-based and route-based VPN types?
 
-As of Oct 1, 2023, you can't create a policy-based VPN gateway through Azure portal. All new VPN gateways will automatically be created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Powershell/CLI to create the policy-based gateways.
+As of October 1, 2023, you can't create a policy-based VPN gateway through the Azure portal. All new VPN gateways are automatically created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Azure Powershell or the Azure CLI to create the policy-based gateways.
 
-Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
+Previously, the older gateway product tiers (SKUs) didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
 
 [!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
 
 ### Can I update my policy-based VPN gateway to route-based?
 
-No. A gateway type can't be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, the gateway must be deleted and recreated. This process takes about 60 minutes. When you create the new gateway, you can't retain the IP address of the original gateway.
+No. A gateway type can't be changed from policy-based to route-based, or from route-based to policy-based. To change a gateway type, you must delete and re-create the gateway by taking the following steps. This process takes about 60 minutes. When you create the new gateway, you can't retain the IP address of the original gateway.
 
 1. Delete any connections associated with the gateway.
-1. Delete the gateway using one of the following articles:
+1. Delete the gateway by using one of the following articles:
 
    * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
    * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    * [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. Create a new gateway using the gateway type that you want, and then complete the VPN setup. For steps, see the [Site-to-site tutorial](./tutorial-site-to-site-portal.md#VNetGateway).
+1. Create a new gateway by using the gateway type that you want, and then complete the VPN setup. For steps, see the [site-to-site tutorial](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### Can I specify my own policy-based traffic selectors?
 
-Yes, traffic selectors can be defined via the *trafficSelectorPolicies* attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) PowerShell command. For the specified traffic selector to take effect, ensure the [Use Policy Based Traffic Selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased) option is enabled.
+Yes, you can define traffic selectors by using the `trafficSelectorPolicies` attribute on a connection via the [New-AzIpsecTrafficSelectorPolicy](/powershell/module/az.network/new-azipsectrafficselectorpolicy) Azure PowerShell command. For the specified traffic selector to take effect, be sure to [enable policy-based traffic selectors](vpn-gateway-connect-multiple-policybased-rm-ps.md#enablepolicybased).
 
-The custom configured traffic selectors are proposed only when an Azure VPN gateway initiates the connection. A VPN gateway accepts any traffic selectors proposed by a remote gateway (on-premises VPN device). This behavior is consistent between all connection modes (Default, InitiatorOnly, and ResponderOnly).
+The custom-configured traffic selectors are proposed only when a VPN gateway initiates the connection. A VPN gateway accepts any traffic selectors proposed by a remote gateway (on-premises VPN device). This behavior is consistent between all connection modes (`Default`, `InitiatorOnly`, and `ResponderOnly`).
 
-### Do I need a GatewaySubnet?
+### Do I need a gateway subnet?
 
-Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your virtual network in order to configure a virtual network gateway. All gateway subnets must be named 'GatewaySubnet' to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
+Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your virtual network in order to configure a virtual network gateway.
 
-When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway service. Some configurations require more IP addresses to be allocated to the gateway services than do others. You want to make sure your gateway subnet contains enough IP addresses to accommodate future growth and possible additional new connection configurations. So, while you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26, /25 etc.). Look at the requirements for the configuration that you want to create and verify that the gateway subnet you have will meet those requirements.
+All gateway subnets must be named `GatewaySubnet` to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
 
-### Can I deploy Virtual Machines or role instances to my gateway subnet?
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway service.
+
+Some configurations require more IP addresses to be allocated to the gateway services than do others. Make sure that your gateway subnet contains enough IP addresses to accommodate future growth and possible new connection configurations.
+
+Although you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26, /25, and so on). Verify that your existing gateway subnet will meet the requirements for the configuration that you want to create.
+
+### Can I deploy virtual machines or role instances to my gateway subnet?
 
 No.
 
 ### Can I get my VPN gateway IP address before I create it?
 
-Azure Standard SKU public IP resources must use a static allocation method. Therefore, you'll have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource you intend to use for it.
+Azure Standard SKU public IP resources must use a static allocation method. You'll have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource that you intend to use for it.
 
 ### Can I request a static public IP address for my VPN gateway?
 
-Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This applies to all gateway SKUs except the Basic SKU. The Basic gateway SKU currently supports only Basic SKU public IP addresses. We'll soon be adding support for Standard SKU public IP addresses for Basic gateway SKUs.
+Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This requirement applies to all gateway SKUs except the Basic SKU. The Basic SKU currently supports only Basic SKU public IP addresses. We're working on adding support for Standard SKU public IP addresses for the Basic SKU.
 
-For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
-### How does Public IP address Basic SKU retirement affect my VPN gateways?
+### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that utilize Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there's no need for you to take any action.
+We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there's no need for you to take any action.
 
-However, it's important to note that Basic SKU public IP addresses are being phased out. Going forward, when creating a new VPN gateway, you must use the **Standard SKU** public IP address. Further details on the retirement of Basic SKU public IP addresses can be found [here](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the *Standard SKU* public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
-### How does my VPN tunnel get authenticated?
+### How is my VPN tunnel authenticated?
 
-Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the autogenerated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
+Azure VPN Gateway uses preshared key (PSK) authentication. We generate a PSK when we create the VPN tunnel. You can change the automatically generated PSK to your own by using the Set Pre-Shared Key REST API or PowerShell cmdlet.
 
-### Can I use the Set Pre-Shared Key API to configure my policy-based (static routing) gateway VPN?
+### Can I use the Set Pre-Shared Key REST API to configure my policy-based (static routing) gateway VPN?
 
-Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure policy-based (static) VPNs and route-based (dynamic) routing VPNs.
+Yes. You can use the Set Pre-Shared Key REST API and PowerShell cmdlet to configure both Azure policy-based (static) VPNs and route-based (dynamic) routing VPNs.
 
 ### Can I use other authentication options?
 
-We're limited to using preshared keys (PSK) for authentication.
+You're limited to using preshared keys for authentication.
 
 ### How do I specify which traffic goes through the VPN gateway?
 
-#### Resource Manager deployment model
+For the Azure Resource Manager deployment model:
 
-* PowerShell: use "AddressPrefix" to specify traffic for the local network gateway.
-* Azure portal: navigate to the Local network gateway > Configuration > Address space.
+* Azure PowerShell: Use `AddressPrefix` to specify traffic for the local network gateway.
+* Azure portal: Go to *local network gateway* > **Configuration** > **Address space**.
 
-#### Classic deployment model
+For the classic deployment model:
 
-* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space.
+* Azure portal: Go to the classic virtual network, and then go to **VPN connections** > **Site-to-site VPN connections** > *local site name* > *local site* > **Client address space**.
 
 ### Can I use NAT-T on my VPN connections?
 
-Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, ensure the on-premises device initiates the IPSec tunnel.
+Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway does *not* perform any NAT-like functionality on the inner packets to or from the IPsec tunnels. In this configuration, ensure that the on-premises device initiates the IPSec tunnel.
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
-Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You must configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
+Yes. You can deploy your own VPN gateways or servers in Azure from Azure Marketplace or by creating your own VPN routers. You must configure user-defined routes in your virtual network to ensure that traffic is routed properly between your on-premises networks and your virtual network subnets.
 
 ### <a name="gatewayports"></a>Why are certain ports opened on my virtual network gateway?
 
-They're required for Azure infrastructure communication. They're protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, won't be able to cause any effect on those endpoints.
+They're required for Azure infrastructure communication. Azure certificates help protect them by locking them down. Without proper certificates, external entities, including the customers of those gateways, won't be able to cause any effect on those endpoints.
 
-A virtual network gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+A virtual network gateway is fundamentally a multihomed device. One network adapter taps into the customer private network, and one network adapter faces the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to use public endpoints for infrastructure communication. An Azure security audit periodically scans the public endpoints.
 
-### <a name="vpn-basic"></a>Can I create a VPN gateway using the Basic gateway SKU in the portal?
+### <a name="vpn-basic"></a>Can I create a VPN gateway by using the Basic SKU in the portal?
 
-No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway using Azure CLI or PowerShell.
+No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway by using the Azure CLI or Azure PowerShell.
 
 ### Where can I find information about gateway types, requirements, and throughput?
 
 See the following articles:
+
 * [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
 * [About gateway SKUs](about-gateway-skus.md)
 
-## <a name="sku-deprecate"></a>SKU deprecation for legacy SKUs
+## <a name="sku-deprecate"></a>Deprecation of older SKUs
 
-The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement [here](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article. **At this time, there's no action that you need to take.**
+The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement on the [Azure Updates site](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.
+
+*At this time, there's no action that you need to take.*
 
 [!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
 
@@ -188,7 +206,9 @@ The Standard and High Performance SKUs will be deprecated on September 30, 2025.
 
 ### What should I consider when selecting a VPN device?
 
-We've validated a set of standard site-to-site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found in the [About VPN devices](vpn-gateway-about-vpn-devices.md) article. All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
+We've validated a set of standard site-to-site VPN devices in partnership with device vendors. You can find a list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specifications in the [About VPN devices](vpn-gateway-about-vpn-devices.md) article.
+
+All devices in the device families listed as known compatible should work with Azure Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to the appropriate device family.
 
 ### Where can I find VPN device configuration settings?
 
@@ -214,17 +234,17 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 ### Can I connect to a VPN gateway via point-to-site when located at a site that has an active site-to-site connection?
 
-Yes, but the Public IP address(es) of the point-to-site client must be different than the Public IP address(es) used by the site-to-site VPN device, or else the point-to-site connection won't work. Point-to-site connections with IKEv2 can't be initiated from the same Public IP address(es) where a site-to-site VPN connection is configured on the same Azure VPN gateway.
+Yes, but the Public IP addresses of the point-to-site client must be different than the Public IP addresses used by the site-to-site VPN device, or else the point-to-site connection won't work. Point-to-site connections with IKEv2 can't be initiated from the same Public IP addresses where a site-to-site VPN connection is configured on the same Azure VPN gateway.
 
-## <a name="P2S"></a>Point-to-site FAQ
+## <a name="P2S"></a>Point-to-site connections
 
 [!INCLUDE [P2S FAQ All](../../includes/vpn-gateway-faq-p2s-all-include.md)]
 
-## <a name="P2S-cert"></a>Point-to-site - certificate authentication
+## <a name="P2S-cert"></a>Point-to-site connections with certificate authentication
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-site - RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-site connections with RADIUS authentication
 
 ### Is RADIUS authentication supported on all Azure VPN Gateway SKUs?
 
@@ -248,7 +268,7 @@ Yes, 3rd-party RADIUS servers are supported.
 
 A site-to-site VPN connection to the on-premises site, with the proper routes configured, is required.
 
-### Can traffic to an on-premises RADIUS server (from the Azure VPN gateway) be routed over an ExpressRoute connection?
+### Can traffic to an on-premises RADIUS server (from the VPN gateway) be routed over an ExpressRoute connection?
 
 No. It can only be routed over a site-to-site connection.
 
@@ -260,7 +280,7 @@ There's no change in the maximum number of SSTP connections supported on a gatew
 
 In RADIUS certificate authentication, the authentication request is forwarded to a RADIUS server that handles the actual certificate validation. This option is useful if you want to integrate with a certificate authentication infrastructure that you already have through RADIUS.
 
-When using Azure for certificate authentication, the Azure VPN gateway performs the validation of the certificate. You need to upload your certificate public key to the gateway. You can also specify list of revoked certificates that shouldn’t be allowed to connect.
+When using Azure for certificate authentication, the VPN gateway performs the validation of the certificate. You need to upload your certificate public key to the gateway. You can also specify list of revoked certificates that shouldn't be allowed to connect.
 
 ### Does RADIUS authentication support Network Policy Server (NPS) integration for multifactor authorization (MFA)?
 
@@ -274,7 +294,7 @@ Yes, RADIUS authentication is supported for both IKEv2, and SSTP VPN.
 
 RADIUS authentication is supported for the OpenVPN protocol.
 
-## <a name="V2VMulti"></a>VNet-to-VNet and multi-site connections
+## <a name="V2VMulti"></a>Network-to-network and multi-site connections
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
@@ -282,21 +302,23 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 If you want to enable routing between your branch connected to ExpressRoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
-### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
+### Can I use a VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-**Resource Manager deployment model**<br>
-Yes. See the [BGP](#bgp) section for more information.
+* **Resource Manager deployment model**
 
-**Classic deployment model**<br>
-Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP isn't yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.
+  Yes. See the [BGP](#bgp) section for more information.
+
+* **Classic deployment model**
+
+  Transit traffic via a VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP isn't yet supported with Azure virtual networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.
 
 ### Does Azure generate the same IPsec/IKE preshared key for all my VPN connections for the same virtual network?
 
-No, Azure by default generates different preshared keys for different VPN connections. However, you can use the `Set VPN Gateway Key` REST API or PowerShell cmdlet to set the key value you prefer. The key MUST only contain printable ASCII characters except space, hyphen (-) or tilde (~).
+No, Azure by default generates different preshared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key must contain only printable ASCII characters, except space, hyphen (-), or tilde (~).
 
 ### Do I get more bandwidth with more site-to-site VPNs than for a single virtual network?
 
-No, all VPN tunnels, including point-to-site VPNs, share the same Azure VPN gateway and the available bandwidth.
+No, all VPN tunnels, including point-to-site VPNs, share the same VPN gateway and the available bandwidth.
 
 ### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
@@ -304,7 +326,7 @@ Yes, but you must configure BGP on both tunnels to the same location.
 
 ### Does Azure VPN Gateway honor AS Path prepending to influence routing decisions between multiple connections to my on-premises sites?
 
-Yes, Azure VPN gateway honors AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path is preferred in BGP path selection.
+Yes, Azure VPN Gateway honors AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path is preferred in BGP path selection.
 
 ### Can I use the RoutingWeight property when creating a new VPN VirtualNetworkGateway connection?
 
@@ -344,7 +366,9 @@ You can also connect to your virtual machine by private IP address from another 
 
 ### If my virtual machine is in a virtual network with cross-premises connectivity, does all the traffic from my VM go through that connection?
 
-No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified goes through the virtual network gateway. Traffic has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway.
+No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified goes through the virtual network gateway.
+
+Traffic has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the VPN gateway.
 
 ### How do I troubleshoot an RDP connection to a VM
 
@@ -356,11 +380,11 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ### How do I find out more about customer-controlled gateway maintenance?
 
-For more information, see the [VPN Gateway customer-controlled gateway maintenance](customer-controlled-gateway-maintenance.md) article.
+For more information, see the [Configure customer-controlled gateway maintenance for VPN Gateway](customer-controlled-gateway-maintenance.md) article.
 
-## Next steps
+## Related content
 
-* For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+* For more information about VPN Gateway, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**
