@@ -15,11 +15,6 @@ The Application Firewall provides sophisticated control over client connections 
 1. It does not replace authentication. The firewall operates behind the client connection authentication layer.
 2. It is not related to network layer access control.
 
-THis guidline is divided into three parts. 
-1. Introduce different application firewall rules
-2. Show how to configure the rules using Portal or Bicep at SignalR service side
-3. Describe how to configure the access token at server side
-
 ## What Does the Application Firewall Do?
 
 The Application Firewall consists of various rule lists. Currently, there is a rule list called Client Connection Count Rules. Future updates will support more rule lists to control aspects like connection lifetime and message throughput.
