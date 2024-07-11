@@ -6753,6 +6753,17 @@
             "source_path_from_root": "/articles/azure-monitor/agents/data-collection-text-log.md",
             "redirect_url": "/azure/azure-monitor/agents/data-collection-log-text",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/monitoring/monitoring-overview-azure-agents.md",
+            "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor-agents/data-collection-rule-azure-monitor-agent.md",
+            "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-data-collection",
+            "redirect_document_id": false
         }
     ]
 }
+

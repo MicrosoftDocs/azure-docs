@@ -12,7 +12,7 @@ ms.reviewer: jeffwo
 
 # Install and manage Azure Monitor Agent
 
-This article details the different methods to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md) on Azure virtual machines, scale sets, and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. 
+This article details the different methods to install, uninstall, and update the [Azure Monitor agent](azure-monitor-agent-overview.md) on Azure virtual machines, scale sets, and Azure Arc-enabled servers. 
 
 > [!IMPORTANT]
 > The Azure Monitor agent requires at least one data collection rule (DCR) to begin collecting data after it's installed on the client machine. Depending on the installation method you use, a DCR may or may not be created automatically. If not, then you need to configure data collection following the guidance at [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md).
@@ -415,4 +415,4 @@ When you create the assignment by using the Azure portal, you have the option of
 
 ## Next steps
 
-[Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
+[Create a data collection rule](./azure-monitor-agent-data-collection.md) to collect data from the agent and send it to Azure Monitor.

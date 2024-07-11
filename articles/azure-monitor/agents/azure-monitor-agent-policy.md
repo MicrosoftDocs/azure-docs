@@ -69,4 +69,4 @@ When you create the assignment by using the Azure portal, you have the option of
 
 ## Next steps
 
-[Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
+[Create a data collection rule](./azure-monitor-agent-send-data-to-event-hubs-and-storage.md) to collect data from the agent and send it to Azure Monitor.

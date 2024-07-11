@@ -29,7 +29,7 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
 
 :::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Snippet of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
 
-- **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md):
+- **Cost savings** by [using data collection rules](./azure-monitor-agent-data-collection.md):
   - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
   - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
 - **Security and Performance**

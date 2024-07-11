@@ -10,7 +10,7 @@ ms.reviewer: jeffwo
 # Install Azure Monitor agent on Windows client devices using the client installer
 
 Use the client installer to install Azure Monitor Agent on Windows client devices and send monitoring data to your Log Analytics workspace.
-The [Azure Monitor Agent extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and the installer install the **same underlying agent** and use data collection rules to configure data collection. This article explains how to install Azure Monitor Agent on Windows client devices using the client installer and how to associate data collection rules to your Windows client devices.
+The [Azure Monitor Agent extension](./azure-monitor-agent-requirements.md#virtual-machine-extension-details) and the installer install the **same underlying agent** and use data collection rules to configure data collection. This article explains how to install Azure Monitor Agent on Windows client devices using the client installer and how to associate data collection rules to your Windows client devices.
 
 
 > [!NOTE]
@@ -28,7 +28,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to a monitored object (MO), which maps to all devices within the Microsoft Entra tenant |
 | Data upload to Log Analytics | Via Log Analytics endpoints | Same |
 | Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require more extensions. This includes support for Sentinel Windows Event filtering |
-| [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |
+| [Networking options](./azure-monitor-agent-network-configuration.md) | Proxy support, Private link support | Proxy support only |
 
 
 ## Supported device types
@@ -37,8 +37,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 |:---|:---|:---|:---|
 | Windows 10, 11 desktops, workstations | Yes | Client installer | Installs the agent using a Windows MSI installer |
 | Windows 10, 11 laptops | Yes |  Client installer | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
-| Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
-| On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
+| Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-requirements.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
+| On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-requirements.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
 ## Prerequisites
 - The machine must be running Windows client OS version 10 RS4 or higher.
@@ -50,7 +50,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     - `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
     - `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-dce))
-- A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). **Do not associate the rule to any resources yet**.
+- A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./azure-monitor-agent-data-collection.md). **Do not associate the rule to any resources yet**.
 - Before using any PowerShell cmdlet, ensure cmdlet related PowerShell module is installed and imported.
 
 
@@ -67,7 +67,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
     ```cli
     msiexec /i AzureMonitorAgentClientSetup.msi /qn
     ```
-1. To install with custom file paths, [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), or on a Non-Public Cloud use the following command with the values from the following table:
+1. To install with custom file paths, [network proxy settings](./azure-monitor-agent-network-configuration.md, or on a Non-Public Cloud use the following command with the values from the following table:
 
     ```cli
     msiexec /i AzureMonitorAgentClientSetup.msi /qn DATASTOREDIR="C:\example\folder"
