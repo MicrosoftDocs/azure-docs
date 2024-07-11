@@ -4761,7 +4761,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/ai-services/how-to/monitoring.md",
+            "source_path_from_root": "/articles/ai-services/openai/how-to/monitoring.md",
             "redirect_url": "/azure/ai-services/openai/monitor-openai",
             "redirect_document_id": false
          },
