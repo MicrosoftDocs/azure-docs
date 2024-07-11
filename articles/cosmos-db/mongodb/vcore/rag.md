@@ -69,35 +69,53 @@ OpenAI is a leader in AI research, providing various models for language generat
 
 ### Embedding Models vs. Language Generation Models
 
-Understanding the distinction is vital:
+- **Text Embedding Model**:
+  - **Purpose**: Converting text into vector embeddings.
+    - These models transform textual data into high-dimensional arrays of numbers, capturing the semantic meaning of the text.
+  - **Output**: Array of numbers, also known as vector embeddings.
+    - Each embedding represents the semantic meaning of the text in a numerical form.
+    - The length of the array corresponds to the number of dimensions in the embedding space.
+    - The dimensionality is determined by the specific model used.
+    - For example, the `text-embedding-ada-002` model generates vectors with 1536 dimensions, meaning each text input is converted into a 1536-dimensional vector.
+  
+- **Language Model**:
+  - **Purpose**: Understanding and generating natural language.
+    - These models are designed to comprehend and produce human-like text based on given input.
+    - They can perform a wide range of language tasks, including text generation, translation, summarization, and more.
+  - **Output**: Text, answers, translations, code, etc.
+    - The output is contextually relevant and coherent text generated based on the input provided.
+    - These models can generate responses to questions, translate text between languages, write code snippets, and more.
+  - **Example**: `gpt-3.5-turbo`.
+    - This model is an advanced language model capable of generating high-quality text, understanding context, and providing relevant answers, making it suitable for applications such as chatbots, automated content creation, and interactive AI systems.
 
-- **Embedding Models**: Convert text into vector embeddings that capture semantic meaning.
-- **Language Generation Models**: Generate contextually relevant text based on input.
 
 ### Main Components of the Application
 
 - **Azure Cosmos DB for MongoDB vCore**: Storing and querying vector embeddings.
-- **LangChain**: Constructing the application’s LLM workflow.
+- **LangChain**: Constructing the application’s LLM workflow. Utilizes tools such as:
+  - **Document Loader**: For loading and processing documents from a directory.
+  - **Vector Store Integration**: For storing and querying vector embeddings in Azure Cosmos DB.
 - **Azure App Services**: Building the user interface.
-- **OpenAI**: For providing LLM and embedding models.
+- **Azure OpenAI**: For providing LLM and embedding models, including:
+  - **text-embedding-ada-002**: A text embedding model that converts text into vector embeddings with 1536 dimensions.
+  - **gpt-3.5-turbo**: A language model for understanding and generating natural language.
 
-By the end of this tutorial, you'll have a comprehensive understanding of how to build an AI-powered application using Azure Cosmos DB for MongoDB (vCore), LangChain, app services, and OpenAI models, optimizing retrieval-augmented generation (RAG) with vector search for robust performance.
+By the end of this tutorial, you'll have a comprehensive understanding of how to build an AI-powered application using Azure Cosmos DB for MongoDB (vCore), LangChain, Azure App Services, and OpenAI models, optimizing retrieval-augmented generation (RAG) with vector search for robust performance.
 
 ### How to Use?
 
 To get started with optimizing retrieval-augmented generation (RAG) using Azure Cosmos DB for MongoDB (vCore), follow these steps:
 
 1. **Create the following resources on Microsoft Azure:**
-    - **Azure Cosmos DB for MongoDB vCore cluster**: See the [Quick Start guide here]().
+    - **Azure Cosmos DB for MongoDB vCore cluster**: See the [Quick Start guide here](https://aka.ms/tryvcore).
     - **Azure OpenAI resource with:**
-        - **Embedding model deployment** (e.g., `text-embedding-ada-002`): See the [guide here]().
+        - **Embedding model deployment** (e.g., `text-embedding-ada-002`).
         - **Chat model deployment** (e.g., `gpt-35-turbo`).
 
 2. **Open the repository in GitHub Codespaces:**
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/Cosmic-Food-RAG-app?devcontainer_path=.devcontainer/devcontainer.json)
 
-3. 📝 **Start here** 👉 [CBD_Mongo_vCore.ipynb](./CBD_Mongo_vCore.ipynb)
 
 ## Next Steps
 
