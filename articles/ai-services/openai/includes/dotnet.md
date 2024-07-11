@@ -57,7 +57,7 @@ dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.17
 ```
 
 > [!NOTE]
-> The completions API is only available in version `1.0.0-beta.17` and earlier of the `Azure.AI.OpenAI` client library. For the latest `2.0.0` and higher version of `Azure.AI.OpenAI`, the recommended approach to generate completions is to use the [chat completions API](chatgpt-dotnet). 
+> The completions API is only available in version `1.0.0-beta.17` and earlier of the `Azure.AI.OpenAI` client library. For the latest `2.0.0` and higher version of `Azure.AI.OpenAI`, the recommended approach to generate completions is to use the [chat completions API](chatgpt-dotnet.md). 
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
