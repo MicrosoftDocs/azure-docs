@@ -539,21 +539,21 @@ For reference about how to invoke Llama models deployed to managed compute, see 
 
 # [Meta Llama 3](#tab/llama-three)
 
-| **Package**       | **Sample Notebook**                             |
+| **Package**       | **Sample Notebook**                          |
 |----------------|----------------------------------------|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/openaisdk.ipynb)                              |
-| LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/langchain.ipynb)                                |
-| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/webrequests.ipynb)                                 |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/litellm.ipynb) |
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/openaisdk.ipynb)   |
+| LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/langchain.ipynb)       |
+| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/webrequests.ipynb)               |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/litellm.ipynb)     |
 
 # [Meta Llama 2](#tab/llama-two)
 
 | **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/openaisdk.ipynb)                                    |
-| LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/langchain.ipynb)                                |
-| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/webrequests.ipynb)                                 |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/litellm.ipynb) |
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/openaisdk.ipynb)        |
+| LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/langchain.ipynb)      |
+| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/webrequests.ipynb)    |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/litellm.ipynb)    |
 
 ---
 
