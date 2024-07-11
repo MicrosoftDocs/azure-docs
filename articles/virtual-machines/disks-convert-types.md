@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, references_regions
 ms.topic: how-to
-ms.date: 07/09/2024
+ms.date: 07/15/2024
 ms.author: rogarana
 ---
 
@@ -28,11 +28,12 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 - You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 ## Premium SSD v2 migration (preview)
-As a public preview, you can switch existing disks to Premium SSD v2 disks the same way you do for other disk types. Use [https://aka.ms/SeamlessMigrationCustomerSurvey](https://aka.ms/SeamlessMigrationCustomerSurvey) to sign up for the preview.
+As a public preview, you can switch existing disks to Premium SSD v2 disks the same way you do for other disk types. Use [https://aka.ms/SeamlessMigrationCustomerSurvey](https://aka.ms/SeamlessMigrationCustomerSurvey) to sign up for the preview. Premium SSD v2 disks have some limitations, see the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) section of their article to learn more.
 
-The preview has some additional limitations and regional restrictions:
+The preview allowing direct switching to Premium SSD v2 disks has some additional limitations and regional restrictions:
 
 - You can't directly switch Ultra Disks to Premium SSD v2 disks.
+- You can't switch an OS disk to a Premium SSD v2 disk.
 - You can't directly switch a Premium SSD v2 to another disk type.
 - Existing disks can only be directly switched to 512 sector size Premium SSD v2 disks. 
 - You can only perform 40 conversions at the same time per subscription per region.
