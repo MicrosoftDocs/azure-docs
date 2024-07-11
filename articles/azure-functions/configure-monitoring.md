@@ -293,8 +293,7 @@ For a function app to send data to Application Insights, it needs to connect to 
 
 When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
 
->[!NOTE]
->When using `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` to connect to Application Insights using Microsoft Entra authentication, you should also [Disable local authentication](../azure-monitor/app/azure-ad-authentication.md#disable-local-authentication). This configuration allows you to ingest telemetry authenticated exclusively by Microsoft Entra ID and prevents data access by using API keys.
+[!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
 ### New function app in the portal
 
