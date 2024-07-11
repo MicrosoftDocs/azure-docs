@@ -585,6 +585,10 @@
       href: vmware-azure-troubleshoot-configuration-server.md
     - name: Process server errors
       href: vmware-physical-azure-troubleshoot-process-server.md
+    - name: Replication appliance health
+      href: vmware-troubleshoot-appliance-health-issue.md
+    - name: Mobility agent health
+      href: vmware-troubleshoot-mobility-agent-health.md      
     - name: Mobility service - push installation errors
       href: vmware-azure-troubleshoot-push-install.md
     - name: Failover to Azure errors
