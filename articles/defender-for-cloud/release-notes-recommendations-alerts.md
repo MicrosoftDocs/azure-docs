@@ -2,7 +2,7 @@
 title: New and upcoming changes in recommendations and alerts
 description: Get release notes for new and upcoming changes in recommendations and alerts in Microsoft Defender for Cloud. 
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 07/11/2024
 #customer intent: As a Defender for Cloud admin, I want to stay up to date on the latest new and changed security recommendations and alerts.
 ---
 
@@ -89,7 +89,7 @@ New and updated recommendations and alerts are added to the table in date order.
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on EC2s](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2s) |
-| March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on EC2s](recommendations-reference-compute.md#edr-solution-should-be-installed-on-ec2shttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey77d09952-2bc2-4495-8795-cc8391452f85)                  |
+| March 18    | Recommendation                 | GA                                                           | EDR solution should be installed on EC2s              |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on GCP virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on GCP virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machines) |
 | End March   | Recommendation                 | Deprecation                                                  | [Endpoint protection should be installed on machines](recommendations-reference-deprecated.md#endpoint-protection-should-be-installed-on-machines)  . |
