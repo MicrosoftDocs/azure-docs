@@ -3,9 +3,9 @@ title: Train ML models
 titleSuffix: Azure Machine Learning
 description: Configure and submit Azure Machine Learning jobs to train your models using the SDK, CLI, etc.
 services: machine-learning
-author: balapv
-ms.author: balapv
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: balapv
 ms.service: machine-learning
 ms.subservice: training
 ms.date: 09/10/2023

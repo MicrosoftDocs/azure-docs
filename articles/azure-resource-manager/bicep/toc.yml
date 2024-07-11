@@ -599,5 +599,15 @@
     displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
+  - name: Bicep warnings and errors 
+    items:
+    - name: All codes
+      href: bicep-error-codes.md
+    - name: BCP033
+      href: bicep-error-bcp033.md
+    - name: BCP035
+      href: bicep-error-bcp035.md
+    - name: BCP072
+      href: bicep-error-bcp072.md
   - name: Azure CLI
     href: /cli/azure/resource

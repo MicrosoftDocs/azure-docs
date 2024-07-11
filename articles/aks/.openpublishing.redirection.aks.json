@@ -22,6 +22,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/concepts-clusters-workloads.md",
+            "redirect_url": "/azure/aks/core-aks-concepts",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/upgrade-windows-2019-2022.md",
             "redirect_url": "/azure/aks/upgrade-windows-os",
             "redirect_document_id": false
