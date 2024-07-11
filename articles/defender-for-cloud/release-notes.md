@@ -42,9 +42,9 @@ July 11, 2024
 
 **Estimated date for change**: July 18, 2024
 
-DevOps security in Defender for Cloud is constantly making updates that require customers who have onboarded their GitHub environments in Defender for Cloud to update the permissions for the Microsoft Security DevOps application in GitHub.
+DevOps security in Defender for Cloud is constantly making updates that require customers with GitHub connectors in Defender for Cloud to update the permissions for the Microsoft Security DevOps application in GitHub.
 
-As part of this update, the GitHub application will require GitHub Copilot Business read permissions. This permission will be used to help customers better secure their GitHub Copilot deployments. We suggest updating the permissions as soon as possible.
+As part of this update, the GitHub application will require GitHub Copilot Business read permissions. This permission will be used to help customers better secure their GitHub Copilot deployments. We suggest updating the application as soon as possible.
 
 Permissions can be granted in two different ways:
 
