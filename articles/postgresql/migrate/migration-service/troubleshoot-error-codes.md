@@ -68,7 +68,7 @@ These settings help maintain the connection by sending keepalive probes to preve
 | 603114 | Cutover failure. Cutover can't be initiated for database '{dbName}' for migration mode offline. | N/A |
 | 603115 | Missing user privileges. Migration user '{0}' isn't a member of azure_pg_admin role. Add necessary privileges on target server and retry the migration. | N/A |
 | 603116 | Missing user privileges. Migration user '{0}' doesn't have the create role privilege. Add necessary privileges on target server and retry the migration. | Run query `ALTER ROLE <rolename> WITH CREATEROLE;` on target server. |
-| 603117 | Missing user privileges. Migration user '{0}' lacks necessary privileges to delete the '{1}' database on the target server. Drop the database manually from the target server and retry the migration. | N/A |
+| 603117 | Missing user privileges. Migration user '{0}' lacks necessary privileges to delete the '{dbName}' database on the target server. Drop the database manually from the target server and retry the migration. | N/A |
 | 603400 | Unsupported source version. Migration of PostgreSQL versions below `{0}` is unsupported. | You must use another migration method. |
 | 603401 | Collation mismatch. Collation `{0}` in database `{1}` isn't present on target server. | N/A |
 | 603402 | Collation mismatch. Collation `{0}` for table `{1}` in column `{2}` isn't present on target server. | [Contact Microsoft support](https://support.microsoft.com/contactus) to add the necessary collations. |
