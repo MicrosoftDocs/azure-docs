@@ -11,7 +11,7 @@ ms.reviewer: glinuxagent
 
 Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built into Linux devices and appliances to collect local events of the types you specify. Applications send messages that are either stored on the local machine or delivered to a Syslog collector.
 
-Syslog events is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Syslog events data source type.
+**Syslog events** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Syslog events data source type.
 
 > [!TIP]
 > To collect data from devices that don't allow local installation of Azure Monitor Agent, [configure a dedicated Linux-based log forwarder](../../sentinel/forward-syslog-monitor-agent.md).
@@ -36,7 +36,7 @@ By default, the agent will collect all events that are sent by the Syslog config
 
 ## Destinations
 
-**Azure Monitor Logs** is the only destination allowed for Syslog events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Syslog](/azure/azure-monitor/reference/tables/syslog) table. You can only modify the destination table mby manually editing the DCR.
+**Azure Monitor Logs** is the only destination allowed for Syslog events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Syslog](/azure/azure-monitor/reference/tables/syslog) table. You can only modify the destination table by manually editing the DCR.
 
 > [!NOTE]
 > Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).

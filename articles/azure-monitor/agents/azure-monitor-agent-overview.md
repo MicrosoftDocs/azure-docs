@@ -50,7 +50,7 @@ Azure Monitor Agent is available in all public regions, Azure Government and Chi
 
 ## Supported services and features
 
-The following tables identify the different environments and features that are currently supported by Azure Monitor agent in addition to those supported by the legacy agent. This information will assist you in determining whether Azure Monitor agent can support your current requirements. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features) for guidance on migrating specific features.
+The following tables identify the different environments and features that are currently supported by Azure Monitor agent in addition to those supported by the legacy agent. This information will assist you in determining whether Azure Monitor agent can support your current requirements. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for guidance on migrating specific features.
 
 
 ### Windows agents
@@ -70,7 +70,7 @@ The following tables identify the different environments and features that are c
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
 |	**Services and features supported**	|		|		|		|
-|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#understand-additional-dependencies-and-services))	| ✓ |
 |		|	VM Insights	|	✓ | ✓ |
 |		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |
 |		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |
@@ -94,7 +94,7 @@ The following tables identify the different environments and features that are c
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
 |	**Services and features supported**	|		|		|		|
-|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#understand-additional-dependencies-and-services))	| ✓ |
 |		|	VM Insights	| ✓ |	✓ |
 |		|	Microsoft Defender for Cloud - Only use MDE agent	| | |
 |		|	Automation Update Management - Moved to Azure Update Manager	|	✓	| ✓ |

@@ -57,14 +57,14 @@ The incoming stream of data includes the columns in the following table.
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace. You can override this value using a transformation to set `TimeGenerated` to another value. |
 | `RawData` | string | The entire log entry in a single column. You can use a transformation if you want to break down this data into multiple columns before sending to the table. |
-| `FilePath` | string | If you add this column to he incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to he incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
 ## Custom table
 Before you can collect log data from a text file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the data you are collecting, or you must add a transformation to ensure that the output schema matches the table. 
 
-For example, you can use the following PowerShell script to create a custom table with with `RawData` and `FilePath`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
+For example, you can use the following PowerShell script to create a custom table with `RawData` and `FilePath`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
 
 
 ```powershell
@@ -239,7 +239,7 @@ Use the following ARM template to create or modify a DCR for collecting text log
 ## Delimited log files
 Many text log files have entries that are delimited by a character such as a comma. To parse this data into separate columns, use a transformation with the [split function](/azure/data-explorer/kusto/query/split-function).
 
-For example, consider a text file with the following comma-delimited data. These fields could described as: `Time`, `Code`, `Severity`,`Module`, and `Message`. 
+For example, consider a text file with the following comma-delimited data. These fields could be described as: `Time`, `Code`, `Severity`,`Module`, and `Message`. 
 
 ```plaintext
 2024-06-21 19:17:34,1423,Error,Sales,Unable to connect to pricing service.

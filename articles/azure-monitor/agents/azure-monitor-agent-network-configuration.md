@@ -39,7 +39,7 @@ Replace the suffix in the endpoints with the suffix in the following table for d
 |:---|:---|
 | Azure Commercial | .com |
 | Azure Government | .us |
-| AMicrosoft Azure operated by 21Vianet | .cn |
+| Microsoft Azure operated by 21Vianet | .cn |
 
 
 >[!NOTE]
@@ -60,7 +60,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above. For the ARM template, if you have proxy configuration please follow the ARM template example below declaring the proxy setting inside the ARM template. Additionally, a user can set "global" environment variables that get picked up by all systemd services [via the DefaultEnvironment variable in /etc/systemd/system.conf](https://www.man7.org/linux/man-pages/man5/systemd-system.conf.5.html).
 
 
-Use PowerShell commands the following examples depending on your environment and configuration.:
+Use PowerShell commands in the following examples depending on your environment and configuration.:
 
 # [Windows VM](#tab/PowerShellWindows)
 

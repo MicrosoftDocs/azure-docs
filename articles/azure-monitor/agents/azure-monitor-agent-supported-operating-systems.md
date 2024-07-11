@@ -4,7 +4,7 @@ description: Identifies the operating systems supported by Azure Monitor Agent a
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 04/11/2024
+ms.date: 07/24/2024
 ms.custom: references_regions
 ms.reviewer: jeffwo
 
@@ -94,7 +94,7 @@ This article identifies the operating systems supported by [Azure Monitor Agent]
 > CBL-Mariner 2.0's disk size is by default about 1GB to provide storage savings, compared to other Azure VMs that are about 30GB. The Azure Monitor Agent requires at least 4GB disk size in order to install and run successfully. See [CBL-Mariner's documentation](https://eng.ms/docs/products/mariner-linux/gettingstarted/azurevm/azurevm#disk-size) for more information and instructions on how to increase disk size before installing the agent.
 
 ## Hardening Standards
-Azure Monitoring Agent supports most industry-standard hardening standards and is continuously tested and certified against these standards every release. All Azure Monitor Agent scenarios are designed from the ground up with with security in mind.
+Azure Monitoring Agent supports most industry-standard hardening standards and is continuously tested and certified against these standards every release. All Azure Monitor Agent scenarios are designed from the ground up with security in mind.
 
 ### Windows hardening
 Azure Monitoring Agent supports all standard Windows hardening standards, including STIG and FIPs, and is FedRamp compliant under Azure Monitor.
@@ -107,7 +107,7 @@ The Azure Monitoring Agent for Linux supports various hardening standards for Li
 
 Currently supported hardening standards:
 - SELinux
-- CIS Lvl 1 and 2<sup>1</sup>
+- CIS level 1 and 2<sup>1</sup>
 - STIG
 - FIPs
 - FedRamp

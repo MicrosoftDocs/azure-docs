@@ -11,8 +11,7 @@ ms.reviewer: jeffwo
 ---
 
 # Azure Monitor agent requirements
-This article details requirements and prerequisites for the Azure Monitor agent. Refer to the details in this article before you follow the guidance to install the agent in [Install and manage Azure Monitor Agent
-](./azure-monitor-agent-manage.md).
+This article provides requirements and prerequisites for the Azure Monitor agent. Refer to the details in this article before you follow the guidance to install the agent in [Install and manage Azure Monitor Agent](./azure-monitor-agent-manage.md).
 
 ## Virtual machine extension details
 
@@ -35,7 +34,7 @@ Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-mach
 
 [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both user-assigned and system-assigned managed identities are supported. 
 
-- **User-assigned**: This managed identity should be used for large-scale deployments and can be configured with [built-in Azure policies](#use-azure-policy). You can create a user-assigned managed identity once and share it across multiple VMs making it more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to Azure Monitor Agent via extension settings:
+- **User-assigned**: This managed identity should be used for large-scale deployments and can be configured with [built-in Azure policies](./azure-monitor-agent-policy.md). You can create a user-assigned managed identity once and share it across multiple VMs making it more scalable than a system-assigned managed identity. If you use a user-assigned managed identity, you must pass the managed identity details to Azure Monitor Agent via extension settings:
 
     ```json
     {
@@ -55,7 +54,7 @@ You should use `mi_res_id` as the `identifier-name`. The following sample comman
 
 
 ## Disk Space
- Required disk space can vary significantly depending upon how an agent is used or if the agent is unable to communicate with the destinations and must cache data. By default the agent requires 10Gb of disk space to run. The following table provides guidance for capacity planning:
+ Required disk space can vary significantly depending on how an agent is configured or if the agent is unable to communicate with the destinations and must cache data. By default the agent requires 10Gb of disk space to run. The following table provides guidance for capacity planning:
 
 | Purpose | Environment | Path | Suggested Space |
 |:---|:---|:---|:---|

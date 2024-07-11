@@ -472,7 +472,7 @@ In order to update the version, install the new version you wish to update to.
 <a name='not-aad-joined'></a>
 
 #### Not Microsoft Entra joined
-Error message: "Tenant and device ids retrieval failed"
+Error message: "Tenant and device IDs retrieval failed"
 1. Run the command `dsregcmd /status`. This should produce the output as `AzureAdJoined : YES` in the 'Device State' section. If not, join the device with a Microsoft Entra tenant and try installation again. 
 
 #### Silent install from command prompt fails

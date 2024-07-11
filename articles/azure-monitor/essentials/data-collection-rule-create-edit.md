@@ -44,7 +44,7 @@ To create a data collection rule using the Azure CLI, PowerShell, API, or ARM te
 
 ## [Portal](#tab/portal)
 
-On the **Monitor** menu, select **Data Collection Rules** > **Create** to open the create a new data collection rule management wizard.
+On the **Monitor** menu, select **Data Collection Rules** > **Create** to open the page to create a new data collection rule.
    
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
 

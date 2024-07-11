@@ -53,18 +53,18 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Incoming stream
-JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, the columns in the to  following table will be included in the incoming stream, and you must manually modify the DCR or create it using another method where you can explicitly define the incoming stream.
+JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, the columns in the following table will be included in the incoming stream, and you must manually modify the DCR or create it using another method where you can explicitly define the incoming stream.
 
  | Column | Type | Description |
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. |
 | `RawData` | string | This column will be empty for a JSON log. |
-| `FilePath` | string | If you add this column to he incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to he incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
 ## Custom table
-Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table. For example, you can use the following PowerShell script to create a custom table with with multiple columns.  
+Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table. For example, you can use the following PowerShell script to create a custom table with multiple columns.  
 
 ```powershell
 $tableParams = @'
@@ -124,7 +124,7 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 | Setting | Description |
 |:---|:---|
-| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each daya with a new name. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.json<br>- C:\Logs\MyLog*.json<br>- C:\App01\AppLog.json, C:\App02\AppLog.json<br>- /var/mylog.json<br>- /var/mylog*.json |
+| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each day with a new name. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.json<br>- C:\Logs\MyLog*.json<br>- C:\App01\AppLog.json, C:\App02\AppLog.json<br>- /var/mylog.json<br>- /var/mylog*.json |
 | Table name | Name of the destination table in your Log Analytics Workspace. |     
 | Record delimiter | Not currently used but reserved for future potential use allowing delimiters other than the currently supported end of line (`/r/n`). | 
 | Transform | [Ingestion-time transformation](../essentials/data-collection-transformations.md) to filter records or to format the incoming data for the destination table. Use `source` to leave the incoming data unchanged. |

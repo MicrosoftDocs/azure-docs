@@ -9,7 +9,7 @@ ms.reviewer: jeffwo
 
 # Collect SNMP trap data with Azure Monitor Agent
 
-Simple Network Management Protocol (SNMP) is a widely-deployed management protocol for monitoring and configuring Linux devices and appliances.  By forwarding SNMP traps to either syslog or a text file, you can use Azure Monitor Agent to collect them
+Simple Network Management Protocol (SNMP) is a widely deployed management protocol for monitoring and configuring Linux devices and appliances.  By forwarding SNMP traps to either syslog or a text file, you can use Azure Monitor Agent to collect them
   
 You can collect SNMP data in two ways: 
 

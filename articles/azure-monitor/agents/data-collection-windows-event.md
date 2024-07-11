@@ -12,7 +12,7 @@ ms.reviewer: jeffwo
 # Collect Windows events with Azure Monitor Agent
 Windows event logs are one of the most common data sources for Windows machines with [Azure Monitor Agent](azure-monitor-agent-overview.md) since it's a common source of health and information for the Windows operating system and applications running on it. You can collect events from standard logs, such as System and Application, and any custom logs created by applications you need to monitor.
 
-Windows events is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Windows events data source type.
+**Windows events** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Windows events data source type.
 
 
 ## Prerequisites
