@@ -35,13 +35,13 @@ The metrics and logs that you can collect are described in the following section
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
-For more information about the resource types for Azure OpenAI, see [Azure OpenAI monitoring data reference](monitor-openai-reference.md).
+For more information about the resource types for Azure OpenAI, see [Azure OpenAI monitoring data reference](../monitor-openai-reference.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-Azure OpenAI has commonality with a subset of Azure AI services. For a list of available metrics for Azure OpenAI, see [Azure OpenAI monitoring data reference](monitor-[TODO-replace-with-service-filename]-reference.md#metrics).
+Azure OpenAI has commonality with a subset of Azure AI services. For a list of available metrics for Azure OpenAI, see [Azure OpenAI monitoring data reference](../monitor-openai-reference.md#metrics).
 
 <!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
 If your service uses any non-Azure Monitor based metrics, add the following include and more information.
@@ -49,7 +49,7 @@ If your service uses any non-Azure Monitor based metrics, add the following incl
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure OpenAI, see [Azure OpenAI monitoring data reference](monitor-openai-reference.md#resource-logs).
+For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure OpenAI, see [Azure OpenAI monitoring data reference](../monitor-openai-reference.md#resource-logs).
 
 <!-- OPTIONAL. If your service doesn't collect Azure Monitor resource logs, use the following include [!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)] -->
 
@@ -133,7 +133,7 @@ Depending on what type of application you're developing with your use of Azure O
 
 ### Azure OpenAI alert rules
 
-The following table lists some suggested alert rules for Azure OpenAI. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure OpenAI monitoring data reference](monitor-openai-reference.md).
+The following table lists some suggested alert rules for Azure OpenAI. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure OpenAI monitoring data reference](../monitor-openai-reference.md).
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
@@ -144,6 +144,6 @@ The following table lists some suggested alert rules for Azure OpenAI. These ale
 
 ## Related content
 
-- See [Azure OpenAI monitoring data reference](monitor-openai-reference.md) for a reference of the metrics, logs, and other important values created for Azure OpenAI.
+- See [Azure OpenAI monitoring data reference](../monitor-openai-reference.md) for a reference of the metrics, logs, and other important values created for Azure OpenAI.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
 - See [Understand log searches in Azure Monitor logs](../../../azure-monitor/logs/log-query-overview.md) about logs.
