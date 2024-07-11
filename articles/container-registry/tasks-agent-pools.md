@@ -110,7 +110,7 @@ Customers basing their deployments with MCR can refer to [MCR/MAR firewall rules
 
 If the standard Firewall/NSG rules are too permissive and fine-grained control is required for outbound connections or if routing tables and network appliances are configured with the subnet, than the alternative is to enable service endpoints on the agent pool subnet in order to allow the agent pool access to its service dependencies. Outbound Firewall/NSG rules are still required in order for the Virtual Network to switch the source IP from a public to private IP in addition to the service endpoints being enabled.
  
-More information on service endpoints is documented [here](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview#secure-azure-services-to-virtual-networks).
+More information on service endpoints is documented [here][az-vnet-svc-ep].
  
 At minimum, the following service endpoints will be required
  
@@ -219,3 +219,4 @@ For more examples of container image builds and maintenance in the cloud, check 
 [az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
 [az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
 [create-reg-cli]: container-registry-get-started-azure-cli.md
+[az-vnet-svc-ep]: ../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks
