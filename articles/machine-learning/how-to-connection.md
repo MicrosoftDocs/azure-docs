@@ -363,17 +363,14 @@ The following example creates a Git connection to a GitHub repo. This connection
 from azure.ai.ml.entities import WorkspaceConnection
 from azure.ai.ml.entities import PatTokenConfiguration
 
-
-name = "my_git_conn"
-
-target = "https://github.com/myaccount/myrepo"
-
 wps_connection = WorkspaceConnection(
-    name=name,
+    name=<my_git_conn>,
     type="git",
-    target=target,
-    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
+    target=<my_git_url>,
+    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),
+    #credentials=None   
 )
+
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```
 
