@@ -9,7 +9,7 @@ ms.topic: how-to
 author: manashgoswami
 ms.author: manashg
 ms.reviewer: ssalgado
-ms.date: 06/28/2024
+ms.date: 07/11/2024
 ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1
 
 #customer intent: As a developer, I want to train a regression model with Automated ML, so I can use the Azure Machine Learning Python SDK.
@@ -414,8 +414,7 @@ If you want to keep the resource group, and delete a single workspace only, foll
 
 1. Select the workspace, select **Properties**, and then select **Delete**.
 
-## Related content
+## Next step
 
-- [Set up Automated ML to train computer vision models with Python (v1)](how-to-auto-train-image-models.md)
-- [Train classification models with no-code Automated ML (Tutorial)](../tutorial-first-experiment-automated-ml.md)
-- [Forecast demand with no-code Automated ML (Tutorial)](../tutorial-automated-ml-forecast.md)
+> [!div class="nextstepaction"]
+> [Set up Automated ML to train computer vision models with Python (v1)](how-to-auto-train-image-models.md)
