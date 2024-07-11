@@ -97,18 +97,13 @@ await _deviceClient.CompleteFileUploadAsync(successfulFileUploadCompletionNotifi
 
 You can create a backend service to receive file upload notification messages from IoT Hub.
 
-### Instantiate the service client
-
-```csharp
-using Microsoft.Azure.Devices;
-static ServiceClient serviceClient;
-```
-
 ### Add the connection string
 
 Replace the `{IoT Hub connection string}` placeholder value with the IoT Hub connection string.
 
 ```csharp
+using Microsoft.Azure.Devices;
+static ServiceClient serviceClient;
 static string connectionString = "{IoT Hub connection string}";
 serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 ```

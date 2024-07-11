@@ -11,7 +11,7 @@ ms.date: 07/01/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
-## Install device library
+## Install packages
 
 The azure-iot-device library must be installed before calling any related code.
 
@@ -29,13 +29,12 @@ pip install azure.storage.blob
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect the client to IoT hub and get storage information
+* Connect to IoT hub
+* Get Blob Storage information
 * Upload the file to Blob Storage
 * Notify IoT hub of upload status
 
-### Connect the client to IoT hub and get storage information
-
-The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that a device can use to upload a file to IoT Hub.
+### Connect to IoT hub
 
 ```python
 import os
@@ -49,7 +48,7 @@ Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.devi
 For example:
 
 ```python
-CONNECTION_STRING = "[IoT hub Connection String]"
+CONNECTION_STRING = "{IoT hub connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 ```
 
@@ -59,6 +58,8 @@ Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?
 # Connect the client
 device_client.connect()
 ```
+
+### Get Blob Storage information
 
 Call [get_storage_info_for_blob](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-get-storage-info-for-blob) to get information from an IoT hub about a linked Storage Account. This information includes the hostname, container name, blob name, and a SAS token. The storage info is passed to the `store_blob` function (created in the previous step), so that the `BlobClient` in that function can authenticate with Azure storage. The `get_storage_info_for_blob` method also returns a `correlation_id`, which is used in the notify_blob_upload_status method. The correlation_id is IoT Hub's way of marking which blob you're working on.
 
