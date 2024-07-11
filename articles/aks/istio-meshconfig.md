@@ -17,7 +17,7 @@ This article walks through how to configure Istio-based service mesh add-on for 
 
 ## Prerequisites
 
-This guide assumes you followed the [documentation][istio-deploy-addon-on] to enable the Istio add-on on an AKS cluster.
+This guide assumes you followed the [documentation][istio-deploy-add-on] to enable the Istio add-on on an AKS cluster.
 
 ## Set up configuration on cluster
 
@@ -64,7 +64,7 @@ This guide assumes you followed the [documentation][istio-deploy-addon-on] to en
     The values under `defaultConfig` are mesh-wide settings applied for Envoy sidecar proxy.
 
 > [!CAUTION]
-> A default ConfigMap (for example, `istio-asm-1-18` for revision asm-1-18) is created in `aks-istio-system` namespace on the cluster when the Istio addon-on is enabled. However, this default ConfigMap gets reconciled by the managed Istio addon-on and thus users should NOT directly edit this ConfigMap. Instead users should create a revision specific Istio shared ConfigMap (for example `istio-shared-configmap-asm-1-18` for revision asm-1-18) in the aks-istio-system namespace, and then the Istio control plane will merge this with the default ConfigMap, with the default settings taking precedence.
+> A default ConfigMap (for example, `istio-asm-1-18` for revision asm-1-18) is created in `aks-istio-system` namespace on the cluster when the Istio add-on is enabled. However, this default ConfigMap gets reconciled by the managed Istio add-on and thus users should NOT directly edit this ConfigMap. Instead users should create a revision specific Istio shared ConfigMap (for example `istio-shared-configmap-asm-1-18` for revision asm-1-18) in the aks-istio-system namespace, and then the Istio control plane will merge this with the default ConfigMap, with the default settings taking precedence.
 
 ### Mesh configuration and upgrades
 
@@ -76,7 +76,7 @@ After the upgrade is completed or rolled back, you can delete the ConfigMap of t
 
 Fields in `MeshConfig` are classified into three categories: 
 
-- **Blocked**: Disallowed fields are blocked via addon-on managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
+- **Blocked**: Disallowed fields are blocked via add-on managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
 - **Supported**: Supported fields (for example, fields related to access logging) receive support from Azure support.
 - **Allowed**: These fields (such as proxyListenPort or proxyInboundListenPort) are allowed but they aren't covered by Azure support.
 
@@ -161,5 +161,5 @@ Fields present in [open source MeshConfig reference documentation][istio-meshcon
 
 [istio-meshconfig]: https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/
 [istio-sidecar-race-condition]: https://istio.io/latest/docs/ops/common-problems/injection/#pod-or-containers-start-with-network-issues-if-istio-proxy-is-not-ready
-[istio-deploy-addon-on]: istio-deploy-addon-on.md
+[istio-deploy-add-on]: istio-deploy-add-on.md
 [container-insights-docs]: ../azure-monitor/containers/container-insights-overview.md
