@@ -9,7 +9,7 @@ ms.topic: concept-article
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: manashg
-ms.date: 07/10/2024
+ms.date: 07/11/2024
 
 #customer intent: As a developer, I want to use Automated ML solutions in Azure Machine Learning, so I can find and address common issues like overfitting and imbalanced data.
 ---
@@ -114,8 +114,7 @@ The following techniques are other options to handle imbalanced data outside of 
 
 - Review performance metrics for imbalanced data. For example, the F1 score is the harmonic mean of precision and recall. Precision measures a classifier's exactness, where higher precision indicates fewer false positives. Recall measures a classifier's completeness, where higher recall indicates fewer false negatives.
 
-## Related content
+## Next step
 
-- Complete the [Tutorial: Train an object detection model with automated machine learning and Python](tutorial-auto-train-image-models.md)
-- [Set up no-code Automated ML training for tabular data with Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md)
-- [Configure settings for automatic training experiment with the Python SDK)](how-to-configure-auto-train.md)
+> [!div class="nextstepaction"]
+> [Train an object detection model with automated machine learning and Python](tutorial-auto-train-image-models.md)
