@@ -65,13 +65,13 @@ throw new errors.ArgumentError('Invalid upload parameters');
 
 ### Upload the file to IoT hub
 
-To upload a file from a device IoT hub:
+To upload a file from a device to IoT hub:
 
-1. Create a stream pipeline.
-2. Construct the blob URL.
-3. Create a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) for file upload to Blob Storage.
-4. Call [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient?#@azure-storage-blob-blockblobclient-uploadfile) to upload the file to Blob Storage.
-5. Call [notifyBlobUploadStatus](/javascript/api/azure-iot-device/client?#azure-iot-device-client-notifyblobuploadstatus) to notify IoT Hub that the upload succeeded or failed.
+1. Create a stream pipeline
+2. Construct the blob URL
+3. Create a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) for file upload to Blob Storage
+4. Call [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient?#@azure-storage-blob-blockblobclient-uploadfile) to upload the file to Blob Storage
+5. Call [notifyBlobUploadStatus](/javascript/api/azure-iot-device/client?#azure-iot-device-client-notifyblobuploadstatus) to notify IoT Hub that the upload succeeded or failed
 
 For example:
 
@@ -127,7 +127,12 @@ await client.notifyBlobUploadStatus(blobInfo.correlationId, isSuccess, statusCod
 
 You can create a backend application to check the IoT Hub service client for device file upload notifications.
 
-### Connect to the IoT Hub service client
+To create a file upload notification application:
+
+* Connect to the IoT hub service client
+* Check for a file upload notification
+
+### Connect to the IoT hub service client
 
 Create the [ServiceClient](/javascript/api/azure-iothub/client) using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring).
 

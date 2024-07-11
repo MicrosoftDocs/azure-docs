@@ -64,7 +64,7 @@ Call [get_storage_info_for_blob](/python/api/azure-iot-device/azure.iot.device.i
 
 ```python
 # Get the storage info for the blob
-PATH_TO_FILE = "[Full path to local file]"
+PATH_TO_FILE = "{Full path to local file}"
 blob_name = os.path.basename(PATH_TO_FILE)
 blob_info = device_client.get_storage_info_for_blob(blob_name)
 ```

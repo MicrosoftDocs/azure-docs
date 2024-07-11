@@ -40,7 +40,7 @@ IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 Instantiate the DeviceClient to connect to IoT hub using the Iot hub primary connection string and protocol parameters.
 
 ```java
-String connString = "IoT hub connection string";
+String connString = "{IoT hub connection string}";
 DeviceClient client = new DeviceClient(connString, protocol);
 ```
 
@@ -114,9 +114,14 @@ client.closeNow();
 
 You can create a backend application to receive file upload notifications.
 
+To create a file upload notification application:
+
+* Connect to the IoT Hub service client
+* Check for a file upload notification
+
 The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
 
-### Connect the client to IoT hub
+### Connect to the IoT hub service client
 
 Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` protocol.
 
@@ -132,8 +137,8 @@ ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, pr
 
 To check for file upload status:
 
-* Create a [getFileUploadNotificationReceiver](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver) object.
-* Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT Hub.
+* Create a [getFileUploadNotificationReceiver](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver) object
+* Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT Hub
 * Call [receive](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-receive()) to check for the file upload status. This method returns a [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) object. If an upload notice is received, you can view upload status fields using [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) methods.
 
 For example:
