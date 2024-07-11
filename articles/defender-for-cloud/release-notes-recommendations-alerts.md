@@ -46,6 +46,7 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| July 11 | Recommendation |  | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
 | June 28     | Recommendation                 | GA                                                           | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all repositories) |
