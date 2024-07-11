@@ -1,6 +1,6 @@
 ---
 title: Deploy Dapr pluggable components
-description: Deploy Dapr and the IoT MQ pluggable components to a cluster.
+description: Deploy Dapr and the MQTT broker pluggable components to a cluster.
 author: PatAltimore 
 ms.author: patricka 
 ms.subservice: azure-mqtt-broker
@@ -20,7 +20,7 @@ MQTT broker supports two of these building blocks, powered by [MQTT broker](../m
 - Publish and subscribe
 - State management
 
-To use the IoT MQ Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
+To use the MQTT broker Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
 
 ## Install Dapr runtime
 
@@ -35,9 +35,9 @@ helm repo update
 helm upgrade --install dapr dapr/dapr --version=1.13 --namespace dapr-system --create-namespace --wait
 ```
 
-## Register MQ pluggable components
+## Register MQTT broker pluggable components
 
-To register MQ's pluggable pub/sub and state management components, create the component manifest yaml, and apply it to your cluster. 
+To register MQTT broker's pluggable pub/sub and state management components, create the component manifest yaml, and apply it to your cluster. 
 
 To create the yaml file, use the following component definitions:
 
@@ -47,7 +47,7 @@ To create the yaml file, use the following component definitions:
 > | `metadata.name` | The component name is important and is how a Dapr application references the component. |
 > | `metadata.annotations` | Component annotations used by the Dapr sidecar injector
 > | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use. |
-> | `spec.metadata.url` | The URL tells the component where the local MQ endpoint is. Defaults to `8883` is MQ's default MQTT port with TLS enabled. |
+> | `spec.metadata.url` | The URL tells the component where the local MQTT broker endpoint is. Defaults to `8883` is MQTT broker's default MQTT port with TLS enabled. |
 > | `spec.metadata.satTokenPath` | The Service Account Token is used to authenticate the Dapr components with the MQTT broker |
 > | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
 > | `spec.metadata.caCertPath` | The certificate chain path for validating the broker, required if `tlsEnabled` is `true` |
@@ -140,12 +140,12 @@ To create the yaml file, use the following component definitions:
     component.dapr.io/aio-mq-statestore created
     ```
 
-## Create authorization policy for IoT MQ
+## Create authorization policy for MQTT broker
 
 To configure authorization policies to MQTT broker, first you create a [BrokerAuthorization](../manage-mqtt-broker/howto-configure-authorization.md) resource.
 
 > [!NOTE]
-> If Broker Authorization is not enabled on this cluster, you can skip this section as the applications will have access to all MQTT topics, including those needed to access the IoT MQ State Store.
+> If Broker Authorization is not enabled on this cluster, you can skip this section as the applications will have access to all MQTT topics, including those needed to access the MQTT broker State Store.
 
 1. Save the following yaml, which contains a BrokerAuthorization definition, to a file named `aio-dapr-authz.yaml`:
 

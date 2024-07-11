@@ -66,7 +66,7 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 ## OPC PLC simulator
 
-If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the IoT MQ broker, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the MQTT broker, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
 
 ```bash
 ENDPOINT_NAME=<name-of-you-endpoint-here>
@@ -91,7 +91,7 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 done
 ```
 
-If the OPC PLC simulator isn't sending data to the IoT MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
+If the OPC PLC simulator isn't sending data to the MQTT broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
 
 ```bash
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
