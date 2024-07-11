@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 06/07/2024
+ms.date: 07/11/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -317,7 +317,7 @@ List of threat types:
 
 ## Notes
 
-- In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to Log Analytics workspace is minimal. (This field will be deprecated. Use SrcIP_ and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
+- In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to Log Analytics workspace is minimal. (This field will be deprecated. Use SrcIP_s and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
 - Some field names are appended with `_s` or `_d`, which don't signify source and destination but indicate the data types *string* and *decimal* respectively.
 - Based on the IP addresses involved in the flow, we categorize the flows into the following flow types:
     - `IntraVNet`: Both IP addresses in the flow reside in the same Azure virtual network.
