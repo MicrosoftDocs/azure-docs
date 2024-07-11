@@ -158,7 +158,7 @@ Metrics
 Logs for Spring Boot native applications
 * Logback
 
-For Quartz native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
+For Quarkus native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
 
 #### [Node.js](#tab/nodejs)
 
