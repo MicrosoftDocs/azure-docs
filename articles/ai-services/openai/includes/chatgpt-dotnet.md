@@ -78,7 +78,7 @@ dotnet run program.cs
 ## Output
 
 ```output
-Yes, many of the Azure AI services support customer managed keys. Some examples include Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
+Assistant : Yes, many other Azure AI services also support customer managed keys, including Azure Cognitive Services, Azure Machine Learning, and Azure Databricks. By using customer managed keys, you can retain complete control over your encryption keys and provide an additional layer of security for your AI assets.
 ```
 
 This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.
