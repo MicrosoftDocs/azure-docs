@@ -28,17 +28,17 @@ This release provides enhanced connectivity fixes for Emulator. Details are belo
 
   `"Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
-  - To connect emulator via local IP of host machine and any application on same network, use following connection string:
+  - Applications (Containerized/Non-containerized) on the different machine and same local network can interact with Emulator using the IPv4 address of the machine. Use following connection string:
 
   `"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
-  - To connect emulator and application via same docker bridge network, use following connection string:
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emualtor container has default value i.e."eventhubs-emulator":
 
   `Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
-  - To connect application and emulator running in different docker bridge network, use following connection string:
+  - Application containers on the different bridge network can interact with Emulator using the "host.docker.internal" as host. Use following connection string:
 
-  `"Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
+  `"Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
 - Fixes emulator not accepting connections for initial few seconds after launch.
 - Namespace name and type are now optional parameters in user supplied JSON configuration. 
