@@ -190,8 +190,8 @@ The following table lists the fields in the schema and what they signify for vir
 > | **FlowStartTime** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. This flow gets aggregated based on aggregation logic. |
 > | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. |
 > | **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
-> | **SrcIP** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
-> | **DestIP** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
+> | **SrcIp** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
+> | **DestIp** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
 > | **TargetResourceId** | ResourceGroupName/ResourceName | The ID of the resource at which flow logging and traffic analytics is enabled. |
 > | **TargetResourceType**  | VirtualNetwork/Subnet/NetworkInterface | Type of resource at which flow logging and traffic analytics is enabled (virtual network, subnet, NIC or network security group).|
 > | **FlowLogResourceId**  | ResourceGroupName/NetworkWatcherName/FlowLogName | The resource ID of the flow log. |
@@ -201,17 +201,17 @@ The following table lists the fields in the schema and what they signify for vir
 > | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
 > | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
 > | **NSGList** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
-> | **NSGRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
-> | **NSGRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
+> | **NsgRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
+> | **NsgRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
 > | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 > | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
 > | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine to which the source IP in the flow belongs to. |
 > | **DestRegion** | Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to. |
-> | **SrcNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
-> | **DestNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
-> | **SrcVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
-> | **DestVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
+> | **SrcNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
+> | **DestNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
+> | **SrcVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
+> | **DestVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
 > | **SrcSubnet**  | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the source IP in the flow. |
 > | **DestSubnet** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the destination IP in the flow.  |
 > | **SrcApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the source IP in the flow. |
