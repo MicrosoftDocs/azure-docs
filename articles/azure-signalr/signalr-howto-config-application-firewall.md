@@ -112,8 +112,7 @@ Deploy the Bicep file using Azure CLI
 ## Configure access token
 The application firewall rules take effectr only when the access token contains the corresponding claim. A rule will apply on connections that have the corresponding claim name.
 
-You could refer to [Client negotiation] (signalr-concept-client-negotiation.md#What-can-you-do-during-negotiation?
-) to understand how to add a userIdenity or a custom claim in the access token,
+You could refer to [Client negotiation](signalr-concept-client-negotiation.md#What-can-you-do-during-negotiation) to understand how to add a userIdenity or a custom claim in the access token,
 
 
 To ensure the uniqunice of the claim signature, you could insert a unique claim for example a guid.
