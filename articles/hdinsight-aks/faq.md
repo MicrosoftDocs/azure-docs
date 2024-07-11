@@ -10,6 +10,8 @@ ms.date: 08/29/2023
 
 This article addresses some common questions about Azure HDInsight on AKS.
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 ## General
 
 * What is HDInsight on AKS?
