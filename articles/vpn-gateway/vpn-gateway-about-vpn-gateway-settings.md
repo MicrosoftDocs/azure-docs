@@ -56,7 +56,7 @@ If you already have a policy-based gateway, you aren't required to change your g
 
 [!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
 
-## <a name="active"></a>Active-active gateways
+## <a name="active"></a>Active-active VPN gateways
 
 You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device.
 
