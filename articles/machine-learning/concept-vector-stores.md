@@ -24,9 +24,9 @@ This article describes vector indexes in Azure Machine Learning that you can use
 
 Azure Machine Learning supports two vector stores that contain your supplemental data used in a RAG workflow:
 
-| Vector store | Description | Features |
+| Vector store | Description | Features and usage |
 | --- | --- | --- |
-| **Faiss** | Open source library | - Local file-based store <br> - Minimal costs <br> - Good for vector-only data <br> - Ideal for development and testing |
+| **Faiss** | Open source library | - Use local file-based store <br> - Incur minimal costs <br> - Support vector-only data <br> - Support development and testing |
 | **Azure AI Search** | Azure PaaS resource | - Store text data in search index <br> - Host large number of indexes with single service <br> - Support enterprise-level business requirements <br> - Access hybrid information retrieval |
 
 The following sections explore considerations for working with these vector stores.
