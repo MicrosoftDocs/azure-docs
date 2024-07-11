@@ -54,9 +54,9 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
 
 
  ### Best Practice
-  #### Avoid using too aggressive limit
+  #### Avoid using too aggressive maxCount
 
-  Client connections may close without completing the tcp close handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeart failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the maxCount.
+  Client connections may close without completing the tcp handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeart failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
 
 
 
@@ -82,6 +82,7 @@ resource signalr 'Microsoft.SignalRService/signalr@2024-04-01-preview' = {
         clientConnectionCountRules:[
             // Add or remove rules as needed
             {
+              // This rule will be skipped if no userId is set
                 type: 'ThrottleByUserIdRule'
                 maxCount: 5
             }
@@ -90,14 +91,16 @@ resource signalr 'Microsoft.SignalRService/signalr@2024-04-01-preview' = {
                 maxCount: 10
             }
             {
+                // This rule will be skipped if no freeUser claim is set
                 type: 'ThrottleByJwtCustomClaimRule'
                 maxCount: 10
-                customClaim: 'freeUser'
+                claimName: 'freeUser'
             }
             {
+                // This rule will be skipped if no paidUser claim is set
                 type: 'ThrottleByJwtCustomClaimRule'  
                 maxCount: 100
-                customClaim: 'paidUser'
+                claimName: 'paidUser'
           }
         ]
     }
