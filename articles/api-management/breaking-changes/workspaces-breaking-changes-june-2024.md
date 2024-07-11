@@ -108,7 +108,7 @@ If you have questions, get answers from community experts in [Microsoft Q&A](htt
 ## More information
 
 * [Workspaces overview](../workspaces-overview.md)
-* [Workspaces breaking changes (December 2024)](workspaces-breaking-changes-dec-2024.md)
+* [Workspaces breaking changes (March 2025)](workspaces-breaking-changes-march-2025.md)
 
 
 

@@ -24,7 +24,7 @@ Follow the steps in this article to:
 * Assign permissions to the workspace
 
 > [!NOTE]
-> Currently, creating a workspace gateway is a long-running option that can take 3 hours or more to complete. 
+> Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
 
 ## Prerequisites
 
@@ -58,9 +58,8 @@ It can take from several minutes to up to 3 hours or more to create the workspac
 After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
 
 > [!NOTE]
-> To view the gateway runtime hostname and other gateway details, select the workspace in the portal. Under **Deployment + infrastructure**, select **Gateways**, and select the name of the workspace's gateway.
-
-While the gateway is being created, runtime calls to the workspace's APIs won't succeed.
+> * To view the gateway runtime hostname and other gateway details, select the workspace in the portal. Under **Deployment + infrastructure**, select **Gateways**, and select the name of the workspace's gateway.
+> * While the workspace gateway is being created, runtime calls to the workspace's APIs won't succeed.
 
 ## Assign users to workspace - portal
 
