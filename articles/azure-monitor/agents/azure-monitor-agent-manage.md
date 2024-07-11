@@ -1,6 +1,6 @@
 ---
 title: Install and manage Azure Monitor Agent
-description: Options for managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
+description: Options for installing and managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild

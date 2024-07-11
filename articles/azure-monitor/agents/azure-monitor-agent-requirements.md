@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor agent requirements
-description: Options for managing Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers.
+description: Requirements for Azure Monitor Agent on Azure virtual machines and Azure Arc-enabled servers and prerequisites for installation.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
