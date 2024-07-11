@@ -38,7 +38,7 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 
 ## Enable and manage a load testing policy
 
-### Select a Policy Definition
+### Select a policy definition
 
 1. Log in to the Azure portal.
 1.Search **Policy** in the search bar and select **Policy**.
