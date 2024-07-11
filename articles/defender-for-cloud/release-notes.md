@@ -31,7 +31,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
-|July 14|GA|[Automated remediation scripts for AWS & GCP are now GA](#automated-remediation-scripts-for-aws-&-gcp-are-now-ga)|
+|July 14|GA|[Automated remediation scripts for AWS & GCP are now GA](#automated-remediation-scripts-for-aws-and-gcp-are-now-ga)|
 | July 10 | GA | [Compliance standards are now GA]() |
 | July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
