@@ -79,7 +79,7 @@ They continue to run but will no longer receive security updates and support, le
 [FAQ: Red Hat Enterprise Linux 7 reaches End of Maintenance Phase and transitions to Extended Life Phase - Red Hat Customer Portal] (https://access.redhat.com/articles/7005471)
 
 #### Why is the SaaS offer asking for Resource Group (RG) information when purchasing? 
-Azure provides four levels of management: management groups, subscriptions, resource groups, and resources. Resource Groups are used to organize your Azure resources more effectively. If you are applying the RHEL 7 ELS offer to VMs within a Resource Group, Azure prompts you for the name of the Resource Group. The offer is applied to each of the RHEL 7 ELS VMs within it.
+Azure provides four levels of management: management groups, subscriptions, resource groups, and resources. Resource Groups are used to organize your Azure resources more effectively. The RHEL 7 ELS offer only needs to be purchased one for each Azure subscription containing the RHEL 7 VMs, the Resource Group selected is a placeholder to link your subscription with the Red Hat offering and enable the ELS add-on on your environment. 
 
 ## Next steps
 
