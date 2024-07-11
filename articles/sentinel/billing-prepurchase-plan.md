@@ -34,7 +34,7 @@ For more information, see the following articles:
 >[!IMPORTANT]
 > The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-The Microsoft Sentinel prepurchase CUs are applied to all Microsoft Sentinel costs. From your Microsoft Sentinel bill, these costs are all the entries with the **Sentinel** service name. Keep in mind, Microsoft Sentinel integrates with many other Azure services that have separate costs. For more information, see [Costs and pricing for other services](billing.md#costs-and-pricing-for-other-services).
+The Microsoft Sentinel prepurchase CUs are applied to just Microsoft Sentinel simplified and classic pricing tiers. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name. Keep in mind, Microsoft Sentinel integrates with many other Azure services that have separate costs. For more information, see [Costs and pricing for other services](billing.md#costs-and-pricing-for-other-services).
 
 ## Purchase Microsoft Sentinel commit units
 
@@ -42,14 +42,14 @@ Purchase Microsoft Sentinel prepurchase plans in the [Azure portal reservations]
 
 1. Go to the [Azure portal](https://portal.azure.com)
 1. Navigate to the **Reservations** service.
-1. On the Purchase reservations page, select **Microsoft Sentinel Pre-Purchase Plan**.
-1. On the Select the product you want to purchase page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
+1. On the **Purchase reservations page**, select **Microsoft Sentinel Pre-Purchase Plan**.
+1. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
 1. Select a scope.
 
-   - Single resource group scope - Applies the reservation discount to the matching resources in the selected resource group only.
-   - Single subscription scope - Applies the reservation discount to the matching resources in the selected subscription.
-   - Shared scope - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
-   - Management group - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
+   - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
+   - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
+   - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
+   - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select how many Microsoft Sentinel commit units you want to purchase.
    **Need screenshot here**
    :::image type="content" source="../cost-management-billing/reservations/media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" alt-text="Screenshot showing prepurchase plan discount tiers and their term lengths.":::
@@ -65,7 +65,7 @@ You can't split or merge a Microsoft Sentinel commit unit Pre-Purchase Plan. For
 
 ## Cancellations and exchanges
 
-Cancel and exchange isn't supported for Synapse Pre-Purchase Plans. All purchases are final.
+Cancel and exchange isn't supported for **Microsoft Sentinel Pre-Purchase Plans**. All purchases are final.
 
 ## Related content
 
