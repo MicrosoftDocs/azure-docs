@@ -19,7 +19,7 @@ ms.date: 07/26/2023
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The current version of <a href="https://dotnet.microsoft.com/download/dotnet-core" target="_blank">.NET Core</a>
-- An Azure OpenAI Service resource with the `gpt-35-turbo` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
@@ -69,9 +69,6 @@ dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.17
 ## Create a sample application
 
 From the project directory, open the *program.cs* file and replace with the following code:
-
-> [!NOTE]
-> The completions API is only available 
 
 ```csharp
 using Azure;
