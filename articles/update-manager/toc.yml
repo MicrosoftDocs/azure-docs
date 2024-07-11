@@ -56,11 +56,11 @@ items:
     - name: Configure Windows Update client
       href: configure-wu-agent.md
   - name: Manage
-    items:
-    - name: Check update compliance 
-      href: view-updates.md
+    items: 
     - name: Move from Automation Update Management to Azure Update Manager
       href: guidance-migration-automation-update-management-azure-update-manager.md
+    - name: Check update compliance 
+      href: view-updates.md
     - name: Automate assessment at scale using Policy
       href: periodic-assessment-at-scale.md
     - name: Deploy updates and track results
