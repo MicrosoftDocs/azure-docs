@@ -468,10 +468,6 @@
           href: other-threat-protections.md
     - name: Manage security by subscriptions, users, and permissions
       items:
-        - name: Organize management groups and subscriptions
-          displayName: management groups, subscriptions, organize, azure roles, assign,
-            users, elevated access
-          href: management-groups-roles.md
         - name: Grant and request tenant-wide permissions
           displayName: global admin, Azure Active Directory (AD), AAD
           href: tenant-wide-permissions-management.md
