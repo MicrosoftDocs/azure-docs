@@ -118,7 +118,7 @@ The following constraints currently apply to workspace gateways:
 * APIs in workspaces aren't covered by Defender for APIs
 * Workspace gateways don't support the API Management service's credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
-* Workspace gateways don't support GraphQL APIs and WebSocket APIs
+* Workspace gateways don't support synthetic GraphQL APIs and WebSocket APIs
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Azure monitor logs are aggregated at the service level; workspace-level logs aren't available
 * Workspace gateways don't support CA certificates

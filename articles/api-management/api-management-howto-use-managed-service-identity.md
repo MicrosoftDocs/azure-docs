@@ -25,6 +25,8 @@ You can grant two types of identities to an API Management instance:
 > [!NOTE]
 > Managed identities are specific to the Microsoft Entra tenant where your Azure subscription is hosted. They don't get updated if a subscription is moved to a different directory. If a subscription is moved, you'll need to recreate and configure the identities.  
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 ## Create a system-assigned managed identity
 
 ### Azure portal
