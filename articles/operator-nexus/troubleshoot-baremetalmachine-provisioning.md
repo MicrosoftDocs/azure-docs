@@ -70,7 +70,7 @@ Name            ReadyState    ProvisioningState    DetailedStatus    DetailedSta
 BMM_NAME        RSTATE        PROV_STATE           STATUS            STATUS_MSG                                 POWER_STATE   BMM_ROLE                                          CREATE_DATE
 ```
 
-Where the output fields are the following:
+Where the output is defined as follows:
 | Output | Definition |
 | --- | --- |
 | BMM_NAME | BareMetal Machine Name |
@@ -108,7 +108,7 @@ The following conditions can cause provisioning failures:
 | Preboot eXecution Environment (PXE) MAC Address mismatch | BareMetal Machine Replace |
 | BMC MAC Address mismatch | BareMetal Machine Replace |
 | Boot Network Data not Retrieved from Redfish | Bounce Port, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
-| Disk Data not retrieved from Redfish | Re-seat Disk, Re-seat PERC, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
+| Disk Data not retrieved from Redfish | Re-seat Disk, Re-seat RAID Controller (PERC), Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | BMC Unreachable | Bounce Port, Reseat Cable, Remote Flea drain, Physical Flea Drain, BareMetal Machine Replace |
 | BMC fails log in | Update Credentials on BMC, BareMetal Machine Replace |
 | DIMM, CPU, OEM Critical Errors | Resolve Hardware Issue, BareMetal Machine Replace |
@@ -127,7 +127,7 @@ The following conditions can cause provisioning failures:
 Look for failures related to invalid credentials or BMC unavailable.
 
 ### Determine BMC IPv4 address
-The IPv4 address of the BMC (BMC_IP) is the `Connect` value returned from the `BareMetal Machine Details` section (see above).
+The IPv4 address of the BMC (BMC_IP) is the `Connect` value returned from the `BareMetal Machine Details` section.
 
 ### Validate MAC address of BMM against BMC data
 
@@ -168,7 +168,7 @@ Attempt to run ping against the BMC IPv4 address:
 If the BMC_IP is not responsive, a reset of the fabric port retriggers autonegotiation on the port and may bring it back online.
 
 To find the `Network Fabric` port from Azure:
-1. Obtain the RackID and RackSlot from the previous `BareMetal Machine Details` section (see above).
+1. Obtain the RackID and RackSlot from the previous `BareMetal Machine Details` section.
 2. In `Azure Portal`, drill down to the `Network Rack` RackID for the BareMetal Machine Rack.
 3. Select `Network Devices` tab and the Management (Mgmt) switch for the rack.
 4. Under `Resources`, select `Network Interfaces` and then the interface for the BMC (iDRAC) or Boot (PXE) for the port that requires reset.
@@ -200,7 +200,7 @@ racadm serveraction powercycle
 For a physical flea drain, the local site hands physically disconnect the power cables from both power adapters for 5 minutes and then restore power. This process ensures the server, capacitors, and all components have complete power removal and all cached data are cleared.
 
 ### Reset NVRAM
-If provisioning failed due to an OEM or hardware error, the boot sequence may be locked in NVRAM to `PXE boot` instead of transitioning to `hdd` or `hard drive` boot. . 
+If provisioning failed due to an OEM or hardware error, the boot sequence may be locked in NVRAM to `PXE boot` instead of `hdd` or `hard drive` listed first in the boot order. 
 
 This condition typically shows the BareMetal Machine at the GRUB Bootloader on the console and is blocked without intervention. 
 
@@ -208,7 +208,7 @@ To reset the NVRAM, use the following BMC Sequence:
 `Maintenance` -> `Diagnostics` -> `Reset iDrac to Factory Defaults` -> `Discard All Settings, but preserve user and network settings` -> `Apply and reboot`
 
 ### Reset BMC password
-If the Activity Log indicates invalid credentials on the BMC, the following can be run from a Jumpbox that has access to the BMC network:
+If the Activity Log indicates invalid credentials on the BMC, run the following command from a Jumpbox that has access to the BMC network:
 ```bash
 racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
 ```
