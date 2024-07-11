@@ -37,7 +37,7 @@ IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 
 ### Connect to IoT Hub
 
-Instantiate the DeviceClient to connect to IoT hub using the connection string and protocol parameters.
+Instantiate the DeviceClient to connect to IoT hub using the Iot hub primary connection string and protocol parameters.
 
 ```java
 String connString = "IoT hub connection string";
@@ -71,7 +71,7 @@ System.out.println("Blob Uri: " + sasUriResponse.getBlobUri());
 
 ### Upload the file to Azure Storage
 
-Pass the blob URI endpoint to [BlobClientBuilder](/java/api/com.azure.storage.blob.blobclientbuilder?#com-azure-storage-blob-blobclientbuilder-buildclient()) to create the [BlobClient](/java/api/com.azure.storage.blob.blobclient) object.
+Pass the blob URI endpoint to [BlobClientBuilder.buildclient](/java/api/com.azure.storage.blob.blobclientbuilder?#com-azure-storage-blob-blobclientbuilder-buildclient()) to create the [BlobClient](/java/api/com.azure.storage.blob.blobclient) object.
 
 ```java
 BlobClient blobClient =
@@ -129,6 +129,8 @@ ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, pr
 ```
 
 ### Check for file upload status
+
+To check for file upload status:
 
 * Create a [getFileUploadNotificationReceiver](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver) object.
 * Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT Hub.
