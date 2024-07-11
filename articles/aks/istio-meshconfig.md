@@ -122,7 +122,7 @@ Fields present in [open source MeshConfig reference documentation][istio-meshcon
 
 ### ProxyConfig (meshConfig.defaultConfig)
 
-Fields present in [open source MeshConfig reference documentation][istio-meshconfig] that are not covered in the following table are blocked.
+Fields present in [open source MeshConfig reference documentation](https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#ProxyConfig) that are not covered in the following table are blocked.
 
 | **Field** | **Supported/Allowed** |
 |-----------|---------------|
