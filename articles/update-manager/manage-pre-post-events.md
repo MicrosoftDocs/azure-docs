@@ -64,8 +64,6 @@ To edit the pre and post events, follow these steps:
 1. In the selected **events** page, select the pre or post event you want to edit.
 1. In the selected **pre or post event** page, you can edit the Event handler/endpoint used or the location of the endpoint.
 
-   :::image type="content" source="./media/manage-pre-post-events/edit-event-handler.png" alt-text="Screenshot that shows how to edit event handler." lightbox="./media/manage-pre-post-events/edit-event-handler.png"::: 
-
 ## Manage the execution of pre/post event and schedule run
 
 To check the successful delivery of a pre and post event to an endpoint from Event Grid, follow these steps:
@@ -183,9 +181,6 @@ To view the history of an event created through Azure Function, follow these ste
 2. Under **Manage**, select **History**.
 3. Select the **By Maintenance run ID** tab, and then select the maintenance run ID for which you want to view the status.
 4. Refer to the **Status** to view the status. If the maintenance run has been canceled, the status will be displayed as **cancelled**. Select the status to view the details.
-
-   :::image type="content" source="./media/manage-pre-post-events/status-canceled-run.png" alt-text="Screenshot that shows the status of canceled run." lightbox="./media/manage-pre-post-events/status-canceled-run.png":::
-
 
 There are two types of cancelations:
 

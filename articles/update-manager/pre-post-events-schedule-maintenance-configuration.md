@@ -28,7 +28,7 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 1. **Pre and post event** - You can follow the steps shared in the following section to create a pre and post event for schedule maintenance configuration. To learn more about the terms used in the Basics tab of Event Grid, see [Event Grid](../event-grid/concepts.md) terms.
 
 
-## Create a pre and post event
+## Create a pre and post event (preview)
 
 ::: zone pivot="new-mc"
 
