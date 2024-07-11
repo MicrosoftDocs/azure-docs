@@ -125,7 +125,7 @@ Here's how to configure load balancing with Azure PowerShell:
    ```
 
 > [!TIP]
-> Another value for LoadBalancerType is MultiplePersistant, which is used for assigning a multiple personal desktops to a single user. For more information, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multi-personal-desktop-assignment).
+> Another value for `LoadBalancerType` is `MultiplePersistent`, which is used for assigning a multiple personal desktops to a single user. For more information, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multi-personal-desktop-assignment).
 
 ### [Azure CLI](#tab/cli)
 
