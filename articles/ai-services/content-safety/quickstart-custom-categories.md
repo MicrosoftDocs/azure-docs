@@ -11,7 +11,7 @@ ms.date: 07/03/2024
 ms.author: pafarley
 ---
 
-# Quickstart: Custom categories
+# Quickstart: Custom categories (standard mode)
 
 Follow this guide to use Azure AI Content Safety Custom category REST API to create your own content categories for your use case and train Azure AI Content Safety to detect them in new text content.
 
