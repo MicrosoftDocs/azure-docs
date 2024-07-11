@@ -35,11 +35,14 @@ The automigration provides a highly resilient and self-healing offline migration
 
 ## Nomination Eligibility
 
-If you own a Single Server workload with no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration. Submit your server details through this [form](https://forms.office.com/r/4pF55L8TxY).
+> [!NOTE]
+> The nomination process is for users who want to voluntarily fast-track their migration to Flexible server.
+
+If you own a Single Server workload, you can now nominate yourself (if not already scheduled by the service) for automigration. Submit your server details through this [form](https://forms.office.com/r/4pF55L8TxY).
 
 ## Configure migration alerts and review migration schedule
 
-Servers eligible for automigration are sent an advance notification by the service.
+Servers eligible for automigration are sent advance Azure health notifications by the service. The health notifications are sent **30 days, 14 days and 7 days** before the migration date. Notifications are also sent when the migration is **in progress, has completed, and 6 days after migration** before the legacy Single server is dropped. You can check and configure the Azure portal to receive the automigration notifications via email or SMS.
 
 Following described are the ways to check and configure automigration notifications:
 

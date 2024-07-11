@@ -52,8 +52,8 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 
 - Use Azure Resource Graph queries:
 
-   - You can use the query [VM ESU subscription status](/sql/sql-server/end-of-support/sql-server-extended-security-updates?#view-esu-subscriptions) as an example to show that you can view eligible SQL Server ESU instances and their ESU subscription status.
-
+  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](https://learn.microsoft.com/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
+    
 ### Windows Server
 
 To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, contact [Microsoft Support] for configuration assistance.

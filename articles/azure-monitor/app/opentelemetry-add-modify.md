@@ -139,7 +139,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 [//]: # "console.log(str)"
 
 
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 Requests for Spring Boot native applications
 * Spring Web
@@ -158,7 +158,7 @@ Metrics
 Logs for Spring Boot native applications
 * Logback
 
-For Quartz native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
+For Quarkus native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
 
 #### [Node.js](#tab/nodejs)
 
@@ -300,7 +300,7 @@ var metricsProvider = Sdk.CreateMeterProviderBuilder()
 ### [Java](#tab/java)
 You can't extend the Java Distro with community instrumentation libraries. To request that we include another instrumentation library, open an issue on our GitHub page. You can find a link to our GitHub page in [Next Steps](#next-steps).
 
-### [Java Native](#tab/java-native)
+### [Java native](#tab/java-native)
 
 You can't use commmunity instrumentation libraries with GraalVM Java native applications.
 
@@ -546,7 +546,7 @@ public class Program {
 }
 ```
 
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 1. Inject `OpenTelemetry`
 
@@ -743,7 +743,7 @@ public class Program {
     }
 }
 ```
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 1. Inject `OpenTelemetry`
 
@@ -959,7 +959,7 @@ public class Program {
     }
 }
 ```
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 1. Inject `OpenTelemetry`
 
@@ -1182,7 +1182,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
     span.recordException(e);
    ```
 
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 Set status to `error` and record an exception in your code:
 
@@ -1412,7 +1412,7 @@ you can add your spans by using the OpenTelemetry API.
     }
    ```
 
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 1. Inject `OpenTelemetry`
 
@@ -1560,7 +1560,7 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
     Span.current().addEvent("eventName");
    ```
 
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 You can use OpenTelemetry API to create span events, which populate the `traces` table in Application Insights. The string passed in to `addEvent()` is saved to the `message` field within the trace.
 
@@ -1697,9 +1697,9 @@ telemetryClient.TrackEvent("testEvent");
     }
  
    
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
-It's not possible to send custom telemetry using the Application Insights Classic API in Java Native.
+It's not possible to send custom telemetry using the Application Insights Classic API in Java native.
 
 #### [Node.js](#tab/nodejs)
 
@@ -1928,7 +1928,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
     Span.current().setAttribute(attributeKey, "myvalue1");
    ```
 
-##### [Java Native](#tab/java-native)
+##### [Java native](#tab/java-native)
 
 Add custom dimensions in your code:
 
@@ -2047,7 +2047,7 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 Java automatically populates this field.
 
-##### [Java Native](#tab/java-native)
+##### [Java native](#tab/java-native)
 
 This field is automatically populated.
 
@@ -2128,7 +2128,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
    Span.current().setAttribute("enduser.id", "myuser");
    ```
 
-##### [Java Native](#tab/java-native)
+##### [Java native](#tab/java-native)
 
 Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
 
@@ -2191,7 +2191,7 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
 
-#### [Java Native](#tab/java-native)
+#### [Java native](#tab/java-native)
 
 For Spring Boot native applications, Logback is instrumented out of the box.
 
@@ -2330,9 +2330,9 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 See [sampling overrides](java-standalone-config.md#sampling-overrides) and [telemetry processors](java-standalone-telemetry-processors.md).
 
-### [Java Native](#tab/java-native)
+### [Java native](#tab/java-native)
 
-It's not possible to filter telemetry in Java Native.
+It's not possible to filter telemetry in Java native.
 
 ### [Node.js](#tab/nodejs)
 
@@ -2552,7 +2552,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
-### [Java Native](#tab/java-native)
+### [Java native](#tab/java-native)
 
 Get the request trace ID and the span ID in your code:
 
@@ -2620,7 +2620,8 @@ span_id = trace.get_current_span().get_span_context().span_id
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
 - See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
-### [Java Native](#tab/java-native)
+### [Java native](#tab/java-native)
+
 - For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
 - To review the source code, see [Azure Monitor OpenTelemetry Distro in Spring Boot native image Java application](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-monitor)
   and [Quarkus OpenTelemetry Exporter for Azure](https://github.com/quarkiverse/quarkus-opentelemetry-exporter/tree/main/quarkus-opentelemetry-exporter-azure).
