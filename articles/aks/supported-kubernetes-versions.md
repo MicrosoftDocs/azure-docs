@@ -112,7 +112,7 @@ AKS defines a generally available (GA) version as a version available in all reg
 
 * The latest GA minor version released in AKS (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version can support any number of patches at a given time. AKS reserves the right to deprecate patches if a critical CVE or security vulnerability is detected. For awareness on patch availability and any ad-hoc deprecation please refer to version release notes, visit the [AKS release status webpage](aks-tracker).
+  * Each supported minor version can support any number of patches at a given time. AKS reserves the right to deprecate patches if a critical CVE or security vulnerability is detected. For awareness on patch availability and any ad-hoc deprecation, please refer to version release notes and visit the [AKS release status webpage][aks-tracker].
 
 AKS might also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
