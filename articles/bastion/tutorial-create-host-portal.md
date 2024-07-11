@@ -83,7 +83,7 @@ You can use the following example values when creating this configuration, or yo
 This section helps you deploy Bastion to your virtual network. After Bastion is deployed, you can connect securely to any VM in the virtual network using its private IP address.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

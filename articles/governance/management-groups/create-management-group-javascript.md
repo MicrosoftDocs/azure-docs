@@ -37,7 +37,7 @@ directory. You receive a notification when the process is complete. For more inf
   start using management groups, we allow the creation of the initial management groups at the root
   level.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Application setup
 

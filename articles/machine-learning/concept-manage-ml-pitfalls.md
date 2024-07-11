@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: concept-article
-author: manashgoswami
-ms.author: manashg
-ms.reviewer: ssalgado
-ms.date: 06/26/2024
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
+ms.date: 07/10/2024
 
 #customer intent: As a developer, I want to use Automated ML solutions in Azure Machine Learning, so I can find and address common issues like overfitting and imbalanced data.
 ---

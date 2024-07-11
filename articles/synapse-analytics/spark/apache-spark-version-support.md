@@ -23,10 +23,11 @@ The runtimes have the following advantages:
 ## Supported Azure Synapse runtime releases
 
 > [!WARNING]  
-> End of Support Notification for Azure Synapse Runtime for Apache Spark 2.4 and Apache Spark 3.1.
+> End of Support Notification for Azure Synapse Runtime for Apache Spark 2.4, Apache Spark 3.1 and Apache Spark 3.2.
 > * Effective September 29, 2023, Azure Synapse will discontinue official support for Spark 2.4 Runtimes.
-> * Effective January 26, 2024, Azure Synapse will discontinue official support for Spark 3.1 Runtimes.  
-> * After these dates, we will not be addressing any support tickets related to Spark 2.4 or 3.1. There will be no release pipeline in place for bug or security fixes for Spark 2.4 and 3.1. **Utilizing Spark 2.4 or 3.1 post the support cutoff dates is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.**
+> * Effective January 26, 2024, Azure Synapse will discontinue official support for Spark 3.1 Runtimes.
+> * Effective July 8, 2024, Azure Synapse will discontinue official support for Spark 3.2 Runtimes.  
+> * After these dates, we will not be addressing any support tickets related to Spark 2.4, 3.1 and 3.2. There will be no release pipeline in place for bug or security fixes for Spark 2.4, 3.1 and 3.2. **Utilizing Spark 2.4, 3.1 and 3.2 post the support cutoff dates is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.**
 
 > [!TIP]
 > We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime (for example, [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md)). Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
@@ -35,11 +36,11 @@ The following table lists the runtime name, Apache Spark version, and release da
 
 | Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
 | --- | --- |------------------------------| --- | --- |
-| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA (as of Apr 8, 2024)       | | |
+| [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA (as of Apr 8, 2024)       | Q2 2025| Q1 2026|
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 | GA (as of Feb 23, 2023)      | Q2/Q3 2024 | Q1 2025 |
-| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __End of Support Announced__ | July 8, 2023 | July 8, 2024 |
-| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated__         | January 26, 2023 | January 26, 2024 |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated__           | __July 29, 2022__ | __September 29, 2023__ |
+| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __deprecated and soon disabled__ | July 8, 2023 | __July 8, 2024__ |
+| [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated and soon disabled__         | January 26, 2023 | __January 26, 2024__ |
+| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated and soon disabled__           | July 29, 2022 | __September 29, 2023__ |
 
 ## Runtime release stages
 

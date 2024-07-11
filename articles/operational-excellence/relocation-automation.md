@@ -1,5 +1,5 @@
 ---
-title: Relocation guidance for Azure Automation
+title: Relocate Azure Automation to another region
 description: Learn how to relocate an Azure Automation to a another region
 author: anaharris-ms
 ms.author: anaharris
@@ -12,6 +12,9 @@ ms.custom:
 ---
 
 # Relocate Azure Automation to another region
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
 
