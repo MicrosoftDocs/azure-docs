@@ -115,7 +115,7 @@ The table below lists Azure regions without a region pair:
 | Israel | Israel Central|
 | Italy | Italy North|
 | Austria | Austria East (Coming soon) |
-| Spain | Spain Central (Coming soon) |
+| Spain | Spain Central|
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)

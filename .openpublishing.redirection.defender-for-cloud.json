@@ -981,6 +981,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/management-groups-roles.md",
+            "redirect_url": "/azure/governance/management-groups/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/how-to-migrate-to-built-in.md",
             "redirect_url": "/azure/defender-for-cloud/how-to-transition-to-built-in",
             "redirect_document_id": true
