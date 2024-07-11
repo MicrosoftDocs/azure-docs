@@ -86,41 +86,51 @@ This article shows you how to securely scale your applications with the Kubernet
         --resource-group $RG_NAME
     ```
 
-## Use Azure Identity to send messages
+## Create a managed identity
 
-Create a managed identity
+1. Create a managed identity using the [`az identity create`][az-identity-create] command. Make sure to replace the placeholder value with your own value.
 
     ```azurecli-interactive
-    MI_NAME="${SB_NAME}-identity"
+    MI_NAME=<managed-identity-name>
 
     MI_CLIENT_ID=$(az identity create \
         --name $MI_NAME \
         --resource-group $RG_NAME \
         --query "clientId" \
-        -o tsv)
+        --output tsv)
     ```
 
-Create two federated credentials for the managed identity. One for the namespace and service account that the workloads will be using and another for the namespace and service account that the keda-operator will be using (note: AKS will create a ServiceAccount when installing the KEDA addon)
+1. Get the OIDC issuer URL using the [`az aks show`][az-aks-show] command with the `--query` flag set to `oidcIssuerProfile.issuerUrl`.
 
     ```azurecli-interactive
     AKS_OIDC_ISSUER=$(az aks show \
         --name $AKS_NAME \
         --resource-group $RG_NAME \
         --query oidcIssuerProfile.issuerUrl \
-        -o tsv)
+        --output tsv)
+    ```
 
-# federated credential for workload
+1. Create a federated credential between the managed identity and the namespace and service account used by the workload using the [`az identity federated-credential create`][az-identity-federated-credential-create] command. Make sure to replace the placeholder value with your own value.
+
+    ```azurecli-interactive
+    FED_WORKLOAD=<federated-credential-workload-name>
+
     az identity federated-credential create \
-        --name fid-workload \
+        --name $FED_WORKLOAD \
         --identity-name $MI_NAME \
         --resource-group $RG_NAME \
         --issuer $AKS_OIDC_ISSUER \
         --subject system:serviceaccount:default:$MI_NAME \
         --audience api://AzureADTokenExchange
+    ```
+
+1. Create a second federated credential between the managed identity and the namespace and service account used by the keda-operator using the [`az identity federated-credential create`][az-identity-federated-credential-create] command. Make sure to replace the placeholder value with your own value.
   
-# federated credential for keda-operator
+    ```azurecli-interactive
+    FED_KEDA=<federated-credential-keda-name>
+
     az identity federated-credential create \
-        --name fid-keda-op \
+        --name $FED_KEDA \
         --identity-name $MI_NAME \
         --resource-group $RG_NAME \
         --issuer $AKS_OIDC_ISSUER \
@@ -128,33 +138,53 @@ Create two federated credentials for the managed identity. One for the namespace
         --audience api://AzureADTokenExchange
     ```
 
-Assign the managed identity and yourself the Azure Service Bus Data Owner role
+## Create role assignments
+
+1. Get the role ID for the Azure Service Bus Data Owner role using the [`az role definition list`][az-role-definition-list] command with the `--query` flag set to `"[].id"`.
 
     ```azurecli-interactive
-    ROLE_ID=$(az role definition list -n "Azure Service Bus Data Owner" \
-        --query "[].id" -o tsv)
+    ROLE_ID=$(az role definition list \
+        --name "Azure Service Bus Data Owner" \
+        --query "[].id"
+        --output tsv)
+    ```
 
+1. Get the object ID for the managed identity using the [`az identity show`][az-identity-show] command with the `--query` flag set to `"principalId"`.
+
+    ```azurecli-interactive
     MI_OBJECT_ID=$(az identity show \
         --name $MI_NAME \
         --resource-group $RG_NAME \
         --query "principalId" \
-        -o tsv)
+        --output tsv)
+    ```
 
+1. Get the Service Bus namespace resource ID using the [`az servicebus namespace show`][az-servicebus-namespace-show] command with the `--query` flag set to `"id"`.
+
+    ```azurecli-interactive
     SB_ID=$(az servicebus namespace show \
-        -n $SB_NAME \
-        -g $RG_NAME \
+        --name $SB_NAME \
+        --resource-group $RG_NAME \
         --query "id" \
-        -o tsv)
+        --output tsv)
+    ```
 
+1. Assign the Azure Service Bus Data Owner role to the managed identity using the [`az role assignment create`][az-role-assignment-create] command.
+
+    ```azurecli-interactive
     az role assignment create \
         --role $ROLE_ID \
         --assignee-object-id $MI_OBJECT_ID \
         --assignee-principal-type ServicePrincipal \
         --scope $SB_ID
-  
+    ```
+
+1. Assign the Azure Service Bus Data Owner role to your signed-in user ID [`az role assignment create`][az-role-assignment-create] command.
+
+    ```azurecli-interactive
     az role assignment create \
         --role $ROLE_ID \
-        --assignee-object-id $(az ad signed-in-user show --query id -o tsv) \
+        --assignee-object-id $(az ad signed-in-user show --query id --output tsv) \
         --assignee-principal-type User \
         --scope $SB_ID
     ```
