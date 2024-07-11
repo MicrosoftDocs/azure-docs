@@ -1023,6 +1023,8 @@
       href: /training/browse/?term=defender%20for%20cloud&terms=defender%20for%20cloud&expanded=microsoft-defender&products=defender-for-cloud
     - name: Defender for Cloud glossary of terms
       href: defender-for-cloud-glossary.md
+    - name: Optimize costs with prepurchase plan
+      href: prepurchase-plan.md
     - name: Microsoft Defender for Cloud in the field
       items:
         - name: New AWS connector

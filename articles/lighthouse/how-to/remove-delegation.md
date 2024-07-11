@@ -1,13 +1,13 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that were delegated to a service provider for Azure Lighthouse.
-ms.date: 03/02/2023
+ms.date: 07/10/2024
 ms.topic: how-to 
 ---
 
 # Remove access to a delegation
 
-After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/architecture.md) access that was previously granted to users in the service provider tenant will no longer apply.
+When a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), that delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/architecture.md) access that was previously granted to users in the service provider tenant will no longer apply.
 
 Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
@@ -15,7 +15,7 @@ Removing a delegation can be done by a user in either the customer tenant or the
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
 
 > [!IMPORTANT]
-> When a customer subscription has multiple delegations from the same service provider, removing one delegation could cause users to lose access granted via the other delegations. This only occurs when the same `principalId` and `roleDefinitionId` combination is included in multiple delegations and then one of the delegations is removed. To fix this, repeat the [onboarding process](onboard-customer.md) for the delegations that you aren't removing.
+> When a customer subscription has multiple delegations from the same service provider, removing one delegation could cause users to lose access granted via the other delegations. This only occurs when the same `principalId` and `roleDefinitionId` combination is included in multiple delegations and then one of the delegations is removed. If this happens, you can fix the issue by repeating the [onboarding process](onboard-customer.md) for the delegations that you don't want to remove.
 
 ## Customers
 
@@ -25,7 +25,7 @@ After confirming the deletion, no users in the service provider's tenant will be
 
 ## Service providers
 
-Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) for the customer's resources. If this role isn't assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
+Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) during the onboarding process. If this role isn't assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
 
 This example shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
 
@@ -58,7 +58,7 @@ A user with this permission can remove a delegation in one of the following ways
 
 Login-AzAccount
 
-# Select the subscription that is delegated - or contains the delegated resource group(s)
+# Select the subscription that is delegated or that contains the delegated resource group(s)
 
 Select-AzSubscription -SubscriptionName "<subscriptionName>"
 
@@ -80,7 +80,7 @@ Remove-AzManagedServicesAssignment -Name "<Assignmentname>" -Scope "/subscriptio
 
 az login
 
-# Select the subscription that is delegated – or contains the delegated resource group(s)
+# Select the subscription that is delegated or that contains the delegated resource group(s)
 
 az account set -s <subscriptionId/name>
 
