@@ -505,7 +505,19 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
 
 ## Next steps
 
-Now that you've created the require infrastructure, [deploy a highly available PostgreSQL database on the AKS cluster][deploy-postgresql].
+> [!div class="nextstepaction"]
+> [Deploy a highly available PostgreSQL database on the AKS cluster][deploy-postgresql]
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+* Ken Kilty | Principal TPM
+* Russell de Pina | Principal TPM
+* Adrian Joian | Senior Customer Engineer
+* Jenny Hayes | Senior Content Developer
+* Carol Smith | Senior Content Developer
+* Erin Schaffer | Content Developer 2
 
 <!-- LINKS -->
 [az-identity-create]: /cli/azure/identity#az-identity-create

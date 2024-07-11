@@ -36,7 +36,7 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
 
 ## Set environment variables for the PostgreSQL cluster
 
-* Deploy a ConfigMap to set environment variables for the PostgreSQL cluster using the following command with the [`kubectl apply`][kubectl-apply] command.
+* Deploy a ConfigMap to set environment variables for the PostgreSQL cluster using the following [`kubectl apply`][kubectl-apply] command:
 
     ```bash
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f -
@@ -260,7 +260,7 @@ The following table outlines the key properties set in the YAML deployment manif
 
 The CNPG operator automatically creates a PodMonitor for the primary instance using the recording rules created during the [Prometheus Community installation](#install-the-cnpg-operator).
 
-* Validate the PodMonitor is running using the [`kubectl get`][kubectl-get] command.
+1. Validate the PodMonitor is running using the [`kubectl get`][kubectl-get] command.
 
     ```bash
     kubectl --namespace $PG_NAMESPACE \
@@ -315,7 +315,8 @@ kubectl --namespace $PG_NAMESPACE \
 #### Option A - Azure Monitor Workspace
 
 Once you have deployed the Postgres cluster and the pod monitor, you can view the metrics using the Azure portal in an Azure Monitor workspace.
-![Azure Monitor Metrics](./media/deploy-postgresql-ha/cnpg-prom-metrics.png)
+
+:::image source="./media/deploy-postgresql-ha/cnpg-prom-metrics.png" alt-text="Screenshot showing metrics in an Azure Monitor workspace." lightbox="./media/deploy-postgresql-ha/cnpg-prom-metrics.png":::
 
 #### Option B - Managed Grafana
 
@@ -371,7 +372,7 @@ Your output should resemble the following example output with the availability z
 
 ## Connect to PostgreSQL and create a sample dataset
 
-In this section, you create a table and insert some data into the app database that was created in the CNPG Cluster CRD you deployed earlier. This data that is used to validate the backup and restore operations for the PostgreSQL cluster.
+In this section, you create a table and insert some data into the app database that was created in the CNPG Cluster CRD you deployed earlier. You use this data to validate the backup and restore operations for the PostgreSQL cluster.
 
 * Create a table and insert data into the app database using the following commands:
 
@@ -404,7 +405,6 @@ In this section, you create a table and insert some data into the app database t
         3
     (1 row)
     ```
-
 ## Connect to PostgreSQL read-only replicas
 
 * Connect to the PostgreSQL read-only replicas and validate the sample dataset using the following commands:
@@ -681,7 +681,7 @@ You also create a second federated credential to map the new recovery cluster se
     # Type \q to exit psql
     ```
 
-1. You can now delete the recovered cluster using the following command:
+1. Delete the recovered cluster using the following command:
 
     ```bash
     kubectl cnpg destroy $PG_PRIMARY_CLUSTER_NAME_RECOVERED 1 \
@@ -689,7 +689,7 @@ You also create a second federated credential to map the new recovery cluster se
         --namespace $PG_NAMESPACE
     ```
 
-1. You can now delete the federated identity credential using the [`az identity federated-credential delete`][az-identity-federated-credential-delete] command.
+1. Delete the federated identity credential using the [`az identity federated-credential delete`][az-identity-federated-credential-delete] command.
 
     ```bash
     az identity federated-credential delete \
