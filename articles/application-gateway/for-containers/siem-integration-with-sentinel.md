@@ -2,12 +2,12 @@
 title: Configure Application Gateway for Containers for SIEM integration with Azure Sentinel
 description: Configure Application Gateway for Containers for SIEM integration with Azure Sentinel.
 services: application-gateway
-author: t-vynamani
+author:  greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 07/09/2024
-ms.author: t-vynamani
+ms.author: greglin
 ---
 
 # Configure Application Gateway for Containers for SIEM integration with Azure Sentinel
@@ -29,7 +29,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
     - a. In **Search resources, service, and docs**, type **Application Gateways for Containers**.
     - b. Go to your selected Application Gateway for Container Resource.
     - c. Go to **Diagnostic Setting** under Monitoring.
-        - a. Select a name, **check box allLogs** which includes the Application Gateway for Container Access Logs.
+        - a. Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
         - b. Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
         ![A screenshot of AGC Log Settings.](./media/siem-integration-with-sentinel/log-analytics-diagnostic-settings.png)
     > [!Note]
