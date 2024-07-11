@@ -925,7 +925,7 @@
         "articles/defender-for-iot/**/*": "ask-the-community",
         "articles/deployment-environments/**/*": "ask-the-community", 
         "articles/dev-box/**/*": "ask-the-community",
-        "articles/playwright-testing/**/*": "ask-the-community",
+        "articles/playwright-testing/**/*": "ask-the-community"
       },
       "open_source_feedback_contributorGuideUrl":
       {
