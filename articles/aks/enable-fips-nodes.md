@@ -189,7 +189,7 @@ Existing node pools can be updated to enable or disable FIPS. If you are plannin
     ```
 
 ### Enable FIPS on an existing Linux node pool
-Existing Linux node pools can be updated to enable FIPS. When updating an existing node pool, the node image will change from the current image to the recommended FIPS image of the same OS SKU. The node image change will occur after a re-image.
+Existing Linux node pools can be updated to enable FIPS. When you update an existing node pool, the node image will change from the current image to the recommended FIPS image of the same OS SKU. The node image change will occur after a re-image.
 
 1. Update a Linux node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--enable-fips-image` parameter.
 
@@ -202,7 +202,7 @@ Existing Linux node pools can be updated to enable FIPS. When updating an existi
     ```
 
 
-2. Verify your node pool is FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
+2. Verify that your node pool is FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
 
     ```azurecli-interactive
     az aks show \
@@ -212,7 +212,7 @@ Existing Linux node pools can be updated to enable FIPS. When updating an existi
         -o table
     ```
 
-    The following example output shows the *np* node pool is FIPS-enabled:
+    The following example output shows that the *np* node pool is FIPS-enabled:
 
     ```output
     Name       enableFips
@@ -253,7 +253,7 @@ Existing Linux node pools can be updated to enable FIPS. When updating an existi
 FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* label, which deployments can use to target those node pools.
 
 ## Disable FIPS on an existing node pool
-Existing Linux node pools can be updated to enable FIPS. When updating an existing node pool, the node image will change from the current image to the recommended FIPS image of the same OS SKU. The node image change will occur after a re-image.
+Existing Linux node pools can be updated to disable FIPS. When updating an existing node pool, the node image will change from the current FIPS image to the recommended non-FIPS image of the same OS SKU. The node image change will occur after a re-image.
 
 1. Update a Linux node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--disable-fips-image` parameter.
 
@@ -266,7 +266,7 @@ Existing Linux node pools can be updated to enable FIPS. When updating an existi
     ```
 
 
-2. Verify your node pool is not FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
+2. Verify that your node pool is not FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
 
     ```azurecli-interactive
     az aks show \
@@ -276,7 +276,7 @@ Existing Linux node pools can be updated to enable FIPS. When updating an existi
         -o table
     ```
 
-    The following example output shows the *np* node pool is not FIPS-enabled:
+    The following example output shows that the *np* node pool is not FIPS-enabled:
 
     ```output
     Name       enableFips
