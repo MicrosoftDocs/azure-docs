@@ -1,35 +1,35 @@
 ---
-title: Azure API Management workspaces (Dec 2024) | Microsoft Docs
+title: Azure API Management workspaces (March 2025) | Microsoft Docs
 description: Azure API Management is removing support for preview workspaces. If your service uses preview workspaces, migrate your workspaces to the generally available version.
 services: api-management 
 author: dlepow
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/09/2024
+ms.date: 07/10/2024
 ms.author: danlep
 ---
 
-# Workspaces breaking changes (December 2024)
+# Workspaces breaking changes (March 2025)
 
 [!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
 
 > [!IMPORTANT]
-> These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release of workspaces in July 2024, using API version 2023-09-01 or later, your workspaces are not affected by these changes.
+> These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release in July 2024 and use workspaces with workspace gateways, your workspaces shouldn't be affected by these changes.
 > 
 
 Azure API Management [workspaces](../workspaces-overview.md) are now generally available, and we introduced several feature updates with that release. As part of our continued development of workspaces, we're removing support for preview workspaces (created before July 2024). If you created preview workspaces in Azure API Management and want to continue using them, you need to migrate your workspaces to the generally available version. 
 
-After 31 December 2024, your preview workspaces and APIs managed in them may stop working if you haven't migrated to the latest workspace capabilities. APIs and resources managed outside workspaces aren't affected by this change.
+After 31 March 2025, your preview workspaces and APIs managed in them may stop working if you haven't migrated to the latest workspace capabilities. APIs and resources managed outside workspaces aren't affected by this change.
 
 ## Is my service affected by these changes?
 
-Your service may be affected by these changes if you created preview workspaces in your API Management instance, before the generally available release of workspaces in July 2024. Workspaces created after the generally available release date aren't affected by the breaking changes.
+Your service may be affected by these changes if you created preview workspaces in your API Management instance, before the generally available release of workspaces in July 2024. Workspaces created after the generally available release date that use workspace gateways for API runtime aren't affected by the breaking changes.
 
 ## Breaking changes
 
 The following are breaking changes that require you to take action to migrate your preview workspaces to the generally available version:
 
-* **Dedicated API gateway is required** - Each workspace must be associated with a dedicated API gateway that isolates the workspace's runtime traffic. In preview, workspaces shared a gateway with the service.
+* **Workspace API gateway is required** -  Each workspace must be associated with a workspace API gateway that isolates the workspace's runtime traffic. In preview, workspaces shared a gateway with the service.
 * **Service-level managed identities are not supported** - To improve the security of workspaces, system-assigned and user-assigned managed identities enabled at the service level can't be used in workspaces. Currently, related API Management features that depend on managed identities, such as storing named values and certificates in Azure Key Vault, and using the `authentication-managed-identity` policy, aren't supported in workspaces.
 
 > [!NOTE]
@@ -37,7 +37,7 @@ The following are breaking changes that require you to take action to migrate yo
 
 ## What is the deadline for the change?
 
-The breaking changes will be enforced in preview workspaces after 31 December 2024. We strongly recommend that you make all required changes to the configuration of your preview workspaces before that date.
+The breaking changes will be enforced in preview workspaces after 31 March 2025. We strongly recommend that you make all required changes to the configuration of your preview workspaces before that date.
 
 ## What do I need to do?
 
@@ -45,11 +45,11 @@ If your workspaces are affected by these changes, you need to migrate your works
 
 ### Use Premium tier for your API Management instance
 
-Ensure that your API Management instance is running in the **Premium** tier to continue using workspaces. As announced [previously](workspaces-breaking-changes-june-2024.md), if your instance is in the **Standard** or **Developer** tier and you're using preview workspaces, you need to upgrade to the **Premium** tier.
+Ensure that your API Management instance is running in the **Premium** tier to continue using workspaces. As announced [previously](workspaces-breaking-changes-june-2024.md), if your instance is in the **Standard** or **Developer** tier, you need to upgrade to the **Premium** tier.
 
 ### Confirm the region for your instance
 
-Adding a dedicated gateway to a workspace requires that the gateway is in the same region as your instance. Currently, workspace gateways are supported in a [subset of regions](../workspaces-overview.md#workspace-gateway) in which API Management instances can run.
+Adding a workspace gateway to a workspace requires that the gateway is in the same region as your instance. Currently, workspace gateways are supported in a [subset of regions](../workspaces-overview.md#workspace-gateway) in which API Management is available. The regions with support for workspace gateways will be updated over time.
 
 To determine if a preview workspace is in a supported region:
 
@@ -59,16 +59,20 @@ To determine if a preview workspace is in a supported region:
     * If you see this message, you can [move your API Management instance](../api-management-howto-migrate.md) to a supported region.
     * If you don't see this message, your workspace is in a supported region and you can proceed to add a dedicated gateway.
 
-### Add a dedicated gateway to your workspace
+### Add a workspace gateway to your workspace
 
 The following are abbreviated steps to add a dedicated gateway to a workspace. For gateway networking options, prerequisites, and detailed instructions, see [Create and manage a workspace](../how-to-create-workspace.md).
+
+> [!NOTE]
+> * The workspace gateway incurs additional charges. For more information, see [API Management pricing](https://aka.ms/apimpricing).
+> * API Management currently supports a dedicated gateway per workspace only. If this is impacting your migration plans, see the workspaces roadmap in the [workspaces GA announcement](https://aka.ms/apim/workspaces/ga-announcement).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Workspaces**.
 1. Select a workspace.
 1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > **+ Add**.
-1. Complete the wizard to create a gateway. Provisioning of the gateway may take 2 hours or longer.
-1. After your gateway is provisioned, go to the gateway's **Overview** page. Note the value of **Runtime hostname**. You use this value to update your client apps that call your workspace's APIs.
+1. Complete the wizard to create a gateway. Currently, provisioning of the gateway can take from several minutes to up to 3 hours or longer.
+1. After your gateway is provisioned, go to the gateway's **Overview** page. Note the value of **Runtime hostname**. Use this value to update your client apps that call your workspace's APIs.
 1. Repeat the preceding steps for your remaining workspaces.
 
 ### Update client apps to use the new gateway hostname
@@ -76,8 +80,7 @@ The following are abbreviated steps to add a dedicated gateway to a workspace. F
 After adding a dedicated gateway to your workspace, you need to update your client apps that call the workspace's APIs to use the new gateway hostname instead of the gateway hostname of your API Management instance. 
 
 > [!NOTE]
-> * To help you migrate your workspaces, APIs in workspaces can still be accessed at runtime through October 2024 using the gateway hostname of your API Management instance. After October 2024, you must use the gateway hostname of the workspace. We strongly recommend that you complete migration before this date.
-> * If your workspace gateways are configured with private inbound access and private outbound access, make sure that connectivity to your API Management instance's built-in gateway is also secured.
+> To help you migrate your workspaces, APIs in workspaces can still be accessed at runtime through October 2024 using the gateway hostname of your API Management instance. After October 2024, you must use the gateway hostname of the workspace. We strongly recommend that you complete migration before this date. If your workspace gateways are configured with private inbound access and private outbound access, make sure that connectivity to your API Management instance's built-in gateway is also secured.
 
 ### Update dependencies on service-level managed identities
 

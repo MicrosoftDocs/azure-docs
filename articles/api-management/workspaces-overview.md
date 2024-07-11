@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/09/2024
+ms.date: 07/10/2024
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -149,15 +149,15 @@ Certain features of API Management aren't available in workspaces or have constr
 
 * **Managed identity** - To enhance the security of your API Management instance and workspaces, you can't use service-level managed identities in a workspace. 
 
-* **Developer portal** - Workspaces are an administrative concept and aren't surfaced as such to developer portal consumers, including through the developer portal UI and the underlying API. However, APIs and products can be published from a workspace to the developer portal.  
+* **Developer portal** - Workspaces are an administrative concept and aren't surfaced as such to developer portal consumers, including through the developer portal UI and the underlying API. APIs and products within a workspace can be published to the developer portal, just like APIs and products on the service level.  
 
     > [!NOTE]
-    > Specifying API authorization server information (for example, for the developer portal) isn't supported in workspaces.
+    > API Management supports assigning authorization servers defined on the service level to APIs within workspaces.
     >    
 
 ## Deleting a workspace
 
-Deleting a workspace deletes all its child resources (APIs, products, and so on) and its associated gateway. It doesn't delete the API Management instance or other workspaces.
+Deleting a workspace deletes all its child resources (APIs, products, and so on) and its associated gateway, if you're deleting the workspace using the Azure portal interface. It doesn't delete the API Management instance or other workspaces.
     
 
 ## Related content

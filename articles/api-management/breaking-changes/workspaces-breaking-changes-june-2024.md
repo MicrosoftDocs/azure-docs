@@ -14,7 +14,7 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-premium-dev-standard](../../../includes/api-management-availability-premium-dev-standard.md)]
 
 > [!IMPORTANT]
-> These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release of workspaces in July 2024, using API version 2023-09-01 or later, your workspaces are not affected by these changes.
+> If you created workspaces after the generally available release of workspaces in July 2024, your workspaces shouldn't be affected by these changes.
 > 
 
 After 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) in Azure API Management, we're introducing several breaking changes. 
@@ -108,7 +108,7 @@ If you have questions, get answers from community experts in [Microsoft Q&A](htt
 ## More information
 
 * [Workspaces overview](../workspaces-overview.md)
-* [Workspaces breaking changes (December 2024)](workspaces-breaking-changes-dec-2024.md)
+* [Workspaces breaking changes (March 2025)](workspaces-breaking-changes-march-2025.md)
 
 
 
