@@ -12,7 +12,7 @@ ms.custom: subject-cost-optimization
 
 # Estimate the cost of using Azure Blob Storage
 
-This article helps you estimate the cost of Azure Blob Storage. 
+This article helps you estimate the cost of Azure Blob Storage. Make clear that this article shows costs across capacity, transactions and tiers and helps you see the impact of different use and tiering flows on costs over time.
 
 All calculations are based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
 
@@ -26,34 +26,22 @@ Something here about the percentage of storage that goes to metadata
 Example calculation here.
 Describe storage reservations
 Example of the impact of storage reservations.
+Show costs across different tiers
 
-## The cost to move data
+## The cost to upload
 
-Define basic terms and point to the primary plan and manage costs section.
+Blobs are uploaded as blocks. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. 
 
-### Uploading blobs
+The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
 
-When you run the [azcopy copy](../common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a destination endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost of using each endpoint to upload **1,000** blobs that are **5 GiB** each in size.
+The following tables calculates the number of write operations required to upload **1,000** blobs that are **5 GiB** to the Blob Service endpoint.
 
-#### Cost of uploading to the Blob Service endpoint
-
-If you upload data to the Blob Service endpoint, then by default, AzCopy uploads each blob in 8-MiB blocks. This size is configurable.
-
-AzCopy uses the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, AzCopy commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Both operations are billed as _write_ operations. 
-
-The following table calculates the number of write operations required to upload these blobs. 
-
-| Calculation                                            | Value       |
-|--------------------------------------------------------|-------------|
-| Number of MiB in 5 GiB                                 | 5,120       |
-| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640         |
-| PutBlockList operations per blob                       | 1           |
-| **Total write operations (1,000 * 641)**               | **641,000** |
-
-> [!TIP]
-> You can reduce the number of operations by configuring AzCopy to use a larger block size.  
-
-After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
+| Calculation                                                                 | Value       |
+|-----------------------------------------------------------------------------|-------------|
+| Number of MiB in 5 GiB                                                      | 5,120       |
+| Write operations to write the blocks of each blob (5,120 MiB / 8-MiB block) | 640         |
+| Write operation to commit the blocks of each blob                           | 1           |
+| **Total write operations (1,000 * 641)**                                    | **641,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs.
 
@@ -61,45 +49,8 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 |------------------------------------------------------------------|-------------|-------------|--------------|-------------|
 | Price of a single write operation (price / 10,000)               | $0.0000055  | $0.00001    | $0.000018    | $0.00001    |
 | **Cost of write operations (641,000 * operation price)**         | **$3.5255** | **$6.4100** | **$11.5380** | **$3.5255** |
-| Price of a single _other_ operation (price / 10,000)             | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044 |
-| **Cost to get blob properties (1000 * _other_ operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.0004** |
-| **Total cost (write + properties)**                          | **$3.53**   | **$6.41**   | **$11.54**   | **$3.53**   |
 
-> [!NOTE]
-> If you upload to the archive tier, each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. Each [Put Block List](/rest/api/storageservices/put-block-list) operation is charged the price of an **archive** write operation.  
-
-#### Cost of uploading to the Data Lake Storage endpoint
-
-If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is not configurable.
-
-AzCopy uploads each block by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `append`. After the final block is uploaded, AzCopy commits those blocks by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `flush`. Both operations are billed as _write_ operations. 
-
-The following table calculates the number of write operations required to upload these blobs. 
-
-| Calculation | Value
-|---|---|
-| Number of MiB in 5 GiB | 5,120 |
-| Path - Update (append) operations per blob (5,120 MiB / 4-MiB block) | 1,280 |
-| Path - Update (flush) operations per blob | 1 |
-| **Total write operations (1,000 * 1,281)** | **1,281,00** |
-
-After each blob is uploaded, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation as part of validating the upload. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. 
-
-Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs
-
-| Price factor                                               | Hot         | Cool         | Cold         | Archive      |
-|------------------------------------------------------------|-------------|--------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)         | $0.00000715 | $0.000013    | $0.0000234   | $0.0000143   |
-| **Cost of write operations (1,281,000 * operation price)** | **$9.1592** | **$16.6530** | **$29.9754** | **$18.3183** |
-| Price of a single _other_ operation (price / 10,000)       | $0.00000044 | $0.00000044  | $0.00000052  | $0.00000044  |
-| **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0005**  | **$0.0004**  |
-| **Total cost (write + properties)**                    | **$9.16**   | **$16.65**   | **$29.98**   | **$18.32**   |
-
-### Cost of redundancy configurations
-
-Put something here.
-
-### Downloading blobs
+### The cost to download
 
 When you run the [azcopy copy](../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command,  you'll specify a source endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost of using each endpoint to download **1,000** blobs that are **5 GiB** each in size.
 
@@ -243,6 +194,9 @@ The following table includes sample prices (fictitious) prices for each request 
 | Price of data retrieval (per GiB)                    | Free     | $0.01    | $0.03    | $0.022  |
 | Iterative Read operations (per 10,000)              | $0.0715  | $0.0715  | $0.0845  | $0.0715 |
 
+## Operations used for each endpoint
+
+ Clients that upload to the Blob Service endpoint use the [Put Block](/rest/api/storageservices/put-block) operation to upload each block. After the final block is uploaded, clients commits those blocks by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. Clients that use the Data Lake Storage endpoint upload each block by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `append`. After the final block is uploaded, clients commit those blocks by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `flush`. All of these operations are billed as _write_ operations.
 
 ## See also
 
