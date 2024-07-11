@@ -361,7 +361,7 @@ The following example creates a Git connection to a GitHub repo. This connection
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
+from azure.ai.ml.entities import PatTokenConfiguration
 
 
 name = "my_git_conn"
@@ -401,19 +401,6 @@ Create a connection to a Python feed with one of following YAML file. Be sure to
       pat: dummy_pat
    ```
 
-* Connect using a username and password:
-
-   ```yml
-   name: test_ws_conn_python_user_pass
-   type: python_feed
-   target: https://test-feed.com
-   credentials:
-      type: username_password
-      username: john
-      password: pass
-
-   ```
-
 * Connect to a public feed (no credentials):
 
    ```yml
@@ -430,24 +417,17 @@ az ml connection create --file connection.yaml
 
 # [Python SDK](#tab/python)
 
-The following example creates a Python feed connection. This connection is authenticated with a personal access token (PAT) or a username and password:
+The following example creates a Python feed connection. This connection is authenticated with a personal access token (PAT):
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
-
-
-name = "my_pfeed_conn"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+from azure.ai.ml.entities import PatTokenConfiguration
 
 wps_connection = WorkspaceConnection(
-    name=name,
+    name=<my_pdfeed_conn>,
     type="python_feed",
-    target=target,
-    #credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"), 
-    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
-
+    target=<my_pfeed_url>,
+    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),
     #credentials=None
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
@@ -497,7 +477,7 @@ az ml connection create --file connection.yaml
 
 # [Python SDK](#tab/python)
 
-The following example creates an Azure Container Registry connection. This connection is authenticated using a managed identity:
+The following example creates an Azure Container Registry connection either with ManagedIdentityConfiguration or UsernamePasswordConfiguration:
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
@@ -556,7 +536,7 @@ az ml connection create --file connection.yaml
 
 # [Python SDK](#tab/python)
 
-The following example creates an Azure Container Registry connection. This connection is authenticated using a managed identity:
+The following example creates a connection to a Container Registry using UsernamePasswordConfiguration:
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
