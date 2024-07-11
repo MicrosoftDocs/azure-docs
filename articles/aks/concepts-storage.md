@@ -28,6 +28,20 @@ This article introduces the core concepts that provide storage to your applicati
 
 ![Diagram of storage options for applications in an Azure Kubernetes Services (AKS) cluster.](media/concepts-storage/aks-storage-concept.png)
 
+## Default OS disk sizing
+
+When you create a new cluster or add a new node pool to an existing cluster, the number for vCPUs by default determines the OS disk size. The number of vCPUs is based on the VM SKU. The following table lists the default OS disk size for each VM SKU:
+
+|VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mbps) |
+|--|--|--|--|
+| 1 - 7 | P10/128G | 500 | 100 |
+| 8 - 15 | P15/256G | 1100 | 125 |
+| 16 - 63 | P20/512G | 2300 | 150 |
+| 64+ | P30/1024G | 5000 | 200 |
+
+> [!IMPORTANT]
+> Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks aren't supported and a default OS disk size isn't specified. The default OS disk size might impact the performance or cost of your cluster. You can't change the OS disk size after cluster or node pool creation. This default disk sizing affects clusters or node pools created on July 2022 or later.
+
 ## Ephemeral OS disk
 
 By default, Azure automatically replicates the operating system disk for a virtual machine to Azure Storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
