@@ -157,20 +157,22 @@ Azure Machine Learning implements a default configuration of [Azure AI Content S
 
 ### Network isolation for models deployed via Serverless APIs
 
-Endpoints for models deployed as Serverless APIs follow the public_network_access flag setting of the workspace in which the deployment exists. To secure your MaaS endpoint, disable the public_network_access flag on your workspace. Securing inbound communication from a client to your endpoint is possible by using a private endpoint for the workspace.
+Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the workspace in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your workspace. You can secure inbound communication from a client to your endpoint by using a private endpoint for the workspace.
 
-**Setting the public_network_access flag for the workspace:**
-* Go to the [Azure Portal](https://ms.portal.azure.com/)
-* Search for 'Azure Machine Learning', and choose your workspace
-* On the overview page, use the left navigation bar to go to Settings > Networking
-* Here under the Public Access tab you will have the option to set the Public Network Access flag settings
-* Save your changes (changes may take upto five minutes to propagate)
+To set the PNA flag for the workspace:
 
-**Limitations:**
-* If you have a workspace with private endpoint created before July 11, new MaaS endpoints added to this workspace will not follow the networking configuration of the hub. New private endpoint and serverless API deployments need to be created. 
-* If you have a workspace with MaaS deployments created before July 11 and you enable private endpoint on this workspace, the existing MaaS endpoints will not follow the workspace's networking configuration. New serverless API deployments need to be created.
-* Currently [On Your Data](#rag-with-models-deployed-as-serverless-apis) support is not available for MaaS deployments in private workspaces (public_network_access flag disabled).
-* Any network cofiguration change (eg. enabling or disabling the public_network_access flag) may take upto five minutes to propagate.
+* Go to the [Azure portal](https://ms.portal.azure.com/).
+* Search for _Azure Machine Learning_, and select your workspace from the list of workspaces.
+* On the Overview page, use the left navigation pane to go to **Settings** > **Networking**.
+* Under the **Public access** tab, you can configure settings for the public network access flag.
+* Save your changes. Your changes might take up to five minutes to propagate.
+
+#### Limitations
+
+* If you have a workspace with a private endpoint created before July 11, 2024, new MaaS endpoints added to this workspace won't follow its networking configuration. Instead, you need to create a new private endpoint for the workspace and create new serverless API deployments in the workspace so that the new deployments can follow the workspace's networking configuration. 
+* If you have a workspace with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this workspace, the existing MaaS deployments won't follow the workspace's networking configuration. For serverless API deployments in the workspace to follow the workspace's configuration, you need to create the deployments again.
+* Currently [On Your Data](#rag-with-models-deployed-through-maas) support isn't available for MaaS deployments in private workspaces, since private workspaces have the PNA flag disabled.
+* Any network configuration change (for example, enabling or disabling the PNA flag) might take up to five minutes to propagate.
 
 ## Learn more
 
