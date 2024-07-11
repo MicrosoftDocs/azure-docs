@@ -10,7 +10,7 @@ ms.author: biqian
 ---
 # Application Firewall for Azure SignalR Service
 
-The Application Firewall provides sophisticated control over client connections in a distributed system. Before going through the functionality and setup, let's first clarify what Application Firewall don't do:
+The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall does not do:
 
 1. It does not replace authentication. The firewall operates behind the client connection authentication layer.
 2. It is not related to network layer access control.
