@@ -61,7 +61,7 @@ For the list of credential available on the different clients for each of the au
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
 
-The following sections provide additional information on these authentication points.
+The following sections provide more information on these authentication points.
 
 ### Cloud service authentication
 
