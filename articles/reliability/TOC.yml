@@ -183,7 +183,7 @@
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Bastion
-      href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
+      href: reliability-bastion.md
     - name: Azure Batch
       href: reliability-batch.md
     - name: Azure Cache for Redis

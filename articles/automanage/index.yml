@@ -7,6 +7,7 @@ metadata:
   title: Azure Automanage
   description: Learn about Azure Automanage
   ms.service: automanage
+  ms.author: rayoflores
   ms.topic: landing-page
   ms.date: 09/07/2022
 
