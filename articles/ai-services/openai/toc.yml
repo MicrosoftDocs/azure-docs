@@ -301,6 +301,8 @@ items:
             - name: Python
               href: /azure/developer/python/get-started-app-chat-template
               displayName: RAG, rag
+    - name: Azure OpenAI monitoring data reference
+      href: monitor-openai-reference.md
 - name: Resources
   items: 
     - name: Support and help options
