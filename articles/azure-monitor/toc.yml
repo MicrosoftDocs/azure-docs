@@ -1040,6 +1040,8 @@ items:
             displayName: Log retention, log archive, cost optimization
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
+          - name: Create a table with an Auxiliary plan
+            href: logs/create-custom-table.md
           - name: Manage table-level read access
             href: logs/manage-table-access.md
         - name: Search jobs and data restore
