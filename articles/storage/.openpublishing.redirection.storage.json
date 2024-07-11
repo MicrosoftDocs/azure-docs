@@ -201,6 +201,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-c-plus-plus-enumeration.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-c-plus-plus-enumeration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/queues-v8-samples-java.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/queues-v8-samples-java",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-power-bi.md",
             "redirect_url": "/power-query/connectors/datalakestorage",
             "redirect_document_id": false
