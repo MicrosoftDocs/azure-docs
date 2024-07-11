@@ -160,160 +160,160 @@ Assign the managed identity and yourself the Azure Service Bus Data Owner role
     ```
 
 
-## Deploy a message sender to AKS
+## Enable Workload Identity on KEDA operator
 
-1. Clone the sample application and then change into the appropriate directory using the following commands:
+1. After creating the federated credential for the `keda-operator` ServiceAccount, you will need to manually restart the `keda-operator` pods to ensure Workload Identity environment variables are injected into the pod.
 
-    ```bash
-    git clone git@github.com:pauldotyu/go-azure-service-bus-sender.git
-    cd go-azure-service-bus-sender
+    ```azurecli-interactive
+    kubectl rollout restart deploy keda-operator -n kube-system
+    ``` 
+
+1. Wait for the pods to finish rolling out then confirm the Workload Identity environment variables have been injected.
+    
+    ```azurecli-interactive
+    KEDA_POD_ID=$(kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator -ojsonpath='{.items[0].metadata.name}')
+    kubectl describe po $KEDA_POD_ID -n kube-system
     ```
 
-1. Publish the receiver to ttl.sh using the following commands:
+1. You should see output similar to the following under **Environment**.
 
-    ```bash
-    export KO_DOCKER_REPO=ttl.sh
-    export IMG=$(ko build . --tags=4h)
+    ```text
+    ---
+    AZURE_CLIENT_ID:
+    AZURE_TENANT_ID:               xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
+    AZURE_FEDERATED_TOKEN_FILE:    /var/run/secrets/azure/tokens/azure-identity-token
+    AZURE_AUTHORITY_HOST:          https://login.microsoftonline.com/
+    ---
     ```
 
-1. Deploy a sender to AKS using the [`kubectl apply`][kubectl-apply] command with the sample YAML manifest.
+1. Deploy a KEDA TriggerAuthentication resource that includes the User-Assigned Managed Identity's Client ID.
 
-    ```bash
+    ```azurecli-interactive
+    kubectl apply -f - <<EOF
+    apiVersion: keda.sh/v1alpha1
+    kind: TriggerAuthentication
+    metadata:
+      name: azure-servicebus-auth
+      namespace: default                   # must be same namespace as the ScaledObject/ScaledJob that will use it
+    spec:
+      podIdentity:
+        provider:  azure-workload
+        identityId: $MI_CLIENT_ID
+    EOF
+    ```
+
+    > [!note]
+    > The `keda-operator` Pods use this Client ID to authenticate against upstream services when evaluating scaling triggers.
+
+## Publish messages to Azure Service Bus
+
+At this point everything is configured for scaling with KEDA and Microsoft Entra Workload Identity. We will test this by deploying producer and consumer workloads.
+
+1. Create a new ServiceAccount for the workloads.
+
+    ```azurecli-interactive
     kubectl apply -f - <<EOF
     apiVersion: v1
     kind: ServiceAccount
     metadata:
-    name: $MI_NAME
-    annotations:
+      annotations:
         azure.workload.identity/client-id: $MI_CLIENT_ID
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-    labels:
-        app: mysender
-    name: mysender
-    spec:
-    replicas: 1
-    selector:
-        matchLabels:
-        app: mysender
-    template:
-        metadata:
-        labels:
-            app: mysender
-            azure.workload.identity/use: "true"
-        spec:
-        serviceAccount: $MI_NAME
-        containers:
-        - name: go-azure-service-bus-sender
-            image: $IMG
-            resources: {}
-            env:
-            - name: AZURE_SERVICEBUS_HOSTNAME
-            value: $SB_HOSTNAME
-            - name: AZURE_SERVICEBUS_QUEUE_NAME
-            value: myqueue
-            - name: BATCH_SIZE
-            value: "1"
+      name: $MI_NAME
     EOF
     ```
 
-1. Ensure the environment variables for workload identity were injected into the sender pod using the [`kubectl describe`][kubectl-describe] command.
-
-    ```bash
-    POD_ID=$(kubectl get po -lapp=mysender -o jsonpath='{.items[0].metadata.name}')
-    kubectl describe pod $POD_ID
-    ```
-
-1. Follow the pod logs using the [`kubectl logs`][kubectl-logs] command.
+1. Deploy a Job to publish 100 messages.
 
     ```azurecli-interactive
-    kubectl logs $POD_ID -f
-    ```
-
-## Validate the deployment details
-
-1. Get the KEDA version of the deployment using the [`kubectl get`][kubectl-get] command.
-
-    ```bash
-    kubectl get deploy -n kube-system keda-operator -ojsonpath='{.metadata.labels.app\.kubernetes\.io/version}'
-    ```
-
-1. Ensure the KEDA operators have the proper environment variables using the [`kubectl get`][kubectl-get] command.
-
-    ```bash
-    kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator
-    ```
-
-1. Check one of the keda-operator pods to verify that the Azure identity values were injected into the pod using the [`kubectl describe`][kubectl-describe] command.
-
-    ```bash
-    POD_ID=$(kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator -ojsonpath='{.items[0].metadata.name}')
-
-    kubectl describe po $POD_ID -n kube-system
-    ```
-
-    If the following values are missing in the output, you need to restart the deployment:
-
-    ```bash
-    AZURE_CLIENT_ID:
-    AZURE_TENANT_ID:             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
-    AZURE_FEDERATED_TOKEN_FILE: /var/run/secrets/azure/tokens/azure-identity-token
-    AZURE_AUTHORITY_HOST: https://login.microsoftonline.com/
-    ```
-
-1. If your output was missing the values shown in the previous example output, restart the deployment using the [`kubectl rollout restart`][kubectl-rollout-restart] command.
-
-   ```bash
-    kubectl rollout restart deploy keda-operator -n kube-system
-    ```
-
-Deploy a scaler of your choosing (LINK TO SCALER)
-
-Create a trigger authentication
-
-```azurecli-interactive
-kubectl apply -f - <<EOF
-apiVersion: keda.sh/v1alpha1
-kind: TriggerAuthentication
-metadata:
-  name: azure-servicebus-auth
-  namespace: default # must be same namespace as the ScaledObjec
-spec:
-   podIdentity:
-       provider:  azure-workload  # Optional. Default: none
-       identityId: $MI_CLIENT_ID
-EOF
-```
-
-Create a scaledobject to scale 
-
-```azurecli-interactive
-kubectl apply -f - <<EOF
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
-metadata:
-  name: myreceiver-scaledobject
-  namespace: default
-spec:
-  scaleTargetRef:
-    name: myreceiver
-  triggers:
-  - type: azure-servicebus
+    kubectl apply -f - <<EOF
+    apiVersion: batch/v1
+    kind: Job
     metadata:
-      queueName: myqueue
-      namespace: $SB_NAME
-    authenticationRef:
-        name: azure-servicebus-auth
-EOF
-```
+      name: myproducer
+    spec:
+      template:
+        metadata:
+          labels:
+            azure.workload.identity/use: "true"
+        spec:
+          serviceAccountName: $MI_NAME
+          containers:
+          - image: ghcr.io/azure-samples/aks-app-samples/servicebusdemo:latest
+            name: myproducer
+            resources: {}
+            env:
+            - name: OPERATION_MODE
+              value: "producer"
+            - name: MESSAGE_COUNT
+              value: "100"
+            - name: AZURE_SERVICEBUS_QUEUE_NAME
+              value: $SB_QUEUE_NAME
+            - name: AZURE_SERVICEBUS_HOSTNAME
+              value: $SB_HOSTNAME
+          restartPolicy: Never
+    EOF
+    ````
 
-Run this command to check the status of the scaled object
+1. Deploy a ScaledJob resource to consume the messages. The scale trigger will be configured to scale out every 10 messages. The KEDA scaler will create 10 jobs to consume the 100 messages.
 
-```azurecli-interactive
-kubectl describe scaledobject myreceiver-scaledobject
-```
+    ```azurecli-interactive
+    kubectl apply -f - <<EOF
+    apiVersion: keda.sh/v1alpha1
+    kind: ScaledJob
+    metadata:
+      name: myconsumer-scaledjob
+    spec:
+      jobTargetRef:
+        template:
+          metadata:
+            labels:
+              azure.workload.identity/use: "true"
+          spec:
+            serviceAccountName: $MI_NAME
+            containers:
+            - image: ghcr.io/azure-samples/aks-app-samples/servicebusdemo:latest
+              name: myconsumer
+              env:
+              - name: OPERATION_MODE
+                 value: "consumer"
+              - name: MESSAGE_COUNT
+                 value: "10"
+              - name: AZURE_SERVICEBUS_QUEUE_NAME
+                 value: $SB_QUEUE_NAME
+              - name: AZURE_SERVICEBUS_HOSTNAME
+                 value: $SB_HOSTNAME
+            restartPolicy: Never
+      triggers:
+      - type: azure-servicebus
+        metadata:
+          queueName: $SB_QUEUE_NAME
+          namespace: $SB_NAME
+          messageCount: "10"
+        authenticationRef:
+          name: azure-servicebus-auth
+    EOF
+    ```
+
+    > [!note]
+    > ScaledJob creates a Kubernetes Job resource whenever a scaling event occurs and thus a Job template needs to be passed in when creating the resource. As new Jobs are created, Pods will be deployed with workload identity bits to consume messages.
+
+1. Verify the KEDA scaler worked as intended.
+
+    ```azurecli-interactive
+    kubectl describe scaledjob myconsumer-scaledjob
+    ```
+
+1. You should see events similar to the following.
+
+    ```text
+    Events:
+    Type     Reason              Age   From           Message
+    ----     ------              ----  ----           -------
+    Normal   KEDAScalersStarted  10m   scale-handler  Started scalers watch
+    Normal   ScaledJobReady      10m   keda-operator  ScaledJob is ready for scaling
+    Warning  KEDAScalerFailed    10m   scale-handler  context canceled
+    Normal   KEDAJobsCreated     10m   scale-handler  Created 10 jobs
+    ```
 
 ## Next steps
 
