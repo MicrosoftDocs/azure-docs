@@ -129,7 +129,7 @@ services.AddSignalR().AddAzureSignalR(options =>
         //  Add necessary claims according to your rules.
         options.ClaimsProvider = context => new[]
         {
-            // Add UserId:
+            // Add UserId: Used in ThrottleByUserIdRule
             new Claim(ClaimTypes.NameIdentifier, context.Request.Query["username"]),
 
             // Add unique claim: Ensure uniqueness when using ThrottleByJwtSignatureRule. 
@@ -138,12 +138,12 @@ services.AddSignalR().AddAzureSignalR(options =>
            
             // Cutom claim: Used in ThrottleByJwtCustomClaimRule
             new Claim("<Custom Claim Name>", "<Custom Claim Value>"),
-            // Cutom claim example
+            // Custom claim example
             new Claim("freeUser", context.Request.Query["username"]),
         };
     });
 ```
-The logic for **Serverless Mode" is similar.
+The logic for **Serverless Mode** is similar.
 
 For more details, refer to [Client negotiation](signalr-concept-client-negotiation.md#What-can-you-do-during-negotiation) .  
 
