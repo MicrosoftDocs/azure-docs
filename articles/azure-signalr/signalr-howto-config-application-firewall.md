@@ -65,7 +65,7 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
 # [Portal](#tab/Portal)
 To use Application Firewall, navigate to the SignalR **Application Firewall** blade on the Azure portal and click **Add** to add a rule. 
 
-![Screenshot of creating replica for Azure SignalR on Portal.](./media/signalr-howto-config-application-firewall/signalr-add-application-firewall-rule.png "Add rule")
+![Screenshot of adding application firewall rules for Azure SignalR on Portal.](./media/signalr-howto-config-application-firewall/signalr-add-application-firewall-rule.png "Add rule")
 
 # [Bicep](#tab/Bicep)
 
@@ -101,7 +101,7 @@ resource signalr 'Microsoft.SignalRService/signalr@2024-04-01-preview' = {
                 type: 'ThrottleByJwtCustomClaimRule'  
                 maxCount: 100
                 claimName: 'paidUser'
-          }
+            }
         ]
     }
   }
