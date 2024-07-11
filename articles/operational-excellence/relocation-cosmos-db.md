@@ -14,6 +14,8 @@ ms.reviewer: mjbrown
 
 # Relocate an Azure Cosmos DB NoSQL account to another region
 
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 This article describes how to either:
 

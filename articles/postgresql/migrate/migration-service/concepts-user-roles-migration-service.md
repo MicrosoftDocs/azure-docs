@@ -56,16 +56,18 @@ Allowing unrestricted access to these system tables and views could lead to unau
 
 ### pg_pltemplate deprecation
 
-Another important consideration is the deprecation of the **pg_pltemplate** system table within the pg_catalog schema by the PostgreSQL community **starting from version 13.** Therefore, if you're migrating to Flexible Server versions 13 and above, and if you have granted permissions to users on the pg_pltemplate table, it is necessary to undo these permissions before initiating the migration process.
+Another important consideration is the deprecation of the **pg_pltemplate** system table within the pg_catalog schema by the PostgreSQL community **starting from version 13.** If you're migrating to Flexible Server versions 13 and above and have granted permissions to users on the pg_pltemplate table on your single server, you mist revoke these permissions before initiating a new migration.
 
 #### What is the impact?
-- If your application is designed to directly query the affected tables and views, it will encounter issues upon migrating to the flexible server. We strongly advise you to refactor your application to avoid direct queries to these system tables. 
+- If your application is designed to directly query the affected tables and views, it encounters issues upon migrating to the flexible server. We strongly advise you to refactor your application to avoid direct queries to these system tables. 
 
-- If you have specifically granted or revoked privileges to any users or roles for the affected pg_catalog tables and views, you will encounter an error during the migration process. This error will be identified by the following pattern: 
+- If you have granted or revoked privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. This error will be identified by the following pattern: 
 
 ```sql
 pg_restore error: could not execute query <GRANT/REVOKE> <PRIVILEGES> on <affected TABLE/VIEWS> to <user>.
  ```
+
+#### Workaround
 
 To resolve this error, it's necessary to undo the privileges granted to users and roles on the affected pg_catalog tables and views. You can accomplish this by taking the following steps.
 
@@ -95,26 +97,29 @@ GROUP BY
 
 **Step 2: Review the Output**
 
-The output of the above query will show the list of privileges granted to roles on the impacted tables and views.
+The output of the query shows the list of privileges granted to roles on the impacted tables and views.
 
 For example:
 
 | Privileges | Relation name | Grantee |
-| :--- | :--- | :--- | 
-| SELECT | pg_authid | adminuser1
-| SELECT, UPDATE | pg_shadow | adminuser2
+| :--- |:--- |:--- | 
+| SELECT | pg_authid | adminuser1 |
+| SELECT, UPDATE |pg_shadow | adminuser2 |
+
 
 **Step 3: Undo the privileges**
 
-To undo the privileges, run REVOKE statements for each privilege on the relation from the grantee. In the above example, you would run:
+To undo the privileges, run REVOKE statements for each privilege on the relation from the grantee. In this example, you would run:
 
 ```sql
 REVOKE SELECT ON pg_authid FROM adminuser1;
 REVOKE SELECT ON pg_shadow FROM adminuser2;
 REVOKE UPDATE ON pg_shadow FROM adminuser2;
 ```
+> [!NOTE]
+> Make sure you perform the above steps for all the databases included in the migration to avoid any permission-related issues during the migration.
 
-After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration service. You should not encounter permission-related issues during this process.
+After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration service. You shouldn't encounter permission-related issues during this process.
 
 ## Related content
 - [Migration service](concepts-migration-service-postgresql.md)

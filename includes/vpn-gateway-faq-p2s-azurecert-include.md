@@ -5,7 +5,7 @@
  ms.date: 10/18/2023
  ms.author: cherylmc
 ---
-[!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
+
 
 ### What should I do if I'm getting a certificate mismatch when connecting using certificate authentication?
 
@@ -29,17 +29,12 @@ You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, 
 
 ### <a name="certsettings"></a>Are there instructions for certificate settings and parameters?
 
-* **Internal PKI/Enterprise PKI solution:** See the steps to [Generate certificates](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+For .cer and .pfx file format, see:
 
-* **Azure PowerShell:** See the [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article for steps.
+* [PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md)
+* [Makecert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)
 
-* **MakeCert:** See the [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article for steps.
+For .pem file format, see:
 
-* **OpenSSL:**
-
-  * When exporting certificates, be sure to convert the root certificate to Base64.
-
-  * For the client certificate:
-
-    * When creating the private key, specify the length as 4096.
-    * When creating the certificate, for the *-extensions* parameter, specify *usr_cert*.
+* [Linux - OpenSSL](../articles/vpn-gateway/point-to-site-certificates-linux-openssl.md)
+* [Linux - strongSwan](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
