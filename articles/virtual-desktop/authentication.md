@@ -36,9 +36,9 @@ Azure Virtual Desktop supports cloud-only identities when using [Microsoft Entra
 >[!NOTE]
 >You can also assign hybrid identities to Azure Virtual Desktop Application groups that host Session hosts of join type Microsoft Entra joined.
 
-### Third-party identity providers
+### Federated identity
 
-If you're using an Identity Provider (IdP) other than Microsoft Entra ID to manage your user accounts, you must ensure that:
+If you're using a third-party Identity Provider (IdP), other than Microsoft Entra ID or Active Directory Domain Services, to manage your user accounts, you must ensure that:
 
 - Your IdP is [federated with Microsoft Entra ID](/entra/identity/devices/device-join-plan#federated-environment).
 - Your session hosts are Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra/identity/devices/hybrid-join-plan).
