@@ -32,11 +32,11 @@ It delivers:
 1. **Storage used**: Represents the actual amount of storage used on a node. This metric is crucial for understanding the storage consumption trends and managing storage resources.
 1. **IOPS:** Measures the disk IO operations per second on a node. It provides insights into the read and write performance of the storage system, helping to optimize disk usage.
 
-### Database Metrics 
+<!-- ### Database Metrics 
 1. **Mongo request duration**: Captures the end-to-end duration in milliseconds of client MongoDB requests handled by the Mongo cluster, updated every 60 seconds. This metric is vital for assessing the responsiveness and latency of the database operations.
 
 >[!NOTE]
->There's no charge to access Database metrics. However, you'll have to be on the M40 cluster tier or higher to access the metrics. For more information on upgrading, please refer to [this guide](./how-to-scale-cluster.md).
+>There's no charge to access Database metrics. However, you'll have to be on the M40 cluster tier or higher to access the metrics. For more information on upgrading, please refer to [this guide](./how-to-scale-cluster.md). -->
 
 
 ## View Metrics
@@ -49,17 +49,17 @@ It delivers:
 
    :::image type="content" source="./media/monitor/monitor-metrics-blade.png" alt-text="Metrics blade in Azure Cosmos DB":::
 
-1. Next select the **Monogo request duration** metric from the list of available metrics. In this example, let's select **Mongo request duration** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
+1. Next select the **Monogo request duration** metric from the list of available metrics. In this example, let's select **Mongo request duration** and **Max** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
    :::image type="content" source="./media/monitor/monitor-metric-mongo-request-duration.png" alt-text="Choose a metric from the Azure portal" border="true":::
 
-## Filters for Database metrics
+<!-- ## Filters for Database metrics
 
 1. You can also filter metrics and get the charts displayed by a specific **CollectionName**, **DatabaseName**, **Operation**, and **StatusCode**. The **Add filter** and **Apply splitting** options allows you to filter the usage and group the metrics.
 
 1. If you want to see the usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chart like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
 
-   :::image type="content" source="./media/monitor/monitor-metrics-filtering.png" alt-text="Azure Cosmos DB memory request duration for all operations by the collection in Azure monitor" border="true":::
+   :::image type="content" source="./media/monitor/monitor-metrics-filtering.png" alt-text="Azure Cosmos DB memory request duration for all operations by the collection in Azure monitor" border="true"::: -->
 
 ## Next steps
 
