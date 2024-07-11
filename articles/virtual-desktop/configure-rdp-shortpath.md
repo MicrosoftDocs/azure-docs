@@ -44,7 +44,7 @@ Here are the default behaviors for each option and what you need to configure:
 | RDP Shortpath for managed networks | UDP and TCP are enabled in Windows by default.<br /><br />You need to enable the RDP Shortpath listener on session hosts using Microsoft Intune or Group Policy, and allow an inbound port to accept connections. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
 | RDP Shortpath for managed networks with ICE/STUN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
 | RDP Shortpath for public networks with ICE/STUN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
-| RDP Shortpath for public networks via TURN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (disabled) | UDP and TCP are enabled in Windows by default. |
+| RDP Shortpath for public networks via TURN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
 
 ## Prerequisites
 
