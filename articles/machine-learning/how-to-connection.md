@@ -361,17 +361,12 @@ The following example creates a Git connection to a GitHub repo. This connection
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
-
-
-name = "my_git_conn"
-
-target = "https://github.com/myaccount/myrepo"
+from azure.ai.ml.entities import PatTokenConfiguration
 
 wps_connection = WorkspaceConnection(
-    name=name,
+    name="my_git_conn",
     type="git",
-    target=target,
+    target="my_git_url",
     credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
@@ -434,20 +429,14 @@ The following example creates a Python feed connection. This connection is authe
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration  
-
-
-name = "my_pfeed_conn"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
 
 wps_connection = WorkspaceConnection(
-    name=name,
+    name="my_pfeed_conn",
     type="python_feed",
-    target=target,
+    target="my_pfeed_url",
     #credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"), 
-    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
-
+    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),
     #credentials=None
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
@@ -501,18 +490,62 @@ The following example creates an Azure Container Registry connection. This conne
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration
 
+wps_connection = WorkspaceConnection(
+    name="my_acr_conn",
+    type="container_registry",
+    target="my_acr_url",
+    credentials=ManagedIdentityConfiguration(client_id="xxxxx", resource_id="xxxxx"),
+    #credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"),    
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+```
 
-name = "my_acr_conn"
+# [Studio](#tab/azure-studio)
 
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+You can't create an Azure Container Registry connection in studio.
+
+---
+
+### Third-Party Container Registries
+
+# [Azure CLI](#tab/cli)
+
+Create a connection to other third-party container registries with the following YAML file. Be sure to update the appropriate values:
+
+* Connect using a username and password:
+
+   ```yml
+   name: test_ws_conn_cr_user_pass
+   type: container_registry
+   target: https://test-feed.com2
+   credentials:
+      type: username_password
+      username: contoso
+      password: pass
+   ```
+
+Create the Azure Machine Learning connection in the CLI:
+
+```azurecli
+az ml connection create --file connection.yaml
+```
+
+# [Python SDK](#tab/python)
+
+The following example creates a connection to a Container Registry using UsernamePasswordConfiguration:
+
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 wps_connection = WorkspaceConnection(
     name=name,
+    name="my_acr_conn",
     type="container_registry",
-    target=target,
-    credentials=ManagedIdentityConfiguration (client_id="xxxxx", resource_id="xxxxx"),    
+    target="my_acr_url",
+    credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"),
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```
@@ -529,17 +562,12 @@ The following example creates an API key connection:
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ApiKeyConfiguration
-
-
-name = "my_api_key"
-
-target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+from azure.ai.ml.entities import ApiKeyConfiguration
 
 wps_connection = WorkspaceConnection(
-    name=name,
+    name="my_api_key",
     type="apikey",
-    target=target,
+    target="my_api_url",
     credentials=ApiKeyConfiguration(key="XXXXXXXXX"),    
 )
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
