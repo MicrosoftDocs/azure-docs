@@ -3,7 +3,7 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 07/11/2024
 ---
 
 # Configure Application Insights Profiler
@@ -58,6 +58,8 @@ To manually trigger a Profiler session, you need, at minimum, *write* access on 
 
 Select **Triggers** to open the **Trigger Settings** pane that has the **CPU**, **Memory**, and **Sampling** trigger tabs.
 
+[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
+
 ### CPU or Memory triggers
 
 You can set up a trigger to start profiling when the percentage of CPU or memory use hits the level you set.
@@ -100,7 +102,7 @@ Memory % | Percentage of memory used while Profiler was running.
 
 ## Next steps
 
-[Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Enable Profiler and view traces](profiler.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/profiler-on-demand.png
 [performance-blade]: ./media/profiler-settings/performance-blade.png

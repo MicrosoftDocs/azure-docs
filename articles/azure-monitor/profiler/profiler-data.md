@@ -3,7 +3,7 @@ title: Generate load and view Application Insights Profiler data
 description: Generate load to your Azure service to view the Profiler data
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 07/11/2024
 ms.reviewer: charles.weininger
 ---
 
@@ -15,6 +15,8 @@ Let's say you're running a web performance test. You'll need traces to understan
 > - Generate traffic to your web app by starting a web performance test or starting a Profiler on-demand session.
 > - View the Profiler traces after your load test or Profiler session.
 > - Learn how to read the Profiler performance data and call stack.
+
+[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
 
 ## Generate traffic to your Azure service
 
