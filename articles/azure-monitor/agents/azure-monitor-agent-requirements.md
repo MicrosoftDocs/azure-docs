@@ -73,4 +73,4 @@ You should use `mi_res_id` as the `identifier-name`. The following sample comman
 
 ## Next steps
 
-[Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
+[Create a data collection rule](azure-monitor-agent-data-collection.md) to collect data from the agent and send it to Azure Monitor.

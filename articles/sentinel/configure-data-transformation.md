@@ -81,4 +81,4 @@ For more information about data transformation and DCRs, see:
 - [Data collection transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 - [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
-- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
+- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-data-collection.md)

@@ -19,7 +19,7 @@ When ingesting security events from Windows devices using the [Windows Security 
 
 - **Minimal** - A small set of events that might indicate potential threats. This set does not contain a full audit trail. It covers only events that might indicate a successful breach, and other important events that have very low rates of occurrence. For example, it contains successful and failed user logons (event IDs 4624, 4625), but it doesn't contain sign-out information (4634) which, while important for auditing, is not meaningful for breach detection and has relatively high volume. Most of the data volume of this set consists of sign-in events and process creation events (event ID 4688).
 
-- **Custom** - A set of events determined by you, the user, and defined in a data collection rule using XPath queries. [Learn more about data collection rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries).
+- **Custom** - A set of events determined by you, the user, and defined in a data collection rule using XPath queries. [Learn more about data collection rules](../azure-monitor/agents/data-collection-windows-events.md#filter-events-using-xpath-queries).
 
 ## Event ID reference
 
