@@ -130,6 +130,9 @@ management group to and from it.
 See [Manage your resources with management groups](manage.md) for
 details on moving items within the hierarchy.
 
+> [!NOTE]
+> Users have access to all adjacent resources and sub-resources. For example, imagine that tenant root group contains User1 and Management-Group1. And Management-group1 contains User2 and Subscription1. And Subscription1 contains Resource1. In this scenario, User1 has access to all resources within tenant root group which means Management-Group1, Subscription1 and Resource1. User2 has access to all resources within Management-Group1 which means Subscription1 and Resource1.  ![image](https://github.com/MicrosoftDocs/azure-docs/assets/21277296/9e652a6a-a9da-43ea-a9c4-55d91553bc3c)
+
 ## Azure custom role definition and assignment
 
 You can define a management group as an assignable scope in an Azure custom role definition.
