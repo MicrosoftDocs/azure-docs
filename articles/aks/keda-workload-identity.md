@@ -70,18 +70,26 @@ This article shows you how to securely scale your applications with the Kubernet
 
 ## Deploy Azure Service Bus
 
-    ```azurecli-interactive
-    SB_NAME=sb-keda-demo-$RANDOM
+1. Create an Azure Service Bus namespace using the [`az servicebus namespace create`][az-servicebus-namespace-create] command. Make sure to replace the placeholder value with your own value.
 
+    ```azurecli-interactive
+    SB_NAME=<service-bus-name>
+    
     SB_HOSTNAME=$(az servicebus namespace create \
-        -n $SB_NAME \
-        -g $RG_NAME \
+        --name $SB_NAME \
+        --resource-group $RG_NAME \
         --disable-local-auth \
         --query serviceBusEndpoint \
-        -o tsv | sed -e 's/https:\/\///' -e 's/:443\///')
-    
+        --output tsv | sed -e 's/https:\/\///' -e 's/:443\///')
+    ```
+
+1. Create an Azure Service Bus queue using the [`az servicebus queue create`][az-servicebus-queue-create] command. Make sure to replace the placeholder value with your own value.
+
+    ```azurecli-interactive
+    SB_QUEUE=<service-bus-queue-name>
+
     az servicebus queue create \
-        --name myqueue \
+        --name $SB_QUEUE \
         --namespace $SB_NAME \
         --resource-group $RG_NAME
     ```
