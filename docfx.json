@@ -925,7 +925,7 @@
         "articles/defender-for-iot/**/*": "ask-the-community",
         "articles/deployment-environments/**/*": "ask-the-community", 
         "articles/dev-box/**/*": "ask-the-community",
-        "articles/playwright-testing/**/*": "ask-the-community",
+        "articles/playwright-testing/**/*": "ask-the-community"
       },
       "open_source_feedback_contributorGuideUrl":
       {
@@ -1219,7 +1219,7 @@
         "articles/azure-relay/*.md": "service-bus-relay",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "azure-custom-providers",
-        "articles/azure-resource-manager/managed-applications/**/*.md": "managed-applications",
+        "articles/azure-resource-manager/managed-applications/**/*.md": "azure-managed-applications",
         "articles/partner-solutions/**/*.md": "partner-services",
         "articles/azure-vmware/**/*.md": "azure-vmware",
         "articles/backup/**/*.md": "backup",
