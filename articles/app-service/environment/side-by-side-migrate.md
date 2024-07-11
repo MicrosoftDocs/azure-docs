@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 6/28/2024
+ms.date: 7/11/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -296,7 +296,7 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022
 
 ### 5. Update dependent resources with new outbound IPs
 
-By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step.
+By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step. For example, if you have a custom domain suffix and an Azure Key Vault and are managing access restrictions with a firewall, you need to update the Azure Key Vault's firewall to allow either just the new outbound IPs or the entire new subnet.
 
 ### 6. Delegate your App Service Environment subnet
 
