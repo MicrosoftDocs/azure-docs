@@ -77,7 +77,7 @@ To access Resource Health for Azure Communications Gateway:
 
 You can also [configure Resource Health alerts in the Azure portal](../service-health/resource-health-alert-monitor-guide.md). These alerts can notify you in near real-time when these resources have a change in their health status.
 
-Azure Communications Gateway supports the following [resource health checks](../resource-health-checks-resource-types.md#microsoftvoiceservicescommunicationsgateway).
+Azure Communications Gateway supports the following [resource health checks](../service-health/resource-health-checks-resource-types.md#microsoftvoiceservicescommunicationsgateway).
 
 ## Related content
 
