@@ -456,12 +456,6 @@ Customers will receive three types of notifications related to Automatic OS Upgr
 * Outcome of submission request along with any error details
 * Outcome of upgrade completion along with any error details
 
-The screenshot below is an example of an activity log from the Azure portal.
-
-![screenshot of an activity log from the Azure portal.](https://github.com/user-attachments/assets/1afb2180-6a42-457a-9d4c-ba711e8abcc7)
-![Operation level information](https://github.com/user-attachments/assets/ccf83780-f874-48ed-8664-3c8a7c407a99)
-
-
 ### Setting up Action Groups for Activity log alerts
 
 An [action group](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. 
