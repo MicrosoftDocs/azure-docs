@@ -96,7 +96,7 @@ try:
             return (True, result)
 
 except FileNotFoundError as ex:
-    # catch file not found and add an HTTP status code to return in notification to IoT Hub
+    # catch file not found and add an HTTP status code to return in notification to IoT hub
     ex.status_code = 404
     return (False, ex)
 
@@ -107,7 +107,7 @@ except AzureError as ex:
 
 ### Notify IoT hub of upload status
 
-Use [notify_blob_upload_status](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-notify-blob-upload-status) to notify IoT hub of the status of the Blob Storage operation. Pass the `correlation_id` obtained by the `get_storage_info_for_blob` method. The `correlation_id` is used by IoT Hub to notify any service that might be listening for a notification regarding the status of the file upload task.
+Use [notify_blob_upload_status](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-notify-blob-upload-status) to notify IoT hub of the status of the Blob Storage operation. Pass the `correlation_id` obtained by the `get_storage_info_for_blob` method. The `correlation_id` is used by IoT hub to notify any service that might be listening for a notification regarding the status of the file upload task.
 
 This example notifies IoT hub of a successful file upload:
 

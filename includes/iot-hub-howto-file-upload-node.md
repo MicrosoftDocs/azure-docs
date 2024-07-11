@@ -30,11 +30,11 @@ npm install azure-iot-device azure-iot-device-mqtt @azure/storage-blob --save
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices.
 
-Follow this procedure for uploading a file from a device to IoT Hub:
+Follow this procedure for uploading a file from a device to IoT hub:
 
 * Get Blob shared access signatures
 * Upload the file to Azure Storage
-* Send file upload status notification to IoT Hub
+* Send file upload status notification to IoT hub
 
 ### Create modules
 
@@ -47,9 +47,9 @@ const errors = require('azure-iot-common').errors;
 const path = require('path');
 ```
 
-### Get a SAS URI from IoT Hub
+### Get a SAS URI from IoT hub
 
-Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT Hub.
+Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT hub.
 
 For example:
 
@@ -71,7 +71,7 @@ To upload a file from a device to IoT hub:
 2. Construct the blob URL
 3. Create a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) for file upload to Blob Storage
 4. Call [uploadFile](/javascript/api/@azure/storage-blob/blockblobclient?#@azure-storage-blob-blockblobclient-uploadfile) to upload the file to Blob Storage
-5. Call [notifyBlobUploadStatus](/javascript/api/azure-iot-device/client?#azure-iot-device-client-notifyblobuploadstatus) to notify IoT Hub that the upload succeeded or failed
+5. Call [notifyBlobUploadStatus](/javascript/api/azure-iot-device/client?#azure-iot-device-client-notifyblobuploadstatus) to notify IoT hub that the upload succeeded or failed
 
 For example:
 
@@ -107,7 +107,7 @@ console.log('uploadStreamToBlockBlob success');
     statusCode = uploadStatus._response.status;
     statusDescription = uploadStatus._response.bodyAsText;
 
-    // Notify IoT Hub of upload to blob status (success)
+    // Notify IoT hub of upload to blob status (success)
     console.log('notifyBlobUploadStatus success');
   }
   catch (err) {
@@ -125,7 +125,7 @@ await client.notifyBlobUploadStatus(blobInfo.correlationId, isSuccess, statusCod
 
 ## Receive file upload notification in a backend application
 
-You can create a backend application to check the IoT Hub service client for device file upload notifications.
+You can create a backend application to check the IoT hub service client for device file upload notifications.
 
 To create a file upload notification application:
 

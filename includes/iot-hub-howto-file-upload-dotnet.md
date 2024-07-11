@@ -20,23 +20,23 @@ This how-to contains two sections:
 
 ## Upload a file from a device application
 
-Follow this procedure to upload a file from a device to IoT Hub:
+Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to IoT Hub
-* Get a SAS URI from IoT Hub
+* Connect to IoT hub
+* Get a SAS URI from IoT hub
 * Upload the file to Azure storage
 * Notify IoT hub of the file upload status
 
-### Connect to IoT Hub
+### Connect to IoT hub
 
-Supply the IoT Hub primary connection string to [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
+Supply the IoT hub primary connection string to [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
 
 ``` csharp
-static string connectionString = "{IoT Hub primary connection string}";
+static string connectionString = "{IoT hub primary connection string}";
 deviceClient = DeviceClient.CreateFromConnectionString(connectionString);
 ```
 
-### Get a SAS URI from IoT Hub
+### Get a SAS URI from IoT hub
 
 Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload details. The SAS URI is used in the next step to upload a file from a device to Blob Storage.
 
@@ -72,9 +72,9 @@ await blockBlobClient.UploadAsync(fileStreamSource, new BlobUploadOptions());
 
 ### Notify IoT hub of the file upload status
 
-Use [CompleteFileUploadAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completefileuploadasync) to notify IoT Hub that the device client completed the upload, passing a [FileUploadCompletionNotification](/dotnet/api/microsoft.azure.devices.client.transport.fileuploadcompletionnotification) object. The `IsSuccess` flag indicates whether or not the upload was successful. After being notified, IoT Hub will release resources associated with the upload (the SAS URI).
+Use [CompleteFileUploadAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.completefileuploadasync) to notify IoT hub that the device client completed the upload, passing a [FileUploadCompletionNotification](/dotnet/api/microsoft.azure.devices.client.transport.fileuploadcompletionnotification) object. The `IsSuccess` flag indicates whether or not the upload was successful. After being notified, IoT hub will release resources associated with the upload (the SAS URI).
 
-If file upload notifications are enabled, IoT Hub sends a file upload notification message to backend services that are configured for file upload notification.
+If file upload notifications are enabled, IoT hub sends a file upload notification message to backend services that are configured for file upload notification.
 
 ```csharp
 var successfulFileUploadCompletionNotification = new FileUploadCompletionNotification
@@ -97,7 +97,7 @@ await _deviceClient.CompleteFileUploadAsync(successfulFileUploadCompletionNotifi
 
 ## Receive a file upload notification in a backend application
 
-You can create a backend service to receive file upload notification messages from IoT Hub.
+You can create a backend service to receive file upload notification messages from IoT hub.
 
 The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class contains methods that services can use to receive file upload notifications.
 
@@ -110,7 +110,7 @@ To receive file upload notification:
 ```csharp
 using Microsoft.Azure.Devices;
 static ServiceClient serviceClient;
-static string connectionString = "{IoT Hub connection string}";
+static string connectionString = "{IoT hub connection string}";
 serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 
 // Define the cancellation token

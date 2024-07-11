@@ -20,12 +20,12 @@ This how-to contains two sections:
 
 ## Upload a file from a device application
 
-Follow this procedure to upload a file from a device to IoT Hub:
+Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to IoT Hub
-* Get a SAS URI from IoT Hub
+* Connect to IoT hub
+* Get a SAS URI from IoT hub
 * Upload the file to Azure Storage
-* Send file upload status notification to IoT Hub
+* Send file upload status notification to IoT hub
 
 ### Connection protocol
 
@@ -35,16 +35,16 @@ File upload operations always use HTTPS, but [DeviceClient](/java/api/com.micros
 IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 ```
 
-### Connect to IoT Hub
+### Connect to IoT hub
 
-Instantiate the DeviceClient to connect to IoT hub using the Iot hub primary connection string and protocol parameters.
+Instantiate the `DeviceClient` to connect to IoT hub using the IoT hub primary connection string and protocol parameters.
 
 ```java
 String connString = "{IoT hub connection string}";
 DeviceClient client = new DeviceClient(connString, protocol);
 ```
 
-### Get a SAS URI from Iot Hub
+### Get a SAS URI from IoT hub
 
 Call [getFileUploadSasUri](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-getfileuploadsasuri(com-microsoft-azure-sdk-iot-deps-serializer-fileuploadsasurirequest)) to obtain a [FileUploadSasUriResponse](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadsasuriresponse) object.
 
@@ -62,7 +62,7 @@ For example:
 ```java
 FileUploadSasUriResponse sasUriResponse = client.getFileUploadSasUri(new FileUploadSasUriRequest(file.getName()));
 
-System.out.println("Successfully got SAS URI from IoT Hub");
+System.out.println("Successfully got SAS URI from IoT hub");
 System.out.println("Correlation Id: " + sasUriResponse.getCorrelationId());
 System.out.println("Container name: " + sasUriResponse.getContainerName());
 System.out.println("Blob name: " + sasUriResponse.getBlobName());
@@ -87,13 +87,13 @@ String fullFileName = "Path of the file to upload";
 blobClient.uploadFromFile(fullFileName);
 ```
 
-## Send file upload status notification to IoT Hub
+## Send file upload status notification to IoT hub
 
 Send an upload status notification to IoT hub after a file upload attempt.
 
 Create a [FileUploadCompletionNotification](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadcompletionnotification?#com-microsoft-azure-sdk-iot-deps-serializer-fileuploadcompletionnotification-fileuploadcompletionnotification(java-lang-string-java-lang-boolean)) object. Pass the `correlationId` and `isSuccess` file upload success status. Pass an `isSuccess` `true` value when file upload was successful, `false` when not.
 
-`FileUploadCompletionNotification` must be called even when the file upload fails. IoT Hub has a fixed number of SAS URI allowed to be active at any given time. Once you're done with the file upload, you should free your SAS URI so that other SAS URI can be generated. If a SAS URI isn't freed through this API, then it frees itself eventually based on how long SAS URI are configured to live on an IoT Hub.
+`FileUploadCompletionNotification` must be called even when the file upload fails. IoT hub has a fixed number of SAS URI allowed to be active at any given time. Once you're done with the file upload, you should free your SAS URI so that other SAS URI can be generated. If a SAS URI isn't freed through this API, then it frees itself eventually based on how long SAS URI are configured to live on an IoT hub.
 
 This example passes a successful status.
 
@@ -116,7 +116,7 @@ You can create a backend application to receive file upload notifications.
 
 To create a file upload notification application:
 
-* Connect to the IoT Hub service client
+* Connect to the IoT hub service client
 * Check for a file upload notification
 
 The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
@@ -138,7 +138,7 @@ ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, pr
 To check for file upload status:
 
 * Create a [getFileUploadNotificationReceiver](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver) object
-* Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT Hub
+* Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT hub
 * Call [receive](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-receive()) to check for the file upload status. This method returns a [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) object. If an upload notice is received, you can view upload status fields using [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) methods.
 
 For example:
