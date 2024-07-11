@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/08/2024
+ms.date: 07/11/2024
 ms.author: danlep
 ---
 
@@ -80,6 +80,35 @@ A network security group (NSG) must be attached to the subnet to explicitly allo
 | */80,443 | Inbound | TCP | Virtual network | Workspace gateway subnet range | Allow inbound traffic |
 
 ---
+
+## DNS settings
+
+In the Private/Private network configuration, you have to manage your own DNS to enable inbound access to your workspace gateway. 
+
+We recommend:
+
+1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
+1. Link the Azure DNS private zone to the VNet into which you've deployed your workspace gateway. 
+
+Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
+
+
+### Access on default hostname
+
+When you create an API Management workspace, the workspace gateway is assigned a default hostname. The hostname is visible in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname is in the format `<gateway-name>.gateway.<region>.azure-api.net`.
+
+> [!NOTE]
+> The workspace gateway only responds to requests to the hostname configured on its endpoint, not its private VIP address. 
+
+### Configure DNS record
+
+Create an A record in your DNS server to access the workspace from within your VNet. Map the endpoint record to the private VIP address of your workspace gateway.
+
+For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the private virtual IP address for your workspace gateway is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
+
+| Internal virtual IP address | Gateway hostname |
+| ----- | ----- |
+| 10.1.0.5 | `teamworkspace.gateway.westus.azure-api.net` |
 
 
 ## Related content
