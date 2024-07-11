@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Connect to OpenAI from Azure Functions in Visual Studio Code'
+title: 'Tutorial: Add Azure OpenAI text completions to your functions in Visual Studio Code'
 description: Learn how to connect Azure Functions to OpenAI by adding an output binding to your Visual Studio Code project.
 ms.date: 07/11/2024
 ms.topic: tutorial
@@ -9,11 +9,11 @@ zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my colud-based code executions. 
 ---
 
-# Tutorial: Connect to OpenAI from Azure Functions using Visual Studio Code
+# Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code
 
-This article shows you how to use Visual Studio Code to connect Azure OpenAI to the function you created in the previous quickstart article. The output binding that you add to this HTTP trigger function {{does somethign cool}}.
+This article shows you how to use Visual Studio Code to add an HTTP endpoint to the function app you created in the previous quickstart article. When triggered, this new HTTP endpoint uses an [Azure Open AI text completion input binding](functions-bindings-openai-textcompletion-input) to get text completion hints from your data model.
 
-[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
+During this tutorial, you learn how to accomplish these tasks:  
 
 > [!div class="checklist"]
 > * Create resources in Azure OpenAI.
