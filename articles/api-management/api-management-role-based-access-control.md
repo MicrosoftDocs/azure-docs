@@ -1,12 +1,12 @@
 ---
-title: How to use Role-Based Access Control in Azure API Management | Microsoft Docs
+title: How to use role-based access control in Azure API Management | Microsoft Docs
 description: Learn how to use the built-in roles and create custom roles in Azure API Management
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 07/03/2024
+ms.date: 07/10/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 
@@ -42,9 +42,6 @@ API Management provides the following built-in roles for collaborators in [works
 
 A workspace collaborator must be assigned both a workspace-scoped role and a service-scoped role. 
 
-> [!NOTE]
-> Depending on how workspace collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
-
 |Role  |Scope  |Description  |
 |---------|---------|---------|
 |API Management Workspace Contributor     |  workspace       | Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope.        |
@@ -53,6 +50,8 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 |API Management Workspace API Product Manager     |  workspace       |   Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope.  |
 | API Management Service Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
 |  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.      |
+
+Depending on how workspace collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
 
 ## Built-in developer portal roles
 

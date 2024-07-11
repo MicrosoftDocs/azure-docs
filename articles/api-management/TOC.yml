@@ -108,9 +108,9 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
-    - name: VNet injection (service) - network requirements
+    - name: VNet injection (service) - requirements
       href: virtual-network-injection-resources.md
-    - name: VNet integration (workspace) - network requirements
+    - name: VNet integration (workspace gateway) - requirements
       href: virtual-network-workspaces-resources.md  
     - name: Deploy to a VNet - external
       href: api-management-using-with-vnet.md
@@ -667,8 +667,8 @@
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
     - name: stv1 compute platform retirement (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
-    - name: Workspaces preview breaking changes (December 2024)
-      href: breaking-changes/workspaces-breaking-changes-dec-2024.md
+    - name: Workspaces preview breaking changes (March 2025)
+      href: breaking-changes/workspaces-breaking-changes-march-2025.md
     - name: Git configuration retirement (March 2025)
       href: breaking-changes/git-configuration-retirement-march-2025.md
     - name: Direct management API retirement (March 2025)
