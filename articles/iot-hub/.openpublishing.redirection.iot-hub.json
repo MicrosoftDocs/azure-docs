@@ -307,8 +307,8 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
@@ -1431,8 +1431,38 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-through-portal.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-cli.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-powershell.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-use-iot-toolkit.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-rm-rest.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-rm-template.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-rm-template-powershell.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
       "redirect_document_id": false
     },
     {

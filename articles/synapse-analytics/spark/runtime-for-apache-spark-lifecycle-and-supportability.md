@@ -14,6 +14,10 @@ ms.topic: reference
 
 Apache Spark pools in Azure Synapse use runtimes to tie together essential component versions such as Azure Synapse optimizations, packages, and connectors with a specific Apache Spark version. Each runtime is upgraded periodically to include new improvements, features, and patches.
 
+
+> [!CAUTION]
+>  Azure Synapse Runtime for Apache Spark 2.4, 3.1, and 3.2 are unsupported and deprecated. Using these runtimes after the deprecation date is at one's own risk, and with the agreement and acceptance of the risks that existing jobs running on Apache Spark 2.4, 3.1, or 3.2 pools will eventually stop executing.
+
 ## Release cadence
 
 The Apache Spark project usually releases minor versions about __every 6 months__. Once released, the Azure Synapse team aims to provide a __preview runtime within approximately 90 days__, if possible.
