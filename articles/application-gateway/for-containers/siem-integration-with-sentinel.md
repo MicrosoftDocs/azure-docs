@@ -18,11 +18,10 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
 
 ## Prerequisites
 
-- To ingest into Micorosft Sentinel, you need an active Log Analytics Workspace.
+- To ingest into Microsoft Sentinel, you need an active Log Analytics Workspace.
 - To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides.
 - To use Microsoft Sentinel, you need either Microsoft Sentinel Contributor or Microsoft Sentinel Reader permissions on the resource group that the workspace belongs to.
-- To install or manage solutions in the content hub, you need the Microsoft Sentinel Contributor role on the resource group that the workspace belongs to	
-## Enable Sentinel
+- To install or manage solutions in the content hub, you need the Microsoft Sentinel Contributor role on the resource group that the workspace belongs to## Enable Sentinel
 
 1. Enable Azure Sentinel to your workspace: [Onboard to Azure Sentinel Workspace](../../sentinel/quickstart-onboard).
 2. Send Logs to Log Analytics Workspace:
@@ -46,7 +45,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
     - a In **Search resources, service, and docs**, type **Azure Sentinel**.
     - b. Go to your selected Sentinel Resource.
     - c. Select **Analytics** under **Configuration**.
-    - d. Click **Create** and Select **Schedulde Query Rule**.
+    - d. Click **Create** and Select **Schedule Query Rule**.
     - e. Enter name, description, and leave rest as default and go to next page.
     - f. Create rule query based on your AGCAccessLogs:
         - a. Example Scenario: A user sends encrypted data through a specific URL.
@@ -86,4 +85,4 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
     ![A screenshot of Insights.](./media/siem-integration-with-sentinel/insights.png)
 7. Create an alert for extra security measures and communication: [Automate Playbook and Alerts](../../sentinel/automation/automate-responses-with-playbooks).
 
-Congratulations! You can now create secuirty barriers on your logs and look into any incidents that may happened!
+Congratulations! You can now create security barriers on your logs and investigate any incidents!
