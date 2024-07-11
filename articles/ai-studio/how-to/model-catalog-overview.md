@@ -159,14 +159,14 @@ To set the PNA flag for the Azure AI hub:
 
 * Go to the [Azure portal](https://ms.portal.azure.com/)
 * Search for the Resource group to which the hub belongs, and select your Azure AI hub from the resources listed for this Resource group.
-* On the hub overview page, use the left navigation bar to go to **Settings** > **Networking**.
-* Under the Public Access tab, you can configure settings for the public network access flag.
+* On the hub Overview page, use the left navigation pane to go to **Settings** > **Networking**.
+* Under the __Public access__ tab, you can configure settings for the public network access flag.
 * Save your changes. Your changes might take up to five minutes to propagate.
 
 #### Limitations
 
-* If you have an AI Studio hub with a private endpoint created before July 11, new MaaS endpoints added to projects in this hub won't follow the networking configuration of the hub. Instead, you need to create a new private endpoint for the hub and new serverless API deployments in the project so that the new deployments can follow the hub's networking configuration.
-* If you have an AI studio hub with MaaS deployments created before July 11 and you enable a private endpoint on this hub, the existing MaaS deployments won't follow the hub's networking configuration. For serverless API deployments in the hub to follow the hub's networking configuration, you need to create the deployments again.
+* If you have an AI Studio hub with a private endpoint created before July 11, 2024, new MaaS endpoints added to projects in this hub won't follow the networking configuration of the hub. Instead, you need to create a new private endpoint for the hub and create new serverless API deployments in the project so that the new deployments can follow the hub's networking configuration.
+* If you have an AI studio hub with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this hub, the existing MaaS deployments won't follow the hub's networking configuration. For serverless API deployments in the hub to follow the hub's networking configuration, you need to create the deployments again.
 * Currently [On Your Data](#rag-with-models-deployed-as-serverless-apis) support isn't available for MaaS deployments in private hubs, since private hubs have the PNA flag disabled.
 * Any network configuration change (for example, enabling or disabling the PNA flag) might take up to five minutes to propagate.
 
