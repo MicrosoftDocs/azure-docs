@@ -17,7 +17,7 @@ The Application Firewall provides sophisticated control over client connections 
 
 ## What Does the Application Firewall Do?
 
-The Application Firewall consists of various rule lists. Currently, there is a rule list called Client Connection Count Rules. Future updates will support more rule lists to control aspects like connection lifetime and message throughput.
+The Application Firewall consists of various rule lists. Currently, there is a rule list called *Client Connection Count Rules*. Future updates will support more rule lists to control aspects like connection lifetime and message throughput.
 
 This guideline is divided into three parts:
 1. Introduction to different application firewall rules.
