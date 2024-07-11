@@ -139,7 +139,7 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 
 When AKS releases 1.30, all the 1.27 versions go out of support 30 days later.
 
-AKS may support any number of **patches** based on upstream community release availability for a given minor version. AKS reserves the right to deprecate at any given time any of these patches, due to a CVE or potential bug concern. You are always encouraged to use the latest patch for a minor version.  
+AKS may support any number of **patches** based on upstream community release availability for a given minor version. AKS reserves the right to deprecate any of these patches at any given time due to a CVE or potential bug concern. You're always encouraged to use the latest patch for a minor version.  
 ## Platform support policy
 
 Platform support policy is a reduced support plan for certain unsupported Kubernetes versions. During platform support, customers only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components aren't supported.
