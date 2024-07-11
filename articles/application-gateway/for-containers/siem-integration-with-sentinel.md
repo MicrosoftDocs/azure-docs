@@ -2,11 +2,11 @@
 title: Configure Application Gateway for Containers for SIEM integration with Azure Sentinel
 description: Configure Application Gateway for Containers for SIEM integration with Azure Sentinel.
 services: application-gateway
-author:  greglin
+author:  greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 07/09/2024
+ms.date: 07/11/2024
 ms.author: greglin
 ---
 
