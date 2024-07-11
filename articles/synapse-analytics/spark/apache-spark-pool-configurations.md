@@ -7,7 +7,7 @@ ms.subservice: spark
 ms.custom: references_regions
 author: guyhay
 ms.author: guyhay
-ms.reviewer: wiassaf
+ms.reviewer: whhender
 ms.date: 09/07/2022 
 ---
 
