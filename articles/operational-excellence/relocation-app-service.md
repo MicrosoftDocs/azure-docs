@@ -4,21 +4,21 @@ description: Learn how to relocate Azure App Services to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 07/09/2024
+ms.date: 07/11/2024
 ms.service: app-service
 ms.topic: concept-article
 ms.custom:
   - subject-relocation
+#Customer intent: As an Azure service administrator, I want to move my App Service resources to another Azure region.
 ---
 
 # Relocate Azure App Services to another region
 
-#Customer intent: As an Azure service administrator, I want to move my App Service resources to another Azure region.
----
 
-# Move an App Service resource to another region
+This article describes how to move App Service resources to a different Azure region. 
 
-This article describes how to move App Service resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 App Service resources are region-specific and can't be moved across regions. You must create a copy of your existing App Service resources in the target region, then move your content over to the new app. If your source app uses a custom domain, you can [migrate it to the new app in the target region](manage-custom-dns-migrate-domain.md) when you're finished.
 
