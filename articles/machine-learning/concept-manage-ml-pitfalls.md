@@ -1,5 +1,5 @@
 ---
-title: Avoid overfitting & imbalanced data in machine learning models
+title: Prevent overfitting and imbalanced data with Automated ML
 titleSuffix: Azure Machine Learning
 description: Identify and manage common pitfalls of machine learning models by using Automated ML solutions in Azure Machine Learning.
 services: machine-learning
