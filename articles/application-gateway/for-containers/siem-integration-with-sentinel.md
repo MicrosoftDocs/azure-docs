@@ -31,8 +31,8 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
         - a. Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
         - b. Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
         ![A screenshot of AGC Log Settings.](./media/siem-integration-with-sentinel/log-analytics-diagnostic-settings.png)
-    > [!Note]
-    > It will take a some minutes for AccessLogs to populate into your log analytics workspace.
+     > [!NOTE]
+     > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
 3. View data ingested to Microsoft Sentinel:
     - a In **Search resources, service, and docs**, type **Azure Sentinel**.
     - b. Go to your selected Sentinel Resource.
