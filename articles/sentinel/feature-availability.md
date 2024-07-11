@@ -6,14 +6,14 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 06/17/2024
+ms.date: 07/11/2024
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
 
-This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available.
+This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available. 
 
-While Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md), this article only covers Azure environments.
+While Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md), this article only covers Azure environments. Microsoft Sentinel within the Microsoft unified security operations platform is currently supported only in the Azure commercial cloud.
 
 > [!NOTE]
 > These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 

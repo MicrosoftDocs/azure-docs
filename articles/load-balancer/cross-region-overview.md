@@ -106,6 +106,7 @@ This region doesn't affect how the traffic is routed. If a home region goes down
 * US Gov Virginia
 * West Europe
 * West US
+* China North 2
 
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the listed Home regions.

@@ -220,7 +220,9 @@ This middleware checks for the presence of a specific request header(x-correlati
 
 ### Customizing JSON serialization
 
-The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. This section covers general-purpose serialization and will not influence [HTTP trigger JSON serialization with ASP.NET Core integration](#json-serialization-with-aspnet-core-integration), which must be configured separately.
+
+The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
 
 ```csharp
 var host = new HostBuilder()
@@ -432,6 +434,23 @@ To enable ASP.NET Core integration for HTTP:
         return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
     }
     ```
+
+#### JSON serialization with ASP.NET Core integration
+
+ASP.NET Core has its own serialization layer, and it is not affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings. The following example shows how to configure JSON.NET (`Newtonsoft.Json`) for serialization using this approach:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services =>
+    {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+        services.AddMvc().AddNewtonsoftJson();
+    })
+    .Build();
+host.Run();
+```
 
 ### Built-in HTTP model
 

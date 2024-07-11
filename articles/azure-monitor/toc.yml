@@ -536,9 +536,6 @@ items:
       - name: Prometheus remote-write
         displayName: Prometheus,remote-write, azure monitor
         href: containers/prometheus-remote-write.md
-      - name: Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
       - name: Managed identity authentication
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-managed-identity.md
