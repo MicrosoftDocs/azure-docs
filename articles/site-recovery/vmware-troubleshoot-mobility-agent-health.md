@@ -115,3 +115,7 @@ If you get the following error in the `svagents_curr.log` file:
 Follow this recommendation:
 
 [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance. 
+
+## Next steps
+
+If you are still facing issues, contact Microsoft Support for further assistance.
