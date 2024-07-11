@@ -3280,18 +3280,14 @@ groups:
   - id: blob-storage-quickstart-template
     title: Start with a template
 # Owner: eihaugho
-- id: energy-data-services-gcz-options
-  title: Energy Data Services
-  prompt: Choose a deployment option
+- id: gcz-aks-or-windows
+  title: Deploy to AKS or Windows
+  prompt: Choose your deployment option
   pivots:
-  - id: energy-data-services-gcz-aks
-    title: Azure Kubernetes Service
-  - id: energy-data-services-gcz-windows
-    title: Windows
-  - id: energy-data-services-gcz-apim-portal
-    title: Azure portal
-  - id: energy-data-services-gcz-apim-cli
-    title: Azure CLI
+  - id: gcz-aks
+    title: Azure Kubernetes Service (AKS)
+  - id: gcz-windows
+    title: Windows Virtual Machine
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
@@ -3328,6 +3324,15 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: sudhirsneha
+- id: create-pre-post-events-maintenance-configuration
+  title: Requirements to create pre and post events on maintenance configuration
+  prompt: Choose the workflow
+  pivots:
+  - id: new-mc
+    title: New Maintenance Configuration
+  - id: existing-mc
+    title: Existing Maintenance Configuration
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -3422,3 +3427,16 @@ groups:
     title: JavaScript
   - id: platform-server
     title: Server
+# Owner: craigshoemaker
+- id: swa-web-framework
+  title: Web Framework
+  prompt: Choose which web framework you are using
+  pivots:
+  - id: vanilla-js
+    title: No framework (vanilla JavaScript)
+  - id: angular
+    title: Angular
+  - id: react
+    title: React
+  - id: vue
+    title: Vue

@@ -8,10 +8,10 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
 
-author: fkriti
-ms.author: kritifaujdar
+author: Blackmist
+ms.author: larryfr
 ms.date: 01/16/2024
-ms.reviewer: larryfr
+ms.reviewer: kritifaujdar
 ---
 
 # Migrate logging from SDK v1 to SDK v2

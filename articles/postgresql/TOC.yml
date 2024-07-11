@@ -122,6 +122,8 @@
       href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
+    - name: Identity
+      href: flexible-server/concepts-Identity.md
     - name: Encryption with customer managed keys
       href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance

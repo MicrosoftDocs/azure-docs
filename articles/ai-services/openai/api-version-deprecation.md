@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 07/01/2024
+ms.date: 07/09/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -54,8 +54,7 @@ This version contains support for the latest Azure OpenAI features including:
 
 ## Latest GA API release
 
-Azure OpenAI API version [2024-02-01](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
-is currently the latest GA API release. This API version is the replacement for the previous`2023-05-15` GA API release.
+Azure OpenAI API version [2024-06-01](./reference.md) is currently the latest GA API release. This API version is the replacement for the previous`2024-02-01` GA API release.
 
 This version contains support for the latest GA features like Whisper, DALL-E 3, fine-tuning, on your data, etc. Any preview features that were released after the `2023-12-01-preview` release like Assistants, TTS, certain on your data datasources, are only supported in the latest preview API releases.
 
