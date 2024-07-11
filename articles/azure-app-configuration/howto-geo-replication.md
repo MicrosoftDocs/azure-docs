@@ -203,7 +203,7 @@ The failover won't happen for client errors like authentication failures.
 
 ## Load balance with replicas
 
-In addition to failover, replicas can be used to balance the load of requests. By proactively distributing requests across multiple replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall performance of your application.
+In addition to failover, replicas can be used to balance the load of requests. By proactively distributing requests across any available replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall performance of your application.
 
 The App Configuration provider libraries offer built-in support for automatically load balancing across replicas.  You can use the following code samples to enable this feature in your application. 
 
