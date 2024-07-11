@@ -8,8 +8,6 @@ ms.date: 09/05/2023
 
 # Microsoft HDInsight on AKS preview information
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 Azure HDInsight on AKS is currently in public preview and may be substantially modified before it's released. Preview online service products and features aren't complete but are made available on a preview basis so that customers can get early access and provide feedback.
 
 This article describes the Azure HDInsight on AKS preview state, and provides disclaimers related to preview.
