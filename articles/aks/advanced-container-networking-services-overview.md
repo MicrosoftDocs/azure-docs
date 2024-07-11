@@ -16,7 +16,7 @@ Advanced Container Networking Services is a suite of services built to significa
 With Advanced Container Networking Services, the focus is on delivering a seamless and integrated experience that empowers you to maintain robust security postures, ensure comprehensive compliance and gain deep insights into your network traffic and application performance. This ensures that your containerized applications are not only secure and compliant but also meet or exceed your performance and reliability goals, allowing you to confidently manage and scale your infrastructure.
 
 > [!NOTE]
-> Advanced Container Networking Services is only available for clusters running Kubernetes 1.29 or higher.
+> If you have cilium enabled on your Cluster, Advanced Container Networking Services feature require Kubernetes 1.29 and above.
 
 ## What is included in Advanced Container Networking Services?
 
