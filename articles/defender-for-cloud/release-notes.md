@@ -31,9 +31,26 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
+| July 11 | Upcoming update | [GitHub application permissions update](#github-application-permissions-update) |
 | July 10 | GA | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
 | July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
+
+### GitHub application permissions update
+
+July 11, 2024
+
+**Estimated date for change**: July 18, 2024
+
+DevOps security in Defender for Cloud is constantly making updates that require customers who have onboarded their GitHub environments in Defender for Cloud to update permissions as part of the application deployed in their GitHub organization. 
+
+As part of this update, the GitHub application will require GitHub Copilot Business read permissions. This permission will be used to help customers better secure their GitHub Copilot deployments. We suggest updating the permissions as soon as possible.
+
+Permissions can be granted in two different ways:
+
+1. In your GitHub organization, navigate to the Microsoft Security DevOps application within **Settings > GitHub Apps** and accept the permissions request. 
+
+1. In an automated email from GitHub Support, select **Review permission request** to accept or reject this change.
 
 ### Compliance standards are now GA
 
