@@ -23,22 +23,6 @@ items:
         href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage secrets
         href: deploy-iot-ops/howto-manage-secrets.md
-      - name: Deploy custom workloads
-        items:
-        - name: Overview
-          href: deploy-custom/overview-orchestrator.md
-          displayName: Deploy, Orchestrator
-        - name: Manifests
-          href: deploy-custom/concept-manifests.md
-        - name: Providers and components
-          href: deploy-custom/concept-providers.md
-        - name: Deploy K8s custom resources
-          href: deploy-custom/howto-k8s.md
-        - name: Deploy Helm charts
-          href: deploy-custom/howto-helm.md
-        - name: Troubleshoot
-          href: deploy-custom/howto-troubleshoot-deployment.md
-          displayName: Deploy, Orchestrator
     - name: Discover and manage assets
       items:
       - name: Asset management overview
@@ -237,8 +221,6 @@ items:
           href: /rest/api/iotdataprocessor 
         - name: MQTT broker
           href: /rest/api/iotmq
-        - name: Azure IoT Orchestrator
-          href: /rest/api/iotorchestrator
       - name: Available metrics for observability
         items:
         - name: MQTT broker

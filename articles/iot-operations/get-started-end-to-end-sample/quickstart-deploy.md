@@ -1,9 +1,8 @@
 ---
 title: "Quickstart: Run Azure IoT Operations in Codespaces"
-description: "Quickstart: Use Azure IoT Orchestrator to run Azure IoT Operations Preview in Github Codespaces with Kubernetes."
+description: "Quickstart: Deploy Azure IoT Operations Preview to a Kubernetes cluster running in Github Codespaces."
 author: kgremban
 ms.author: kgremban
-ms.subservice: orchestrator
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 05/02/2024
@@ -15,11 +14,10 @@ ms.date: 05/02/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services that includes Azure IoT Orchestrator Preview. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
+In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
 
 The services deployed in this quickstart include:
 
-* [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
 * [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
 * [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Akri services](../discover-manage-assets/overview-akri.md)

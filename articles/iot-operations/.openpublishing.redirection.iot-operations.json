@@ -66,6 +66,36 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/concept-manifests.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/concept-providers.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/howto-helm.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/howto-k8s.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/howto-troubleshoot-deployment.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-custom/overview-orchestrator.md",
+            "redirect_url": "/azure/iot-operations/overview-iot-operations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-opcua-broker.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opcua-broker",
             "redirect_document_id": true

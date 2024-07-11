@@ -49,12 +49,6 @@ An MQTT broker that runs on the edge. The component lets you publish and subscri
 
 This component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers and the devices discovered by _Akri services_ to MQTT broker topics.
 
-### Azure IoT Orchestrator Preview
-
-This component manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
-
-On first mention in an article, use _Azure IoT Orchestrator Preview_. On subsequent mentions, you can use _Orchestrator_. Never use an acronym.
-
 ### Operations experience
 
 This web UI provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment.
