@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Connect to OpenAI from Azure Functions in Visual Studio Code'
 description: Learn how to connect Azure Functions to OpenAI by adding an output binding to your Visual Studio Code project.
-ms.date: 07/08/2024
+ms.date: 07/11/2024
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru
@@ -51,7 +51,7 @@ This article shows you how to use Visual Studio Code to connect Azure OpenAI to 
 
 The following steps show how to create an Azure OpenAI data model in the Azure portal. 
 
-1. Sign in with your Azure subscription in the Azure portal.
+1. Sign in with your Azure subscription in the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource** and search for the **Azure OpenAI**. When you locate the service, select **Create**.
 
@@ -60,7 +60,7 @@ The following steps show how to create an Azure OpenAI data model in the Azure p
    | Field | Description |
    |---|---|
    | **Subscription** | Your subscription, which has been onboarded to use Azure OpenAI. |
-   | **Resource group** | The resource group you created for the function app in the previous article. |
+   | **Resource group** | The resource group you created for the function app in the previous article. You can find this resource group name by right-clicking the function app in the Azure Resources browser, selecting properties, and then searching for the `resourceGroup` setting in the returned JSON resource file. |
    | **Region** | Ideally, the same location as the function app. |
    | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _mySampleOpenAI_. |
    | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. For more info on pricing visit the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
@@ -73,7 +73,11 @@ The following steps show how to create an Azure OpenAI data model in the Azure p
 
 1. Confirm your configuration settings, and select **Create**.
 
-The Azure portal displays a notification when the new resource is available.
+    The Azure portal displays a notification when the new resource is available. Select **Go to resource** in the notification or search for your new Azure OpenAI resource by name. 
+
+1. In the Azure OpenAI resource page for your new resource, select **Click here to view endpoints** under **Essentials** > **Endpoints**. Copy the **endpoint** URL and the **keys**. Save these values, you need them later.
+
+Now that you have the credentials to connect to your model in Azure OpenAI, you need to set these access credentials in application settings.
 
 ## 3. Deploy a model
 
@@ -91,23 +95,23 @@ To deploy a model, follow these steps:
 
     | Field | Description |
     |---|---|
+    | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs, so you must save for use later on.  |
     | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). |
-    | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs. |
 
     > [!IMPORTANT]
     > When you access the model via the API, you need to refer to the deployment name rather than the underlying model name in API calls, which is one of the key differences between OpenAI and Azure OpenAI. OpenAI only requires the model name. Azure OpenAI always requires deployment name, even when using the model parameter. In our docs, we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
 
-1. Leave the **Advanced options** set to the defaults, and select **Create**.
+1. Accept the default values for the rest of the setting and select **Create**.
 
     The deployments table shows a new entry that corresponds to your newly created model.
 
-1. After the deployment completes, navigate to the Azure OpenAI resource page in the Azure portal, and select **Click here to view endpoints** under **Essentials**. Copy the **endpoint** URL and the **keys**. Save these values, you need them later.
-
-Now that you have the credentials to connect to your model in Azure OpenAI, you need to set these access credentials in application settings.
+You now have everything you need to add Azure OpenAI-based text completion to your function app.
 
 ## 4. Update application settings
 
-1. In Visual Studio Code, open the code project you created when you completed the [previous article](./create-first-function-vs-code-csharp.md), open the local.settings.json file in the project root folder, and update the `AzureWebJobsStorage` setting to `UseDevelopmentStorage=true`. You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an existing Azure Storage account instead of `UseDevelopmentStorage=true`. 
+1. In Visual Studio Code, open the local code project you created when you completed the [previous article](./create-first-function-vs-code-csharp.md).
+
+1. In the local.settings.json file in the project root folder, update the `AzureWebJobsStorage` setting to `UseDevelopmentStorage=true`. You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an existing Azure Storage account instead of `UseDevelopmentStorage=true`. 
 
 1. In the local.settings.json file, add these settings values:
 
@@ -134,19 +138,16 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.OpenAI --prerelea
 
 To access the preview Azure OpenAI bindings, you must use a preview version of the extension bundle that contains this extension. 
 
-Replace the contents of your current `host.json` file with this JSON:
+Replace the `extensionBundle` setting in your current `host.json` file with this JSON:
 
 ```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
+ "extensionBundle": {
+   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+   "version": "[4.*, 5.0.0)"
+ }
 ``` 
 :::zone-end
-Now, you can use the Azure OpenAI output binding to your project.
+Now, you can use the Azure OpenAI output binding in your project.
 
 ## 6. Return text completion from the model
 
@@ -194,7 +195,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
 :::zone-end  
 :::zone pivot="programming-language-javascript"  
-1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, select **Anonymous**, and press Enter.
+1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, and press Enter.
 
 1. In the new `whois.js` code file, replace the contents of the file with this code:
 
@@ -202,7 +203,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
   
 :::zone-end  
 :::zone pivot="programming-language-typescript"  
-1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, select **Anonymous**, and press Enter.
+1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, and press Enter.
 
 1. In the new `whois.ts` code file, replace the contents of the file with this code:
 
@@ -233,11 +234,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
 ## 7. Run the function
 
-1. In a Terminal window, run the following command to start the Azurite storage emulator in a separate process:
-
-   ```cmd
-   start azurite
-   ```
+1. In Visual Studio Code, Press F1 and in the command palette type `Azurite: Start` and press Enter to start the Azurite storage emulator.
 
 1. Press <kbd>F5</kbd> to start the function app project and Core Tools in debug mode.
 
@@ -245,7 +242,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 
     `http://localhost:7071/api/whois/<NAME>`
 
-    Replace the `<NAME>` string with the value you want passed to the `"Who is {name}?"` prompt. 
+    Replace the `<NAME>` string with the value you want passed to the `"Who is {name}?"` prompt. The `<NAME>` must be the URL-encoded name of a public figure, like `Abraham%20Lincoln`. 
 
     The response you see is the text completion response from your Azure OpenAI model.
 
