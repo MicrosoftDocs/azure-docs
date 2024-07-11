@@ -201,7 +201,7 @@ After the load balancer is created, a backend pool needs to be created, which di
 ## Configure the Azure Monitor agent to communicate using Log Analytics gateway  
 
 To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux:
-1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
+1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-network-configuration.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
 2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  

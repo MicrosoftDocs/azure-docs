@@ -93,7 +93,7 @@ The operating system and applications in virtual machines often write to the Win
 
 For guidance on how to create a DCR to collect Windows and Syslog events, see [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md). You can quickly create a DCR by using the most common Windows event logs and Syslog facilities filtering by event level.
 
-For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-windows-event.md#filter-events-using-xpath-queries). You can further filter the collected data by [editing the DCR](../essentials/data-collection-rule-edit.md) to add a [transformation](../essentials/data-collection-transformations.md).
+For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-windows-events.md#filter-events-using-xpath-queries). You can further filter the collected data by [editing the DCR](../essentials/data-collection-rule-edit.md) to add a [transformation](../essentials/data-collection-transformations.md).
 
 Use the following guidance as a recommended starting point for event collection. Modify the DCR settings to filter unneeded events and add other events depending on your requirements.
 
