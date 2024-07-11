@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/08/2024
 ms.author: lajanuar
 ---
 
@@ -25,7 +25,7 @@ The following table provides links to language support reference articles by sup
 |![Document Intelligence icon](~/reusable-content/ce-skilling/azure/media/ai-services/document-intelligence.svg)</br>[Document Intelligence](./document-intelligence/language-support.md) | Turn documents into intelligent data-driven solutions. |
 |![Immersive Reader icon](media/service-icons/immersive-reader.svg)</br>[Immersive Reader](./immersive-reader/language-support.md) | Help users read and comprehend text. |
 |![Language icon](~/reusable-content/ce-skilling/azure/media/ai-services/language.svg)</br>[Language service](./language-service/concepts/language-support.md) | Build apps with industry-leading natural language understanding capabilities. |
-|![Language Understanding icon](media/service-icons/luis.svg)</br>[Language Understanding (LUIS)](./luis/luis-language-support.md) (retired) | Understand natural language in your apps. |
+|![Language Understanding icon](media/service-icons/luis.svg)</br>[Language Understanding (`LUIS`)](./luis/luis-language-support.md) (retired) | Understand natural language in your apps. |
 |![QnA Maker icon](media/service-icons/luis.svg)</br>[QnA Maker](./qnamaker/overview/language-support.md) (retired) | Distill information into easy-to-navigate questions and answers. |
 |![Speech icon](~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg)</br>[Speech Service](./speech-service/language-support.md)| Configure speech-to-text, text-to-speech, translation, and speaker recognition applications. |
 |![Translator icon](~/reusable-content/ce-skilling/azure/media/ai-services/translator.svg)</br>[Translator](./translator/language-support.md) |  Translate more than 100 in-use, at-risk, and endangered languages and dialects.|
@@ -46,4 +46,4 @@ These Azure AI services are language agnostic and don't have limitations based o
 ## See also
 
 * [What are Azure AI services?](./what-are-ai-services.md)
-* [Create an account](multi-service-resource.md?pivots=azportal)
+* [How to create an account](multi-service-resource.md?pivots=azportal)
