@@ -59,7 +59,7 @@ This guide assumes you followed the [documentation][istio-deploy-add-on] to enab
       mesh: |-
         accessLogFile: /dev/stdout
         defaultConfig:
-          holdApplicationUntilProxyStarts: Supported
+          holdApplicationUntilProxyStarts: true
     ```
     The values under `defaultConfig` are mesh-wide settings applied for Envoy sidecar proxy.
 
