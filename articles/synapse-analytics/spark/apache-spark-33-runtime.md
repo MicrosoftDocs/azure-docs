@@ -11,11 +11,13 @@ ms.date: 11/17/2022
 ms.custom: has-adal-ref, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.3 (GA)
+# Azure Synapse Runtime for Apache Spark 3.3 (EOSA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
-> [!TIP]
-> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which currently is [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md). 
+> [!Warning]
+>End of Support announced for Azure Synapse Runtime for Apache Spark 3.3 July 19th, 2024.
+>We strongly recommend you upgrade your Apache Spark 3.3 based workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md).
+>For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
 
 ## Component versions
 |  Component   | Version      |  
@@ -29,8 +31,6 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.10         |
 | R (Preview) | 4.2.2        |
 
->[!TIP]
-> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
 
 [Synapse-Python310-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python310-CPU.yml) contains the list of libraries shipped in the default Python 3.10 environment in Azure Synapse Spark.
 
