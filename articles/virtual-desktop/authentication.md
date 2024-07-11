@@ -83,7 +83,7 @@ To use a smart card to authenticate to Microsoft Entra ID, you must first [confi
 
 #### Third-party identity providers
 
-You can use [third-party identity providers](/entra/identity/devices/device-join-plan#federated-environment) as long as they federate with Microsoft Entra ID.
+You can use third-party identity providers as long as they [federate with Microsoft Entra ID](/entra/identity/devices/device-join-plan#federated-environment).
 
 ### Remote session authentication
 
