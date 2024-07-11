@@ -423,6 +423,10 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
+          - name: SAP
+            href: subscribe-to-sap-events.md
+          - name: Tribal Group
+            href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
             items:
             - name: Graph API event sources
