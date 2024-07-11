@@ -1,5 +1,5 @@
 ---
-title: Test connectivity to IoT MQ with MQTT clients
+title: Test connectivity to MQTT broker with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to MQTT broker in a nonproduction environment.
 author: PatAltimore
 ms.author: patricka
@@ -30,7 +30,7 @@ By default, MQTT broker:
 > - [Configure authentication in MQTT broker](./howto-configure-authentication.md)
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) using port forwarding or a virtual switch with Azure Kubernetes Services Edge Essentials.
 
-Before you begin, [install or configure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to IoT MQ with MQTT clients in a nonproduction environment.
+Before you begin, [install or configure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to MQTT broker with MQTT clients in a nonproduction environment.
 
 ## Connect from a pod within the cluster with default configuration
 
@@ -43,7 +43,7 @@ The first option is to connect from within the cluster. This option uses the def
     kind: Pod
     metadata:
       name: mqtt-client
-      # Namespace must match IoT MQ BrokerListener's namespace
+      # Namespace must match MQTT broker BrokerListener's namespace
       # Otherwise use the long hostname: aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
       namespace: azure-iot-operations
     spec:
@@ -146,7 +146,7 @@ Use the downloaded `ca.crt` file to configure your client to trust the broker's 
 
 ### Authenticate with the broker
 
-By default, IoT MQ only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509. For more information, see [Configure authentication](howto-configure-authentication.md).
+By default, MQTT broker only accepts Kubernetes service accounts for authentication for connections from within the cluster. To connect from outside the cluster, you must configure a different authentication method like X.509. For more information, see [Configure authentication](howto-configure-authentication.md).
 
 #### Turn off authentication is for testing purposes only
 
@@ -161,15 +161,15 @@ kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='
 
 ### Port connectivity
 
-Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) IoT MQ to a port on the host system (localhost). You should use this approach because it makes it easier for clients on the same host to access IoT MQ. 
+Some Kubernetes distributions can [expose](https://k3d.io/v5.1.0/usage/exposing_services/) MQTT broker to a port on the host system (localhost). You should use this approach because it makes it easier for clients on the same host to access MQTT broker. 
 
-For example, to create a K3d cluster with mapping the IoT MQ's default MQTT port 8883 to localhost:8883:
+For example, to create a K3d cluster with mapping the MQTT broker's default MQTT port 8883 to localhost:8883:
 
 ```bash
 k3d cluster create --port '8883:8883@loadbalancer'
 ```
 
-But for this method to work with IoT MQ, you must configure it to use a load balancer instead of cluster IP. There are two ways to do this: create a load balancer or patch the existing default BrokerListener resource service type to load balancer.
+But for this method to work with MQTT broker, you must configure it to use a load balancer instead of cluster IP. There are two ways to do this: create a load balancer or patch the existing default BrokerListener resource service type to load balancer.
 
 #### Option 1: Create a load balancer
 
@@ -221,14 +221,14 @@ But for this method to work with IoT MQ, you must configure it to use a load bal
     aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
     ```
 
-1. You can use the external IP address to connect to IoT MQ over the internet. Make sure to use the external IP address instead of `localhost`.
+1. You can use the external IP address to connect to MQTT broker over the internet. Make sure to use the external IP address instead of `localhost`.
 
     ```bash
     mosquitto_pub --qos 1 --debug -h XXX.XX.X.X --message hello --topic world --username client1 --pw password --cafile ca.crt
     ```
 
 > [!TIP]
-> You can use the external IP address to connect to IoT MQ from outside the cluster. If you used the K3d command with port forwarding option, you can use `localhost` to connect to IoT MQ. For example, to connect with mosquitto client:
+> You can use the external IP address to connect to MQTT broker from outside the cluster. If you used the K3d command with port forwarding option, you can use `localhost` to connect to MQTT broker. For example, to connect with mosquitto client:
 >
 > ```bash
 > mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
@@ -236,7 +236,7 @@ But for this method to work with IoT MQ, you must configure it to use a load bal
 >
 > In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost. 
 > 
-> Never expose IoT MQ port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
+> Never expose MQTT broker port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
 >
 > For information on how to add localhost to the certificate's subject alternative name (SAN) to avoid using the insecure flag, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
 
@@ -252,7 +252,7 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 
 1. Use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as the example without port forwarding.
 
-Port forwarding is also useful for testing IoT MQ locally on your development machine without having to modify the broker's configuration.
+Port forwarding is also useful for testing MQTT broker locally on your development machine without having to modify the broker's configuration.
 For more information about minikube, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
 #### Port forwarding on AKS Edge Essentials
@@ -282,10 +282,10 @@ For Azure Kubernetes Services Edge Essentials, you need to perform a few additio
 
 ## No TLS and no authentication
 
-The reason that IoT MQ uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production.
+The reason that MQTT broker uses TLS and service accounts authentication by default is to provide a secure-by-default experience that minimizes inadvertent exposure of your IoT solution to attackers. You shouldn't turn off TLS and authentication in production.
 
 > [!CAUTION]
-> Don't use in production. Exposing IoT MQ to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
+> Don't use in production. Exposing MQTT broker to the internet without authentication and TLS can lead to unauthorized access and even DDOS attacks.
 
 If you understand the risks and need to use an insecure port in a well-controlled environment, you can turn off TLS and authentication for testing purposes following these steps:
 

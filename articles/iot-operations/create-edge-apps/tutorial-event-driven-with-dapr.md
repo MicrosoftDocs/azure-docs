@@ -7,14 +7,14 @@ ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
 ms.date: 07/02/2024
 
-#CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
+#CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
 # Tutorial: Build an event-driven app with Dapr and MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
+In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to MQTT broker. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the MQTT broker state store to cache past values needed for the window calculations.
 
 The Dapr application performs the following steps:
 
@@ -30,7 +30,7 @@ The Dapr application performs the following steps:
 ## Prerequisites
 
 * Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
-* IoT MQ Dapr components installed - [Install IoT MQ Dapr Components](./howto-deploy-dapr.md)
+* MQTT broker Dapr components installed - [Install MQTT broker Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
 
@@ -40,7 +40,7 @@ To start, create a yaml file that uses the following definitions:
 
 | Component | Description |
 |-|-|
-| `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
+| `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQTT broker and State Store |
 | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 | `containers.mq-event-driven` | The prebuilt Dapr application container. | 
 
@@ -121,7 +121,7 @@ To start, create a yaml file that uses the following definitions:
 
 ## Deploy the simulator
 
-Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client on the `sensor/data` topic.
+Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client on the `sensor/data` topic.
 
 1. Deploy the simulator from the Explore IoT Operations repository:
 
@@ -297,4 +297,4 @@ kubectl logs dapr-workload daprd
 
 ## Next steps
 
-* [Bridge MQTT data between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+* [Bridge MQTT data between MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)

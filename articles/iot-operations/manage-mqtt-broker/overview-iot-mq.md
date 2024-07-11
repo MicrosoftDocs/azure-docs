@@ -16,16 +16,16 @@ ms.date: 07/02/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-MQTT broker features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+MQTT broker features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 
 ## MQTT compliant
 
-IoT MQ features a standards-compliant MQTT Broker that supports both MQTT v3.1.1 and MQTT v5. 
+MQTT broker features a standards-compliant MQTT broker that supports both MQTT v3.1.1 and MQTT v5. 
 
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
+MQTT broker uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
 
 ## Highly available and scalable
 
@@ -37,22 +37,22 @@ MQTT broker focuses on the unique edge-native, data-plane value it can provide t
 
 ## Secure by default
 
-IoT MQ builds on top of battle-tested Azure and Kubernetes-native security and identity concepts making it both highly secure and usable. It supports multiple authentication mechanisms for flexibility along with granular access control mechanisms all the way down to individual MQTT topic level. 
+MQTT broker builds on top of battle-tested Azure and Kubernetes-native security and identity concepts making it both highly secure and usable. It supports multiple authentication mechanisms for flexibility along with granular access control mechanisms all the way down to individual MQTT topic level. 
 
 
 ## Azure Arc integration
 
 Microsoft's hybrid platform is anchored around Kubernetes with Azure Arc as a single control plane. It provides a management plane that projects existing non-Azure, on-premises, or other-cloud resources into Azure Resource Manager. The result is a single control pane to manage virtual machines, Kubernetes clusters, and databases not running in Azure data centers.
 
-IoT MQ is deployed as an Azure Arc for Kubernetes extension and can be managed via a full featured Azure resource provider (RP) - **microsoft/IoTOperationsMQ**. This means you can manage it just like native Azure cloud resources such as Virtual Machines, Storage, etc.
+MQTT broker is deployed as an Azure Arc for Kubernetes extension and can be managed via a full featured Azure resource provider (RP) - **microsoft/IoTOperationsMQ**. This means you can manage it just like native Azure cloud resources such as Virtual Machines, Storage, etc.
 
-Azure Arc technology enables the changes to take effect on IoT MQ services running on the on-premises Kubernetes cluster. Optionally, if you prefer a fully Kubernetes-native approach, you can manage IoT MQ with Kubernetes custom resource definitions (CRDs) locally or using GitOps technologies like Flux.
+Azure Arc technology enables the changes to take effect on MQTT broker services running on the on-premises Kubernetes cluster. Optionally, if you prefer a fully Kubernetes-native approach, you can manage MQTT broker with Kubernetes custom resource definitions (CRDs) locally or using GitOps technologies like Flux.
 
 ## Cloud connectors
 
 You might have different messaging requirements for your cloud scenario. For example, a bi-directional cloud/edge *fast* path for high priority data or to power near real-time cloud dashboards and a lower-cost *slow* path for less time-critical data that can be updated in batches. 
 
-To provide flexibility, MQTT broker provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), [Event Grid's MQTT broker capability](../../event-grid/mqtt-overview.md), Microsoft Fabric and Blob Storage. IoT MQ is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
+To provide flexibility, MQTT broker provides built-in Azure Connectors to Event Hubs (with Kafka endpoint), [Event Grid's MQTT broker capability](../../event-grid/mqtt-overview.md), Microsoft Fabric and Blob Storage. MQTT broker is extensible so that you can choose your preferred cloud messaging solution that works with your solution.
 
 Building on top of Azure Arc allows the connectors to be configured to use Azure Managed Identity for accessing the cloud services with powerful Azure Role-based Access Control (RBAC). No manual, insecure, and cumbersome credential management is required.
 
@@ -60,7 +60,7 @@ Building on top of Azure Arc allows the connectors to be configured to use Azure
 
 [Dapr](https://dapr.io/) simplifies *plumbing* between distributed applications by exposing common distributed application capabilities, such as state management, service-to-service invocation, and publish-subscribe messaging. Dapr components lie beneath the building blocks and provide the concrete implementation for each capability. You can focus on business logic and let Dapr handle distributed application details.
 
-IoT MQ provides pluggable Dapr publish-subscribe and state store building blocks making development and deployment of event-driven applications on the edge easy and technology agnostic. 
+MQTT broker provides pluggable Dapr publish-subscribe and state store building blocks making development and deployment of event-driven applications on the edge easy and technology agnostic. 
 
 ## Architecture
 
