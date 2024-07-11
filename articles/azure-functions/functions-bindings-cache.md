@@ -1,5 +1,5 @@
 ---
-title: Using Azure Functions for Azure Cache for Redis (preview)
+title: Using Azure Functions for Azure Cache for Redis
 description: Learn how to use Azure Functions Azure Cache for Redis
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,10 +8,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 03/01/2024
+ms.date: 07/11/2024
 ---
 
-# Overview of Azure functions for Azure Cache for Redis (preview)
+# Overview of Azure functions for Azure Cache for Redis
 
 This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
 
