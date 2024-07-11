@@ -33,7 +33,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
         - a. Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
         - b. Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
       
-        ![A screenshot of AGC Log Settings.](articles/application-gateway/for-containers/media/siem-integration-with-sentinel/logging-agc.png)
+        ![A screenshot of AGC Log Settings.](./media/siem-integration-with-sentinel/logging-agc.png)
 
      > [!NOTE]
      > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
@@ -54,7 +54,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
         - a. Example Scenario: A user sends encrypted data through a specific URL.
         - b. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
         - c. Create query:
-        ![A screenshot of Rule Query.](articles/application-gateway/for-containers/media/siem-integration-with-sentinel/create-rule.png)
+        ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
 
         - d. Detect associated IPs by Entity Mapping:
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
@@ -80,16 +80,17 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
     - b. Select an Incident and open the pane on the right hand side of the page.
     - c. Click **"View Full Details"**.
     - d. Select **"Investigate"**.
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="articles/application-gateway/for-containers/media/siem-integration-with-sentinel/investgate-button.png" alt="A screenshot of investigate." width="40%">
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/investgate-button.png" alt="A screenshot of investigate." width="40%">
     
     > [!Note]
     > **"Investigate"** option only appear if there are entities associated with that incident.
     - e. In Investigate, you can visualize the entities associated and similar alerts.
-    [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/inves-mapping.png)](./media/siem-integration-with-sentinel/inves-mapping.png#lightbox)
+    [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/inves-mapping.png) ](./media/siem-integration-with-sentinel/inves-mapping.png#lightbox)
 
     - f. Click on the entity to view **Insights** to dig deeper into investigation.
       
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/insights.png" alt="A screenshot of the insights ." width="40%">
 7. [Automate Playbook and Alerts](../../sentinel/automation/automate-responses-with-playbooks) to create an alert for extra security measures and communication.
 
-Congratulations! You can now create security barriers on your logs and investigate any incidents!
+Congratulations, You can now create security barriers on your logs and investigate any incidents!
