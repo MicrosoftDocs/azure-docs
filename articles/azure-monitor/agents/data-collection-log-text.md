@@ -31,7 +31,7 @@ The following diagram shows the basic operation of collecting log data from a te
 4. If a custom transformation is used, the log entry can be parsed into multiple columns in the target table.
 
 
-:::image type="content" source="media/data-collection-log-text/text-log-collection.png" lightbox="media/data-collection-log-text/text-log-collection.png" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
+:::image type="content" source="media/data-collection-log-text/text-log-collection.png" lightbox="media/data-collection-log-text/text-log-collection.png" alt-text="Diagram showing collection of a text log by the Azure Monitor agent, showing both simple collection and a transformation for a comma-delimited file.":::
 
 
 ## Text file requirements and best practices

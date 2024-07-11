@@ -730,7 +730,7 @@ items:
           items:
           - name: Windows events
             displayName: data collection rule,Azure Monitor agent
-            href: agents/data-collection-windows-eventsss.md
+            href: agents/data-collection-windows-events.md
           - name: Syslog events
             href: agents/data-collection-syslog.md        
           - name: IIS logs

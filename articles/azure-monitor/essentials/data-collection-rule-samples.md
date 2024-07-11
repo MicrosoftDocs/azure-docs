@@ -30,7 +30,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
   - Sends all data to a Log Analytics workspace named centralWorkspace.
 
 > [!NOTE]
-> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](../agents/azure-monitor-agent-data-collection.md#filter-events-using-xpath-queries).
+> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](../agents/data-collection-windows-events.md#filter-events-using-xpath-queries).
 
 
 ```json

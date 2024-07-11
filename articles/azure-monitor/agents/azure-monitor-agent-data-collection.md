@@ -32,7 +32,7 @@ The table below lists the types of data you can currently collect with the Azure
 
 | Data source | Description | Client OS | Destinations |
 |:---|:---|:---|:---|
-| [Windows events](./data-collection-windows-event.md) |  Information sent to the Windows event logging system, including sysmon events. | Windows | Log Analytics workspace |
+| [Windows events](./data-collection-windows-events.md) |  Information sent to the Windows event logging system, including sysmon events. | Windows | Log Analytics workspace |
 | [Performance counters](./data-collection-performance.md) | Numerical values measuring performance of different aspects of operating system and workloads.  | Windows<br>Linux | Azure Monitor Metrics (Preview)<br>Log Analytics workspace |
 | [Syslog](./data-collection-syslog.md) | Information sent to the Linux event logging system. | Linux | Log Analytics workspace |
 | [Text log](./data-collection-log-text.md) | Information sent to a text log file on a local disk. | Windows<br>Linux | Log Analytics workspace
