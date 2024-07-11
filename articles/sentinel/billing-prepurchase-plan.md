@@ -42,9 +42,9 @@ The Microsoft Sentinel prepurchase CUs are applied to just Microsoft Sentinel si
 - *n* GB Commitment Tier
 - Analysis
 - Pay-as-You-Go Analysis
-- Classic Pay-as-You-Go Analysis
 - Classic *n* GB Commitment Tier
 - Classic Analysis
+- Classic Pay-as-You-Go Analysis
 
 For more information on how to view Microsoft Sentinel simplified or classic pricing tiers in your invoice details, see [Understand you Microsoft Sentinel bill](billing.md#understand-your-microsoft-sentinel-bill).
 
