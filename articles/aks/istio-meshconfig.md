@@ -161,5 +161,5 @@ Fields present in [open source MeshConfig reference documentation](https://istio
 
 [istio-meshconfig]: https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/
 [istio-sidecar-race-condition]: https://istio.io/latest/docs/ops/common-problems/injection/#pod-or-containers-start-with-network-issues-if-istio-proxy-is-not-ready
-[istio-deploy-add-on]: istio-deploy-add-on.md
+[istio-deploy-add-on]: istio-deploy-addon.md
 [container-insights-docs]: ../azure-monitor/containers/container-insights-overview.md
