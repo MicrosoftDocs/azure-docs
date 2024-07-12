@@ -46,7 +46,7 @@ To test connectivity from your virtual network:
 
       :::image type="content" source="media/troubleshoot-private-endpoint-tests/dns-success-response.png" alt-text="Screenshot that shows a successful response for DNS validation":::
       
-    - Run the following command to validate connectivity
+    - Run the following command to validate connectivity to 'azure.com'
       ```
       curl azure.com -I
       ```
@@ -54,9 +54,11 @@ To test connectivity from your virtual network:
 
         :::image type="content" source="media/troubleshoot-private-endpoint-tests/curl-success-response.png" alt-text="Screenshot that shows a successful response for connectivity validation":::
       
-    4. Repeat the above step for 'windows.net' and 'azurecr.io' to validate connectivity to these destinations. 
+    4. Repeat step 3 for 'windows.net' and 'azurecr.io' to validate DNS lookup and connectivity to these destinations. 
 
-You can also use any other approaches to ensure connectivity from the subnet to *.azure.com, *.windows.net and *.azurecr.io. 
+You can also use any other approach to ensure connectivity from the subnet to *.azure.com, *.windows.net and *.azurecr.io. 
+
+While performing the connectivity tests, you may run into issues due to policy constraints, firewall restrictions etc. Follow the error messages to take any corrective action required and retry the connectivity tests. 
 
 ## Troubleshoot issues using the actionable error messages 
 
