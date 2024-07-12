@@ -2,7 +2,7 @@
 title: 'Use Terraform to create an Azure AI Studio hub'
 description: In this article, you create an Azure AI hub, an AI project, an AI services resource, and more resources.
 ms.topic: how-to
-ms.date: 07/10/2024
+ms.date: 07/12/2024
 titleSuffix: Azure AI Studio 
 ms.service: azure-ai-studio 
 manager: scottpolly 
