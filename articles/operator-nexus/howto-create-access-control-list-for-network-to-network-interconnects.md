@@ -79,7 +79,7 @@ The table below provides guidance on the usage of parameters when creating ACLs:
 > - Egress ACLs do not support certain options like IP options, IP length, fragment, ether-type, DSCP marking, and TTL values.<br>
 > - Ingress ACLs do not support the following options: etherType.<br>
 > - Ports inputs can be `port-number` or `range-of-ports`.<br>
-> - fFragment inputs can be `port-number` or `range-of-ports`.<br>
+> - Fragment inputs can be `port-number` or `range-of-ports`.<br>
 
 ### Example payload for ACL creation
 
