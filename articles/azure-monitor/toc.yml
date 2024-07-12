@@ -122,8 +122,6 @@ items:
           items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
-        - name: FAQ
-          href: app/opentelemetry-enable.md#frequently-asked-questions
       - name: Client-side JavaScript SDK
         items:
         - name: Get Started with JavaScript SDK
