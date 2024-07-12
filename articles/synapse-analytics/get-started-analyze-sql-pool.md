@@ -3,7 +3,7 @@ title: "Tutorial: Get started analyze data with dedicated SQL pools"
 description: In this tutorial, use the NYC Taxi sample data to explore SQL pool's analytic capabilities.
 author: whhender
 ms.author: whhender
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ms.date: 10/16/2023
 ms.service: synapse-analytics
 ms.subservice: sql

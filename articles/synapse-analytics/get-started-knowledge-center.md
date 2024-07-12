@@ -3,7 +3,7 @@ title: 'Tutorial: Get started explore the Synapse Knowledge center'
 description: In this tutorial, you'll learn how to use the Synapse Knowledge center.
 author: whhender
 ms.author: whhender
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial

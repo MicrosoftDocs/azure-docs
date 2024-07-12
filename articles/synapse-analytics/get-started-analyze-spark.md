@@ -3,7 +3,7 @@ title: 'Quickstart: Get started analyzing with Spark'
 description: In this tutorial, you'll learn to analyze data with Apache Spark.
 author: whhender
 ms.author: whhender
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
