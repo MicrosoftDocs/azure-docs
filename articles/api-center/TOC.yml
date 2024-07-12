@@ -32,6 +32,8 @@
             href: register-apis.md
           - name: 3 - Add environments and deployments
             href: configure-environments-deployments.md
+          - name: 4 - Discover shadow APIs
+            href: discover-shadow-apis-dev-proxy.md
 - name: API inventory
   items:
       - name: Manage inventory - Azure CLI

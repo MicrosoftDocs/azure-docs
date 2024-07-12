@@ -1,14 +1,14 @@
 ---
 title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
-description: How to use the Document Intelligence sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
+description: How to use the Document Intelligence sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure, and key-value pairs from documents.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/11/2024
 ms.author: lajanuar
 monikerRange: 'doc-intel-2.1.0'
 ---
@@ -158,7 +158,7 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 Select **Run Layout on unvisited documents** on the left pane to get the text and table layout information for each document. The labeling tool draws bounding boxes around each text element.
 
-The labeling tool also shows which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we don't label the table content, but rather rely on the automated extraction.
+The labeling tool also shows which tables were automatically extracted. To see extracted tables, select the table/grid icon on the left hand of the document. In this quickstart, because the table content is automatically extracted, we don't label the table content, but rather rely on the automated extraction.
 
 :::image type="content" source="media/label-tool/table-extraction.png" alt-text="Table visualization in Sample Labeling tool.":::
 
@@ -249,13 +249,13 @@ At times, your data might lend itself better to being labeled as a table rather 
 
 :::image type="content" source="media/label-tool/table-tag.png" alt-text="Configuring a table tag.":::
 
-Once you've defined your table tag, tag the cell values.
+Once you define your table tag, tag the cell values.
 
 :::image type="content" source="media/table-labeling.png" alt-text="Labeling a table.":::
 
 ## Train a custom model
 
-Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you see the following information:
+To open the Training page, choose the Train icon on the left pane. Then select the **Train** button to begin training the model. Once the training process completes, you see the following information:
 
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you need it if you want to do prediction calls through the [REST API](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by adding and labeling more forms, then retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
@@ -264,7 +264,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 :::image type="content" source="media/label-tool/train-screen.png" alt-text="Training view.":::
 
-After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the labeling steps. The documents you've already labeled remain in the project index.
+After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the labeling steps. The documents you already labeled remain in the project index.
 
 > [!TIP]
 > You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
@@ -282,16 +282,16 @@ With Model Compose, you can compose up to 200 models to a single model ID. When 
 
 ## Analyze a form
 
-Select the Analyze icon from the navigation bar to test your model. Select source *Local file*. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
+To test your model, select the `Analyze` icon from the navigation bar. Select source *Local file*. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text, and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot of analyze-a-custom-form window":::
 
 > [!TIP]
-> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
+> You can also run the `Analyze` API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## Improve results
 
-Depending on the reported accuracy, you may want to do further training to improve the model. After you've done a prediction, examine the confidence values for each of the applied tags. If the average accuracy training value is high, but the confidence scores are low (or the results are inaccurate), add the prediction file to the training set, label it, and train again.
+Depending on the reported accuracy, you may want to do further training to improve the model. After you complete a prediction, examine the confidence values for each of the applied tags. If the average accuracy training value is high, but the confidence scores are low (or the results are inaccurate), add the prediction file to the training set, label it, and train again.
 
 The reported average accuracy, confidence scores, and actual accuracy can be inconsistent when the analyzed documents differ from documents used in training. Keep in mind that some documents look similar when viewed by people but can look distinct to the AI model. For example, you might train with a form type that has two variations, where the training set consists of 20% variation A and 80% variation B. During prediction, the confidence scores for documents of variation A are likely to be lower.
 
@@ -313,7 +313,7 @@ Finally, go to the main page (house icon) and select **Open Cloud Project**. The
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Document Intelligence Sample Labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
+In this quickstart, you learned how to use the Document Intelligence Sample Labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)

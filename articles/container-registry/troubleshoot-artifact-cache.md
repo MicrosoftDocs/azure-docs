@@ -90,7 +90,8 @@ Artifact cache currently supports the following upstream registries:
 
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
-| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
+| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
+| Docker Hub                                   | Supports authenticated pulls only.                       | Azure portal             |
 | Microsoft Artifact Registry                  | Supports unauthenticated pulls only.                     | Azure CLI, Azure portal  |
 | AWS Elastic Container Registry (ECR) Public Gallery | Supports unauthenticated pulls only.              | Azure CLI, Azure portal  |
 | GitHub Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
