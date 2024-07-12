@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 06/27/2024
+ms.date: 07/01/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -150,7 +150,6 @@ Contact the solution provider for more information or where information is unava
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp.md)
 - [Cisco Secure Cloud Analytics](data-connectors/cisco-secure-cloud-analytics.md)
-- [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
 - [Cisco Umbrella (using Azure Functions)](data-connectors/cisco-umbrella.md)
 - [Cisco Web Security Appliance](data-connectors/cisco-web-security-appliance.md)
@@ -193,6 +192,7 @@ Contact the solution provider for more information or where information is unava
 ## Crowdstrike
 
 - [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
+- [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
 
@@ -319,10 +319,6 @@ Contact the solution provider for more information or where information is unava
 ## H.O.L.M. Security Sweden AB
 
 - [Holm Security Asset Data (using Azure Functions)](data-connectors/holm-security-asset-data.md)
-
-## HYAS Infosec Inc
-
-- [HYAS Protect (using Azure Functions)](data-connectors/hyas-protect.md)
 
 ## Illumio
 

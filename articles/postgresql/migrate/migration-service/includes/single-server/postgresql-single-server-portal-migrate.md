@@ -198,6 +198,9 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 [!INCLUDE [prerequisites-migration-service-postgresql-online-single-server](../prerequisites/prerequisites-migration-service-postgresql-online-single-server.md)]
 
+> [!NOTE]
+> Certain limitations apply to Online migration which are documented [here](../../best-practices-migration-service-postgresql.md#online-migration). Ensure that your database is compliant to execute an Online migration.
+
 ## Configure your Azure Database for PostgreSQL flexible server
 
 - Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the portal](../../../../flexible-server/quickstart-create-server-portal.md).

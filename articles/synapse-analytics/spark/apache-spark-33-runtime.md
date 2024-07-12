@@ -12,6 +12,7 @@ ms.custom: has-adal-ref, devx-track-python
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.3 (EOSA)
+
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
 > [!Warning]

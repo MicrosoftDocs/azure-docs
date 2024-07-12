@@ -128,7 +128,7 @@ To deploy resources to the target management group, add those resources with the
 targetScope = 'managementGroup'
 
 // policy definition created in the management group
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
   ...
 }
 ```
@@ -211,7 +211,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2021-04-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -227,7 +227,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2021-04-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {
@@ -268,7 +268,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -288,7 +288,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id
