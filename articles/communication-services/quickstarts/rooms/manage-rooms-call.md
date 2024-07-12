@@ -252,6 +252,7 @@ The following mid-call actions are also supported in a room call.
 1. Add Participant (ACS identifier)
 1. Remove Participant (ACS identifier)
 1. Cancel Add Participant (ACS identifier and PSTN number)
+1. Hang up call
 1. Get Participant (ACS identifier and PSTN number)
 1. Get Participants (ACS identifier and PSTN number)
 1. Get Call
