@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure OpenAI
 description: This article contains important reference material you need when you monitor Azure OpenAI Service by using Azure Monitor.
-ms.date: 07/14/2024
+ms.date: 07/15/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: mrbullwinkle
@@ -49,38 +49,16 @@ The following list summarizes the current subset of metrics available in Azure O
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-- ActionId
 - ApiName
-- ApiVersion
-- BaselineAction
-- BaselineActionId
-- Category
-- ChosenActionId
-- EventType
-- FeatureId
 - FeatureName
-- IsMatchBaseline
-- Language
-- MatchesBaseline
-- Modality
-- Mode
 - ModelDeploymentName
 - ModelName
 - ModelVersion
-- NonDefaultReward
 - OperationName
-- RatelimitKey
 - Region
-- RunId
-- Severity
-- SeverityLevel
-- SlotId
-- SlotIndex
 - StatusCode
 - StreamType
-- TextType
 - UsageChannel
-- UseCustomList
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
