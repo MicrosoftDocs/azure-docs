@@ -12,10 +12,10 @@ ms.date: 04/11/2024
 ms.author: pafarley
 ---
 
-# Use the custom category API
+# Use the custom categories (standard) API
 
 
-The custom category API lets you create your own content categories for your use case and train Azure AI Content Safety to detect them in new content.
+The custom categories (standard) API lets you create your own content categories for your use case and train Azure AI Content Safety to detect them in new content.
 
 > [!IMPORTANT]
 > This feature is only available in certain Azure regions. See [Region availability](../overview.md#region-availability).

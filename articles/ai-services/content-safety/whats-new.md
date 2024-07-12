@@ -16,11 +16,14 @@ ms.author: pafarley
 
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
-## May 2024
+## July 2024
 
-### Custom category support in Content Safety moderation APIs
+### Custom categories (standard) API
 
 The custom categories API lets you create and train your own custom content categories and scan text for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
+
+## May 2024
+
 
 ### Custom categories (rapid) API
 

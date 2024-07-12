@@ -95,12 +95,11 @@ See the following table for the input limitations of the custom categories (stan
 | Object           | Limitation   |
 | ---------------- | ------------ |
 | Supported languages | English only |
-|  Number of categories per user     |         5     |
-|  Number of versions per category   |        5      |
+|  Number of categories per user     |         3     |
+|  Number of versions per category   |        3      |
 |  Number of concurrent builds (processes) per category      |       1       |
-|  Inference operations per second           |    10          |
-|  Number of custom categories in one text analyze request          |       5  |
-|  Number of samples in a category version          |        minimum 50, maximum 10K (no duplicate samples allowed)      |
+|  Inference operations per second           |    5         |
+|  Number of samples in a category version          |        Positive samples(required):minimum 50, maximum 5K<br>In total (both negative and positive samples): 10K<br>No duplicate samples allowed.      |
 | Sample file size       |     maximum 128000 bytes         |
 | Length of a text sample           |          maximum 125K characters   |
 | Length of a category definition          |       maximum 1000 chars     |
