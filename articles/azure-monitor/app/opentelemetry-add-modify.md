@@ -1600,7 +1600,7 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-**Events**
+#### Events
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
@@ -1622,7 +1622,7 @@ telemetryClient.TrackEvent("testEvent");
 
 #### [.NET](#tab/net)
 
-**Events**
+#### Events
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
@@ -1662,19 +1662,19 @@ telemetryClient.TrackEvent("testEvent");
 
 1. Use the client to send custom telemetry:
 
-    **Events**
+    #### Events
     
     ```java
     telemetryClient.trackEvent("WinGame");
     ```
     
-    **Metrics**
+    #### Metrics
     
     ```java
     telemetryClient.trackMetric("queueLength", 42.0);
     ```
     
-    **Dependencies**
+    #### Dependencies
     
     ```java
     boolean success = false;
@@ -1691,7 +1691,7 @@ telemetryClient.TrackEvent("testEvent");
     }
     ```
     
-    **Logs**
+    #### Logs
     
     ```java
     telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
@@ -1727,7 +1727,7 @@ const telemetryClient = new TelemetryClient();
 
 Then use the `TelemetryClient` to send custom telemetry:
 
-**Events**
+#### Events
 
 ```javascript
 // Create an event telemetry object.
@@ -1739,7 +1739,7 @@ let eventTelemetry = {
 telemetryClient.trackEvent(eventTelemetry);
 ```
 
-**Logs**
+#### Logs
 
 ```javascript
 // Create a trace telemetry object.
@@ -1752,7 +1752,7 @@ let traceTelemetry = {
 telemetryClient.trackTrace(traceTelemetry);
 ```
 
-**Exceptions**
+#### Exceptions
 
 ```javascript
 // Try to execute a block of code.
