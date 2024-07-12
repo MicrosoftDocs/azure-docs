@@ -85,7 +85,7 @@ This article shows you how to securely scale your applications with the Kubernet
 1. Create an Azure Service Bus queue using the [`az servicebus queue create`][az-servicebus-queue-create] command. Make sure to replace the placeholder value with your own value.
 
     ```azurecli-interactive
-    SB_QUEUE=<service-bus-queue-name>
+    SB_QUEUE_NAME=<service-bus-queue-name>
 
     az servicebus queue create \
         --name $SB_QUEUE \
