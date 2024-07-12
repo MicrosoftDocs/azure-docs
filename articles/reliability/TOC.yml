@@ -85,7 +85,11 @@
   - name: Business continuity management program
     href: business-continuity-management-program.md
   - name: Cross-region replication
-    href: cross-region-replication-azure.md
+    items:
+    - name: Cross-region replication overview
+      href: cross-region-replication-azure.md
+    - name: Solutions for non-paired regions
+      href: cross-region-replication-azure-no-pair.md
 - name: Reliability guides by service
   items:
   - name: Overview
