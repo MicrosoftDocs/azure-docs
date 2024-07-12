@@ -45,9 +45,10 @@ Follow these steps to create a console application.
    import os
    import azure.cognitiveservices.speech as speechsdk
 
+   # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+   speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+
    def recognize_from_microphone():
-       # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-       speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
        speech_config.speech_recognition_language="en-US"
 
        audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
