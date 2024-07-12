@@ -201,7 +201,10 @@ Follow the instructions on the form; you have two verification options:
 
 - You can approve just the specific host name used in this request. Another approval is required for later requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be autorenewed before it's expired.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year.  If the CNAME record for your custom domain is added or updated to map to your endpoint hostname after verification, then it will be autorenewed before it's expired.
+
+>[!NOTE]
+> Managed certificate autorenewal requires that your custom domain be directly mapped to your CDN endpoint by a CNAME record.
 
 ## Wait for propagation
 
