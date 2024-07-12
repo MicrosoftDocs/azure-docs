@@ -147,15 +147,6 @@ This article shows you how to securely scale your applications with the Kubernet
 
 ## Create role assignments
 
-1. Get the role ID for the Azure Service Bus Data Owner role using the [`az role definition list`][az-role-definition-list] command with the `--query` flag set to `"[].id"`.
-
-    ```azurecli-interactive
-    ROLE_ID=$(az role definition list \
-        --name "Azure Service Bus Data Owner" \
-        --query "[].id"
-        --output tsv)
-    ```
-
 1. Get the object ID for the managed identity using the [`az identity show`][az-identity-show] command with the `--query` flag set to `"principalId"`.
 
     ```azurecli-interactive
@@ -180,22 +171,11 @@ This article shows you how to securely scale your applications with the Kubernet
 
     ```azurecli-interactive
     az role assignment create \
-        --role $ROLE_ID \
+        --role "Azure Service Bus Data Owner" \
         --assignee-object-id $MI_OBJECT_ID \
         --assignee-principal-type ServicePrincipal \
         --scope $SB_ID
     ```
-
-1. Assign the Azure Service Bus Data Owner role to your signed-in user ID [`az role assignment create`][az-role-assignment-create] command.
-
-    ```azurecli-interactive
-    az role assignment create \
-        --role $ROLE_ID \
-        --assignee-object-id $(az ad signed-in-user show --query id --output tsv) \
-        --assignee-principal-type User \
-        --scope $SB_ID
-    ```
-
 
 ## Enable Workload Identity on KEDA operator
 
