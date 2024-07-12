@@ -485,7 +485,7 @@ public class Program
 > [!Tip]
 > Our product group is actively seeking feedback on this documentation. Provide feedback to otel@microsoft.com or see the [Support](#support) section.
 
-## Install and Configure Instrumentation Libraries
+## Install and configure instrumentation libraries
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -497,7 +497,7 @@ The following libraries are included in the Distro.
 - [ASP.NET Core](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore)
 - [SQL](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.sqlclient)
 
-#### Customizing Instrumentation Libraries
+#### Customizing instrumentation libraries
 
 The Azure Monitor Distro includes .NET OpenTelemetry instrumentation for [ASP.NET Core](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/), [HttpClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/), and [SQLClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient).
 You can customize these included instrumentations or manually add extra instrumentation on your own using the OpenTelemetry API.
@@ -784,7 +784,7 @@ Application Insights offered many more configuration options via `ApplicationIns
 | InstrumentationKey                         | Use ConnectionString.                                                                                                |
 | RequestCollectionOptions                   | N/A. See OpenTelemetry.Instrumentation.AspNetCore options.                                                           |
 
-### Remove Custom Configurations
+### Remove custom configurations
 
 The following scenarios are optional and only apply to advanced users.
 
@@ -915,7 +915,7 @@ We recommend setting your Connection String in an environment variable:
 
 More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=net#connection-string).
 
-### Remove Custom Configurations
+### Remove custom configurations
 
 The following scenarios are optional and apply to advanced users.
 
