@@ -13,7 +13,7 @@ ms.date: 07/09/2024
 > [!IMPORTANT]
 > Some of the features described in this article might only be available in preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Prompt flow in Azure AI Studio](../../../ai-studio/how-to/prompt-flow) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). You can explore and quickly start to use and fine-tune various natural language processing capabilities from Azure AI Language, reducing your time to value and deploying solutions with reliable evaluation.
+[Prompt flow in Azure AI Studio](../../../ai-studio/how-to/prompt-flow.md) is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). You can explore and quickly start to use and fine-tune various natural language processing capabilities from Azure AI Language, reducing your time to value and deploying solutions with reliable evaluation.
 
 This tutorial will teach you how to use Language in prompt flow utilizing [Azure AI Studio](https://ai.azure.com).                            |
 
