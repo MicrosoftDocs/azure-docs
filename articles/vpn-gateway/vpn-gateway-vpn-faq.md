@@ -61,6 +61,10 @@ To proper functionalities and healthy state to your VPN Gateway, consider one of
 1. Revert to the default native Azure DNS by removing the custom DNS within the VNet settings (recommended configuration).
 2. Add in your custom DNS configuration a DNS forwarder pointing to the native Azure DNS (IP address: 168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup might not resolve and fix the issue as expected.
 
+### Can two VPN clients connected in Point-to-Site to the same VPN Gateway communicate? 
+
+Communication between VPN clients connected in Point-to-Site to the same VPN Gateway is not supported. When two VPN clients are connected to the same Point-to-Site (P2S) VPN Gateway instance, the VPN Gateway instance can automatically route traffic between them by determining the IP address each client is assigned from the address pool. However, if the VPN clients are connected to different VPN Gateway instances, routing between the VPN clients is not possible because each VPN Gateway instance is unaware of the IP address assigned to the client by the other instance.
+
 ### Could point-to-site VPN connections be affected by a potential vulnerability known as "tunnel vision"?
 
 Microsoft is aware of reports discussing network technique that bypasses VPN encapsulation. This is an industry-wide issue impacting any operating system that implements a DHCP client according to its RFC specification and has support for DHCP option 121 routes, including Windows.
