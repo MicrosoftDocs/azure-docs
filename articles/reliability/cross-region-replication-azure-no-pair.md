@@ -128,7 +128,7 @@ To achieve geo-replication in non-paired regions:
 
     - To sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes), use [Azure File Sync](/azure/storage/file-sync/file-sync-introduction).
 
-   >[IMPORTANT]
+   > [IMPORTANT]
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
 
