@@ -47,19 +47,6 @@ The following environments are supported:
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms, or UWP) aren't supported.
 
-## Overhead
-
-The Snapshot Debugger is designed for use in production environments. The default settings include rate limits to minimize the impact on your applications. 
-
-However, you may experience small CPU, memory, and I/O overhead associated with the Snapshot Debugger, such as:
-- When an exception is thrown in your application
-- If the exception handler decides to create a snapshot
-- When `TrackException` is called
-
-There is **no additional cost** for storing data captured by Snapshot Debugger.
-
-[See example scenarios in which you may experience Snapshot Debugger overhead.](./snapshot-debugger-troubleshoot.md#snapshot-debugger-overhead-scenarios)
-
 ## Prerequisites for using Snapshot Debugger
 
 ### Packages and configurations
@@ -119,6 +106,19 @@ While the Snapshot Debugger process continues to run and serve traffic to users 
 > No more than 50 snapshots per day can be uploaded.
 
 If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
+
+## Overhead
+
+The Snapshot Debugger is designed for use in production environments. The default settings include rate limits to minimize the impact on your applications. 
+
+However, you may experience small CPU, memory, and I/O overhead associated with the Snapshot Debugger, such as:
+- When an exception is thrown in your application
+- If the exception handler decides to create a snapshot
+- When `TrackException` is called
+
+There is **no additional cost** for storing data captured by Snapshot Debugger.
+
+[See example scenarios in which you may experience Snapshot Debugger overhead.](./snapshot-debugger-troubleshoot.md#snapshot-debugger-overhead-scenarios)
 
 ## Limitations
 
