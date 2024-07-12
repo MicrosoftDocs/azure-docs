@@ -946,6 +946,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/site-recovery/reporting-log-analytics.md",
+            "redirect_url": "/azure/site-recovery/monitor-site-recovery-reference#log-analytics-data-model",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/site-recovery/site-recovery-best-practices.md",
             "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false

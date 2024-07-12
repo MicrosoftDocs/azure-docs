@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 6/8/2024
+ms.date: 7/12/2024
 #customer intent: As a reader, I want the title and description to meet the required length and include the relevant information about the release notes for Azure DB for PostgreSQL - Flexible Server.
 ---
 
@@ -19,7 +19,8 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: July 2024
 * General availability of [Major Version Upgrade Support for PostgreSQL 16](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
 * General availability of [Pgvector 0.7.0](concepts-extensions.md) extension.
-
+* General availability support for [Storage-Autogrow with read replicas](concepts-read-replicas.md)
+* [SCRAM authentication](how-to-connect-scram.md) authentication set as default for new PostgreSQL 14+ new server deployments.
 
 ## Release: June 2024
 * Support for new [minor versions](concepts-supported-versions.md) 16.3, 15.7, 14.12, 13.15, and 12.19 <sup>$</sup>
@@ -129,19 +130,15 @@ This page provides latest news and updates regarding feature additions, engine v
 * General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL flexible server in all Azure public regions
 
 ## Release: December 2022
-
 * Support for [extensions](concepts-extensions.md) pg_hint_plan with new servers<sup>$</sup>
 * General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL flexible server in Canada East, Canada Central, Southeast Asia, Switzerland North, Switzerland West, Brazil South and East Asia Azure regions
 
 ## Release: November 2022
-
 * Public preview of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics) for Azure Database for PostgreSQL flexible server
 * Support for [minor versions](./concepts-supported-versions.md) 14.5, 13.8, 12.12, 11.17. <sup>$</sup>
 * General availability of Azure Database for PostgreSQL flexible server in China North 3 & China East 3 Regions.
 
-
 ## Release: October 2022
-
 * Support for [Read Replica](./concepts-read-replicas.md) feature in public preview.
 * Support for [Azure Active Directory](concepts-azure-ad-authentication.md) authentication in public preview.
 * Support for [Customer managed keys](concepts-data-encryption.md) in public preview.
@@ -149,23 +146,19 @@ This page provides latest news and updates regarding feature additions, engine v
 * Postgres 14 is now the default PostgreSQL version.
 
 ## Release: September 2022
-
 * Support for [Fast Restore](./concepts-backup-restore.md) feature.
 * General availability of [Geo-Redundant Backups](./concepts-backup-restore.md). See the [regions](overview.md#azure-regions) where Geo-redundant backup is currently available.
 
 ## Release: August 2022
-
 * Support for [PostgreSQL minor version](./concepts-supported-versions.md) 14.4. <sup>$</sup>
 * Support for [new regions](overview.md#azure-regions) Qatar Central, Switzerland West, France South.
 
 <sup>**$**</sup> New PostgreSQL 14 servers are provisioned with version 14.4. Your existing PostgreSQL 14.3 servers will be upgraded to 14.4 in your server's future maintenance window.
 
 ## Release: July 2022
-
 * Support for [Geo-redundant backup](./concepts-backup-restore.md#geo-redundant-backup-and-restore) in [more regions](./overview.md#azure-regions) - Australia East, Australia Southeast, Canada Central, Canada East, UK South, UK West, East US, West US, East Asia, Southeast Asia, North Central US, South Central US, and France Central.
 
 ## Release: June 2022
-
 * Support for [**PostgreSQL version 14**](./concepts-supported-versions.md).
 * Support for [minor versions](./concepts-supported-versions.md) 14.3, 13.7, 12.11, 11.16. <sup>$</sup>
 * Support for [Same-zone high availability](concepts-high-availability.md) deployment option.

@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics

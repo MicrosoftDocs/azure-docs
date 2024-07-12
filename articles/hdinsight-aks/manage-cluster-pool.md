@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Manage cluster pools
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Cluster pools are a logical grouping of clusters and maintain a set of clusters in the same pool. It helps in building robust interoperability across multiple cluster types and allow enterprises to have the clusters in the same virtual network. One cluster pool corresponds to one cluster in AKS infrastructure. 
 
 This article describes how to manage a cluster pool. 

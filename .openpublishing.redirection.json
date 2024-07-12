@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-integrate-maps.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-maps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/single-server/azure-pipelines-mysql-deploy.md",
       "redirect_url": "/previous-versions/azure/mysql/single-server/azure-pipelines-mysql-deploy",
       "redirect_document_id": false
@@ -1242,7 +1247,22 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
-            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/schema-stateset-stylesobject.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
             "redirect_document_id": false
         },
         {
@@ -2123,6 +2143,11 @@
         {
             "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
             "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest/index.md",
+            "redirect_url": "/azure/devtest/offer/",
             "redirect_document_id": false
         },
         {
@@ -4479,6 +4504,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-manager/pre-post-events-common-scenarios.md",
+            "redirect_url": "/azure/update-manager/manage-pre-post-events",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-manager/whats-upcoming.md",
             "redirect_url": "/azure/update-manager/whats-new",
             "redirect_document_id": false
@@ -4496,6 +4526,11 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
+            "redirect_url": "/azure/aks/network-observability-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",

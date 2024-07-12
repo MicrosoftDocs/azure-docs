@@ -46,7 +46,7 @@ You can enable the .NET Aspire Dashboard on any existing container app using the
 
 ::: zone pivot="azurecli"
 
-You can enable the .NET Aspire Dashboard on any existing container app using the following commands.
+You can enable the .NET Aspire Dashboard on any existing container app environment by using the following commands. 
 
 ```azurecli
 az containerapp env dotnet-component create \
