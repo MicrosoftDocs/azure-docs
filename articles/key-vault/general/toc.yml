@@ -126,6 +126,8 @@
     items:
     - name: Monitor Key Vault
       href: monitor-key-vault.md
+    - name: Monitor with Key Vault insights
+      href: ../key-vault-insights-overview.md
     - name: Event Grid Notifications
       items:
       - name: Receive notifications via Logic Apps 
