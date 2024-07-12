@@ -16,7 +16,7 @@ ms.custom: include file
 For language models deployed to serverless APIs, we implement a default configuration of [Azure AI Content Safety](/azure/ai-services/content-safety/overview) text moderation filters that detect harmful content such as hate, self-harm, sexual, and violent content. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](/azure/ai-services/content-safety/concepts/harm-categories).
 
 > [!TIP]
-> Certain kinds of models don't use content filtering (preview). These models include embed models, time series models, and rerank models.
+> Certain models don't use content filtering (preview) when deployed via serverless APIs. These models include Cohere Embed models and time series models.
 
 Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you might be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints either at the time when you first deploy a language model or later in the deployment details page by selecting the content filtering toggle.
 
