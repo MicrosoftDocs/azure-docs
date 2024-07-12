@@ -228,26 +228,9 @@ As you progress, you'll complete these high-level tasks:
 
 1. To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
-1. To test the example workflow in this guide, you need a tool that can send HTTP requests to the endpoint created by the **Request** trigger, for example:
-
-   - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
-
-   - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
-
-   - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
-
-   - [Bruno](https://www.usebruno.com/)
-
-   - [Curl](https://curl.se/)
-
-   > [!CAUTION]
-   >
-   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
-   > and other similar information, make sure to use a tool that protects your data with the necessary 
-   > security features, works offline or locally, doesn't sync your data to the cloud, and doesn't require 
-   > you to create an online account. That way, you reduce the risk around exposing sensitive data to the public.
-
 1. If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+
+[!INCLUDE [postman-replacements-number](../../includes/postman-replacements-number.md)]
 
 <a name="set-up"></a>
 

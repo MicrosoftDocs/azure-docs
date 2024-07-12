@@ -20,26 +20,9 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 ## Prerequisites
 
-* Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
+- Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
-* To test the example workflows, you need a tool that can send HTTP requests to the endpoint created by the **Request** trigger, for example:
-
-  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
-
-  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
-
-  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
-
-  - [Bruno](https://www.usebruno.com/)
-
-  - [Curl](https://curl.se/)
-
-  > [!CAUTION]
-  >
-  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
-  > and other similar information, make sure to use a tool that protects your data with the necessary 
-  > security features, works offline or locally, doesn't sync your data to the cloud, and doesn't require 
-  > you to create an online account. That way, you reduce the risk around exposing sensitive data to the public.
+[!INCLUDE [postman-replacements-bullet](../../../includes/postman-replacements-bullet.md)]
 
 <a name="receive-messages-sap"></a>
 

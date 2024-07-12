@@ -29,8 +29,6 @@ Make sure that your batch receiver and batch sender logic app workflows use the 
 
 ## Prerequisites
 
-To follow this example, you need these items:
-
 * An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
@@ -43,24 +41,7 @@ To follow this example, you need these items:
 
 * To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Azure Logic Apps](quickstart-create-logic-apps-with-visual-studio.md).
 
-* To test your batching solution, you need a tool that can send HTTP requests, for example:
-
-  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
-
-  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
-
-  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
-
-  - [Bruno](https://www.usebruno.com/)
-
-  - [Curl](https://curl.se/)
-
-  > [!CAUTION]
-  >
-  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
-  > and other similar information, make sure to use a tool that protects your data with the necessary 
-  > security features, works offline or locally, doesn't sync your data to the cloud, and doesn't 
-  > require you to create an online account. That way, you avoid exposing sensitive data to the public.
+[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
 
 <a name="receiver"></a>
 

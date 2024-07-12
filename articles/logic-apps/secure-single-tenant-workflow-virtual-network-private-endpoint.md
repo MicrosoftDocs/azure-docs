@@ -29,32 +29,15 @@ For more information, review the following documentation:
 
 ## Prerequisites
 
-You need to have a new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
+- A new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
 
-For more information, review the following documentation:
+  For more information, review the following documentation:
 
-- [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
-- [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
-- [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
+  - [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
+  - [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
+  - [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
 
-- To test the callback URL that you create with the **Request** trigger, you need a tool that can send HTTP requests, for example:
-
-  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
-
-  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
-
-  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
-
-  - [Bruno](https://www.usebruno.com/)
-
-  - [Curl](https://curl.se/)
-
-  > [!CAUTION]
-  >
-  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
-  > and other similar information, make sure to use a tool that protects your data with the necessary 
-  > security features, works offline or locally, doesn't sync your data to the cloud, and doesn't require 
-  > you to create an online account. That way, you reduce the risk around exposing sensitive data to the public.
+[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
 
 <a name="set-up-inbound"></a>
 
