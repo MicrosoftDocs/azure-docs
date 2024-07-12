@@ -48,7 +48,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * Any HDInsight cluster, using ADLS Gen2 as a primary storage account can leverage MSI based access to any of the Azure resources (for example, SQL, Keyvaults) which is used within the application code. 
 
   
-## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+:::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
@@ -82,7 +82,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Fixed issues
+**Fixed issues**
 
 * Bug fixes for Ambari DB, Hive Warehouse Controller (HWC), Spark, HDFS 
 * Bug fixes for Log analytics module for HDInsightSparkLogs 
@@ -130,7 +130,7 @@ For workload specific versions, see
 
 - Apache Ranger support for Spark SQL in Spark 3.3.0 (HDInsight version 5.1) with Enterprise security package. Learn more about it [here](./spark/ranger-policies-for-spark.md).
   
-### Fixed issues
+**Fixed issues**
 
 - Security fixes from Ambari and Oozie components
 
