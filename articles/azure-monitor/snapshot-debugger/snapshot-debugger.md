@@ -47,6 +47,19 @@ The following environments are supported:
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms, or UWP) aren't supported.
 
+## Overhead
+
+The Snapshot Debugger is designed for use in production environments. The default settings include rate limits to minimize the impact on your applications. 
+
+However, you may experience small CPU, memory, and I/O overhead associated with the Snapshot Debugger, such as:
+- When an exception is thrown in your application
+- If the exception handler decides to create a snapshot
+- When `TrackException` is called
+
+There is **no additional cost** for storing data captured by Snapshot Debugger.
+
+[Learn more details regarding the Snapshot Debugger overhead.](./snapshot-debugger-troubleshoot.md)
+
 ## Prerequisites for using Snapshot Debugger
 
 ### Packages and configurations
