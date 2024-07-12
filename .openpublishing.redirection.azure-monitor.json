@@ -5565,6 +5565,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-standard-tests.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-azure-functions.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-private-test.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-alerts.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-test-migration.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/sla-report.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/tutorial-alert.md",
             "redirect_url": "/azure/azure-monitor/app/availability-standard-tests",
             "redirect_document_id": false

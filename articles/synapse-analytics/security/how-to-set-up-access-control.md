@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 5/23/2022
 ms.author: xurick
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ms.custom: kr2b-contr-experiment
 ---
 
