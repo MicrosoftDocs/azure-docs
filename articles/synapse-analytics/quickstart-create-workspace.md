@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 03/23/2022
 ms.author: whhender
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: subject-rbac-steps, mode-other
 ---
 

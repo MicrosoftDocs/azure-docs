@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: overview
 ms.date: 08/19/2022
 ms.author: whhender
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Azure Synapse Analytics terminology
