@@ -11,7 +11,7 @@ ms.author: austinmc
 
 # Optimize Microsoft Sentinel costs with a prepurchase plan
 
-Save on your Microsoft Sentinel costs when you buy a Microsoft Sentinel prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), where CUs are equivalent to your purchase currency value. So, in US dollars (USD), 1 CU = $1 USD. Use prepurchased CUs at any time during a one year purchase term. Any eligible Microsoft Sentinel costs deduct first from the prepurchased CUs automatically. Your prepurchase plan CUs, bought at a discount, start paying for your Microsoft Sentinel workspaces without needing to redeploy or reassign the plan.
+Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So the value of 1 CU = $1 USD. Any eligible Microsoft Sentinel costs deduct first from the prepurchased CUs automatically over. Your prepurchase plan CUs start paying for your Microsoft Sentinel workspaces without needing to redeploy or reassign the plan.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ To buy a prepurchase plan, you must have one of the following Azure subscription
 
 ## Determine the right size to buy
 
-Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy.
+Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel commitment tiers are monthly commitments. Microsoft Sentinel prepurchase plans have a term agreement of 1 year.
 
 Here's an example of the decision making and cost savings for a prepurchase plan. If you have a simplified pricing commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion costs to the workspace and the analysis costs for Microsoft Sentinel. For example purposes, let's say that's $20,000 USD and provides a 39% savings over the pay-as-you-go tier. 
 
@@ -66,13 +66,14 @@ Purchase Microsoft Sentinel prepurchase plans in the [Azure portal reservations]
 1. Select how many Microsoft Sentinel commit units you want to purchase.
    **Need screenshot here**
    :::image type="content" source="../cost-management-billing/reservations/media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" alt-text="Screenshot showing prepurchase plan discount tiers and their term lengths.":::
+1. Choose to automatically renew a the prepurchase reservation. *The renewal setting is turned by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
 
 ## Change scope and ownership
 
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-- Azure role-based access control (Azure RBAC) of the reservation
+- Update who can view or manage the reservation. For more information, see [Who can manage a reservation by default](../cost-management-billing/reservations/manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 You can't split or merge a Microsoft Sentinel commit unit Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
