@@ -3,7 +3,7 @@ title: Bicep warnings and error codes
 description: Lists the warnings and error codes.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 06/28/2024
+ms.date: 07/12/2024
 ---
 
 # Bicep warning and error codes
@@ -42,11 +42,11 @@ If you need more information about a particular warning or error code, select th
 | BCP030     | The output type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | BCP031     | The parameter type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | BCP032     | The value must be a compile-time constant. |
-| [BCP033](./bicep-error-bcp033.md) | Expected a value of type "{expectedType}" but the provided value is of type "{actualType}". |
+| [BCP033](./bicep-error-bcp033.md) | Expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
 | BCP034     | The enclosing array expected an item of type "{expectedType}", but the provided item was of type "{actualType}". |
-| [BCP035](./bicep-error-bcp035.md) | The specified "{blockName}" declaration is missing the following required properties{sourceDeclarationClause}: {ToQuotedString(properties)}.{(showTypeInaccuracy ? TypeInaccuracyClause : string.Empty)} |
-| BCP036     | The property "{property}" expected a value of type "{expectedType}" but the provided value{sourceDeclarationClause} is of type "{actualType}".{(showTypeInaccuracy ? TypeInaccuracyClause : string.Empty)} |
-| BCP037     | The property "{property}"{sourceDeclarationClause} is not allowed on objects of type "{type}".{permissiblePropertiesClause}{(showTypeInaccuracy ? TypeInaccuracyClause : string.Empty)} |
+| [BCP035](./bicep-error-bcp035.md) | The specified &lt;data-type> declaration is missing the following required properties: &lt;property-name>. |
+| [BCP036](./bicep-error-bcp036.md) | The property &lt;property-name> expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
+| [BCP037](./bicep-error-bcp037.md) | The property &lt;property-name> is not allowed on objects of type &lt;type-definition>. |
 | BCP040     | String interpolation is not supported for keys on objects of type "{type}"{sourceDeclarationClause}.{permissiblePropertiesClause} |
 | BCP041     | Values of type "{valueType}" cannot be assigned to a variable. |
 | BCP043     | This is not a valid expression. |
@@ -78,7 +78,7 @@ If you need more information about a particular warning or error code, select th
 | BCP070     | Argument of type "{argumentType}" is not assignable to parameter of type "{parameterType}". |
 | BCP071     | Expected {expected}, but got {argumentCount}. |
 | [BCP072](./bicep-error-bcp072.md) | This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values. |
-| BCP073     | The property "{property}" is read-only. Expressions cannot be assigned to read-only properties.{(showTypeInaccuracy ? TypeInaccuracyClause : string.Empty)} |
+| [BCP073](./bicep-error-bcp073.md) | The property &lt;property-name> is read-only. Expressions cannot be assigned to read-only properties. |
 | BCP074     | Indexing over arrays requires an index of type "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP075     | Indexing over objects requires an index of type "{LanguageConstants.String}" but the provided index was of type "{wrongType}". |
 | BCP076     | Cannot index over expression of type "{wrongType}". Arrays or objects are required. |

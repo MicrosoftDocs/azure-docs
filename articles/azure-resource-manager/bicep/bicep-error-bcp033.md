@@ -1,18 +1,18 @@
 ---
 title: BCP033
-description: Error - Expected a value of type "{expectedType}" but the provided value is of type "{actualType}".
+description: Error - Expected a value of type <data-type> but the provided value is of type <data-type>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 06/28/2024
 ---
 
-# Bicep warning and error code - BCP033
+# Bicep error code - BCP033
 
 This error occurs when you assign a value of a mismatched data type.
 
 ## Error description
 
-`Expected a value of type "{expectedType}" but the provided value is of type "{actualType}".`
+`Expected a value of type <data-type> but the provided value is of type <data-type>.`
 
 ## Solution
 

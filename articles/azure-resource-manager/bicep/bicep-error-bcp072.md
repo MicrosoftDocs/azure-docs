@@ -6,7 +6,7 @@ ms.custom: devx-track-bicep
 ms.date: 07/02/2024
 ---
 
-# Bicep warning and error code - BCP072
+# Bicep error code - BCP072
 
 This error occurs when you reference a variable in parameter default values.
 
