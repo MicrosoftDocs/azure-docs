@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: how-to
-ms.date: 07/11/2024
+ms.date: 07/12/2024
 
 ---
 
@@ -37,16 +37,97 @@ In this article, you learn how to request and gain access to Azure Extended Zone
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the [edgezones](/cli/azure/edge-zones) extension for Azure CLI version 2.57.0 or higher. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
-
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the [edgezones](/cli/azure/edge-zones) extension which is available in Azure CLI version 2.57.0 or higher. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ---
 
+## Register your subscription for resource provider Microsoft.EdgeZones
 
-## Sign in to Azure
+In this section, you register resource provider **Microsoft.EdgeZones** to your subscription.
 
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+# [**PowerShell**](#tab/powershell)
 
+# [**Azure CLI**](#tab/cli)
+
+Use [az account set](/cli/azure/account#az-account-set) to select the subscription that you want to register Azure Extended Zones for.
+
+```azurecli-interactive
+az account set --subscription '00000000-0000-0000-0000-000000000000'
+```
+Use [az provider register](/cli/azure/provider#az-provider-register) to register Microsoft.EdgeZones resource provider.
+
+```azurecli-interactive
+az provider register --namespace 'Microsoft.EdgeZones'
+```
+
+Use [az provider show](/cli/azure/provider#az-provider-show) to check the registration state. 
+
+```azurecli-interactive
+az provider show --namespace 'Microsoft.EdgeZones'
+```
+
+You should wait until the registration state becomes `Registered`. If it is still `PendingRegister`, attempting to show, list, register, and unregister the Azure Extended Zones will fail.
+
+---
+
+## Register for an Azure Extended Zone
+
+To register for an Azure Extended Zone, you must select the subscription that you wish to register Azure Extended Zones for and specify the Extended Zone name.
+
+# [**PowerShell**](#tab/powershell)
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az edge-zones extended-zone list](/cli/azure/edge-zones/extended-zone#az-edge-zones-extended-zone-list) to list all Azure Extended Zones available to your subscription.
+
+```azurecli-interactive
+az edge-zones extended-zone list
+```
+
+Use [az edge-zones extended-zone register](/cli/azure/edge-zones/extended-zone#az-edge-zones-extended-zone-register) to register for an Azure Extended Zone. The following example registers for Los Angeles as an Extended Zone.
+
+```azurecli-interactive
+az edge-zones extended-zone register --extended-zone-name 'losangeles'
+```
+
+Use [az edge-zones extended-zone show](/cli/azure/edge-zones/extended-zone#az-edge-zones-extended-zone-show) to check the registration state of an Azure Extended Zone. The following example uses Los Angeles as an Extended Zone.
+
+```azurecli-interactive
+az edge-zones extended-zone show --extended-zone-name 'losangeles'
+```
+
+Once your request is approved, the registration state becomes `Registered`.
+
+> [!NOTE]
+> You can't use an Azure Extended Zone until its registration state becomes `Registered`.
+
+---
+
+## ## Register for an Azure Extended Zone
+
+In this section, you learn how to unregister your subscription for an Azure Extended Zone.
+
+# [**PowerShell**](#tab/powershell)
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az edge-zones extended-zone unregister](/cli/azure/edge-zones/extended-zone#az-edge-zones-extended-zone-unregister) to unregister your subscription for an Azure Extended Zone. The following example registers for Los Angeles as an Extended Zone.
+
+```azurecli-interactive
+az edge-zones extended-zone unregister --extended-zone-name 'losangeles'
+```
+
+Use [az edge-zones extended-zone show](/cli/azure/edge-zones/extended-zone#az-edge-zones-extended-zone-show) to check the registration state of an Azure Extended Zone. The following example uses Los Angeles as an Extended Zone.
+
+```azurecli-interactive
+az edge-zones extended-zone show --extended-zone-name 'losangeles'
+```
+
+> [!NOTE]
+> Unregistering an Azure Extended Zone will show registration state as `PendingUnregister`.  The Extended Zone stays in your subscription until the registration state becomes `NotRegistered`.
+
+
+---
 
 
 ## Related content
