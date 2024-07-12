@@ -28,5 +28,5 @@ The content APIs may return the following error codes:
 
 # Azure AI Studio Error Messages
 
-If you meet with error in Azure AI studio of *Your account does not have access to this resource, please contact your resource owner to get access*, please ensure your account is assigned as role of `Cognitive Services User` in the Content Safety resource or Azure AI Services resource you are using.
+If you encounter the error **Your account does not have access to this resource, please contact your resource owner to get access**, please ensure your account is assigned the role of `Cognitive Services User` for the Content Safety resource or Azure AI Services resource you are using.
 
