@@ -74,7 +74,8 @@ This article shows you how to securely scale your applications with the Kubernet
 
     ```azurecli-interactive
     SB_NAME=<service-bus-name>
-    
+    SB_HOSTNAME="${SB_NAME}.servicebus.windows.net"
+
     SB_HOSTNAME=$(az servicebus namespace create \
         --name $SB_NAME \
         --resource-group $RG_NAME \
