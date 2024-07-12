@@ -37,7 +37,7 @@ In ARM templates, you can reuse or modularize a template through nesting or link
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2024-03-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
