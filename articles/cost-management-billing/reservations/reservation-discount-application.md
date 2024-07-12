@@ -34,7 +34,7 @@ When you buy a reservation for a specific SKU at a rate lower than the pay-as-yo
 
 Autorenew is set **On** by default for all new reservations while you're in the reservation purchase experience. You can manually turn it off. When tuned off, at the end of the reservation term, the billing discount expires and the resources are billed at the pay-as-you go price.
 
-You can choose to enable automatic renewal of a reservation by selecting the option in the renewal settings. With automatic renewal, a replacement reservation is purchased automatically when the reservation expires.
+After purchase, you can change the automatic renewal setting by selecting the appropriate option in the reservation's **Renewal** settings. With automatic renewal turned on, a replacement reservation is purchased automatically when the reservation expires.
 
 By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
 
