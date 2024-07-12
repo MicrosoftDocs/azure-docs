@@ -50,22 +50,22 @@ Azure Virtual Desktop currently doesn't support [external identities](/entra/ext
 
 ## Authentication methods
 
-When accessing Azure Virtual Desktop resources, there are three separate authentication points:
+When accessing Azure Virtual Desktop resources, there are three separate authentication phases:
 
-- **Cloud service authentication**: Authenticating to the service, which includes subscribing to resources and authenticating to the Gateway, is with Microsoft Entra ID.
+- **Cloud service authentication**: Authenticating to the Azure Virtual Desktop service, which includes subscribing to resources and authenticating to the Gateway, is with Microsoft Entra ID.
 - **Remote session authentication**: Authenticating to the remote VM. There are multiple ways to authenticate to the remote session, including the recommended single sign-on (SSO).
 - **In-session authentication**: Authenticating to applications and web sites within the remote session.
 
-For the list of credential available on the different clients for each of the authentication point, [compare the clients across platforms](compare-remote-desktop-clients.md?pivots=azure-virtual-desktop).
+For the list of credential available on the different clients for each of the authentication phase, [compare the clients across platforms](compare-remote-desktop-clients.md?pivots=azure-virtual-desktop#authentication).
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
 
-The following sections provide more information on these authentication points.
+The following sections provide more information on these authentication phases.
 
 ### Cloud service authentication
 
-To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with a Microsoft Entra ID account. Authentication happens whenever you subscribe to a workspace to retrieve your resources, connect to the gateway when launching a connection or when sending diagnostic information to the service. The Entra ID resource used for this authentication is Azure Virtual Desktop (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07).
+To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in with a Microsoft Entra ID account. Authentication happens whenever you subscribe to retrieve your resources, connect to the gateway when launching a connection or when sending diagnostic information to the service. The Entra ID resource used for this authentication is Azure Virtual Desktop (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07).
 
 <a name='multi-factor-authentication'></a>
 
@@ -91,11 +91,11 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
 
 #### Single sign-on (SSO)
 
-SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows. For session hosts that are Microsoft Entra joined or Microsoft Entra hybrid joined, it's recommended to enable [SSO using Microsoft Entra authentication](configure-single-sign-on.md). Microsoft Entra authentication provides other benefits including passwordless authentication and support for third-party identity providers.
+SSO allows the connection to skip the session host credential prompt and automatically sign the user in to Windows through Microsoft Entra authentication. For session hosts that are Microsoft Entra joined or Microsoft Entra hybrid joined, it's recommended to enable [SSO using Microsoft Entra authentication](configure-single-sign-on.md). Microsoft Entra authentication provides other benefits including passwordless authentication and support for third-party identity providers.
 
 Azure Virtual Desktop also supports [SSO using Active Directory Federation Services (AD FS)](configure-adfs-sso.md) for the Windows Desktop and web clients.
 
-Without SSO, the client will prompt users for their session host credentials for every connection. The only way to avoid being prompted is to save the credentials in the client. We recommend you only save credentials on secure devices to prevent other users from accessing your resources.
+Without SSO, the client prompts users for their session host credentials for every connection. The only way to avoid being prompted is to save the credentials in the client. We recommend you only save credentials on secure devices to prevent other users from accessing your resources.
 
 #### Smart card and Windows Hello for Business
 
