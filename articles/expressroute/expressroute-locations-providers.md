@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 07/11/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -130,6 +130,7 @@ The following table shows connectivity locations and the service providers for e
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Australia East | Supported | AARNet<br/>AT&T NetBond<br/>British Telecom<br/>Cello<br/>Devoli<br/>Equinix<br/>GTT<br/>Kordia<br/>Megaport<br/>NEXTDC<br/>NTT Communications<br/>Optus<br/>Orange<br/>Spark NZ<br/>Telstra Corporation<br/>TPG Telecom<br/>Verizon<br/>Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Australia East | Supported | Megaport<br/>NETSG<br/>NextDC |
 | **Taipei** | Chief Telecom | 2 | n/a | Supported | Chief Telecom<br/>Chunghwa Telecom<br/>FarEasTone |
+| **Taipei2** | Chunghwa Telecom | 2 | n/a | Supported | |
 | **Tel Aviv** | Bezeq International | 2 | Israel Central | Supported | Bezeq International |
 | **Tel Aviv2** | SDS | 2 | Israel Central | Supported | |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | Supported | Aryaka Networks<br/>AT&T NetBond<br/>BBIX<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>Intercloud<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT Communications<br/>NTT EAST<br/>Orange<br/>Softbank<br/>Telehouse - KDDI<br/>Verizon </br></br> |

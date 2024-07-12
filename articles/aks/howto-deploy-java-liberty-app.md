@@ -152,7 +152,7 @@ You use these values later in this article. The outputs list several other usefu
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
-Create an environment variable in your shell for the resource group name for the database:
+Then, use the following command to create an environment variable in your shell for the resource group name for the database:
 
 ### [Bash](#tab/in-bash)
 

@@ -8,9 +8,9 @@ ms.subservice: prompt-flow
 ms.custom:
   - build-2024
 ms.topic: how-to
-author: cloga
-ms.author: lochen
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: lochen
 ms.date: 04/19/2024
 ---
 

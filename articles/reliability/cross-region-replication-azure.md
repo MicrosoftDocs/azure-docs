@@ -108,12 +108,12 @@ The table below lists Azure regions without a region pair:
 | Geography | Region |
 |-----|----|
 | Qatar | Qatar Central |
+| Mexico | Mexico Central |
 | Poland | Poland Central |
 | Israel | Israel Central|
 | Italy | Italy North|
 | Austria | Austria East (Coming soon) |
-| Spain | Spain Central (Coming soon) |
-
+| Spain | Spain Central|
 
 ## Next steps
 
