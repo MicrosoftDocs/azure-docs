@@ -76,38 +76,34 @@ Advisor applies this model at an Advisor category level to give an Advisor score
 
 ## Frequently Asked Questions (FAQs)
 
-### Score refresh
-#### How often is my score refreshed?
+### How often is my score refreshed?
 
 Your score is refreshed at least once per day.
 
-#### Why did my score change?
+### Why did my score change?
 
 Your score can change if you remediate impacted resources by adopting the best practices that Advisor recommends. If you or anyone with permissions on your subscription has modified or created new resources, you might also see fluctuations in your score. Your score is based on a ratio of the cost-impacted resources relative to the total cost of all resources.
 
-#### I implemented a recommendation but my score did not change. Why did this happen?
+### I implemented a recommendation but my score did not change. Why did this happen?
 
 The score does not reflect adopted recommendations right away. It takes at least 24 hours for the score to change after the recommendation is remediated. 
 
-### Score impact 
-#### Why do some recommendations have the empty "-" value in the category score impact column?
+### Why do some recommendations have the empty "-" value in the category score impact column?
 
 Advisor doesn't immediately include new recommendations or recommendations with recent changes in the scoring model. After a short evaluation period, typically a few weeks, they're included in the score.
 
-#### Why is the cost score impact greater for some recommendations even if they have lower potential savings?
+### Why is the cost score impact greater for some recommendations even if they have lower potential savings?
 
 Your **Cost** score reflects both your potential savings from underutilized resources and the predicted ease of implementing those recommendations. For example, extra weight is applied to impacted resources that have been idle for a longer time, even if the potential savings is lower.
 
-#### What does it mean when I see "Coming soon" in the score impact column?
+### What does it mean when I see "Coming soon" in the score impact column?
 
 This message means that the recommendation is new, and we're working on bringing it to the Advisor score model. After this new recommendation is considered in a score calculation, you'll see the score impact value for your recommendation.
 
-### Excluding recommendations
 ### What if a recommendation isn't relevant?
 
 If you dismiss a recommendation from Advisor, it will be excluded from the calculation of your score. Dismissing recommendations also helps Advisor improve the quality of recommendations.
 
-### Calculation
 ### Why don't I have a score for one or more categories or subscriptions?
 
 Advisor generates a score only for the categories and subscriptions that have resources that are assessed by Advisor.
