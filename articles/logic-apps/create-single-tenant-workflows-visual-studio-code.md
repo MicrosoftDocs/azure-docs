@@ -240,14 +240,12 @@ As you progress, you'll complete these high-level tasks:
 
   - [Curl](https://curl.se/)
 
-  - [Insomnia](https://insomnia.rest/)
-
   > [!CAUTION]
   >
   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
-  > and other such information, make sure that the tool you use works only locally or offline and has 
-  > the necessary security features to protect your data. To avoid public exposure, use a tool that 
-  > doesn't sync your data to the cloud and doesn't require you to create an online account.
+  > and other similar information, make sure to use a tool that protects your data with the necessary 
+  > security features, works offline or locally, doesn't sync your data to the cloud, and doesn't require 
+  > you to create an online account. That way, you reduce the risk around exposing sensitive data to the public.
 
 1. If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 

@@ -52,14 +52,12 @@ For more information, see [What is Azure Logic Apps?](../logic-apps/logic-apps-o
 
   - [Curl](https://curl.se/)
 
-  - [Insomnia](https://insomnia.rest/)
-
   > [!CAUTION]
   >
   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
-  > and other such information, make sure to use a tool that works only locally or offline and has 
-  > the necessary security features to protect your data. To avoid public exposure, use a tool that 
-  > doesn't sync your data to the cloud and doesn't require you to create an online account.
+  > and other similar information, make sure to use a tool that protects your data with the necessary 
+  > security features, works offline or locally, doesn't sync your data to the cloud, and doesn't require 
+  > you to create an online account. That way, you reduce the risk around exposing sensitive data to the public.
 
 ## Migrate by using a script
 
