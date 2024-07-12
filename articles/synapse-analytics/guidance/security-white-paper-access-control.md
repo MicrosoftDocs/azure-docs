@@ -2,8 +2,8 @@
 title: "Azure Synapse Analytics security white paper: Access control"
 description: Use different approaches or a combination of techniques to control access to data with Azure Synapse Analytics.
 author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
+ms.author: whhender
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022
