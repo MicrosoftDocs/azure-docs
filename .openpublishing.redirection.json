@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-integrate-maps.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-maps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/single-server/azure-pipelines-mysql-deploy.md",
       "redirect_url": "/previous-versions/azure/mysql/single-server/azure-pipelines-mysql-deploy",
       "redirect_document_id": false
