@@ -154,7 +154,7 @@ spec:
 
 In this example, the `temperature` field in the source data is converted to Celsius and stored in the `temperatureCelsius` field. The `location` field is enriched to the source data from the contextualization dataset.
 
-To learn more, see the [Dataflow Language Design](#language-design) section.
+To learn more, see the [Dataflow Language Design]().
 
 <!-- #### (Preview) Use WASM modules for custom transformations
 
@@ -211,7 +211,7 @@ To configure a destination for the dataflow, you need to specify the endpoint an
 
 ### Use Asset as destination (portal only)
 
-You can use an [asset](https://learn.microsoft.com/en-us/azure/iot-operations/manage-devices-assets/overview-manage-assets) as the destination for the dataflow. This is only available in the portal.
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the destination for the dataflow. This is only available in the portal.
 
 ### Configure destination endpoint reference
 
@@ -312,3 +312,35 @@ The full list of parameters that can be used in the path includes:
 | `$payload.<value>` | A value from the message payload. Use JSON path expression nested values. |
 | `$context(<dataset>).<property>` | A property from the contextualization dataset specified in `enrich` stage. |
 | `$subscription(<topic>)` | The value of a single message from the specified topic. |
+
+## Test dataflow
+
+After configuring the dataflow, you can test it by sending test data and viewing the outcome.
+
+### Send test data
+
+To send test data to the dataflow, you can use the Azure IoT Operations portal, Azure CLI, or call the REST API.
+
+```bash
+az iotops dataflow send-test-data --dataflow-name my-dataflow --data '{
+  "assetName": "thermostat",
+  "temperature": 25
+}'
+```
+
+### View outcome
+
+And the outcome can be viewed as a response:
+
+```output
+{
+  "status": "success",
+  "message": "Data sent successfully",
+  "data": {
+    "deviceId": "thermostat",
+    "customer": "Contoso",
+    "temperatureCelsius": 25,
+    "temperatureKelvin": 298
+  }
+}
+```

@@ -86,7 +86,13 @@ items:
       - name: Connect to cloud services
         items:
         - name: What are dataflows?
-          href: connect-to-cloud/overview-dataflows.md
+          href: connect-to-cloud/overview-dataflow.md
+        - name: Configure dataflow endpoint
+          href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+        - name: Create a dataflow
+          href: connect-to-cloud/howto-create-dataflow.md
+        - name: Manage dataflows
+          href: connect-to-cloud/howto-manage-dataflow.md
         - name: Connect to MQTT or Event Grid
           href: connect-to-cloud/howto-configure-mqtt-bridge.md
         - name: Bridge MQTT data between IoT MQ and Azure Event Grid

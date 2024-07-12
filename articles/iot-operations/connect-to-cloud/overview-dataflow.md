@@ -1,6 +1,6 @@
 ---
-title: Dataflow
-description: Use Dataflows
+title: What are dataflows
+description: Use dataflows
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -10,7 +10,7 @@ ms.date: 07/02/2024
 #CustomerIntent: As an operator, I want to understand how to I can use Dataflows to .
 ---
 
-# What are Dataflows?
+# What are dataflows?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
