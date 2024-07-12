@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 07/11/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 ---
@@ -18,6 +18,9 @@ ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 You can easily integrate Azure Application Insights with Azure API Management. Azure Application Insights is an extensible service for web developers building and managing apps on multiple platforms. In this guide, you will:
 * Walk through Application Insights integration into API Management.
 * Learn strategies for reducing performance impact on your API Management service instance.
+
+> [!NOTE]
+> In an API Management [workspace](workspaces-overview.md), a workspace owner can separately configure Application Insights integration for the workspace and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance provided in this article for an API Management instance, but configuration is scoped to the workspace instead of the API Management service. Currently, you can integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
 
 ## Prerequisites
 
@@ -35,6 +38,8 @@ You can easily integrate Azure Application Insights with Azure API Management. A
         * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     
     1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
+
+* To integrate Application Insights with a workspace in API Management, you need a workspace in your API Management instance. You also need to be assigned the **API Management Workplace Contributor** or equivalent permissions at the workspace scope to complete the configuration. For more information, see [Create and manage a workspace in Azure API Management](how-to-create-workspace.md). 
     
 ## Scenario overview
 
@@ -392,7 +397,7 @@ To improve performance issues, skip:
 Addressing the issue of telemetry data flow from API Management to Application Insights:
 + Investigate whether a linked Azure Monitor Private Link Scope (AMPLS) resource exists within the VNet where the API Management resource is connected. AMPLS resources have a global scope across subscriptions and are responsible for managing data query and ingestion for all Azure Monitor resources. It's possible that the AMPLS has been configured with a Private-Only access mode specifically for data ingestion. In such instances, include the Application Insights resource and its associated Log Analytics resource in the AMPLS. Once this addition is made, the API Management data will be successfully ingested into the Application Insights resource, resolving the telemetry data transmission issue.
 
-## Next steps
+## Related content
 
 + Learn more about [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).
