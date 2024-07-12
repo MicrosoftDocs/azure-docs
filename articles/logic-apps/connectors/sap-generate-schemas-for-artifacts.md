@@ -29,6 +29,27 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - If you want to upload your generated schemas to a repository, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), make sure that the repository already exists.
 
+- To test the example workflows, you need a tool that can send HTTP requests to the endpoint created by the **Request** trigger, for example:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+
+  - [Bruno](https://www.usebruno.com/)
+
+  - [Curl](https://curl.se/)
+
+  - [Insomnia](https://insomnia.rest/)
+
+  > [!CAUTION]
+  >
+  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
+  > and other such information, make sure that the tool you use works only locally or offline and has 
+  > the necessary security features to protect your data. To avoid public exposure, use a tool that 
+  > doesn't sync your data to the cloud and doesn't require you to create an online account.
+
 ## Generate schemas for an SAP artifact
 
 The following example logic app workflow triggers when the workflow's SAP trigger receives a request from an SAP server. The workflow then runs an SAP action that generates schemas for the specified SAP artifact.
@@ -184,11 +205,11 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
+1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
+1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
-   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+   This example uses the **POST** method and the endpoint URL to send an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -220,9 +241,9 @@ For more information about reviewing workflow run history, see [Monitor logic ap
 
 1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
-1. To simulate a webhook trigger payload, send an HTTP POST request to the endpoint URL that's specified by your workflow's Request trigger. To send the request, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
+1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
-   For this example, the HTTP POST request sends an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
+   This example uses the **POST** method and the endpoint URL to send an IDoc file, which must be in XML format and include the namespace for the SAP action that you selected, for example:
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>

@@ -43,6 +43,27 @@ To follow this example, you need these items:
 
 * To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Azure Logic Apps](quickstart-create-logic-apps-with-visual-studio.md).
 
+* To test your batching solution, you need a tool that can send HTTP requests, for example:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+
+  - [Bruno](https://www.usebruno.com/)
+
+  - [Curl](https://curl.se/)
+
+  - [Insomnia](https://insomnia.rest/)
+
+  > [!CAUTION]
+  >
+  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
+  > and other such information, make sure that the tool you use works only locally or offline and has 
+  > the necessary security features to protect your data. To avoid public exposure, use a tool that 
+  > doesn't sync your data to the cloud and doesn't require you to create an online account.
+
 <a name="receiver"></a>
 
 ## Create X12 batch receiver
@@ -166,7 +187,7 @@ the batch into subsets to collect messages with that key.
 
 ## Test your workflows
 
-To test your batching solution, post X12 messages to your batch sender logic app from a local tool or app that can send HTTP requests, such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/). Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
+To test your batching solution, post X12 messages to your batch sender logic app workflow using your HTTP request tool and its instructions. Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
 
 ## Next steps
 

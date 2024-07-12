@@ -55,7 +55,26 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
   If you don't have an Office 365 account, you can use [any other available email connector](/connectors/connector-reference/connector-reference-logicapps-connectors) that can send messages from your email account, for example, Outlook.com. If you use a different email connector, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
-* To test the example workflow in this guide, you need a local tool or app that can send calls to the endpoint created by the Request trigger. For example, you can use local tools such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
+* To test the example workflow in this guide, you need a tool that can send HTTP requests to the endpoint created by the **Request** trigger, for example:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+
+  - [Bruno](https://www.usebruno.com/)
+
+  - [Curl](https://curl.se/)
+
+  - [Insomnia](https://insomnia.rest/)
+
+  > [!CAUTION]
+  >
+  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
+  > and other such information, make sure to use a tool that works only locally or offline and has 
+  > the necessary security features to protect your data. To avoid public exposure, use a tool that 
+  > doesn't sync your data to the cloud and doesn't require you to create an online account.
 
 * If you create your logic app resource and enable [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
@@ -201,11 +220,11 @@ So now you'll add a trigger that starts your workflow.
 
 ## Add a trigger
 
-This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
+This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
@@ -213,7 +232,7 @@ This example workflow starts with the [built-in Request trigger](../connectors/c
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+   When you save a workflow for the first time, and that workflow starts with a **Request** trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the **Request** trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
 ## Add an action
 
@@ -289,7 +308,7 @@ Before you deploy your logic app and run your workflow in the Azure portal, if y
 
 To find the inbound and outbound IP addresses used by your logic app and workflows, follow these steps:
 
-1. On your logic app menu, under **Settings**, select **Networking (preview)**.
+1. On your logic app menu, under **Settings**, select **Networking**.
 
 1. On the networking page, find and review the **Inbound Traffic** and **Outbound Traffic** sections.
 
@@ -313,9 +332,9 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 ## Trigger the workflow
 
-In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
+In this example, the workflow runs when the **Request** trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the Request trigger that's named **When a HTTP request is received**.
+1. On the workflow designer, select the **Request** trigger that's named **When a HTTP request is received**.
 
 1. After the information pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
@@ -336,9 +355,9 @@ In this example, the workflow runs when the Request trigger receives an inbound 
    > 1. To copy the endpoint URL, move your pointer over the end of the endpoint URL text, 
    >    and select **Copy to clipboard** (copy file icon).
 
-1. To test the URL by sending a request and triggering the workflow, open your preferred tool or app, and follow their instructions for creating and sending HTTP requests.
+1. To test the endpoint URL and trigger the workflow, send an HTTP request to the URL, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions.
 
-   For this example, use the **GET** method with the copied URL, which looks like the following sample:
+   This example uses the **GET** method with the copied URL, which looks like the following sample:
 
    **`GET https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`**
 

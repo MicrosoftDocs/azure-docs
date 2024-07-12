@@ -36,7 +36,7 @@ For more information, review the following documentation:
 
 * The logic app workflow, blank or existing, where you want to use the **Flat File** action.
 
-  If you have a blank workflow, use any trigger that you want to start the workflow. This example uses the Request trigger.
+  If you have a blank workflow, use any trigger that you want to start the workflow. This example uses the **Request** trigger.
 
 * Your logic app resource and workflow. Flat file operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, see the following documentation:
 
@@ -62,6 +62,27 @@ For more information, review the following documentation:
 
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
+* To test the example workflow in this guide, you need a tool that can send HTTP requests to the endpoint created by the **Request** trigger, for example:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+
+  - [Bruno](https://www.usebruno.com/)
+
+  - [Curl](https://curl.se/)
+
+  - [Insomnia](https://insomnia.rest/)
+
+  > [!CAUTION]
+  >
+  > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
+  > and other such information, make sure that the tool you use works only locally or offline and has 
+  > the necessary security features to protect your data. To avoid public exposure, use a tool that 
+  > doesn't sync your data to the cloud and doesn't require you to create an online account.
+
 ## Limitations
 
 * XML content that you want to decode must be encoded in UTF-8 format.
@@ -86,7 +107,7 @@ After you create your schema, you now have to upload the schema based on the fol
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat File operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the workflow designer, under the step where you want to add the Flat File action, select **New step**.
 
@@ -140,7 +161,7 @@ After you create your schema, you now have to upload the schema based on the fol
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat File operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the designer, under the step where you want to add the Flat File action, select the plus sign (**+**), and then select **Add an action**.
 
@@ -188,7 +209,7 @@ After you create your schema, you now have to upload the schema based on the fol
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat File operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the workflow designer, under the step where you want to add the Flat File action, select **New step**.
 
@@ -235,7 +256,7 @@ After you create your schema, you now have to upload the schema based on the fol
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat File operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the designer, under the step where you want to add the Flat File action, select the plus sign (**+**), and then select **Add an action**.
 
@@ -282,13 +303,15 @@ You're now done with setting up your flat file decoding action. In a real world 
 
 ## Test your workflow
 
-1. To send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, follow these steps:
+To trigger your workflow, follow these steps:
 
-   1. Use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
+1. In the **Request** trigger, find the **HTTP POST URL** property, and copy the URL.
 
-   1. Send the HTTP request using the **`POST`** method with the URL.
+1. Open your HTTP request tool and use its instructions to send an HTTP request to the copied URL, including the method that the **Request** trigger expects.
 
-   1. Include the XML content that you want to encode or decode in the request body.
+   This example uses the **`POST`** method with the URL.
+
+1. Include the XML content that you want to encode or decode in the request body.
 
 1. After your workflow finishes running, go to the workflow's run history, and examine the Flat File action's inputs and outputs.
 
