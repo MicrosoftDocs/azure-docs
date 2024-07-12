@@ -34,7 +34,7 @@ Review the following configurations:
 
 * Ensure that the cluster size is appropriate for the workload. The workload might have changed recently or the cluster might have been resized. [Scale up](../hdinsight-scaling-best-practices.md) the cluster to match a higher workload.
 
-* `/mnt/resource` might be filled with orphaned files (as if Rresource mManager restart). If necessary, manually clean `/mnt/resource/hadoop/yarn/log` and `/mnt/resource/hadoop/yarn/local`.
+* `/mnt/resource` might be filled with orphaned files (as if Resource Manager restart). If necessary, manually clean `/mnt/resource/hadoop/yarn/log` and `/mnt/resource/hadoop/yarn/local`.
 
 ## Next steps
 
