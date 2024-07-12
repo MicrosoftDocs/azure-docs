@@ -170,7 +170,7 @@ Telemetry emitted by the following Azure SDKs is automatically collected by defa
 
 * Logback
 
-For Quartz native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
+For Quartz native applications, look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
 
 #### [Node.js](#tab/nodejs)
 
@@ -278,7 +278,7 @@ You can collect more data automatically when you include instrumentation librari
 #### [ASP.NET Core](#tab/aspnetcore)
 
 To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods,
-after adding the nuget package for the library.
+after adding the NuGet package for the library.
 
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics:
 
@@ -322,7 +322,7 @@ You can't extend the Java Distro with community instrumentation libraries. To re
 
 #### [Java native](#tab/java-native)
 
-You can't use commmunity instrumentation libraries with GraalVM Java native applications.
+You can't use community instrumentation libraries with GraalVM Java native applications.
 
 #### [Node.js](#tab/nodejs)
 
@@ -438,7 +438,7 @@ The following table shows the recommended [aggregation types](../essentials/metr
 |------------------------------------------------------|------------------------------------------------------------|
 | Counter                                              | Sum                                                        |
 | Asynchronous Counter                                 | Sum                                                        |
-| Histogram                                            | Min, Max, Average, Sum and Count                           |
+| Histogram                                            | Min, Max, Average, Sum, and Count                           |
 | Asynchronous Gauge                                   | Average                                                    |
 | UpDownCounter                                        | Sum                                                        |
 | Asynchronous UpDownCounter                           | Sum                                                        |
