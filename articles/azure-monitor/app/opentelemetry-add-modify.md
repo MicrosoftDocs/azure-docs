@@ -1688,13 +1688,19 @@ telemetryClient.TrackEvent("testEvent");
     ```java
     telemetryClient.trackEvent("WinGame");
     ```
+
+    **Logs**
     
+    ```java
+    telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
+    ```
+
     **Metrics**
     
     ```java
     telemetryClient.trackMetric("queueLength", 42.0);
     ```
-    
+
     **Dependencies**
     
     ```java
@@ -1711,13 +1717,7 @@ telemetryClient.TrackEvent("testEvent");
         telemetryClient.trackDependency(telemetry);
     }
     ```
-    
-    **Logs**
-    
-    ```java
-    telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
-    ```
-    
+
     **Exceptions**
     
     ```java
@@ -1726,8 +1726,8 @@ telemetryClient.TrackEvent("testEvent");
     } catch (Exception e) {
         telemetryClient.trackException(e);
     }
- 
-   
+
+
 #### [Java native](#tab/java-native)
 
 It's not possible to send custom telemetry using the Application Insights Classic API in Java native.
@@ -1965,13 +1965,13 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
 Add custom dimensions in your code:
 
-    ```java
-    import io.opentelemetry.api.trace.Span;
-    import io.opentelemetry.api.common.AttributeKey;
-    
-    AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
-    Span.current().setAttribute(attributeKey, "myvalue1");
-    ```
+```java
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.common.AttributeKey;
+
+AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
+Span.current().setAttribute(attributeKey, "myvalue1");
+```
 
 ##### [Node.js](#tab/nodejs)
 
@@ -2217,7 +2217,7 @@ Attaching custom dimensions to logs can be accomplished using a [message templat
 
 #### [Java](#tab/java)
 
-Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
+Logback, Log4j, and java.util.logging are [autoinstrumented](#send-custom-telemetry-using-the-application-insights-classic-api). Attaching custom dimensions to your logs can be accomplished in these ways:
 
 * [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.0/javadoc/log4j-api/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
 * [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
