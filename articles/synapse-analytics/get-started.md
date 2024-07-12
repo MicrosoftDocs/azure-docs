@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Get started with Azure Synapse Analytics' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
-author: saveenr
-ms.author: saveenr
+author: whhender
+ms.author: whhender
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
