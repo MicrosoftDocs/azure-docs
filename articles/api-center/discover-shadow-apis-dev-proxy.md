@@ -69,7 +69,7 @@ In the `urlsToWatch` property, specify the URLs that your app uses.
 
 ### Add a reporter
 
-The `ApiCenterOnboardingPlugin` produces a report of APIs that your app is using. To view this report, add a reporter to your Dev Proxy configuration file. Dev Proxy offers several [reporters](/microsoft-cloud/dev/dev-proxy/technical-reference/overview.md#reporters). In this example, you use the [plain-text reporter](/microsoft-cloud/dev/dev-proxy/technical-reference/plaintextreporter.md).
+The `ApiCenterOnboardingPlugin` produces a report of APIs that your app is using. To view this report, add a reporter to your Dev Proxy configuration file. Dev Proxy offers several [reporters](/microsoft-cloud/dev/dev-proxy/technical-reference/overview#reporters). In this example, you use the [plain-text reporter](/microsoft-cloud/dev/dev-proxy/technical-reference/plaintextreporter).
 
 Update your `devproxyrc.json` file with a reference to the plain-text reporter:
 
@@ -108,7 +108,7 @@ To check if your app is using shadow APIs, connect to your Azure subscription, r
 
 ### Connect to your Azure subscription
 
-Dev Proxy uses information from Azure API Center to determine if your app is using shadow APIs. To get this information, it needs a connection to your Azure subscription. You can connect to your Azure subscription in [several ways](/microsoft-cloud/dev/dev-proxy/technical-reference/apicenterproductionversionplugin.md#remarks).
+Dev Proxy uses information from Azure API Center to determine if your app is using shadow APIs. To get this information, it needs a connection to your Azure subscription. You can connect to your Azure subscription in [several ways](/microsoft-cloud/dev/dev-proxy/technical-reference/apicenterproductionversionplugin#remarks).
 
 ### Run Dev Proxy
 
@@ -224,7 +224,7 @@ When you run Dev Proxy with `createApicEntryForNewApis` set to `true`, it automa
 
 When you choose to automatically onboard, shadow APIs to API Center, you can have Dev Proxy generate the OpenAPI spec for the API. Onboarding APIs with OpenAPI specs speeds up onboarding of missing endpoints and provide you with the necessary information about the API. When the `ApiCenterOnboardingPlugin` detects, that Dev Proxy created a new OpenAPI spec, it associates it with the corresponding onboarded API in API Center.
 
-To automatically generate OpenAPI specs for onboarded APIs, update Dev Proxy configuration to include the [`OpenApiSpecGeneratorPlugin`](/microsoft-cloud/dev/dev-proxy/technical-reference/openapispecgeneratorplugin.md).
+To automatically generate OpenAPI specs for onboarded APIs, update Dev Proxy configuration to include the [`OpenApiSpecGeneratorPlugin`](/microsoft-cloud/dev/dev-proxy/technical-reference/openapispecgeneratorplugin).
 
 ```json
 {
@@ -302,5 +302,5 @@ Using Dev Proxy and its `ApiCenterOnboardingPlugin`, you can check if your app i
 
 ## More information
 
-- [Learn more about Dev Proxy](/microsoft-cloud/dev/dev-proxy/)
+- [Learn more about Dev Proxy](/microsoft-cloud/dev/dev-proxy/overview)
 - [Learn more about Azure API Center](./key-concepts.md)
