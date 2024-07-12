@@ -280,7 +280,7 @@ You can collect more data automatically when you include instrumentation librari
 To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods,
 after adding the nuget package for the library.
 
-The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
+The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics:
 
 ```dotnetcli
 dotnet add package OpenTelemetry.Instrumentation.Runtime 
@@ -306,7 +306,7 @@ app.Run();
 
 #### [.NET](#tab/net)
 
-The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
+The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics:
 
 ```csharp
 // Create a new OpenTelemetry meter provider and add runtime instrumentation and the Azure Monitor metric exporter.
@@ -326,7 +326,7 @@ You can't use commmunity instrumentation libraries with GraalVM Java native appl
 
 #### [Node.js](#tab/nodejs)
 
-Other OpenTelemetry Instrumentations are available [here](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node) and could be added using TraceHandler in ApplicationInsightsClient.
+Other OpenTelemetry Instrumentations are available [here](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node) and could be added using TraceHandler in ApplicationInsightsClient:
 
  ```javascript
     // Import the Azure Monitor OpenTelemetry plugin and OpenTelemetry API
@@ -456,7 +456,7 @@ describes the instruments and provides examples of when you might use each one.
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-Application startup must subscribe to a Meter by name.
+Application startup must subscribe to a Meter by name:
 
 ```csharp
 // Create a new ASP.NET Core web application builder.
@@ -476,7 +476,7 @@ var app = builder.Build();
 app.Run();
 ```
 
-The `Meter` must be initialized using that same name.
+The `Meter` must be initialized using that same name:
 
 ```csharp
 // Create a new meter named "OTel.AzureMonitor.Demo".
@@ -568,7 +568,7 @@ public class Program {
 
 ##### [Java native](#tab/java-native)
 
-1. Inject `OpenTelemetry`
+1. Inject `OpenTelemetry`:
 
     * **Spring**
         ```java
@@ -587,7 +587,7 @@ public class Program {
         ```
 
 
-1. Create an histogram
+1. Create a histogram:
 
     ```java
     import io.opentelemetry.api.metrics.DoubleHistogram;
@@ -654,7 +654,7 @@ input()
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-Application startup must subscribe to a Meter by name.
+Application startup must subscribe to a Meter by name:
 
 ```csharp
 // Create a new ASP.NET Core web application builder.
@@ -674,7 +674,7 @@ var app = builder.Build();
 app.Run();
 ```
 
-The `Meter` must be initialized using that same name.
+The `Meter` must be initialized using that same name:
 
 ```csharp
 // Create a new meter named "OTel.AzureMonitor.Demo".
@@ -766,7 +766,7 @@ public class Program {
 ```
 ##### [Java native](#tab/java-native)
 
-1. Inject `OpenTelemetry`
+1. Inject `OpenTelemetry`:
 
     * **Spring**
         ```java
@@ -784,7 +784,7 @@ public class Program {
         OpenTelemetry openTelemetry;
         ```
 
-1. Create the counter
+1. Create the counter:
 
     ```Java
     import io.opentelemetry.api.common.AttributeKey;
@@ -864,7 +864,7 @@ input()
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-Application startup must subscribe to a Meter by name.
+Application startup must subscribe to a Meter by name:
 
 ```csharp
 // Create a new ASP.NET Core web application builder.
@@ -884,7 +884,7 @@ var app = builder.Build();
 app.Run();
 ```
 
-The `Meter` must be initialized using that same name.
+The `Meter` must be initialized using that same name:
 
 ```csharp
 // Get the current process.
@@ -982,7 +982,7 @@ public class Program {
 ```
 ##### [Java native](#tab/java-native)
 
-1. Inject `OpenTelemetry`
+1. Inject `OpenTelemetry`:
 
     * **Spring**
         ```java
@@ -1000,7 +1000,7 @@ public class Program {
         OpenTelemetry openTelemetry;
         ```
 
-1.  Create a gauge
+1.  Create a gauge:
 
     ```Java
     import io.opentelemetry.api.common.AttributeKey;
@@ -1252,7 +1252,7 @@ catch(error){
 
 #### [Python](#tab/python)
 
-The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown are automatically captured and recorded. See the following code sample for an example of this behavior.
+The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown are automatically captured and recorded. See the following code sample for an example of this behavior:
 
 ```python
 # Import the necessary packages.
@@ -1443,7 +1443,7 @@ you can add your spans by using the OpenTelemetry API.
 
 #### [Java native](#tab/java-native)
 
-1. Inject `OpenTelemetry`
+1. Inject `OpenTelemetry`:
 
     * **Spring**
         ```java
@@ -1621,11 +1621,11 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-##### Events
+**Events**
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
-1. Create a `TelemetryClient` instance.
+1. Create a `TelemetryClient` instance:
 
     > [!NOTE]
     > It's important to only create once instance of the TelemetryClient per application.
@@ -1635,11 +1635,11 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
     var telemetryClient = new TelemetryClient(telemetryConfiguration);
     ```
 
-1. Use the client to send custom telemetry.
+1. Use the client to send custom telemetry:
 
-```csharp
-telemetryClient.TrackEvent("testEvent");
-```
+    ```csharp
+    telemetryClient.TrackEvent("testEvent");
+    ```
 
 #### [.NET](#tab/net)
 
@@ -1647,7 +1647,7 @@ telemetryClient.TrackEvent("testEvent");
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
-1. Create a `TelemetryClient` instance.
+1. Create a `TelemetryClient` instance:
 
     > [!NOTE]
     > It's important to only create once instance of the TelemetryClient per application.
@@ -1657,11 +1657,11 @@ telemetryClient.TrackEvent("testEvent");
     var telemetryClient = new TelemetryClient(telemetryConfiguration);
     ```
 
-1. Use the client to send custom telemetry.
+1. Use the client to send custom telemetry:
 
-```csharp
-telemetryClient.TrackEvent("testEvent");
-```
+    ```csharp
+    telemetryClient.TrackEvent("testEvent");
+    ```
 
 #### [Java](#tab/java)
 
@@ -1802,7 +1802,7 @@ pip install azure-monitor-opentelemetry
 pip install azure-monitor-events-extension
 ```
 
-Use the `track_event` API offered in the extension to send customEvents.
+Use the `track_event` API offered in the extension to send customEvents:
 
 ```python
 ...
@@ -2123,7 +2123,7 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-Use the add [custom property example](#add-a-custom-property-to-a-span).
+Use the add [custom property example](#add-a-custom-property-to-a-span):
 
 ```csharp
 // Add the user ID to the activity as a tag, but only if the activity is not null.
@@ -2132,7 +2132,7 @@ activity?.SetTag("enduser.id", "<User Id>");
 
 ##### [.NET](#tab/net)
 
-Use the add [custom property example](#add-a-custom-property-to-a-span).
+Use the add [custom property example](#add-a-custom-property-to-a-span):
 
 ```csharp
 // Add the user ID to the activity as a tag, but only if the activity is not null.
@@ -2254,7 +2254,7 @@ log.info({
 
 #### [Python](#tab/python)
   
-The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
+The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs:
 
 ```python
 ...
@@ -2477,7 +2477,7 @@ It's not possible to filter telemetry in Java native.
     ...
     ```
 
-1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
+1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`:
     
     ```python
     ...
