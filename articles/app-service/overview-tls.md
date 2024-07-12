@@ -14,17 +14,17 @@ ms.custom: UpdateFrequency3
 
 Transport Layer Security (TLS) is a widely adopted security protocol designed to secure connections and communications between servers and clients. App Service allows customers to use TLS/SSL certificates to secure incoming requests to their web apps. App Service currently supports different set of TLS features for customers to secure their web apps. 
 
-## What TLS options are available in App Service?
+## Supported TLS Version on App Service?
 
-For incoming requests to your web app, App Service supports TLS versions 1.0, 1.1, and 1.2. [In the next few months, App Service will begin supporting TLS version 1.3](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/upcoming-tls-1-3-on-azure-app-service-for-web-apps-functions-and/ba-p/3974138).  
+For incoming requests to your web app, App Service supports TLS versions 1.0, 1.1, 1.2, and 1.3.  
 
 ### Minimum TLS Version and SCM Minimum TLS Version 
 
 App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM would be set to 1.2 on both portal and API. 
 
-## TLS 1.0 and 1.1 
+### TLS 1.0 and 1.1 
 
-TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 as the minimum TLS version, which is also the default.  
+TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 or above as the minimum TLS version. When creating a web app, the default minimum TLS version would be TLS 1.2.
 
 To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will continue to support TLS 1.0 and 1.1 for incoming requests to your web app. However, since the default minimum TLS version is set to TLS 1.2, you need to update the minimum TLS version configurations on your web app to either TLS 1.0 or 1.1 so the requests won't be rejected. 
 
