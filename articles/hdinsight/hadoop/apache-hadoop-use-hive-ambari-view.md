@@ -77,11 +77,11 @@ A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apach
    > [!TIP]  
    > Download or save results from the **Actions** drop-down dialog box under the  **Results** tab.
 
-### Visual explain
+### Visual explains
 
-To display a visualization of the query plan, select the **Visual Explain** tab below the worksheet.
+To display a visualization of the query plan, select the **Visual Explains** tab below the worksheet.
 
-The **Visual Explain** view of the query can be helpful in understanding the flow of complex queries.
+The **Visual Explains** view of the query can be helpful in understanding the flow of complex queries.
 
 ### Tez UI
 
