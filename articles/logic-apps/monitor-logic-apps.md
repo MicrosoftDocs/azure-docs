@@ -1,6 +1,6 @@
 ---
-title: Monitor workflow status, view run history, and set up alerts
-description: Check your workflow run status, review trigger and workflow run history, and enable alerts in Azure Logic Apps.
+title: Check workflow status, view run history, and set up alerts
+description: Check your workflow status, view workflow run history, and enable alerts in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/10/2024
 ---
 
-# Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps
+# Check workflow status, view workflow run history, and set up alerts in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
