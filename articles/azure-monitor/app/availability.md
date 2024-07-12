@@ -673,10 +673,15 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 This article introduces a simple way to calculate and report service-level agreement (SLA) for web tests through a single pane of glass across your Application Insights resources and Azure subscriptions. The downtime and outage report provides powerful prebuilt queries and data visualizations to enhance your understanding of your customer's connectivity, typical application response time, and experienced downtime.
 
-The SLA workbook template is accessible through the workbook gallery in your Application Insights resource. Or, in the left pane, select **Availability** and then select **SLA Report** at the top of the screen.
-:::image type="content" source="./media/sla-report/availability.png" alt-text="Screenshot that shows the **Availability** tab with SLA Report highlighted." lightbox="./media/sla-report/availability.png":::
+The SLA workbook template can be accessed from your Application Insights resource in two ways:
 
-:::image type="content" source="./media/sla-report/workbook-gallery.png" alt-text="Screenshot of the workbook gallery with the Downtime & Outages workbook highlighted." lightbox ="./media/sla-report/workbook-gallery.png":::
+* Open the **Availability** pane, then select **SLA Report** at the top of the screen.
+
+    :::image type="content" source="./media/sla-report/availability.png" alt-text="Screenshot that shows the **Availability** tab with SLA Report highlighted." lightbox="./media/sla-report/availability.png":::
+
+* Open the **Workbooks** pane, then select **Downtime & Outages**.
+
+    :::image type="content" source="./media/sla-report/workbook-gallery.png" alt-text="Screenshot of the workbook gallery with the Downtime & Outages workbook highlighted." lightbox ="./media/sla-report/workbook-gallery.png":::
 
 ### Parameter flexibility
 
