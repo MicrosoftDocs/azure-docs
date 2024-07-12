@@ -170,5 +170,5 @@ Screenshare. However, each API value can be customized from a minimum of
 
 In addition to using the End of Call Survey API, you can create your own survey questions and incorporate them with the End of Call Survey results. ACS Calling SDK does not provide such capability out of the box because of privacy and security reasons.
 
-However, the result payload of `SubmitSurvey` operation provides data that you can use to correlate ACS Survey data with your own custom data and storage. `CallSurveyResult` class have the `SurveyId` field that denotes a unique identifier for the survey and `CallId` denotes an identifier for the call where the survey was generated. Saving these identifiers along with your customized data will allow data to be associated uniquely.
+The result payload of `SubmitSurvey` operation provides data that you can use to correlate ACS Survey data with your own custom data and storage. `CallSurveyResult` class have the `SurveyId` field that denotes a unique identifier for the survey and `CallId` denotes an identifier for the call where the survey was generated. Saving these identifiers along with your customized data will allow data to be associated uniquely.
 
