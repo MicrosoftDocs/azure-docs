@@ -27,7 +27,7 @@ Optionally, outbound connectivity is needed to *.maven.org and *.github.com to d
 
 To test connectivity from your virtual network: 
 
-1. Create a Virtual Machine with a Public IP in the subnet that you're using in your test configuration in Azure Load Testing. This virtual machine is only used to diagnose network connectivity and can be deleted after troubleshooting.  Azure Load Testing service won't use this virtual machine to generate load.
+1. Create a Virtual Machine with a Public IP in the subnet that you're using in your test configuration in Azure Load Testing. This virtual machine is only used to diagnose network connectivity and can be deleted after troubleshooting. Azure Load Testing service doesn't use this virtual machine to generate load.
 
     Run the following Azure CLI command to create a virtual machine.
   
