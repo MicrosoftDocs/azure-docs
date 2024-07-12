@@ -17,7 +17,7 @@ This article addresses issues that might arise when you run load tests against p
 Azure Load Testing service requires outbound connectivity from the virtual network to the following destinations. 
 | Destination | Need for connectivity |
 | ------------|-------|
-| *.azure.com | Access to this destination is required for the Azure Load Testing service to interact with other Azure services and orchestrate the load test run. |
+| *.azure.com | Access to this destination is required for the Azure Load Testing service to interact with Azure Batch service. |
 | *.windows.net | Access to this destination is required for the Azure Load Testing service to interact with Azure Service Bus, Azure Event Grids and Azure Storage. To learn more about firewall configuration in these services, see <li> [Azure Service Bus frequently asked questions](/azure/service-bus-messaging/service-bus-faq#what-ports-do-i-need-to-open-on-the-firewall--) </li> <li> [Azure Event Hubs Firewall Rules](/azure/event-hubs/event-hubs-ip-filtering) </li> <li> [Configure Azure Storage firewalls and virtual networks ](/azure/storage/common/storage-network-security?tabs=azure-portal) </li> |
 | *.azurecr.io | Access to this destination is required for the Azure Load Testing service to interact with Azure Container Registry. To learn more about firewall configuration in Azure Container Registry, see <li> [Firewall access rules - Azure Container Registry ](/azure/container-registry/container-registry-firewall-access-rules) </li> |
 
