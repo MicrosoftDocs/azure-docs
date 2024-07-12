@@ -7,7 +7,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 07/11/2024
 manager: nitinme
 ---
 
@@ -245,7 +245,17 @@ The following examples show how to migrate some of the `AssistantsClient` method
 
 #### Assistant creation
 
-Original code:
+# [OpenAI JavaScript (new)](#tab/javascript-new)
+
+```typescript
+const options = ...;
+const assistantResponse = await assistantsClient.beta.assistants.create(
+  options
+);
+```
+
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
 ```typescript
 const options = {
   model: azureOpenAIDeployment,
@@ -257,46 +267,39 @@ const options = {
 const assistantResponse = await assistantsClient.createAssistant(options);
 ```
 
-Migrated code:
-```typescript
-const options = ...;
-const assistantResponse = await assistantsClient.beta.assistants.create(
-  options
-);
-```
+---
 
-Notice that:
+Note that:
+
 - The `createAssistant` method has been replaced with the `beta.assistants.create` method
 
 #### Thread creation
 
 The following example shows how to migrate the `createThread` method call.
 
-Original code:
-```typescript
-const assistantThread = await assistantsClient.createThread();
-```
+# [OpenAI JavaScript (new)](#tab/javascript-new)
 
-Migration code:
 ```typescript
 const assistantThread = await assistantsClient.beta.threads.create();
 ```
 
-Notice that:
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
+```typescript
+const assistantThread = await assistantsClient.createThread();
+```
+
+---
+
+Note that:
+
 - The `createThread` method has been replaced with the `beta.threads.create` method
 
 #### Message creation
 
 The following example shows how to migrate the `createMessage` method call.
 
-Original code:
-```typescript
-const threadResponse = await assistantsClient.createMessage(
-  assistantThread.id,
-  role,
-  message
-);
-```
+# [OpenAI JavaScript (new)](#tab/javascript-new)
 
 Migration code:
 ```typescript
@@ -309,13 +312,43 @@ const threadResponse = await assistantsClient.beta.threads.messages.create(
 );
 ```
 
-Notice that:
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
+Original code:
+```typescript
+const threadResponse = await assistantsClient.createMessage(
+  assistantThread.id,
+  role,
+  message
+);
+```
+
+---
+
+Note that:
 - The `createMessage` method has been replaced with the `beta.threads.messages.create` method
 - The message specification has been moved from a parameter list to an options object
 
 #### Runs
 
 To run an assistant on a thread, the `createRun` method is used to create a run and then a loop is used to poll the run status until it is in a terminal state. The following example shows how to migrate the run creation and polling.
+
+# [OpenAI JavaScript (new)](#tab/javascript-new)
+
+This code can be migrated and simplified by using the `createAndPoll` method which creates a run and polls it until it is in a terminal state.
+
+Migration code:
+```typescript
+const runResponse = await assistantsClient.beta.threads.runs.createAndPoll(
+  assistantThread.id,
+  {
+    assistant_id: assistantResponse.id,
+  },
+  { pollIntervalMs: 500 }
+);
+```
+
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
 
 Original code:
 ```typescript
@@ -334,39 +367,19 @@ do {
   runResponse.status === "in_progress"
 ```
 
-This code can be migrated and simplified by using the `createAndPoll` method which creates a run and polls it until it is in a terminal state.
+---
 
-Migration code:
-```typescript
-const runResponse = await assistantsClient.beta.threads.runs.createAndPoll(
-  assistantThread.id,
-  {
-    assistant_id: assistantResponse.id,
-  },
-  { pollIntervalMs: 500 }
-);
-```
 
-Notice that:
+Note that:
 - The `createRun` method has been replaced with the `beta.threads.runs.create` and `createAndPoll` methods
 - The `createAndPoll` method is used to create a run and poll it until it is in a terminal state
 
 #### Processing Run results
 
-Without paging, results had to be accessed manually page by page using the `data` property of the response object. For instance, accessing the first page can be done as follows:
-
-Original code:
-```typescript
-for (const runMessageDatum of runMessages.data) {
-  for (const item of runMessageDatum.content) {
-    ...
-  }
-}
-```
+# [OpenAI JavaScript (new)](#tab/javascript-new)
 
 Pages can be looped through by using the `for await` loop.
 
-Migration code:
 ```typescript
 for await (const runMessageDatum of runMessages) {
   for (const item of runMessageDatum.content) {
@@ -375,21 +388,40 @@ for await (const runMessageDatum of runMessages) {
 }
 ```
 
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
+Without paging, results had to be accessed manually page by page using the `data` property of the response object. For instance, accessing the first page can be done as follows:
+
+```typescript
+for (const runMessageDatum of runMessages.data) {
+  for (const item of runMessageDatum.content) {
+    ...
+  }
+}
+```
+
+---
+
+
 ### Embeddings
 
 The following example shows how to migrate the `getEmbeddings` method call.
 
-Original code:
-```typescript
-const embeddings = await client.getEmbeddings(deploymentName, input);
-```
+# [OpenAI JavaScript (new)](#tab/javascript-new)
 
-Migrated code:
 ```typescript
 const embeddings = await client.embeddings.create({ input, model: '' });
 ```
 
-Notice that:
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
+```typescript
+const embeddings = await client.getEmbeddings(deploymentName, input);
+```
+
+---
+
+Note that:
 - The `getEmbeddings` method has been replaced with the `embeddings.create` method
 - The `input` parameter is now passed in the options object with the `input` property
 - The `deploymentName` parameter has been removed. The `deploymentName` parameter is not needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
@@ -398,17 +430,22 @@ Notice that:
 
 The following example shows how to migrate the `getImages` method call.
 
-Original code:
-```typescript
-const results = await client.getImages(deploymentName, prompt, { n, size });
-```
+# [OpenAI JavaScript (new)](#tab/javascript-new)
 
-Migrated code:
 ```typescript
   const results = await client.images.generate({ prompt, model: '', n, size });
 ```
 
-Notice that:
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
+```typescript
+const results = await client.getImages(deploymentName, prompt, { n, size });
+```
+
+---
+
+
+Note that:
 - The `getImages` method has been replaced with the `images.generate` method
 - The `prompt` parameter is now passed in the options object with the `prompt` property
 - The `deploymentName` parameter has been removed. The `deploymentName` parameter is not needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
@@ -417,25 +454,8 @@ Notice that:
 
 Content filter results is part of the chat completions response types in `OpenAIClient`. The following example shows how to access the content filter results.
 
-Original code:
-```typescript
-const results = await client.getChatCompletions(deploymentName, messages);
-for (const choice of results.choices) {
-  if (!choice.contentFilterResults) {
-    console.log("No content filter is found");
-    return;
-  }
-  if (choice.contentFilterResults.error) {
-    console.log(
-      `Content filter ran into the error ${choice.contentFilterResults.error.code}: ${choice.contentFilterResults.error.message}`);
-  }
-  const { hate, sexual, selfHarm, violence } = choice.contentFilterResults;
-  ...
-}
-```
-However `AzureOpenAI` does not have a direct equivalent to the `contentFilterResults` property in the `ChatCompletion.Choice` interface. The content filter results can be accessed by casting the `results` object to `any` and accessing the `content_filter_results` property.
+# [OpenAI JavaScript (new)](#tab/javascript-new)
 
-Migrated code:
 ```typescript
 const result = await client.chat.completions.create({ model: '', messages });
 for (const choice of results.choices) {
@@ -453,7 +473,29 @@ for (const choice of results.choices) {
 }
 ```
 
-Notice that:
+# [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
+
+```typescript
+const results = await client.getChatCompletions(deploymentName, messages);
+for (const choice of results.choices) {
+  if (!choice.contentFilterResults) {
+    console.log("No content filter is found");
+    return;
+  }
+  if (choice.contentFilterResults.error) {
+    console.log(
+      `Content filter ran into the error ${choice.contentFilterResults.error.code}: ${choice.contentFilterResults.error.message}`);
+  }
+  const { hate, sexual, selfHarm, violence } = choice.contentFilterResults;
+  ...
+}
+```
+
+However `AzureOpenAI` does not have a direct equivalent to the `contentFilterResults` property in the `ChatCompletion.Choice` interface. The content filter results can be accessed by casting the `results` object to `any` and accessing the `content_filter_results` property.
+
+---
+
+Note that:
 - camel case properties have been replaced with snake case properties
 - A cast to `any` is used to access the `content_filter_results` property because it is not part of the `ChatCompletion.Choice` interface, see the [Azure types](#azure-types) section for more information
 
@@ -461,7 +503,6 @@ Notice that:
 
 The following table explores several type names from `@azure/openai` and shows their nearest `openai` equivalent. The names differences illustrate several of the above-mentioned changes. This table provides an overview, and more detail and code samples are provided in the following sections.
 
-<!-- prettier-ignore -->
 | Old Type Name | Nearest New Type | Symbol Type | Change description |
 | ------------------------- | ------------------------- | ----------- | ----------------------------- |
 | `OpenAIClient` | `AzureOpenAI` | Class | This class replaces the former and has no methods in common with it. See the section on `AzureOpenAI` below. |
@@ -521,3 +562,7 @@ The following table explores several type names from `@azure/openai` and shows t
 ## Azure types
 
 `AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users will be required to cast to a more permissive type such as `Record<string, any>` to access those features. Examples in [the Migration examples](#migration-examples) section show how to do this.
+
+# Next steps
+
+- [Azure OpenAI Assistants](../concepts/assistants.md)
