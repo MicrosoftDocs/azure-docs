@@ -292,13 +292,13 @@ At this point everything is configured for scaling with KEDA and Microsoft Entra
               name: myconsumer
               env:
               - name: OPERATION_MODE
-                 value: "consumer"
+                value: "consumer"
               - name: MESSAGE_COUNT
-                 value: "10"
+                value: "10"
               - name: AZURE_SERVICEBUS_QUEUE_NAME
-                 value: $SB_QUEUE_NAME
+                value: $SB_QUEUE_NAME
               - name: AZURE_SERVICEBUS_HOSTNAME
-                 value: $SB_HOSTNAME
+                value: $SB_HOSTNAME
             restartPolicy: Never
       triggers:
       - type: azure-servicebus
