@@ -14,7 +14,7 @@ ms.author: duau
 This article explains how network traffic might take different paths when multiple routes are available between network source and destination.
 
 > [!NOTE]
-> * This article discusses the issues that may occur with asymmetric routing in a network with multiple links to a destination. It is not a reference for designing a network with asymmetric routing because Microsoft doesn't recommend and support this architecture. 
+> * This article discusses the issues that may occur with asymmetric routing in a network with multiple links to a destination. It should not be used as a reference for designing a network with asymmetric routing, as Microsoft does not recommend or support this architecture.
 
 
 There are two concepts you need to know to understand asymmetric routing. The first is the effect of multiple network paths. The other is how devices, like a firewall  keep state. These types of devices are called stateful devices. When these two factors are combined, they can create a scenario in which network traffic gets dropped by the stateful device.  The traffic is dropped because it didn't detect that the traffic originated from itself.
