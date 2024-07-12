@@ -127,7 +127,8 @@ indexing_policy = {
 # Create the data collection with vector index (note: this creates a container with 10000 RUs to allow fast data load)
 try:
     movies_container = db.create_container_if_not_exists(id=cosmos_collection, 
-                                                  partition_key=PartitionKey(path='/id'), 
+                                                  partition_key=PartitionKey(path='/id'),
+                                                  indexing_policy=indexing_policy, 
                                                   vector_embedding_policy=vector_embedding_policy,
                                                   offer_throughput=10000) 
     print('Container with id \'{0}\' created'.format(movies_container.id)) 
