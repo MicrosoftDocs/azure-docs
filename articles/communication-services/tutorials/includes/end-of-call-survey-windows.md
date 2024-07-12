@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> End of Call Survey is available starting on the version [versionPending]() of the Windows Calling SDK. Make sure to use that version or later when trying the instructions.
+> End of Call Survey is available starting on the version [1.8.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.8.0) of the Windows Calling SDK. Make sure to use that version or later when trying the instructions.
 
 ## Sample of API usage
 
@@ -20,12 +20,11 @@ var survey = await surveyCallFeature.StartSurveyAsync();
 
 ### General usage
 
-> [!IMPORTANT]
-> See [Survey Concept Overview]([End of Call Survey overview](../concepts/voice-video-calling/end-of-call-survey-concept.md))
-
 When rating calls, you must respect values defined on the scale field. The lowerBound value denotes the worst experience possible, while the upperBound value means the perfect experience. Both values are inclusive. 
 
 OverallRating is a required category for all surveys.
+
+For more information on suggested survey use, see (Survey Concepts)[https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept]
 
 > [!NOTE]
 >A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
