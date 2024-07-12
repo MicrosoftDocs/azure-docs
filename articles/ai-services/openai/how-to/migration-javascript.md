@@ -28,7 +28,7 @@ import { DefaultAzureCredential } from "@azure/identity";
 const credential = new DefaultAzureCredential();
 ```
 
-Which is then passed to the second argument of the `OpenAIClient` and `AssistantsClient` client constructors.
+This object is then passed to the second argument of the `OpenAIClient` and `AssistantsClient` client constructors.
 
 In order to authenticate the `AzureOpenAI` client, however, we need to use the `getBearerTokenProvider` function from the `@azure/identity` package. This function creates a token provider that `AzureOpenAI` uses internally to obtain tokens for each request. The token provider is created as follows:
 
@@ -154,7 +154,6 @@ const result = await client.chat.completions.create({ model: '', messages, ... {
 
 # [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
 
-Original code:
 ```typescript
 const azureSearchEndpoint = "Your Azure Search resource endpoint";
 const azureSearchIndexName = "Your Azure Search index name";
@@ -301,7 +300,6 @@ The following example shows how to migrate the `createMessage` method call.
 
 # [OpenAI JavaScript (new)](#tab/javascript-new)
 
-Migration code:
 ```typescript
 const threadResponse = await assistantsClient.beta.threads.messages.create(
   assistantThread.id,
@@ -314,7 +312,6 @@ const threadResponse = await assistantsClient.beta.threads.messages.create(
 
 # [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
 
-Original code:
 ```typescript
 const threadResponse = await assistantsClient.createMessage(
   assistantThread.id,
@@ -327,7 +324,7 @@ const threadResponse = await assistantsClient.createMessage(
 
 Note that:
 - The `createMessage` method has been replaced with the `beta.threads.messages.create` method
-- The message specification has been moved from a parameter list to an options object
+- The message specification has been moved from a parameter list to an object
 
 #### Runs
 
@@ -337,7 +334,6 @@ To run an assistant on a thread, the `createRun` method is used to create a run 
 
 This code can be migrated and simplified by using the `createAndPoll` method which creates a run and polls it until it is in a terminal state.
 
-Migration code:
 ```typescript
 const runResponse = await assistantsClient.beta.threads.runs.createAndPoll(
   assistantThread.id,
@@ -350,7 +346,6 @@ const runResponse = await assistantsClient.beta.threads.runs.createAndPoll(
 
 # [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
 
-Original code:
 ```typescript
 let runResponse = await assistantsClient.createRun(assistantThread.id, {
   assistantId: assistantResponse.id,
@@ -452,7 +447,7 @@ Note that:
 
 ### Content filter
 
-Content filter results is part of the chat completions response types in `OpenAIClient`. The following example shows how to access the content filter results.
+Content filter results are part of the chat completions response types in `OpenAIClient`. The following example shows how to access the content filter results.
 
 # [OpenAI JavaScript (new)](#tab/javascript-new)
 
@@ -563,6 +558,6 @@ The following table explores several type names from `@azure/openai` and shows t
 
 `AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users will be required to cast to a more permissive type such as `Record<string, any>` to access those features. Examples in [the Migration examples](#migration-examples) section show how to do this.
 
-# Next steps
+## Next steps
 
 - [Azure OpenAI Assistants](../concepts/assistants.md)
