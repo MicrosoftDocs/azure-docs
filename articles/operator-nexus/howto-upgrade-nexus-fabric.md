@@ -131,5 +131,5 @@ Check the version status of all devices and the fabric with AZCLI commands.
 ### **Known issues**
 
 1. Create the EOS image directory manually at `/mnt/nvram/nexus/eosimages` if it is missing. This is especially important for environments built from older NF versions.
-2. NNF device upgrades fail when the available disk space within the directory `/mnt/nvram/nexus/eosimages` is less than 3GB.
+2. NNF device upgrades fail when the available disk space within the directory `/mnt/nvram/nexus/eosimages` is less than 3GB. Perform a manual clean up to free up disk space within the NNF device and then retry the upgrade operation.
 
