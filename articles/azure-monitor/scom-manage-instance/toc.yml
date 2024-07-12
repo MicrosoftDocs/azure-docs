@@ -66,8 +66,8 @@
       href: view-operations-manager-alerts-azure-monitor.md
     - name: Monitor Azure and Off-Azure Virtual machines
       href: monitor-off-azure-vm-with-scom-managed-instance.md
-    - name: Monitor Azure and Off-Azure Virtual machines (preview)
-      href: monitor-arc-enabled-vm-with-scom-managed-instance.md
+    - name: Monitor Azure and Off-Azure Virtual machines with SCOM Managed Instance extensions
+      href: monitor-azure-off-azure-vm-with-scom-managed-instance.md
 - name: Logs
   items:
    - name: Activity Log
