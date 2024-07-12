@@ -81,7 +81,7 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | France Central | AZ01 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | Germany West Central | AZ01 | AV36P, (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
 | Germany West Central | AZ02 | **AV36**, (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
-| Germany West Central | AZ03 | AV36, **AV36P** | Yes |7|
+| Germany West Central | AZ03 | AV36, **AV36P**, AV64 | Yes |7|
 | Italy North | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | Japan East | AZ02 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | Japan West | AZ01 | **AV36**, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
@@ -104,7 +104,7 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | UK West | AZ01 | AV36 | No | N/A |
 | West Europe | AZ01 | **AV36**, AV36P, AV52, AV64 | Yes | 7 |
 | West Europe | AZ02 | **AV36**, AV64 | Yes | 7 |
-| West Europe | AZ03 | AV36P, AV64 | Yes |7|
+| West Europe | AZ03 | AV36P, AV64 | Yes |N/A (7 Planned H2 2024|
 | West US | AZ01 | AV36, AV36P | No | N/A |
 | West US 2 | AZ01 | AV36 | No | N/A |
 | West US 2 | AZ02 | AV36P | No | N/A |
