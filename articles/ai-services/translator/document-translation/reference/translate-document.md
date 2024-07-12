@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 02/12/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -55,7 +55,7 @@ Query string parameters:
 
 |Query parameter | Description |
 | --- | --- |
-|**api-version** | _Required parameter_.<br>Version of the API requested by the client. Current value is `2023-11-01-preview`. |
+|**api-version** | _Required parameter_.<br>Version of the API requested by the client. Current value is `2024-05-01`. |
 |**targetLanguage**|_Required parameter_.<br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
 |&bull; **document=**<br> &bull; **type=**|_Required parameters_.<br>&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|
 |**--output**|_Required parameter_.<br> &bull; File path for the target file location. Your translated file is printed to the output file.</br> &bull; Ex: **"C:\Test\Test-file-output.txt"**. The file extension should be the same as the source file.|
@@ -72,7 +72,7 @@ Query string parameters:
 
 |Name |Description|Content Type|Condition|
 |---|---|---|---|
-|**document**| Source document to be translated.|Any one of the [supported document formats](../../language-support.md).|***Required***|
+|**document**| Source document to be translated.|Any one of the [supported document formats](../overview.md#synchronous-supported-document-formats).|***Required***|
 |**glossary**|Document containing a list of terms with definitions to use during the translation process.|Any one of the supported [glossary formats](get-supported-glossary-formats.md).|***Optional***|
 
 ## Next steps

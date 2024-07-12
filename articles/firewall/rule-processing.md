@@ -5,12 +5,12 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/30/2023
+ms.date: 07/02/2024
 ms.author: victorh
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic.
+You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic. The rules are terminating, so rule proceisng stops on a match.
 
 ## Rule processing using classic rules
 
@@ -33,7 +33,7 @@ Here's an example policy:
 
 Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
 BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
-ChildRCG1 is a rule collection group priority (200) that contains the rule collections: ChNetRC1, ChAppRC1.\
+ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
 ChildRCG2 is a rule collection group that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
 
 As per following table:
@@ -195,7 +195,7 @@ As a stateful service, Azure Firewall completes a TCP three-way handshake for al
 
 Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you interrupt the three-way handshake from the initial allow rule from VNet-A to VNet-B. 
+As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. 
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure storage account using workload ide
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 03/01/2024
 ---

@@ -30,6 +30,8 @@ This documentation contains the following article types:
 
 The following are a few scenarios in which a software developer or team would require a content moderation service:
 
+- User prompts submitted to a generative AI service. 
+- Content produced by generative AI models.
 - Online marketplaces that moderate product catalogs and other user-generated content.
 - Gaming companies that moderate user-generated game artifacts and chat rooms.
 - Social messaging platforms that moderate images and text added by their users.
@@ -47,7 +49,7 @@ There are different types of analysis available from this service. The following
 | :-------------------------- | :---------------------- |
 | [Prompt Shields](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
 | [Groundedness detection](/rest/api/cognitiveservices/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
-| [Protected material text detection](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| [Protected material text detection](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for [known text content](./concepts/protected-material.md) (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 | Custom categories (rapid) API (preview) | Lets you define [emerging harmful content patterns](./concepts/custom-categories-rapid.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories-rapid.md) |
 | [Analyze text](/rest/api/cognitiveservices/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
 | [Analyze image](/rest/api/cognitiveservices/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
@@ -120,7 +122,7 @@ See the following list for the input requirements for each feature.
   - Maximum text and query length: 7,500 characters.
 - **Protected material detection (preview)**: 
   - Default maximum length: 1K characters.
-  - Minimum length: 111 characters (for scanning LLM completions, not user prompts).
+  - Default minimum length: 110 characters (for scanning LLM completions, not user prompts).
 
 
 ### Language support

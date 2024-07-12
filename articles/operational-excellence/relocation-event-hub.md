@@ -1,5 +1,5 @@
 ---
-title: Relocation guidance in Azure Event Hubs
+title: Relocate Azure Event Hubs to another region
 description: Learn how to relocate Azure Event Hubs to a another region
 author: anaharris-ms
 ms.author: anaharris

@@ -5,10 +5,11 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 05/10/2024
+ms.date: 06/25/2024
 ms.author: danlep
 ---
 

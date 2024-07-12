@@ -1,10 +1,10 @@
 ---
 title: Install Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
+description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install Azure Container Storage.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 05/30/2024
+ms.date: 06/20/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -110,7 +110,7 @@ To use Azure Container Storage, you'll need a node pool of at least three Linux 
 
 If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes.
 
-If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**.
+If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
 > [!IMPORTANT]
 > You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
@@ -223,8 +223,10 @@ Congratulations, you've successfully installed Azure Container Storage. You now 
 
 ## Next step
 
-Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
+Now you can create a storage pool and volumes. Follow the steps in the appropriate article depending on the backing storage type you want to use.
 
-* [Use Azure Container Storage with Azure Elastic SAN](use-container-storage-with-elastic-san.md)
-* [Use Azure Container Storage with Azure Disks](use-container-storage-with-managed-disks.md)
-* [Use Azure Container Storage with Ephemeral Disk (local NVMe or temp SSD)](use-container-storage-with-local-disk.md)
+- [Use Azure managed disks](use-container-storage-with-managed-disks.md)
+- [Use Azure Elastic SAN](use-container-storage-with-elastic-san.md)
+- [Use local NVMe](use-container-storage-with-local-disk.md)
+- [Use temp SSD](use-container-storage-with-temp-ssd.md)
+- [Use local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md)

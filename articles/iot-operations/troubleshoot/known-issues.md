@@ -145,74 +145,74 @@ To work around this issue, use the following steps to update the **DaemonSet** s
     kubectl edit target solid-zebra-97r6jr7rw43vqv-ops-init-target -n azure-iot-operations
     ```
 
-1. Add the following environment variables to the configuration:
+1. Add the following environment variables to the `spec.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` configuration section:
 
-```yml
-- name: ASPNETCORE_URLS 
-  value: http://+8443 
-- name: POD_IP 
-  valueFrom: 
-    fieldRef: 
-      fieldPath: "status.podIP" 
-```
+    ```yml
+    - name: ASPNETCORE_URLS 
+      value: http://+8443 
+    - name: POD_IP 
+      valueFrom: 
+        fieldRef: 
+          fieldPath: "status.podIP" 
+    ```
 
 1. Save your changes. The final specification looks like the following example:
 
-```yml
-apiVersion: orchestrator.iotoperations.azure.com/v1 
-kind: Target 
-metadata: 
-  name: <cluster-name>-target 
-  namespace: azure-iot-operations 
-spec: 
-  displayName: <cluster-name>-target 
-  scope: azure-iot-operations 
-  topologies: 
-  ...
-  version: 1.0.0.0 
-  components: 
-    ... 
-    - name: aio-opc-asset-discovery 
-      type: yaml.k8s 
-      properties: 
-        resource: 
-          apiVersion: apps/v1 
-          kind: DaemonSet 
-          metadata: 
-            labels: 
-              app.kubernetes.io/part-of: aio 
-            name: aio-opc-asset-discovery 
-          spec: 
-            selector: 
-              matchLabels: 
-                name: aio-opc-asset-discovery 
-            template: 
+    ```yml
+    apiVersion: orchestrator.iotoperations.azure.com/v1 
+    kind: Target 
+    metadata: 
+      name: <cluster-name>-target 
+      namespace: azure-iot-operations 
+    spec: 
+      displayName: <cluster-name>-target 
+      scope: azure-iot-operations 
+      topologies: 
+      ...
+      version: 1.0.0.0 
+      components: 
+        ... 
+        - name: aio-opc-asset-discovery 
+          type: yaml.k8s 
+          properties: 
+            resource: 
+              apiVersion: apps/v1 
+              kind: DaemonSet 
               metadata: 
                 labels: 
                   app.kubernetes.io/part-of: aio 
-                  name: aio-opc-asset-discovery 
+                name: aio-opc-asset-discovery 
               spec: 
-                containers: 
-                  - env: 
-                      - name: ASPNETCORE_URLS 
-                        value: http://+8443 
-                      - name: POD_IP 
-                        valueFrom: 
-                          fieldRef: 
-                            fieldPath: status.podIP 
-                      - name: DISCOVERY_HANDLERS_DIRECTORY 
-                        value: /var/lib/akri 
-                      - name: AKRI_AGENT_REGISTRATION 
-                        value: 'true' 
-                    image: >- 
-                      edgeappmodel.azurecr.io/opcuabroker/discovery-handler:0.4.0-preview.3 
-                    imagePullPolicy: Always 
+                selector: 
+                  matchLabels: 
                     name: aio-opc-asset-discovery 
-                    ports: ... 
-                    resources: ...
-                    volumeMounts: ...
-                volumes: ...
-```
+                template: 
+                  metadata: 
+                    labels: 
+                      app.kubernetes.io/part-of: aio 
+                      name: aio-opc-asset-discovery 
+                  spec: 
+                    containers: 
+                      - env: 
+                          - name: ASPNETCORE_URLS 
+                            value: http://+8443 
+                          - name: POD_IP 
+                            valueFrom: 
+                              fieldRef: 
+                                fieldPath: status.podIP 
+                          - name: DISCOVERY_HANDLERS_DIRECTORY 
+                            value: /var/lib/akri 
+                          - name: AKRI_AGENT_REGISTRATION 
+                            value: 'true' 
+                        image: >- 
+                          edgeappmodel.azurecr.io/opcuabroker/discovery-handler:0.4.0-preview.3 
+                        imagePullPolicy: Always 
+                        name: aio-opc-asset-discovery 
+                        ports: ... 
+                        resources: ...
+                        volumeMounts: ...
+                    volumes: ...
+    ```
 
 ## Azure IoT Operations Preview portal
 

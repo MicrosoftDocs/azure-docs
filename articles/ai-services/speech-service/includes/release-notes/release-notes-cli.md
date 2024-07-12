@@ -6,6 +6,13 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.38.0: June 2024 release
+Updated to use Speech SDK 1.38.0
+#### New features
+* none
+#### Bug fixes
+* none
+
 ### Speech CLI 1.37.0: April 2024 release
 Updated to use Speech SDK 1.37.0
 #### New features

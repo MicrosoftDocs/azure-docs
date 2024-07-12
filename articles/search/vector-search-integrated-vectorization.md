@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 06/11/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
 
 > [!IMPORTANT] 
-> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) provides this feature.
+> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview REST APIs provide this feature.
 
 Integrated vectorization is an extension of the indexing and query pipelines in Azure AI Search. It adds the following capabilities:
 
@@ -62,9 +62,9 @@ The diagram focuses on integrated vectorization, but your solution isn't limited
 
 ## Availability and pricing
 
-Integrated vectorization is available in all regions and tiers. However, if you're using Azure OpenAI and the AzureOpenAIEmbedding skill, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services) of that service.
+Integrated vectorization is available in all regions and tiers. However, if you're using Azure OpenAI and Azure AI skills and vectorizers, make sure your Azure AI multi-service account is [available in the same regions as Azure AI Search](search-region-support.md).
 
-If you're using a custom skill and an Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the [product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for feature availability. 
+If you're using a custom skill and an Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the [Azure product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search) for feature availability. 
 
 Data chunking (Text Split skill) is free and available on all Azure AI services in all regions.
 

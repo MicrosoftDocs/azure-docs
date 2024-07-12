@@ -5,10 +5,10 @@ description: Learn how to troubleshoot issues with environment image builds and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: edebar01
-ms.author:  ericadebarge
-ms.reviewer: larryfr
-ms.date: 06/09/2023
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: ericadebarge
+ms.date: 06/10/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 monikerRange: 'azureml-api-1 || azureml-api-2'

@@ -5,9 +5,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
-ms.reviewer: larryfr
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: Blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ---
 

@@ -4,7 +4,7 @@ description: Outlines the deployment order for components on Azure Kubernetes Se
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 04/10/2024
 

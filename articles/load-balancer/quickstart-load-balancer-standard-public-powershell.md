@@ -163,7 +163,7 @@ Use a NAT gateway to provide outbound internet access to resources in the backen
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway ##
@@ -360,7 +360,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 Ensure the **State** of the VM creation is **Completed** before moving on to the next steps.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

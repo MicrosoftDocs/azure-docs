@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/06/2024
 ---
 
 # Use deployment scripts in Bicep
@@ -497,7 +497,7 @@ The following table lists the error codes for the deployment script:
 
 ## Access a private virtual network
 
-You can run deployment scripts in private networks with some additional configurations. For more information, see [Access a private virtual network](./deployment-script-vnet.md).
+You can run deployment scripts in private networks with some additional configurations. For more information, see [Access a private virtual network using service endpoint](./deployment-script-vnet.md) or [Run Bicep deployment script privately over a private endpoint](./deployment-script-vnet-private-endpoint.md).
 
 ## Next steps
 
@@ -505,5 +505,6 @@ In this article, you learned how to use deployment scripts. To learn more, see:
 
 - [Training module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
 - [Develop deployment script resources](./deployment-script-develop.md)
-- [Access a private virtual network](./deployment-script-vnet.md)
+- [Access a private virtual network using service endpoint](./deployment-script-vnet.md)
+- [Run Bicep deployment script privately over a private endpoint](./deployment-script-vnet-private-endpoint.md)
 - [Create script development environments](./deployment-script-bicep-configure-dev.md)

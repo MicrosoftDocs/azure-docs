@@ -44,7 +44,7 @@ A test can be run in a debug mode to validate the test plan configuration and ap
 
 ## Run tests in debug mode
 
-You can enable debug mode for the first test while creating of a new test. You can also enable debug mode when running a test or rerunning a test run.
+You can enable debug mode for the first test run while creating a new test. You can also enable debug mode when running a test or rerunning a test run.
 
 To enable debug mode for your first test run, follow these steps while creating a test:
 

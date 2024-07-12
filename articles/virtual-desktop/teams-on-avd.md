@@ -3,21 +3,27 @@ title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/06/2023
+ms.date: 06/27/2024
 ms.author: helohr
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 
-Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using a supported Remote Desktop client. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
+Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. You can still use Microsoft Teams on Azure Virtual Desktop on other platforms without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
+
+There are two versions of Teams, *Classic Teams* and *[New Teams](/microsoftteams/new-teams-desktop-admin)*, and you can use either with Azure Virtual Desktop. New Teams has with feature parity with Classic Teams, but improves performance, reliability, and security.
+
+To redirect calling and meeting functionality to the local device, Azure Virtual Desktop uses an extra component. This component is either *SlimCore* or the *WebRTC Redirector Service*. The option you use depends on the following:
+
+- New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is available in preview and you need [to opt in to the preview](/microsoftteams/public-preview-doc-updates?tabs=new-teams-client) to use it. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2).
+
+- Classic Teams uses the WebRTC Redirector Service.
 
 > [!TIP]
-> The new Microsoft Teams app is now generally available to use with Azure Virtual Desktop, with feature parity with the classic Teams app and improved performance, reliability, and security.
->
 > If you're using the [classic Teams app with Virtual Desktop Infrastructure (VDI) environments](/microsoftteams/teams-for-vdi), such as as Azure Virtual Desktop, end of support is **October 1, 2024** and end of availability is **July 1, 2025**, after which you'll need to use the new Microsoft Teams app. For more information, see [End of availability for classic Teams app](/microsoftteams/teams-classic-client-end-of-availability).
 
 ## Prerequisites
 
-Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do these things:
+Before you can use Microsoft Teams on Azure Virtual Desktop, you need:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 
@@ -25,7 +31,12 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 - For Windows, you also need to install the latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on your client device and session hosts. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
 
-- Install the latest [Remote Desktop client](./users/connect-windows.md) on a client device running Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Install the latest version of [Windows App](/windows-app/get-started-connect-devices-desktops-apps) or the [Remote Desktop client](./users/connect-windows.md) on Windows or macOS that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+
+   SlimCore is available on Windows with the following apps and versions:
+   
+   - Windows App for Windows, version 1.3.252 or later
+   - Remote Desktop client for Windows, version 1.2.5405.0 or later
 
 - If you use FSLogix for profile management and want to use the new Microsoft Teams app, you need to install FSLogix 2210 hotfix 3 (2.9.8716.30241) or later.
 
@@ -41,11 +52,11 @@ For more information about which features Teams on Azure Virtual Desktop support
 
 ## Prepare to install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10 or 11 Enterprise multi-session or Windows 10 or 11 Enterprise VM image.
+This section shows you how to install the Teams desktop app on your Windows 10 or 11 Enterprise multi-session or Windows 10 or 11 Enterprise VM image.
 
 ### Enable media optimization for Teams
 
-To enable media optimization for Teams, set the following registry key on the host VM:
+To enable media optimization for Teams, set the following registry key on each session host:
 
 1. From the start menu, run **Registry Editor** as an administrator. Go to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams`. Create the Teams key if it doesn't already exist. 
 
@@ -64,7 +75,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Name IsWVDEnvironment -
 
 ### Install the Remote Desktop WebRTC Redirector Service
 
-The Remote Desktop WebRTC Redirector Service is required to run Teams on Azure Virtual Desktop. To install the service:
+You need to install the WebRTC Redirector Service on each session host. You can install the [MSI file](https://aka.ms/msrdcwebrtcsvc/msi) using a management tool such [Configuration Manager](/mem/configmgr/apps/get-started/create-and-deploy-an-application), or manually. 
+
+To install the WebRTC Redirector Service manually:
 
 1. Sign in to a session host as a local administrator.
 
@@ -76,9 +89,12 @@ The Remote Desktop WebRTC Redirector Service is required to run Teams on Azure V
 
 You can find more information about the latest version of the WebRTC Redirector Service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-webrtc.md).
 
+> [!TIP]
+> If you want to use SlimCore, all of its required components come bundled with new Teams and Windows App or the Remote Desktop client.
+
 ## Install Teams on session hosts
 
-You can deploy the Teams desktop app per-machine or per-user. For session hosts in a pooled host pool, you'll need to install Teams per-machine. To install Teams on your session hosts follow the steps in the relevant article:
+You can deploy the Teams desktop app per-machine or per-user. For session hosts in a pooled host pool, you need to install Teams per-machine. To install Teams on your session hosts follow the steps in the relevant article:
 
 - [Install the classic Teams app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm).
 - [Install the new Teams app](/microsoftteams/new-teams-vdi-requirements-deploy).
@@ -87,27 +103,29 @@ You can deploy the Teams desktop app per-machine or per-user. For session hosts 
 
 After installing the WebRTC Redirector Service and the Teams desktop app, follow these steps to verify that Teams media optimizations loaded:
 
+1. Connect to a remote session.
+
 1. Quit and restart the Teams application.
 
 1. Select your user profile image, then select **About**.
 
 1. Select **Version**.
 
-      If media optimizations loaded, the banner will show you **Azure Virtual Desktop Media optimized**. If the banner shows you **Azure Virtual Desktop Media not connected**, quit the Teams app and try again.
+      If media optimizations loaded, the banner shows you  **AVD SlimCore Media Optimized** or **AVD Media Optimized**. If the banner shows you **AVD Media not connected**, quit the Teams app and try again.
 
 1. Select your user profile image, then select **Settings**.
 
-      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions - Microphone** the setting **"Allow apps to access your microphone"** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
+   If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions - Microphone** the setting **"Allow apps to access your microphone"** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
 
-      If optimizations don't load, uninstall then reinstall Teams and check again.
+   If media optimizations don't load, uninstall then reinstall Teams and check again.
 
 ## Enable registry keys for optional features
 
-If you want to use certain optional features for Teams on Azure Virtual Desktop, you'll need to enable certain registry keys. The following instructions only apply to Windows client devices and session host VMs.
+If you want to use certain optional features for Teams on Azure Virtual Desktop, you need to enable certain registry keys. The following instructions only apply to Windows client devices and session host VMs.
 
 ### Enable hardware encode for Teams on Azure Virtual Desktop
 
-Hardware encode lets you increase video quality for the outgoing camera during Teams calls. In order to enable this feature, your client will need to be running version 1.2.3213 or later of the [Windows Desktop client](whats-new-client-windows.md). You'll need to repeat the following instructions for every client device. 
+Hardware encode lets you increase video quality for the outgoing camera during Teams calls. In order to enable this feature, your client needs to be running version 1.2.3213 or later of the [Windows Desktop client](whats-new-client-windows.md). You need to repeat the following instructions for every client device. 
 
 To enable hardware encode:
 

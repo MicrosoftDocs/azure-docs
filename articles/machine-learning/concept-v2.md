@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: balapv
-author: balapv
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 01/17/2024
 ms.custom: cliv2, sdkv2, devx-track-python
 #Customer intent: As a data scientist, I want to know whether to use v1 or v2 of CLI and SDK.

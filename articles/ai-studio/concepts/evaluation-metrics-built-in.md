@@ -16,7 +16,7 @@ author: lgayhardt
 
 # Evaluation and monitoring metrics for generative AI
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Azure AI Studio allows you to evaluate single-turn or complex, multi-turn conversations where you ground the generative AI model in your specific data (also known as Retrieval Augmented Generation or RAG). You can also evaluate general single-turn question answering scenarios, where no context is used to ground your generative AI model (non-RAG). Currently, we support built-in metrics for the following task types:
 
@@ -90,7 +90,7 @@ We support the following AI-Assisted metrics for the above task types:
 
 ## Risk and safety metrics
 
-The risk and safety metrics draw on insights gained from our previous Large Language Model projects such as GitHub Copilot and Bing. This ensures a comprehensive approach to evaluating generated responses for risk and safety severity scores. These metrics are generated through our safety evaluation service, which employs a set of LLMs. Each model is tasked with assessing specific risks that could be present in the response (for example, sexual content, violent content, etc.). These models are provided with risk definitions and severity scales, and they annotate generated conversations accordingly. Currently, we calculate a “defect rate” for the risk and safety metrics below. For each of these metrics, the service measures whether these types of content were detected and at what severity level. Each of the four types has three severity levels (Very low, Low, Medium, High). Users specify a threshold of tolerance, and the defect rates are produced by our service correspond to the number of instances that were generated at and above each threshold level.
+The risk and safety metrics draw on insights gained from our previous Large Language Model projects such as GitHub Copilot and Bing. This ensures a comprehensive approach to evaluating generated responses for risk and safety severity scores. These metrics are generated through our safety evaluation service, which employs a set of LLMs. Each model is tasked with assessing specific risks that could be present in the response (for example, sexual content, violent content, etc.). These models are provided with risk definitions and severity scales, and they annotate generated conversations accordingly. Currently, we calculate a “defect rate” for the risk and safety metrics below. For each of these metrics, the service measures whether these types of content were detected and at what severity level. Each of the four types has four severity levels (Very low, Low, Medium, High). Users specify a threshold of tolerance, and the defect rates are produced by our service correspond to the number of instances that were generated at and above each threshold level.
 
  Types of content:
 

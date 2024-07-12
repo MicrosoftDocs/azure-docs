@@ -12,8 +12,6 @@ ms.date: 11/02/2023
 
 This article covers the usage of [Azure Resource Graph](../governance/resource-graph/overview.md) with Azure Virtual Network Manager. Azure Resource Graph (ARG) extends Azure Resource Management allowing you to query a given set of subscriptions for better governance of your environment. With ARG integration, you can query ARG to get insights into their Azure Virtual Network Manager (AVNM) configurations. Insights are provided through customized [Kusto queries](/azure/data-explorer/kusto/query/) offering resource level or at the regional level status data.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Using ARG with virtual network manager
 
 The following are some of the scenarios where Azure Resource Graph can be used for insight into Azure Virtual Network Manager:

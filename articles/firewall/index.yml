@@ -92,6 +92,8 @@ landingContent:
         links:
          - text: Azure Firewall integration in Microsoft Copilot for Security (preview)
            url: firewall-copilot.md
+         - text: Azure Firewall integration in Copilot for Security - protect networks at machine speed with Gen AI
+           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-integration-in-copilot-for-security-protect/ba-p/4144614
 
   
   # Card

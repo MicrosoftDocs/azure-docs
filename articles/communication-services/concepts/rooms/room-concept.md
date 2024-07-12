@@ -18,7 +18,7 @@ Azure Communication Services provides a concept of a room for developers who are
 Here are the main scenarios where rooms are useful:
 
 - **Rooms enable scheduled communication experience.** Rooms help service platforms deliver meeting-style experiences while still being suitably generic for a wide variety of industry applications. Services can schedule and manage rooms for patients seeking medical advice, financial planners working with clients, and lawyers providing legal services.
-- **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. This will allow only a subset of users with assigned Communication Services identities to join a room call.
+- **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. This allows only a subset of users with assigned Communication Services identities to join a room call.
 - **Rooms enable structured communications through roles and permissions.** Rooms allow developers to assign predefined roles to users to exercise a higher degree of control and structure in communication. Ensure only presenters can speak and share content in a large meeting or in a virtual conference.
 - **Add PSTN participants.** Invite public switched telephone network (PSTN) participants to a call using a number purchased through your subscription or via Azure direct routing to your Session Border Controller (SBC).
 
@@ -87,7 +87,7 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
 
-Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
+Rooms can also be accessed using the [Azure Communication Services UI Library](../../concepts/ui-library/ui-library-overview.md). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
 
 ## Predefined participant roles and permissions
 
@@ -100,7 +100,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user | ✔️ | ❌ | ❌ |
+| - Mute remote user ** | ✔️ | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |
@@ -135,6 +135,8 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Call participants using phone calls | ✔️ | ❌ | ❌ |
 
 \* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
+
+** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Event handling
 
