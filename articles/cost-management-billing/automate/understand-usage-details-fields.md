@@ -131,14 +131,13 @@ Some fields might differ in casing and spacing between account types. Older vers
 
 ### Part numbers in the EA invoice are also in the cost and usage file
 
-Records in cost and usage file and other cost management experiences, such as cost analysis, include part numbers matching them in the EA invoice. The part numbers in the cost and usage file are shown only for EA customers.
+Records in cost and usage file and other cost management experiences, such as cost analysis, include part numbers matching them with the part numbers in the EA invoice. The part numbers in the cost and usage file are shown only for EA customers.
 
-- Part numbers are shown for marketplace usage and purchase records.
-- Part numbers for reservation purchases and refunds records match them in the invoice.
-
-There's no change for Azure usage record part numbers. They already match the invoice. Work is ongoing for Azure Savings Plan part numbers.
+- Part numbers are shown for all usage records.
+- Part numbers are shown for all purchase and refund records.
 
 Part numbers are the same in the invoice and cost and usage file details for all charge types, excluding Azure Savings Plan and prepurchase reservations. They currently don't have a part number in the cost and usage details file.
+
 
 ## Reconcile charges in the cost and usage details file
 
