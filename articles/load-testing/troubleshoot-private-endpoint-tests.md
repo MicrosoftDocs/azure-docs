@@ -12,13 +12,13 @@ ms.date: 04/18/2024
 
 # Troubleshoot issues with running load tests against private endpoints. 
 
-This article addresses issues that might arise when you run load tests against private application endpoints using Azure Load Testing. Azure Load Testing service injects the Azure resources that are required to generate load in the virtual network that contains the application endpoint. In this process, you may run into some issues related to virtual network configuration and RBAC permissions. 
+This article addresses issues that might arise when you run load tests against private application endpoints using Azure Load Testing. Azure Load Testing service injects the Azure resources that are required to generate load in the virtual network that contains the application endpoint. In this process, you may run into some issues related to virtual network configuration and role-based access control (RBAC) permissions. 
 
 Azure Load Testing service requires outbound connectivity from the virtual network to the following destinations. 
 | Destination | Need for connectivity |
 | ------------|-------|
 | *.azure.com | Access to this destination is required for the Azure Load Testing service to interact with Azure Batch service. |
-| *.windows.net | Access to this destination is required for the Azure Load Testing service to interact with Azure Service Bus, Azure Event Grids and Azure Storage. To learn more about firewall configuration in these services, see <li> [Azure Service Bus frequently asked questions](/azure/service-bus-messaging/service-bus-faq#what-ports-do-i-need-to-open-on-the-firewall--) </li> <li> [Azure Event Hubs Firewall Rules](/azure/event-hubs/event-hubs-ip-filtering) </li> <li> [Configure Azure Storage firewalls and virtual networks ](/azure/storage/common/storage-network-security?tabs=azure-portal) </li> |
+| *.windows.net | Access to this destination is required for the Azure Load Testing service to interact with Azure Service Bus, Azure Event Grids, and Azure Storage. To learn more about firewall configuration in these services, see <li> [Azure Service Bus frequently asked questions](/azure/service-bus-messaging/service-bus-faq#what-ports-do-i-need-to-open-on-the-firewall--) </li> <li> [Azure Event Hubs Firewall Rules](/azure/event-hubs/event-hubs-ip-filtering) </li> <li> [Configure Azure Storage firewalls and virtual networks ](/azure/storage/common/storage-network-security?tabs=azure-portal) </li> |
 | *.azurecr.io | Access to this destination is required for the Azure Load Testing service to interact with Azure Container Registry. To learn more about firewall configuration in Azure Container Registry, see <li> [Firewall access rules - Azure Container Registry ](/azure/container-registry/container-registry-firewall-access-rules) </li> |
 
 Optionally, outbound connectivity is needed to *.maven.org and *.github.com to download any plugins that are included in your test configuration. 
@@ -27,7 +27,7 @@ Optionally, outbound connectivity is needed to *.maven.org and *.github.com to d
 
 To test connectivity from your virtual network: 
 
-1. Create a Virtual Machine with a Public IP in the subnet that you are using in your test configuration in Azure Load Testing. This virtual machine is only used to diagnose network connectivity and can be deleted after troubleshooting. This will not be used by the Azure Load Testing service to generate load.
+1. Create a Virtual Machine with a Public IP in the subnet that you're using in your test configuration in Azure Load Testing. This virtual machine is only used to diagnose network connectivity and can be deleted after troubleshooting.  Azure Load Testing service won't use this virtual machine to generate load.
 
     Run the following Azure CLI command to create a virtual machine.
   
@@ -38,7 +38,7 @@ To test connectivity from your virtual network:
 
 2. Login to the virtual machine using [Azure Bastion](/azure/bastion/bastion-connect-vm-ssh-linux).
 3. Test outbound connectivity from the virtual machine to azure.com
-    - Run the following command to validate DNS lookup 
+    - To validate Domain Name System (DNS) lookup, run the following command  
         ```
         nslookup azure.com
         ```
@@ -46,7 +46,7 @@ To test connectivity from your virtual network:
 
       :::image type="content" source="media/troubleshoot-private-endpoint-tests/dns-success-response.png" alt-text="Screenshot that shows a successful response for DNS validation":::
       
-    - Run the following command to validate connectivity to 'azure.com'
+    - To validate connectivity to 'azure.com', run the following command 
       ```
       curl azure.com -I
       ```
@@ -76,7 +76,7 @@ The subnet you're using for the load test isn't in the `Succeeded` state and isn
 
 1. Verify the state of the subnet.
 
-    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
+    To verify the state, run the following Azure CLI command. The result should be `Succeeded`.
 
     ```azurecli
     az network vnet subnet show -g MyResourceGroup -n MySubnet --vnet-name MyVNet
@@ -110,7 +110,7 @@ The network security group (NSG) that is attached to the subnet isn't in the `Su
 
 1. Verify the state of the NSG.
 
-    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
+    To verify the state, run the following Azure CLI command. The result should be `Succeeded`.
 
     ```azurecli
     az network nsg show -g MyResourceGroup -n MyNsg
@@ -126,7 +126,7 @@ The route table attached to the subnet isn't in the `Succeeded` state.
 
 1. Verify the state of the route table.
 
-    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
+    To verify the state, run the following Azure CLI command. The result should be `Succeeded`.
 
     ```azurecli
     az network route-table show -g MyResourceGroup -n MyRouteTable
@@ -150,7 +150,7 @@ The load test engine instances couldn't be deployed due to an error in the subne
 
 1. Verify the state of the subnet.
 
-    Run the following Azure CLI command to verify the state. The result should be `Succeeded`.
+    To verify the state, run the following Azure CLI command. The result should be `Succeeded`.
 
     ```azurecli
     az network vnet subnet show -g MyResourceGroup -n MySubnet --vnet-name MyVNet
