@@ -47,7 +47,7 @@ If you need more information about a particular warning or error code, select th
 | [BCP035](./bicep-error-bcp035.md) | The specified &lt;data-type> declaration is missing the following required properties: &lt;property-name>. |
 | [BCP036](./bicep-error-bcp036.md) | The property &lt;property-name> expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
 | [BCP037](./bicep-error-bcp037.md) | The property &lt;property-name> is not allowed on objects of type &lt;type-definition>. |
-| BCP040     | String interpolation is not supported for keys on objects of type "{type}"{sourceDeclarationClause}.{permissiblePropertiesClause} |
+| [BCP040](./bicep-error-bcp040.md) | String interpolation is not supported for keys on objects of type &lt;type-definition>. |
 | BCP041     | Values of type "{valueType}" cannot be assigned to a variable. |
 | BCP043     | This is not a valid expression. |
 | BCP044     | Cannot apply operator "{operatorName}" to operand of type "{type}". |
@@ -251,13 +251,13 @@ If you need more information about a particular warning or error code, select th
 | BCP323     | The `[?]` (safe dereference) operator may not be used on resource or module collections. |
 | BCP325     | Expected a type identifier at this location. |
 | BCP326     | Nullable-typed parameters may not be assigned default values. They have an implicit default of 'null' that cannot be overridden. |
-| BCP327     | The provided value (which will always be greater than or equal to {sourceMin}) is too large to assign to a target for which the maximum allowable value is {targetMax}. |
-| BCP328     | The provided value (which will always be less than or equal to {sourceMax}) is too small to assign to a target for which the minimum allowable value is {targetMin}. |
+| [BCP327](./bicep-error-bcp327.md) | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
+| [BCP328](./bicep-error-bcp328.md) | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
 | BCP329     | The provided value can be as small as {sourceMin} and may be too small to assign to a target with a configured minimum of {targetMin}. |
 | BCP330     | The provided value can be as large as {sourceMax} and may be too large to assign to a target with a configured maximum of {targetMax}. |
 | BCP331     | A type's "{minDecoratorName}" must be less than or equal to its "{maxDecoratorName}", but a minimum of {minValue} and a maximum of {maxValue} were specified. |
-| BCP332     | The provided value (whose length will always be greater than or equal to {sourceMinLength}) is too long to assign to a target for which the maximum allowable length is {targetMaxLength}. |
-| BCP333     | The provided value (whose length will always be less than or equal to {sourceMaxLength}) is too short to assign to a target for which the minimum allowable length is {targetMinLength}. |
+| [BCP332](./bicep-error-bcp332.md) | The provided value (whose length will always be greater than or equal to &lt;string-length>) is too long to assign to a target for which the maximum allowable length is &lt;max-length>. |
+| [BCP333](./bicep-error-bcp333.md) | The provided value (whose length will always be less than or equal to &lt;string-length>) is too short to assign to a target for which the minimum allowable length is &lt;min-length>. |
 | BCP334     | The provided value can have a length as small as {sourceMinLength} and may be too short to assign to a target with a configured minimum length of {targetMinLength}. |
 | BCP335     | The provided value can have a length as large as {sourceMaxLength} and may be too long to assign to a target with a configured maximum length of {targetMaxLength}. |
 | BCP337     | This declaration type is not valid for a Bicep Parameters file. Specify a "{LanguageConstants.UsingKeyword}", "{LanguageConstants.ParameterKeyword}" or "{LanguageConstants.VariableKeyword}" declaration. |
