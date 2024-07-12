@@ -18,7 +18,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ## July 2024
 
-### Custom categories(standard) API
+### Custom categories (standard) API
 
 The custom categories API lets you create and train your own custom content categories and scan text for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
 
