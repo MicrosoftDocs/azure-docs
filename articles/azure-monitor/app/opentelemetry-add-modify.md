@@ -25,17 +25,17 @@ The distros automatically collect data by bundling OpenTelemetry instrumentation
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-##### Requests
+**Requests**
 
 * [ASP.NET
   Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) ¹²
 
-##### Dependencies
+**Dependencies**
 
 * [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) ¹²
 * [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) ¹
 
-##### Logging
+**Logging**
 
 * `ILogger`
 
@@ -47,7 +47,7 @@ The Azure Monitor Exporter doesn't include any instrumentation libraries.
 
 #### [Java](#tab/java)
 
-##### Requests
+**Requests**
 
 * JMS consumers
 * Kafka consumers
@@ -60,7 +60,7 @@ The Azure Monitor Exporter doesn't include any instrumentation libraries.
 > [!NOTE]
 > Servlet and Netty autoinstrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
-##### Dependencies (plus downstream distributed trace propagation)
+**Dependencies (plus downstream distributed trace propagation)**
 
 * Apache HttpClient
 * Apache HttpAsyncClient
@@ -77,26 +77,26 @@ The Azure Monitor Exporter doesn't include any instrumentation libraries.
 * OkHttp
 * RabbitMQ
 
-##### Dependencies (without downstream distributed trace propagation)
+**Dependencies (without downstream distributed trace propagation)**
 
 * Cassandra
 * JDBC
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
 
-##### Metrics
+**Metrics**
 
 * Micrometer Metrics, including Spring Boot Actuator metrics
 * JMX Metrics
 
-##### Logs
+**Logs**
 
 * Logback (including MDC properties) ¹ ³
 * Log4j (including MDC/Thread Context properties) ¹ ³
 * JBoss Logging (including MDC properties) ¹ ³
 * java.util.logging ¹ ³
 
-##### Telemetry collection
+**Default collection**
 
 Telemetry emitted by the following Azure SDKs is automatically collected by default:
 
@@ -149,24 +149,24 @@ Telemetry emitted by the following Azure SDKs is automatically collected by defa
 
 #### [Java native](#tab/java-native)
 
-##### Requests for Spring Boot native applications
+**Requests for Spring Boot native applications**
 
 * Spring Web
 * Spring Web MVC
 * Spring WebFlux
 
-##### Dependencies for Spring Boot native applications
+**Dependencies for Spring Boot native applications**
 
 * JDBC
 * R2DBC
 * MongoDB
 * Kafka
 
-##### Metrics
+**Metrics**
 
 * Micrometer Metrics
 
-##### Logs for Spring Boot native applications
+**Logs for Spring Boot native applications**
 
 * Logback
 
@@ -176,11 +176,11 @@ For Quartz native applications, please look at the [Quarkus documentation](https
 
 The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-opentelemetry/README.md#instrumentation-libraries).
 
-##### Requests
+**Requests**
 
 * [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http)²
 
-##### Dependencies
+**Dependencies**
 
 * [MongoDB](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mongodb)
 * [MySQL](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql)
@@ -189,7 +189,7 @@ The following OpenTelemetry Instrumentation libraries are included as part of th
 * [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 * [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-##### Logs
+**Logs**
 
 * [Bunyan](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-bunyan)
 <!--
@@ -233,20 +233,20 @@ useAzureMonitor(options);
 
 #### [Python](#tab/python)
 
-##### Requests
+**Requests**
 
 * [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) ¹
 * [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) ¹
 * [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) ¹
 
-##### Dependencies
+**Dependencies**
 
 * [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2)
 * [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) ¹
 * [`Urllib`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) ¹
 * [`Urllib3`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) ¹
 
-##### Logs
+**Logs**
 
 * [Python logging library](https://docs.python.org/3/howto/logging.html) ⁴
 
@@ -570,21 +570,21 @@ public class Program {
 
 1. Inject `OpenTelemetry`
 
-   *Spring*
-   ```java
-   import io.opentelemetry.api.OpenTelemetry;
-   
-    @Autowired
-    OpenTelemetry openTelemetry;
-   ```
+    * **Spring**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry;
+        
+        @Autowired
+        OpenTelemetry openTelemetry;
+        ```
 
-   *Quarkus*
-   ```java
-   import io.opentelemetry.api.OpenTelemetry; 
-   
-   @Inject
-   OpenTelemetry openTelemetry;
-   ```
+    * **Quarkus**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry; 
+        
+        @Inject
+        OpenTelemetry openTelemetry;
+        ```
 
 
 1. Create an histogram
@@ -768,21 +768,21 @@ public class Program {
 
 1. Inject `OpenTelemetry`
 
-   *Spring*
-   ```java
-   import io.opentelemetry.api.OpenTelemetry;
-   
-    @Autowired
-    OpenTelemetry openTelemetry;
-   ```
+    * **Spring**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry;
+        
+        @Autowired
+        OpenTelemetry openTelemetry;
+        ```
 
-   *Quarkus*
-   ```java
-   import io.opentelemetry.api.OpenTelemetry; 
-   
-   @Inject
-   OpenTelemetry openTelemetry;
-   ```
+    * **Quarkus**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry; 
+        
+        @Inject
+        OpenTelemetry openTelemetry;
+        ```
 
 1. Create the counter
 
@@ -984,21 +984,21 @@ public class Program {
 
 1. Inject `OpenTelemetry`
 
-   *Spring*
-   ```java
-   import io.opentelemetry.api.OpenTelemetry;
-   
-    @Autowired
-    OpenTelemetry openTelemetry;
-   ```
+    * **Spring**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry;
+        
+        @Autowired
+        OpenTelemetry openTelemetry;
+        ```
 
-   *Quarkus*
-   ```java
-   import io.opentelemetry.api.OpenTelemetry; 
-   
-   @Inject
-   OpenTelemetry openTelemetry;
-   ```
+    * **Quarkus**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry; 
+        
+        @Inject
+        OpenTelemetry openTelemetry;
+        ```
 
 1.  Create a gauge
 
@@ -1374,7 +1374,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
 
 #### [Java](#tab/java)
   
-##### Use the OpenTelemetry annotation
+**Use the OpenTelemetry annotation**
 
 The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
 
@@ -1404,7 +1404,7 @@ By default, the span ends up in the `dependencies` table with dependency type `I
 
 For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
 
-##### Use the OpenTelemetry API
+**Use the OpenTelemetry API**
 
 If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
 you can add your spans by using the OpenTelemetry API.
@@ -1445,20 +1445,21 @@ you can add your spans by using the OpenTelemetry API.
 
 1. Inject `OpenTelemetry`
 
-    *Spring*
-    ```java
-    import io.opentelemetry.api.OpenTelemetry;
+    * **Spring**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry;
+        
+        @Autowired
+        OpenTelemetry openTelemetry;
+        ```
     
-    @Autowired
-    OpenTelemetry openTelemetry;
-    ```
-    
-    *Quarkus*
-    ```java
-    import io.opentelemetry.api.OpenTelemetry; 
-    @Inject
-    OpenTelemetry openTelemetry;
-    ```
+    * **Quarkus**
+        ```java
+        import io.opentelemetry.api.OpenTelemetry;
+
+        @Inject
+        OpenTelemetry openTelemetry;
+        ```
 
 1.  Create a `Tracer`:
 
@@ -1626,13 +1627,13 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
 
 1. Create a `TelemetryClient` instance.
 
-> [!NOTE]
-> It's important to only create once instance of the TelemetryClient per application.
-
-```csharp
-var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
-var telemetryClient = new TelemetryClient(telemetryConfiguration);
-```
+    > [!NOTE]
+    > It's important to only create once instance of the TelemetryClient per application.
+    
+    ```csharp
+    var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+    var telemetryClient = new TelemetryClient(telemetryConfiguration);
+    ```
 
 1. Use the client to send custom telemetry.
 
@@ -1642,19 +1643,19 @@ telemetryClient.TrackEvent("testEvent");
 
 #### [.NET](#tab/net)
 
-#### Events
+**Events**
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
 1. Create a `TelemetryClient` instance.
 
-> [!NOTE]
-> It's important to only create once instance of the TelemetryClient per application.
-
-```csharp
-var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
-var telemetryClient = new TelemetryClient(telemetryConfiguration);
-```
+    > [!NOTE]
+    > It's important to only create once instance of the TelemetryClient per application.
+    
+    ```csharp
+    var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+    var telemetryClient = new TelemetryClient(telemetryConfiguration);
+    ```
 
 1. Use the client to send custom telemetry.
 
@@ -1682,19 +1683,19 @@ telemetryClient.TrackEvent("testEvent");
 
 1. Use the client to send custom telemetry:
 
-    ##### Events
+    **Events**
     
     ```java
     telemetryClient.trackEvent("WinGame");
     ```
     
-    ##### Metrics
+    **Metrics**
     
     ```java
     telemetryClient.trackMetric("queueLength", 42.0);
     ```
     
-    ##### Dependencies
+    **Dependencies**
     
     ```java
     boolean success = false;
@@ -1711,13 +1712,13 @@ telemetryClient.TrackEvent("testEvent");
     }
     ```
     
-    ##### Logs
+    **Logs**
     
     ```java
     telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
     ```
     
-    ##### Exceptions
+    **Exceptions**
     
     ```java
     try {
@@ -1747,7 +1748,7 @@ const telemetryClient = new TelemetryClient();
 
 Then use the `TelemetryClient` to send custom telemetry:
 
-##### Events
+**Events**
 
 ```javascript
 // Create an event telemetry object.
@@ -1759,7 +1760,7 @@ let eventTelemetry = {
 telemetryClient.trackEvent(eventTelemetry);
 ```
 
-##### Logs
+**Logs**
 
 ```javascript
 // Create a trace telemetry object.
@@ -1772,7 +1773,7 @@ let traceTelemetry = {
 telemetryClient.trackTrace(traceTelemetry);
 ```
 
-##### Exceptions
+**Exceptions**
 
 ```javascript
 // Try to execute a block of code.
@@ -1902,37 +1903,37 @@ To add span attributes, use either of the following two ways:
 
 1. Use a custom processor:
 
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-```csharp
-// Create an OpenTelemetry tracer provider builder.
-// It is important to keep the TracerProvider instance active throughout the process lifetime.
-using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        // Add a source named "OTel.AzureMonitor.Demo".
-        .AddSource("OTel.AzureMonitor.Demo") // Add a new processor named ActivityEnrichingProcessor.
-        .AddProcessor(new ActivityEnrichingProcessor()) // Add the Azure Monitor trace exporter.
-        .AddAzureMonitorTraceExporter() // Add the Azure Monitor trace exporter.
-        .Build();
-```
-
-Add `ActivityEnrichingProcessor.cs` to your project with the following code:
-
-```csharp
-public class ActivityEnrichingProcessor : BaseProcessor<Activity>
-{
-    // The OnEnd method is called when an activity is finished. This is the ideal place to enrich the activity with additional data.
-    public override void OnEnd(Activity activity)
+    > [!TIP]
+    > Add the processor shown here *before* the Azure Monitor Exporter.
+    
+    ```csharp
+    // Create an OpenTelemetry tracer provider builder.
+    // It is important to keep the TracerProvider instance active throughout the process lifetime.
+    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+            // Add a source named "OTel.AzureMonitor.Demo".
+            .AddSource("OTel.AzureMonitor.Demo") // Add a new processor named ActivityEnrichingProcessor.
+            .AddProcessor(new ActivityEnrichingProcessor()) // Add the Azure Monitor trace exporter.
+            .AddAzureMonitorTraceExporter() // Add the Azure Monitor trace exporter.
+            .Build();
+    ```
+    
+    Add `ActivityEnrichingProcessor.cs` to your project with the following code:
+    
+    ```csharp
+    public class ActivityEnrichingProcessor : BaseProcessor<Activity>
     {
-        // Update the activity's display name.
-        // The updated activity will be available to all processors which are called after this processor.
-        activity.DisplayName = "Updated-" + activity.DisplayName;
-        // Set custom tags on the activity.
-        activity.SetTag("CustomDimension1", "Value1");
-        activity.SetTag("CustomDimension2", "Value2");
+        // The OnEnd method is called when an activity is finished. This is the ideal place to enrich the activity with additional data.
+        public override void OnEnd(Activity activity)
+        {
+            // Update the activity's display name.
+            // The updated activity will be available to all processors which are called after this processor.
+            activity.DisplayName = "Updated-" + activity.DisplayName;
+            // Set custom tags on the activity.
+            activity.SetTag("CustomDimension1", "Value1");
+            activity.SetTag("CustomDimension2", "Value2");
+        }
     }
-}
-```
+    ```
 
 ##### [Java](#tab/java)
 
@@ -1942,35 +1943,35 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
 1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
-   ```xml
-   <dependency>
-     <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.0.0</version>
-   </dependency>
-   ```
+    ```xml
+    <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-api</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    ```
 
 1. Add custom dimensions in your code:
 
-   ```java
+    ```java
     import io.opentelemetry.api.trace.Span;
     import io.opentelemetry.api.common.AttributeKey;
-
+    
     AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
     Span.current().setAttribute(attributeKey, "myvalue1");
-   ```
+    ```
 
 ##### [Java native](#tab/java-native)
 
 Add custom dimensions in your code:
 
-   ```java
+    ```java
     import io.opentelemetry.api.trace.Span;
     import io.opentelemetry.api.common.AttributeKey;
-
+    
     AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
     Span.current().setAttribute(attributeKey, "myvalue1");
-   ```
+    ```
 
 ##### [Node.js](#tab/nodejs)
 
