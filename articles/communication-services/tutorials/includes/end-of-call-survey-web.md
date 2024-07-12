@@ -190,4 +190,4 @@ User responses that were sent using AppInsights are available under your App Ins
    ```
 -  You can rename the query (Advanced Settings -> Step name [example: custom-call-survey])
 -  Finally merge these two queries by surveyId. Create new query (+Add -> Add query).
--  Make suer the `Data source` is Merge and select `Merge type` as needed
+-  Make sure the `Data source` is Merge and select `Merge type` as needed
