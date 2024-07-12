@@ -93,7 +93,7 @@ Like every database system, Cassandra works best if the CPU utilization is aroun
    :::image type="content" source="./media/best-practice-performance/metrics-cpu.png" alt-text="Screenshot of CPU metrics by idle usage." lightbox="./media/best-practice-performance/metrics-cpu.png" border="true":::    
     
    > [!TIP]
-   > For a realistic CPU view, add a filter and split the property by `Usage kind=usage_idle`. If this value is lower than 20% (100%-80% -- idle is the reverse of active), you can apply splitting to obtain usage by all usage kinds.
+   > For a realistic CPU view, add a filter and split the property by `Usage kind=usage_idle`. If this value is lower than 20%, you can apply splitting to obtain usage by all usage kinds.
 
    :::image type="content" source="./media/best-practice-performance/metrics-cpu-by-usage.png" alt-text="Screenshot of CPU metrics by usage kind." lightbox="./media/best-practice-performance/metrics-cpu-by-usage.png" border="true":::
 
