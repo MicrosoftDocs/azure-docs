@@ -7,7 +7,7 @@ ms.subservice: azure-arc-scvmm
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
-ms.date: 07/10/2024
+ms.date: 07/11/2024
 keywords: "VMM, Arc, Azure"
 
 # Customer intent: As a VI admin, I want to understand the support matrix for System Center Virtual Machine Manager.
@@ -55,13 +55,9 @@ In addition, SCVMM requires the following exception:
 | SCVMM Management Server | 443 | URL of the SCVMM management server. | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 | WinRM | WinRM Port numbers (Default: 5985 and 5986). | URL of the WinRM service. | IPs in the IP Pool used by the Appliance VM and control plane need connection with the VMM server. | Used by the SCVMM server to communicate with the Appliance VM. |
 
-Generally, connectivity requirements include these principles: 
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
-- All connections are TCP unless otherwise specified. 
-- All HTTP connections use HTTPS and SSL/TLS with officially signed and verifiable certificates. 
-- All connections are outbound unless otherwise specified. 
-
-To use a proxy, verify that the agents and the machine performing the onboarding process meet the network requirements in this article. For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
+For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ### Azure role/permission requirements
 

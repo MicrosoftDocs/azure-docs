@@ -9,7 +9,7 @@ ms.custom:
   - ignite-2023
 ms.date: 07/01/2024
 
-#CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
+#CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
 
 # Configure TLS with automatic certificate management to secure MQTT communication in MQTT broker
@@ -191,11 +191,11 @@ spec:
         kind: Issuer
 ```
 
-Once the BrokerListener resource is configured, IoT MQ automatically creates a new service with the specified port and TLS enabled.
+Once the BrokerListener resource is configured, MQTT broker automatically creates a new service with the specified port and TLS enabled.
 
 ### Optional: Configure server certificate parameters
 
-The only required parameters are `issuerRef.name` and `issuerRef.kind`. All properties of the generated TLS server certificates are automatically chosen. However, IoT MQ allows certain properties to be customized by specifying them in the BrokerListener resource, under `tls.automatic.issuerRef`. The following is an example of all supported properties:
+The only required parameters are `issuerRef.name` and `issuerRef.kind`. All properties of the generated TLS server certificates are automatically chosen. However, MQTT broker allows certain properties to be customized by specifying them in the BrokerListener resource, under `tls.automatic.issuerRef`. The following is an example of all supported properties:
 
 ```yaml
 # cert-manager issuer for TLS server certificate. Required.
@@ -306,7 +306,7 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
           38:0b:ae:12:98:a9:8f:12:ea:95:45:71:bd:7c:de:9d
   ```
 
-* By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. IoT MQ uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 8883. You can inspect the issuer with the following command:
+* By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 8883. You can inspect the issuer with the following command:
 
   ```console
   $ kubectl get issuer aio-ca-issuer -n azure-iot-operations -o yaml

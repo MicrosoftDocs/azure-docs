@@ -28,15 +28,24 @@ The migration runtime server is essential for transferring data between differen
 
 ## How do you use the Migration Runtime Server feature?
 
-To use the Migration Runtime Server feature within the migration service in Azure Database for PostgreSQL, follow these steps in the Azure portal:
+To use the Migration Runtime Server feature within the migration service in Azure Database for PostgreSQL, you can select the appropriate migration option either through the Azure portal during the setup or by specifying the `migrationRuntimeResourceId` in the JSON properties file during the migration create command in the Azure CLI. Here's how to do it in both methods:
+
+### Use the Azure portal
 
 - Sign in to the Azure portal and access the migration service (from the target server) in the Azure Database for PostgreSQL instance.
 - Begin a new migration workflow within the service.
 - When you reach the "Select runtime server" tab, use the Migration Runtime Server by selecting "Yes."
-Choose your Azure subscription and resource group and the location of the VNet-integrated Azure Database for PostgreSQL—Flexible server.
+- Choose your Azure subscription and resource group and the location of the VNet-integrated Azure Database for PostgreSQL—Flexible server.
 - Select the appropriate Azure Database for PostgreSQL Flexible Server to serve as your Migration Runtime Server.
 
 :::image type="content" source="media/concepts-migration-service-runtime-server/select-runtime-server.png" alt-text="Screenshot of selecting migration runtime server.":::
+
+### Use Azure CLI
+
+- Open your command-line interface.
+- Ensure you have the Azure CLI installed and you're logged into your Azure account using az sign-in.
+- The version should be at least 2.62.0 or above to use the migration runtime server option.
+- The `az postgres flexible-server migration create` command requires a JSON file path as part of `--properties` parameter, which contains configuration details for the migration. Provide the `migrationRuntimeResourceId` in the JSON properties file.
 
 ## Migration Runtime Server essentials
 

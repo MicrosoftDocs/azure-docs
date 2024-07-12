@@ -9,7 +9,7 @@ ms.custom:
   - ignite-2023
 ms.date: 07/02/2024
 
-#CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
+#CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
 
 # Configure TLS with manual certificate management to secure MQTT communication in MQTT broker
@@ -115,7 +115,7 @@ Client my-client sending DISCONNECT
 > [!NOTE]
 > To connect to the broker you need to distribute root of trust to the clients, also known as trust bundle. In this case the root of trust is the self-signed root CA created Step CLI. Distribution of root of trust is required for the client to verify the server certificate chain. If your MQTT clients are workloads on the Kubernetes cluster you also need to create a ConfigMap with the root CA and mount it in your Pod.
 
-Remember to specify username, password, etc. if MQ authentication is enabled.
+Remember to specify username, password, etc. if MQTT broker authentication is enabled.
 
 ### Use external IP for the server certificate
 

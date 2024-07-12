@@ -16,12 +16,12 @@ ms.date: 07/02/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use the MQTT broker Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
+To use the MQTT broker Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and MQTT broker pluggable components.
 
 ## Prerequisites
 
 * Azure IoT Operations deployed - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
-* IoT MQ Dapr Components deployed - [Deploy IoT MQ Dapr Components](./howto-deploy-dapr.md)
+* MQTT broker Dapr Components deployed - [Deploy MQTT broker Dapr Components](./howto-deploy-dapr.md)
 
 ## Creating a Dapr application
 
@@ -52,13 +52,13 @@ After you finish writing the Dapr application, build the container:
 
 The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition contains the volumes required to deploy the application along with the required containers. This deployment utilizes the Dapr sidecar injector to automatically add the pluggable component pod.
 
-The yaml contains both a ServiceAccount, used to generate SATs for authentication with IoT Mq and the Dapr application Deployment.
+The yaml contains both a ServiceAccount, used to generate SATs for authentication with MQTT broker and the Dapr application Deployment.
 
 To create the yaml file, use the following definitions:
 
 > | Component | Description |
 > |-|-|
-> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the IoT MQ broker |
+> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the MQTT broker |
 > | `volumes.aio-ca-trust-bundle` | The chain of trust to validate the MQTT broker TLS cert. This defaults to the test certificate deployed with Azure IoT Operations |
 > | `containers.mq-dapr-app` | The Dapr application container you want to deploy |
 
