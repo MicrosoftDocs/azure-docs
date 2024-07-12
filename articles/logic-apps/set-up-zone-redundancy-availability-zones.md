@@ -30,7 +30,7 @@ Availability zone support is available for Standard logic apps, which are powere
 
 * You can enable availability zone redundancy *only for new* Standard logic apps with workflows that run in single-tenant Azure Logic Apps. You can't enable availability zone redundancy for existing Standard logic app workflows.
 
-* You can enable availability zone redundancy *only at creation time using Azure portal*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zone redundancy.
+* You can enable availability zone redundancy *only at creation time*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zone redundancy after creation.
 
 ### [Consumption (preview)](#tab/consumption)
 
