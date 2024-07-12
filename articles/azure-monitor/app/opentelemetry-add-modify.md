@@ -1374,7 +1374,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
 
 #### [Java](#tab/java)
   
-**Use the OpenTelemetry annotation**
+* **Use the OpenTelemetry annotation**
 
     The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
     
@@ -1404,7 +1404,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
     
     For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
 
-**Use the OpenTelemetry API**
+* **Use the OpenTelemetry API**
 
     If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
     you can add your spans by using the OpenTelemetry API.
