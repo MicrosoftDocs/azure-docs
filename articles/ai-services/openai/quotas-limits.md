@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 07/01/2024
 ms.author: mbullwin
 ---
 
@@ -27,12 +27,13 @@ The following sections provide you with a quick guide to the default quotas and 
 | OpenAI resources per region per Azure subscription | 30 |
 | Default DALL-E 2 quota limits | 2 concurrent requests |
 | Default DALL-E 3 quota limits| 2 capacity units (6 requests per minute)|
+| Default Whisper quota limits | 3 requests per minute |
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
 | Max fine-tuned model deployments | 5 |
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 |
-| Max Files per resource (fine-tuning) | 30 |
+| Max Files per resource (fine-tuning) | 50 |
 | Total size of all files per resource (fine-tuning) | 1 GB |
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
@@ -45,10 +46,61 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max files per Assistant/thread | 20 |
 | Max file size for Assistants & fine-tuning | 512 MB |
 | Assistants token limit | 2,000,000 token limit |
+| GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
+| GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
 
 ## Regional quota limits
 
-[!INCLUDE [Quota](includes/model-matrix/quota.md)]
+[!INCLUDE [Quota](./includes/model-matrix/quota.md)]
+
+## gpt-4o rate limits
+
+`gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
+
+### gpt-4o global standard
+
+|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|:---:|:---:|
+|Enterprise agreement | 10 M | 60 K |
+|Default | 450 K | 2.7 K |
+
+M = million | K = thousand
+
+### gpt-4o standard
+
+|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|:---:|:---:|
+|Enterprise agreement | 1 M | 6 K |
+|Default | 150 K | 900 |
+
+M = million | K = thousand
+
+#### Usage tiers
+
+Global Standard deployments use Azure's global infrastructure, dynamically routing customer traffic to the data center with best availability for the customer’s inference requests. This enables more consistent latency for customers with low to medium levels of traffic. Customers with high sustained levels of usage may see more variability in response latency.
+
+The Usage Limit determines the level of usage above which customers might see larger variability in response latency. A customer’s usage is defined per model and is the total tokens consumed across all deployments in all subscriptions in all regions for a given tenant.
+
+#### GPT-4o global standard & standard
+
+|Model| Usage Tiers per month |
+|----|----|
+|`GPT-4o` |1.5 Billion tokens |
+
+## Other offer types
+
+If your Azure subscription is linked to certain [offer types](https://azure.microsoft.com/support/legal/offer-details/) your max quota values are lower than the values indicated in the above tables.
+
+
+|Tier| Quota Limit in tokens per minute (TPM) |
+|---|:---|
+|Azure for Students, Free Trials | 1 K (all models)|
+| MSDN subscriptions | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K   |
+| Monthly credit card based subscriptions <sup>1</sup> | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K  |
+
+<sup>1</sup> This currently applies to [offer type 0003P](https://azure.microsoft.com/support/legal/offer-details/)
+
+In the Azure portal you can view what offer type is associated with your subscription by navigating to your subscription and checking the subscriptions overview pane. Offer type corresponds to the plan field in the subscription overview.
 
 ### General best practices to remain within rate limits
 

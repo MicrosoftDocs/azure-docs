@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/13/2024
+ms.date: 07/02/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -17,7 +17,10 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
-
+- July 2024
+  - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
+- May 2024
+  - [Migration of Azure VM backups from standard to enhanced policy (preview)](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-preview)
 - March 2024
   - [Agentless multi-disk crash-consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
   - [Azure Files vaulted backup (preview)](#azure-files-vaulted-backup-preview)
@@ -85,6 +88,18 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available
+
+Azure Backup now allows you to back up the Azure Virtual Machines that use disks with private endpoints (disk access). This support is extended for Virtual Machines that are backed up using Enhanced backup policies, along with the existing support for those that were backed up using Standard backup policies. While initiating the restore operation, you can specify the network access settings required for the restored disks. You can choose to keep the network configuration of the restored disks the same as that of the source disks, specify the access from specific networks only, or allow public access from all networks.
+ 
+For more information, see [Assign network access settings during restore](backup-azure-arm-restore-vms.md#assign-network-access-settings-during-restore).
+
+## Migration of Azure VM backups from standard to enhanced policy (preview)
+
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+
+For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Agentless multi-disk crash-consistent backups for Azure VMs (preview)
 

@@ -18,6 +18,11 @@ Microsoft Sentinel uses two different models to create baselines and detect anom
 - [UEBA anomalies](#ueba-anomalies)
 - [Machine learning-based anomalies](#machine-learning-based-anomalies)
 
+> [!NOTE]
+> The following anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
+> - Domain Reputation Palo Alto anomaly
+> - Multi-region logins in a single day via Palo Alto GlobalProtect
+
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## UEBA anomalies
@@ -59,7 +64,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                         |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
 | **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
@@ -74,7 +79,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                         |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/Delete user<br>Core Directory/Device/Delete user<br>Core Directory/UserManagement/Delete user |
@@ -88,7 +93,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                         |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
@@ -135,7 +140,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK tactics:**        | Defense Evasion                                                    |
 | **MITRE ATT&CK techniques:**     | T1562 - Impair Defenses                                            |
 | **MITRE ATT&CK sub-techniques:** | Disable or Modify Tools<br>Disable or Modify Cloud Firewall        |
-| **Activity:**                | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete<br>Microsoft.Network/networkSecurityGroups/securityRules/delete<br>Microsoft.Network/networkSecurityGroups/delete<br>Microsoft.Network/ddosProtectionPlans/delete<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete<br>Microsoft.Network/applicationSecurityGroups/delete<br>Microsoft.Authorization/policyAssignments/delete<br>Microsoft.Sql/servers/firewallRules/delete<br>Microsoft.Network/firewallPolicies/delete<br>Microsoft.Network/azurefirewalls/delete |
+| **Activity:**                    | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete<br>Microsoft.Network/networkSecurityGroups/securityRules/delete<br>Microsoft.Network/networkSecurityGroups/delete<br>Microsoft.Network/ddosProtectionPlans/delete<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete<br>Microsoft.Network/applicationSecurityGroups/delete<br>Microsoft.Authorization/policyAssignments/delete<br>Microsoft.Sql/servers/firewallRules/delete<br>Microsoft.Network/firewallPolicies/delete<br>Microsoft.Network/azurefirewalls/delete |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -146,7 +151,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs       |
+| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
@@ -160,10 +165,10 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                         |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
-| **Activity:**                    | Core Directory/UserManagement/User password reset |
+| **Activity:**                    | Core Directory/UserManagement/User password reset                  |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -174,7 +179,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra audit logs                                  |
+| **Data sources:**                | Microsoft Entra audit logs                                         |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **MITRE ATT&CK sub-techniques:** | Additional Azure Service Principal Credentials                     |
@@ -189,7 +194,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs       |
+| **Data sources:**                | Microsoft Entra sign-in logs<br>Windows Security logs              |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
@@ -215,12 +220,12 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 - [Attempted user account brute force per failure reason](#attempted-user-account-brute-force-per-failure-reason)
 - [Detect machine generated network beaconing behavior](#detect-machine-generated-network-beaconing-behavior)
 - [Domain generation algorithm (DGA) on DNS domains](#domain-generation-algorithm-dga-on-dns-domains)
-- [Domain Reputation Palo Alto anomaly](#domain-reputation-palo-alto-anomaly)
+- Domain Reputation Palo Alto anomaly (DISCONTINUED)
 - [Excessive data transfer anomaly](#excessive-data-transfer-anomaly)
 - [Excessive Downloads via Palo Alto GlobalProtect](#excessive-downloads-via-palo-alto-globalprotect)
 - [Excessive uploads via Palo Alto GlobalProtect](#excessive-uploads-via-palo-alto-globalprotect)
 - [Login from an unusual region via Palo Alto GlobalProtect account logins](#login-from-an-unusual-region-via-palo-alto-globalprotect-account-logins)
-- [Multi-region logins in a single day via Palo Alto GlobalProtect](#multi-region-logins-in-a-single-day-via-palo-alto-globalprotect)
+- Multi-region logins in a single day via Palo Alto GlobalProtect (DISCONTINUED)
 - [Potential data staging](#potential-data-staging)
 - [Potential domain generation algorithm (DGA) on next-level DNS Domains](#potential-domain-generation-algorithm-dga-on-next-level-dns-domains)
 - [Suspicious geography change in Palo Alto GlobalProtect account logins](#suspicious-geography-change-in-palo-alto-globalprotect-account-logins)
@@ -450,16 +455,9 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Domain Reputation Palo Alto anomaly
+### Domain Reputation Palo Alto anomaly (DISCONTINUED)
 
 **Description:** This algorithm evaluates the reputation for all domains seen specifically in Palo Alto firewall (PAN-OS product) logs. A high anomaly score indicates a low reputation, suggesting that the domain has been observed to host malicious content or is likely to do so.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN)                                            |
-| **MITRE ATT&CK tactics:**        | Command and Control                                                |
-| **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -515,16 +513,9 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Multi-region logins in a single day via Palo Alto GlobalProtect
+### Multi-region logins in a single day via Palo Alto GlobalProtect (DISCONTINUED)
 
 **Description:** This algorithm detects a user account which had sign-ins from multiple non-adjacent regions in a single day through a Palo Alto VPN.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        | Defense Evasion<br>Initial Access                                  |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 

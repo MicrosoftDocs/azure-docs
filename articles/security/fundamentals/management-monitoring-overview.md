@@ -9,7 +9,7 @@ ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/20/2023
+ms.date: 06/20/2024
 ms.author: terrylan
 
 ---
@@ -22,7 +22,7 @@ Azure role-based access control (Azure RBAC) provides detailed access management
 
 Learn more:
 
-* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml)
 
 ## Antimalware
 

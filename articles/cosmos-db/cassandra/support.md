@@ -240,18 +240,12 @@ Azure Cosmos DB for Apache Cassandra is a managed service platform. The platform
 
 ## CQL shell
 
-<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../notebooks-overview.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`).
-
-:::image type="content" source="./media/support/cqlsh.png" alt-text="Open CQLSH"::: -->
-
 You can connect to the API for Cassandra in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.11 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to API for Cassandra in Azure Cosmos DB, on Windows or Linux using CQLSH.
 
 > [!WARNING]
 > Connections to Azure Cosmos DB for Apache Cassandra will not work with DataStax Enterprise (DSE) or Cassandra 4.0 versions of CQLSH. Please ensure you use only v3.11 open source Apache Cassandra versions of CQLSH when connecting to API for Cassandra. 
 
 **Windows:**
-
-<!-- If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below. -->
 
 1. Install [Python 3](https://www.python.org/downloads/windows/)    
 1. Install PIP
@@ -335,7 +329,7 @@ Azure Cosmos DB supports Azure role-based access control (Azure RBAC) for provis
 
 ## Keyspace and Table options
 
-The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](../global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](../how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](../global-dist-under-the-hood.md) can't be modified.
+The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](../global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](../how-to-manage-database-account.yml#add-remove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](../global-dist-under-the-hood.md) can't be modified.
  
 All the options are ignored when creating the table, except gc_grace_seconds, which should be set to zero.
 The Keyspace and table have an extra option named "cosmosdb_provisioned_throughput" with a minimum value of 400 RU/s. The Keyspace throughput allows sharing throughput across multiple tables and it is useful for scenarios when all tables are not utilizing the provisioned throughput. Alter Table command allows changing the provisioned throughput across the regions. 

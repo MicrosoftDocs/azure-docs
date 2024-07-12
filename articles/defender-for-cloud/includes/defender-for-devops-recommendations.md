@@ -198,7 +198,7 @@ ms.author: dacurwin
 
 ### [Code repositories should have secret scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27/showSecurityCenterCommandBar~/false)
 
-**Description**: DevOps security in Defender for Cloud has found a secret in code repositories.â€¯ This should be remediated immediately to prevent a security breach.â€¯ Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results may not reflect the complete status of secrets in your repositories. <br> (No related policy)
+**Description**: DevOps security in Defender for Cloud has found a secret in code repositories.â€¯ This should be remediated immediately to prevent a security breach.â€¯ Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results might not reflect the complete status of secrets in your repositories. <br> (No related policy)
 
 **Severity**: High
 

@@ -2,7 +2,8 @@
 title: Review TrackAvailability() test results
 description: This article explains how to review data logged by TrackAvailability() tests
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 04/28/2024
+ms.reviewer: cogoodson
 ---
 
 # Review TrackAvailability() test results
@@ -25,6 +26,7 @@ Start by reviewing the graph on the **Availability** tab of your Application Ins
 
 > [!NOTE]
 > Tests created with `TrackAvailability()` will appear with **CUSTOM** next to the test name.
+> Similar to standard web tests, we recommend a minimum of five test locations for TrackAvailability() to ensure you can distinguish problems in your website from network issues.
 
  :::image type="content" source="media/availability-azure-functions/availability-custom.png" alt-text="Screenshot that shows the Availability tab with successful results." lightbox="media/availability-azure-functions/availability-custom.png":::
 
@@ -205,6 +207,25 @@ To create a new file, right-click under your timer trigger function (for example
     } 
 
     ```
+
+### Multi-Step Web Test Code Sample
+Follow the same instructions above and instead paste the following code into the **runAvailabilityTest.csx** file:
+
+```csharp
+using System.Net.Http; 
+
+public async static Task RunAvailabilityTestAsync(ILogger log) 
+{ 
+    using (var httpClient = new HttpClient()) 
+    { 
+        // TODO: Replace with your business logic 
+        await httpClient.GetStringAsync("https://www.bing.com/"); 
+
+        // TODO: Replace with your business logic for an additional monitored endpoint, and logic for additional steps as needed
+        await httpClient.GetStringAsync("https://www.learn.microsoft.com/"); 
+    } 
+}
+```
 
 ## Next steps
 

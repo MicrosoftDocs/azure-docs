@@ -35,9 +35,9 @@ The quickstart uses two pre-written .NET applications:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](./iot-hub-cli-version-info.md)]
 
-[!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](./iot-hub-include-create-hub-cli.md)]
 
 ## Retrieve the service connection string
 

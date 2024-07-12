@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, UpdateFrequency2
 This article illustrates how to use PowerShell to grant users permissions to a particular lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
 
 ## Policies as resources
-As discussed in the [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) article, Azure RBAC enables fine-grained access management of resources for Azure. Using Azure RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
+As discussed in the [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) article, Azure RBAC enables fine-grained access management of resources for Azure. Using Azure RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
 In DevTest Labs, a policy is a resource type that enables the Azure RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an Azure role.
 

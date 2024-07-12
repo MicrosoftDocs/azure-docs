@@ -6,7 +6,9 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 04/15/2024
+
+# customer intent: 'I want to learn about autoscale in Azure Monitor.'
 ---
 
 # Overview of autoscale in Azure
@@ -18,7 +20,7 @@ Autoscale supports many resource types. For more information about supported res
 > [!NOTE]
 > [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for virtual machines with limited support. We recommend migrating to [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md) for faster and more reliable autoscale support.
 
-## What is autoscale?
+## What is autoscale
 
 Autoscale is a service that you can use to automatically add and remove resources according to the load on your application.
 
@@ -53,25 +55,20 @@ You can set up autoscale via:
 * [Cross-platform command-line interface (CLI)](../cli-samples.md#autoscale)
 * [Azure Monitor REST API](/rest/api/monitor/autoscalesettings)
 
-## Architecture
 
-The following diagram shows the autoscale architecture.
-
- :::image type="content" source="./media/autoscale-overview/Autoscale_Overview_v4.png" lightbox="./media/autoscale-overview/Autoscale_Overview_v4.png" alt-text="Diagram that shows autoscale flow.":::
-
-### Resource metrics
+## Resource metrics
 
 Resources generate metrics that are used in autoscale rules to trigger scale events. Virtual machine scale sets use telemetry data from Azure diagnostics agents to generate metrics. Telemetry for the Web Apps feature of Azure App Service and Azure Cloud Services comes directly from the Azure infrastructure. Some commonly used metrics include CPU usage, memory usage, thread counts, queue length, and disk usage. For a list of available metrics, see [Autoscale Common Metrics](autoscale-common-metrics.md).
 
-### Custom metrics
+## Custom metrics
 
 Use your own custom metrics that your application generates. Configure your application to send metrics to [Application Insights](../app/app-insights-overview.md) so that you can use those metrics to decide when to scale.
 
-### Time
+## Time
 
 Set up schedule-based rules to trigger scale events. Use schedule-based rules when you see time patterns in your load and want to scale before an anticipated change in load occurs.
 
-### Rules
+## Rules
 
 Rules define the conditions needed to trigger a scale event, the direction of the scaling, and the amount to scale by. Combine multiple rules by using different metrics like CPU usage and queue length. Define up to 10 rules per profile.
 
@@ -83,7 +80,7 @@ Rules can be:
 Autoscale scales out if *any* of the rules are met. Autoscale scales in only if *all* the rules are met.
 In terms of logic operators, the OR operator is used for scaling out with multiple rules. The AND operator is used for scaling in with multiple rules.
 
-### Actions and automation
+## Actions and automation
 
 Rules can trigger one or more actions. Actions include:
 
@@ -96,7 +93,7 @@ Rules can trigger one or more actions. Actions include:
 
 ## Autoscale settings
 
-Autoscale settings contain the autoscale configuration. The setting includes scale conditions that define rules, limits, and schedules and notifications. Define one or more scale conditions in the settings and one notification setup.
+Autoscale settings includes scale conditions that define rules, limits, and schedules and notifications. Define one or more scale conditions in the settings and one notification setup.
 
 Autoscale uses the following terminology and structure.
 
@@ -105,7 +102,7 @@ Autoscale uses the following terminology and structure.
 | Scale conditions | profiles     | A collection of rules, instance limits, and schedules based on a metric or time. You can define one or more scale conditions or profiles. Define up to 20 profiles per autoscale setting.                                                                                                                                                                                            |
 | Rules            | rules        | A set of conditions based on time or metrics that triggers a scale action. You can define one or more rules for both scale-in and scale-out actions. Define up to a total of 10 rules per profile.                                                                                                                                                                                                         |
 | Instance limits  | capacity     | Each scale condition or profile defines the default, maximum, and minimum number of instances that can run under that profile.                                                                                                                                                                                                                                    |
-| Schedule         | recurrence   | Indicates when autoscale should put this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day or days of the week. |
+| Schedule         | recurrence   | Indicates when autoscale puts this scale condition or profile into effect. You can have multiple scale conditions, which allow you to handle different and overlapping requirements. For example, you can have different scale conditions for different times of day or days of the week. |
 | Notify           | notification | Defines the notifications to send when an autoscale event occurs. Autoscale can notify one or more email addresses or make a call by using one or more webhooks. You can configure multiple webhooks in the JSON but only one in the UI.                               |
 
 :::image type="content" source="./media/autoscale-overview/azure-resource-manager-rule-structure-3.png" lightbox="./media/autoscale-overview/azure-resource-manager-rule-structure-3.png" alt-text="Diagram that shows Azure autoscale setting, profile, and rule structure.":::
@@ -121,19 +118,19 @@ For code examples, see:
 
 Autoscale supports the following services.
 
-| Service                                           | Schema and documentation                                                                                                                           |
+| Service                                           | Schema and documentation                                                                                                                         |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Virtual Machines Scale Sets                 | [Overview of autoscale with Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md) |
-| Web Apps feature of Azure App Service                                         | [Scaling Web Apps](autoscale-get-started.md)                                                                                                     |
+| Web Apps feature of Azure App Service             | [Scaling Web Apps](autoscale-get-started.md)                                                                                                     |
 | Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
 | Azure Data Explorer clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
 | Azure Stream Analytics                            | [Autoscale streaming units (preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
-| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md)                                                      |
+| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md)                                    |
 | Azure Machine Learning workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
-| Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/enterprise/how-to-setup-autoscale.md)                                                                 |
-| Azure Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
-| Azure Service Bus                                       | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
-| Azure Logic Apps - Integration service environment (ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                              |
+| Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/enterprise/how-to-setup-autoscale.md)                                                      |
+| Azure Media Services                              | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
+| Azure Service Bus                                 | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
+| Azure Logic Apps - Integration service environment (ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                       |
 
 ## Next steps
 

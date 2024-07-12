@@ -22,9 +22,9 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Go
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 > [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
@@ -135,7 +135,7 @@ Image URL: https://dalleproduse.blob.core.windows.net/private/images/d7b28a5c-ca
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

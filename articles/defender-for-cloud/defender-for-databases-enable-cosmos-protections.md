@@ -158,4 +158,4 @@ After a few minutes, the alerts will appear in the security alerts page. Alerts 
 In this article, you learned how to enable Microsoft Defender for Azure Cosmos DB, and how to simulate security alerts.
 
 > [!div class="nextstepaction"]
-> [Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.md).
+> [Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.yml).

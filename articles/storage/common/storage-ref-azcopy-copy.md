@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 03/29/2024
+ms.date: 07/09/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -20,7 +20,7 @@ Copies source data to a destination location.
 Copies source data to a destination location. The supported directions are:
 
 - local <-> Azure Blob (SAS or OAuth authentication)
-- local <-> Azure Files (Share/directory SAS authentication)
+- local <-> Azure Files (Share/directory SAS authentication or OAuth authentication)
 - local <-> Azure Data Lake Storage Gen2 (SAS, OAuth, or SharedKey authentication)
 - Azure Blob (SAS or public) -> Azure Blob (SAS or OAuth authentication)
 - Azure Data Lake Storage Gen2 (SAS or public) -> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
@@ -28,7 +28,7 @@ Copies source data to a destination location. The supported directions are:
 - Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
 - Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication)
 - Azure Blob (SAS or public) -> Azure Files (SAS)
-- Azure Files (SAS) -> Azure Files (SAS)
+- Azure File (SAS or OAuth authentication) <-> Azure File (SAS or OAuth authentication)
 - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
 - AWS S3 (Access Key) -> Azure Block Blob (SAS or OAuth authentication)
 - Google Cloud Storage (Service Account Key) -> Azure Block Blob (SAS or OAuth authentication)
@@ -144,7 +144,7 @@ Download a subset of containers within a storage account by using a wildcard sym
 
 `azcopy cp "https://[srcaccount].blob.core.windows.net/[container*name]" "/path/to/dir" --recursive`
 
-Download all the versions of a blob from Azure Storage to local directory. Ensure that source is a valid blob, destination is a local folder and `versionidsFile` which takes in a path to the file where each version is written on a separate line. All the specified versions get downloaded in the destination folder specified.
+Download all the versions of a blob from Azure Storage listed in a text file (For example: `versionidsFile`) to local directory. Ensure that source is a valid blob, destination is a local folder and `versionidsFile` is a text file where each version is written on a separate line. All the specified versions get downloaded in the destination folder specified.
 
 `azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]/[blobname]" "/path/to/dir" --list-of-versions="/another/path/to/dir/[versionidsFile]"`
 
@@ -220,6 +220,16 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true`
 
+To copy files changed before or after the AzCopy job has started, AzCopy provides date and time in the job log in ISO8601 format (search for 'ISO 8601 START TIME' in the job log) that can be used with the `--include-after` and `--include-before` flags, see examples below. This is helpful for incremental copies.
+
+Copy a subset of files modified on or after the given date and time (in ISO8601 format) in a container by using the `include-after` flag.
+
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-after='2020-08-19T15:04:00Z''"`
+
+Copy a subset of files modified on or before the given date and time (in ISO8601 format) in a container by using the `include-before` flag.
+
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-before='2020-08-19T15:04:00Z'"`
+
 ## Options
 
 `--as-subdir` True by default.    Places folder sources as subdirectories under the destination. (default true)
@@ -250,17 +260,19 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name is fetched from Azure Key Vault and is used to encrypt the data
 
-`--cpk-by-value`    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash is fetched from environment variables
+`--cpk-by-value`    False by default. Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash is fetched from environment variables
 
 `--decompress`    Automatically decompress files when downloading, if their content-encoding indicates that they're compressed. The supported content-encoding values are 'gzip' and 'deflate'. File extensions of '.gz'/'.gzip' or '.zz' aren't necessary, but is removed if present.
 
 `--disable-auto-decoding`    False by default to enable automatic decoding of illegal chars on Windows. Can be set to true to disable automatic decoding.
 
-`--dry-run`    Prints the file paths that would be copied by this command. This flag doesn't copy the actual files. The --overwrite flag has no effect. If you set the --overwrite flag to false, files in the source directory are listed even if those files exist in the destination directory.
+`--dry-run`    False by default. Prints the file paths that would be copied by this command. This flag doesn't copy the actual files. The --overwrite flag has no effect. If you set the --overwrite flag to false, files in the source directory are listed even if those files exist in the destination directory.
 
 `--exclude-attributes`    (string)    (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
 
 `--exclude-blob-type`    (string)    Optionally specifies the type of blob (BlockBlob/ PageBlob/ AppendBlob) to exclude when copying blobs from the container or the account. Use of this flag isn't applicable for copying data from non azure-service to service. More than one blob should be separated by ';'.
+
+`--exclude-container`    (string)    Exclude these containers when transferring from account to account only. Multiple containers can be separated with ';'.
 
 `--exclude-path`    (string)    Exclude these paths when copying. This option doesn't support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths don't include the container name.
 
@@ -292,8 +304,6 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--list-of-versions`    (string)    Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided.
 
-`--log-level` (string)    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default 'INFO'). (default "INFO")
-
 `--metadata` (string)    Upload to Azure Storage with these key-value pairs as metadata.
 
 `--no-guess-mime-type`    Prevents AzCopy from detecting the content-type based on the extension or content of the file.
@@ -309,6 +319,8 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 `--preserve-smb-permissions` will still preserve ACLs but Owner and Group is based on the user running AzCopy (default true)
 
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2). For accounts that have a hierarchical namespace, your security principal must be the owning user of the target container or it must be assigned the Storage Blob Data Owner role, scoped to the target container, storage account, parent resource group, or subscription. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
+
+`--preserve-posix-properties`    False by default. Preserves property info gleaned from `stat` or `statx` into object metadata.
 
 `--preserve-smb-info`    For SMB-aware locations, flag is set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files are transferred; any others are ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for `Last Write Time` which is never preserved for folders. (default true)
 
@@ -326,14 +338,18 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier isn't supported, make sure to use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
 
-`--s2s-preserve-blob-tags`    Preserve index tags during service to service transfer from one blob storage to another
+`--s2s-preserve-blob-tags`    False by default. Preserve index tags during service to service transfer from one blob storage to another
 
 `--s2s-preserve-properties`    Preserve full properties during service to service copy. For AWS S3 and Azure File non-single file source, the list operation doesn't return full properties of objects and files. To 
 preserve full properties, AzCopy needs to send one more request per object or file. (default true)
 
+`--trailing-dot`  Enabled by default to treat file share related operations in a safe manner. Available options: `Enable`, `Disable`. Choose `Disable` to go back to legacy (potentially unsafe) treatment of trailing dot files where the file service will trim any trailing dots in paths. This can result in potential data corruption if the transfer contains two paths that differ only by a trailing dot (For example `mypath` and `mypath.`). If this flag is set to `Disable` and AzCopy encounters a trailing dot file, it will warn customers in the scanning log but will not attempt to abort the operation. If the destination does not support trailing dot files (Windows or Blob Storage), AzCopy will fail if the trailing dot file is the root of the transfer and skip any trailing dot paths encountered during enumeration.
+
 ## Options inherited from parent commands
 
 `--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it's omitted, the throughput isn't capped.
+
+`--log-level` (string)    Define the log verbosity for the log file, available levels: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default 'INFO'). (default "INFO")
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 

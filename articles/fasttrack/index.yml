@@ -9,8 +9,8 @@ metadata:
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
   ms.service: azure 
   ms.topic: hub-page
-  author: alricha
-  ms.author: kimberlm, nwiddup, alricha
+  author: ARMSGit
+  ms.author: alricha
   ms.date: 10/31/2023
 
 # productDirectory section
@@ -19,17 +19,17 @@ productDirectory:
     # Card
     - title: Watch Live
       imageSrc: ./media/azure-cloud.png
-      summary: Register on Reactor to join upcoming interactive live sessions and webcasts to get your questions answered real time by Azure engineers
+      summary: Register on Reactor to join upcoming interactive live sessions and webcasts to get your questions answered real time by Azure engineers.
       url: https://developer.microsoft.com/en-us/reactor/?search=fasttrack
     # Card
     - title: Watch on-demand recordings
       imageSrc: ./media/productivity.png
-      summary: Catch up on past sessions at your own pace
+      summary: Catch up on past sessions at your own pace.
       url: https://learn.microsoft.com/shows/learn-live/?terms=fasttrack
     # Card
     - title: Ask an Azure Engineer
       imageSrc: ./media/interact.png
-      summary: Get your technical questions answered directly from an Azure engineer
+      summary: Get your technical questions answered directly from an Azure engineer.
       url: https://learn.microsoft.com/answers/questions/ask/
       
 # conceptualContent section
@@ -72,6 +72,9 @@ conceptualContent:
             - url: https://learn-video.azurefd.net/vod/player?id=179b612f-e2cb-42e8-89d7-97f2b4632daa
               itemType: video
               text: 'Azure Routing: Ultimate Guide for Beginners (Spanish)'
+            - url: https://aka.ms/ftalive-20240523-cloudserviceclassictocloudserviceextendedsupportmigration
+              itemType: video
+              text: Classic Cloud Services to Cloud Services Extended Support Migration - NEW!
             # Possible addition - Azure Networking Fundamentals (replace AVD)
             # Possible removal - AVD FastStart
         # Card
@@ -91,7 +94,13 @@ conceptualContent:
               text: Azure API Management (APIM) STV Migration
             - url: https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=799a7ef2-d0c8-4dab-bb15-19181554aea1
               itemType: video
-              text: ISE to Logic App Migration - NEW!             
+              text: ISE to Logic App Migration
+            - url: https://aka.ms/ftalive-202404-asev2v3migration
+              itemType: video
+              text: ASE v2 to ASE v3 Migration - NEW!
+            - url: https://aka.ms/ftalive-20240520-appgwv1v2migration
+              itemType: video
+              text: App Gateway v1 to v2 Migration - NEW!
         # Card
         - title: Data
           links:

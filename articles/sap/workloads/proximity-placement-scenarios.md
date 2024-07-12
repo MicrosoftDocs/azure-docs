@@ -1,17 +1,17 @@
 ---
-title: Configuration options for optimal network latency with SAP applications | Microsoft Docs
-description: Describes SAP deployment scenarios to achieve optimal network latency
+title: Configuration options to minimize network latency with SAP applications | Microsoft Docs
+description: Describes SAP deployment scenarios to minimize network latency
 author: msjuergent
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: devx-track-azurepowershell
 ms.topic: article
-ms.date: 03/15/2024
+ms.date: 04/24/2024
 ms.author: juergent
 ---
 
-# Configuration options for optimal network latency with SAP applications
+# Configuration options to minimize network latency with SAP applications
 
 > [!IMPORTANT]
 > In November 2021 we made significant changes in the way how proximity placement groups should be used with SAP workload in zonal deployments.
@@ -82,7 +82,7 @@ Based on many improvements deployed by Microsoft into the Azure regions to reduc
 
 The difference to the recommendation given so far is that the database VMs in the two zones are no more a part of the proximity placement groups. The proximity placement groups per zone are now scoped with the deployment of the VM running the SAP ASCS/SCS instances. This also means that for the regions where availability zones are collected by multiple datacenters, the ASCS/SCS instance, and the application tier could run under one network spine and the database VMs could run under another network spine. Though with the network improvements made, the network latency between the SAP application tier and the DBMS tier still should be sufficient for sufficiently good performance and throughput. The advantage of this new configuration is that you have more flexibility in resizing VMs or moving to new VM types with either the DBMS layer or/and the application layer of the SAP system.
 
-For the special case of using Azure NetApp Files (ANF) for the DBMS environment and the ANF related new functionality of [Azure NetApp Files application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md) and its necessity for proximity placement groups, check the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
+For the special case of using Azure NetApp Files for the DBMS environment and the Azure NetApp Files related functionality of [Azure NetApp Files application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md) and its necessity for proximity placement groups, check the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 ### Proximity placement groups with availability set deployments
 

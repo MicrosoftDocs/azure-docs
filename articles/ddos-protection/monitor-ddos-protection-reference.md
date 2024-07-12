@@ -5,18 +5,15 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 05/22/2024
 ms.custom: template-concept
 ---
 
 # Monitoring Azure DDoS Protection
 
-
 The following section outlines the metrics of the Azure DDoS Protection service.
 
 ## Metrics
-
-
 
 ### DDoS protection metrics
 

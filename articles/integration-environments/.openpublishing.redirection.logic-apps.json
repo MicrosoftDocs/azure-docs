@@ -1,0 +1,24 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/integration-environments/create-business-process.md",
+            "redirect_url": "/azure/business-process-tracking/create-business-process",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/integration-environments/deploy-business-process.md",
+            "redirect_url": "/azure/business-process-tracking/deploy-business-process",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/integration-environments/manage-business-process.md",
+            "redirect_url": "/azure/business-process-tracking/manage-business-process",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/integration-environments/map-business-process-workflow.md",
+            "redirect_url": "/azure/business-process-tracking/map-business-process-workflow",
+            "redirect_document_id": true
+        }
+    ]
+}

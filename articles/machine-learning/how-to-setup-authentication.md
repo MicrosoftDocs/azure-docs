@@ -3,9 +3,9 @@ title: Set up authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning.
 services: machine-learning
-author: meyetman
-ms.author: meyetman
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: meyetman
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 01/05/2024
@@ -22,13 +22,13 @@ Learn how to set up authentication to your Azure Machine Learning workspace from
 
 * __Interactive__: You use your account in Microsoft Entra ID to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
-* __Service principal__: You create a service principal account in Microsoft Entra ID, and use it to authenticate or get a token. A service principal is used when you need an _automated process to authenticate_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes.
+* __Service principal__: You create a service principal account in Microsoft Entra ID, and use it to authenticate or get a token. A service principal is used to _authenticate an automated process_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes.
 
 * __Azure CLI session__: You use an active Azure CLI session to authenticate. The Azure CLI extension for Machine Learning (the `ml` extension or CLI v2) is a command line tool for working with Azure Machine Learning. You can sign in to Azure via the Azure CLI on your local workstation, without storing credentials in Python code or prompting the user to authenticate. Similarly, you can reuse the same scripts as part of continuous integration and deployment pipelines, while authenticating the Azure CLI with a service principal identity.
 
 * __Managed identity__: When using the Azure Machine Learning SDK v2 _on a compute instance_ or _on an Azure Virtual Machine_, you can use a managed identity for Azure. This workflow allows the VM to connect to the workspace using the managed identity, without storing credentials in Python code or prompting the user to authenticate. Azure Machine Learning compute clusters can also be configured to use a managed identity to access the workspace when _training models_.
 
-Regardless of the authentication workflow used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it, while a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
+Regardless of the authentication workflow used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it. While a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
 Microsoft Entra Conditional Access can be used to further control or restrict access to the workspace for each authentication workflow. For example, an admin can allow workspace access from managed devices only.
 
@@ -47,7 +47,7 @@ All the authentication workflows for your workspace rely on Microsoft Entra ID. 
 
 For more on Microsoft Entra ID, see [What is Microsoft Entra authentication](..//active-directory/authentication/overview-authentication.md).
 
-Once you've created the Microsoft Entra accounts, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md) for information on granting them access to the workspace and other operations in Azure Machine Learning.
+Once you create the Microsoft Entra accounts, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md) for information on granting them access to the workspace and other operations in Azure Machine Learning.
 
 ## Use interactive authentication
 
@@ -57,7 +57,7 @@ Once you've created the Microsoft Entra accounts, see [Manage access to Azure Ma
 
 Interactive authentication uses the [Azure Identity package for Python](/python/api/overview/azure/identity-readme). Most examples use `DefaultAzureCredential` to access your credentials. When a token is needed, it requests one using multiple identities (`EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`, `AzurePowerShellCredential`) in turn, stopping when one provides a token. For more information, see the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class reference.
 
-The following is an example of using `DefaultAzureCredential` to authenticate. If authentication using `DefaultAzureCredential` fails, a fallback of authenticating through your web browser is used instead.
+The following code is an example of using `DefaultAzureCredential` to authenticate. If authentication using `DefaultAzureCredential` fails, a fallback of authenticating through your web browser is used instead.
 
 ```python
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
@@ -72,7 +72,7 @@ except Exception as ex:
     credential = InteractiveBrowserCredential()
 ```
 
-After the credential object has been created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
+After the credential object is created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
 
 ```python
 from azure.ai.ml import MLClient
@@ -101,7 +101,7 @@ print(ml_client)
 
 # [Azure CLI](#tab/cli)
 
-When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+When you use the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ---
 
@@ -125,7 +125,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     az login
     ```
 
-    If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
+    If the CLI can open your default browser, it does so and loads a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
     If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
@@ -137,9 +137,9 @@ The easiest way to create an SP and grant access to your workspace is by using t
     az ad sp create-for-rbac --json-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
     ```
 
-    The parameter `--json-auth` is available in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth`.
+    The parameter `--json-auth` is available in Azure CLI versions >= 2.51.0. Versions before this use `--sdk-auth`.
 
-    The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you'll need them for other steps in this article.
+    The output is a JSON document similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you need them for other steps in this article.
 
     ```json
     {
@@ -196,7 +196,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__.
 1. Select __Add__, __Add Role Assignment__ to open the __Add role assignment page__.
-1. Select the role you want to assign the managed identity. For example, Reader. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Select the role you want to assign the managed identity. For example, Reader. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Managed identity with compute cluster
 
@@ -239,7 +239,7 @@ credential = DefaultAzureCredential()
 credential.get_token("https://management.azure.com/.default")
 ```
 
-After the credential object has been created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
+After the credential object is created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
 
 ```python
 try:
@@ -323,7 +323,44 @@ print(ml_client)
 ## Use Conditional Access
 
 As an administrator, you can enforce [Microsoft Entra Conditional Access policies](../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
+can require two-factor authentication, or allow sign in only from managed devices. The following are the app IDs to use for conditional access:
+
+| Application ID | Name | Note |
+| ----- | ----- | ----- |
+| d7304df8-741f-47d3-9bc2-df0e24e2071f | Azure Machine Learning Workbench Web App | Azure Machine Learning studio |
+| cb2ff863-7f30-4ced-ab89-a00194bcf6d9 | Azure AI Studio App | Azure AI Studio |
+
+### Check for service principal
+
+Before adding the conditional access policy, verify that the application ID is listed in the __Enterprise applications__ section of the [Azure portal](https://portal.azure.com):
+
+> [!IMPORTANT]
+> To perform the steps in this section, you must have __Microsoft Entra ID P2__. For more information, see [Microsoft Entra licensing](/entra/fundamentals/licensing).
+
+1. Search for __Enterprise Applications__ in the search field at the top of the portal and select the enterprise application entry.
+
+    :::image type="content" source="./media/how-to-setup-authentication/azure-portal-search.png" alt-text="Screenshot of the Azure portal search field with a search for 'Enterprise applications'." lightbox="./media/how-to-setup-authentication/azure-portal-search.png":::
+
+1. From Enterprise Applications, use the __Search by application name or object ID__ field to search for the entry you want to use with conditional access. If an entry appears, a service principal already exists for the application ID. Skip the rest of the steps in this section and go to the [Add conditional access](#add-conditional-access) section.
+
+    > [!IMPORTANT]
+    > The only filter should be __Application ID starts with__. Remove any other filter that may be present.
+
+    :::image type="content" source="./media/how-to-setup-authentication/no-application-found.png" alt-text="Screenshot of the Enterprise Applications search with no matching results." lightbox="./media/how-to-setup-authentication/no-application-found.png":::
+
+1. If no entry appears, use the following [Azure PowerShell](/powershell/azure/install-azure-powershell) cmdlet to create a service principal for the application ID:
+
+    ```azurepowershell-interactive
+    New-AzAdServicePrincipal -ApplicationId "application-ID"
+    ```
+
+    For example, `New-AzADServicePrincipal -ApplicationId "d7304df8-741f-47d3-9bc2-df0e24e2071f"`.
+
+1. After you create the service principal, return to __Enterprise applications__ and verify that you can now find the application ID. You can find the list of IDs in the [Use Conditional Access](#use-conditional-access) section.
+
+### Add conditional access
+
+To use Conditional Access, [assign the Conditional Access policy](../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the application ID. If the application doesn't appear in Conditional Access, use the steps in the [Check for service principal](#check-for-service-principal) section.
 
 ## Next steps
 

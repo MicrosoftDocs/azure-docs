@@ -170,7 +170,7 @@ netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
 
 # Update the JSON definition using stream editor
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleNetworking.json
-sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
+sed -i -e "s/<vnetRgName>/$VnetResourceGroup/g" aibRoleNetworking.json
 sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibRoleNetworking.json
 
 # Create a custom role from the aibRoleNetworking.json description file.

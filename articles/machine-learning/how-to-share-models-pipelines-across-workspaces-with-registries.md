@@ -5,10 +5,10 @@ description: Learn how practice cross-workspace MLOps and collaborate across tea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
-ms.date: 11/02/2023
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
+ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, build-2023
 ---

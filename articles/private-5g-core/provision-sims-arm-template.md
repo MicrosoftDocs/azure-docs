@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-arm-template
 
 *SIM resources* represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, you'll learn how to provision new SIMs for an existing private mobile network using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -66,8 +66,8 @@ Use the information you collected in [Collect the required information for your 
 
 If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
 
-> [!IMPORTANT]
-> Bulk SIM provisioning is limited to 1000 SIMs. If you want to provision more that 1000 SIMs, you must create multiple SIM arrays with no more than 1000 SIMs in any one array and repeat the provisioning process for each SIM array.
+> [!NOTE]
+> The maximum size of the API request body is 4MB. We recommend entering a maximum of 1000 SIMs per JSON array to remain below this limit. If you want to provision more than 1000 SIMs, create multiple arrays and repeat the provisioning process for each. Alternatively, you can use the [Azure portal](provision-sims-azure-portal.md) to provision up to 10,000 SIMs per JSON file.
 
 ```json
 [

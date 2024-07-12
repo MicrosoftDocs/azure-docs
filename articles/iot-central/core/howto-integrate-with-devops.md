@@ -350,6 +350,6 @@ When your pipeline job completes successfully, sign in to your production IoT Ce
 
 Now that you have a working pipeline you can manage your IoT Central instances directly by using configuration changes. You can upload new device templates into the *Device Models* folder and make changes directly to the configuration file. This approach lets you treat your IoT Central application's configuration the same as any other code.
 
-## Next steps
+## Next step
 
-Now that you know how to integrate IoT Central configurations into your CI/CD pipelines, a suggested next step is to learn how to [Manage and monitor IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md).
+Now that you know how to integrate IoT Central configurations into your CI/CD pipelines, a suggested next step is to learn how to [Manage and monitor IoT Central applications](howto-manage-and-monitor-iot-central.md).

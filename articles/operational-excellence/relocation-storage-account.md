@@ -6,14 +6,13 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/25/2024
 ms.service: azure-storage
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
 # Relocate Azure Storage Account to another region
 
-This article shows you how to:
 
 This article shows you how to relocate an Azure Storage Account to a new region by creating a copy of your storage account into another region. You also learn how to relocate your data to that account by using AzCopy, or another tool of your choice.
 
@@ -29,6 +28,11 @@ This article shows you how to relocate an Azure Storage Account to a new region 
     - [Azure Automation](./relocation-automation.md)
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link Service](./relocation-private-link.md)
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 
 ## Prepare
 
@@ -233,7 +237,7 @@ AzCopy is the preferred tool to move your data over due to its performance optim
 
 You can also use Azure Data Factory to move your data over. To learn how to use Data Factory to relocate your data see one of the following guides:
 
-  - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+- [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
   - [Copy data from or to Azure Files by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
   - [Copy data to and from Azure Table storage by using Azure Data Factory](/azure/data-factory/connector-azure-table-storage)

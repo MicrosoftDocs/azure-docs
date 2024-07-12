@@ -81,7 +81,7 @@ To restore a VM from a VM restore point, first restore individual disks from eac
    :::image type="content" source="./media/virtual-machines-create-restore-points-portal/create-restore-points-create-disk.png" alt-text="Screenshot of progress of disk creation.":::
 
 2. Enter the details in the **Create a managed disk** dialog to create disks from the restore points. 
-Once the disks are created, [create a new VM](./windows/create-vm-specialized-portal.md#create-a-vm-from-a-disk) and [attach these restored disks](./windows/attach-managed-disk-portal.md) to the newly created VM.
+Once the disks are created, [create a new VM](./windows/create-vm-specialized-portal.md#create-a-vm-from-a-disk) and [attach these restored disks](./windows/attach-managed-disk-portal.yml) to the newly created VM.
 
    :::image type="content" source="./media/virtual-machines-create-restore-points-portal/create-restore-points-manage-disk.png" alt-text="Screenshot of progress of Create a managed disk screen.":::
 

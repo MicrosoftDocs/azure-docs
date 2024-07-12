@@ -7,7 +7,7 @@ author: dcurwin
 ms.date: 12/06/2023
 ---
 
-# Create rich, interactive reports of Defender for Cloud data by using workbooks
+# Create interactive reports with Azure Monitor workbooks
 
 [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md) are flexible canvas that you can use to analyze data and create rich, visual reports in the Azure portal. In workbooks, you can access multiple data sources across Azure. Combine workbooks into unified, interactive experiences.
 
@@ -37,7 +37,7 @@ In Defender for Cloud, you can use integrated Azure workbooks functionality to b
 - [Vulnerability Assessment Findings workbook](#vulnerability-assessment-findings-workbook): View the findings of vulnerability scans of your Azure resources.
 - [Compliance Over Time workbook](#compliance-over-time-workbook): View the status of a subscription's compliance with regulatory standards or industry standards that you select.
 - [Active Alerts workbook](#active-alerts-workbook): View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
-- Price Estimation workbook: View monthly, consolidated price estimations for Defender for Cloud plans based on the resource telemetry in your environment. The numbers are estimates that are based on retail prices and don't represent actual billing or invoice data.
+- Price Estimation workbook: View monthly, consolidated price estimations for plans in Defender for Cloud, based on the resource telemetry in your environment. The numbers are estimates that are based on retail prices and don't represent actual billing or invoice data.
 - Governance workbook: Use the governance report in the governance rules settings to track progress of the rules that affect your organization.
 - [DevOps Security (preview) workbook](#devops-security-workbook): View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors that you set up.
 
@@ -129,7 +129,7 @@ The Vulnerability Assessment Findings workbook gathers these findings and organi
 
 ### Compliance Over Time workbook
 
-Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select standards that are relevant to your organization by using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select standards that are relevant to your organization by using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.yml).
 
 The Compliance Over Time workbook tracks your compliance status over time by using the various standards that you add to your dashboard.
 
@@ -169,9 +169,9 @@ To see more details about an alert, select the alert.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-high.png" alt-text="Screenshot that shows all high-severity active alerts for a specific resource.":::
 
-The **MITRE ATT&CK tactics** tab lists alerts in the order of the kill chain and the number of alerts that the subscription has at each stage.
+The **MITRE ATT&CK tactics** tab lists alerts in the order of the "kill chain" and the number of alerts that the subscription has at each stage.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot that shows the order of the kill chain and the number of alerts.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot that shows the order of the chain and the number of alerts.":::
 
 You can see all the active alerts in a table and filter by columns.
 
@@ -280,4 +280,4 @@ This article describes the Defender for Cloud integrated Azure workbooks page th
 
 Built-in workbooks get their data from Defender for Cloud recommendations.
 
-- Learn about the many security recommendations in [Security recommendations: A reference guide](recommendations-reference.md).
+

@@ -17,6 +17,6 @@ ms.author: kesheth
 
 [Supported FHIR features](fhir-features-supported.md)
 
-[FHIR REST API capabilities for Azure Health Data Services FHIR service](fhir-rest-api-capabilities.md)
+[FHIR REST API capabilities for Azure Health Data Services FHIR service](rest-api-capabilities.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/06/2024
 ms.custom: tracking-python, security
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -86,6 +86,10 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 > The first step isn't required for the default storage account for the workspace. All other steps are required for *any* storage account behind the VNet and used by the workspace, including the default storage account.
 
 1. **If the storage account is the *default* storage for your workspace, skip this step**. If it isn't the default, **grant the workspace managed identity the Storage Blob Data Reader role** for the Azure storage account so that it can read data from blob storage.
+
+    For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
+
+1. Grant **your Azure user identity** the **Storage Blob Data reader** role for the Azure storage account. The studio uses your identity to access data to blob storage, even if the workspace managed identity has the Reader role.
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 

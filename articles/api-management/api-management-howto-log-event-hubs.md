@@ -277,7 +277,7 @@ Once your logger is configured in API Management, you can configure your [log-to
 1. Select **Save** to save the updated policy configuration. As soon as it's saved, the policy is active and events are logged to the designated event hub.
 
 > [!NOTE]
-> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to the event hub.
+> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to the event hub. For larger messages, consider using Azure Storage with Azure API Management as a workaround to bypass the 200KB limit. More details can be found in [this article](https://techcommunity.microsoft.com/t5/microsoft-developer-community/how-to-send-requests-to-azure-storage-from-azure-api-management/ba-p/3624955). 
 
 ## Preview the log in Event Hubs by using Azure Stream Analytics
 

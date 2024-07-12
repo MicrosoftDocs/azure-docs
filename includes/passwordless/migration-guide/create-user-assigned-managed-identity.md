@@ -14,7 +14,7 @@ You can create a user-assigned managed identity using the Azure portal or the Az
 
 After the resource is created, select **Go to resource** to view the details of the managed identity.
 
-:::image type="content" source="../../../articles/storage/common/media/create-managed-identity-portal-small.png" alt-text="A screenshot showing how to create a user assigned managed identity." lightbox="../../../articles/storage/common/media/create-managed-identity-portal.png" :::
+:::image type="content" source="/azure/storage/common/media/create-managed-identity-portal-small.png" alt-text="A screenshot showing how to create a user assigned managed identity." lightbox="/azure/storage/common/media/create-managed-identity-portal.png" :::
     
 # [Azure CLI](#tab/azure-cli-create)
 

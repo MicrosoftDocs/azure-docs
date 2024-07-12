@@ -2,7 +2,7 @@
 metadata:
   title: Common questions - Defender for APIs
   description: Frequently asked questions about Defender for APIs 
-  ms.service: 
+  ms.service: defender-for-cloud
   ms.topic: faq
   ms.date: 06/08/2023
 title: Common questions about Defender for APIs
@@ -11,7 +11,7 @@ title: Common questions about Defender for APIs
 
 sections:
   - name: Availability and onboarding
-    questions:      
+    questions:
       - question: I'm getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
         answer: If you encounter errors like "Access Denied," "Forbidden," "Role Assignment not found," or "Authorization Failed," ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](defender-for-apis-introduction.md).
                 The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.

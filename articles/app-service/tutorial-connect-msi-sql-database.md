@@ -6,7 +6,7 @@ ms.author: cephalin
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/01/2023
+ms.date: 04/17/2024
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
 # Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
@@ -39,7 +39,7 @@ What you will learn:
 > [!NOTE]
 >Microsoft Entra authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](../active-directory-domain-services/index.yml).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -158,8 +158,7 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     ```
 
     > [!NOTE]
-    > The [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication type can be used both on your local machine and in Azure App Service. The driver attempts to acquire a token from Microsoft Entra ID using various means. If the app is deployed, it gets a token from the app's managed identity. If the app is running locally, it tries to get a token from Visual Studio, Visual Studio Code, and Azure CLI.
-    >
+    > The [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication type can be used both on your local machine and in Azure App Service. The driver attempts to acquire a token from Microsoft Entra ID using various means. If the app is deployed, it gets a token from the app's system-assigned managed identity. It can also authenticate with a user-assigned managed identity if you include: `User Id=<client-id-of-user-assigned-managed-identity>;` in your connection string. If the app is running locally, it tries to get a token from Visual Studio, Visual Studio Code, and Azure CLI.
 
     That's everything you need to connect to SQL Database. When you debug in Visual Studio, your code uses the Microsoft Entra user you configured in [2. Set up your dev environment](#2-set-up-your-dev-environment). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `DefaultAzureCredential` class caches the token in memory and retrieves it from Microsoft Entra ID just before expiration. You don't need any custom code to refresh the token.
 
@@ -173,16 +172,29 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
+    > [!NOTE]
+    > The token caching feature for Managed Identity is available starting from Azure.Identity version 1.8.0. To help reduce network port usage, consider updating Azure.Identity to this version or later.
+    
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp
+    Azure.Identity.DefaultAzureCredential credential;
+    var managedIdentityClientId = ConfigurationManager.AppSettings["ManagedIdentityClientId"];
+    if(managedIdentityClientId != null ) {
+        //User-assigned managed identity Client ID is passed in via ManagedIdentityClientId
+        var defaultCredentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = managedIdentityClientId };
+        credential = new Azure.Identity.DefaultAzureCredential(defaultCredentialOptions);
+    }
+    else {
+        //System-assigned managed identity or logged-in identity of Visual Studio, Visual Studio Code, Azure CLI or Azure PowerShell
+        credential = new Azure.Identity.DefaultAzureCredential();
+    }
     var conn = (System.Data.SqlClient.SqlConnection)Database.Connection;
-    var credential = new Azure.Identity.DefaultAzureCredential();
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://database.windows.net/.default" }));
     conn.AccessToken = token.Token;
     ```
     
-    This code uses [Azure.Identity.DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to get a useable token for SQL Database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, by default it's already versatile. When it runs in App Service, it uses app's system-assigned managed identity. When it runs locally, it can get a token using the logged-in identity of Visual Studio, Visual Studio Code, Azure CLI, and Azure PowerShell.
+    This code uses [Azure.Identity.DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to get a useable token for SQL Database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, by default it's already versatile. When it runs in App Service, it uses the app's system-assigned managed identity by default. If you prefer to use a user-assigned managed identity, add a new App setting named `ManagedIdentityClientId` and enter the `Client Id` GUID from your user-assigned managed identity in the `value` field.   When it runs locally, it can get a token using the logged-in identity of Visual Studio, Visual Studio Code, Azure CLI, and Azure PowerShell.
 
 1. In *Web.config*, find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;"`. Replace _\<server-name>_ and _\<db-name>_ with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
     

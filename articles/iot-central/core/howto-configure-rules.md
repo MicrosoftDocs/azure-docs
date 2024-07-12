@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 04/16/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -99,7 +99,7 @@ When a rule triggers, it makes an HTTP POST request to the callback URL. The req
     "device": {
         "id": "<device_id>",
         "etag": "<etag>",
-        "displayName": "MXChip IoT DevKit - 1yl6vvhax6c",
+        "displayName": "Refrigerator Monitor - 1yl6vvhax6c",
         "instanceOf": "<device_template_id>",
         "simulated": true,
         "provisioned": true,
@@ -160,8 +160,8 @@ If you have one or more webhooks created and saved before **3 April 2020**, dele
         "enabled": true
     },
     "device": {
-        "id": "mx1",
-        "displayName": "MXChip IoT DevKit - mx1",
+        "id": "rm1",
+        "displayName": "Refrigerator Monitor - rm1",
         "instanceOf": "<device-template-id>",
         "simulated": true,
         "provisioned": true,

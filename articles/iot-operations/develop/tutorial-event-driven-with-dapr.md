@@ -1,9 +1,9 @@
 ---
 title: Build an event-driven app with Dapr
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic using Azure IoT MQ Preview.
-author: timlt
-ms.author: timlt
-ms.subservice: mq
+author: PatAltimore 
+ms.author: patricka 
+ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
 ms.date: 11/13/2023
 
@@ -40,7 +40,6 @@ To start, create a yaml file that uses the following definitions:
 
 | Component | Description |
 |-|-|
-| `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
 | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 | `containers.mq-event-driven` | The prebuilt Dapr application container. | 
@@ -72,7 +71,7 @@ To start, create a yaml file that uses the following definitions:
             app: mq-event-driven-dapr
           annotations:
             dapr.io/enabled: "true"
-            dapr.io/unix-domain-socket-path: "/tmp/dapr-components-sockets"
+            dapr.io/inject-pluggable-components: "true"
             dapr.io/app-id: "mq-event-driven-dapr"
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
@@ -80,9 +79,6 @@ To start, create a yaml file that uses the following definitions:
           serviceAccountName: dapr-client
 
           volumes:
-          - name: dapr-unix-domain-socket
-            emptyDir: {}
-
           # SAT token used to authenticate between Dapr and the MQTT broker
           - name: mqtt-client-token
             projected:
@@ -98,20 +94,8 @@ To start, create a yaml file that uses the following definitions:
               name: aio-ca-trust-bundle-test-only
 
           containers:
-          # Container for the dapr quickstart application 
           - name: mq-event-driven-dapr
             image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
-
-          # Container for the pluggable component
-          - name: aio-mq-components
-            image: ghcr.io/azure/iot-mq-dapr-components:latest
-            volumeMounts:
-            - name: dapr-unix-domain-socket
-              mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
-              mountPath: /var/run/secrets/tokens
-            - name: aio-ca-trust-bundle
-              mountPath: /var/run/certs/aio-mq-ca-cert/
     ```
 
 1. Deploy the application by running the following command:
@@ -131,7 +115,7 @@ To start, create a yaml file that uses the following definitions:
     ```output
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    mq-event-driven-dapr          4/4     Running             0          30s
+    mq-event-driven-dapr          3/3     Running             0          30s
     ```
 
 
@@ -139,18 +123,16 @@ To start, create a yaml file that uses the following definitions:
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client on the `sensor/data` topic.
 
-1. [Download the simulator yaml](https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml) from the Explore IoT Operations repository
-
-1. Deploy the simulator:
+1. Deploy the simulator from the Explore IoT Operations repository:
 
     ```bash
-    kubectl apply -f simulate-data.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml    
     ```
 
-1. Confirm the simulator is running:
+1. Confirm the simulator is running correctly:
 
     ```bash
-    kubectl logs deployment/mqtt-publisher-deployment -n azure-iot-operations -f 
+    kubectl logs deployment/mqtt-publisher-deployment -n azure-iot-operations -f
     ```
 
     With the following output:

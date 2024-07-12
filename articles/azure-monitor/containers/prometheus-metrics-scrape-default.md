@@ -2,7 +2,7 @@
 title: Default Prometheus metrics configuration in Azure Monitor
 description: This article lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 05/15/2024
 ms.reviewer: aul
 ---
 
@@ -18,7 +18,7 @@ This article lists the default targets, dashboards, and recording rules when you
  The default scrape frequency for all default targets and scrapes is 30 seconds.
 
 ## Targets scraped by default
-Following targets are **enabled/ON** by default - meaning you don't have to provide any scrape job configuration for scraping these targets, as metrics addon will scrape these targets automatically by default
+Following targets are **enabled/ON** by default - meaning you don't have to provide any scrape job configuration for scraping these targets, as metrics addon will scrape these targets automatically by default.
 
 - `cadvisor` (`job=cadvisor`)
 - `nodeexporter` (`job=node`)
@@ -181,14 +181,14 @@ The following metrics are collected by default from each default target. All oth
    - `etcd_server_heartbeat_send_failures_total`
 
 ## Default targets scraped for Windows
-Following Windows targets are configured to scrape, but scraping is not enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section
+Following Windows targets are configured to scrape, but scraping isn't enabled (**disabled/OFF**) by default - meaning you don't have to provide any scrape job configuration for scraping these targets but they are disabled/OFF by default and you need to turn ON/enable scraping for these targets using [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-scrape-settings-enabled` section.
 
 Two default jobs can be run for Windows that scrape metrics required for the dashboards specific to Windows.
 - `windows-exporter` (`job=windows-exporter`)
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
 
 > [!NOTE]
-> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](kubernetes-monitoring-enable.md#enable-windows-metrics-collection-preview).
 
 ## Metrics scraped for Windows
 
@@ -254,7 +254,7 @@ The following default dashboards are automatically provisioned and configured by
 
 ## Recording rules
 
-The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
+The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana). Source code for these recording rules can be found in [this GitHub repository](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
 
 - `cluster:node_cpu:ratio_rate5m`
 - `namespace_cpu:kube_pod_container_resource_requests:sum`
@@ -316,6 +316,38 @@ The following default recording rules are automatically configured by Azure Moni
 - `kube_pod_windows_container_resource_cpu_cores_limit`
 - `namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate`
 
+## Prometheus visualization recording rules
+
+When you use [Prometheus based Container Insights](./container-insights-experience-v2.md), more recording rules will be deployed to support the Prometheus visualizations.
+
+- `ux:cluster_pod_phase_count:sum`
+- `ux:node_cpu_usage:sum_irate`
+- `ux:node_memory_usage:sum`
+- `ux:controller_pod_phase_count:sum`
+- `ux:controller_container_count:sum`
+- `ux:controller_workingset_memory:sum`
+- `ux:controller_cpu_usage:sum_irate`
+- `ux:controller_rss_memory:sum`
+- `ux:controller_resource_limit:sum`
+- `ux:controller_container_restarts:max`
+- `ux:pod_container_count:sum`
+- `ux:pod_cpu_usage:sum_irate`
+- `ux:pod_workingset_memory:sum`
+- `ux:pod_rss_memory:sum`
+- `ux:pod_resource_limit:sum`
+- `ux:pod_container_restarts:max`
+- `ux:node_network_receive_drop_total:sum_irate`
+- `ux:node_network_transmit_drop_total:sum_irate`
+
+The following recording rules are required for Windows support. These rules are deployed along with the above rules, however, they aren't enabled by default. Follow the instructions for [enabling and disabling rule groups](../essentials/prometheus-rule-groups.md#disable-and-enable-rule-groups) in your Azure Monitor workspace. 
+
+- `ux:node_cpu_usage_windows:sum_irate`
+- `ux:node_memory_usage_windows:sum`
+- `ux:controller_cpu_usage_windows:sum_irate`
+- `ux:controller_workingset_memory_windows:sum`
+- `ux:pod_cpu_usage_windows:sum_irate`
+- `ux:pod_workingset_memory_windows:sum`
+
 ## Next steps
 
-[Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md)
+[Customize scraping of Prometheus metrics.](prometheus-metrics-scrape-configuration.md)

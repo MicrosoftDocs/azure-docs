@@ -25,77 +25,21 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 1. Under *Settings*, select **Custom domains**.
 
-1. Select **+ Add**, and then select **Custom Domain on Azure DNS** from the drop down menu.
+1. Select **+ Add**, and then select **Custom Domain on Azure DNS** from the drop-down menu.
 
-1. In the *Enter domain* tab, enter your apex domain name.
+1. Select your apex domain name from the *DNS zone* drop-down.
 
-    For instance, if your domain name is `example.com`, enter `example.com` into this box (without any subdomains).
+    If this list is empty, [create a public zone in Azure DNS](../dns/dns-getstarted-portal.md).
 
-1. Select **Next**.
+1. Select **Add**.
 
-1. In the *Validate + Configure* tab, enter the following values.
-
-    | Setting | Value |
-    |---|---|
-    | Domain name | This value should match the domain name you entered in the previous step. |
-    | Hostname record type | Select **TXT**. |
-
-1. Select **Generate code**.
-
-    Wait as the code is generated. It make take a minute or so to complete.
-
-1. Once the `TXT` record value is generated,  **copy** (next to the generated value) the code to the clipboard.
+    Wait as the DNS record and custom domain records are added for your static web app. It may take a minute or so to complete.
 
 1. Select **Close**.
 
-1. Go to your Azure DNS zone instance.
+Observe the *Status* for the row of your apex domain. While this validation is running, the necessary CNAME or TXT and ALIAS records are created for you automatically. Once the validation is complete, your apex domain is publicly available. 
 
-1. Select **+ Record set**.
-
-1. Enter the following values in the *Add record set* window.
-
-    | Setting | Property |
-    |---|---|
-    | Name | Enter **@** |
-    | Type | Select **TXT - Text record type**. |
-    | TTL | Keep default value. |
-    | TTL unit | Keep default value. |
-    | Value | Paste in the `TXT` record value in your clipboard from your static web app. |
-
-1. Select **OK**.
-
-1. Return to your static web app in the Azure portal.
-
-1. Under *Settings*, select **Custom domains**.
-
-Observe the *Status* for the row of your apex domain. Once the validation is complete, then your apex domain is publicly available.
-
-While this validation is running, create an ALIAS record to finalize the configuration.
-
-## Set up ALIAS record
-
-1. Return to the Azure DNS zone in the Azure portal.
-
-2. Select **+ Record set**.
-
-3. Enter the following values in the *Add record set* window.
-
-    | Setting | Property |
-    |---|---|
-    | Name | Enter **@** |
-    | Type | Select **A - Alias to IPv4 address** |
-    | Alias record set | Select **Yes**. |
-    | Alias type | Select **Azure resource** |
-    | Choose a subscription | Select your Azure subscription. |
-    | Azure resource | Select the name of your static web app. |
-    | TTL | Keep default value. |
-    | TTL unit | Keep default value. |
-
-4. Select **OK**.
-
-5. Open a new browser tab and go to your apex domain.
-
-    After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
+Open a new browser tab and go to your apex domain. You should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 
 ## Next steps
 

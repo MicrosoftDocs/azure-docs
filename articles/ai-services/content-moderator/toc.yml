@@ -30,24 +30,12 @@
   items:
   - name: Moderate content
     items:
-    - name: API console
-      items:
-      - name: Images - API console
-        href: try-image-api.md
-      - name: Custom images - API console
-        href: try-image-list-api.md
-      - name: Text - API console
-        href: try-text-api.md
-      - name: Custom terms - API console
-        href: try-terms-list-api.md
-    - name: .NET SDK
-      items:
-      - name: Check video content
-        href: video-moderation-api.md
-      - name: Check images against custom lists
-        href: image-lists-quickstart-dotnet.md
-      - name: Check text against custom terms
-        href: term-lists-quickstart-dotnet.md
+    - name: Check video content
+      href: video-moderation-api.md
+    - name: Check images against custom lists
+      href: image-lists-quickstart-dotnet.md
+    - name: Check text against custom terms
+      href: term-lists-quickstart-dotnet.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Enterprise readiness

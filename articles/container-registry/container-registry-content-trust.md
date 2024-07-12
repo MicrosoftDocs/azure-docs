@@ -92,7 +92,7 @@ Details for granting the `AcrImageSigner` role in the Azure portal and the Azure
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. In this example, the role is assigned to an individual user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. In this example, the role is assigned to an individual user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |

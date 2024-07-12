@@ -18,14 +18,18 @@ ms.custom:
 
 An _asset_ in Azure IoT Operations Preview is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
 
-_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets. 
+_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
 An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to OPC UA connector modules. This connection enables an OPC UA connector to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the Azure IoT OPC UA Broker Preview instance and Azure IoT MQ Preview instance. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the OPC UA Broker instance.
 
+A _site_ is a collection of Azure IoT Operations instances. Sites help you organize your instances and manage access control. Your IT administrator creates sites, assigns instances to them, and grants access to OT users in your organization.
+
+In the Azure IoT Operations (preview) portal, an _instance_ represents an Azure IoT Operations cluster. An instance can have one or more asset endpoints.
+
 This article describes how to use the Azure IoT Operations (preview) portal and the Azure CLI to:
 
-- Define asset endpoints
-- Add assets, and define tags and events
+- Define the asset endpoints that connect assets to your Azure IoT Operations instance.
+- Add assets, and define their tags and events to enable data flow from OPC UA servers to the Azure IoT MQ broker.
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor Preview pipelines.
 
@@ -39,17 +43,25 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 To sign in to the Azure IoT Operations (preview) portal, navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in by using your Microsoft Entra ID credentials.
 
-## Select your cluster
+## Select your site
 
-When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes clusters running Azure IoT Operations that you have access to. Select the cluster that you want to use.
+After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Instances that aren't part of a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
-> [!TIP]
-> If you don't see any clusters, you might not be in the right Azure Active Directory tenant. You can change the tenant from the top right menu in the portal. If you still don't see any clusters, that means you are not added to any yet. Reach out to your IT administrator to give you access to the Azure resource group the Kubernetes cluster belongs to from Azure portal. You must be in the _contributor_ role.
-
-:::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of clusters in the Azure IoT Operations (preview) portal.":::
+:::image type="content" source="media/howto-manage-assets-remotely/site-list.png" alt-text="Screenshot that shows a list of sites in the Azure IoT Operations (preview) portal.":::
 
 > [!TIP]
-> You can use the filter box to search for clusters.
+> You can use the filter box to search for sites.
+
+If you don't see any sites, you might not be in the right Azure Active Directory tenant. You can change the tenant from the top right menu in the portal. If you still don't see any sites that means you aren't added to any yet. Reach out to your IT administrator to request access.
+
+## Select your instance
+
+After you select a site, the portal displays a list of the Azure IoT Operations instances that are part of the site. Select the instance that you want to use:
+
+:::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of instances in the Azure IoT Operations (preview) portal.":::
+
+> [!TIP]
+> You can use the filter box to search for instances.
 
 # [Azure CLI](#tab/cli)
 
@@ -112,7 +124,7 @@ The previous example uses the `Anonymous` authentication mode. This mode doesn't
 
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 2. In the Azure IoT Operations (preview) portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
@@ -124,7 +136,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create your asset endpoint:
 
@@ -140,12 +152,12 @@ To configure the asset endpoint to use a transport authentication certificate, c
 
 # [Azure IoT Operations portal](#tab/portal)
 
-1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
 2. In the Azure IoT Operations (preview) portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
 # [Azure CLI](#tab/cli)
 
-1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#how-to-handle-the-opc-ua-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create your asset endpoint:
 
@@ -178,7 +190,6 @@ To add an asset in the Azure IoT Operations (preview) portal:
     - Asset endpoint. Select your asset endpoint from the list.
     - Description
 
-    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations (preview) portal.":::
 
 1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
@@ -191,6 +202,7 @@ To add an asset in the Azure IoT Operations (preview) portal:
     - Serial number
     - Documentation URI
 
+    :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the Azure IoT Operations (preview) portal.":::
 1. Select **Next** to go to the **Add tags** page.
 
 ### Add individual tags to an asset

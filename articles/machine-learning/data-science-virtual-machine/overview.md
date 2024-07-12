@@ -6,16 +6,16 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: linux-related-content
-author: jesscioffi
-ms.author: jcioffi
-ms.reviewer: mattmcinnes
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: overview
-ms.date: 06/23/2022
+ms.reviewer: jcioffi
+ms.date: 04/26/2024
 ---
 
 # What is the Azure Data Science Virtual Machine for Linux and Windows?
 
-The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
+The Data Science Virtual Machine (DSVM) is a customized VM image available on the Azure cloud platform, and it can handle data science. It has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
 
 The DSVM is available on:
 
@@ -23,11 +23,19 @@ The DSVM is available on:
 + Windows Server 2022
 + Ubuntu 20.04 LTS
 
-Additionally, we're excited to offer Azure DSVM for PyTorch, which is an Ubuntu 20.04 image from Azure Marketplace that is optimized for large, distributed deep learning workloads. It comes preinstalled and validated with the latest PyTorch version to reduce setup costs and accelerate time to value. It comes packaged with various optimization functionalities (ONNX Runtime​, DeepSpeed​, MSCCL​, ORTMoE​, Fairscale​, Nvidia Apex​), and an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA.
+Additionally, we offer Azure DSVM for PyTorch - an Ubuntu 20.04 image from Azure Marketplace optimized for large, distributed deep learning workloads. This preinstalled DSVM comes validated with the latest PyTorch version, to reduce setup costs and accelerate time to value. It comes packaged with various optimization features:
+
+- ONNX Runtime​
+- DeepSpeed​
+- MSCCL​
+- ORTMoE​
+- Fairscale​
+- Nvidia Apex​
+- An up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, and CUDA
 
 ## Comparison with Azure Machine Learning
 
-The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) is an end-to-end platform that encompasses:
+The DSVM is a customized VM image for Data Science, but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) is an end-to-end platform that covers:
 
 + Fully Managed Compute
   + Compute Instances
@@ -43,9 +51,9 @@ The DSVM is a customized VM image for Data Science but [Azure Machine Learning](
 
 ### Comparison with Azure Machine Learning Compute Instances
 
-[Azure Machine Learning Compute Instances](../concept-compute-instance.md) are a fully configured and __managed__ VM image whereas the DSVM is an __unmanaged__ VM.
+[Azure Machine Learning Compute Instances](../concept-compute-instance.md) are a fully configured and __managed__ VM image, while the DSVM is an __unmanaged__ VM.
 
-Key differences between these:
+Key differences between a DSVM and an Azure Machine Learning compute instance:
 
 |Feature |Data Science<br>VM |Azure Machine Learning<br>Compute Instance  |
 |---------|---------|---------|
@@ -61,38 +69,35 @@ Key differences between these:
 |Built-in Collaboration     | No         | Yes        |
 |Preinstalled Tools     |  Jupyter(lab), VS Code,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
 
-## Sample use cases
-
-Here's some common use cases for DSVM customers.
+## Sample DSVM customer use cases
 
 ### Short-term experimentation and evaluation
 
-You can use the DSVM to evaluate or learn new data science [tools](./tools-included.md), especially by going through some of our published [samples and walkthroughs](./dsvm-samples-and-walkthroughs.md).
+The DSVM can evaluate or learn new data science [tools](./tools-included.md). Try some of our published [samples and walkthroughs](./dsvm-samples-and-walkthroughs.md).
 
 ### Deep learning with GPUs
 
-In the DSVM, your training models can use deep learning algorithms on hardware that's based on graphics processing units (GPUs). By taking advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you use GPU-based hardware in the cloud according to your needs. You can switch to a GPU-based VM when you're training large models, or when you need high-speed computations while keeping the same OS disk. You can choose any of the N series GPUs enabled virtual machine SKUs with DSVM. Note GPU enabled virtual machine SKUs aren't supported on Azure free accounts.
+In the DSVM, your training models can use deep learning algorithms on graphics processing unit (GPU)-based hardware. If you take advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you lever GPU-based hardware in the cloud, according to your needs. You can switch to a GPU-based VM when you train large models, or when you need high-speed computations while you keep the same OS disk. You can choose any of the N series GPU-enabled virtual machine SKUs with DSVM. Azure free accounts don't support GPU-enabled virtual machine SKUs.
 
-The Windows editions of the DSVM come preinstalled with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux editions, deep learning on GPUs is enabled on the Ubuntu DSVMs.
+A Windows-edition DSVM comes preinstalled with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux editions, deep learning on GPUs is enabled on the Ubuntu DSVMs.
 
-You can also deploy the Ubuntu or Windows editions of the DSVM to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks falls back to the CPU mode.
+You can also deploy the Ubuntu or Windows DSVM editions to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks fall back to the CPU mode.
 
 [Learn more about available deep learning and AI frameworks](dsvm-tools-deep-learning-frameworks.md).
 
 ### Data science training and education
 
-Enterprise trainers and educators who teach data science classes usually provide a virtual machine image. The image ensures students have a consistent setup and that the samples work predictably.
+Enterprise trainers and educators who teach data science classes usually provide a virtual machine image. The image ensures that students both have a consistent setup and that the samples work predictably.
 
-The DSVM creates an on-demand environment with a consistent setup that eases the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
+The DSVM creates an on-demand environment with a consistent setup, to ease the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
 
+## What does the DSVM include?
 
-## What's included on the DSVM?
-
-See a full list of tools on both the Windows and Linux DSVMs [here](tools-included.md).
+For more information, see this [full list of tools on both Windows and Linux DSVMs](tools-included.md).
 
 ## Next steps
 
-Learn more with these articles:
+For more information, visit these resources:
 
 + Windows:
   + [Set up a Windows DSVM](provision-vm.md)

@@ -74,7 +74,7 @@ In IoT Central, the **Data export** page lets you check the status of your expor
 - Number of messages successfully exported to destinations.
 - Number of errors found.
 
-To learn more, see [Monitor application health](../articles/iot-central/core/howto-manage-iot-central-from-portal.md#monitor-application-health).
+To learn more, see [Monitor application health](../articles/iot-central/core/howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Data formats
 

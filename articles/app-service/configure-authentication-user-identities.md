@@ -23,7 +23,7 @@ For all language frameworks, App Service makes the claims in the incoming token 
 | `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider, e.g. Email Address, User Principal Name.   |
 | `X-MS-CLIENT-PRINCIPAL-IDP`  | The name of the identity provider used by App Service Authentication. |
 
-Provider tokens are also exposed through similar headers. For example, the Microsoft Identity Provider also sets `X-MS-TOKEN-AAD-ACCESS-TOKEN` and `X-MS-TOKEN-AAD-ID-TOKEN` as appropriate.
+Provider tokens are also exposed through similar headers. For example, Microsoft Entra also sets `X-MS-TOKEN-AAD-ACCESS-TOKEN` and `X-MS-TOKEN-AAD-ID-TOKEN` as appropriate.
 
 > [!NOTE]
 > Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.

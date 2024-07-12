@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 11/16/2023
-reviewer: msakande
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - how-to
   - devplatv2
   - event-tier1-build-2023
   - ignite-2023
-  - update-code2
+  - update-code3
 ---
 
 # How to operationalize a training pipeline with batch endpoints

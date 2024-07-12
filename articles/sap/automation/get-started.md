@@ -8,6 +8,7 @@ ms.date: 1/2/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Get started with SAP Deployment Automation Framework
@@ -22,14 +23,120 @@ To get started with SAP Deployment Automation Framework, you need:
 - An SAP User account with permissions to [download the SAP software](software.md) in your Azure environment. For more information on S-User, see [SAP S-User](https://support.sap.com/en/my-support/users/welcome.html).
 - An [Azure CLI](/cli/azure/install-azure-cli) installation.
 - A user Assigned Identity (MS) or a service principal to use for the control plane deployment.
-- A user Assigned Identity (MS) or a A service principal to use for the workload zone deployment.
+- A user Assigned Identity (MS) or a service principal to use for the workload zone deployment.
 - An ability to create an Azure DevOps project if you want to use Azure DevOps for deployment.
 
 Some of the prerequisites might already be installed in your deployment environment. Both Azure Cloud Shell and the deployer come with Terraform and the Azure CLI installed.
 
+
+### Create a user assigned Identity
+
+The SAP automation deployment framework can also use a user assigned identity (MSI) for the deployment. Make sure to use an account with permissions to create managed identities when running the script that creates the identity.
+
+1. Create the managed identity.
+
+    ```cloudshell-interactive
+    export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
+    export control_plane_env_code="LAB"
+
+    az identity create --name ${control_plane_env_code}-Deployment-Identity --resource-group <ExistingResourceGroup>
+    ```
+
+    Review the output. For example:
+
+    ```json
+       {
+         "clientId": "<appId>",
+         "id": "<armId>",
+         "location": "<location>",
+         "name": "${control_plane_env_code}-Deployment-Identity",
+         "principalId": "<objectId>",
+         "resourceGroup": "<ExistingResourceGroup>",
+         "systemData": null,
+         "tags": {},
+         "tenantId": "<TenantId>",
+         "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+       }
+    ```
+
+1. Copy the output details.
+
+    The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+
+    | Parameter input name     | Output name     |
+    |--------------------------|-----------------|
+    | `app_id`                 | `appId`         |
+    | `msi_id`                 | `armId`         |
+    | `msi_objectid`           | `objectId`      |
+
+
+1. Assign the Contributor role to the identity.
+
+    ```cloudshell-interactive
+    export appId="<appId>"
+
+    az role assignment create --assignee $msi_objectid  --role "Contributor"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
+    ```
+
+1. Optionally, assign the User Access Administrator role to the identity.
+
+    ```cloudshell-interactive
+    export appId="<appId>"
+
+    az role assignment create --assignee $msi_objectid --role "User Access Administrator"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
+    ```
+
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the managed identity, you can't assign permissions using the automation framework.
+
+### Create an application registration for the web application
+
+The SAP automation deployment framework can leverage an Azure App Service for configuring the tfvars parameter files.
+
+1. Create the application registration.
+
+    ```powershell
+       $ApplicationName="<App Registration Name>"
+       $MSI_objectId="<msi_objectid>"
+        
+        Write-Host "Creating an App Registration for" $ApplicationName -ForegroundColor Green
+        
+        if (Test-Path $manifestPath) { Write-Host "Removing manifest.json" ; Remove-Item $manifestPath }
+        Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
+        
+        $APP_REGISTRATION_ID = $(az ad app create --display-name $ApplicationName --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access $manifestPath --query "appId" --output tsv)
+        
+        Write-Host "App Registration created with App ID: $APP_REGISTRATION_ID"
+        
+        Write-Host "Waiting for the App Registration to be created" -ForegroundColor Green
+        Start-Sleep -s 20
+        
+        $ExistingData = $(az ad app list --all --filter "startswith(displayName, '$ApplicationName')" --query  "[?displayName=='$ApplicationName']| [0]" --only-show-errors) | ConvertFrom-Json
+        
+        $APP_REGISTRATION_OBJECTID = $ExistingData.id
+        
+        if (Test-Path $manifestPath) { Write-Host "Removing manifest.json" ; Remove-Item $manifestPath }
+        
+        Write-Host "Configuring authentication for the App Registration" -ForegroundColor Green
+        az rest --method POST --uri "https://graph.microsoft.com/beta/applications/$APP_REGISTRATION_OBJECTID/federatedIdentityCredentials\" --body "{'name': 'ManagedIdentityFederation', 'issuer': 'https://login.microsoftonline.com/$ARM_TENANT_ID/v2.0', 'subject': '$MSI_objectId', 'audiences': [ 'api://AzureADTokenExchange' ]}"
+        
+        $API_URL="https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/ProtectAnAPI/appId/$APP_REGISTRATION_ID/isMSAApp~/false"
+        
+        Write-Host "The browser will now open, Please Add a new scope, by clicking the '+ Add a new scope link', accept the default name and click 'Save and Continue'"
+        Write-Host "In the Add a scope page enter the scope name 'user_impersonation'. Choose 'Admins and Users' in the who can consent section, next provide the Admin consent display name 'Access the SDAF web application' and 'Use SDAF' as the Admin consent description, accept the changes by clicking the 'Add scope' button"
+        
+        Start-Process $API_URL
+        Read-Host -Prompt "Once you have created and validated the scope, Press any key to continue"
+
+
+    ```
+    
+
+
 ### Create a service principal
 
-The SAP automation deployment framework uses service principals for deployment.
+The SAP automation deployment framework can use service principals for deployment.
 
 When you choose a name for your service principal, make sure that the name is unique within your Azure tenant. Make sure to use an account with service principals creation permissions when running the script.
 
@@ -76,79 +183,16 @@ When you choose a name for your service principal, make sure that the name is un
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the service principal, you can't assign permissions using the automation framework.
 
-### Create a user assigned Identity
-
-
-The SAP automation deployment framework can also use a user assigned identity (MSI) for the deployment. Make sure to use an account with permissions to create managed identities when running the script that creates the identity.
-
-
-1. Create the managed identity.
-
-    ```cloudshell-interactive
-    export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
-    export control_plane_env_code="LAB"
-
-    az identity create --name ${control_plane_env_code}-Deployment-Identity --resource-group <ExistingResourceGroup>
-    ```
-
-    Review the output. For example:
-
-    ```json
-       {
-         "clientId": "<appId>",
-         "id": "<armId>",
-         "location": "<location>",
-         "name": "${control_plane_env_code}-Deployment-Identity",
-         "principalId": "<objectId>",
-         "resourceGroup": "<ExistingResourceGroup>",
-         "systemData": null,
-         "tags": {},
-         "tenantId": "<TenantId>",
-         "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-       }
-    ```
-
-1. Copy the output details.
-
-    The output maps to the following parameters. You use these parameters in later steps, with automation commands.
-
-    | Parameter input name     | Output name     |
-    |--------------------------|-----------------|
-    | `app_id`                 | `appId`         |
-    | `msi_id`                 | `armId`         |
-
-
-1. Assign the Contributor role to the identity.
-
-    ```cloudshell-interactive
-    export appId="<appId>"
-
-    az role assignment create --assignee $appId  --role "Contributor"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
-    ```
-
-1. Optionally, assign the User Access Administrator role to the identity.
-
-    ```cloudshell-interactive
-    export appId="<appId>"
-
-    az role assignment create --assignee $appId  --role "User Access Administrator"  --scope /subscriptions/$ARM_SUBSCRIPTION_ID
-    ```
-
-
-> [!IMPORTANT]
-> If you don't assign the User Access Administrator role to the managed identity, you can't assign permissions using the automation framework.
-
-
 ## Pre-flight checks
 
 You can use the following script to perform pre-flight checks. The script performs the following checks and tests:
 
 - Checks if the service principal has the correct permissions to create resources in the subscription.
 - Checks if the service principal has user Access Administrator permissions.
-- Create a Azure Virtual Network.   
-- Create a Azure Virtual Key Vault with private end point.   
-- Create a Azure Files NSF share.   
-- Create a Azure Virtual Virtual Machine with data disk using Premium Storage v2.   
+- Create an Azure Virtual Network.   
+- Create an Azure Virtual Key Vault with private end point.   
+- Create an Azure Files NSF share.   
+- Create an Azure Virtual Machine with data disk using Premium Storage v2.   
 - Check access to the required URLs using the deployed virtual machine.
 
 ```powershell

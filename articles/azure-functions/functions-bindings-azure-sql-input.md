@@ -1,11 +1,11 @@
 ---
 title: Azure SQL input binding for Functions
 description: Learn to use the Azure SQL input binding in Azure Functions.
-author: dzsquared
+author: JetterMcTedder
 ms.topic: reference
-ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 4/17/2023
-ms.author: drskwier
+ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.date: 6/26/2024
+ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -413,7 +413,7 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -488,7 +488,7 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -568,7 +568,7 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -816,6 +816,36 @@ The examples refer to a database table:
 
 The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="GetToDo")
+@app.route(route="gettodo")
+@app.sql_input(arg_name="todo",
+                        command_text="select [Id], [order], [title], [url], [completed] from dbo.ToDo",
+                        command_type="Text",
+                        connection_string_setting="SqlConnectionString")
+def get_todo(req: func.HttpRequest, todo: func.SqlRowList) -> func.HttpResponse:
+    rows = list(map(lambda r: json.loads(r.to_json()), todo))
+
+    return func.HttpResponse(
+        json.dumps(rows),
+        status_code=200,
+        mimetype="application/json"
+    )
+```
+
+# [v1](#tab/python-v1)
+
 The following is binding data in the function.json file:
 
 ```json
@@ -862,10 +892,43 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
     ) 
 ```
 
+---
+
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 ### HTTP trigger, get row by ID from query string
 
 The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="GetToDo")
+@app.route(route="gettodo/{id}")
+@app.sql_input(arg_name="todo",
+                        command_text="select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+                        command_type="Text",
+                        parameters="@Id={id}",
+                        connection_string_setting="SqlConnectionString")
+def get_todo(req: func.HttpRequest, todo: func.SqlRowList) -> func.HttpResponse:
+    rows = list(map(lambda r: json.loads(r.to_json()), todo))
+
+    return func.HttpResponse(
+        json.dumps(rows),
+        status_code=200,
+        mimetype="application/json"
+    )
+```
+
+# [v1](#tab/python-v1)
 
 The following is binding data in the function.json file:
 
@@ -914,6 +977,7 @@ def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
     ) 
 ```
 
+---
 
 <a id="http-trigger-delete-one-or-multiple-rows-python"></a>
 ### HTTP trigger, delete rows
@@ -924,6 +988,36 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="DeleteToDo")
+@app.route(route="deletetodo/{id}")
+@app.sql_input(arg_name="todo",
+                        command_text="DeleteToDo",
+                        command_type="StoredProcedure",
+                        parameters="@Id={id}",
+                        connection_string_setting="SqlConnectionString")
+def get_todo(req: func.HttpRequest, todo: func.SqlRowList) -> func.HttpResponse:
+    rows = list(map(lambda r: json.loads(r.to_json()), todo))
+
+    return func.HttpResponse(
+        json.dumps(rows),
+        status_code=200,
+        mimetype="application/json"
+    )
+```
+
+# [v1](#tab/python-v1)
 
 ```json
 {
@@ -969,6 +1063,8 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
         mimetype="application/json"
     ) 
 ```
+
+---
 
 ::: zone-end
 
@@ -1058,7 +1154,7 @@ The attribute's constructor takes the SQL command text, the command type, parame
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
 
-If an exception occurs when a SQL input binding is executed then the function code will not execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+If an exception occurs when a SQL input binding is executed then the function code won't execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 ## Next steps
 

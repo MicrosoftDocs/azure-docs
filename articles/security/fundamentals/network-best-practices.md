@@ -60,7 +60,7 @@ When you use network security groups for network access control between subnets,
 ## Adopt a Zero Trust approach
 Perimeter-based networks operate on the assumption that all systems within a network can be trusted. But today's employees access their organization's resources from anywhere on various devices and apps, which makes perimeter security controls irrelevant. Access control policies that focus only on who can access a resource aren't enough. To master the balance between security and productivity, security admins also need to factor in *how* a resource is being accessed.
 
-Networks need to evolve from traditional defenses because networks might be vulnerable to breaches: an attacker can compromise a single endpoint within the trusted boundary and then quickly expand a foothold across the entire network. [Zero Trust](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) networks eliminate the concept of trust based on network location within a perimeter. Instead, Zero Trust architectures use device and user trust claims to gate access to organizational data and resources. For new initiatives, adopt Zero Trust approaches that validate trust at the time of access.
+Networks need to evolve from traditional defenses because networks might be vulnerable to breaches: an attacker can compromise a single endpoint within the trusted boundary and then quickly expand a foothold across the entire network. [Zero Trust](/security/zero-trust/deploy/networks) networks eliminate the concept of trust based on network location within a perimeter. Instead, Zero Trust architectures use device and user trust claims to gate access to organizational data and resources. For new initiatives, adopt Zero Trust approaches that validate trust at the time of access.
 
 Best practices are:
 
@@ -166,7 +166,7 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 For example, if the user makes a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
 ## Disable RDP/SSH Access to virtual machines
-It's possible to reach Azure virtual machines by using [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
+It's possible to reach Azure virtual machines by using [Remote Desktop Protocol (RDP)](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
 
 The potential security problem with using these protocols over the internet is that attackers can use [brute force](https://en.wikipedia.org/wiki/Brute-force_attack) techniques to gain access to Azure virtual machines. After the attackers gain access, they can use your VM as a launch point for compromising other machines on your virtual network or even attack networked devices outside Azure.
 

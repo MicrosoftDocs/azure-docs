@@ -2,7 +2,7 @@
 title: View and filter Azure resource information
 description: Filter information and use different views to better understand your Azure resources.
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 04/12/2024
 ---
 
 # View and filter Azure resource information
@@ -19,7 +19,7 @@ Start exploring **All resources** by using filters to focus on a subset of your 
 
 You can combine filters, including those based on text searches. For example, after selecting specific resource groups, you can enter text in the filter box, or select a different filter option.
 
-To change which columns are included in a view, select **Manage view**, then select**Edit columns**.
+To change which columns are included in a view, select **Manage view**, then select **Edit columns**.
 
 :::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Edit columns shown in view":::
 
@@ -29,7 +29,7 @@ You can save views that include the filters and columns you've selected. To save
 
 1. Select **Manage view**, then select **Save view**.
 
-1. Enter a name for the view, then select **OK**. The saved view now appears in the **Manage view** menu.
+1. Enter a name for the view, then select **Save**. The saved view now appears in the **Manage view** menu.
 
     :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Saved view":::
 
@@ -41,7 +41,7 @@ To delete a view you've created:
 
 1. Select **Manage view**, then select **Browse all views for "All resources"**.
 
-1. In the **Saved views** pane, select the view, then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png). Select **OK** to confirm the deletion.
+1. In the **Saved views** pane, select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png) next to the view that you want to delete. Select **OK** to confirm the deletion.
 
 ## Export information from a view
 
@@ -73,13 +73,13 @@ To save and use a summary view:
 
 1. Select **Manage view**, then select **Save view** to save this view, just like you did with the list view.
 
-1. In the summary view, under **Type summary**, select a bar in the chart. Selecting the bar provides a list filtered down to one type of resource.
+In the summary view, you can select an item to view details filtered to that item. Using the previous example, you can select a bar in the chart under **Type summary** to view a list filtered down to one type of resource.
 
-    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="All resources filtered by type":::
+:::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Screenshot of all resources filtered by type":::
 
 ## Run queries in Azure Resource Graph
 
-Azure Resource Graph provides efficient and performant resource exploration with the ability to query at scale across a set of subscriptions. The **All resources** screen in the Azure portal includes a link to open a Resource Graph query that is scoped to the current filtered view.
+Azure Resource Graph provides efficient and performant resource exploration with the ability to query at scale across a set of subscriptions. The **All resources** screen in the Azure portal includes a link to open a Resource Graph query scoped to the current filtered view.
 
 To run a Resource Graph query:
 
@@ -91,7 +91,7 @@ To run a Resource Graph query:
 
     :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Run Azure Resource Graph query":::
 
-    For more information, see [Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
+For more information, see [Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
 
 ## Next steps
 

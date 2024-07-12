@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: samuel100
-ms.author: samkemp
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: samkemp
 ms.date: 09/05/2023
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -97,7 +97,7 @@ You can also instantiate an Azure Machine Learning filesystem, to handle filesys
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # instantiate file system using following URI
-fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore*s*/datastorename')
 
 fs.ls() # list folders/files in datastore 'datastorename'
 

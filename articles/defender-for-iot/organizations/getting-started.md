@@ -32,7 +32,7 @@ To add a trial license with a new tenant, we recommend that you use the Trial wi
 
 **To add a trial license with a new tenant**:
 
-1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://admin.microsoft.com/Commerce/Trial.aspx?OfferId=d2bdd05f-4856-4569-8474-2f9ec298923b&ru=PDP).
+1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://signup.microsoft.com/get-started/signup?products=d2bdd05f-4856-4569-8474-2f9ec298923b).
 
 1. In the **Email** box, enter the email address you want to associate with the trial license, and select **Next**.
 

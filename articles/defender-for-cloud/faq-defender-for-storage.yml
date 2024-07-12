@@ -58,9 +58,9 @@ sections:
 
 
       - question: |
-          How can I calculate the cost of each plan?
+          How can I calculate the cost Defender for Storage?
         answer: |
-          To estimate the cost of Defender for Storage, we've provided a pricing estimation workbook and a PowerShell script that you can run in your environment. You can also check out the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information.
+          To estimate the cost of Defender for Storage and add-ons like Malware Scanning, we've provided a [pricing estimation workbook](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workbooks/Microsoft%20Defender%20for%20Storage%20Price%20Estimation) that you can deploy in your environment. This workbook also provides visibility into your Defender for Storage and add-ons - Malware Scanning and Sensitivity Data Discovery - enablement status across subscriptions. For more information about how this workbook works, visit this [Blog Post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-storage-price-estimation-dashboard/ba-p/2429724). You can also check out the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) for more information.
 
 
 additionalContent: |

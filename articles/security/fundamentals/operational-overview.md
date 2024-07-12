@@ -80,7 +80,7 @@ With Microsoft Entra ID, all applications that you publish for your partners and
 - Disk encryption validation.
 - Network-based attacks.
 
-Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 

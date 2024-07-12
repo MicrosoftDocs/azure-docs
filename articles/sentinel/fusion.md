@@ -11,6 +11,8 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 > Some Fusion detections (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -26,6 +28,8 @@ Fusion is enabled by default in Microsoft Sentinel, as an [analytics rule](detec
 
 > [!NOTE]
 > Microsoft Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Microsoft Sentinel workspace. To opt out of Fusion, navigate to **Microsoft Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
+
+In Microsoft Sentinel workspaces that are onboarded to the [unified security operations platform in the Microsoft Defender portal](https://aka.ms/unified-soc-announcement), Fusion is disabled, as its functionality is replaced by the Microsoft Defender XDR correlation engine.
 
 ## Fusion for emerging threats
 

@@ -1,7 +1,9 @@
 ---
 title: What's new with Azure Operator Insights ingestion agent
 description: This article has release notes for Azure Operator Insights ingestion agent. For many of the summarized issues, there are links to more details.
-ms.topic: overview
+ms.author: rdunstan
+author: rcdun
+ms.topic: whats-new
 ms.date: 02/28/2024
 ---
 
@@ -17,7 +19,11 @@ This page is updated for each new release of the ingestion agent, so revisit it 
 
 ## Version 2.0.0 - March 2024
 
-Download for [RHEL8](https://download.microsoft.com/download/8/2/7/82777410-04a8-4219-a8c8-2f2ea1d239c4/az-aoi-ingestion-2.0.0-1.el8.x86_64.rpm).
+Supported distributions: 
+- RHEL 8
+- RHEL 9
+
+This release has been produced in accordance with Microsoft's Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ### Known issues
 
@@ -34,7 +40,11 @@ None
 
 ## Version 1.0.0 - February 2024
 
-Download for [RHEL8](https://download.microsoft.com/download/c/6/c/c6c49e4b-dbb8-4d00-be7f-f6916183b6ac/az-aoi-ingestion-1.0.0-1.el8.x86_64.rpm).
+Supported distributions: 
+- RHEL 8
+- RHEL 9
+
+This release has been produced in accordance with Microsoft's Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ### Known issues
 

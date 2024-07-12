@@ -5,10 +5,10 @@ description: Learn how to troubleshoot issues with environment image builds and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: edebar01
-ms.author:  ericadebarge
-ms.reviewer: larryfr
-ms.date: 06/09/2023
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: ericadebarge
+ms.date: 06/10/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 monikerRange: 'azureml-api-1 || azureml-api-2'
@@ -78,7 +78,7 @@ There are some ways to decrease the impact of vulnerabilities:
 
 You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
 
-To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.yml).
 
 ### Vulnerabilities vs Reproducibility
 
