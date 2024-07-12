@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/10/2024
 ---
 
-# Check workflow status, view workflow run history, and set up alerts in Azure Logic Apps
+# Check workflow status, view run history, and set up alerts in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
