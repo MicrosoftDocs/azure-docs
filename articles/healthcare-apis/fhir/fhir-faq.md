@@ -55,7 +55,7 @@ Azure API for FHIR was our initial generally available product and is being reti
 |**Autoscaling**|Supported on request and incurs charge|[Autoscaling](fhir-service-autoscale.md) enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • [Selectable search parameters](selectable-search-parameters.md)  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
 |**Events**|Not Supported|Supported|
-|**Convert-data**|Supports enabling "Allow trusted services" in Account container registry| There is a known issue -"Enabling "Allow trusted services" in the Account Container Registry may result in access issues when attempting to use the container registry from the FHIR service."|
+|**Convert-data**|Supports enabling "Allow trusted services" in Account container registry| There is a known issue -Enabling private link with Azure Container Registry may result in access issues when attempting to use the container registry from the FHIR service.|
 |**Business continuity**|Supported:<br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery) <br> • Availability zone support|
 
 By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4TB.

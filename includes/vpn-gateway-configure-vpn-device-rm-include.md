@@ -12,7 +12,7 @@
 
 Depending on the VPN device that you have, you might be able to download a VPN device configuration script. For more information, see [Download VPN device configuration scripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
 
-See the following links for additional configuration information:
+The following links provide more configuration information:
 
 - For information about compatible VPN devices, see [About VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
@@ -28,7 +28,7 @@ See the following links for additional configuration information:
 
 - For cryptographic requirements, see [About cryptographic requirements and Azure VPN gateways](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md).
 
-- For information about parameter information that you need to complete your configuration, see [Default IPsec/IKE parameters](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). The information includes IKE version, Diffie-Hellman Group, authentication method, encryption and hashing algorithms, Security Association lifetime, Perfect Forward Secrecy, and Dead Peer Detection.
+- For information about parameter information that you need to complete your configuration, see [Default IPsec/IKE parameters](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). The information includes IKE version, Diffie-Hellman group, authentication method, encryption and hashing algorithms, security association lifetime, Perfect Forward Secrecy, and Dead Peer Detection (DPD).
 
 - For IPsec/IKE policy configuration steps, see [Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
 

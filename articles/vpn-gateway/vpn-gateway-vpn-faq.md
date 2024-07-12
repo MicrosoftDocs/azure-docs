@@ -38,10 +38,10 @@ No. However, costs for any additional public IPs are charged accordingly. See [I
 
 The following cross-premises virtual network gateway connections are supported:
 
-* **Site-to-site:** VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or RRAS. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
-* **Point-to-site:** VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-* **Network-to-network:** This type of connection is the same as a site-to-site configuration. A connection between virtual networks is a VPN connection over IPsec (IKEv1 and IKEv2). It doesn't require a VPN device. For more information, see the [Configure a network-to-network VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-* **Azure ExpressRoute:** ExpressRoute is a private connection to Azure from your wide area network, not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
+* **Site-to-site**: VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or Windows Server Routing and Remote Access. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
+* **Point-to-site**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* **Network-to-network**: This type of connection is the same as a site-to-site configuration. A connection between virtual networks is a VPN connection over IPsec (IKEv1 and IKEv2). It doesn't require a VPN device. For more information, see the [Configure a network-to-network VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* **Azure ExpressRoute**: ExpressRoute is a private connection to Azure from your wide area network, not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
 For more information about VPN gateway connections, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
 
@@ -69,6 +69,12 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 
 * Revert to the Azure DNS default by removing the custom DNS within the virtual network settings (recommended configuration).
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Considering the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
+
+### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
+
+No. Communication between VPN clients connected in point-to-site to the same VPN Gateway is not supported.
+
+When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool. However, if the VPN clients are connected to different VPN gateways, routing between the VPN clients isn't possible because each VPN gateway is unaware of the IP address that the other gateway assigned to the client.
 
 ### Could a potential vulnerability known as "tunnel vision" affect point-to-site VPN connections?
 
@@ -216,25 +222,25 @@ All devices in the device families listed as known compatible should work with A
 
 ### How do I edit VPN device configuration samples?
 
-For information about editing device configuration samples, see [Editing samples](vpn-gateway-about-vpn-devices.md#editing).
+See [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
 ### Where do I find IPsec and IKE parameters?
 
-For IPsec/IKE parameters, see [Parameters](vpn-gateway-about-vpn-devices.md#ipsec).
+See [Default IPsec/IKE parameters](vpn-gateway-about-vpn-devices.md#ipsec).
 
 ### Why does my policy-based VPN tunnel go down when traffic is idle?
 
-This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel is torn down. When traffic starts flowing in either direction, the tunnel is reestablished immediately.
+This behavior is expected for policy-based (also known as *static routing*) VPN gateways. When the traffic over the tunnel is idle for more than five minutes, the tunnel is torn down. When traffic starts flowing in either direction, the tunnel is reestablished immediately.
 
 ### Can I use software VPNs to connect to Azure?
 
-We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site-to-site cross-premises configuration.
+We support Windows Server 2012 Routing and Remote Access servers for site-to-site cross-premises configuration.
 
-Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
+Other software VPN solutions should work with the gateway, as long as they conform to industry-standard IPsec implementations. For configuration and support instructions, contact the vendor of the software.
 
 ### Can I connect to a VPN gateway via point-to-site when located at a site that has an active site-to-site connection?
 
-Yes, but the Public IP addresses of the point-to-site client must be different than the Public IP addresses used by the site-to-site VPN device, or else the point-to-site connection won't work. Point-to-site connections with IKEv2 can't be initiated from the same Public IP addresses where a site-to-site VPN connection is configured on the same Azure VPN gateway.
+Yes, but the public IP addresses of the point-to-site client must be different from the public IP addresses that the site-to-site VPN device uses, or else the point-to-site connection won't work. Point-to-site connections with IKEv2 can't be initiated from the same public IP addresses where a site-to-site VPN connection is configured on the same VPN gateway.
 
 ## <a name="P2S"></a>Point-to-site connections
 
@@ -250,7 +256,7 @@ Yes, but the Public IP addresses of the point-to-site client must be different t
 
 RADIUS authentication is supported for all SKUs except the Basic SKU.
 
-For legacy SKUs, RADIUS authentication is supported on Standard and High Performance SKUs.
+For earlier SKUs, RADIUS authentication is supported on Standard and High Performance SKUs.
 
 ### Is RADIUS authentication supported for the classic deployment model?
 
@@ -258,37 +264,37 @@ No. RADIUS authentication isn't supported for the classic deployment model.
 
 ### What is the timeout period for RADIUS requests sent to the RADIUS server?
 
-RADIUS requests are set to timeout after 30 seconds. User defined timeout values aren't supported today.
+RADIUS requests are set to time out after 30 seconds. User-defined timeout values aren't currently supported.
 
-### Are 3rd-party RADIUS servers supported?
+### Are third-party RADIUS servers supported?
 
-Yes, 3rd-party RADIUS servers are supported.
+Yes, third-party RADIUS servers are supported.
 
-### What are the connectivity requirements to ensure that the Azure gateway is able to reach an on-premises RADIUS server?
+### What are the connectivity requirements to ensure that the Azure gateway can reach an on-premises RADIUS server?
 
 A site-to-site VPN connection to the on-premises site, with the proper routes configured, is required.
 
 ### Can traffic to an on-premises RADIUS server (from the VPN gateway) be routed over an ExpressRoute connection?
 
-No. It can only be routed over a site-to-site connection.
+No. It can be routed only over a site-to-site connection.
 
-### Is there a change in the number of SSTP connections supported with RADIUS authentication? What is the maximum number of SSTP and IKEv2 connections supported?
+### Is there a change in the number of supported SSTP connections with RADIUS authentication? What is the maximum number of supported SSTP and IKEv2 connections?
 
-There's no change in the maximum number of SSTP connections supported on a gateway with RADIUS authentication. It remains 128 for SSTP, but depends on the gateway SKU for IKEv2. For more information on the number of connections supported, see [About gateway SKUs](about-gateway-skus.md).
+There's no change in the maximum number of supported SSTP connections on a gateway with RADIUS authentication. It remains 128 for SSTP, but it depends on the gateway SKU for IKEv2. For more information on the number of supported connections, see [About gateway SKUs](about-gateway-skus.md).
 
-### What is the difference between doing certificate authentication using a RADIUS server vs. using Azure native certificate authentication (by uploading a trusted certificate to Azure)?
+### What is the difference between certificate authentication through a RADIUS server and Azure native certificate authentication through the upload of a trusted certificate?
 
-In RADIUS certificate authentication, the authentication request is forwarded to a RADIUS server that handles the actual certificate validation. This option is useful if you want to integrate with a certificate authentication infrastructure that you already have through RADIUS.
+In RADIUS certificate authentication, the authentication request is forwarded to a RADIUS server that handles the certificate validation. This option is useful if you want to integrate with a certificate authentication infrastructure that you already have through RADIUS.
 
-When using Azure for certificate authentication, the VPN gateway performs the validation of the certificate. You need to upload your certificate public key to the gateway. You can also specify list of revoked certificates that shouldn't be allowed to connect.
+When you use Azure for certificate authentication, the VPN gateway performs the validation of the certificate. You need to upload your certificate public key to the gateway. You can also specify list of revoked certificates that shouldn't be allowed to connect.
 
-### Does RADIUS authentication support Network Policy Server (NPS) integration for multifactor authorization (MFA)?
+### Does RADIUS authentication support Network Policy Server integration for multifactor authentication?
 
-If your MFA is text based (SMS, mobile app verification code etc.) and requires the user to enter a code or text in the VPN client UI, the authentication won't succeed and isn't a supported scenario. See [Integrate Azure VPN gateway RADIUS authentication with NPS server for multifactor authentication](vpn-gateway-radius-mfa-nsp.md).
+If your multifactor authentication is text based (for example, SMS or a mobile app verification code) and requires the user to enter a code or text in the VPN client UI, the authentication won't succeed and isn't a supported scenario. See [Integrate Azure VPN gateway RADIUS authentication with NPS server for multifactor authentication](vpn-gateway-radius-mfa-nsp.md).
 
-### Does RADIUS authentication work with both IKEv2, and SSTP VPN?
+### Does RADIUS authentication work with both IKEv2 and SSTP VPN?
 
-Yes, RADIUS authentication is supported for both IKEv2, and SSTP VPN.
+Yes, RADIUS authentication is supported for both IKEv2 and SSTP VPN.
 
 ### Does RADIUS authentication work with the OpenVPN client?
 
@@ -298,9 +304,9 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-### How do I enable routing between my site-to-site VPN connection and my ExpressRoute?
+### How do I enable routing between my site-to-site VPN connection and ExpressRoute?
 
-If you want to enable routing between your branch connected to ExpressRoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
+If you want to enable routing between your branch connected to ExpressRoute and your branch connected to a site-to-site VPN connection, you need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### Can I use a VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
@@ -310,37 +316,37 @@ If you want to enable routing between your branch connected to ExpressRoute and 
 
 * **Classic deployment model**
 
-  Transit traffic via a VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP isn't yet supported with Azure virtual networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.
+  Transiting traffic via a VPN gateway is possible when you use the classic deployment model, but it relies on statically defined address spaces in the network configuration file. The Border Gateway Protocol (BGP) isn't currently supported with Azure virtual networks and VPN gateways via the classic deployment model. Without BGP, manually defining transit address spaces is error prone and not recommended.
 
-### Does Azure generate the same IPsec/IKE preshared key for all my VPN connections for the same virtual network?
+### Does Azure generate the same IPsec or IKE preshared key for all my VPN connections for the same virtual network?
 
-No, Azure by default generates different preshared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key must contain only printable ASCII characters, except space, hyphen (-), or tilde (~).
+No. By default, Azure generates different preshared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value that you prefer. The key must contain only printable ASCII characters, except space, hyphen (-), or tilde (~).
 
 ### Do I get more bandwidth with more site-to-site VPNs than for a single virtual network?
 
-No, all VPN tunnels, including point-to-site VPNs, share the same VPN gateway and the available bandwidth.
+No. All VPN tunnels, including point-to-site VPNs, share the same VPN gateway and the available bandwidth.
 
-### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
+### Can I configure multiple tunnels between my virtual network and my on-premises site by using multi-site VPN?
 
 Yes, but you must configure BGP on both tunnels to the same location.
 
-### Does Azure VPN Gateway honor AS Path prepending to influence routing decisions between multiple connections to my on-premises sites?
+### Does Azure VPN Gateway honor AS path prepending to influence routing decisions between multiple connections to my on-premises sites?
 
-Yes, Azure VPN Gateway honors AS Path prepending to help make routing decisions when BGP is enabled. A shorter AS Path is preferred in BGP path selection.
+Yes, Azure VPN Gateway honors autonomous system (AS) path prepending to help make routing decisions when BGP is enabled. A shorter AS path is preferred in BGP path selection.
 
 ### Can I use the RoutingWeight property when creating a new VPN VirtualNetworkGateway connection?
 
-No, such setting is reserved for ExpressRoute gateway connections. If you want to influence routing decisions between multiple connections, you need to use AS Path prepending.
+No. Such a setting is reserved for ExpressRoute gateway connections. If you want to influence routing decisions between multiple connections, you need to use AS path prepending.
 
 ### Can I use point-to-site VPNs with my virtual network with multiple VPN tunnels?
 
-Yes, point-to-site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
+Yes. You can use point-to-site VPNs with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
 
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
-Yes, this is supported. For more information, see [Configure ExpressRoute and site-to-site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
+Yes, this is supported. For more information, see [Configure ExpressRoute and site-to-site coexisting connections](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike"></a>IPsec/IKE policy
+## <a name="ipsecike"></a>IPsec or IKE policy
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
