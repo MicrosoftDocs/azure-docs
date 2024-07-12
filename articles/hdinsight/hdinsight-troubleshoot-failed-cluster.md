@@ -176,7 +176,7 @@ At the YARN level, there are two types of timeouts:
 
 2. YARN processing can take a long time, which can cause timeouts.
 
-    * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN ResourceManager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
+    * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN Resource Manager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
 
     * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.
 

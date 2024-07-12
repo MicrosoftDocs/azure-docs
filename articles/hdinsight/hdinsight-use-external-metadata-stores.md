@@ -65,7 +65,7 @@ Private endpoints for SQL stores are only supported on the clusters created with
 
 :::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="set server firewall button.":::
 
-:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="allow azure services access.":::
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="allow aAzure services access.":::
 
 ### Select a custom metastore during cluster creation
 
