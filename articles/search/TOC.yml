@@ -190,6 +190,8 @@
     items:
     - name: Create a search service
       href: search-create-service-portal.md
+    - name: Choose a region
+      href: search-region-support.md
     - name: Choose a tier
       href: search-sku-tier.md
     - name: Service limits
@@ -218,16 +220,16 @@
         href: search-howto-move-across-regions.md
   - name: Index management
     items:
-    - name: Create a search index
+    - name: Create an index
       href: search-how-to-create-search-index.md
-    - name: Create an index alias
-      href: search-how-to-alias.md
     - name: Load an index
       href: search-how-to-load-search-index.md
-    - name: Index large data sets
-      href: search-howto-large-index.md
-    - name: Drop and rebuild an index
+    - name: Update or rebuild an index
       href: search-howto-reindex.md
+    - name: Alias an index
+      href: search-how-to-alias.md
+    - name: Import large data sets
+      href: search-howto-large-index.md
     - name: Indexers
       items:
       - name: Create an indexer
