@@ -28,6 +28,12 @@ The Advisor score consists of an overall score, which can be further broken down
 
 You can track the progress you make over time by viewing your overall score and category score with daily, weekly, and monthly trends. You can also set benchmarks to help you achieve your goals.
 
+## Access Advisor Score
+
+In the left pane, under the **Advisor** section, see **Advisor score**.
+
+![Screenshot that shows the Advisor Score entry point.](https://user-images.githubusercontent.com/41593141/195171046-f0db9b6c-b59f-4bef-aa33-6a5c2ace18c0.png)
+
 ![Screenshot that shows the Advisor Score page.](https://user-images.githubusercontent.com/41593141/195171041-3eacca75-751a-4407-bad0-1cf7b21c42ff.png)
 
 ## Interpret an Advisor score
@@ -70,31 +76,43 @@ The calculation of the Advisor score can be summarized in four steps:
 
 Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md) model. A simple average produces the final Advisor score.
 
-## Advisor score FAQs
+## Frequently Asked Questions (FAQs)
 
-### How often is my score refreshed?
+### Score refresh
+#### How often is my score refreshed?
 
 Your score is refreshed at least once per day.
 
-### Why do some recommendations have the empty "-" value in the category score impact column?
+#### Why did my score change?
+
+Your score can change if you remediate impacted resources by adopting the best practices that Advisor recommends. If you or anyone with permissions on your subscription has modified or created new resources, you might also see fluctuations in your score. Your score is based on a ratio of the cost-impacted resources relative to the total cost of all resources.
+
+#### I implemented a recommendation but my score did not change. Why did this happen?
+
+The score does not reflect adopted recommendations right away. It takes at least 24 hours for the score to change after the recommendation is remediated. 
+
+### Score impact 
+#### Why do some recommendations have the empty "-" value in the category score impact column?
 
 Advisor doesn't immediately include new recommendations or recommendations with recent changes in the scoring model. After a short evaluation period, typically a few weeks, they're included in the score.
 
-### Why is the Cost score impact greater for some recommendations even if they have lower potential savings?
+#### Why is the cost score impact greater for some recommendations even if they have lower potential savings?
 
 Your **Cost** score reflects both your potential savings from underutilized resources and the predicted ease of implementing those recommendations. For example, extra weight is applied to impacted resources that have been idle for a longer time, even if the potential savings is lower.
 
+#### What does it mean when I see "Coming soon" in the score impact column?
+
+This message means that the recommendation is new, and we're working on bringing it to the Advisor score model. After this new recommendation is considered in a score calculation, you'll see the score impact value for your recommendation.
+
+### Excluding recommendations
+### What if a recommendation isn't relevant?
+
+If you dismiss a recommendation from Advisor, it will be excluded from the calculation of your score. Dismissing recommendations also helps Advisor improve the quality of recommendations.
+
+### Calculation
 ### Why don't I have a score for one or more categories or subscriptions?
 
 Advisor generates a score only for the categories and subscriptions that have resources that are assessed by Advisor.
-
-### What if a recommendation isn't relevant?
-
-If you dismiss a recommendation from Advisor, it will be omitted from the calculation of your score. Dismissing recommendations also helps Advisor improve the quality of recommendations.
-
-### Why did my score change?
-
-Your score can change if you remediate impacted resources by adopting the best practices that Advisor recommends. If you or anyone with permissions on your subscription has modified or created new resources, you might also see fluctuations in your score. Your score is based on a ratio of the cost-impacted resources relative to the total cost of all resources.
 
 ### How does Advisor calculate the retail cost of resources on a subscription?
 
@@ -112,20 +130,9 @@ No, not for now. But you can dismiss recommendations on individual resources if 
 
 The scoring methodology is designed to control for the number of resources on a subscription and service mix. Subscriptions with fewer resources can have higher or lower scores than subscriptions with more resources.
 
-### What does it mean when I see "Coming soon" in the score impact column?
-
-This message means that the recommendation is new, and we're working on bringing it to the Advisor score model. After this new recommendation is considered in a score calculation, you'll see the score impact value for your recommendation.
-
 ### Does my score depend on how much I spend on Azure?
 
 No. Your score isn't necessarily a reflection of how much you spend. Unnecessary spending will result in a lower **Cost** score.
-
-## Access Advisor Score
-
-In the left pane, under the **Advisor** section, see **Advisor score**.
-
-![Screenshot that shows the Advisor Score entry point.](https://user-images.githubusercontent.com/41593141/195171046-f0db9b6c-b59f-4bef-aa33-6a5c2ace18c0.png)
-
 
 ## Next steps
 
