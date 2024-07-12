@@ -3,7 +3,7 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 07/11/2024
 ---
 
 # Configure Application Insights Profiler
@@ -100,7 +100,7 @@ Memory % | Percentage of memory used while Profiler was running.
 
 ## Next steps
 
-[Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Enable Profiler and view traces](profiler.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/profiler-on-demand.png
 [performance-blade]: ./media/profiler-settings/performance-blade.png
