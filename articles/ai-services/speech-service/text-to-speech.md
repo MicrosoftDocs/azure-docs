@@ -91,6 +91,17 @@ For detailed information, see [Speech service pricing](https://azure.microsoft.c
 > [!IMPORTANT]
 > Each Chinese character is counted as two characters for billing, including kanji used in Japanese, hanja used in Korean, or hanzi used in other languages.  
 
+### Personal voice
+
+When you use the personal voice feature, you're billed for both profile storage and synthesis.
+
+*  **Profile storage**: Billed per voice per day. Storing a voice for less than a day will be rounded up to a full day for billing.
+*  **Synthesis**: Billed per character. For details on billable characters, see the above [billable characters](#billable-characters).
+
+### Text to speech avatar
+
+When using the text to speech avatar feature, charges will be incurred based on the minutes of video output. However, with the real-time avatar, charges are based on the minutes of avatar activation, irrespective of whether the avatar is actively speaking or remaining silent. To optimize costs for real-time avatar usage, refer to the provided tips in the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample) (search "Use Local Video for Idle").
+
 ### Model training and hosting time for custom neural voice
 
 Custom neural voice training and hosting are both calculated by hour and billed per second. For the billing unit price, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
