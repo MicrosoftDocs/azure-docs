@@ -25,7 +25,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
 
 ## Enable Sentinel
 
-1. [Enable Azure Sentinel Workspace](https://learn.microsoft.com/en-us/azure/sentinel/quickstart-onboard).
+1. [Enable Azure Sentinel Workspace](../../sentinel/overview.md).
 2. Send Logs to Log Analytics Workspace:
     - a. In **Search resources, service, and docs**, type **Application Gateways for Containers**.
     - b. Go to your selected Application Gateway for Container Resource.
