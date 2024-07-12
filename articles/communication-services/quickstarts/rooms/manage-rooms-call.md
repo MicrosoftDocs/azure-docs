@@ -11,25 +11,24 @@ ms.date: 07/10/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
-zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Manage a room call
 
 ## Introduction
-Once Azure Communication Services (ACS) room call has been successfully started, the call can be managed using Calling SDKs, Call Automation SDKs or both. In a room call, the mid-call actions are controlled by either the roles assigned to participants and properties configured in the room.
+Azure Communication Services (ACS) room call is started, the call can be managed using Calling SDKs, Call Automation SDKs or both. In a room call, the mid-call actions are controlled by either the roles assigned to participants and properties configured in the room.
 
 ## Calling SDKs
 Calling SDK is a client side calling libraries enabling participants in a room call to perform several mid-call operations (e.g. screen share, turn on/off video, mute/unmute, etc. ). Full list of capabilities offered in Calling SDK is listed in the [Calling SDK Overview](../../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)
 
-The capabilities are controlled based on roles assigned participants in the call (e.g. Only presenter can screen share). Please refer to this [Rooms Concepts](../../concepts/rooms/room-concept#predefined-participant-roles-and-permissions) for participant roles and permissions.
+The capabilities are controlled based on roles assigned participants in the call (e.g. Only presenter can screen share). Please refer to [Rooms concepts](../../concepts/rooms/room-concept#predefined-participant-roles-and-permissions) for participant roles and permissions.
 
 ## Call Automation SDKs
 Call Automation SDK is a sever side libraries enabling administrator to manage an ongoing room call in a central and controlled environment. Unlike Calling SDK, Call Automation SDK operations are roles agnostic. Therefore, a call administrator may perform several mid-call operations on behalf of the room call participants.
 
-The following lists common mid-call actions available for Room call. 
+The following lists common mid-call actions available in a room call. 
 
-### Connect to Rooms call
+### Connect to a room call
 Call Automation must connect to an existing room call prior to performing any mid-call operations. CallConnected or ConnectFailed events are notified using callback mechanism to indicate a connect operation is successful or failed respectively.
 
 ### [csharp](#tab/csharp)
@@ -65,11 +64,11 @@ call_connection_properties = client.connect_call(call_locator=room_call_locator,
 ```
 -----
 
-Once connect action succeeds, a CallConnect event is notified via Callback URI. The ```callConnectionId``` is available such that it can be used to retrieve a call connection object on the room call that it has just successfully connected. ```callConnectionId``` will be used to retrieve a callConnection object in the following mid-call actions.
+Once successfully connected to a room call, a CallConnect event is notified via Callback URI. The ```callConnectionId``` is available such that it can be used to retrieve a call connection on the room call as needed. ```callConnectionId``` will be used in the following sample code snippets.
 
 
 ### Add PSTN Participant
-Call Automation can dial out to a PSTN number and add the participant into a room call. A room, however, must be set up to enable PSTN dial-out option (EnabledPSTNDialout is set to true) and Azure Communication Services (ACS) resource must have a valid phone number. Please refer to Rooms [Quickstart](get-started-rooms?tabs=windows&pivots=platform-azcli#enable-pstn-dial-out-capability-for-a-room) for detail.
+Call Automation can dial out to a PSTN number and add the participant into a room call. A room, however, must be set up to enable PSTN dial-out option (EnabledPSTNDialout is set to true) and Azure Communication Services (ACS) resource must have a valid phone number. Please refer to [Rooms quickstart](get-started-rooms?tabs=windows&pivots=platform-azcli#enable-pstn-dial-out-capability-for-a-room) for detail.
 
 ### [csharp](#tab/csharp)
 
@@ -165,7 +164,7 @@ result = call_connection_client.remove_participant(remove_this_user, opration_co
 ```
 -----
 
-### Send STMF
+### Send DTMF
 Send a list of DTMF tones to an external participant.
 
 ### [csharp](#tab/csharp)
@@ -217,7 +216,7 @@ result = call_connection_client.send_dtmf_tones(
 -----
 
 ### Terminate a Call
-Call Automation SDKs provides Hang Up action which can be used to terminate a call. CallDisconnected event is published once the hangUp action has completed successfully.
+Call Automation SDKs provides Hang Up action which can be used to terminate a call. CallDisconnected event is published once the Hang Up action has completed successfully.
 
 ### [csharp](#tab/csharp)
 
@@ -248,8 +247,8 @@ call_connection_client.hang_up(is_for_everyone=True)
 ```
 -----
 
-## Other Operations
-The following mid-call operations are also supported in a room call. 
+## Other Actions
+The following mid-call actions are also supported in a room call. 
 1. Add Participant (ACS identifier)
 1. Remove Participant (ACS identifier)
 1. Cancel Add Participant (ACS identifier and PSTN number)
@@ -259,9 +258,9 @@ The following mid-call operations are also supported in a room call.
 1. Play both audio files and text 
 1. Play All both audio files and text
 1. Recognize both DTMF and speech
-1. RecogniseContinuousDTMF
+1. Recognize continuous DTMF
 
-Please see [call actions](../../how-tos/call-automation/actions-for-call-control?branch=pr-en-us-280574&tabs=csharp) and [media actions](../../how-tos/call-automation/control-mid-call-media-actions?branch=pr-en-us-280574&tabs=csharp) for detail on the actions.
+Please see [call actions](../../how-tos/call-automation/actions-for-call-control?branch=pr-en-us-280574&tabs=csharp) and [media actions](../../how-tos/call-automation/control-mid-call-media-actions?branch=pr-en-us-280574&tabs=csharp) for detail.
 
 ## Next steps
 
