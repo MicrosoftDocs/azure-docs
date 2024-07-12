@@ -3,7 +3,7 @@ title: 'Quickstart: Get started - create a Synapse workspace'
 description: In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
 author: whhender
 ms.author: whhender
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
