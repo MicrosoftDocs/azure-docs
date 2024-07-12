@@ -32,7 +32,7 @@ You can track the progress you make over time by viewing your overall score and 
 
 Select **Advisor score** the left pane to open score page.
 
-![Screenshot that shows the Advisor Score entry point.](media/advisor-score.png)
+:::image type="content" source="./media/advisor-score.png" alt-text="Screenshot that shows the Advisor Score entry point." lightbox="./media/advisor-score.png":::
 
 ## Interpret an Advisor score
 
