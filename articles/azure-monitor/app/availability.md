@@ -77,60 +77,9 @@ There are four types of availability tests:
 
 | Setting | Description |
 |--------|--------------|
-| **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must have been received within this period. |
+| **Test timeout** | Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site haven't been received within this period. If you selected **Parse dependent requests**, all the images, style files, scripts, and other dependent resources must have been received within this period. |
 | **HTTP response** | The returned status code that's counted as a success. The number 200 is the code that indicates that a normal webpage has been returned. |
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes, you might have to update it. *Only English characters are supported with content match.* |
-
-### Alerts
-
-| Setting | Description |
-|---------|-------------|
-| **Near real time** | We recommend using near real time alerts. Configuring this type of alert is done after your availability test is created. |
-| **Alert location threshold** |We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.** |
-
-### Location population tags
-
-You can use the following population tags for the geo-location attribute when you deploy an availability URL ping test by using Azure Resource Manager.
-
-#### Azure
-
-| Display name                           | Population name   |
-|----------------------------------------|-------------------|
-| Australia East                         | emea-au-syd-edge  |
-| Brazil South                           | latam-br-gru-edge |
-| Central US                             | us-fl-mia-edge    |
-| East Asia                              | apac-hk-hkn-azr   |
-| East US                                | us-va-ash-azr     |
-| France South (Formerly France Central) | emea-ch-zrh-edge  |
-| France Central                         | emea-fr-pra-edge  |
-| Japan East                             | apac-jp-kaw-edge  |
-| North Europe                           | emea-gb-db3-azr   |
-| North Central US                       | us-il-ch1-azr     |
-| South Central US                       | us-tx-sn1-azr     |
-| Southeast Asia                         | apac-sg-sin-azr   |
-| UK West                                | emea-se-sto-edge  |
-| West Europe                            | emea-nl-ams-azr   |
-| West US                                | us-ca-sjc-azr     |
-| UK South                               | emea-ru-msa-edge  |
-
-#### Azure Government
-
-| Display name   | Population name     |
-|----------------|---------------------|
-| USGov Virginia | usgov-va-azr        |
-| USGov Arizona  | usgov-phx-azr       |
-| USGov Texas    | usgov-tx-azr        |
-| USDoD East     | usgov-ddeast-azr    |
-| USDoD Central  | usgov-ddcentral-azr |
-
-#### Microsoft Azure operated by 21Vianet
-
-| Display name   | Population name     |
-|----------------|---------------------|
-| China East     | mc-cne-azr          |
-| China East 2   | mc-cne2-azr         |
-| China North    | mc-cnn-azr          |
-| China North 2  | mc-cnn2-azr         |
 
 ## [TrackAvailability()](#tab/track)
 
@@ -157,18 +106,19 @@ You can use the following population tags for the geo-location attribute when yo
 
 1. Create an Azure Functions resource.
 
-    If you already have an Application Insights resource:
+    * **If you already have an Application Insights resource:**
 
-    * By default, Azure Functions creates an Application Insights resource. But if you want to use a resource you created previously, you must specify that during creation.
+        By default, Azure Functions creates an Application Insights resource. If you want to use a resource you created previously, you must specify that during creation.
 
-    * Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
+        Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app) with the following modification:
 
-        On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource.
+        On the **Monitoring** tab, select the **Application Insights** dropdown box and then enter or select the name of your resource:
 
         :::image type="content" source="media/availability-azure-functions/app-insights-resource.png" alt-text="Screenshot that shows selecting your existing Application Insights resource on the Monitoring tab.":::
 
-    * If you don't have an Application Insights resource created yet for your timer-triggered function:
-        * By default, when you're creating your Azure Functions application, it creates an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
+    * **If you don't have an Application Insights resource created yet for your timer-triggered function:**
+
+        By default, when you're creating your Azure Functions application, it creates an Application Insights resource for you. Follow the instructions on how to [create an Azure Functions resource](../../azure-functions/functions-create-scheduled-function.md#create-a-function-app).
 
     > [!NOTE]
     > You can host your functions on a Consumption, Premium, or App Service plan. If you're testing behind a virtual network or testing nonpublic endpoints, you'll need to use the Premium plan in place of the Consumption plan. Select your plan on the **Hosting** tab. Ensure the latest .NET version is selected when you create the function app.
@@ -339,7 +289,58 @@ public async static Task RunAvailabilityTestAsync(ILogger log)
 
 ---
 
+
+
 ## Availability alerts
+
+| Setting | Description |
+|---------|-------------|
+| **Near real time** | We recommend using near real time alerts. Configuring this type of alert is done after your availability test is created. |
+| **Alert location threshold** |We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.** |
+
+### Location population tags
+
+You can use the following population tags for the geo-location attribute when you deploy an availability URL ping test by using Azure Resource Manager.
+
+#### Azure
+
+| Display name                           | Population name   |
+|----------------------------------------|-------------------|
+| Australia East                         | emea-au-syd-edge  |
+| Brazil South                           | latam-br-gru-edge |
+| Central US                             | us-fl-mia-edge    |
+| East Asia                              | apac-hk-hkn-azr   |
+| East US                                | us-va-ash-azr     |
+| France South (Formerly France Central) | emea-ch-zrh-edge  |
+| France Central                         | emea-fr-pra-edge  |
+| Japan East                             | apac-jp-kaw-edge  |
+| North Europe                           | emea-gb-db3-azr   |
+| North Central US                       | us-il-ch1-azr     |
+| South Central US                       | us-tx-sn1-azr     |
+| Southeast Asia                         | apac-sg-sin-azr   |
+| UK West                                | emea-se-sto-edge  |
+| West Europe                            | emea-nl-ams-azr   |
+| West US                                | us-ca-sjc-azr     |
+| UK South                               | emea-ru-msa-edge  |
+
+#### Azure Government
+
+| Display name   | Population name     |
+|----------------|---------------------|
+| USGov Virginia | usgov-va-azr        |
+| USGov Arizona  | usgov-phx-azr       |
+| USGov Texas    | usgov-tx-azr        |
+| USDoD East     | usgov-ddeast-azr    |
+| USDoD Central  | usgov-ddcentral-azr |
+
+#### Microsoft Azure operated by 21Vianet
+
+| Display name   | Population name     |
+|----------------|---------------------|
+| China East     | mc-cne-azr          |
+| China East 2   | mc-cne2-azr         |
+| China North    | mc-cnn-azr          |
+| China North 2  | mc-cnn2-azr         |
 
 ### Enable alerts
 
