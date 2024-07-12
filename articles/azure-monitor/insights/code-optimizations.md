@@ -47,9 +47,11 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 - Connects data with the methods and functions in your application code.
 - Narrows down the culprit by finding bottlenecks within the code.
 
-## Cost
+## Cost and overhead
 
-While Code Optimizations incurs no extra costs.
+Code Optimizations incurs no extra costs. 
+
+[Regarding sampling rates and overhead, refer to the Profiler documentation.](../profiler/profiler-overview.md#sampling-rate-and-overhead)
 
 ## Supported regions
 
