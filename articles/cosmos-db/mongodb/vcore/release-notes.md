@@ -18,19 +18,11 @@ This article contains release notes for the API for MongoDB vCore. These release
 
 ## Latest release: July 02, 2024
 
-- Query Operator enhancements
-    - aggregation operators
-        - $bitAnd.
-        - $bitOr.
-        - $bitXor.
-        - $bitNot.
-    - aggregation accumulator
-        - $maxN.
-        - $minN.
 - Metrics added
     - Customer Activity.
     - Requests.
-(Public Preview)
+
+(Preview feature list)
 - Support for accumulators
     - $mergeObjects.
 - Support for aggregation operator
@@ -44,7 +36,9 @@ This article contains release notes for the API for MongoDB vCore. These release
 ### May 06, 2024
 
 - Query operator enhancements.
-  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vcore "MongoDB for CosmosDB"` (Public Preview)
+  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vcore "MongoDB for CosmosDB"` 
+  
+(Preview feature list)
   - Support for accumulators
     - $push.
     - $addToSet.
