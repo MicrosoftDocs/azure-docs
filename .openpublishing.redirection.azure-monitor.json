@@ -11,6 +11,11 @@
             "redirect_document_id": false
          },
         {
+            "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/monitor-arc-enabled-vm-with-scom-managed-instance.md",
+            "redirect_url": "/azure/azure-monitor/scom-manage-instance/monitor-azure-off-azure-vm-with-scom-managed-instance",
+            "redirect_document_id": false
+         },
+        {
             "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/common-questions.md",
             "redirect_url": "/azure/azure-monitor/scom-manage-instance/scom-managed-instance-faq",
             "redirect_document_id": false

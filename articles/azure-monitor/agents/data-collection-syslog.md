@@ -25,29 +25,31 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 
 
 The following facilities are supported with the Syslog collector:
-* None
-* Kern
-* user
-* mail
-* daemon
-* auth
-* syslog
-* lpr
-* news
-* uucp
-* ftp
-* ntp
-* audit
-* alert
-* mark
-* local0
-* local1
-* local2
-* local3
-* local4
-* local5
-* local6
-* local7
+| Pri index 	| Pri Name 	|
+|---		|---		|
+| 0	   	| None		|
+| 1		| Kern		|
+| 2		| user		|
+| 3 		| mail		|
+| 4		| daemon	|
+| 4		| auth		|
+| 5		| syslog	|
+| 6		| lpr		|
+| 7		| news		|
+| 8		| uucp		|
+| 9		| ftp		|
+| 10		| ntp		|
+| 11		| audit		|
+| 12		| alert		|
+| 13		| mark		|
+| 14		| local0	|
+| 15		| local1	|
+| 16		| local2	|
+| 17		| local3	|
+| 18		| local4	|
+| 19		| local5	|
+| 20		| local6	|
+| 21		| local7	|
 
 The following are the severity levels of the events:
 * info
