@@ -24,12 +24,12 @@ The listed features were released in the last three months. For information abou
 
 ### Microsoft unified security platform now generally available
 
-Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot for Security in Microsoft Defender. For more information, see the following resources:
+Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
 
 - Blog post: [General availability of the  Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
-- [Microsoft Copilot for Security in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
+- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 
 ## June 2024
 

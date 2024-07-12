@@ -38,11 +38,17 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET](https://dotnet.microsoft.com/download/dotnet)
 
-#### [.NET](#tab/net)
+> [!Tip]
+> If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
+
+### [.NET](#tab/net)
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
-#### [Java](#tab/java)
+> [!Tip]
+> If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-dotnet-migrate.md).
+
+### [Java](#tab/java)
 
 - A Java application using Java 8+
 
@@ -59,9 +65,15 @@ Follow the steps in this section to instrument your application with OpenTelemet
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
-#### [Python](#tab/python)
+> [!Tip]
+> If you're migrating from the Application Insights Classic API, see our [migration documentation](./opentelemetry-nodejs-migrate.md).
+
+### [Python](#tab/python)
 
 - Python Application using Python 3.8+
+
+> [!Tip]
+> If you're migrating from OpenCensus, see our [migration documentation](./opentelemetry-python-opencensus-migrate.md).
 
 ---
 
