@@ -39,7 +39,7 @@ For more information about the resource types for Azure Logic Apps, see [Azure L
 
 - To learn how to set up diagnostic logging and monitor logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
 
-- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
+- For the available resource log categories, their associated Log Analytics tables, and the log's schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
 
 ## Monitoring for B2B workflows
 
