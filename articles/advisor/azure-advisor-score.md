@@ -28,13 +28,11 @@ The Advisor score consists of an overall score, which can be further broken down
 
 You can track the progress you make over time by viewing your overall score and category score with daily, weekly, and monthly trends. You can also set benchmarks to help you achieve your goals.
 
-## Access Advisor Score
+## Access Advisor score
 
-In the left pane, under the **Advisor** section, see **Advisor score**.
+Select **Advisor score** the left pane to open score page.
 
-![Screenshot that shows the Advisor Score entry point.](https://user-images.githubusercontent.com/41593141/195171046-f0db9b6c-b59f-4bef-aa33-6a5c2ace18c0.png)
-
-![Screenshot that shows the Advisor Score page.](https://user-images.githubusercontent.com/41593141/195171041-3eacca75-751a-4407-bad0-1cf7b21c42ff.png)
+![Screenshot that shows the Advisor Score entry point.](media/advisor-score.png)
 
 ## Interpret an Advisor score
 
