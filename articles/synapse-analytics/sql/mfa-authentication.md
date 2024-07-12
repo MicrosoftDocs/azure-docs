@@ -7,7 +7,7 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: has-adal-ref
 ---
 
