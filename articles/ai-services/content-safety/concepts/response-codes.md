@@ -26,7 +26,7 @@ The content APIs may return the following error codes:
 | TooManyRequests     | The current RPS has exceeded the quota for your current SKU. | Check the pricing table to understand the RPS quota.   <br/>Contact Azure Support if you need more QPS. |
 
 
-# Azure AI Studio Error Messages
+## Azure AI Studio error messages
 
 If you encounter the error **Your account does not have access to this resource, please contact your resource owner to get access**, please ensure your account is assigned the role of `Cognitive Services User` for the Content Safety resource or Azure AI Services resource you are using.
 
