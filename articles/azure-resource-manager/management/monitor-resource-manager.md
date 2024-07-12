@@ -1,17 +1,38 @@
 ---
-title: Control plane metrics in Azure Monitor
-description: Azure Resource Manager metrics in Azure Monitor | Traffic and latency observability for subscription-level control plane requests
+title: Monitor Azure Resource Manager
+description: Start here to learn how to monitor Azure Resource Manager. Learn about Traffic and latency observability for subscription-level control plane requests.
+ms.date: 07/16/2024
+ms.custom: horz-monitor, devx-track-arm-template
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+author: mumian
+ms.author: jgao
+ms.service: azure-resource-manager
 ---
 
-# Azure Resource Manager metrics in Azure Monitor
+# Monitor Azure Resource Manager
+
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+
+<!-- ## Insights. OPTIONAL. If your service has Azure Monitor insights, add the following include and add information about what your insights provide. You can refer to another article that gives details or add a screenshot. 
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
+
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+
+For more information about the resource types for Resource Manager, see [Azure Resource Manager monitoring data reference](monitor-resource-manager-reference.md).
+
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+
+For a list of available metrics for Resource Manager, see [Azure Resource Manager monitoring data reference](monitor-resource-manager-reference.md#metrics).
+
 When you create and manage resources in Azure, your requests are orchestrated through Azure's [control plane](./control-plane-and-data-plane.md), Azure Resource Manager. This article describes how to monitor the volume and latency of control plane requests made to Azure.
 
 With these metrics, you can observe traffic and latency for control plane requests throughout your subscriptions. For example, you can now figure out when your requests have been throttled or failed by filtering for specific status codes by [examining throttled requests](#examining-throttled-requests) and [examining server errors](#examining-server-errors).
 
 The metrics are available for up to three months (93 days) and only track synchronous requests. For a scenario like a VM creation, the metrics do not represent the performance or reliability of the long running asynchronous operation.
+
+
 
 ## Accessing Azure Resource Manager metrics
 
@@ -186,6 +207,47 @@ curl --location --request GET 'https://management.azure.com/subscriptions/000000
 
 You can also accomplish generic server errors filtering within portal by setting the filter property to 'StatusCodeClass' and the value to '5xx', similar to what was done in the throttling example.
 
-## Next steps
 
-* [Azure Monitor Overview](../../monitoring-and-diagnostics/monitoring-overview.md)
+<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
+If your service uses any non-Azure Monitor based metrics, add the following include and more information.
+[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
+
+<!-- ## Azure Monitor resource logs -->
+
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+
+[!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
+
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+
+<!-- REQUIRED. Add sample Kusto queries for your service here. -->
+
+<!-- ## Alerts -->
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+
+
+<!-- OPTIONAL. ONLY if applications run on your service that work with Application Insights, add the following include. 
+[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
+<!-- ### [TODO-replace-with-service-name] alert rules. REQUIRED. -->
+
+### Resource Manager alert rules
+
+The following table lists some suggested alert rules for Resource Manager. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Resource Manager monitoring data reference](monitor-resource-manager-reference.md).
+
+| Alert type | Condition | Description  |
+|:---|:---|:---|
+| | | |
+| | | |
+
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+
+## Related content
+
+- See [Azure Resource Manager monitoring data reference](monitor-resource-manager-reference.md) for a reference of the metrics, logs, and other important values created for Resource Manager.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
