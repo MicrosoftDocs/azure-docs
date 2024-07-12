@@ -58,7 +58,7 @@ However, you may experience small CPU, memory, and I/O overhead associated with 
 
 There is **no additional cost** for storing data captured by Snapshot Debugger.
 
-[Learn more details regarding the Snapshot Debugger overhead.](./snapshot-debugger-troubleshoot.md)
+[See example scenarios in which you may experience Snapshot Debugger overhead.](./snapshot-debugger-troubleshoot.md#snapshot-debugger-overhead-scenarios)
 
 ## Prerequisites for using Snapshot Debugger
 

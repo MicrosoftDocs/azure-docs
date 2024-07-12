@@ -114,26 +114,22 @@ However, you may experience small CPU, memory, and I/O overhead associated with 
 
 **When an exception is thrown in your application:**
 
-_Snapshot creation_  
-Creating a signature for the problem type and deciding whether to create a snapshot adds a very small CPU and memory overhead.
-
-_Deoptimization_
-If de-optimization is enabled, there is an overhead for re-JITting the method that threw the exception. This will be incurred the next time that method executes. Depending on the size of the method, this could be between 1ms and 100ms of CPU time.
+- Creating a signature for the problem type and deciding whether to create a snapshot adds a very small CPU and memory overhead.
+- If de-optimization is enabled, there is an overhead for re-JITting the method that threw the exception. This will be incurred the next time that method executes. Depending on the size of the method, this could be between 1ms and 100ms of CPU time.
 
 **If the exception handler decides to create a snapshot:**
 
-_Process snapshot creation_
-Creating the process snapshot takes about half a second (P50=0.3s, P90=1.2s, P95=1.9s) during which time, the thread that threw the exception is paused. Other threads are not blocked.
+- Creating the process snapshot takes about half a second (P50=0.3s, P90=1.2s, P95=1.9s) during which time, the thread that threw the exception is paused. Other threads are not blocked.
 
-_Converting to a minidump and uploading_
+- Converting the process snapshot to a minidump and uploading it to Application Insights takes several minutes. 
+   - Convert: P50=63s, P90=187s, P95=275s. 
+   - Upload: P50=31s, P90=75s, P95=98s. 
 
-Converting the process snapshot to a minidump and uploading it to Application Insights takes several minutes. 
-- Convert: P50=63s, P90=187s, P95=275s. 
-- Upload: P50=31s, P90=75s, P95=98s. 
+   This is done in Snapshot Uploader, which runs in a separate process. The Snapshot Uploader process runs at below normal CPU priority and uses low priority I/O. 
 
-This is done in Snapshot Uploader, which runs in a separate process. The Snapshot Uploader process runs at below normal CPU priority and uses low priority I/O. 
+   The minidump is first written to disk and the amount of disk spaced is roughly the same as the working set of the original process. Writing the minidump can induce page faults as memory is read. 
 
-The minidump is first written to disk and the amount of disk spaced is roughly the same as the working set of the original process. Writing the minidump can induce page faults as memory is read. The minidump is compressed during upload which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory and disk overhead for this will be proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
+   The minidump is compressed during upload, which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory, and disk overhead for this is be proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
 
 **When `TrackException` is called:**
 
