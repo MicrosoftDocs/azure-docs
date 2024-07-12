@@ -51,22 +51,18 @@ items:
       items:
       - name: C# samples
         href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
-      - name: Authenticate with Microsoft Entra ID
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
-      - name: Authenticate using Microsoft Entra tokens
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
-    - name: Java
-      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
-    - name: Python
-      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Python-Code-Samples
-    - name: Node.js
-      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/NodeJS-Code-Samples
-    - name: Go
-      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/GO-Code-Samples
-    - name: PHP
-      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
-    - name: Ruby
-      href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
+      - name: Java
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
+      - name: Python
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Python-Code-Samples
+      - name: Node.js
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/NodeJS-Code-Samples
+      - name: Go
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/GO-Code-Samples
+      - name: PHP
+        href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
+      - name: Ruby
+        href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
   - name: How-to guides
     items:
     - name: Use the Text Translation APIs
