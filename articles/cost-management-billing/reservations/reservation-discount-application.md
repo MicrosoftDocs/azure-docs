@@ -36,7 +36,7 @@ Autorenew is set **On** by default for all new reservations while you're in the 
 
 You can choose to enable automatic renewal of a reservation by selecting the option in the renewal settings. With automatic renewal, a replacement reservation is purchased automatically when the reservation expires.
 
-By default, the replacement reservation has the same attributes as the expiring reservation, optionally you change the billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
+By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
 
 ## Discount applies to different sizes
 
