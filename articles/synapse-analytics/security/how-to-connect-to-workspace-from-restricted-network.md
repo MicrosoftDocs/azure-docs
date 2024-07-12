@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 06/05/2023
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # Connect to workspace resources from a restricted network
