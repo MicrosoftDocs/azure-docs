@@ -324,7 +324,7 @@ az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name>
 kubectl apply -f <remote-write-secret.yaml>
 ```
 
-1. You will need to update the values for remote write section in Prometheus Operator. Copy the following and save it as a yaml file. For the values of the yaml file, see below section.
+1. You will need to update the values for remote write section in Prometheus Operator. Copy the following and save it as a yaml file. For the values of the yaml file, see below section. Refer to [Prometheus Operator documentation](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#azuread) for more details on the Azure Monitor Workspace remote write specification in Prometheus Operator.
 
 ```yaml
 prometheus:
