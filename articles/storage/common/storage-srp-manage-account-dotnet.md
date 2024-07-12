@@ -65,30 +65,30 @@ You can set or update the properties of a storage account by setting the propert
 
 ## List storage accounts
 
-You can list storage accounts in a subscription or a resource group. The following code example lists storage accounts in a subscription:
+You can list storage accounts in a subscription or a resource group. The following code example takes a [SubscriptionResource]() instance and lists storage accounts in the subscription:
 
 ```csharp
 ```
 
-The following code example lists storage accounts in a resource group:
+The following code example takes a [ResourceGroupResource]() instance and lists storage accounts in the resource group:
 
 ```csharp
 ```
 
 ## Manage storage account keys
 
-You can list storage account keys using the following method:
+You can get storage account keys using the following method:
 
-- 
+- [GetKeysAsync](): Returns an iterable collection of [StorageAccountKey]() instances.
 
-The following code example lists the keys for a storage account:
+The following code example gets the keys for a storage account and writes the name and value to the console for example purposes:
 
 ```csharp
 ```
 
 You can regenerate a storage account key using the following method:
 
-- 
+- [RegenerateKeyAsync](): Regenerates a storage account key and returns the new key value.
 
 The following code example regenerates a storage account key:
 

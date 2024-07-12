@@ -22,7 +22,7 @@ In this article, you learn about the management and data plane libraries, and wh
 
 ## Libraries for data access
 
-Data plane libraries builds on the Azure Storage REST API, allowing you to interact with blob, file, and queue data. These client libraries provide a set of classes that represent the resources you interact with, such as blob containers and blobs. These classes provide operations to work with Azure Storage resources. For example, you can use the Blob Storage client libraries to upload and download blobs, list containers, and delete blobs.
+Data plane libraries build on the Azure Storage REST API, allowing you to interact with blob, file, and queue data. These client libraries provide a set of classes that represent the resources you interact with, such as blob containers and blobs. These classes provide operations to work with Azure Storage resources. For example, you can use the Blob Storage client libraries to upload and download blobs, list containers, and delete blobs.
 
 ## [.NET](#tab/dotnet)
 
@@ -93,7 +93,7 @@ To learn more about using the Blob Storage client library for specific data acce
 
 ---
 
-In most cases, you should use the data plane libraries to work with Azure Storage resources. However, if you need to manage resources, such as creating or deleting storage accounts, managing account keys, or configuring failover scenarios, you need to use the management plane libraries.
+In most cases, you should use the data plane libraries to work with Azure Storage resources. However, if you need to manage resources, such as creating or deleting storage accounts, managing account keys, or configuring failover scenarios, you need to use the [management plane libraries](#libraries-for-resource-management).
 
 ## Libraries for resource management
 
@@ -142,3 +142,14 @@ The following table shows the Azure Storage client libraries for resource manage
 | **resourcemanager/storage/armstorage** | [Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage#section_documentation) | [pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage) | [GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storage/armstorage) |
 
 ---
+
+## Next steps
+
+- To learn more about using the Blob Storage client library for specific data access scenarios, see the following data plane developer guide resources:
+    - [.NET](../blobs/storage-blob-dotnet-get-started.md)
+    - [Java](../blobs/storage-blob-java-get-started.md)
+    - [JavaScript](../blobs/storage-blob-javascript-get-started.md)
+    - [TypeScript](../blobs/storage-blob-typescript-get-started.md)
+    - [Python](../blobs/storage-blob-python-get-started.md)
+    - [Go](../blobs/storage-blob-go-get-started.md)
+- To learn more about using the Azure Storage management library for specific resource management scenarios, see [Get started with Azure Storage management library for .NET](storage-srp-dotnet-get-started.md).

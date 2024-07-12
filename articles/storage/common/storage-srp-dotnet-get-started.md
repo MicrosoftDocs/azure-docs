@@ -48,7 +48,7 @@ Management library information:
 
 ## Authorize access and create a client
 
-To connect an application and manage storage account resources, create an [ArmClient](/dotnet/api/azure.resourcemanager.armclient) object. This client object is the entry point for all ARM clients. Since all management APIs go through the same endpoint, you only need to create one top-level `ArmClient` to interact with resources.
+To connect an application and manage storage account resources, create an [ArmClient](/dotnet/api/azure.resourcemanager.armclient) object. This client object is the entry point for all Azure Resource Manager (ARM) clients. Since all management APIs go through the same endpoint, you only need to create one top-level `ArmClient` to interact with resources.
 
 #### Assign management permissions with Azure RBAC
 
@@ -75,13 +75,13 @@ The following example creates an `ArmClient` object authorized using `DefaultAzu
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 ```
 
-If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
+If you know exactly which credential type you use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
 
 To learn more about authorizing management operations, see [Assign management permissions with Azure RBAC](authorization-resource-provider.md#assign-management-permissions-with-azure-role-based-access-control-azure-rbac).
 
 ## Register the Storage resource provider with a subscription
 
-A resource provider must be registered with your Azure subscription before you can work with it. This step only needs to be done once per subscription, and only applies if the resource provider **Microsoft.Storage** is not currently registered with your subscription.
+A resource provider must be registered with your Azure subscription before you can work with it. This step only needs to be done once per subscription, and only applies if the resource provider **Microsoft.Storage** isn't currently registered with your subscription.
 
 You can register the Storage resource provider, or check the registration status, using [Azure portal](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal), [Azure CLI](/azure/azure-resource-manager/management/resource-providers-and-types#azure-cli), or [Azure PowerShell](/azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell).
 
@@ -92,7 +92,7 @@ You can also use the Azure management libraries to check the registration status
 > [!NOTE]
 > To perform the register operation, you need permissions for the following Azure RBAC action: **Microsoft.Storage/register/action**. This permission is included in the **Contributor** and **Owner** built-in roles.
 
-## Create a client to manage storage account resources
+## Create a client for managing storage account resources
 
 After creating an `ArmClient` object and registering the Storage resource provider, you can create client objects to manage storage account resources. The following code example shows how to create client objects for a resource group and a storage account:
 
