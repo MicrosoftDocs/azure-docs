@@ -78,7 +78,7 @@ Azure Backup can provide protection for AKS clusters, including a [cross-regio
 
 ## Azure Monitor Logs
 
-Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication. For more information, see
+Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication)
 
