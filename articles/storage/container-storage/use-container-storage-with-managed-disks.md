@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Azure managed disks.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 07/12/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Save the file.
+1. Paste in the following code. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1
@@ -59,7 +59,26 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
          storage: 1Ti
    ```
 
-1. Apply the YAML manifest file to create the storage pool.
+   If you're using UltraSSD_LRS or PremiumV2_LRS disks, you can set IOPS and throughput using the `IOPSReadWrite` and `MBpsReadWrite` parameters in your storage pool definition.
+
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     poolType:
+       azureDisk:
+         skuName: PremiumV2_LRS
+         iopsReadWrite: 5000
+         MbpsReadWrite: 200
+     resources:
+       requests:
+         storage: 1Ti
+   ```
+
+1. Save the YAML manifest file, and then apply it to create the storage pool.
    
    ```azurecli-interactive
    kubectl apply -f acstor-storagepool.yaml 
