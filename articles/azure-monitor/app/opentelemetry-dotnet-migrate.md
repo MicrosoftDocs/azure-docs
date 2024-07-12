@@ -1215,8 +1215,7 @@ OpenTelemetry .NET utilizes the `ActivitySource` and `Activity` classes for trac
 
 Here's how to migrate manual tracing:
 
-> **Note:**
->
+> Note
 > In Application Insights, the role name and role instance could be set at a per-telemetry level. However, with the Azure Monitor Exporter, we cannot customize at a per-telemetry level. The role name and role instance are extracted from the OpenTelemetry resource and applied across all telemetry. Please read this document for more information: [Set the cloud role name and the cloud role instance](./opentelemetry-configuration.md?tabs=aspnetcore#set-the-cloud-role-name-and-the-cloud-role-instance).
 
 #### DependencyTelemetry
@@ -1471,7 +1470,7 @@ Additionally, OpenTelemetry doesn't support sending raw metrics directly, as the
 
 Migrating from Application Insights to OpenTelemetry involves replacing all Application Insights Metric API usages with the OpenTelemetry API. It requires understanding the various OpenTelemetry Instruments and their semantics.
 
-> **Tip:**
+> [!Tip]
 > The histogram is the most versatile and the closest equivalent to the Application Insights `GetMetric().TrackValue()` API. You can replace Application Insights Metric APIs with Histogram to achieve the same purpose.
 
 #### Other Telemetry Types
