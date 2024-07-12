@@ -22,8 +22,6 @@ In this article, you learn about the various ways that you can:
 - Set the environment variable via the orchestrator (like Kubernetes).
 - Learn security considerations around production deployment, like protecting your Application Insights instrumentation key.
 
-[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
-
 ## Prerequisites
 
 - [An Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.

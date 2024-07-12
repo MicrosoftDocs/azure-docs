@@ -58,8 +58,6 @@ To manually trigger a Profiler session, you need, at minimum, *write* access on 
 
 Select **Triggers** to open the **Trigger Settings** pane that has the **CPU**, **Memory**, and **Sampling** trigger tabs.
 
-[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
-
 ### CPU or Memory triggers
 
 You can set up a trigger to start profiling when the percentage of CPU or memory use hits the level you set.

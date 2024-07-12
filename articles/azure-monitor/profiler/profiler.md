@@ -15,8 +15,6 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 > [!NOTE]
 > Codeless installation of Application Insights Profiler follows the .NET Core support policy. For more information about supported runtime, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
-[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
-
 ## Prerequisites
 
 - An [Azure App Service ASP.NET/ASP.NET Core app](../../app-service/quickstart-dotnetcore.md).

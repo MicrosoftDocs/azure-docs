@@ -16,8 +16,6 @@ Let's say you're running a web performance test. You'll need traces to understan
 > - View the Profiler traces after your load test or Profiler session.
 > - Learn how to read the Profiler performance data and call stack.
 
-[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
-
 ## Generate traffic to your Azure service
 
 For Profiler to upload traces, your service must be actively handling requests. 
