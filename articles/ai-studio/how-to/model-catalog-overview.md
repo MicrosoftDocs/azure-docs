@@ -149,7 +149,7 @@ Phi-3-mini-128k-instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-in
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-[!INCLUDE [content-safety-serverless-models](../includes/content-safety-serverless-models.md)].
+[!INCLUDE [content-safety-serverless-models](../includes/content-safety-serverless-models.md)]
 
 
 ### Network isolation for models deployed via Serverless APIs
