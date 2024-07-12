@@ -25,15 +25,18 @@ The distros automatically collect data by bundling OpenTelemetry instrumentation
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Requests:
+##### Requests
+
 * [ASP.NET
   Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) ¹²
 
-Dependencies:
+##### Dependencies
+
 * [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) ¹²
 * [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) ¹
 
-Logging:
+##### Logging
+
 * `ILogger`
 
 For more information about `ILogger`, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
@@ -44,7 +47,8 @@ The Azure Monitor Exporter doesn't include any instrumentation libraries.
 
 #### [Java](#tab/java)
 
-Requests:
+##### Requests
+
 * JMS consumers
 * Kafka consumers
 * Netty
@@ -56,7 +60,8 @@ Requests:
 > [!NOTE]
 > Servlet and Netty autoinstrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
-Dependencies (plus downstream distributed trace propagation):
+##### Dependencies (plus downstream distributed trace propagation)
+
 * Apache HttpClient
 * Apache HttpAsyncClient
 * AsyncHttpClient
@@ -72,24 +77,28 @@ Dependencies (plus downstream distributed trace propagation):
 * OkHttp
 * RabbitMQ
 
-Dependencies (without downstream distributed trace propagation):
+##### Dependencies (without downstream distributed trace propagation)
+
 * Cassandra
 * JDBC
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
 
-Metrics:
+##### Metrics
 
 * Micrometer Metrics, including Spring Boot Actuator metrics
 * JMX Metrics
 
-Logs:
+##### Logs
+
 * Logback (including MDC properties) ¹ ³
 * Log4j (including MDC/Thread Context properties) ¹ ³
 * JBoss Logging (including MDC properties) ¹ ³
 * java.util.logging ¹ ³
 
-Telemetry emitted by these Azure SDKs is automatically collected by default:
+##### Telemetry collection
+
+Telemetry emitted by the following Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Azure AI Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
@@ -140,21 +149,25 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Java native](#tab/java-native)
 
-Requests for Spring Boot native applications:
+##### Requests for Spring Boot native applications
+
 * Spring Web
 * Spring Web MVC
 * Spring WebFlux
 
-Dependencies for Spring Boot native applications:
+##### Dependencies for Spring Boot native applications
+
 * JDBC
 * R2DBC
 * MongoDB
 * Kafka
 
-Metrics:
+##### Metrics
+
 * Micrometer Metrics
 
-Logs for Spring Boot native applications:
+##### Logs for Spring Boot native applications
+
 * Logback
 
 For Quartz native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
@@ -163,10 +176,12 @@ For Quartz native applications, please look at the [Quarkus documentation](https
 
 The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-opentelemetry/README.md#instrumentation-libraries).
 
-Requests:
+##### Requests
+
 * [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http)²
 
-Dependencies:
+##### Dependencies
+
 * [MongoDB](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mongodb)
 * [MySQL](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql)
 * [Postgres](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-pg)
@@ -174,13 +189,14 @@ Dependencies:
 * [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 * [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Logs:
+##### Logs
+
 * [Bunyan](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-bunyan)
 <!--
 * [Winston](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-winston)
 -->
 
-Instrumentations can be configured using AzureMonitorOpenTelemetryOptions  
+Instrumentations can be configured using `AzureMonitorOpenTelemetryOptions`:
 
 ```typescript
 // Import Azure Monitor OpenTelemetry
@@ -217,18 +233,21 @@ useAzureMonitor(options);
 
 #### [Python](#tab/python)
 
-Requests:
+##### Requests
+
 * [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) ¹
 * [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) ¹
 * [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) ¹
 
-Dependencies:
+##### Dependencies
+
 * [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2)
 * [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) ¹
 * [`Urllib`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) ¹
 * [`Urllib3`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) ¹
 
-Logs:
+##### Logs
+
 * [Python logging library](https://docs.python.org/3/howto/logging.html) ⁴
 
 Examples of using the Python logging library can be found on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples/logging).
@@ -238,6 +257,7 @@ Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/
 ---
 
 **Footnotes**
+
 * ¹: Supports automatic reporting of *unhandled/uncaught* exceptions
 * ²: Supports OpenTelemetry Metrics
 * ³: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
@@ -386,14 +406,14 @@ The following table represents the currently supported custom telemetry types:
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;`ILogger` API             |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;`ILogger` API           |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
 | **Java**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Logback, `Log4j`, JUL   |               |                |              | Yes        |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;Micrometer Metrics      |               | Yes            |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
+| &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
@@ -401,7 +421,7 @@ The following table represents the currently supported custom telemetry types:
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
 | &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;Events Extension        |   Yes         |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Events Extension        | Yes           |                |              |            |            |          | Yes    |
 
 > [!NOTE]
 > Application Insights Java 3.x listens for telemetry that's sent to the Application Insights [Classic API](api-custom-events-metrics.md). Similarly, Application Insights Node.js 3.x collects events created with the Application Insights [Classic API](api-custom-events-metrics.md). This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
@@ -550,7 +570,7 @@ public class Program {
 
 1. Inject `OpenTelemetry`
 
-   _Spring_
+   *Spring*
    ```java
    import io.opentelemetry.api.OpenTelemetry;
    
@@ -558,7 +578,7 @@ public class Program {
     OpenTelemetry openTelemetry;
    ```
 
-   _Quarkus_
+   *Quarkus*
    ```java
    import io.opentelemetry.api.OpenTelemetry; 
    
@@ -748,7 +768,7 @@ public class Program {
 
 1. Inject `OpenTelemetry`
 
-   _Spring_
+   *Spring*
    ```java
    import io.opentelemetry.api.OpenTelemetry;
    
@@ -756,7 +776,7 @@ public class Program {
     OpenTelemetry openTelemetry;
    ```
 
-   _Quarkus_
+   *Quarkus*
    ```java
    import io.opentelemetry.api.OpenTelemetry; 
    
@@ -964,7 +984,7 @@ public class Program {
 
 1. Inject `OpenTelemetry`
 
-   _Spring_
+   *Spring*
    ```java
    import io.opentelemetry.api.OpenTelemetry;
    
@@ -972,7 +992,7 @@ public class Program {
     OpenTelemetry openTelemetry;
    ```
 
-   _Quarkus_
+   *Quarkus*
    ```java
    import io.opentelemetry.api.OpenTelemetry; 
    
@@ -1194,14 +1214,14 @@ You can use `opentelemetry-api` to update the status of a span and record except
 
 Set status to `error` and record an exception in your code:
 
-   ```java
-    import io.opentelemetry.api.trace.Span;
-    import io.opentelemetry.api.trace.StatusCode;
+```java
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.StatusCode;
 
-    Span span = Span.current();
-    span.setStatus(StatusCode.ERROR, "errorMessage");
-    span.recordException(e);
-   ```
+Span span = Span.current();
+span.setStatus(StatusCode.ERROR, "errorMessage");
+span.recordException(e);
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -1354,7 +1374,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
 
 #### [Java](#tab/java)
   
-**Use the OpenTelemetry annotation**
+##### Use the OpenTelemetry annotation
 
 The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
 
@@ -1384,7 +1404,7 @@ By default, the span ends up in the `dependencies` table with dependency type `I
 
 For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
 
-**Use the OpenTelemetry API**
+##### Use the OpenTelemetry API
 
 If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
 you can add your spans by using the OpenTelemetry API.
@@ -1425,7 +1445,7 @@ you can add your spans by using the OpenTelemetry API.
 
 1. Inject `OpenTelemetry`
 
-    _Spring_
+    *Spring*
     ```java
     import io.opentelemetry.api.OpenTelemetry;
     
@@ -1433,7 +1453,7 @@ you can add your spans by using the OpenTelemetry API.
     OpenTelemetry openTelemetry;
     ```
     
-    _Quarkus_
+    *Quarkus*
     ```java
     import io.opentelemetry.api.OpenTelemetry; 
     @Inject
@@ -1600,7 +1620,7 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-#### Events
+##### Events
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
@@ -1662,19 +1682,19 @@ telemetryClient.TrackEvent("testEvent");
 
 1. Use the client to send custom telemetry:
 
-    #### Events
+    ##### Events
     
     ```java
     telemetryClient.trackEvent("WinGame");
     ```
     
-    #### Metrics
+    ##### Metrics
     
     ```java
     telemetryClient.trackMetric("queueLength", 42.0);
     ```
     
-    #### Dependencies
+    ##### Dependencies
     
     ```java
     boolean success = false;
@@ -1691,13 +1711,13 @@ telemetryClient.TrackEvent("testEvent");
     }
     ```
     
-    #### Logs
+    ##### Logs
     
     ```java
     telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
     ```
     
-    **Exceptions**
+    ##### Exceptions
     
     ```java
     try {
@@ -1727,7 +1747,7 @@ const telemetryClient = new TelemetryClient();
 
 Then use the `TelemetryClient` to send custom telemetry:
 
-#### Events
+##### Events
 
 ```javascript
 // Create an event telemetry object.
@@ -1739,7 +1759,7 @@ let eventTelemetry = {
 telemetryClient.trackEvent(eventTelemetry);
 ```
 
-#### Logs
+##### Logs
 
 ```javascript
 // Create a trace telemetry object.
@@ -1752,7 +1772,7 @@ let traceTelemetry = {
 telemetryClient.trackTrace(traceTelemetry);
 ```
 
-#### Exceptions
+##### Exceptions
 
 ```javascript
 // Try to execute a block of code.
@@ -1810,7 +1830,7 @@ These attributes might include adding a custom property to your telemetry. You m
 
 #### Add a custom property to a Span
 
-Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
+Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the *customDimensions* field in the requests, dependencies, traces, or exceptions table.
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1823,6 +1843,7 @@ To add span attributes, use either of the following two ways:
 > The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) and the [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) itself. They can select anything from it and store it as an attribute.
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
+
     * [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
     * [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
@@ -1874,6 +1895,7 @@ To add span attributes, use either of the following two ways:
 > The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
+
     * [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.8/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
     * [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
     * [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
@@ -2144,11 +2166,11 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
 
 Set `user_Id` in your code:
 
-    ```java
-    import io.opentelemetry.api.trace.Span;
-    
-    Span.current().setAttribute("enduser.id", "myuser");
-    ```
+```java
+import io.opentelemetry.api.trace.Span;
+
+Span.current().setAttribute("enduser.id", "myuser");
+```
 
 ##### [Node.js](#tab/nodejs)
 
@@ -2199,7 +2221,6 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 * [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.0/javadoc/log4j-api/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
 * [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
-
 
 #### [Java native](#tab/java-native)
 
@@ -2300,6 +2321,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 ### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
+
     * [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.8/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
     * [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
     * [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
@@ -2334,7 +2356,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
-
 
 ### [Java](#tab/java)
 
@@ -2394,7 +2415,8 @@ It's not possible to filter telemetry in Java native.
     ```
 
 1. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
-Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
+
+    Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
     ```typescript
     // Import the necessary packages.
@@ -2425,6 +2447,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ### [Python](#tab/python)
 
 1. Exclude the URL with the `OTEL_PYTHON_EXCLUDED_URLS` environment variable:
+
     ```
     export OTEL_PYTHON_EXCLUDED_URLS="http://localhost:8080/ignore"
     ```
@@ -2592,7 +2615,7 @@ let traceId = trace.getActiveSpan().spanContext().traceId;
 Get the request trace ID and the span ID in your code:
 
 ```python
-# Import the necessary libraries.   
+# Import the necessary libraries.
 from opentelemetry import trace
 
 # Get the trace ID and span ID of the current span.
@@ -2606,7 +2629,7 @@ span_id = trace.get_current_span().get_span_context().span_id
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-* To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
+* To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md).
 * To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
 * To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) page.
 * To become more familiar with Azure Monitor and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
@@ -2631,9 +2654,9 @@ span_id = trace.get_current_span().get_span_context().span_id
 * See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
 ### [Java native](#tab/java-native)
+
 * For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
-* To review the source code, see [Azure Monitor OpenTelemetry Distro in Spring Boot native image Java application](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-monitor)
-  and [Quarkus OpenTelemetry Exporter for Azure](https://github.com/quarkiverse/quarkus-opentelemetry-exporter/tree/main/quarkus-opentelemetry-exporter-azure).
+* To review the source code, see [Azure Monitor OpenTelemetry Distro in Spring Boot native image Java application](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-monitor) and [Quarkus OpenTelemetry Exporter for Azure](https://github.com/quarkiverse/quarkus-opentelemetry-exporter/tree/main/quarkus-opentelemetry-exporter-azure).
 * To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 * See the [release notes](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-monitor/CHANGELOG.md) on GitHub.
 
@@ -2647,7 +2670,7 @@ span_id = trace.get_current_span().get_span_context().span_id
 
 ### [Python](#tab/python)
 
-- To review the source code and extra documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md).
+* To review the source code and extra documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md).
 * To see extra samples and use cases, see [Azure Monitor Distro samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry/samples).
 * See the [release notes](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/CHANGELOG.md) on GitHub.
 * To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Distro PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry/) page.
