@@ -97,6 +97,28 @@ The following code example regenerates a storage account key:
 
 ## Update the storage account SKU
 
+You can update existing storage account settings by passing updated parameters to the following method:
+
+- [CreateOrUpdateAsync]()
+
+The following code example updates the storage account SKU from `Standard_LRS` to `Standard_GRS`:
+
+```csharp
+public static async Task UpdateStorageAccountSkuAsync(
+    StorageAccountResource storageAccount,
+    StorageAccountCollection accountCollection)
+{
+    // Update storage account SKU
+    var currentSku = storageAccount.Data.Sku.Name;  // capture the current Sku value before updating
+    var kind = storageAccount.Data.Kind ?? StorageKind.StorageV2;
+    var location = storageAccount.Data.Location;
+    StorageSku updatedSku = new(StorageSkuName.StandardGrs);
+    StorageAccountCreateOrUpdateContent updatedParams = new(updatedSku, kind, location);
+    await accountCollection.CreateOrUpdateAsync(WaitUntil.Completed, storageAccount.Data.Name, updatedParams);
+    Console.WriteLine($"SKU on storage account updated from {currentSku} to {storageAccount.Get().Value.Data.Sku.Name}");
+}
+```
+
 ## Delete a storage account
 
 ## Configure ArmClient options
