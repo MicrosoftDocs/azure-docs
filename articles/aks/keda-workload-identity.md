@@ -88,7 +88,7 @@ This article shows you how to securely scale your applications with the Kubernet
     SB_QUEUE_NAME=<service-bus-queue-name>
 
     az servicebus queue create \
-        --name $SB_QUEUE \
+        --name $SB_QUEUE_NAME \
         --namespace $SB_NAME \
         --resource-group $RG_NAME
     ```
