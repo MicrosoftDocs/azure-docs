@@ -1,5 +1,5 @@
 ---
-title: 'Work in VS Code remotely connected to a compute instance (preview)'
+title: 'Work in VS Code remotely connected to a compute instance'
 titleSuffix: Azure Machine Learning
 description: Details for working with Jupyter notebooks and services from a VS Code remote connection to an Azure Machine Learning compute instance.
 services: machine-learning
@@ -10,17 +10,15 @@ ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: lebaro
-ms.date: 04/17/2023
+ms.date: 07/12/2024
 #Customer intent: As a data scientist, I want to use Jupyter notebooks and tools while working from a VS Code remote connection to my Azure Machine Learning compute instance.
 ---
 
-# Work in VS Code remotely connected to a compute instance (preview)
+# Work in VS Code remotely connected to a compute instance
 
 In this article, learn specifics of working within a VS Code remote connection to an Azure Machine Learning compute instance. Use VS Code as your **full-featured integrated development environment (IDE)** with the power of Azure Machine Learning resources. You can work with a remote connection to your compute instance in the browser with VS Code for the Web, or the VS Code desktop application.
 
 * We recommend **VS Code for the Web**, as you can do all your machine learning work directly from the browser, and without any required installations or dependencies.
-
- [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 > [!IMPORTANT]
 > To connect to a compute instance behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#scenario-visual-studio-code).
