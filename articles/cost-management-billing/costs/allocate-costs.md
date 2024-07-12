@@ -25,8 +25,8 @@ Allocated costs appear in cost analysis. They appear as other items associated w
 ## Prerequisites
 
 - Cost allocation currently only supports customers with:
-  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
-  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) that you bought through the Azure website. Also called an MCA individual agreement.
+  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA-E agreement.
+  - A [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) that you bought through the Azure website. Also called an MCA-online agreement.
   - An [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/).
 - To create or manage a cost allocation rule, you must use an Enterprise Administrator account for [Enterprise Agreements](../manage/understand-ea-roles.md). Or you must be a [Billing account](../manage/understand-mca-roles.md) owner for Microsoft Customer Agreements.
 
@@ -132,7 +132,7 @@ The [Usage Details](/rest/api/consumption/usagedetails/list) API version `2021-1
 
 However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 
-If you have cost allocation rules enabled, the `UnitPrice` field in your usage details file is 0. We recommend that you use price sheet data to get unit price information until it's available in the usage details file.
+If you have cost allocation rule(s) enabled, the unit price for the reserved instance (RI) purchase will show up as 0 in the usage details file. To work around this limitation, you could use the pricesheet data. 
 
 Cost allocation to a target doesn't happen if that target doesn't have any costs associated with it.
 

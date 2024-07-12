@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create a storage account and configure diagnostics
 > * Test the application gateway
 
-:::image type="content" source="../media/application-gateway-web-application-firewall-portal/scenario-waf.png" alt-text="Diagram of the Web application firewall example.":::
+:::image type="content" source="../media/application-gateway-web-application-firewall-portal/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/application-gateway-web-application-firewall-portal/scenario-waf.png":::
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

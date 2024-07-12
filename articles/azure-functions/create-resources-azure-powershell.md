@@ -85,7 +85,7 @@ The following script creates a Python function app on Linux and creates and moun
 
 Mounted file shares are only supported on Linux. For more information, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
-[!INCLUDE [powershell-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/powershell-samples-clean-up.md)]
+[!INCLUDE [powershell-samples-clean-up](../../includes/powershell-samples-clean-up.md)]
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
-ms.topic: article
+ms.topic: overview
 ms.date: 04/22/2024
 ---
 
@@ -116,7 +116,7 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks).
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
 
-[!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
+[!INCLUDE [component-support](../../includes/dapr-in-azure/dapr-support-policy.md)]
 
 ### Clouds/regions
 

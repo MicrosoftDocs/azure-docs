@@ -10,7 +10,7 @@ ms.date: 02/13/2024
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Some scenarios might require that you create a logic app workflow that can receive inbound requests from other services or workflows, or a workflow that you can call by using a URL. For this task, you can expose a native synchronous HTTPS endpoint on your workflow when you use any of the following request-based trigger types:
 
@@ -26,7 +26,7 @@ This guide shows how to create a callable endpoint for your workflow by adding t
 
 * A logic app workflow where you want to use the request-based trigger to create the callable endpoint. You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
 
-* To test the URL for the callable endpoint that you create, you'll need a tool or app such as [Postman](https://www.postman.com/downloads/).
+* To test the URL for the callable endpoint that you create, you'll need a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
 
 ## Create a callable endpoint
 
@@ -110,7 +110,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
         :::image type="content" source="./media/logic-apps-http-endpoint/find-trigger-url-standard.png" alt-text="Screenshot shows Standard workflow and Overview page with workflow URL." lightbox="./media/logic-apps-http-endpoint/find-trigger-url-standard.png":::
 
-1. To test the callback URL that you now have for the Request trigger, use a tool or app such as [Postman](https://www.postman.com/downloads/), and send the request using the method that the Request trigger expects.
+1. To test the callback URL that you now have for the Request trigger, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/), and send the request using the method that the Request trigger expects.
 
    This example uses the `POST` method:
 
@@ -194,7 +194,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
         :::image type="content" source="./media/logic-apps-http-endpoint/find-trigger-url-consumption.png" alt-text="Screenshot shows Consumption logic app Overview page with workflow URL." lightbox="./media/logic-apps-http-endpoint/find-trigger-url-consumption.png":::
 
-1. To test the callback URL that you now have for the Request trigger, use a tool or app such as [Postman](https://www.postman.com/downloads/), and send the request using the method that the Request trigger expects.
+1. To test the callback URL that you now have for the Request trigger, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/), and send the request using the method that the Request trigger expects.
 
    This example uses the `POST` method:
 

@@ -4,7 +4,7 @@ description: Learn about VPN Gateway topologies and designs you can use to conne
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/28/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---

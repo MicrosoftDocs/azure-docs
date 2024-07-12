@@ -9,7 +9,10 @@ ai-usage: ai-assisted
 
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you enabled. The alerts shown in your environment depend on the resources and services you're protecting, and your customized configuration.
+This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you enabled. The alerts shown in your environment depend on the resources and services you're protecting, and your customized configuration.  
+
+> [!NOTE]
+> Some of the recently added alerts powered by Microsoft Defender Threat Intelligence and Microsoft Defender for Endpoint might be undocumented.
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
@@ -4379,7 +4382,9 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 ## Alerts for AI workloads
 
-### Detected credential theft attempts on an Azure Open AI model deployment  
+### Detected credential theft attempts on an Azure Open AI model deployment
+
+(AI.Azure_CredentialTheftAttempt)
 
 **Description**: The credential theft alert is designed to notify the SOC when credentials are detected within GenAI model responses to a user prompt, indicating a potential breach. This alert is crucial for detecting cases of credential leak or theft, which are unique to generative AI and can have severe consequences if successful.
 
@@ -4387,23 +4392,29 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 **Severity**: Medium
 
-### A Jailbreak attempt on an Azure Open AI model deployment was blocked by Prompt Shields
+### A Jailbreak attempt on an Azure Open AI model deployment was blocked by Azure AI Content Safety Prompt Shields
 
-**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were blocked by Azure Responsible AI Content Filtering (AKA Prompt Shields), ensuring the integrity of the AI resources and the data security.
+(AI.Azure_Jailbreak.ContentFiltering.BlockedAttempt)
+
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were blocked by Azure Responsible AI Content Safety (AKA Prompt Shields), ensuring the integrity of the AI resources and the data security.
 
 **[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion 
 
 **Severity**: Medium
 
-### A Jailbreak attempt on an Azure Open AI model deployment was detected by Prompt Shields 
+### A Jailbreak attempt on an Azure Open AI model deployment was detected by Azure AI Content Safety Prompt Shields
 
-**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were detected by Azure Responsible AI Content Filtering (AKA Prompt Shields), but were not blocked due to content filtering settings or due to low confidence.
+(AI.Azure_Jailbreak.ContentFiltering.DetectedAttempt)
+
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were detected by Azure Responsible AI Content Safety (AKA Prompt Shields), but were not blocked due to content filtering settings or due to low confidence.
 
 **[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion
 
 **Severity**: Medium
 
-### Sensitive Data Exposure Detected in Azure Open AI Model Deployment 
+### Sensitive Data Exposure Detected in Azure Open AI Model Deployment
+
+(AI.Azure_DataLeakInModelResponse.Sensitive)
 
 **Description**: The sensitive data leakage alert is designed to notify the SOC that a GenAI model responded to a user prompt with sensitive information, potentially due to a malicious user attempting to bypass the generative AI’s safeguards to access unauthorized sensitive data.
 

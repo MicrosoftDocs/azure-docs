@@ -23,7 +23,7 @@ highlightedContent:
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: Azure network security
+    - title: Azure network security documentation
       itemType: overview
       url: ./security/index.yml
     - title: Hub-spoke network topology in Azure
@@ -201,6 +201,15 @@ additionalContent:
               url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
             - text: See more
               url: ../virtual-wan/index.yml
+        # Card
+        - title: Connectivity to Microsoft cloud services
+          links:
+            - text: What is Azure Peering Service?
+              url: ../peering-service/about.md
+            - text: Manage Peering Service
+              url: ../peering-service/azure-portal.md
+            - text: See more
+              url: ../peering-service/index.yml
     - title: Network security # < 60 chars (optional)
       items:
         # Card

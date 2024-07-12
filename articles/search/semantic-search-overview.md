@@ -10,17 +10,17 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/08/2024
+ms.date: 06/12/2024
 ---
 
 # Semantic ranking in Azure AI Search
 
-In Azure AI Search, *semantic ranking* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction. The section at the end covers [availability and pricing](#availability-and-pricing).
+In Azure AI Search, *semantic ranking* is a feature that measurably improves search relevance by using Microsoft's language understanding models to rerank search results. This article is a high-level introduction. The section at the end covers [availability and pricing](#availability-and-pricing).
 
 Semantic ranker is a premium feature, billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search)
+> * [Check regional availability](search-region-support.md)
 > * [Sign in to Azure portal](https://portal.azure.com) to verify your search service is Basic or higher
 > * [Enable semantic ranking and choose a pricing plan](semantic-how-to-enable-disable.md)
 > * [Set up a semantic configuration in a search index](semantic-how-to-configure.md)
@@ -32,7 +32,7 @@ Semantic ranker is a premium feature, billed by usage. We recommend this article
 
 ## What is semantic ranking?
 
-Semantic ranker is a collection of query-related capabilities that improve the quality of an initial [BM25-ranked](index-similarity-and-scoring.md) or [RRF-ranked](hybrid-search-ranking.md) search result for text-based queries. When you enable it on your search service, semantic ranking extends the query execution pipeline in two ways: 
+Semantic ranker is a collection of query-side capabilities that improve the quality of an initial [BM25-ranked](index-similarity-and-scoring.md) or [RRF-ranked](hybrid-search-ranking.md) search result for text-based queries. When you enable it on your search service, semantic ranking extends the query execution pipeline in two ways: 
 
 * First, it adds secondary ranking over an initial result set that was scored using BM25 or RRF. This secondary ranking uses multi-lingual, deep learning models adapted from Microsoft Bing to promote the most semantically relevant results. 
 
@@ -101,7 +101,7 @@ Scoring is done over the caption, and any other content from the summary string 
 1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
 
 > [!NOTE]
-> Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
+> For any given query, the distributions of **@search.rerankerScore** can exhibit slight variations due to conditions at the infrastructure level. Ranking model updates have also been known to affect the distribution. For these reasons, if you're writing custom code for minimum thresholds, or [setting the threshold property](vector-search-how-to-query.md#set-thresholds-to-exclude-low-scoring-results-preview) for vector and hybrid queries, don't make the limits too granular.
 
 ## Semantic capabilities and limitations
 

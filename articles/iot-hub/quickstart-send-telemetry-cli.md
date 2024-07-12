@@ -62,7 +62,7 @@ Azure CLI requires you to be logged into your Azure account. All communication b
 
    After you install the Azure IOT extension, you don't need to install it again in any Cloud Shell session.
 
-   [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 - Open the second CLI session.  If you're using the Cloud Shell in a browser, use the **Open new session** button. If using the CLI locally, open a second CLI instance.
 
@@ -72,9 +72,6 @@ Azure CLI requires you to be logged into your Azure account. All communication b
 ## Create an IoT hub
 
 In this section, you use the Azure CLI to create a resource group and an IoT hub.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and the devices.
-
-> [!TIP]
-> Optionally, you can create an Azure resource group, an IoT hub, and other resources by using the [Azure portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md), or other programmatic methods.  
 
 1. In the first CLI session, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location.
 

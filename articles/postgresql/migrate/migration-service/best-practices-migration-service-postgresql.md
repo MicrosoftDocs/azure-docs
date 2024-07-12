@@ -4,7 +4,7 @@ description: Best practices for a seamless migration into Azure Database for Pos
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan
-ms.date: 01/30/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -166,7 +166,10 @@ There are special conditions that typically refer to unique circumstances, confi
 
 ### Online migration
 
-Online migration makes use of [pgcopydb follow](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html) and some of the [logical decoding restrictions](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html#pgcopydb-follow) apply. In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency may result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration.
+Online migration makes use of [pgcopydb follow](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html) and some of the [logical decoding restrictions](https://pgcopydb.readthedocs.io/en/latest/ref/pgcopydb_follow.html#pgcopydb-follow) apply. In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency will result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration.
+
+> [!NOTE]
+> In the case of Online migration of tables without a primary key, only Insert operations are replayed on the target. This can potentially introduce inconsistency in the Database if records that are updated or deleted on the source do not reflect on the target.
 
 An alternative is to use the `ALTER TABLE` command where the action is [REPLICA IDENTIY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) with the `FULL` option. The `FULL` option records the old values of all columns in the row so that even in the absence of a Primary key, all CRUD operations are reflected on the target during the Online migration. If none of these options work, perform an offline migration as an alternative.
 

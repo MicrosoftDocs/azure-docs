@@ -6,11 +6,11 @@ summary: Offer cloud solutions that are easy for consumers to deploy and operate
 metadata:
   title: Azure Managed Applications documentation
   description: Azure Managed Applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
-  ms.service: managed-applications
+  ms.service: azure-managed-applications
   ms.topic: landing-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 05/29/2024
+  ms.date: 07/11/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

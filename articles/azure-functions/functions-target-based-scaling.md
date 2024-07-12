@@ -75,7 +75,7 @@ To learn more, see the [example configurations for the supported extensions](#su
 
 ## Premium plan with runtime scale monitoring enabled
 
-When [runtime scale monitoring](functions-networking-options.md#premium-plan-with-virtual-network-triggers) is enabled, the extensions themselves handle dynamic scaling. This is because the [scale controller](event-driven-scaling.md#runtime-scaling) doesn't have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to these minimum versions to unlock the extra target-based scaling functionality: 
+When [runtime scale monitoring](functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers) is enabled, the extensions themselves handle dynamic scaling. This is because the [scale controller](event-driven-scaling.md#runtime-scaling) doesn't have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to these minimum versions to unlock the extra target-based scaling functionality: 
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |
