@@ -34,7 +34,7 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 ## When to scale
 
-You can use the [monitoring](cache-how-to-monitor.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
+You can use the [monitoring](monitor-cache.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
 
 You can monitor the following metrics to determine if you need to scale.
 
@@ -157,7 +157,7 @@ Clustering is enabled during cache creation from the working pane, when you crea
 
     :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering-selected.png" alt-text="Screenshot showing the clustering toggle selected.":::
 
-    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics), metrics are captured separately for each shard, and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis using the Resource menu.
+    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-monitor-diagnostic-settings.md), metrics are captured separately for each shard, and can be [viewed](monitor-cache.md#view-cache-metrics) in Azure Cache for Redis using the Resource menu.
 
 1. Finish creating the cache using the [quickstart guide](quickstart-create-redis.md).
 
