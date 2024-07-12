@@ -108,15 +108,6 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-### IoT Hub Device Provisioning Service alert rules
-
-The following table lists some suggested alert rules for IoT Hub DPS. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [IoT Hub DPS monitoring data reference](monitor-iot-dps-reference.md).
-
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
-
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
