@@ -1376,70 +1376,70 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
   
 **Use the OpenTelemetry annotation**
 
-The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
-
-Spans populate the `requests` and `dependencies` tables in Application Insights.
-
-1. Add `opentelemetry-instrumentation-annotations-1.32.0.jar` (or later) to your application:
-
-   ```xml
-   <dependency>
-     <groupId>io.opentelemetry.instrumentation</groupId>
-     <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-     <version>1.32.0</version>
-   </dependency>
-   ```
-
-1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
-
-   ```java
-    import io.opentelemetry.instrumentation.annotations.WithSpan;
-
-    @WithSpan(value = "your span name")
-    public void yourMethod() {
-    }
-   ```
-
-By default, the span ends up in the `dependencies` table with dependency type `InProc`.
-
-For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
+    The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` annotation.
+    
+    Spans populate the `requests` and `dependencies` tables in Application Insights.
+    
+    1. Add `opentelemetry-instrumentation-annotations-1.32.0.jar` (or later) to your application:
+    
+        ```xml
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-instrumentation-annotations</artifactId>
+            <version>1.32.0</version>
+        </dependency>
+        ```
+    
+    1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
+    
+        ```java
+        import io.opentelemetry.instrumentation.annotations.WithSpan;
+    
+        @WithSpan(value = "your span name")
+        public void yourMethod() {
+        }
+        ```
+    
+    By default, the span ends up in the `dependencies` table with dependency type `InProc`.
+    
+    For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
 
 **Use the OpenTelemetry API**
 
-If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
-you can add your spans by using the OpenTelemetry API.
-
-1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
-
-   ```xml
-   <dependency>
-     <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.0.0</version>
-   </dependency>
-   ```
-
-1. Use the `GlobalOpenTelemetry` class to create a `Tracer`:
-
-   ```java
-    import io.opentelemetry.api.GlobalOpenTelemetry;
-    import io.opentelemetry.api.trace.Tracer;
-
-    static final Tracer tracer = GlobalOpenTelemetry.getTracer("com.example");
-   ```
-
-1. Create a span, make it current, and then end it:
-
-   ```java
-    Span span = tracer.spanBuilder("my first span").startSpan();
-    try (Scope ignored = span.makeCurrent()) {
-        // do stuff within the context of this 
-    } catch (Throwable t) {
-        span.recordException(t);
-    } finally {
-        span.end();
-    }
-   ```
+    If the preceding OpenTelemetry `@WithSpan` annotation doesn't meet your needs,
+    you can add your spans by using the OpenTelemetry API.
+    
+    1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+    
+        ```xml
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        ```
+    
+    1. Use the `GlobalOpenTelemetry` class to create a `Tracer`:
+    
+        ```java
+        import io.opentelemetry.api.GlobalOpenTelemetry;
+        import io.opentelemetry.api.trace.Tracer;
+    
+        static final Tracer tracer = GlobalOpenTelemetry.getTracer("com.example");
+        ```
+    
+    1. Create a span, make it current, and then end it:
+    
+        ```java
+        Span span = tracer.spanBuilder("my first span").startSpan();
+        try (Scope ignored = span.makeCurrent()) {
+            // do stuff within the context of this 
+        } catch (Throwable t) {
+            span.recordException(t);
+        } finally {
+            span.end();
+        }
+        ```
 
 #### [Java native](#tab/java-native)
 
