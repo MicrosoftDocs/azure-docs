@@ -307,6 +307,16 @@ After executing this rule through `appcat`, rerun the analysis to review the gen
 
 The complete guide for Rules Development is available at [azure.github.io/appcat-docs/rules-development-guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
+## Release notes
+
+### 6.3.0.8
+
+- Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many incidents related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
+
+### 6.3.0.7
+
+- GA (Generally Available) release of Azure Migrate application and code assessment.
+
 ## License
 
 Azure Migrate application and code assessment for Java is a free, open source tool at no cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
