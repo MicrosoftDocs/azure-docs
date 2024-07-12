@@ -8,7 +8,7 @@ ms.service: api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 06/11/2024
+ms.date: 07/11/2024
 ms.author: danlep
 ---
 
@@ -41,7 +41,7 @@ The API Management *gateway* (also called *data plane* or *runtime*) is the serv
 
 API Management offers both managed and self-hosted gateways:
 
-* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. A managed gateway is also configured for each [workspace](workspaces-overview.md) added to an API Management instance. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
+* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. A standalone managed gateway can also be associated with a [workspace](workspaces-overview.md) in an API Management instance. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
 
     > [!NOTE]
     > Because of differences in the underlying service architecture, the gateways provided in the different API Management service tiers have some differences in capabilities. For details, see the section [Feature comparison: Managed versus self-hosted gateways](#feature-comparison-managed-versus-self-hosted-gateways).
@@ -75,25 +75,26 @@ The following tables compare features available in the following API Management 
 
 | Feature support  | Classic  | V2  | Consumption | Self-hosted  | Workspace |
 | --- | --- | ----- | ----- | ---------- |
-| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ |
-| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ |
-| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ | ✔️<sup>1,2</sup> |
-| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ |
-| [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  V2  |  ❌ | ❌ |
-| [Availability zones](zone-redundancy.md)  |  Premium | ❌ | ❌ | ✔️<sup>1</sup> |
-| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  
-| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ |
-| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ |
-| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ |
-| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ |
-| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ |
+| [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
+| [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
+| [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
+| [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium |  ❌ | ❌ | ✔️<sup>1,2</sup> | ✔️ |
+| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ | ❌ |
+| [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  V2  |  ❌ | ❌ | ✔️ |
+| [Availability zones](zone-redundancy.md)  |  Premium | ✔️<sup>3</sup>  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
+| [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>4</sup> |  ❌ |
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
+| [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>5</sup> | ✔️<sup>5</sup> |❌ | ✔️ | ❌ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
-<sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
-<sup>4</sup> Client protocol needs to be enabled.
+<sup>3</sup> Two zones are enabled by default; not configurable.<br/>
+<sup>4</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>5</sup> Client protocol needs to be enabled.
 
 ### Backend APIs
 
@@ -107,7 +108,7 @@ The following tables compare features available in the following API Management 
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
-| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ❌ |
+| [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
@@ -141,10 +142,10 @@ For details about monitoring options, see [Observability in Azure API Management
 
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
-| [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ | ✔️ | 
+| [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ | ❌ | 
 | [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | 
 | [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
+| [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> | ❌ |
 | [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |  
@@ -192,7 +193,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 ### Workspace gateway
 
-Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace.
+Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace gateway.
 
 ## Related content
 
