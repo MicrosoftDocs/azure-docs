@@ -243,9 +243,9 @@ The previous sections explained the logic. This section steps through each API y
 
 ## Optimizing prefix and suffix queries
 
-If you implement the recommended configuration that includes the keyword_v2 tokenizer and lower-case token filter, you might notice a decrease in query performance due to the extra token filter processing over existing tokens in your index. 
+Matching prefixes and suffixes using the default analyzer requires additional query features. Prefixes require [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and suffixes require [regular expression search](query-lucene-syntax.md#bkmk_regex). Both of these features can reduce query performance.
 
-The following example adds an [`EdgeNGramTokenFilter`](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix matches faster. Tokens are generated in 2-25 character combinations that include characters. Here's an example progression from two to seven tokens: MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL. `EdgeNGramTokenFilter` requires a `side` parameter which determines which side of the string character combinations are generated from. Use `front` for prefix queries and `back` for suffix queries.
+The following example adds an [`EdgeNGramTokenFilter`](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix or suffix matches faster. Tokens are generated in 2-25 character combinations that include characters. Here's an example progression from two to seven tokens: MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL. `EdgeNGramTokenFilter` requires a `side` parameter which determines which side of the string character combinations are generated from. Use `front` for prefix queries and `back` for suffix queries.
 
 Extra tokenization results in a larger index. If you have sufficient capacity to accommodate the larger index, this approach with its faster response time might be the best solution.
 
