@@ -271,6 +271,10 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-KubeServices | KubeServices |
 | Microsoft-Perf | Perf |
 
+
+## Use a single DCR with multiple clusters
+If you're monitoring multiple clusters with Container insights, you will often want to apply the same logic 
+
 ## Configure data collection using ConfigMap
 
 [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect. 

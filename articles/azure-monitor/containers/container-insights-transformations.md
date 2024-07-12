@@ -11,22 +11,25 @@ ms.reviewer: aul
 This article describes how to implement data transformations in Container insights. [Transformations](../essentials/data-collection-transformations.md) in Azure Monitor allow you to modify or filter data before it's ingested in your Log Analytics workspace. They allow you to perform such actions as filtering out data collected from your cluster to save costs or processing incoming data to assist in your data queries.
 
 ## Data Collection Rules (DCRs)
-Transformations are implemented in [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) which are used to configure data collection in Azure Monitor. When you onboard Container insights for a cluster, a DCR is created for it with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. You can view this DCR from **Data Collection Rules** in the **Monitor** menu in the Azure portal. To create a transformation, you must either modify this DCR, or onboard your cluster with a custom DCR that includes your transformation. 
+Transformations are implemented in [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) which are used to configure data collection in Azure Monitor. When you enable Container insights on a cluster, a DCR is created for it with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. You can view this DCR from **Data Collection Rules** in the **Monitor** menu in the Azure portal. To create a transformation, you must either modify this DCR, or onboard your cluster with a custom DCR that includes your transformation. 
+
+> [!NOTE]
+> There is currently minimal UI for editing DCRs and adding transformations. In most cases, you need to manually edit the JSON of the DCR.
 
 The following table describes the different methods to edit the DCR, while the rest of this article provides details of the edits that you need to perform to transform Container insights data.
 
 | Method | Description |
 |:---|:---|
 | New cluster | Use an existing [ARM template ](https://github.com/microsoft/Docker-Provider/tree/ci_prod/scripts/onboarding/aks/onboarding-using-msi-auth) to onboard an AKS cluster to Container insights. Modify the `dataFlows` section of the DCR in that template to include a transformation, similar to one of the samples below. |
-| Existing DCR | After a cluster has been onboarded to Container insights, edit its DCR to include a transformation using the process in [Editing Data Collection Rules](../essentials/data-collection-rule-edit.md). |
+| Existing DCR | After a cluster has been onboarded to Container insights, edit its DCR to include a transformation using any of the methods in [Editing Data Collection Rules](../essentials/data-collection-rule-edit.md). |
 
 
 ## Data sources
-The [dataSources section of the DCR](../essentials/data-collection-rule-structure.md#datasources) defines the different types of incoming data that the DCR will process. For Container insights, this includes the Container insights extension, which includes one or more predefined `streams` starting with the prefix *Microsoft-*.
+The [dataSources section of the DCR](../essentials/data-collection-rule-structure.md#datasources) defines the different types of incoming data that the DCR will process. For Container insights, this is the Container insights extension, which includes one or more predefined `streams` starting with the prefix *Microsoft-*.
 
 The list of Container insights streams in the DCR depends on the [Cost preset](container-insights-cost-config.md#cost-presets) that you selected for the cluster. If you collect all tables, the DCR will use the `Microsoft-ContainerInsights-Group-Default` stream, which is a group stream that includes all of the streams listed in [Stream values](container-insights-cost-config.md#stream-values). You must change this to individual streams if you're going to use a transformation. Any other cost preset settings will already use individual streams.
 
-The snippet below shows the `Microsoft-ContainerInsights-Group-Default` stream. See the [Sample DCRs](#sample-dcrs) for samples of individual streams.
+The snippet below shows the `Microsoft-ContainerInsights-Group-Default` stream. See the [Sample DCRs](#sample-dcrs) for samples using individual streams.
 
 ```json
 "dataSources": {
@@ -64,7 +67,7 @@ The snippet below shows the `dataFlows` section for a single stream with a trans
 
 ## Send data to multiple tables
 
-## Use a single DCR with multiple clusters
+
 
 ## Example
 
