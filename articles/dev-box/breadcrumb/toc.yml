@@ -1,11 +1,11 @@
 - name: Azure
-    tocHref: /windows-app/
-    topicHref: /azure/index
+  tocHref: /windows-app/
+  topicHref: /azure/index
   items:
-  - name: Dev Box                          # Original docset name
-    tocHref: /windows-app/users            # Destination docset route
-    topicHref: /azure/dev-box/index        # Original docset route
-    items:
-    - name: Windows App                  # Destination docset name
-      tocHref: /windows-app/users/get-started-connect-devices-desktops-apps          # Destination docset route
-      topicHref: /azure/dev-box/index    # Original docset route
+    - name: Dev Box
+      tocHref: /windows-app/users
+      topicHref: /azure/dev-box/index
+      items:
+        - name: Windows App
+          tocHref: /windows-app/users/get-started-connect-devices-desktops-apps
+          topicHref: /azure/dev-box/index
