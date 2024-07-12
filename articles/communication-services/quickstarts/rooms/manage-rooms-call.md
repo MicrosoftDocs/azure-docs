@@ -250,11 +250,11 @@ call_connection_client.hang_up(is_for_everyone=True)
 
 ## Other Operations
 The following mid-call operations are also supported in a room call. 
-1. Add Participant for ACS user
-1. Remove Participant for ACS user
-1. Cancel Add Participant for ACS and PSTN user
-1. Get Participant for ACS and PSTN user
-1. Get Participants for ACS and PSTN user
+1. Add Participant (ACS identifier)
+1. Remove Participant (ACS identifier)
+1. Cancel Add Participant (ACS identifier and PSTN number)
+1. Get Participant (ACS identifier and PSTN number)
+1. Get Participants (ACS identifier and PSTN number)
 1. Get Call
 1. Play both audio files and text 
 1. Play All both audio files and text
