@@ -11,7 +11,7 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 06/14/2024
+  ms.date: 07/12/2024
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -19,9 +19,9 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: "Azure network foundation services overview" 
+    - title: "Azure networking documentation" 
       itemType: concept
-      url: ./network-foundations-overview.md
+      url: /azure/networking/
     # Card
     - title: "What is Azure Virtual Network"
       itemType: "video"
@@ -202,18 +202,3 @@ conceptualContent:
             - url: /azure/dns/dns-troubleshoot
               text: Azure DNS troubleshooting guide
               itemType: reference
-
-# additionalContent section (optional)
-# Card with summary style
-additionalContent:
-  sections:
-    - title: Networking services
-      items:
-        - title: Load balancing and Content Delivery
-          url: https://review.learn.microsoft.com/en-us/azure/networking/load-balancer-content-delivery/index-d?branch=pr-en-us-270877
-        - title: Network security
-          url: https://review.learn.microsoft.com/en-us/azure/networking/security/?branch=pr-en-us-273509
-        - title: Hybrid connectivity
-          url: https://review.learn.microsoft.com/en-us/azure/networking/hybrid-connectivity/?branch=pr-en-us-275407
-        - title: Network monitoring and management
-          url: /azure/networking/
