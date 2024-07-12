@@ -16,6 +16,8 @@ ms.author: danlep
 
 With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service.
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

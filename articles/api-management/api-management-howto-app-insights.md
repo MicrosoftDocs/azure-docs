@@ -20,7 +20,7 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 * Learn strategies for reducing performance impact on your API Management service instance.
 
 > [!NOTE]
-> In an API Management [workspace](workspaces-overview.md), a workspace owner can separately configure Application Insights integration for the workspace and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance provided in this article for an API Management instance, but configuration is scoped to the workspace instead of the API Management service. Currently, you can integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
+> In an API Management [workspace](workspaces-overview.md), a workspace owner can independently integrate Application Insights and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance for an API Management instance; however, configuration is scoped to the workspace instead of the API Management service. Currently, you can integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You can easily integrate Azure Application Insights with Azure API Management. A
     
     1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
 
-* To integrate Application Insights with a workspace in API Management, you need a workspace in your API Management instance. You also need to be assigned the **API Management Workplace Contributor** or equivalent permissions at the workspace scope to complete the configuration. For more information, see [Create and manage a workspace in Azure API Management](how-to-create-workspace.md). 
+* To integrate Application Insights with a workspace in API Management, you need to be assigned the **API Management Workplace Contributor** role or equivalent permissions at the workspace scope to complete the configuration. For more information, see [Create and manage a workspace in Azure API Management](how-to-create-workspace.md). 
     
 ## Scenario overview
 
@@ -94,7 +94,9 @@ The Application Insights connection string appears in the **Overview** section o
 
 #### [REST API](#tab/rest)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
+
+If you are configuring the logger for a workspace, use the [Workspace Logger - Create or Update](/rest/api/apimanagement/workspace-logger/create-or-update?view=rest-apimanagement-2023-09-01-preview) REST API.
 
 ```JSON
 {
@@ -153,7 +155,7 @@ See the [prerequisites](#prerequisites) for using an API Management managed iden
 
 #### [REST API](#tab/rest)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
 
 ```JSON
 {
@@ -215,7 +217,7 @@ See the [prerequisites](#prerequisites) for using an API Management managed iden
 
 #### [REST API](#tab/rest)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
 
 ```JSON
 {
