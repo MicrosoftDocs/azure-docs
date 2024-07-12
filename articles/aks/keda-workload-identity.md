@@ -220,7 +220,7 @@ This article shows you how to securely scale your applications with the Kubernet
     ```
 
     > [!note]
-    > The `keda-operator` Pods use this Client ID to authenticate against upstream services when evaluating scaling triggers.
+    > With the TriggerAuthentication in place, KEDA will be able to authenticate via workload identity. The `keda-operator` Pods use the `identityId` to authenticate against Azure resources when evaluating scaling triggers.
 
 ## Publish messages to Azure Service Bus
 
