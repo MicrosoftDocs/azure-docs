@@ -1,8 +1,8 @@
 ---
 title: Use Advisor score
-description: Use Azure Advisor score to get the most out of Azure.
+description: Use Azure Advisor score to measure optimization progress.
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 07/12/2024
 
 ---
 
