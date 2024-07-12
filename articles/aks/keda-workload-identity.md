@@ -211,7 +211,7 @@ This article shows you how to securely scale your applications with the Kubernet
     kind: TriggerAuthentication
     metadata:
       name: azure-servicebus-auth
-      namespace: default                   # must be same namespace as the ScaledObject/ScaledJob that will use it
+      namespace: default  # this must be same namespace as the ScaledObject/ScaledJob that will use it
     spec:
       podIdentity:
         provider:  azure-workload
