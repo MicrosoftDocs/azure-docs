@@ -4,7 +4,7 @@ description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, in
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 06/21/2024
+ms.date: 07/12/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
 ---
@@ -101,11 +101,11 @@ Azure Container Storage requires certain node resources to run components for th
 | Azure Elastic SAN | None | None |
 | Azure Disks | 1 | 1 GiB |
 | Ephemeral Disk - Temp SSD |  1 | 1 GiB |
-| Ephemeral Disk - Local NVMe |  25% of cores (depending on node size)\* | 2 GiB |
+| Ephemeral Disk - Local NVMe (standard tier) |  25% of cores (performance tier can be updated)\* | 1 GiB |
 
 The resources consumed are per node, and will be consumed for each node in the node pool where Azure Container Storage will be installed. If your nodes don't have enough resources, Azure Container Storage will fail to run. Kubernetes will automatically re-try to initialize these failed pods, so if resources get liberated, these pods can be initialized again.
 
-\*In a storage pool type Ephemeral Disk - Local NVMe, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores.
+\*In a storage pool type Ephemeral Disk - Local NVMe with the standard (default) performance tier, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores. You can [update the performance tier](use-container-storage-with-local-disk.md#optimize-performance-when-using-local-nvme) to use a greater percentage of cores and achieve greater IOPS.
 
 ## Ensure VM type for your cluster meets the following criteria
 

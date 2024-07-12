@@ -6,8 +6,6 @@ ms.date: 07/02/2024
 ms.author: kendownie
 ---
 
-### Optimize performance when using local NVMe
-
 Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 
 | **Tier** | **Number of vCPUs** | **Read IOPS** | **Write IOPS** |

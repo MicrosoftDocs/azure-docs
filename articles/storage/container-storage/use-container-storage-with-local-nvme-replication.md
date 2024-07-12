@@ -418,6 +418,8 @@ If you want to delete a storage pool, run the following command. Replace `<stora
 kubectl delete sp -n acstor <storage-pool-name>
 ```
 
+### Optimize performance when using local NVMe
+
 [!INCLUDE [container-storage-nvme-performance](../../../includes/container-storage-nvme-performance.md)]
 
 ## See also
