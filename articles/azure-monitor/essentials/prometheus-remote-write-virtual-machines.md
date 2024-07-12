@@ -336,7 +336,7 @@ prometheus:
 # The Azure Cloud. Options are 'AzurePublic', 'AzureChina', or 'AzureGovernment'.
         cloud: 'AzurePublic'
         managedIdentity:
-        clientId: "<clientId of the managed identity>"
+          clientId: "<clientId of the managed identity>"
         oauth:
           clientId: "<clientId of the Entra app>"
           clientSecret:
