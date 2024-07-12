@@ -15,6 +15,7 @@ ms.date: 04/18/2024
 This article addresses issues that might arise when you run load tests against private application endpoints using Azure Load Testing. Azure Load Testing service injects the Azure resources that are required to generate load in the virtual network that contains the application endpoint. In this process, you may run into some issues related to virtual network configuration and role-based access control (RBAC) permissions. 
 
 Azure Load Testing service requires outbound connectivity from the virtual network to the following destinations. 
+
 | Destination | Need for connectivity |
 | ------------|-------|
 | *.azure.com | Access to this destination is required for the Azure Load Testing service to interact with Azure Batch service. |
