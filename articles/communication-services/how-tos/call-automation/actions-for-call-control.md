@@ -168,11 +168,11 @@ The response provides you with CallConnection object that you can use to take fu
 
 ## Connect to a call
 
-You can connect to a call using a call locator. When connecting a call, it's necessary to provide a callback url. Communication Services post all subsequent events about this call to that url.
+You can create a connection to a call using CallLocator, then you can manage the call and perform actions in the call using Call Automation. 
 
-Currently, we have 3 different CallLocators：
+Currently, we support 3 different CallLocators：ServerCallLocator, GroupCallLocator and RoomCallLocator
 
-Connecting to a call using ServerCallLocator
+Connecting to a call using ServerCallLocator, which take a serverCallId. You can use it to connect to regular P2P or multi-parties call.
 ### [csharp](#tab/csharp)
 
 ```csharp
@@ -207,7 +207,7 @@ call_connection_properties = client.connect_call(call_locator=server_call_locato
 
 -----
 
-Connecting to a call using GroupCallLocator
+Connecting to a call using GroupCallLocator, which takes a GroupCallId. You can use it to connect to a group call created using GroupCallId
 ### [csharp](#tab/csharp)
 
 ```csharp
@@ -242,12 +242,12 @@ call_connection_properties = client.connect_call(call_locator=group_call_locator
 
 -----
 
-Connecting to a call using RoomCallLocator
+Connecting to a call using RoomCallLocator, which takes a RoomId. You can use it to connect to call for a Room, usually used for Virtual meetings
 ### [csharp](#tab/csharp)
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
-CallLocator roomCallLocator = new GroupCallLocator("<RoomId>");
+CallLocator roomCallLocator = new RoomCallLocator("<RoomId>");
 ConnctCallResult response = await client.ConnectAsync(roomCallLocator, callbackUri);
 ```
 
