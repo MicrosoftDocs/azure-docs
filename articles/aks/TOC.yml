@@ -92,11 +92,13 @@
 - name: Concepts
   items:
     - name: Core concepts
-      href: concepts-clusters-workloads.md
+      href: core-aks-concepts.md
     - name: Pricing tiers for AKS
       href: free-standard-pricing-tiers.md
     - name: Maintain and upgrade an AKS cluster
       href: upgrade.md
+    - name: Resource reservations
+      href: node-resource-reservations.md
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
@@ -335,7 +337,17 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:    
+      items:   
+        - name: Stateful workloads 
+          items:
+            - name: Deploy a highly available PostgreSQL database
+              items:
+                - name: Overview
+                  href: postgresql-ha-overview.md
+                - name: Create infrastructure resources
+                  href: create-postgresql-ha.md
+                - name: Deploy and test PostgreSQL
+                  href: deploy-postgresql-ha.md
         - name: GPU workloads
           items:
             - name: Use GPUs
@@ -693,8 +705,10 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
+            - name: Network Observability
+              href: network-observability-managed-cli.md
             - name: Advanced Network Observability - Azure managed Prometheus and Grafana
-              href: advanced-network-observability-cli.md 
+              href: advanced-network-observability-cli.md
             - name: Advanced Network Observability - Bring Your Own Prometheus and Grafana
               href: advanced-network-observability-bring-your-own-cli.md
     - name: Service Mesh

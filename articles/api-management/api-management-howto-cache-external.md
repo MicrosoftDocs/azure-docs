@@ -27,6 +27,8 @@ Using an external cache allows you to overcome a few limitations of the built-in
 
 For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 ![Bring your own cache to APIM](media/api-management-howto-cache-external/overview.png)
 
 What you'll learn:
