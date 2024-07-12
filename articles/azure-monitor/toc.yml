@@ -84,6 +84,10 @@ items:
           href: app/opentelemetry-configuration.md
         - name: Add and modify OpenTelemetry
           href: app/opentelemetry-add-modify.md
+        - name: .NET (supplemental)
+          items:
+          - name: Migrate from Application Insights .NET SDKs to OpenTelemetry
+            href: app/opentelemetry-dotnet-migrate.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot

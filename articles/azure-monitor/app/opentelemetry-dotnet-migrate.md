@@ -44,6 +44,9 @@ If you're getting started with Application Insights and don't need to migrate fr
 
 ---
 
+> [!Tip]
+> Our product group is actively seeking feedback on this documentation. Provide feedback to otel@microsoft.com or see the [Support](#support) section.
+
 ## Remove the Application Insights SDK
 
 > [!Note]
@@ -244,6 +247,9 @@ If you're getting started with Application Insights and don't need to migrate fr
     Verify that your application has no unexpected consequences.
 
 ---
+
+> [!Tip]
+> Our product group is actively seeking feedback on this documentation. Provide feedback to otel@microsoft.com or see the [Support](#support) section.
 
 ## Enable OpenTelemetry
 
@@ -475,6 +481,9 @@ public class Program
 ```
 
 ---
+
+> [!Tip]
+> Our product group is actively seeking feedback on this documentation. Provide feedback to otel@microsoft.com or see the [Support](#support) section.
 
 ## Install and Configure Instrumentation Libraries
 
@@ -1020,6 +1029,9 @@ The following scenarios are optional and apply to advanced users.
 
 ---
 
+> [!Tip]
+> Our product group is actively seeking feedback on this documentation. Provide feedback to otel@microsoft.com or see the [Support](#support) section.
+
 ## Frequently asked questions
 
 This section is for customers who use telemetry initializers or processors, or write custom code against the classic Application Insights API to create custom telemetry.
@@ -1526,5 +1538,36 @@ TelemetryClient.TrackPageView()
 * [OpenTelemetry SDK's getting started guide](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry)
 * [Logging in C# and .NET](/dotnet/core/extensions/logging)
 * [Azure Monitor OpenTelemetry getting started with .NET](./opentelemetry-enable.md?tabs=net)
+
+---
+
+> [!Tip]
+> Our product group is actively seeking feedback on this documentation. Provide feedback to otel@microsoft.com or see the [Support](#support) section.
+
+## Support
+
+### [ASP.NET Core](#tab/aspnetcore)
+
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
+
+#### [.NET](#tab/net)
+
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
+
+### [Console](#tab/console)
+
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
+
+### [WorkerService](#tab/workerservice)
+
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
+- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
 
 ---
