@@ -67,8 +67,6 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
   - [Curl](https://curl.se/)
 
-  - [Insomnia](https://insomnia.rest/)
-
   > [!CAUTION]
   >
   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, API keys, 
