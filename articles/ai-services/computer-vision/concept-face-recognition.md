@@ -19,10 +19,6 @@ ms.author: pafarley
 
 This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, face recognition is the process of verifying or identifying individuals by their faces. Face recognition is important in implementing the identification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
 
-You can try out the capabilities of face recognition quickly and easily using Vision Studio.
-> [!div class="nextstepaction"]
-> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
-
 
 ## Face recognition operations
 
@@ -30,17 +26,17 @@ You can try out the capabilities of face recognition quickly and easily using Vi
 
 ### PersonGroup creation and training
 
-You need to create a [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) to store the set of people to match against. PersonGroups hold [Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) objects, which each represent an individual person and hold a set of face data belonging to that person.
+You need to create a [PersonGroup](/rest/api/face/person-group-operations/create-person-group) or [LargePersonGroup](/rest/api/face/person-group-operations/create-large-person-group) to store the set of people to match against. PersonGroups hold [Person](/rest/api/face/person-group-operations/create-person-group-person) objects, which each represent an individual person and hold a set of face data belonging to that person.
 
-The [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) operation prepares the data set to be used in face data comparisons.
+The [Train](/rest/api/face/person-group-operations/train-person-group) operation prepares the data set to be used in face data comparisons.
 
 ### Identification
 
-The [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) operation takes one or several source face IDs (from a DetectedFace or PersistedFace object) and a PersonGroup or LargePersonGroup. It returns a list of the Person objects that each source face might belong to. Returned Person objects are wrapped as Candidate objects, which have a prediction confidence value.
+The [Identify](/rest/api/face/face-recognition-operations/identify-from-large-person-group) operation takes one or several source face IDs (from a DetectedFace or PersistedFace object) and a PersonGroup or LargePersonGroup. It returns a list of the Person objects that each source face might belong to. Returned Person objects are wrapped as Candidate objects, which have a prediction confidence value.
 
 ### Verification
 
-The [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) operation takes a single face ID (from a DetectedFace or PersistedFace object) and a Person object. It determines whether the face belongs to that same person. Verification is one-to-one matching and can be used as a final check on the results from the Identify API call. However, you can optionally pass in the PersonGroup to which the candidate Person belongs to improve the API performance.
+The [Verify](/rest/api/face/face-recognition-operations/verify-face-to-face) operation takes a single face ID (from a DetectedFace or PersistedFace object) and a Person object. It determines whether the face belongs to that same person. Verification is one-to-one matching and can be used as a final check on the results from the Identify API call. However, you can optionally pass in the PersonGroup to which the candidate Person belongs to improve the API performance.
 
 ## Related data structures
 

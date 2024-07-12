@@ -7,13 +7,13 @@ ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 06/13/2024
 ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using X.509 certificates
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
@@ -115,7 +115,7 @@ After entering the provisioning information in the configuration file, apply you
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-1. Copy your identity keyfile and certificate in the `/var/snap/azure-iot-identity/common/provisioning` directory. Create the directory if it doesn't exist.
+1. Copy your identity keyfile and certificate in the `/var/snap/azure-iot-identity/current/shared` directory. Create the directory if it doesn't exist.
 
 1. Create a **config.toml** file in your home directory and configure your IoT Edge device for manual provisioning using an X.509 identity certificate.
 
@@ -134,16 +134,16 @@ After entering the provisioning information in the configuration file, apply you
     [provisioning.authentication]
     
     method = "x509"
-    identity_cert = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_CERT_FILENAME"
-    identity_pk = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_PK_FILENAME"
+    identity_cert = "file:///var/snap/azure-iot-identity/current/shared/IDENTITY_CERT_FILENAME"
+    identity_pk = "file:///var/snap/azure-iot-identity/current/shared/IDENTITY_PK_FILENAME"
     ```
 
     Update the following fields:
 
     * **iothub_hostname**: Hostname of the IoT Hub where the device connects. For example, `example.azure-devices.net`.
     * **device_id**: The ID that you provided when you registered the device.
-    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_certificate.pem`.
-    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_key.pem`.
+    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/current/shared/identity_certificate.pem`.
+    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/current/shared/identity_key.pem`.
 
     For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 
@@ -239,9 +239,6 @@ Use the steps in this section if you want to install a specific version of the A
 If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
-
->[!NOTE]
->If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to latest release](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 

@@ -2,16 +2,14 @@
 title: Dapr Publish output binding for Azure Functions
 description: Learn how to provide Dapr Publish output binding data using Azure Functions.
 ms.topic: reference
-ms.date: 10/11/2023
+ms.date: 05/10/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, build-2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Publish output binding for Azure Functions
-
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr publish output binding allows you to publish a message to a Dapr topic during a function execution.
 

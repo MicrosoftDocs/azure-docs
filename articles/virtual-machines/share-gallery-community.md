@@ -20,7 +20,7 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 
 > [!IMPORTANT]
-> Microsoft does not provide support for images you share to the community.
+> Microsoft does not provide support for Community Images and customers should contact the Image Publishers for any image related issues, however Microsoft will provide commercially reasonable support to isolate any platform issue when using Community image. Customers can find the publisher contact by querying the image.
 > 
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:

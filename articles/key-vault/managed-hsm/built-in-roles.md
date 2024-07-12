@@ -17,9 +17,6 @@ Azure Key Vault Managed HSM local role-based access control (RBAC) has several b
 
 To allow a principal to perform an operation, you must assign them a role that grants them permissions to perform that operations. All these roles and operations allow you to manage permissions only for *data plane* operations. For *management plane* operations, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [Secure access to your managed HSMs](secure-your-managed-hsm.md).
 
-> [!NOTE]  
-> Service principal group access is not supported for performing data plane operations. Only user group access is supported for data plane operations. Service principals must be added to the role directly.
-
 To manage control plane permissions for the Managed HSM resource, you must use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Some examples of control plane operations are to create a new managed HSM, or to update, move, or delete a managed HSM.
 
 ## Built-in roles

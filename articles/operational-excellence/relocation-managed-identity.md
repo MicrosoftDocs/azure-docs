@@ -6,7 +6,7 @@ ms.author: barclayn
 ms.date: 03/14/2024
 ms.service: entra-id
 ms.subservice: managed-identities
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate managed identities for Azure resources to another region.
@@ -14,7 +14,7 @@ ms.custom:
 
 # Relocate managed identities for Azure resources to another region
 
-There are situations in which you'd want to move your existing user-assigned managed identities from one region to another. For example, you may need to move a solution that uses user-assigned managed identities to another region. You may also want to move an existing identity to another region as part of disaster recovery planning, and testing.
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
 Moving user-assigned managed identities across Azure regions isn't supported.  You can however, recreate a user-assigned managed identity in the target region.
 

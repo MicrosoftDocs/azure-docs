@@ -15,6 +15,8 @@ machines that aren't using managed disks.
 
 At the end of this process, you identify virtual machines that aren't using managed disks across subscription. They're _non-compliant_ with the policy assignment.
 
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)

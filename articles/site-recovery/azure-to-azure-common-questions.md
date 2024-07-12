@@ -66,6 +66,11 @@ Currently, in the portal, you can only select an automation account in the same 
 
 Yes, you can delete it if you don't need it.
 
+
+### Does upgrading kernel firmware on a server protected by Azure Site Recovery for disaster recovery have any impact?
+
+No, it won't have any impact on the ongoing replication because the server is already protected through Azure Site Recovery.
+
 ### Can I replicate virtual machines to another subscription?
 
 Yes, you can replicate Azure virtual machines to any subscription within the same Microsoft Entra tenant. When you enable disaster recovery for virtual machines, by default the target subscription shown is that of the source virtual machine. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
@@ -278,7 +283,7 @@ You can start failover. Site Recovery doesn't need connectivity from the primary
 
 ### What is the RTO of a virtual machine failover?
 
-Site Recovery has an RTO SLA of [two hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over virtual machines within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a virtual machine.
+Site Recovery has an RTO SLA of [one hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over virtual machines within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a virtual machine.
 
 ## Recovery plans
 
@@ -380,7 +385,7 @@ Azure Site Recovery creates [replica](./azure-to-azure-architecture.md#target-re
     1. Go to the **Networking** tab under the **Settings** options of the disk. By default, the disk is created with *Enable public access from all networks* setting enabled. 
     1. Change the network access to either **Disable public access and enable private access** or **Disable public and private access** per your requirement, after cancel export is successful.
     
-        If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml#create-a-disk-access-resource).
+        If you want to change disk network access to **Disable public access and enable private access**, the disk access resource to be used should already be present in the target region within the target subscription. Find the steps to [create a disk access resource here](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml).
         
         :::image type="content" source="media/azure-to-azure-common-questions/disk-networking.png" alt-text="Screenshot of Disk networking."lightbox="media/azure-to-azure-common-questions/disk-networking.png":::
 

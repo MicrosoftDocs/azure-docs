@@ -90,7 +90,7 @@ If you have purchased the one-year Azure Reserved Virtual Machine Instances for 
 
 By participating in the offer, customers agree to be bound by these terms and the decisions of Microsoft. Microsoft reserves the right to disqualify any customer who violates these terms or engages in any fraudulent or harmful activities related to the offer.
 
-## Next steps
+## Related content
 
 - [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md?source=azlto4)
 - [Purchase Azure Reserved VM instances in the Azure portal](https://aka.ms/azure/pricing/USWest/Purchase)

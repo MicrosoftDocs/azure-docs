@@ -39,7 +39,7 @@ What you will learn:
 > [!NOTE]
 >Microsoft Entra authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](../active-directory-domain-services/index.yml).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -172,6 +172,9 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
+    > [!NOTE]
+    > The token caching feature for Managed Identity is available starting from Azure.Identity version 1.8.0. To help reduce network port usage, consider updating Azure.Identity to this version or later.
+    
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp

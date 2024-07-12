@@ -1,18 +1,18 @@
 ---
-title: Use IoT Edge device local storage from a module - Azure IoT Edge | Microsoft Docs
+title: Use Azure IoT Edge device local storage from a module
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/26/2023
-ms.topic: conceptual
+ms.date: 06/10/2024
+ms.topic: concept-article
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Give modules access to a device's local storage
+# Give Azure IoT Edge modules access to a device's local storage
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 
 IoT Edge modules can use storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
@@ -28,7 +28,7 @@ To set up system modules to use persistent storage:
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **StorageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
 
-   :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage-1-4.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
+   :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
 
     Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path. Both values must be an absolute path and `<HostStoragePath>` must exist. 
 
@@ -50,7 +50,7 @@ Your deployment manifest would be similar to the following:
             }
         },
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeAgent:/tmp/edgeAgent\"]}}"
         },
         "type": "docker"
@@ -63,7 +63,7 @@ Your deployment manifest would be similar to the following:
         },
         "restartPolicy": "always",
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeHub:/tmp/edgeHub\"],\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
         },
         "status": "running",
@@ -103,10 +103,7 @@ If your custom module requires access to persistent storage on the host file sys
 }
 ```
 
-
 Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. Refer to the [Docker Engine Mount specification](https://any-api.com/docker_com/engine/docs/Definitions/Mount) for option details.
-
-
 
 ### Host system permissions
 

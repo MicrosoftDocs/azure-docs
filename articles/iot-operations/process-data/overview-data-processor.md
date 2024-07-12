@@ -22,7 +22,7 @@ To process this data traditionally requires expensive, complex, and time-consumi
 
 ## What is Azure IoT Data Processor Preview?
 
-Azure IoT Data Processor Preview is a component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
+Azure IoT Data Processor Preview is an optional component of Azure IoT Operations Preview. Data Processor lets you aggregate, enrich, normalize, and filter the data from your devices. Data Processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud:
 
 :::image type="content" source="media/azure-iot-operations-architecture.svg" alt-text="Diagram of the Azure IoT Operations architecture that highlights the Data Processor component." lightbox="media/azure-iot-operations-architecture-high-resolution.png" border="false":::
 
@@ -43,6 +43,10 @@ Key Data Processor features include:
 - As a data agnostic data processing platform, Data Processor can ingest data in any format, process the data, and then write it out to a destination. To support these capabilities, Data Processor can deserialize and serialize various formats. For example, it can serialize to parquet in order to write files to Microsoft Fabric.
 
 - Automatic and configurable retry policies to handle transient errors when sending data to cloud destinations.
+
+## Deploy Data Processor
+
+By default, Data Processor isn't included in an Azure IoT Operations Preview deployment. If you plan to use Data Processor, you must include it when you deploy Azure IoT Operations Preview - you can't add it later. To deploy Data Processor, use the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. To learn more, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## What is a pipeline?
 
@@ -79,7 +83,6 @@ Data Processor pipelines can use the following stages:
 | [Destination - HTTP](howto-configure-destination-http.md) | Sends your processed, clean, and contextualized data to an HTTP endpoint. |
 | [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
 | [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
-| [Destination - Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md) | Sends your processed, clean, and contextualized data to an Azure Blob Storage endpoint in the cloud. |
 
 ## Next step
 

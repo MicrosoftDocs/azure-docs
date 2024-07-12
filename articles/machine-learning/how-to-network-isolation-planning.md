@@ -5,10 +5,10 @@ description: Demystify Azure Machine Learning network isolation with recommendat
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 02/14/2023
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 05/31/2024
 ms.topic: how-to
 ms.custom: build-2023
 ---

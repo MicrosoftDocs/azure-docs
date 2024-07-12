@@ -1,10 +1,10 @@
 ---
 title: Install Event Grid on Azure Arc-enabled Kubernetes cluster
-description: This article provides steps to install Event Grid on Azure Arc-enabled Kubernetes cluster. 
-author: jfggdl
-ms.author: jafernan
+description: This article provides steps to install Event Grid on Azure Arc-enabled Kubernetes cluster.
+author: robece
+ms.author: robece
 ms.subservice: kubernetes
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2024
 ms.date: 03/24/2022
 ms.topic: how-to
 ---

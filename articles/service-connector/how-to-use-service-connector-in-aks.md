@@ -125,19 +125,19 @@ Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kub
 
 1. Install the `k8s-extension` Azure CLI extension.
 
-```azurecli
-az extension add --name k8s-extension
-```
+  ```azurecli
+  az extension add --name k8s-extension
+  ```
 
 1. Get the Service Connector extension status. Check the `statuses` property in the command output to see if there are any errors.
 
-```azurecli
-az k8s-extension show \
-    --resource-group MyClusterResourceGroup \
-    --cluster-name MyCluster \
-    --cluster-type managedClusters \
-    --name sc-extension
-```
+  ```azurecli
+  az k8s-extension show \
+      --resource-group MyClusterResourceGroup \
+      --cluster-name MyCluster \
+      --cluster-type managedClusters \
+      --name sc-extension
+  ```
 
 ### Check kubernetes cluster logs
 
@@ -182,6 +182,68 @@ If there's an error during the extension installation, and the error message in 
    ```Bash
    kubectl logs job/sc-job -n sc-system
    ```
+
+### Common errors and mitigations
+
+#### Conflict
+
+**Error Message:**
+`Operation returned an invalid status code: Conflict`.
+
+**Reason:**
+This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update.
+
+**Mitigation:**
+Ensure your cluster is in a "Succeeded" state before retrying the creation. It resolves most errors related to conflicts.
+
+#### Timeout
+
+**Error Message:**
+- `Long running operation failed with status 'Failed'. Unable to get a response from the Agent in time`.
+- `Timed out waiting for the resource to come to a ready/completed state`
+
+**Reason:**
+This error often happens when the Kubernetes job used to create or update the Service Connector cluster extension fails to be scheduled due to resource limitations or other issues.
+
+**Mitigation:**
+Refer to [Check Kubernetes cluster logs](#check-kubernetes-cluster-logs) to identify and resolve the detailed reasons. A common issue is that no nodes are available due to preemption. In this case, consider adding more nodes or enabling auto-scaling for your nodes.
+
+#### Unauthorized resource access
+
+**Error Message:**
+`You do not have permission to perform ... If access was recently granted, please refresh your credentials`.
+
+**Reason:**
+Service Connector requires permissions to operate the Azure resources you want to connect to, in order to perform connection operations on your behalf. This error indicates a lack of necessary permissions on some Azure resources.
+
+**Mitigation:**
+Check the permissions on the Azure resources specified in the error message. Obtain the required permissions and retry the creation.
+
+#### Missing subscription registration
+**Error Message:**
+`The subscription is not registered to use namespace 'Microsoft.KubernetesConfiguration'`
+
+**Reason:**
+Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
+
+**Mitigation:**
+To resolve errors related to resource provider registration, follow this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
+
+#### Other issues
+
+If the above mitigations don't resolve your issue, try resetting the service connector cluster extension by removing it and then retrying the creation. This method is expected to resolve most issues related to the Service Connector cluster extension.
+
+Use the following CLI commands to reset the extension:
+
+```azurecli
+az extension add --name k8s-extension
+
+az k8s-extension delete \
+    --resource-group <MyClusterResourceGroup> \
+    --cluster-name <MyCluster> \
+    --cluster-type managedClusters \
+    --name sc-extension
+```
 
 ## Next steps
 

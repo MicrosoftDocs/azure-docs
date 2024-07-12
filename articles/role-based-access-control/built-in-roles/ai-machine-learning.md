@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -15,6 +15,245 @@ ms.custom: generated
 
 This article lists the Azure built-in roles in the AI + machine learning category.
 
+
+## Azure AI Developer
+
+Can perform all actions within an Azure AI resource besides managing the resource itself.
+
+[Learn more](/azure/ai-studio/concepts/rbac-ai-studio)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/*/read |  |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/*/action |  |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/*/delete |  |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/*/write |  |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/locations/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/delete | Deletes the Machine Learning Services Workspace(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/write | Creates or updates a Machine Learning Services Workspace(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/hubs/write | Creates or updates a Machine Learning Services Hub Workspace(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ContentSafety/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform all actions within an Azure AI resource besides managing the resource itself.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/64702f94-c441-49e6-a78b-ef80e0188fee",
+  "name": "64702f94-c441-49e6-a78b-ef80e0188fee",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/*/write",
+        "Microsoft.MachineLearningServices/locations/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/hubs/write",
+        "Microsoft.MachineLearningServices/workspaces/hubs/delete",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/write",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
+      ],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/*",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*",
+        "Microsoft.CognitiveServices/accounts/ContentSafety/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure AI Developer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure AI Enterprise Network Connection Approver
+
+Can approve private endpoint connections to Azure AI common dependency resources
+
+[Learn more](/azure/machine-learning/how-to-managed-network)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/write | Approves/Rejects the private endpoint connection |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/read | View the Redis Cache's settings and configuration in the management portal |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/privateEndpointConnections/read | Read a private endpoint connection |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/privateEndpointConnections/write | Write a private endpoint connection |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/privateLinkResources/read | Read 'groupId' of redis subresource that a private link can be connected to |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/read | View the Redis Enterprise cache's settings and configuration in the management portal |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/privateEndpointConnections/read | Read a private endpoint connection |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/privateEndpointConnections/write | Write a private endpoint connection |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/privateLinkResources/read | Read 'groupId' of redis subresource that a private link can be connected to |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/read | Reads API accounts. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateEndpointConnections/read | Reads private endpoint connections. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateEndpointConnections/write | Writes a private endpoint connections. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateLinkResources/read | Reads private link resources for an account. |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnectionsApproval/action | Manage a private endpoint connection of Database Account |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/read | Read a private endpoint connection or list all the private endpoint connections of a Database Account |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/write | Create or update a private endpoint connection of a Database Account |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateLinkResources/read | Read a private link resource or list all the private link resources of a Database Account |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/read | Reads a database account. |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateEndpointConnections/read | View the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateLinkResources/read | Get the available private link resources for the specified instance of Key Vault |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/read | View the properties of a key vault |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnections/read | View the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateLinkResources/read | Gets the available private link resources for the specified instance of the Machine Learning Services Workspace(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/read | Gets the Machine Learning Services Workspace(s) |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateEndpointConnections/read | Get Private Endpoint Connection |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateEndpointConnections/write | Put Private Endpoint Connection |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateLinkResources/read | Get StorageAccount groupids |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
+> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
+> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateLinkResources/read | Get the private link resources for the corresponding sql server |
+> | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/read | Return the list of servers or gets the properties for the specified server. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can approve private endpoint connections to Azure AI common dependency resources",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b556d68e-0be0-4f35-a333-ad7ee1ce17ea",
+  "name": "b556d68e-0be0-4f35-a333-ad7ee1ce17ea",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/write",
+        "Microsoft.Cache/redis/read",
+        "Microsoft.Cache/redis/privateEndpointConnections/read",
+        "Microsoft.Cache/redis/privateEndpointConnections/write",
+        "Microsoft.Cache/redis/privateLinkResources/read",
+        "Microsoft.Cache/redis/privateEndpointConnectionsApproval/action",
+        "Microsoft.Cache/redisEnterprise/read",
+        "Microsoft.Cache/redisEnterprise/privateEndpointConnections/read",
+        "Microsoft.Cache/redisEnterprise/privateEndpointConnections/write",
+        "Microsoft.Cache/redisEnterprise/privateLinkResources/read",
+        "Microsoft.Cache/redisEnterprise/privateEndpointConnectionsApproval/action",
+        "Microsoft.CognitiveServices/accounts/read",
+        "Microsoft.CognitiveServices/accounts/privateEndpointConnections/read",
+        "Microsoft.CognitiveServices/accounts/privateEndpointConnections/write",
+        "Microsoft.CognitiveServices/accounts/privateLinkResources/read",
+        "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionsApproval/action",
+        "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read",
+        "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/write",
+        "Microsoft.DocumentDB/databaseAccounts/privateLinkResources/read",
+        "Microsoft.DocumentDB/databaseAccounts/read",
+        "Microsoft.KeyVault/vaults/privateEndpointConnectionsApproval/action",
+        "Microsoft.KeyVault/vaults/privateEndpointConnections/read",
+        "Microsoft.KeyVault/vaults/privateEndpointConnections/write",
+        "Microsoft.KeyVault/vaults/privateLinkResources/read",
+        "Microsoft.KeyVault/vaults/read",
+        "Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action",
+        "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read",
+        "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write",
+        "Microsoft.MachineLearningServices/workspaces/privateLinkResources/read",
+        "Microsoft.MachineLearningServices/workspaces/read",
+        "Microsoft.Storage/storageAccounts/privateEndpointConnections/read",
+        "Microsoft.Storage/storageAccounts/privateEndpointConnections/write",
+        "Microsoft.Storage/storageAccounts/privateLinkResources/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Sql/servers/privateEndpointConnectionsApproval/action",
+        "Microsoft.Sql/servers/privateEndpointConnections/read",
+        "Microsoft.Sql/servers/privateEndpointConnections/write",
+        "Microsoft.Sql/servers/privateLinkResources/read",
+        "Microsoft.Sql/servers/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure AI Enterprise Network Connection Approver",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure AI Inference Deployment Operator
+
+Can perform all actions required to create a resource deployment within a resource group.
+
+[Learn more](/azure/ai-studio/concepts/rbac-ai-studio)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AutoscaleSettings/write | Create or update an autoscale setting |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform all actions required to create a resource deployment within a resource group.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3afb7f49-54cb-416e-8c09-6dc049efa503",
+  "name": "3afb7f49-54cb-416e-8c09-6dc049efa503",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Insights/AutoscaleSettings/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure AI Inference Deployment Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## AzureML Compute Operator
 
@@ -679,6 +918,7 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/engines/completions/action | Create a completion from a chosen model |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/engines/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/engines/generate/action | (Intended for browsers only.) Stream generated text from the model via GET request. This method is provided because the browser-native EventSource method can only send GET requests. It supports a more limited set of configuration options than the POST variant. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/audio/action | Return the transcript or translation for a given audio file. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
@@ -693,7 +933,7 @@ Read access to view files, models, deployments. The ability to create completion
   "assignableScopes": [
     "/"
   ],
-  "description": "Ability to view files, models, deployments. Readers are able to call inference operations such as chat completions and image generation.",
+  "description": "Ability to view files, models, deployments. Readers can't make any changes They can inference and create images",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
   "name": "5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
   "permissions": [
@@ -709,6 +949,7 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/audio/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",

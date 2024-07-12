@@ -12,7 +12,7 @@ ms.date: 11/08/2021
 
 This quickstart shows you how to get started easily with a [Pub/Sub live demo](https://aka.ms/awps/quicktry).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 

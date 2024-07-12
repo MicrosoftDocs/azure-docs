@@ -154,6 +154,8 @@
           href: front-door-url-rewrite.md?pivots=front-door-standard-premium
         - name: URL redirect
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
+      - name: Sensitive data protection
+        href: standard-premium/sensitive-data-protection.md
       - name: Understand billing
         href: billing.md
       - name: Price comparison between tiers
@@ -168,6 +170,8 @@
           href: scenarios.md
         - name: Azure Storage blobs
           href: scenario-storage-blobs.md
+        - name: Upload to Azure Storage blobs
+          href: scenario-upload-storage-blobs.md
     - name: Classic
       items:
         - name: Migrate to Standard or Premium Tier
@@ -232,6 +236,10 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: About migration to Azure Front Door
+      href: ../cdn/tier-migration.md?toc=/azure/frontdoor/TOC.json
+    - name: CDN and Front Door price comparison
+      href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
       href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
     - name: Akamai retirement FAQ
@@ -290,6 +298,8 @@
             href: standard-premium/how-to-cache-purge-powershell.md
           - name: Azure CLI
             href: standard-premium/how-to-cache-purge-cli.md
+        - name: Protect sensitive data
+          href: standard-premium/how-to-protect-sensitive-data.md
         - name: Compression
           href: standard-premium/how-to-compression.md
         - name: Blue/Green deployment with Front Door
@@ -382,6 +392,8 @@
     items:
     - name: Microsoft (classic)
       items:
+      - name: Migrate to Azure Front Door
+        href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/TOC.json
       - name: Optimized content
         href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
         items:

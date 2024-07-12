@@ -4,7 +4,7 @@ description: Various OutOfMemoryError exceptions for Apache Spark cluster in Azu
 ms.service: hdinsight
 ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-ms.date: 05/24/2023
+ms.date: 05/09/2024
 ---
 
 # OutOfMemoryError exceptions for Apache Spark in Azure HDInsight

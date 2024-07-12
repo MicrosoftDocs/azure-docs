@@ -93,7 +93,7 @@ For SAP IQ on Azure, you can use the following Azure storage types. The choice d
 
 - Azure shared disks
 
-  [Shared disks](../../virtual-machines/disks-shared.md) are a new feature for Azure managed disks that allow you to attach a managed disk to multiple VMs simultaneously. Shared managed disks don't natively offer a fully managed file system that can be accessed through SMB or NFS. You need to use a cluster manager like a [Windows Server failover cluster](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/failover-clustering/failover-clustering-overview.md) (WSFC), which handles cluster node communication and write locking.
+  [Shared disks](../../virtual-machines/disks-shared.md) are a new feature for Azure managed disks that allow you to attach a managed disk to multiple VMs simultaneously. Shared managed disks don't natively offer a fully managed file system that can be accessed through SMB or NFS. You need to use a cluster manager like a [Windows Server failover cluster (WSFC)](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/failover-clustering/failover-clustering-overview.md), which handles cluster node communication and write locking.
   
   To deploy a highly available solution for an SAP IQ simplex architecture on Windows, you can use Azure shared disks between two nodes that WSFC manages. An SAP IQ deployment architecture with Azure shared disks is discussed in the article [Deploy SAP IQ NLS HA solution using Azure shared disk on Windows Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-shared-disk-on-windows/ba-p/2433089).
 

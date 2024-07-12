@@ -4,8 +4,8 @@ description: Learn how to enable guest management using a script for Arc enabled
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.service: azure-arc
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ms.subservice: azure-arc-scvmm
 

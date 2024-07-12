@@ -1,9 +1,9 @@
 ---
 title: Linter rule - nested deployment template scoping
 description: Linter rule - nested deployment template scoping
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - nested deployment template scoping
@@ -23,7 +23,7 @@ The following example fails this test because `fizz` is defined in the parent te
 ```bicep
 var fizz = 'buzz'
 
-resource nested 'Microsoft.Resources/deployments@2020-10-01' = {
+resource nested 'Microsoft.Resources/deployments@2024-03-01' = {
   name: 'name'
   properties: {
     mode: 'Incremental'
@@ -35,7 +35,7 @@ resource nested 'Microsoft.Resources/deployments@2020-10-01' = {
       contentVersion: '1.0.0.0'
       resources: [
         {
-          apiVersion: '2022-09-01'
+          apiVersion: '2024-03-01'
           type: 'Microsoft.Resources/tags'
           name: 'default'
           properties: {

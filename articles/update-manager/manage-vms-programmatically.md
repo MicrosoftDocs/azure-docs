@@ -4,7 +4,7 @@ description: This article tells how to use Azure Update Manager in Azure using R
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 05/13/2024
 ms.topic: conceptual
 ---
 
@@ -63,6 +63,7 @@ The following table describes the elements of the request body:
 | `windowsParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, UpdateRollUp, FeaturePack, ServicePack, Definition, Tools, Updates` |
 | `windowsParameters - kbNumbersToInclude` | List of Windows Update KB Ids that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `kbNumbersToInclude` is an optional list of specific KBs to be installed in addition to the classifications. For example: `1234` |
 | `windowsParameters - kbNumbersToExclude` | List of Windows Update KB Ids that should **not** be installed. This parameter overrides `windowsParameters - classificationsToInclude`, meaning a Windows Update KB ID specified here won't be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
+| `maxPatchPublishDate` | This is used to install patches that were published on or before this given max published date.| 
 | `linuxParameters` | Parameter options for Guest OS update on Azure VMs running a supported Linux server operating system. |
 | `linuxParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, Other` |
 | `linuxParameters - packageNameMasksToInclude` | List of Linux packages that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `packageNameMasksToInclude` is an optional list of package names to be installed in addition to the classifications. For example: `mysql, libc=1.0.1.1, kernel*` |

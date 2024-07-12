@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 07/11/2024
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -61,7 +61,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -118,7 +118,7 @@ param storageAccountConfig storageAccountConfigType = {
   sku: 'Standard_LRS'
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -130,10 +130,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 For more information, see [User-defined data types](./user-defined-data-types.md).
 
-## Functions (Preview)
-
-> [!NOTE]
-> To enable the preview feature, see [Enable experimental features](./bicep-config.md#enable-experimental-features).
+## Functions
 
 In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
 
@@ -192,7 +189,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 Apply this variable wherever you need the complex expression.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
 ```
 
@@ -205,7 +202,7 @@ Use the `resource` keyword to define a resource to deploy. Your resource declara
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -258,7 +255,7 @@ By default, resources are deployed in parallel. When you add the `batchSize(int)
 
 ```bicep
 @batchSize(3)
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
   ...
 }]
 ```
@@ -308,7 +305,7 @@ You can add a resource or module to your Bicep file that is conditionally deploy
 ```bicep
 param deployZone bool
 
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+resource dnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = if (deployZone) {
   name: 'myZone'
   location: 'global'
 }
@@ -323,7 +320,7 @@ Spaces and tabs are ignored when authoring Bicep files.
 Bicep is newline sensitive. For example:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
   ...
 }
 ```
@@ -331,7 +328,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 Can't be written as:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' =
     if (newOrExisting == 'new') {
       ...
     }
@@ -347,8 +344,8 @@ The following example shows a single-line comment.
 
 ```bicep
 // This is your primary NIC.
-resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
-   ...
+resource nic1 'Microsoft.Network/networkInterfaces@2023-11-01' = {
+  ...
 }
 ```
 

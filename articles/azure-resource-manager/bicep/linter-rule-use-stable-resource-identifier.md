@@ -1,9 +1,9 @@
 ---
 title: Linter rule - use stable resource identifier
 description: Linter rule - use stable resource identifier
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - use stable resource identifier
@@ -24,7 +24,7 @@ The following example fails this test because `utcNow()` is used in the resource
 param location string = resourceGroup().location
 param time string = utcNow()
 
-resource sa 'Microsoft.Storage/storageAccounts@2021-09-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'store${toLower(time)}'
   location: location
   sku: {
@@ -42,7 +42,7 @@ You can fix it by removing the `utcNow()` function from the example.
 ```bicep
 param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2021-09-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'store${uniqueString(resourceGroup().id)}'
   location: location
   sku: {

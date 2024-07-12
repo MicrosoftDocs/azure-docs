@@ -7,7 +7,7 @@ author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 01/26/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
@@ -16,7 +16,7 @@ ms.author: behoorne
 
 In this quickstart, you learn how to deploy Azure AI Health Insights using the Azure portal.
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure AI Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
+Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure AI Health Insights, and retrieve the needed details such your service URL, keys and manage your access controls.
 
 ## Deploy Azure AI Health Insights
 
@@ -33,8 +33,24 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
     - **Region**: Select an Azure location, such as West Europe.
     - **Name**: Enter an Azure AI services account name.
     - **Pricing tier**: Select your pricing tier.
+    - **New/Existing Language resource**: Choose if to create a new Language resource or provide an existing one.
+    - **Language resource name**: Enter the Language resource name.
+    - **Language resource pricing tier**: Select your Language resource pricing tier.
 
      [ ![Screenshot of how to create new Azure AI services account.](media/create-health-insights.png)](media/create-health-insights.png#lightbox)
+
+It is necessary to associate an Azure AI Language resource with the Health Insights resource, to enable the use of Text Analytics for Health by the Health Insights AI models. 
+When a Language resource is associated with a Health Insights resource, a couple of things happen in the background, in order to allow the Health Insights resource access to the Language resource:
+ - A system assigned managed identity is enabled for the Health Insights resource.
+ - A role assignment of 'Cognitive Services User' scoped for the Language resource is added to the Health Insights resource's identity.
+
+It is important not to change or delete these assignments. 
+Any of the following actions may disrupt the required access to the associated Language resource and cause API request failures: 
+- Deleting the Language resource.
+- Disabling the Health Insights resource system assigned managed identity.
+- Removing the Health Insights resource 'Cognitive Services User' role from the Language resource. 
+
+
 
 5. Navigate to your newly created service.
     

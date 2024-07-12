@@ -115,9 +115,7 @@ Some common reasons for errors:
 ## Azure monitor agent
 
 The Azure Monitor Agent is implemented as an [Azure VM extension](../virtual-machines/extensions/overview.md) 
-ver Arc connected Machines. It also lists the options to create [associations with Data Collection Rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
-that define which data the agent should collect. Installing, upgrading, or uninstalling the Azure Monitor Agent
-won't require you to restart your server.
+ver Arc connected Machines. It also lists the options to create [associations with Data Collection Rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect. Installing, upgrading, or uninstalling the Azure Monitor Agent won't require you to restart your server.
 
 Ensure that you configure collection of logs and metrics using the Data Collection Rule.
 
@@ -126,8 +124,7 @@ Ensure that you configure collection of logs and metrics using the Data Collecti
 
 Figure: DCR adding source
 
-**Note:** The metrics configured with DCR should have destination set to Log Analytics Workspace as
-it's not supported on Azure Monitor Metrics yet.
+**Note:** The metrics configured with DCR should have destination set to Log Analytics Workspace as it's not supported on Azure Monitor Metrics yet.
 
 <!--- IMG ![DCR adding destination](Docs/media/data-collection-rules-adding-destination.png) IMG --->
 :::image type="content" source="media/data-collection-rules-adding-destination.png" alt-text="Screenshot of DCR adding destination.":::

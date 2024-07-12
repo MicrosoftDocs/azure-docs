@@ -13,7 +13,7 @@ ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
-# Computed properties in Azure Cosmos DB for NoSQL (preview)
+# Computed properties in Azure Cosmos DB for NoSQL
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
@@ -73,7 +73,7 @@ The limitations on computed property query definitions are:
 
 ## Create computed properties
 
-During the preview, computed properties must be created using the .NET v3 or Java v4 SDK. After the computed properties are created, you can execute queries that reference the properties by using any method, including all SDKs and Azure Data Explorer in the Azure portal.
+After the computed properties are created, you can execute queries that reference the properties by using any method, including all SDKs and Azure Data Explorer in the Azure portal.
 
 | | Supported version | Notes |
 | --- | --- | --- |
@@ -397,7 +397,7 @@ To add a composite index on two properties in which, one is computed as `cp_myCo
 
 ## Understand request unit consumption
 
-Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. While in preview, RU charges that are related to computed properties are subject to change.
+Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. 
 
 ## Related content
 

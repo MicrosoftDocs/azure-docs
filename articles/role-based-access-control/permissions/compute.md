@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -51,6 +51,14 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerapps/authconfigs/write | Create or update auth config of a container app |
 > | microsoft.app/containerapps/authconfigs/delete | Delete auth config of a container app |
 > | microsoft.app/containerapps/detectors/read | Get detector of a container app |
+> | microsoft.app/containerapps/privateendpointconnectionproxies/validate/action | Validate Container App Private Endpoint Connection Proxy |
+> | microsoft.app/containerapps/privateendpointconnectionproxies/write | Create or Update Container App Private Endpoint Connection Proxy |
+> | microsoft.app/containerapps/privateendpointconnectionproxies/read | Get Container App Private Endpoint Connection Proxy |
+> | microsoft.app/containerapps/privateendpointconnectionproxies/delete | Delete Container App Private Endpoint Connection Proxy |
+> | microsoft.app/containerapps/privateendpointconnections/write | Create or Update Container App Private Endpoint Connection |
+> | microsoft.app/containerapps/privateendpointconnections/delete | Delete Container App Private Endpoint Connection |
+> | microsoft.app/containerapps/privateendpointconnections/read | Get Container App Private Endpoint Connection |
+> | microsoft.app/containerapps/privatelinkresources/read | Get Container App Private Link Resource |
 > | microsoft.app/containerapps/resiliencypolicies/write | Create or Update App Resiliency Policy |
 > | microsoft.app/containerapps/resiliencypolicies/delete | Delete App Resiliency Policy |
 > | microsoft.app/containerapps/revisions/read | Get revision of a container app |
@@ -116,11 +124,21 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/managedcertificates/write | Create or update a Managed Certificate in Managed Environment |
 > | microsoft.app/managedenvironments/managedcertificates/read | Get a Managed Certificate in Managed Environment |
 > | microsoft.app/managedenvironments/managedcertificates/delete | Delete a Managed Certificate in Managed Environment |
+> | microsoft.app/managedenvironments/privateendpointconnectionproxies/validate/action | Validate Managed Environment Private Endpoint Connection Proxy |
+> | microsoft.app/managedenvironments/privateendpointconnectionproxies/write | Create or Update Managed Environment Private Endpoint Connection Proxy |
+> | microsoft.app/managedenvironments/privateendpointconnectionproxies/read | Get Managed Environment Private Endpoint Connection Proxy |
+> | microsoft.app/managedenvironments/privateendpointconnectionproxies/delete | Delete Managed Environment Private Endpoint Connection Proxy |
+> | microsoft.app/managedenvironments/privateendpointconnections/write | Create or Update Managed Environment Private Endpoint Connection |
+> | microsoft.app/managedenvironments/privateendpointconnections/delete | Delete Managed Environment Private Endpoint Connection |
+> | microsoft.app/managedenvironments/privateendpointconnections/read | Get Managed Environment Private Endpoint Connection |
+> | microsoft.app/managedenvironments/privatelinkresources/read | Get Managed Environment Private Link Resource |
 > | microsoft.app/managedenvironments/storages/read | Get storage for a Managed Environment. |
 > | microsoft.app/managedenvironments/storages/write | Create or Update a storage of Managed Environment. |
 > | microsoft.app/managedenvironments/storages/delete | Delete a storage of Managed Environment. |
 > | microsoft.app/managedenvironments/usages/read | Get Quota Usages in a Managed Environment |
 > | microsoft.app/managedenvironments/workloadprofilestates/read | Get Current Workload Profile States |
+> | microsoft.app/microsoft.app/containerapps/builds/read | Get a ContainerApp's Build by Build name |
+> | microsoft.app/microsoft.app/containerapps/builds/delete | Delete a Container App's Build |
 > | microsoft.app/operations/read | Get a list of supported container app operations |
 > | microsoft.app/sessionpools/write | Create or Update a Session Pool |
 > | microsoft.app/sessionpools/read | Get a Session Pool |
@@ -273,6 +291,14 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/gateways/routeConfigs/read | Get the Spring Cloud Gateway route config for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/gateways/routeConfigs/write | Create or update the Spring Cloud Gateway route config for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/gateways/routeConfigs/delete | Delete the Spring Cloud Gateway route config for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/read | Get the job for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/write | Create or update the job for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/delete | Delete the job for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/start/action | Start the execution for a specific job |
+> | Microsoft.AppPlatform/Spring/jobs/listEnvSecrets/action | List environment variables secret of the job for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/executions/read | Get the job execution for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/executions/cancel/action | Cancel the execution for a specific job |
+> | Microsoft.AppPlatform/Spring/jobs/executions/listEnvSecrets/action | List environment variables secret of the job execution for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/read | Get the monitoring setting for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/monitoringSettings/write | Create or update the monitoring setting for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/operationResults/read | Read resource operation result |
@@ -291,6 +317,7 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/supportedServerVersions/read | List the supported server versions for a specific Azure Spring Apps service instance |
 > | **DataAction** | **Description** |
 > | Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action | Read the streaming log of all subcomponents in Application Configuration Service from a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/ApplicationConfigurationService/read | Read the configuration content (for example, application-prod.yaml) pulled by Application Configuration Service for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action | Remote debugging app instance for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/connect/action | Connect to an instance for a specific application |
 > | Microsoft.AppPlatform/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Apps service instance |
@@ -299,6 +326,8 @@ Azure service: [Azure Spring Apps](/azure/spring-apps/)
 > | Microsoft.AppPlatform/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/eurekaService/write | Write the user app(s) registration information for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/eurekaService/delete | Delete the user app registration information for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/executions/listInstances/action | List instances of a specific job execution for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/jobs/executions/logstream/action | Get the streaming log of job executions for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/logstreamService/read | Read the streaming log of user app for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/managedComponents/logstream/action | Read the streaming log of all managed components (e.g. Application Configuration Service, Spring Cloud Gateway) from a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action | Read the streaming log of Spring Cloud Gateway from a specific Azure Spring Apps service instance |
@@ -338,6 +367,9 @@ Azure service: [Azure VMware Solution](/azure/azure-vmware/introduction)
 > | Microsoft.AVS/privateClouds/clusters/datastores/operationstatuses/read | Read privateClouds/clusters/datastores operationstatuses. |
 > | Microsoft.AVS/privateclouds/clusters/operationresults/read | Reads privateClouds/clusters operationresults. |
 > | Microsoft.AVS/privateClouds/clusters/operationstatuses/read | Reads privateClouds/clusters operationstatuses. |
+> | Microsoft.AVS/privateClouds/eventGridFilters/read | Notifies Microsoft.AVS that an EventGrid Subscription for AVS is being viewed |
+> | Microsoft.AVS/privateClouds/eventGridFilters/write | Notifies Microsoft.AVS that a new EventGrid Subscription for AVS is being created |
+> | Microsoft.AVS/privateClouds/eventGridFilters/delete | Notifies Microsoft.AVS that an EventGrid Subscription for AVS is being deleted |
 > | Microsoft.AVS/privateClouds/globalReachConnections/delete | Delete globalReachConnections. |
 > | Microsoft.AVS/privateClouds/globalReachConnections/write | Write globalReachConnections. |
 > | Microsoft.AVS/privateClouds/globalReachConnections/read | Read globalReachConnections. |
@@ -399,6 +431,7 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/listkeys/action | Lists access keys for a Batch account |
 > | Microsoft.Batch/batchAccounts/regeneratekeys/action | Regenerates access keys for a Batch account |
 > | Microsoft.Batch/batchAccounts/syncAutoStorageKeys/action | Synchronizes access keys for the auto storage account configured for a Batch account |
+> | Microsoft.Batch/batchAccounts/joinPerimeter/action | Determines if the user is allowed to associate a Batch account with a Network Security Perimeter |
 > | Microsoft.Batch/batchAccounts/applications/read | Lists applications or gets the properties of an application |
 > | Microsoft.Batch/batchAccounts/applications/write | Creates a new application or updates an existing application |
 > | Microsoft.Batch/batchAccounts/applications/delete | Deletes an application |
@@ -412,6 +445,12 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/certificates/delete | Deletes a certificate from a Batch account |
 > | Microsoft.Batch/batchAccounts/certificates/cancelDelete/action | Cancels the failed deletion of a certificate on a Batch account |
 > | Microsoft.Batch/batchAccounts/detectors/read | Gets AppLens Detector or Lists AppLens Detectors on a Batch account |
+> | Microsoft.Batch/batchAccounts/networkSecurityPerimeterAssociationProxies/read | Gets or lists the NSP association proxies on a Batch account |
+> | Microsoft.Batch/batchAccounts/networkSecurityPerimeterAssociationProxies/write | Creates or updates the NSP association proxy on a Batch account |
+> | Microsoft.Batch/batchAccounts/networkSecurityPerimeterAssociationProxies/delete | Deletes the NSP association proxy on a Batch account |
+> | Microsoft.Batch/batchAccounts/networkSecurityPerimeterConfigurationOperationResults/read | Gets the results of a long running NSP configuration operation on a Batch account |
+> | Microsoft.Batch/batchAccounts/networkSecurityPerimeterConfigurations/read | Gets or lists the NSP association configurations on a Batch account |
+> | Microsoft.Batch/batchAccounts/networkSecurityPerimeterConfigurations/reconcile/action | Reconciles the NSP association on a Batch account to sync up with the latest configuration from the NSP control plane |
 > | Microsoft.Batch/batchAccounts/operationResults/read | Gets the results of a long running Batch account operation |
 > | Microsoft.Batch/batchAccounts/outboundNetworkDependenciesEndpoints/read | Lists the outbound network dependency endpoints for a Batch account |
 > | Microsoft.Batch/batchAccounts/poolOperationResults/read | Gets the results of a long running pool operation on a Batch account |
@@ -436,6 +475,7 @@ Azure service: [Batch](/azure/batch/)
 > | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the Batch service |
 > | Microsoft.Batch/deployments/preflight/action | Runs Preflight validation for resources included in the request |
 > | Microsoft.Batch/locations/checkNameAvailability/action | Checks that the account name is valid and not in use. |
+> | Microsoft.Batch/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies the NSP updates available at the given location |
 > | Microsoft.Batch/locations/accountOperationResults/read | Gets the results of a long running Batch account operation |
 > | Microsoft.Batch/locations/cloudServiceSkus/read | Lists available Batch supported Cloud Service VM sizes at the given location |
 > | Microsoft.Batch/locations/quotas/read | Gets Batch quotas of the specified subscription at the specified Azure region |
@@ -755,6 +795,7 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachines/osUpgradeInternal/action | Perform OS Upgrade on Virtual Machine belonging to Virtual Machine Scale Set with Flexible Orchestration Mode. |
 > | Microsoft.Compute/virtualMachines/rollbackOSDisk/action | Rollback OSDisk on Virtual Machine after failed OS Upgrade invoked by Virtual Machine Scale Set with Flexible Orchestration Mode. |
 > | Microsoft.Compute/virtualMachines/deletePreservedOSDisk/action | Deletes PreservedOSDisk on the Virtual Machine which belongs to Virtual Machine Scale Set with Flexible Orchestration Mode. |
+> | Microsoft.Compute/virtualMachines/upgradeVMAgent/action | Upgrade version of VM Agent on Virtual Machine |
 > | Microsoft.Compute/virtualMachines/extensions/read | Get the properties of a virtual machine extension |
 > | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
 > | Microsoft.Compute/virtualMachines/extensions/delete | Deletes the virtual machine extension |
@@ -854,8 +895,13 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | --- | --- |
 > | Microsoft.DesktopVirtualization/unregister/action | Action on unregister |
 > | Microsoft.DesktopVirtualization/register/action | Register subscription |
-> | Microsoft.DesktopVirtualization/appattachpackages/read | Read the appattachpackages to see packages present. |
-> | Microsoft.DesktopVirtualization/appattachpackages/write | Update the appattachpackages to save changes. |
+> | Microsoft.DesktopVirtualization/appattachpackages/read | Read appattachpackages |
+> | Microsoft.DesktopVirtualization/appattachpackages/write | Write appattachpackages |
+> | Microsoft.DesktopVirtualization/appattachpackages/delete | Delete appattachpackages |
+> | Microsoft.DesktopVirtualization/appattachpackages/move/action | Move appattachpackages to another ResourceGroup or Subscription |
+> | Microsoft.DesktopVirtualization/appattachpackages/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting |
+> | Microsoft.DesktopVirtualization/appattachpackages/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
+> | Microsoft.DesktopVirtualization/appattachpackages/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
 > | Microsoft.DesktopVirtualization/applicationgroups/read | Read applicationgroups |
 > | Microsoft.DesktopVirtualization/applicationgroups/write | Write applicationgroups |
 > | Microsoft.DesktopVirtualization/applicationgroups/delete | Delete applicationgroups |
@@ -872,7 +918,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
 > | Microsoft.DesktopVirtualization/applicationgroups/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
 > | Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/read | Read start menu items |
-> | Microsoft.DesktopVirtualization/connectionPolicies/read | Read the connectionPolicies to see packages present. |
+> | Microsoft.DesktopVirtualization/connectionPolicies/read | Read the connectionPolicies. |
 > | Microsoft.DesktopVirtualization/connectionPolicies/write | Update the connectionPolicies to save changes. |
 > | Microsoft.DesktopVirtualization/hostpools/read | Read hostpools |
 > | Microsoft.DesktopVirtualization/hostpools/write | Write hostpools |
@@ -883,7 +929,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | Microsoft.DesktopVirtualization/hostpools/move/action | Move a hostpools to another resource group |
 > | Microsoft.DesktopVirtualization/hostpools/expandmsiximage/action | Expand an expandmsiximage to see MSIX Packages present |
 > | Microsoft.DesktopVirtualization/hostpools/doNotUseInternalAPI/action | Internal operation that is not meant to be called by customers. This will be removed in a future version. Do not use it. |
-> | Microsoft.DesktopVirtualization/hostpools/activeSessionhostconfigurations/read | Read the appattachpackages to see configurations present. |
+> | Microsoft.DesktopVirtualization/hostpools/activeSessionhostconfigurations/read | Read the activeSessionhostconfigurations to see configurations present. |
 > | Microsoft.DesktopVirtualization/hostpools/msixpackages/read | Read hostpools/msixpackages |
 > | Microsoft.DesktopVirtualization/hostpools/msixpackages/write | Write hostpools/msixpackages |
 > | Microsoft.DesktopVirtualization/hostpools/msixpackages/delete | Delete hostpools/msixpackages |

@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/20/2022
+ms.date: 06/20/2024
 ---
 # Manage secrets by using Bicep
 
@@ -67,7 +67,7 @@ When you use Bicep modules, you can provide secure parameters by using [the `get
 You can also reference a key vault defined in another resource group by using the `existing` and `scope` keywords together. In the following example, the Bicep file is deployed to a resource group named *Networking*. The value for the module's parameter *mySecret* is defined in a key vault named *contosonetworkingsecrets* located in the *Secrets* resource group:
 
 ```bicep
-resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
   scope: resourceGroup('Secrets')
   name: 'contosonetworkingsecrets'
 }

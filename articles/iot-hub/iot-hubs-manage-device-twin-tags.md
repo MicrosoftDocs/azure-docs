@@ -38,9 +38,10 @@ Device twin tags can be used as a powerful tool to help you organize your device
 
 ## Prerequisites
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
-* At least two registered devices. Register devices in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* At least two registered devices. If you don't have devices in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
+
 
 ## Add and view device twin tags using the Azure portal
 
@@ -158,4 +159,4 @@ To try out some of the concepts described in this article, see the following IoT
 
 * [How to use the device twin](device-twins-node.md)
 * [How to use device twin properties](tutorial-device-twins.md)
-* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)
+
