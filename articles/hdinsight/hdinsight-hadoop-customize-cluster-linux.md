@@ -4,7 +4,7 @@ description: Add custom components to HDInsight clusters by using script actions
 ms.service: hdinsight
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 07/12/2024
 ---
 
 # Customize Azure HDInsight clusters by using script actions

@@ -4,7 +4,7 @@ description: Learn how to use the Hive View from your web browser to submit Hive
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 07/12/2023
+ms.date: 07/12/2024
 ---
 
 # Use Apache Ambari Hive View with Apache Hadoop in HDInsight
