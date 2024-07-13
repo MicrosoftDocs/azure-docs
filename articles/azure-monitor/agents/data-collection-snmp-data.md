@@ -21,7 +21,7 @@ Azure Monitor agent can't collect SNMP data directly, but you can send this data
 - Syslog. The data is stored in the `Syslog` table with your other syslog data collected by Azure Monitor agent.
 - Text file. The data is stored in a custom table that you create. Using a transformation, you can parse the data and store it in a structured format.
 
-:::image type="content" source="media/data-collection-log-text/snmp-data-collection.png" lightbox="media/data-collection-log-text/snmp-data-collection.png" alt-text="Diagram showing collection of SNMP data by sending it to Syslog or a text file which is then collected by Azure Monitor agent.":::
+:::image type="content" source="media/data-collection-snmp-data/snmp-data-collection.png" lightbox="media/data-collection-snmp-data/snmp-data-collection.png" alt-text="Diagram showing collection of SNMP data by sending it to Syslog or a text file which is then collected by Azure Monitor agent.":::
 
 ## Prerequisites
 

@@ -130,7 +130,7 @@ There are multiple reasons why you would want to create a DCR to collect guest p
 - Collect performance counters from other workloads running on your client.
 - Send performance data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) where you can use them with metrics explorer and metrics alerts.
 
-For guidance on creating a DCR to collect performance counters, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md). You can quickly create a DCR by using the most common counters. For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-performance.md#filter-events-using-xpath-queries).
+For guidance on creating a DCR to collect performance counters, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md). You can quickly create a DCR by using the most common counters. For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-windows-events.md#filter-events-using-xpath-queries).
 
 > [!NOTE]
 > You might choose to combine performance and event collection in the same DCR.
