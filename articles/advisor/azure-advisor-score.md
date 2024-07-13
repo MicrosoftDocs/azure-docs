@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Use Advisor score
 
-## Introduction to Advisor score
+## Introduction to score
 
 Azure Advisor provides best practice recommendations for your workloads. These recommendations are personalized and actionable to help you:
 
@@ -28,7 +28,9 @@ The Advisor score consists of an overall score, which can be further broken down
 
 You can track the progress you make over time by viewing your overall score and category score with daily, weekly, and monthly trends. You can also set benchmarks to help you achieve your goals.
 
-## Access Advisor score
+## Use Advisor score in the portal
+
+Open **Azure Advisor**.
 
 Select **Advisor score** in the left menu pane to open score page.
 
@@ -52,12 +54,12 @@ If any Advisor recommendations aren't relevant for an individual resource, you c
 
 Advisor displays your category scores and your overall Advisor score as percentages. A score of 100% in any category means all your resources, *assessed by Advisor*, follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources, assessed by Advisor, follows Advisor recommendations.
 
-**Each of the five categories has a highest potential score of 100.** Your overall Advisor score is calculated as a sum of each applicable category score, divided by the sum of the highest potential score from all applicable categories. For most subscriptions, that means Advisor adds up the score from each category and divides by 500. But *each category score is calculated only if you use resources that are assessed by Advisor*.
+**Each of the five categories has a highest potential score of 100.** Your overall Advisor score is calculated as a sum of each applicable category score, divided by the sum of the highest potential score from all applicable categories. For most subscriptions that means adding up Advisor scores for each category and dividing by 500. But *each category score is calculated only if you use resources that are assessed by Advisor*.
 
 ### Advisor score calculation example
 
 * **Single subscription score:** This example is the simple mean of all Advisor category scores for your subscription. If the Advisor category scores are - **Cost** = 73, **Reliability** = 85, **Operational excellence** = 77, and **Performance** = 100, the Advisor score would be (73 + 85 + 77 + 100)/(4x100) = 0.84% or 84%.
-* **Multiple subscriptions score:** When multiple subscriptions are selected, the overall Advisor scores generated are weighted aggregate category scores. Here, each Advisor category score is aggregated based on resources consumed by subscriptions. After Advisor has the weighted aggregated category scores, Advisor does a simple mean calculation to give you an overall score for subscriptions.
+* **Multiple subscriptions score:** When multiple subscriptions are selected, the overall Advisor score score is calculated as an average of aggregated category scores. Each category score is calculated using individual subscription score and subscription consumsumption based weight. Overall score is calculated as sum of aggregated category scores divided by the sum of the highest potential scores.
 
 ### Scoring methodology
 
@@ -94,7 +96,7 @@ Advisor doesn't immediately include new recommendations or recommendations with 
 
 ### Why is the cost score impact greater for some recommendations even if they have lower potential savings?
 
-Your **Cost** score reflects both your potential savings from underutilized resources and the predicted ease of implementing those recommendations. For example, extra weight is applied to impacted resources that have been idle for a longer time, even if the potential savings is lower.
+Your **Cost** score reflects both your potential savings from underutilized resources and the predicted ease of implementing those recommendations. For example, extra weight is applied to impacted resources that have been idle for a long time, even if the potential savings are lower.
 
 ### What does it mean when I see "Coming soon" in the score impact column?
 
