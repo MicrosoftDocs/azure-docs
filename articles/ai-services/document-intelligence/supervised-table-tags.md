@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/11/2024
 ms.author: lajanuar
 monikerRange: 'doc-intel-2.1.0'
 #Customer intent: As a user of the Document Intelligence custom model service, I want to ensure I'm training my model in the best way.
@@ -26,14 +26,14 @@ monikerRange: 'doc-intel-2.1.0'
 > * You can refer to the [API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) or [**C#**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**Java**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true), or [Python](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) SDK quickstarts to get started with version v3.0.
 
-In this article, you'll learn how to train your custom template model with table tags (labels). Some scenarios require more complex labeling than simply aligning key-value pairs. Such scenarios include extracting information from forms with complex hierarchical structures or encountering items that not automatically detected and extracted by the service. In these cases, you can use table tags to train your custom template model.
+In this article, learn how to train your custom template model with table tags (labels). Some scenarios require more complex labeling than simply aligning key-value pairs. Such scenarios include extracting information from forms with complex hierarchical structures or encountering items that not automatically detected and extracted by the service. In these cases, you can use table tags to train your custom template model.
 
 ## When should I use table tags?
 
 Here are some examples of when using table tags would be appropriate:
 
-- There's data that you wish to extract presented as tables in your forms, and the structure of the tables are meaningful. For instance, each row of the table represents one item and each column of the row represents a specific feature of that item. In this case, you could use a table tag where a column represents features and a row represents information about each feature.
-- There's data you wish to extract that isn't presented in specific form fields but semantically, the data could fit in a two-dimensional grid. For instance, your form has a list of people, and includes, a first name, a last name, and an email address. You would like to extract this information. In this case, you could use a table tag with first name, last name, and email address as columns and each row is populated with information about a person from your list.
+* There's data that you wish to extract presented as tables in your forms, and the structure of the tables are meaningful. For instance, each row of the table represents one item and each column of the row represents a specific feature of that item. In this case, you could use a table tag where a column represents features and a row represents information about each feature.
+* There's data you wish to extract that isn't presented in specific form fields but semantically, the data could fit in a two-dimensional grid. For instance, your form has a list of people, and includes, a first name, a surname, and an email address. You would like to extract this information. In this case, you could use a table tag with first name, surname, and email address as columns and each row is populated with information about a person from your list.
 
 > [!NOTE]
 > Document Intelligence automatically finds and extracts all tables in your documents whether the tables are tagged or not. Therefore, you don't have to label every table from your form with a table tag and your table tags don't have to replicate the structure of very table found in your form. Tables extracted automatically by Document Intelligence will be included in the pageResults section of the JSON output.

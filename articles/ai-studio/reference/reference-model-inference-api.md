@@ -103,6 +103,19 @@ model = ChatCompletionsClient(
 )
 ```
 
+If you are using an endpoint with support for Entra ID, you can create your client as follows:
+
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import AzureDefaultCredential
+
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureDefaultCredential(),
+)
+```
+
 # [JavaScript](#tab/javascript)
 
 Install the package `@azure-rest/ai-inference` using npm:
@@ -121,6 +134,19 @@ import { AzureKeyCredential } from "@azure/core-auth";
 const client = new ModelClient(
     process.env.AZUREAI_ENDPOINT_URL, 
     new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+);
+```
+
+For endpoint with support for Microsoft Entra ID, you can create your client as follows:
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureDefaultCredential } from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureDefaultCredential()
 );
 ```
 
@@ -143,11 +169,13 @@ The Azure AI Model Inference API specifies a set of modalities and parameters th
 
 By setting a header `extra-parameters: pass-through`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
 
-The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API:
+The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API. 
 
 # [Python](#tab/python)
 
 ```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -157,7 +185,12 @@ response = model.complete(
         "safe_mode": True
     }
 )
+
+print(response.choices[0].message.content)
 ```
+
+> [!TIP]
+> When using Azure AI Inference SDK, using passing extra parameters using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
 
 # [JavaScript](#tab/javascript)
 
@@ -174,6 +207,8 @@ var response = await client.path("/chat/completions").post({
         safe_mode: true
     }
 });
+
+console.log(response.choices[0].message.content)
 ```
 
 # [REST](#tab/rest)
@@ -208,8 +243,8 @@ extra-parameters: pass-through
 
 ---
 
-> [!TIP]
-> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: ignore` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
+> [!NOTE]
+> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
 
 ### Models with disparate set of capabilities
 
@@ -220,7 +255,7 @@ The following example shows the response for a chat completion request indicatin
 # [Python](#tab/python)
 
 ```python
-from azure.ai.inference.models import ChatCompletionsResponseFormat
+from azure.ai.inference.models import SystemMessage, UserMessage, ChatCompletionsResponseFormat
 from azure.core.exceptions import HttpResponseError
 import json
 
