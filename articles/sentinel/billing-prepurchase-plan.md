@@ -81,7 +81,7 @@ You can make the following types of changes to a reservation after purchase:
 - Update reservation scope
 - Update who can view or manage the reservation. For more information, see [Who can manage a reservation by default](../cost-management-billing/reservations/manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
-You can't split or merge a Microsoft Sentinel commit unit Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+You can't split or merge a **Microsoft Sentinel Pre-Purchase Plan**. For more information about managing reservations, see [Manage reservations after purchase](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 ## Cancellations and exchanges
 
