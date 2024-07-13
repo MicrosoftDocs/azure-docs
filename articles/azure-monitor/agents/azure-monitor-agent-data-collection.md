@@ -37,7 +37,7 @@ The table below lists the types of data you can currently collect with the Azure
 | [Syslog](./data-collection-syslog.md) | Information sent to the Linux event logging system. | Linux | Log Analytics workspace |
 | [Text log](./data-collection-log-text.md) | Information sent to a text log file on a local disk. | Windows<br>Linux | Log Analytics workspace
 | [JSON log](./data-collection-log-json.md) | Information sent to a JSON log file on a local disk. | Windows<br>Linux | Log Analytics workspace |
-| [IIS logs](./data-collection-iis.md) | Windows | Internet Information Service (IIS) logs from to the local disk of Windows machines |
+| [IIS logs](./data-collection-iis.md) | Internet Information Service (IIS) logs from to the local disk of Windows machines | Windows | Log Analytics workspace |
 
 
 > [!NOTE]
@@ -49,13 +49,13 @@ The table below lists the types of data you can currently collect with the Azure
 - See the article describing each data source for any additional prerequisites.
 
 ## Overview 
- The DCR page will have you provide details for the information in the following table.
+When you create a DCR in the Azure portal, you're walked through a series of pages to provide the information needed to collect data from the machines you specify. The following table describes the information you need to provide on each page.
 
 | Section | Description |
 |:---|:---|
 | Resources | Machines that will use the DCR. When you add a machine to the DCR, it creates a [data collection rule association (DCRA)](../essentials/data-collection-rule-overview.md#data-collection-rule-associations-dcra) between the machine and the DCR. You can edit the DCR to add or remove machines after it's created. |
 | Data source | The type of data to collect from the machine. The list of available data sources are listed above in [Data sources](#data-sources). Each data source has its own configuration settings and potentially prerequisites, so see the individual article for each for details. |
-| Destination | Destination where the data collected from the data source should be sent. If you have multiple data sources in the DCR, they can be sent to separate destinations, and data from a single data source may be sent to multiple destinations. |
+| Destination | Destination where the data collected from the data source should be sent. If you have multiple data sources in the DCR, they can be sent to separate destinations, and data from a single data source may be sent to multiple destinations. See the article for each data source for more details about their destination such as the table in the Log Analytics workspace. |
 
 
 ## Create data collection rule
@@ -73,7 +73,7 @@ The **Basic** page includes basic information about the DCR.
 | Rule Name | Name for the DCR. This should be something descriptive that helps you identify the rule. |
 | Subscription | Subscription to store the DCR. This does not need to be the same subscription as the virtual machines. |
 | Resource group | Resource group to store the DCR. This does not need to be the same resource group as the virtual machines. |
-| Region | Region to store the DCR. This must be the same region and any Log Analytics workspace or Azure Monitor workspace used in a destination of the DCR. If you have workspaces in different regions, then create multiple DCRs associate with the same set of machines. |
+| Region | Region to store the DCR. This must be the same region as any Log Analytics workspace or Azure Monitor workspace used in a destination of the DCR. If you have workspaces in different regions, then create multiple DCRs associated with the same set of machines. |
 | Platform Type | Specifies the type of data sources that will be available for the DCR, either **Windows** or **Linux**. **None** allows for both. <sup>1</sup> |
 | Data Collection Endpoint | Specifies the data collection endpoint (DCE) used to collect data. This is only required if you're using Azure Monitor Private Links. This DCE must be in the same region as the DCR. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md). |
 
@@ -97,7 +97,7 @@ The **Collect and deliver** page allows you to add and configure data sources fo
 
 | Screen element | Description |
 |:---|:---|
-| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. See the articles linked in the table below for details on configuring each type of data source. |
+| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. See the articles linked in [Data sources](#data-sources) above for details on configuring each type of data source. |
 | **Destination** | Add one or more destinations for each data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming. See the details for each data type for the different destinations they support. |
 
 A DCR can contain multiple different data sources up to a limit of 10 data sources in a single DCR. You can combine different data sources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.

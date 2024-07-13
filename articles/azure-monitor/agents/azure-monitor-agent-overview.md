@@ -21,11 +21,12 @@ See a short video introduction to Azure Monitor agent, which includes a demo of 
 > [!NOTE]
 > Azure Monitor Agent replaces the [Legacy Agent](./log-analytics-agent.md) for Azure Monitor. The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date. 
 
-## Installation and data collection
+## Installation
 The Azure Monitor agent is one method of [data collection for Azure Monitor](../data-sources.md). It's installed on virtual machines running in Azure, in other clouds, or on-premises where it has access to local logs and performance data. Without the agent, you could only collect data from the host machine since you would have no access to the client operating system and running processes.
 
-The agent can be installed using different methods as described in [Manage Azure Monitor Agent](./azure-monitor-agent-manage.md). You can install the agent on a single machine or at scale using Azure Policy or other tools. In some cases, the agent will be automatically installed when you enable a feature that requires it, such as Microsoft Sentinel.
+The agent can be installed using different methods as described in [Install and manage Azure Monitor Agent](./azure-monitor-agent-manage.md). You can install the agent on a single machine or at scale using Azure Policy or other tools. In some cases, the agent will be automatically installed when you enable a feature that requires it, such as Microsoft Sentinel.
 
+## Data collection
 All data collected by the Azure Monitor agent is done with a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) where you define the following:
 
 - Data type being collected.
@@ -102,31 +103,8 @@ The following tables identify the different environments and features that are c
 |		|	Change Tracking	| ✓ | ✓ |
 
 
-
 ## Supported data sources
-
-The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
-
-| Data source | Destinations | Description |
-|:---|:---|:---|
-| Windows event logs | Log Analytics workspace | Information sent to the Windows event logging system, including sysmon events. |
-| Performance | Azure Monitor Metrics (Public preview)<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads |
-| Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
-| Text logs | Log Analytics workspace | Log data written to a text file on the local machine.|
-| JSON logs | Log Analytics workspace | Log data written to a JSON file on the local machine.|
-| Windows IIS logs |Internet Information Service (IIS) logs on the local disk of Windows machines |
-| Windows Firewall logs | Firewall logs on the local disk of a Windows Machine|
-
-<sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
-<sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
-
-
-> [!NOTE]
-> Azure Monitor Agent also supports Azure service [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) which is currently available. For more information, refer to [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment).
-
-> [!NOTE]
-> Azure Monitor Agent supports auditd logs on Linux with [Defender for Cloud](./azure-monitor-agent-overview.md#supported-services-and-features) (previously Azure Security Center). It's available as an extension to Azure Monitor Agent, which collects Linux auditd logs via AUOMS.
-
+See [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md) for a list of the data sources that can be collected by the Azure Monitor Agent and details on how to configure each.
 
 ## Next steps
 

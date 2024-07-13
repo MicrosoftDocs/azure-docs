@@ -2,7 +2,7 @@
 title: Collect IIS logs with Azure Monitor Agent
 description: Configure collection of Internet Information Services (IIS) logs on virtual machines with Azure Monitor Agent.
 ms.topic: concept-article
-ms.date: 01/23/2024
+ms.date: 07/12/2024
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
@@ -10,10 +10,10 @@ ms.reviewer: jeffwo
 ---
 
 # Collect IIS logs with Azure Monitor Agent
+**IIS Logs** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Windows events data source type.
 
 Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor agent and sent to a Log Analytics workspace.
 
-**IIS Logs** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Windows events data source type.
 
 ## Prerequisites
 
@@ -40,7 +40,14 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
+## Destinations
 
+IIS log data can be sent to the following locations.
+
+| Destination | Table / Namespace |
+|:---|:---|
+| Log Analytics workspace | [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) |
+    
 
 
 ### Sample IIS log queries

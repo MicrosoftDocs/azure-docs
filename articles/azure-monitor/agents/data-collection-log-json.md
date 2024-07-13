@@ -2,21 +2,18 @@
 title: Collect logs from a JSON file with Azure Monitor Agent 
 description: Configure a data collection rule to collect log data from a JSON file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 07/12/2024
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
 ---
 
 # Collect logs from a JSON file with Azure Monitor Agent 
+**Custom JSON Logs** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
 
 Many applications and services will log information to a JSON files instead of standard logging services such as Windows Event log or Syslog. This data can be collected with [Azure Monitor Agent](azure-monitor-agent-overview.md) and stored in a Log Analytics workspace with data collected from other sources.
 
-**Custom JSON Logs** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
-
-
 ## Prerequisites
-To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A data collection endpoint (DCE) if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
@@ -50,17 +47,6 @@ Adhere to the following recommendations to ensure that you don't experience data
 - Don't rename a file that matches the file scan pattern to another name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
 - Don't rename or copy large log files that match the file scan pattern into the monitored directory. If you must, do not exceed 50MB per minute.
 
-
-
-## Incoming stream
-JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, the columns in the following table will be included in the incoming stream, and you must manually modify the DCR or create it using another method where you can explicitly define the incoming stream.
-
- | Column | Type | Description |
-|:---|:---|:---|
-| `TimeGenerated` | datetime | The time the record was generated. |
-| `RawData` | string | This column will be empty for a JSON log. |
-| `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
 ## Custom table
@@ -113,14 +99,22 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 
 ## Create a data collection rule for a JSON file
 
-
-### [Portal](#tab/portal)
-
 > [!NOTE]
 > The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. While you can create the DCR using the portal, you must modify it to define the columns in the incoming stream. See the **Resource Manager template** tab for details on creating the required DCR.
 
+### Incoming stream
+JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, the columns in the following table will be included in the incoming stream, and you must manually modify the DCR or create it using another method where you can explicitly define the incoming stream.
+
+ | Column | Type | Description |
+|:---|:---|:---|
+| `TimeGenerated` | datetime | The time the record was generated. |
+| `RawData` | string | This column will be empty for a JSON log. |
+| `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
+
+### [Portal](#tab/portal)
+
 Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **JSON Logs**  from the **Data source type** dropdown. 
- 
 
 | Setting | Description |
 |:---|:---|
@@ -260,6 +254,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
     ]
 }
 ```
+---
 
 ## Troubleshooting
 Go through the following steps if you aren't collecting data from the JSON log that you're expecting.

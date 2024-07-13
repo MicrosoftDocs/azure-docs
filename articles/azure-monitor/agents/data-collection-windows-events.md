@@ -2,7 +2,7 @@
 title: Collect Windows events from virtual machines with Azure Monitor Agent
 description: Describes how to collect Windows events counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 7/19/2023
+ms.date: 07/12/2024
 author: guywild
 ms.author: guywild
 ms.reviewer: jeffwo
@@ -10,10 +10,9 @@ ms.reviewer: jeffwo
 ---
 
 # Collect Windows events with Azure Monitor Agent
-Windows event logs are one of the most common data sources for Windows machines with [Azure Monitor Agent](azure-monitor-agent-overview.md) since it's a common source of health and information for the Windows operating system and applications running on it. You can collect events from standard logs, such as System and Application, and any custom logs created by applications you need to monitor.
-
 **Windows events** is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Windows events data source type.
 
+Windows event logs are one of the most common data sources for Windows machines with [Azure Monitor Agent](azure-monitor-agent-overview.md) since it's a common source of health and information for the Windows operating system and applications running on it. You can collect events from standard logs, such as System and Application, and any custom logs created by applications you need to monitor.
 
 ## Prerequisites
 
@@ -80,8 +79,12 @@ Examples of using a custom XPath to filter events:
 
 
 ## Destinations
+Windows event data can be sent to the following locations.
 
-**Azure Monitor Logs** is the only destination allowed for Windows events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Event](/azure/azure-monitor/reference/tables/event) table. You can only modify the destination table by manually editing the DCR.
+| Destination | Table / Namespace |
+|:---|:---|
+| Log Analytics workspace | [Event](/azure/azure-monitor/reference/tables/event) |
+    
 
 :::image type="content" source="media/data-collection-windows-event/destination-workspace.png" lightbox="media/data-collection-windows-event/destination-workspace.png" alt-text="Screenshot that shows configuration of an Azure Monitor Logs destination in a data collection rule." :::
 

@@ -13,7 +13,7 @@ ms.reviewer: jeffwo
 ---
 
 # Azure Monitor Agent supported operating systems and environments
-This article identifies the operating systems supported by [Azure Monitor Agent](./azure-monitor-agent-overview.md) and [legacy agents](./log-analytics-agent.md). 
+This article lists the operating systems supported by [Azure Monitor Agent](./azure-monitor-agent-overview.md) and [legacy agents](./log-analytics-agent.md). See [Install and manage Azure Monitor Agent](./azure-monitor-agent-manage.md) for details on installing the agent.
 
 > [!NOTE]
 > All operating systems listed are assumed to be x64. x86 isn't supported for any operating system.
@@ -134,4 +134,4 @@ The Azure Arc agent is only used as an installation mechanism and does not add a
 ## Next steps
 
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
-- [Create a data collection rule](./azure-monitor-agent-data-collection.md) to collect data from the agent and send it to Azure Monitor.
+- [Identify requirements and prerequisites](azure-monitor-agent-requirements.md) for Azure Monitor Agent installation.

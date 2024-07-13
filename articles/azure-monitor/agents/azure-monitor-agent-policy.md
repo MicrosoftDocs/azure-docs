@@ -4,7 +4,7 @@ description: Options for managing Azure Monitor Agent on Azure virtual machines 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 7/18/2023
+ms.date: 7/10/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: jeffwo
 
