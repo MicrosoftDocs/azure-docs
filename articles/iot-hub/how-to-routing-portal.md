@@ -34,7 +34,7 @@ To create an IoT hub route, you need an IoT hub that you created by using Azure 
 
 Be sure to have the following hub resource to use when you create your IoT hub route:
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](./iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ### Endpoint service
 

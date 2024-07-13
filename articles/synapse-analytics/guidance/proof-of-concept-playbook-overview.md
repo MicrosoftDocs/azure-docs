@@ -2,8 +2,8 @@
 title: Azure Synapse proof of concept playbook
 description: "Introduction to a series of articles that provide a high-level methodology for planning, preparing, and running an effective Azure Synapse Analytics proof of concept project."
 author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
+ms.author: whhender
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 05/23/2022
