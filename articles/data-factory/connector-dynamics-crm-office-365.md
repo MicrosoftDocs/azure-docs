@@ -239,12 +239,15 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 | hostName | The host name of the on-premises Dynamics server. | Yes |
 | port | The port of the on-premises Dynamics server. | No. The default value is 443. |
 | organizationName | The organization name of the Dynamics instance. | Yes |
-| authenticationType | The authentication type to connect to the Dynamics server. Specify "ActiveDirectoryAuthentication" or "Ifd" for Dynamics on-premises with IFD. | Yes |
-| domain | The Active Directory domain that will verify user credentials. | Yes when authentication is "ActiveDirectoryAuthentication"   |
+| authenticationType | The authentication type to connect to the Dynamics server. Specify "ActiveDirectoryAuthentication" for Dynamics on-premises with IFD. | Yes |
+| domain | The Active Directory domain that will verify user credentials. | Yes  |
 | username | The username to connect to Dynamics. | Yes |
 | password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
+>[!Note]
+>If you are using "Ifd" authentication type in your solution, please switch to "ActiveDirectoryAuthentication" authentication type before **August 31, 2024**.
+ 
 #### Example: Dynamics on-premises with IFD using Active Directory authentication
 
 ```json
@@ -260,34 +263,6 @@ Additional properties that compare to Dynamics online are **hostName** and **por
             "organizationName": "admsDynamicsTest",
             "authenticationType": "ActiveDirectoryAuthentication",
             "domain": "< Active Directory domain >", 
-            "username": "test@contoso.onmicrosoft.com",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-#### Example: Dynamics on-premises with IFD using IFD authentication
-
-```json
-{
-    "name": "DynamicsLinkedService",
-    "properties": {
-        "type": "Dynamics",
-        "description": "Dynamics on-premises with IFD linked service using IFD authentication",
-        "typeProperties": {
-            "deploymentType": "OnPremisesWithIFD",
-            "hostName": "contosodynamicsserver.contoso.com",
-            "port": 443,
-            "organizationName": "admsDynamicsTest",
-            "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "SecureString",
