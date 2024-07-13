@@ -12,24 +12,26 @@ ms.collection: usx-security
 
 # Optimize Microsoft Sentinel costs with a prepurchase plan
 
-Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So the value of 1 CU = $1 USD. Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased CUs automatically over the course of its 1 year term. Your prepurchase plan CUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
+Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So the value of `1 CU` = `$1 USD`. Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased CUs automatically over the course of its one year term. Your prepurchase plan CUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
 
 ## Prerequisites
 
 To buy a prepurchase plan, you must have one of the following Azure subscriptions and roles:
 - For an Azure subscription, the owner role or reservation purchaser role is required.
 - For an Enterprise Agreement (EA) subscription, the [**Reserved Instances** policy option](../cost-management-billing/manage/direct-ea-administration.md#view-and-manage-enrollment-policies) must be enabled. To enable that policy option, you must be an EA administrator of the subscription.
-- For a Cloud Solution Provider (CSP) subscription, follow either the [buy Azure reservations on behalf of a customer](/partner-center/customers/azure-reservations-buying) or the [allow the customer to buy their own reservations](/partner-center/customers/give-customers-permission) steps.
+- For a Cloud Solution Provider (CSP) subscription, follow one of these articles:
+   - [Buy Azure reservations on behalf of a customer](/partner-center/customers/azure-reservations-buying)
+   - [Allow the customer to buy their own reservations](/partner-center/customers/give-customers-permission)
 
 ## Determine the right size to buy
 
-Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel commitment tiers are monthly commitments. Microsoft Sentinel prepurchase plans have a term agreement of 1 year.
+Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel commitment tiers are monthly commitments. Microsoft Sentinel prepurchase plans have a term agreement of one year.
 
 Here's an example of the decision making and cost savings for a prepurchase plan. If you have a commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion to the workspace and the analysis for Microsoft Sentinel. For example purposes, let's say that monthly cost is $20,000 USD with simplified pricing and provides a 39% savings over the pay-as-you-go tier with the same 200 GB/day. 
 
 A $100,000 USD prepurchase plan covers 5 months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That prepurchase plan is bought at a 22% discount for $78,000 USD. 
 
-The savings for the commitment tier and the prepurchase plan combine. The original pay-as-you-go price for 5 months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a prepurchase plan, the cost reduced to $78,000 USD for a combined savings of over 51%.
+The savings for the commitment tier and the prepurchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a prepurchase plan, the cost reduced to $78,000 USD for a combined savings of over 51%.
 
 For more information, see the following articles:
 - [Switch to simplified pricing](enroll-simplified-pricing-tier.md)
@@ -39,14 +41,14 @@ For more information, see the following articles:
 > The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 The Microsoft Sentinel prepurchase CUs apply to Microsoft Sentinel simplified and classic pricing tiers usage. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name and the following meters:
-- *n* GB Commitment Tier
-- Analysis
-- Pay-as-You-Go Analysis
-- Classic *n* GB Commitment Tier
-- Classic Analysis
-- Classic Pay-as-You-Go Analysis
+- ***n* GB Commitment Tier**
+- **Analysis**
+- **Pay-as-You-Go Analysis**
+- **Classic *n* GB Commitment Tier**
+- **Classic Analysis**
+- **Classic Pay-as-You-Go Analysis**
 
-For more information on how to view Microsoft Sentinel simplified or classic pricing tiers in your invoice details, see [Understand you Microsoft Sentinel bill](billing.md#understand-your-microsoft-sentinel-bill).
+For more information on how to view Microsoft Sentinel simplified or classic pricing tiers in your invoice details, see [Understand your Microsoft Sentinel bill](billing.md#understand-your-microsoft-sentinel-bill).
 
 Keep in mind, Microsoft Sentinel integrates with many other Azure services that have separate costs not eligible to use with the prepurchase CUs. For more information, see [Costs and pricing for other services](billing.md#costs-and-pricing-for-other-services).
 
@@ -86,7 +88,6 @@ Cancel and exchange isn't supported for **Microsoft Sentinel Pre-Purchase Plans*
 ## Related content
 
 To learn more about Azure Reservations, see the following articles:
-
 - [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 
