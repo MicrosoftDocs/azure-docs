@@ -30,9 +30,11 @@ You can track the progress you make over time by viewing your overall score and 
 
 ## Use Advisor score in the portal
 
-Open **Azure Advisor**.
+1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
-Select **Advisor score** in the left menu pane to open score page.
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. Select **Advisor score** in the left menu pane to open score page.
 
 :::image type="content" source="./media/advisor-score.png" alt-text="Screenshot that shows the Advisor Score entry point." lightbox="./media/advisor-score.png":::
 
