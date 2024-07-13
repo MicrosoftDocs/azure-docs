@@ -38,7 +38,7 @@ For more information, see the following articles:
 >[!IMPORTANT]
 > The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-The Microsoft Sentinel prepurchase CUs apply to Microsoft Sentinel simplified and classic pricing tiers usage. From your Microsoft Sentinel bill, these are the entries with the **Sentinel** service name and the following meters:
+The Microsoft Sentinel prepurchase CUs apply to Microsoft Sentinel simplified and classic pricing tiers usage. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name and the following meters:
 - *n* GB Commitment Tier
 - Analysis
 - Pay-as-You-Go Analysis
