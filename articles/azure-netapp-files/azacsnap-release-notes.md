@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 07/02/2024
 ms.author: phjensen
 ---
 
@@ -16,6 +16,31 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Jul-2024
+
+### AzAcSnap 10 (Build: 1B55F1*)
+
+AzAcSnap 10 is being released with the following fixes and improvements:
+
+- Features added to [Preview](azacsnap-preview.md):
+  - **Microsoft SQL Server** support adding options to configure, test, and snapshot backup Microsoft SQL Server in an application consistent manner.
+- Features moved to GA (generally available):
+  - **Windows** support with AzAcSnap now able to be run on supported Linux distributions and Windows.
+  - New configuration file layout.
+    - To upgrade pre-AzAcSnap 10 configurations use the `azacsnap -c configure --configuration new` command to create a new configuration file and use the values in your existing configuration file.
+  - Azure Large Instance storage management via REST API over HTTPS.
+    - This allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
+- Fixes and Improvements:
+  - New `--flush` option which will flush in memory file buffers for local storage, useful for Azure Large Instance and Azure Managed Disk when connected as block storage.
+  - Logging improvements.
+- Features removed:
+  - AzAcSnap installer for Linux.
+    - AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows.  This simplifies access to the AzAcSnap program allowing you to get started quickly.
+  - Azure Large Instance storage management via CLI over SSH.
+    - CLI over SSH replaced with the REST API over HTTPS.
+
+Download the binary of [AzAcSnap 10 for Linux](https://aka.ms/azacsnap-10-linux) or [AzAcSnap 10 for Windows](https://aka.ms/azacsnap-10-windows).
 
 ## Apr-2024
 
@@ -37,7 +62,7 @@ AzAcSnap 9 is being released with the following fixes and improvements:
 
 - Features moved to GA (generally available):
   - IBM Db2 Database support.
-  - [System Managed Identity](azacsnap-installation.md#azure-system-managed-identity) support for easier setup while improving security posture.
+  - [System Managed Identity](azacsnap-configure-storage.md#azure-system-managed-identity) support for easier setup while improving security posture.
 - Fixes and Improvements:
   - Configure (`-c configure`) changes:
     - Allows for a blank value for `authFile` in the configuration file when using System Managed Identity.
@@ -241,7 +266,7 @@ AzAcSnap v5.0 (Build: 20210421.6349) is now Generally Available and for this bui
 
 AzAcSnap v5.0 Preview (Build: 20210318.30771) is released with the following fixes and improvements:
 
-- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database) section.
+- Removed the need to add the AZACSNAP user into the SAP HANA Tenant DBs, see the [Enable communication with database](azacsnap-configure-database.md#enable-communication-with-the-database) section.
 - Fix to allow a [restore](azacsnap-cmd-ref-restore.md) with volumes configured with Manual QOS.
 - Added mutex control to throttle SSH connections for Azure Large Instance.
 - Fix installer for handling path names with spaces and other related issues.

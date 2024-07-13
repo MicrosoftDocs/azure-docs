@@ -6,9 +6,9 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
 ms.custom: UpdateFrequency5, kr2b-contr-experiment
-ms.reviewer: larryfr
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: Blackmist
+ms.author: larryfr
 ms.date: 05/31/2022
 ---
 

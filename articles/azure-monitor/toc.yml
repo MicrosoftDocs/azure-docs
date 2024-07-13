@@ -86,6 +86,10 @@ items:
           href: app/opentelemetry-configuration.md
         - name: Add and modify OpenTelemetry
           href: app/opentelemetry-add-modify.md
+        - name: .NET (supplemental)
+          items:
+          - name: Migrate from Application Insights .NET SDKs to OpenTelemetry
+            href: app/opentelemetry-dotnet-migrate.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -118,8 +122,6 @@ items:
           items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
-        - name: FAQ
-          href: app/opentelemetry-enable.md#frequently-asked-questions
       - name: Client-side JavaScript SDK
         items:
         - name: Get Started with JavaScript SDK
@@ -223,24 +225,7 @@ items:
       - name: Failures and Performance Views
         href: app/failures-and-performance-views.md
       - name: Availability
-        items:
-        - name: Overview
-          href: app/availability-overview.md
-        - name: Standard tests
-          href: app/availability-standard-tests.md
-        - name: Testing behind a firewall
-          href: app/availability-private-test.md
-        - name: TrackAvailability()
-          href: app/availability-azure-functions.md
-          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
-        - name: Availability alerts
-          displayName: alerts, global, alerting
-          href: app/availability-alerts.md
-        - name: SLA report
-          href: app/sla-report.md
-        - name: Migrate from URL ping tests
-          href: app/availability-test-migration.md
-          displayName: ping test, availability, migrate, convert, standard test, synthetics
+        href: app/availability.md
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
@@ -536,9 +521,6 @@ items:
       - name: Prometheus remote-write
         displayName: Prometheus,remote-write, azure monitor
         href: containers/prometheus-remote-write.md
-      - name: Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
       - name: Managed identity authentication
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-managed-identity.md
@@ -1480,8 +1462,6 @@ items:
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
       href: logs/resource-manager-workspace.md
-    - name: Log Analytics clusters
-      href: logs/resource-manager-cluster.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
     - name: SQL Insights (preview)
