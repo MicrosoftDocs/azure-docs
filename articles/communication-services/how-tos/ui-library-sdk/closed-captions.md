@@ -18,11 +18,33 @@ zone_pivot_groups: acs-plat-ios-android
 
 Closed captions play a critical role in video voice calling apps, providing numerous benefits that enhance the accessibility, usability, and overall user experience of these platforms.
 
+In this article, you learn how to enable closed captions scenarios using the UI Library.
+
+## Azure Communication Service Based Captions
+
+Supported by default for calls involving Azure Communication Service users only. Currently, Azure Communication Service captions **do not** support language translation.
+
+## Teams Interop Closed Captions
+
+Also supported by default and included during calls with **one or more** Teams users.
+Translation Support: Unlike Azure Communication Service captions, Teams Interop Closed Captions support translation. Users can opt to have captions translated into a different language through the captions settings.
+
+## Activate Closed Captions
+
+### User Interaction
+
 The Azure Communication Services UI Library offers the capabilities to enable closed captions in the calling composite and set up the default language, but the end users are always capable to select the language via UI interaction.
 
 :::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Closed captions looks like into the UI Library":::
 
-In this article, you learn how to enable closed captions scenarios using the UI Library.
+#### Spoken language
+
+If a different language is being used in the meeting, users can change the spoken language via the UI. This change applies to all users in the call.
+
+#### Caption Language
+
+- There's no default caption language set.
+- Change the caption language by clicking on the Captions Language button after captions have started, if translation to a different language is desired.
 
 ## Prerequisites
 
