@@ -12,7 +12,9 @@ ms.collection: usx-security
 
 # Optimize Microsoft Sentinel costs with a prepurchase plan
 
-Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So the value of `1 CU` = `$1 USD`. Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased CUs automatically over the course of its one year term. Your prepurchase plan CUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
+Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So, the value of `1 CU` = `$1 USD`. 
+
+Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased CUs automatically over the course of its one year term. Your prepurchase plan CUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
 
 ## Prerequisites
 
@@ -29,7 +31,7 @@ Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you
 
 Here's an example of the decision making and cost savings for a prepurchase plan. If you have a commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion to the workspace and the analysis for Microsoft Sentinel. For example purposes, let's say that monthly cost is $20,000 USD with simplified pricing and provides a 39% savings over the pay-as-you-go tier with the same 200 GB/day. 
 
-A $100,000 USD prepurchase plan covers 5 months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That prepurchase plan is bought at a 22% discount for $78,000 USD. 
+A $100,000 USD prepurchase plan covers five months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That prepurchase plan is bought at a 22% discount for $78,000 USD. 
 
 The savings for the commitment tier and the prepurchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a prepurchase plan, the cost reduced to $78,000 USD for a combined savings of over 51%.
 
