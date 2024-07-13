@@ -5,9 +5,9 @@ description: Learn how to set up Automated ML training jobs for tabular data wit
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-author: manashgoswami
-ms.author: manashg
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
 ms.date: 07/12/2024
 ms.topic: how-to
 ms.custom: automl
