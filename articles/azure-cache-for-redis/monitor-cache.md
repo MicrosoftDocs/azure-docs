@@ -116,20 +116,6 @@ For nonclustered caches, it's best to use the metrics without the suffix `Instan
 
 In contrast, for clustered caches, use the metrics with the suffix `Instance Based`. Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric **Server Load (Instance Based)**, then apply filter **ShardId = 1**.
 
-## Organize with workbooks
-
-Once you define a metric, you can send it to a workbook. Workbooks provide a way to organize your metrics into groups that provide the information in coherent way. Azure Cache for Redis provides two workbooks by default in the **Azure Cache for Redis Insights** section:
-
-   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
-
-The two workbooks provided are:
-
-- **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
-
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replication health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
-
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 ### Log Analytics queries
