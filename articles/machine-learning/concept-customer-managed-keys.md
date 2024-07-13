@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: deeikele  
-author: deeikele  
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 05/21/2024
 ms.custom: engagement-fy23, build-2024
 monikerRange: 'azureml-api-2 || azureml-api-1'

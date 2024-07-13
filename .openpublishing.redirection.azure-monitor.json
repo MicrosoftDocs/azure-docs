@@ -11,6 +11,11 @@
             "redirect_document_id": false
          },
         {
+            "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/monitor-arc-enabled-vm-with-scom-managed-instance.md",
+            "redirect_url": "/azure/azure-monitor/scom-manage-instance/monitor-azure-off-azure-vm-with-scom-managed-instance",
+            "redirect_document_id": false
+         },
+        {
             "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/common-questions.md",
             "redirect_url": "/azure/azure-monitor/scom-manage-instance/scom-managed-instance-faq",
             "redirect_document_id": false
@@ -5510,6 +5515,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/resource-manager-cluster.md",
+            "redirect_url": "/azure/azure-monitor/logs/logs-dedicated-clusters",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/powerbi.md",
             "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
             "redirect_document_id": false
@@ -5552,6 +5562,41 @@
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-arm.md",
             "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings#diagnostic-setting-for-activity-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-standard-tests.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-azure-functions.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-private-test.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-alerts.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-test-migration.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/sla-report.md",
+            "redirect_url": "/azure/azure-monitor/app/availability",
             "redirect_document_id": false
         },
         {

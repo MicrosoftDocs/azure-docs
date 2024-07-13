@@ -7,7 +7,7 @@ ms.author: dacurwin
 ms.date: 01/09/2024
 ---
 
-# Overview of Container security in Microsoft Defender for Containers
+# Overview-Container protection in Defender for Cloud
 
 Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
 
@@ -50,7 +50,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
   :::image type="content" source="media/defender-for-containers/resource-filter.png" alt-text="Screenshot showing you where the resource filter is located." lightbox="media/defender-for-containers/resource-filter.png":::
 
-  For details included with this capability, check out the [containers section](recommendations-reference.md#container-recommendations) of the recommendations reference table, and look for recommendations with type "Control plane"
+  For details included with this capability, review [container recommendations](recommendations-reference-container.md ), and look for recommendations with type "Control plane"
 
 ### Sensor-based capabilities
 

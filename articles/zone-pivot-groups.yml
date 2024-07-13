@@ -3081,7 +3081,7 @@ groups:
   - id: windows-365
     title: Windows 365
   - id: dev-box
-    title: Dev Box
+    title: Microsoft Dev Box
 - id: azure-virtual-desktop-windows-clients
   title: Remote Desktop clients for Windows
   prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
@@ -3092,6 +3092,20 @@ groups:
     title: Azure Virtual Desktop Store app
   - id: rd-store
     title: Remote Desktop Store app
+- id: remote-desktop-clients
+  title: Remote Desktop clients
+  prompt: "Choose what you want to connect to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Microsoft Dev Box
+  - id: remote-desktop-services
+    title: Remote Desktop Services
+  - id: remote-pc
+    title: Remote PC
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -3265,6 +3279,15 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: eihaugho
+- id: gcz-aks-or-windows
+  title: Deploy to AKS or Windows
+  prompt: Choose your deployment option
+  pivots:
+  - id: gcz-aks
+    title: Azure Kubernetes Service (AKS)
+  - id: gcz-windows
+    title: Windows Virtual Machine
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
@@ -3301,6 +3324,15 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: sudhirsneha
+- id: create-pre-post-events-maintenance-configuration
+  title: Requirements to create pre and post events on maintenance configuration
+  prompt: Choose the workflow
+  pivots:
+  - id: new-mc
+    title: New Maintenance Configuration
+  - id: existing-mc
+    title: Existing Maintenance Configuration
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -3373,6 +3405,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: kgremban
+- id: iot-hub-howto-c2d-1
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
 # Owner: micahvivion
 - id: acs-errorcodes-client-server
   title: Code and subcode errors
@@ -3382,3 +3427,16 @@ groups:
     title: JavaScript
   - id: platform-server
     title: Server
+# Owner: craigshoemaker
+- id: swa-web-framework
+  title: Web Framework
+  prompt: Choose which web framework you are using
+  pivots:
+  - id: vanilla-js
+    title: No framework (vanilla JavaScript)
+  - id: angular
+    title: Angular
+  - id: react
+    title: React
+  - id: vue
+    title: Vue

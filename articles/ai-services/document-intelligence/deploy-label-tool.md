@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/11/2024
 ms.author: lajanuar
 monikerRange: 'doc-intel-2.1.0'
 ---
@@ -32,7 +32,7 @@ The Document Intelligence Sample Labeling tool is an application that provides a
 
 * [Run the Sample Labeling tool locally](#run-the-sample-labeling-tool-locally)
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](#deploy-with-azure-container-instances-aci)
-* [Use and contribute to the open-source OCR Form Labeling Tool](#open-source-on-github)
+* [Use and contribute to the open-source Form Labeling Tool](#open-source-on-github)
 
 ## Run the Sample Labeling tool locally
 
@@ -97,7 +97,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 ### Continuous deployment
 
-After you've created your web app, you can enable the continuous deployment option:
+After you create your web app, you can enable the continuous deployment option:
 
 * From the left pane, choose **Container settings**.
 * In the main window, navigate to Continuous deployment and toggle between the **On** and **Off** buttons to set your preference:
@@ -116,10 +116,10 @@ As an alternative to using the Azure portal, you can create a resource using the
 
 There's a few things you need know about this command:
 
-* `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random DNS name.
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random Domain Name System (DNS) identity.
 * This sample assumes that you have a resource group that you can use to create a resource. Replace `<resource_group_name>` with a valid resource group associated with your subscription.
 * You need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app.
-* This command automatically accepts EULA.
+* This command automatically accepts End User License Agreement (EULA).
 
 From the Azure CLI, run this command to create a web app resource for the Sample Labeling tool:
 
@@ -145,11 +145,11 @@ az container create \
 
 ### Connect to Microsoft Entra ID for authorization
 
-It's recommended that you connect your web app to Microsoft Entra ID. This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Microsoft Entra ID.
+We recommend that you connect your web app to Microsoft Entra ID. This connection ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](../../app-service/configure-authentication-provider-aad.md) to connect to Microsoft Entra ID.
 
 ## Open source on GitHub
 
-The OCR Form Labeling Tool is also available as an open-source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+The Form Labeling Tool is also available as an open-source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## Next steps
 
