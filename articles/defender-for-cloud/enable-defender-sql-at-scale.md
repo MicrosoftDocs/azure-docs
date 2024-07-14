@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
 ms.date: 07/14/2024
+#customer intent: As a user, I want to learn how to enable Defender for SQL servers at scale so that I can protect my SQL servers efficiently.
 ---
 
 # Enable Microsoft Defender for SQL servers on machines at scale
@@ -45,9 +46,9 @@ This page explains how you can enable the auto-provisioning process for Defender
 
 - Permissions: requires VM contributor, contributor or owner rules.
 
-## Run the Powershell script
+## Powershell script parameters and samples
 
-The Powershell script that enables Microsoft Defender for SQL on Machines on a given subscription. 
+The Powershell script that enables Microsoft Defender for SQL on Machines on a given subscription has several parameters that you can customize to fit your needs. The following table lists the parameters and their descriptions:
 
 | Parameter name | Required | Description |
 |--|--|--|
@@ -57,8 +58,40 @@ The Powershell script that enables Microsoft Defender for SQL on Machines on a g
 | DataCollectionRuleResourceId | Optional | The resource ID of the data collection rule, if you want to use a custom DCR instead of the default one. |
 | UserAssignedIdentityResourceId | Optional | The resource ID of the user assigned identity, if you want to use a custom user assigned identity instead of the default one. |
 
-1. Open a Powershell window.
-1. 
-1. 
+The following is a sample script for when you use a default Log Analytics workspace, data collection rule and managed identity.
 
 ```powershell
+Write-Host "------ Enable Defender for SQL on Machines example ------" 
+$SubscriptionId = "<SubscriptionID>"
+.\EnableDefenderForSqlOnMachines.ps1 -SubscriptionId $SubscriptionId -RegisterSqlVmAgnet $RegisterSqlVmAgnet 
+```
+
+The following is a sample script for when you use a custom Log Analytics workspace, data collection rule and managed identity.
+
+```powershell
+Write-Host "------ Enable Defender for SQL on Machines example ------" 
+$SubscriptionId = "<SubscriptionID>" 
+$RegisterSqlVmAgnet = "false" 
+$WorkspaceResourceId = "/subscriptions/<SubscriptionID>/resourceGroups/someResourceGroup/providers/Microsoft.OperationalInsights/workspaces/someWorkspace" 
+$DataCollectionRuleResourceId = "/subscriptions/<SubscriptionID>/resourceGroups/someOtherResourceGroup/providers/Microsoft.Insights/dataCollectionRules/someDcr" 
+$UserAssignedIdentityResourceId = "/subscriptions/<SubscriptionID>/resourceGroups/someElseResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/someManagedIdentity" 
+.\EnableDefenderForSqlOnMachines.ps1 -SubscriptionId $SubscriptionId -RegisterSqlVmAgnet $RegisterSqlVmAgnet -WorkspaceResourceId $WorkspaceResourceId -DataCollectionRuleResourceId $DataCollectionRuleResourceId -UserAssignedIdentityResourceId $UserAssignedIdentityResourceId
+```
+
+## Enable Defender for SQL servers on machines at scale
+
+
+1. Open a Powershell window.
+
+1. Copy the [EnableDefenderForSqlOnMachines.ps1](https://github.com/Azure/Microsoft-Defender-for-Cloud/blob/fd04330a79a4bcd48424bf7a4058f44216bc40e4/Powershell%20scripts/Enable%20Defender%20for%20SQL%20servers%20on%20machines/EnableDefenderForSqlOnMachines.ps1) script.
+
+1. Paste the script into Powershell.
+
+1. Enter parameter information as needed.
+
+1. Run the script. 
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Scan your SQL servers for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
