@@ -12,9 +12,9 @@ ms.date: 07/14/2024
 
 Microsoft Defender for Cloud's Defender for Databases plan provides security for SQL servers on virtual machines. In order to protect your databases, the Azure Monitoring Agent (AMA) must be implemented to prevent attacks and to identify configuration errors. 
 
-When you enable Defender for Databases, it automatically enables the auto provisioning process which configures of all the required agent components necessary for the plan to function. The auto provisioning process includes installation the configuration of the AMA, workspace configuration, and the virtusl machines (VM) extension and solution.
+When you enable Defender for Databases, it automatically enables the auto provisioning process that configures of all the required agent components necessary for the plan to function. The auto provisioning process includes installation the configuration of the AMA, workspace configuration, and the virtual machines (VM) extension and solution.
 
-This page explains how you can enable the auto-provisioning process for Defender for Databases across multiple subscriptions simultaneously using PowerShell. This process applies to SQL servers hosted on Azure VMs, on-premises environments, and Azure Arc-enabled SQL servers. You will also learn how to utilize additional functionalities that accommodate a variety of configurations, including:
+This page explains how you can enable the autoprovisioning process for Defender for Databases across multiple subscriptions simultaneously using PowerShell. This process applies to SQL servers hosted on Azure VMs, on-premises environments, and Azure Arc-enabled SQL servers, and how to utilize extra functionalities that accommodate various configurations, including:
 
 - Custom data collection rules
 
@@ -28,15 +28,15 @@ This page explains how you can enable the auto-provisioning process for Defender
 
 - Gain knowledge on: 
     - [SQL server on VMs](https://azure.microsoft.com/products/virtual-machines/sql-server/)
-    - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview?view=sql-server-ver16)
+    - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
     - [How to install Log Analytics agent on Windows computers](../azure-monitor/agents/agent-windows.md)
     - [How to migrate to Azure Monitor Agent from Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md)
 
 - [Connect AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
-- Install Powershell on [Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4), [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.4), [MacOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.4), or [ARM](/powershell/scripting/install/powershell-on-arm?view=powershell-7.4).
-- [Install the following Powershell modules](/powershell/module/powershellget/install-module?view=powershellget-3.x):
+- Install PowerShell on [Windows](/powershell/scripting/install/installing-powershell-on-windows), [Linux](/powershell/scripting/install/installing-powershell-on-linux), [macOS](/powershell/scripting/install/installing-powershell-on-macos), or [ARM](/powershell/scripting/install/powershell-on-arm).
+- [Install the following PowerShell modules](/powershell/module/powershellget/install-module):
     - Az.Resources
     - Az.OperationalInsights
     - Az.Accounts
@@ -44,11 +44,11 @@ This page explains how you can enable the auto-provisioning process for Defender
     - Az.PolicyInsights
     - Az.Security
 
-- Permissions: requires VM contributor, contributor or owner rules.
+- Permissions: requires VM contributor, contributor, or owner rules.
 
-## Powershell script parameters and samples
+## PowerShell script parameters and samples
 
-The Powershell script that enables Microsoft Defender for SQL on Machines on a given subscription has several parameters that you can customize to fit your needs. The following table lists the parameters and their descriptions:
+The PowerShell script that enables Microsoft Defender for SQL on Machines on a given subscription has several parameters that you can customize to fit your needs. The following table lists the parameters and their descriptions:
 
 | Parameter name | Required | Description |
 |--|--|--|
@@ -58,7 +58,7 @@ The Powershell script that enables Microsoft Defender for SQL on Machines on a g
 | DataCollectionRuleResourceId | Optional | The resource ID of the data collection rule, if you want to use a custom DCR instead of the default one. |
 | UserAssignedIdentityResourceId | Optional | The resource ID of the user assigned identity, if you want to use a custom user assigned identity instead of the default one. |
 
-The following is a sample script for when you use a default Log Analytics workspace, data collection rule and managed identity.
+The following sample script is applicable when you use a default Log Analytics workspace, data collection rule, and managed identity.
 
 ```powershell
 Write-Host "------ Enable Defender for SQL on Machines example ------" 
@@ -66,7 +66,7 @@ $SubscriptionId = "<SubscriptionID>"
 .\EnableDefenderForSqlOnMachines.ps1 -SubscriptionId $SubscriptionId -RegisterSqlVmAgnet $RegisterSqlVmAgnet 
 ```
 
-The following is a sample script for when you use a custom Log Analytics workspace, data collection rule and managed identity.
+The following sample script is applicable when you use a custom Log Analytics workspace, data collection rule, and managed identity.
 
 ```powershell
 Write-Host "------ Enable Defender for SQL on Machines example ------" 
@@ -80,12 +80,13 @@ $UserAssignedIdentityResourceId = "/subscriptions/<SubscriptionID>/resourceGroup
 
 ## Enable Defender for SQL servers on machines at scale
 
+You can enable Defender for SQL servers on machines at scale by following these steps.
 
-1. Open a Powershell window.
+1. Open a PowerShell window.
 
 1. Copy the [EnableDefenderForSqlOnMachines.ps1](https://github.com/Azure/Microsoft-Defender-for-Cloud/blob/fd04330a79a4bcd48424bf7a4058f44216bc40e4/Powershell%20scripts/Enable%20Defender%20for%20SQL%20servers%20on%20machines/EnableDefenderForSqlOnMachines.ps1) script.
 
-1. Paste the script into Powershell.
+1. Paste the script into PowerShell.
 
 1. Enter parameter information as needed.
 
