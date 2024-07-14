@@ -99,101 +99,101 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
 
         ```json
         {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "dataCollectionRuleName": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the name of the data collection rule to create."
-            }
-        },
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the region in which to create the data collection rule. The must be the same region as the destination Log Analytics workspace."
-            }
-        },
-        "workspaceResourceId": {
-            "type": "string",
-            "metadata": {
-                "description": "The Azure resource ID of the Log Analytics workspace in which you created a custom table with the Auxiliary plan."
-            }
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Insights/dataCollectionRules",
-            "name": "[parameters('dataCollectionRuleName')]",
-            "location": "[parameters('location')]",
-            "apiVersion": "2023-03-11",
-            "kind": "Direct",
-            "properties": {
-                "streamDeclarations": {
-                    "Custom-table_name_CL": {
-                        "columns": [
-                            {
-                    "name": "TimeGenerated",
-                    "type": "datetime"
-                },
-                {
-                    "name": "StringProperty",
-                    "type": "string"
-                },
-                {
-                    "name": "IntProperty",
-                    "type": "int"
-                },
-                 {
-                    "name": "LongProperty",
-                    "type": "long"
-                },
-                 {
-                    "name": "RealProperty",
-                    "type": "real"
-                },
-                 {
-                    "name": "BooleanProperty",
-                    "type": "boolean"
-                },
-                 {
-                    "name": "GuidProperty",
-                    "type": "guid"
-                },
-                 {
-                    "name": "DateTimeProperty",
-                    "type": "datetime"
-                }
+            "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "dataCollectionRuleName": {
+                    "type": "string",
+                    "metadata": {
+                        "description": "Specifies the name of the data collection rule to create."
                     }
                 },
-                "destinations": {
-                    "logAnalytics": [
-                        {
-                            "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                            "name": "myworkspace"
-                        }
-                    ]
+                "location": {
+                    "type": "string",
+                    "metadata": {
+                        "description": "Specifies the region in which to create the data collection rule. The must be the same region as the destination Log Analytics workspace."
+                    }
                 },
-                "dataFlows": [
-                    {
-                        "streams": [
-                            "Custom-table_name_CL"
-                        ],
-                        "destinations": [
-                            "myworkspace"
+                "workspaceResourceId": {
+                    "type": "string",
+                    "metadata": {
+                        "description": "The Azure resource ID of the Log Analytics workspace in which you created a custom table with the Auxiliary plan."
+                    }
+                }
+            },
+            "resources": [
+                {
+                    "type": "Microsoft.Insights/dataCollectionRules",
+                    "name": "[parameters('dataCollectionRuleName')]",
+                    "location": "[parameters('location')]",
+                    "apiVersion": "2023-03-11",
+                    "kind": "Direct",
+                    "properties": {
+                        "streamDeclarations": {
+                            "Custom-table_name_CL": {
+                                "columns": [
+                                    {
+                            "name": "TimeGenerated",
+                            "type": "datetime"
+                        },
+                        {
+                            "name": "StringProperty",
+                            "type": "string"
+                        },
+                        {
+                            "name": "IntProperty",
+                            "type": "int"
+                        },
+                        {
+                            "name": "LongProperty",
+                            "type": "long"
+                        },
+                        {
+                            "name": "RealProperty",
+                            "type": "real"
+                        },
+                        {
+                            "name": "BooleanProperty",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "GuidProperty",
+                            "type": "guid"
+                        },
+                        {
+                            "name": "DateTimeProperty",
+                            "type": "datetime"
+                        }
+                            }
+                        },
+                        "destinations": {
+                            "logAnalytics": [
+                                {
+                                    "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                                    "name": "myworkspace"
+                                }
+                            ]
+                        },
+                        "dataFlows": [
+                            {
+                                "streams": [
+                                    "Custom-table_name_CL"
+                                ],
+                                "destinations": [
+                                    "myworkspace"
+                                ]
+                            }
                         ]
                     }
-                ]
+                }
+            ],
+            "outputs": {
+                "dataCollectionRuleId": {
+                    "type": "string",
+                    "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
+                }
             }
         }
-    ],
-    "outputs": {
-        "dataCollectionRuleId": {
-            "type": "string",
-            "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
-        }
-    }
-    }
         ```
     
     1. [Grant your application permission to use your DCR](../logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
