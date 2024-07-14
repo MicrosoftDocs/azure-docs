@@ -19,7 +19,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Security update](#security-update) <br><br> - [Add wildcards to allowlist domain names](#use-wildcards-allowlist-domain-names) |
+| **OT networks** | - [Security update](#security-update) <br> - [Add wildcards to allowlist domain names](#use-wildcards-allowlist-domain-names) |
 
 ### Security update
 
