@@ -83,7 +83,9 @@ Provide this payload - update the table name and adjust the columns based on you
 
 There are currently two ways to ingest data to a custom table with the Auxiliary plan:
 
-- [Collect logs from a text or JSON file with Azure Monitor Agent](../agents/data-sources-custom-logs.md). If you this method, your custom table must only have two columns: `TimeGenerated` and `RawData` (of type `string`) columns. The data collection rule sends the entirety of each log entry you collect to the `RawData` column and automatically populates the `TimeGenerated` column with the time the log is ingested.
+- [Collect logs from a text or JSON file with Azure Monitor Agent](../agents/data-sources-custom-logs.md).
+
+    If you this method, your custom table must only have two columns - `TimeGenerated` and `RawData` (of type `string`). The data collection rule sends the entirety of each log entry you collect to the `RawData` column, and Azure Monitor Logs automatically populates the `TimeGenerated` column with the time the log is ingested.
 
 - Send data to Azure Monitor using Logs ingestion API. To use this method:
 
