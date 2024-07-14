@@ -3,7 +3,7 @@ title: Optimize costs for Azure Disk Storage with reservations
 description: Learn about purchasing Azure Disk Storage reservations to save costs on premium SSD managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 01/25/2023
+ms.date: 07/12/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
 ---
@@ -44,6 +44,7 @@ Reservation discounts are currently unavailable for the following:
 
 - Unmanaged disks or page blobs
 - Ultra Disks
+- Premium SSD v2 disks
 - Standard solid-state drives (SSDs) or standard hard-disk drives (HDDs)
 - Premium SSD SKUs smaller than P30: P1, P2, P3, P4, P6, P10, P15, and P20 SSD SKUs
 - Disks in Azure Government, Azure Germany, or Microsoft Azure operated by 21Vianet regions
