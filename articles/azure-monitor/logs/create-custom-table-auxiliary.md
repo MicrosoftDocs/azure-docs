@@ -132,39 +132,39 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
                             "Custom-table_name_CL": {
                                 "columns": [
                                     {
-                            "name": "TimeGenerated",
-                            "type": "datetime"
-                        },
-                        {
-                            "name": "StringProperty",
-                            "type": "string"
-                        },
-                        {
-                            "name": "IntProperty",
-                            "type": "int"
-                        },
-                        {
-                            "name": "LongProperty",
-                            "type": "long"
-                        },
-                        {
-                            "name": "RealProperty",
-                            "type": "real"
-                        },
-                        {
-                            "name": "BooleanProperty",
-                            "type": "boolean"
-                        },
-                        {
-                            "name": "GuidProperty",
-                            "type": "guid"
-                        },
-                        {
-                            "name": "DateTimeProperty",
-                            "type": "datetime"
-                        }
-                            }
-                        },
+                                        "name": "TimeGenerated",
+                                        "type": "datetime"
+                                    },
+                                    {
+                                        "name": "StringProperty",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "IntProperty",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "LongProperty",
+                                        "type": "long"
+                                    },
+                                    {
+                                        "name": "RealProperty",
+                                        "type": "real"
+                                    },
+                                    {
+                                        "name": "BooleanProperty",
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "name": "GuidProperty",
+                                        "type": "guid"
+                                    },
+                                    {
+                                        "name": "DateTimeProperty",
+                                        "type": "datetime"
+                                    }
+                                        }
+                                    },
                         "destinations": {
                             "logAnalytics": [
                                 {
@@ -196,8 +196,9 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
         ```
 
         Where:
-        - `myworkspace` is the name of your 
-        `table_name_CL` with the name of your table and the column names and types based on the columns in your table:
+        - `myworkspace` is the name of your Log Analytics workspace.
+        - `table_name_CL` is the name of your table.
+        -  `columns` includes the same columns you set in [Create a custom table with the Auxiliary plan](#create-a-custom-table-with-the-auxiliary-plan).
     
     1. [Grant your application permission to use your DCR](../logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
 
