@@ -21,10 +21,8 @@ This article explains how to create a custom table with the Auxiliary plan in yo
 To create a custom table and collect, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- A [data collection endpoint]().
+- A [data collection endpoint](../essentials/data-collection-endpoint-overview.md).
    
-  ***  All tables in a Log Analytics workspace must have a column named `TimeGenerated`. If your sample data has a column named `TimeGenerated`, then this value will be used to identify the ingestion time of the record. If not, a `TimeGenerated` column will be added to the transformation in your DCR for the table. For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
-
 ## Create a custom table with the Auxiliary plan
 
 To create a custom table, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update) by using this command:
