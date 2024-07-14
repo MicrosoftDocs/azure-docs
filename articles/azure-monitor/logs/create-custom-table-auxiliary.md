@@ -207,7 +207,8 @@ During public preview, these limitation apply:
 - You can set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
 - Tables with the Auxiliary plan: 
     - Do not support columns with dynamic data.
-    - Support total retention of up to one year.
+    - Have a fixed total retention of 365 days.
+    - Are currently unbilled.
 - A data collection rule that sends data to a table with an Auxiliary plan:
     - Can only send data to a single table.
     - Cannot include a [transformation](../essentials/data-collection-transformations.md). 
