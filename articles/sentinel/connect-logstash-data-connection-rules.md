@@ -1,10 +1,10 @@
 ---
 title: Use Logstash to stream logs with pipeline transformations via DCR-based API
 description: Use Logstash to forward logs from external data sources into custom and standard tables in Microsoft Sentinel, and to configure the output with DCRs. 
-author: limwainstein
+author: yelevin
 ms.topic: how-to
-ms.date: 11/07/2022
-ms.author: lwainstein
+ms.date: 07/14/2024
+ms.author: yelevin
 ---
 
 # Use Logstash to stream logs with pipeline transformations via DCR-based API
