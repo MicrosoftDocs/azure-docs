@@ -193,7 +193,7 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
             "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
         }
     }
-}
+    }
         ```
     
     1. [Grant your application permission to use your DCR](../logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
