@@ -147,13 +147,11 @@ Use the [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.
 
 For more information, see [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
 
-
 ## Allow internet connections on an OT network
 
 Decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
 
 All OT sensor users can view a currently configured list of domains in a [data mining report](how-to-create-data-mining-queries.md), including the FQDNs, resolved IP addresses, and the last resolution time.
-
 
 **To define a DNS allowlist:**
 
@@ -165,10 +163,10 @@ All OT sensor users can view a currently configured list of domains in a [data m
 
     :::image type="content" source="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png":::
 
-1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains.
+1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains. You can also use the `*` wildcard at any place in the domain name, to allow all subdomains to easily be added to the whitelist without having to list each one. For example, `*.microsoft.com` or `teams@microsoft.*`.
+    You can also use the `*` wildcard at any place in the domain name, such as `*.microsoft.com` or `teams@microsoft.*`. Using the wildcard allows all subdomains to easily be added to the whitelist without having to list each one.
 
 1. Select **Submit** to save your changes.
-
 
 **To view the current allowlist in a data mining report:**
 
@@ -181,7 +179,6 @@ For example:
 The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert. For example:
 
 :::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png" alt-text="Screenshot of data mining report of allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png":::
-
 
 ## Create alert comments on an OT sensor
 
