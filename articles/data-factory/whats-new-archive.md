@@ -402,7 +402,7 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 
 <tr><td><b>Region expansion</b></td><td>Data Factory is now available in West US3 and Jio India West</td><td>Data Factory is now available in two new regions: West US3 and Jio India West. You can colocate your ETL workflow in these new regions if you're using these regions to store and manage your modern data warehouse. You can also use these regions for business continuity and disaster recovery purposes if you need to fail over from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
 
-<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
+<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Entra ID tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 </table>
 
 ## January 2022

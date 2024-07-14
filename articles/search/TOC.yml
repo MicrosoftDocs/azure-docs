@@ -190,6 +190,8 @@
     items:
     - name: Create a search service
       href: search-create-service-portal.md
+    - name: Choose a region
+      href: search-region-support.md
     - name: Choose a tier
       href: search-sku-tier.md
     - name: Service limits

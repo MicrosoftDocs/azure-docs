@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
-ms.reviewer: ssalgado
-author: swatig007
-ms.author: swatig
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 12/28/2023
 ---
 

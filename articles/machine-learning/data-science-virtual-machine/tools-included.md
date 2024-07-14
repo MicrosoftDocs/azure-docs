@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: reference
-ms.reviewer: franksolomon
+ms.reviewer: jcioffi
 ms.date: 05/21/2024
 ms.custom: devx-track-python
 ---
