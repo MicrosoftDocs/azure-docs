@@ -27,7 +27,7 @@ This update resolves a CVE, which is listed in [software version 24.1.4 feature 
 
 ### Use wildcards allowlist domain names
 
-When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](/how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
+When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](/how-to-accelerate-alert-incident-response#allow-internet-connections-on-an-ot-network).
 
 ## June 2024
 
