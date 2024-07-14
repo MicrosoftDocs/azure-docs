@@ -79,7 +79,7 @@ Provide this payload - update the table name and adjust the columns based on you
 }
 ```
 
-## Create a data collection rule to send data to a custom table with the Auxiliary plan
+## Send data to a custom table with the Auxiliary plan
 
 There are currently two ways to ingest data to a custom table with the Auxiliary plan:
 
