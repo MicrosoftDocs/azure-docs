@@ -70,38 +70,30 @@ dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.6
 From the project directory, open the *program.cs* file and replace the contents with the following code:
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Azure;
 using Azure.AI.OpenAI;
+using OpenAI.Images;
+using static System.Environment;
 
-namespace Azure.AI.OpenAI.Tests.Samples
-{
-    public partial class GenerateImages
-    {
-        // add an async Main method:
-        public static async Task Main(string[] args)
+string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
+
+// This must match the custom deployment name you chose for your model
+ImageClient chatClient = azureClient.GetImageClient("dalle-3");
+
+var imageGeneration = await chatClient.GenerateImageAsync(
+        "a happy monkey sitting in a tree, in watercolor",
+        new ImageGenerationOptions()
         {
-            string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-            string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-
-            OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
-
-            Response<ImageGenerations> imageGenerations = await client.GetImageGenerationsAsync(
-                new ImageGenerationOptions()
-                {
-                    Prompt = "a happy monkey eating a banana, in watercolor",
-                    Size = ImageSize.Size256x256,
-                });
-
-            // Image Generations responses provide URLs you can use to retrieve requested images
-            Uri imageUri = imageGenerations.Value.Data[0].Url;
-            
-            // Print the image URI to console:
-            Console.WriteLine(imageUri);
+            Size = GeneratedImageSize.W1024xH1024
         }
-    }
-}
+    );
+
+Console.WriteLine(imageGeneration.Value.ImageUri);
 ```
 
 Build and run the application from your application directory with these commands:
@@ -116,7 +108,7 @@ dotnet run
 The URL of the generated image is printed to the console.
 
 ```console
-https://dalleproduse.blob.core.windows.net/private/images/552c5522-af4a-4877-a19c-400fac04a422/generated_00.png?se=2023-08-17T16%3A54%3A40Z&sig=XGCIx9r0WvWTJ0LL%2FJGymo2WYp4FDbSQNNrGRUnnUzI%3D&ske=2023-08-19T01%3A10%3A14Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2023-08-12T01%3A10%3A14Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02
+https://dalleproduse.blob.core.windows.net/private/images/b7ac5e55-f1f8-497a-8d0e-8f51446bf538/generated_00.png?se=2024-07-12T13%3A47%3A56Z&sig=Zri37iYVTVtc52qzTFBOqPgSHvXwEhcO86Smv2ojB%2FE%3D&ske=2024-07-17T12%3A15%3A44Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2024-07-10T12%3A15%3A44Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02
 ```
 
 > [!NOTE]

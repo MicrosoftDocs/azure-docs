@@ -14,9 +14,6 @@ ms.custom:
 
 # Relocate an Azure Event Hubs dedicated cluster to another region
 
-
-[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
-
 This article shows you how to export an Azure Resource Manager template for an existing Event Hubs dedicated cluster and then use the template to create a cluster with same configuration settings in another region. 
 
 If you have other resources such as namespaces and event hubs in the Azure resource group that contains the Event Hubs cluster, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step. The steps in this article show you how to export an **Event Hubs cluster** to the template. The steps for exporting a **resource group** to the template are similar. 
