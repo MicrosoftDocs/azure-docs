@@ -63,7 +63,7 @@ With the private endpoint provisioned and approved, you can finally leverage the
 
 1. Fill all required fields for the connector. Make sure that the integration runtime selected is the one on which you've created the private endpoint in its managed virtual network. Also, make sure that the **Interactive authoring** feature is enabled on that integration runtime so that you can test the connection when all required information has been provided.
 
-   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime" alt-text="Select integration runtime with managed virtual network." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime":::
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png" alt-text="Select integration runtime with managed virtual network." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png":::
 
 1. Select an **Encryption method**. If you select **No encryption**, the connection will only succeed if the server parameter [require_secure_transport](./server-parameters-table-tls.md?#require_secure_transport) is set to `off`, which is not a recommended practice since it relaxes security.
 
