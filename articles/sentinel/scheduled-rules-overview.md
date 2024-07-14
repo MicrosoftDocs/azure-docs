@@ -195,7 +195,7 @@ The analytics rule wizard allows you to test its efficacy by running it on the c
 
 Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
 
-:::image type="content" source="media/create-analytics-rules/results-simulation.png" alt-text="Results simulation screenshots":::
+:::image type="content" source="media/create-analytics-rules/results-simulation.png" alt-text="Screenshots of results simulations.":::
 
 If you see that your query would trigger too many or too-frequent alerts, you can experiment with the scheduling and threshold settings and run the simulation again.
 
