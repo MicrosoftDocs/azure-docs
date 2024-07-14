@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Create a custom table with the Auxiliary table plan in your Log Analytics workspace
+title: Tutorial: Set up a custom table with the Auxiliary table plan for low-cost data ingestion and retention in your Log Analytics workspace
 description: Create a custom table with the Auxiliary table plan in your Log Analytics workspace. 
 author: guywi-ms
 ms.author: guywild
@@ -10,18 +10,21 @@ ms.date: 07/10/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to create a custom table with the Auxiliary table plan, so that I can ingest and retain data at a low cost for auditing and compliance.
 ---
 
-# Create a custom table with the Auxiliary table plan in your Log Analytics workspace
+# Set up a custom table with the Auxiliary table plan for low-cost data ingestion and retention in your Log Analytics workspace
 
-[Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type-and-schema). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
+The [Auxiliary table plan](../logs/data-platform-logs.md#table-plans) lets you ingest and retain data in your Log Analyics workspace at a low cost. Azure Monitor Logs currently supports the Auxiliary table plan on [data collection rule (DCR)-based custom tables](../logs/manage-logs-tables.md#table-type-and-schema) to which you send data you collect using [Azure Monitor Agent] or the [Logs ingestion API]().
+
+This article explains how to create a custom table with the Auxiliary plan in your Log Analytics workspace and set up a data collection rule that sends data to this table.
 
 > [!IMPORTANT]
 > Whenever you update a table schema, be sure to [update any data collection rules](../essentials/data-collection-rule-overview.md) that send data to the table. The table schema you define in your data collection rule determines how Azure Monitor streams data to the destination table. Azure Monitor does not update data collection rules automatically when you make table schema changes.  
 
 ## Prerequisites
 
-To create a custom table, you need:
+To create a custom table and collect, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+- A [data collection endpoint]().
    
   ***  All tables in a Log Analytics workspace must have a column named `TimeGenerated`. If your sample data has a column named `TimeGenerated`, then this value will be used to identify the ingestion time of the record. If not, a `TimeGenerated` column will be added to the transformation in your DCR for the table. For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
 
@@ -81,6 +84,12 @@ Provide this payload - update the table name and adjust the columns based on you
 }
 ```
 
+## Limitations and known issues
+
+- A data collection rule that sends data to a table with an Auxiliary plan:
+    - Can only send data to a single table.
+    - Cannot include a [transformation]().
+- 
 
 ## Next steps
 
