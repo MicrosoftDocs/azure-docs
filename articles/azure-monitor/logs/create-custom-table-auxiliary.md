@@ -16,9 +16,6 @@ The [Auxiliary table plan](../logs/data-platform-logs.md#table-plans) lets you i
 
 This article explains how to create a custom table with the Auxiliary plan in your Log Analytics workspace and set up a data collection rule that sends data to this table.
 
-> [!IMPORTANT]
-> Whenever you update a table schema, be sure to [update any data collection rules](../essentials/data-collection-rule-overview.md) that send data to the table. The table schema you define in your data collection rule determines how Azure Monitor streams data to the destination table. Azure Monitor does not update data collection rules automatically when you make table schema changes.  
-
 ## Prerequisites
 
 To create a custom table and collect, you need:
@@ -95,7 +92,7 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
     1. [Create a custom table with the Auxiliary plan](#create-a-custom-table-with-the-auxiliary-plan) as described in this article.
     1. Follow the steps described in [Tutorial: Send data to Azure Monitor using Logs ingestion API](../logs/tutorial-logs-ingestion-api.md) to: 
         1. [Create a Microsoft Entra application](../logs/tutorial-logs-ingestion-api.md#create-microsoft-entra-application). 
-        1. [Create a data collection rule](../logs/tutorial-logs-ingestion-api.md#create-data-collection-rule) using this ARM template. Update `table_name_CL` with the name of your table and the column names and types based on the columns in your table:
+        1. [Create a data collection rule](../logs/tutorial-logs-ingestion-api.md#create-data-collection-rule) using this ARM template.
 
         ```json
         {
@@ -195,15 +192,23 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
             }
         }
         ```
+
+        Where:
+        - `myworkspace` is the name of your 
+        `table_name_CL` with the name of your table and the column names and types based on the columns in your table:
     
     1. [Grant your application permission to use your DCR](../logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
 
-## Limitations and known issues
+## Public preview limitations
 
-- You can currently set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
+During public preview, these limitation apply:
+
+- The Auxiliary plan is supported in the UK South, Israel Center, East US, Australia East and Canada Central regions.
+- You can set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
+- A table with an Auxiliary plan cannot have a column with the dynamic data type.
 - A data collection rule that sends data to a table with an Auxiliary plan:
     - Can only send data to a single table.
-    - Cannot include a [transformation]().
+    - Cannot include a [transformation](../essentials/data-collection-transformations.md).
 
 ## Next steps
 
