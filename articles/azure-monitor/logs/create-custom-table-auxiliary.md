@@ -76,7 +76,7 @@ Provide this payload - update the table name and adjust the columns based on you
             ]
         },
         "totalRetentionInDays": 365,
-        "plan": "Bronze"
+        "plan": "Auxiliary"
     }
 }
 ```
