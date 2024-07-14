@@ -205,15 +205,18 @@ During public preview, these limitation apply:
 
 - The Auxiliary plan is supported in the UK South, Israel Center, East US, Australia East and Canada Central regions.
 - You can set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
-- A table with an Auxiliary plan cannot have a column with the dynamic data type.
+- Tables with the Auxiliary plan: 
+    - Do not support columns with dynamic data.
+    - Support total retention of up to one year.
 - A data collection rule that sends data to a table with an Auxiliary plan:
     - Can only send data to a single table.
-    - Cannot include a [transformation](../essentials/data-collection-transformations.md).
+    - Cannot include a [transformation](../essentials/data-collection-transformations.md). 
+
 
 ## Next steps
 
 Learn more about:
 
+- [Azure Monitor Logs table plans](../logs/data-platform-logs.md#table-plans)
 - [Collecting logs with the Log Ingestion API](../logs/logs-ingestion-api-overview.md)
-- [Collecting logs with Azure Monitor Agent](../agents/agents-overview.md)
 - [Data collection rules](../essentials/data-collection-endpoint-overview.md)
