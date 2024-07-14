@@ -163,8 +163,7 @@ All OT sensor users can view a currently configured list of domains in a [data m
 
     :::image type="content" source="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png":::
 
-1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains. You can use the `*` wildcard at any place in the domain name, allowing all subdomains to easily be added to the allowlist without having to list each one. For example, `*.microsoft.com` or `teams@microsoft.*`.
-    You can use the `*` wildcard at any place in the domain name, such as `*.microsoft.com` or `teams@microsoft.*`. Using the wildcard allows you to easily add subdomains to the allowlist without having to list each one.
+1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains. You can use the `*` wildcard at any place in the domain name, allowing all subdomains to easily be added to the allowlist without having to list each one. For example, `*.microsoft.com` or `teams@microsoft.*`.<!--You can use the `*` wildcard at any place in the domain name, such as `*.microsoft.com` or `teams@microsoft.*`. Using the wildcard allows you to easily add subdomains to the allowlist without having to list each one.-->
 
 1. Select **Submit** to save your changes.
 
