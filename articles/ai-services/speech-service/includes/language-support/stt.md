@@ -33,9 +33,9 @@ ms.author: eur
 | `bn-IN` | Bengali (India) | Plain text |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | Plain text |
 | `ca-ES` | Catalan | Plain text<br/><br/>Pronunciation |
-| `cs-CZ` | Czech (Czechia) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
+| `cs-CZ` | Czech (Czechia) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `cy-GB` | Welsh (United Kingdom) | Plain text |
-| `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation |
+| `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation |
 | `de-AT` | German (Austria) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `de-CH` | German (Switzerland) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `de-DE` | German (Germany) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
@@ -44,17 +44,17 @@ ms.author: eur
 | `en-CA` | English (Canada) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `en-GB` | English (United Kingdom) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `en-GH` | English (Ghana) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
-| `en-HK` | English (Hong Kong SAR) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation |
-| `en-IE` | English (Ireland) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
+| `en-HK` | English (Hong Kong SAR) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation |
+| `en-IE` | English (Ireland) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `en-IN` | English (India) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `en-KE` | English (Kenya) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
-| `en-NG` | English (Nigeria) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation |
-| `en-NZ` | English (New Zealand) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation |
-| `en-PH` | English (Philippines) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation |
-| `en-SG` | English (Singapore) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation |
+| `en-NG` | English (Nigeria) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation |
+| `en-NZ` | English (New Zealand) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation |
+| `en-PH` | English (Philippines) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation |
+| `en-SG` | English (Singapore) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation |
 | `en-TZ` | English (Tanzania) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `en-US` | English (United States) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
-| `en-ZA` | English (South Africa) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Pronunciation<br/><br/>Phrase list |
+| `en-ZA` | English (South Africa) | Audio + human-labeled transcript<br/><br/>Audio<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list |
 | `es-AR` | Spanish (Argentina) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-BO` | Spanish (Bolivia) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
 | `es-CL` | Spanish (Chile) | Plain text<br/><br/>Structured text<br/><br/>Pronunciation |
@@ -133,8 +133,8 @@ ms.author: eur
 | `sq-AL` | Albanian (Albania) | Plain text |
 | `sr-RS` | Serbian (Cyrillic, Serbia) | Plain text |
 | `sv-SE` | Swedish (Sweden) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Output format<br/><br/>Pronunciation<br/><br/>Phrase list |
-| `sw-KE` | Swahili (Kenya) | Plain text |
-| `sw-TZ` | Swahili (Tanzania) | Plain text |
+| `sw-KE` | Kiswahili (Kenya) | Plain text |
+| `sw-TZ` | Kiswahili (Tanzania) | Plain text |
 | `ta-IN` | Tamil (India) | Plain text |
 | `te-IN` | Telugu (India) | Plain text |
 | `th-TH` | Thai (Thailand) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Phrase list |
@@ -150,6 +150,6 @@ ms.author: eur
 | `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | Plain text |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Output format<br/><br/>Phrase list |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Plain text<br/><br/>Phrase list |
-| `zu-ZA` | Zulu (South Africa) | Plain text |
+| `zu-ZA` | isiZulu (South Africa) | Plain text |
 
 <sup>1</sup> The model is bilingual and also supports English.
