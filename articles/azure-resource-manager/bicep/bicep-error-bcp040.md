@@ -3,7 +3,7 @@ title: BCP040
 description: Error/warning - String interpolation is not supported for keys on objects of type <type-definition>.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep error/warning code - BCP040

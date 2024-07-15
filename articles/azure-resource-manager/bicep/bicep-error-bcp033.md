@@ -3,7 +3,7 @@ title: BCP033
 description: Error/warning - Expected a value of type <data-type> but the provided value is of type <data-type>.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/28/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep error/warning code - BCP033

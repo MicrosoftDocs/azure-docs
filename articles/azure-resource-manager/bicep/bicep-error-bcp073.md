@@ -3,7 +3,7 @@ title: BCP073
 description: Warning - The property <property-name> is read-only. Expressions cannot be assigned to read-only properties.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep warning code - BCP073

@@ -3,7 +3,7 @@ title: BCP327
 description: Error/warning - The provided value (which will always be greater than or equal to <value>) is too large to assign to a target for which the maximum allowable value is <max-value>.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/02/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep error/warning code - BCP327

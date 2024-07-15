@@ -3,7 +3,7 @@ title: BCP037
 description: Warning - The property <property-name> is not allowed on objects of type <type-definition>.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep warning code - BCP037

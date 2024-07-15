@@ -3,7 +3,7 @@ title: BCP053
 description: Error/warning - The type <resource-type> does not contain property <property-name>. Available properties include <property-names>.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep error/warning code - BCP053
