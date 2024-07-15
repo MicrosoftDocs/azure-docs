@@ -941,6 +941,8 @@
           href: eks-edw-prepare.md
         - name: Deploy to Azure
           href: eks-edw-deploy.md
+- name: FAQ
+  href: faq.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -986,5 +988,3 @@
       href: aks-support-help.md
     - name: Troubleshooting documentation for AKS
       href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes
-- name: FAQ
-  href: faq.md

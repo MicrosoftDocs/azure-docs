@@ -10,13 +10,7 @@ ms.custom: references_regions, linux-related-content
 
 This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
-## Pricing and platform support
-
-### Can I run Windows Server containers on AKS?
-
-Yes, Windows Server containers are available on AKS. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool](./learn/quick-windows-container-deploy-cli.md).
-
-Windows Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
+## Support
 
 ### Does AKS offer a service-level agreement?
 
@@ -24,9 +18,38 @@ AKS provides SLA guarantees in the [Standard pricing tier with the Uptime SLA fe
 
 The Free pricing tier doesn't have an associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. Transient connectivity issues are observed if there's an upgrade, unhealthy underlay nodes, platform maintenance, an application overwhelms the API Server with requests, etc. For mission-critical and production workloads, or if your workload doesn't tolerate API Server restarts, we recommend using the Standard tier, which includes Uptime SLA.
 
+### What is platform support, and what does it include?
+
+Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support doesn't include anything related to the following:
+
+- Kubernetes functionality and components
+- Cluster or node pool creation
+- Hotfixes
+- Bug fixes
+- Security patches
+- Retired components
+
+For more information on restrictions, see the [platform support policy][supported-kubernetes-versions].
+
+AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of *three* minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
+
+### Does AKS automatically upgrade my unsupported clusters?
+
+AKS initiates auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS automatically upgrades the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
+
+For example, kubernetes v1.25 upgrades to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
+
+### Can I run Windows Server containers on AKS?
+
+Yes, Windows Server containers are available on AKS. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool](./learn/quick-windows-container-deploy-cli.md).
+
+Windows Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
+
 ### Can I apply Azure reservation discounts to my AKS agent nodes?
 
 AKS agent nodes are billed as standard Azure virtual machines. If you purchased [Azure reservations][reservation-discounts] for the VM size that you're using in AKS, those discounts are automatically applied.
+
+## Operations
 
 ### Can I move/migrate my cluster between Azure tenants?
 
@@ -43,6 +66,30 @@ Moving your AKS cluster and its associated resources between Azure subscriptions
 ### Can I move my AKS cluster or AKS infrastructure resources to other resource groups or rename them?
 
 Moving or renaming your AKS cluster and its associated resources isn't supported.
+
+### Can I restore my cluster after deleting it?
+
+No, you cannot restore your cluster after deleting it. When you delete your cluster, the node resource group and all its resources are also deleted. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*.
+
+If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you want to protect against accidental deletes, you can lock the AKS managed resource group hosting your cluster resources using [Node resource group lockdown][node-resource-group-lockdown].
+
+### Can I scale my AKS cluster to zero?
+
+You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or autoscale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
+
+You can't directly scale [system node pools](use-system-pools.md) to zero.
+
+### Can I use the Virtual Machine Scale Set APIs to scale manually?
+
+No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. Use the AKS APIs (`az aks scale`).
+
+### Can I use Virtual Machine Scale Sets to manually scale to zero nodes?
+
+No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. You can use the AKS API to scale to zero nonsystem node pools or [stop your cluster](start-stop-cluster.md) instead.
+
+### Can I stop or de-allocate all my VMs?
+
+While AKS has resilience mechanisms to withstand such a config and recover from it, it isn't a supported configuration. [Stop your cluster](start-stop-cluster.md) instead.
 
 ### Why are two resource groups created with AKS?
 
@@ -81,51 +128,6 @@ Azure-created tags are created for their respective Azure Services and should al
 
 > [!NOTE]
 > In the past, the tag name "Owner" was reserved for AKS to manage the public IP that is assigned on front end IP of the loadbalancer. Now, services follow use the `aks-managed` prefix. For legacy resources, don't use Azure policies to apply the "Owner" tag name. Otherwise, all resources on your AKS cluster deployment and update operations will break. This does not apply to newly created resources.
-
-### What is platform support, and what does it include?
-
-Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support doesn't include anything related to the following:
-
-- Kubernetes functionality and components
-- Cluster or node pool creation
-- Hotfixes
-- Bug fixes
-- Security patches
-- Retired components
-
-For more information on restrictions, see the [platform support policy][supported-kubernetes-versions].
-
-AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of *three* minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support doesn't support anything from relying on kubernetes upstream.
-
-### Does AKS automatically upgrade my unsupported clusters?
-
-AKS initiates auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS automatically upgrades the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
-
-For example, kubernetes v1.25 upgrades to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
-
-### Can I restore my cluster after deleting it?
-
-No, you cannot restore your cluster after deleting it. When you delete your cluster, the node resource group and all its resources are also deleted. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*.
-
-If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you want to protect against accidental deletes, you can lock the AKS managed resource group hosting your cluster resources using [Node resource group lockdown][node-resource-group-lockdown].
-
-### Can I scale my AKS cluster to zero?
-
-You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or autoscale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
-
-You can't directly scale [system node pools](use-system-pools.md) to zero.
-
-### Can I use the Virtual Machine Scale Set APIs to scale manually?
-
-No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. Use the AKS APIs (`az aks scale`).
-
-### Can I use Virtual Machine Scale Sets to manually scale to zero nodes?
-
-No, scale operations by using the Virtual Machine Scale Set APIs aren't supported. You can use the AKS API to scale to zero nonsystem node pools or [stop your cluster](start-stop-cluster.md) instead.
-
-### Can I stop or de-allocate all my VMs?
-
-While AKS has resilience mechanisms to withstand such a config and recover from it, it isn't a supported configuration. [Stop your cluster](start-stop-cluster.md) instead.
 
 ## Quotas, limits, and region availability
 
