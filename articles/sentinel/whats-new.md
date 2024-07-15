@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 06/23/2024
+ms.date: 07/15/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,6 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## July 2024
 
+- [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
 - [Create summary tables for large sets of data](#create-summary-tables-for-large-sets-of-data)
 
 ### Create summary tables for large sets of data
@@ -31,6 +32,15 @@ Microsoft Sentinel now provides the ability to create dynamic summaries, which a
 - Use summary rule results for longer in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
+
+### Microsoft unified security platform now generally available
+
+Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
+
+- Blog post: [General availability of the  Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
+- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
 
 ## June 2024
 

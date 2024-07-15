@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 02/15/2022
-ms.author: sngun
-ms.reviewer: sngun
+ms.author: whhender
+ms.reviewer: whhender
 ms.custom: mode-other
 ---
 

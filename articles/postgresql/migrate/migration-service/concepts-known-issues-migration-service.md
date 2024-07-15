@@ -57,8 +57,6 @@ Here are common limitations that apply to migration scenarios:
 
 ## Limitations migrating from Azure Database for PostgreSQL single server
 
-- It's required that both the Azure Database for PostgreSQL single server and the Azure Database for PostgreSQL flexible server are in the same Azure region. Exceptions to this limitation are made for Azure Database for PostgreSQL flexible server situated in India, China, and UAE, where cross-region migrations are permitted.
-
 - Microsoft Entra ID users present on your source server aren't migrated to the target server. To mitigate this limitation, visit [Manage Microsoft Entra roles](../../flexible-server/how-to-manage-azure-ad-users.md) to manually create all Microsoft Entra users on your target server before triggering a migration. If Microsoft Entra users aren't created on target server, migration fail.
 
 - If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server fails since the passwords are encrypted using md5 algorithm. To mitigate this limitation, choose the option MD5 for password_encryption server parameter on your flexible server.

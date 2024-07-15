@@ -2,7 +2,7 @@
 title: Create resources using guided deployments from Microsoft Copilot in Azure
 description: Learn how Microsoft Copilot in Azure (preview) can provide one-click or step-by-step deployment assistance.
 ms.date: 05/28/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom: build-2024, linux-related-content
 ms.author: jenhayes
@@ -98,7 +98,7 @@ If a template isn't available, Copilot in Azure provides information to help you
 - "Azure AI search + OpenAI template?"
 - "Can you suggest a template for app services using SAP cloud SDK?"
 - "Java app with Azure OpenAI?"
-- "Can I use Azure Open AI with React?"
+- "Can I use Azure OpenAI with React?"
 - "Enterprise chat with GPT using Java?"
 - "How can I deploy a sample app using Enterprise chat with GPT and java?"
 - "I want to use Azure functions to build an OpenAI app"

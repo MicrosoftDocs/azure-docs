@@ -15,15 +15,15 @@ This article walks through some of the key concepts for this workload and provid
 
 ## Identity and access management
 
-The AWS EDW workload uses AWS resource policies that assign AWS Identity and Access Management (IAM) roles to code running in Kubernetes pods on EKS. These roles allow those pods to access external resources such as queues or databases.
+The AWS EDW workload uses an AWS Identity and Access Management (IAM) role that is assumed by the EKS service. This role is assigned to EKS pods to permit access to AWS resources, such as queues or databases, without the need to store credentials.
 
 Azure implements [role-based access control (RBAC)][azure-rbac] differently than AWS. In Azure, role assignments are **associated with a security principal** (user, group, managed identity, or service principal), and that security principal is associated with a resource.
 
 ## Authentication between services
 
-The AWS EDW workload uses service-to-service authentication to connect with a queue and a database. AWS EKS uses `AssumeRole`, a feature of IAM, to delegate permissions to AWS services and resources. This implementation allows services to assume an IAM role that grants specific access rights, ensuring secure and limited interactions between services.
+The AWS EDW workload uses service communication to connect with a queue and a database. AWS EKS uses `AssumeRole`, a feature of IAM, to acquire temporary security credentials to access AWS users, applications, or services. This implementation allows services to assume an IAM role that grants specific access, providing secure and limited permissions between services.
 
-For Amazon Simple Queue Service (SQS) and DynamoDB database access using service-to-service authentication, the AWS workflow uses `AssumeRole` with EKS, which is an implementation of Kubernetes [service account token volume projection][service-account-volume-projection]. In AWS, when an entity assumes an IAM role, the entity temporarily gains some extra permissions. This way, the entity can perform actions and access resources granted by the assumed role, without changing their own permissions permanently. After the assumed role's session token expires, the entity loses the extra permissions. An IAM policy is deployed that permits code running in an EKS pod to authenticate to the DynamoDB as described in the policy definition.
+For Amazon Simple Queue Service (SQS) and Amazon DynamoDB database access using service communication, the AWS workflow uses `AssumeRole` with EKS, which is an implementation of Kubernetes [service account token volume projection][service-account-volume-projection]. In the EKS EDW workload, a configuration allows a Kubernetes service account to assume an AWS Identity and Access Management (IAM) role. Pods that are configured to use the service account can then access any AWS service that the role has permissions to access. In the EDW workload, two IAM policies are defined to grant permissions to access Amazon DynamoDB and Amazon SQS.
 
 With AKS, you can use [Microsoft Entra Managed Identity][entra-managed-id] with [Microsoft Entra Workload ID][entra-workload-id].
 
@@ -41,7 +41,7 @@ The following resources can help you learn more about the differences between AW
 | Identity   | [Mapping AWS IAM concepts to similar ones in Azure][aws-azure-identity] |
 | Accounts | [Azure AWS accounts and subscriptions][aws-azure-accounts]   |
 | Resource management | [Resource containers][aws-azure-resources]  |
-| Messaging | [AWS SQS to Azure Queue Storage][aws-azure-messaging]  |
+| Messaging | [Amazon SQS to Azure Queue Storage][aws-azure-messaging]  |
 | Kubernetes | [AKS for Amazon EKS professionals][aws-azure-kubernetes]   |
 
 ## Next steps

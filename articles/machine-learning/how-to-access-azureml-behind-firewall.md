@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 04/08/2024
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -453,8 +453,7 @@ __Docker images maintained by Azure Machine Learning__
 | Microsoft Container Registry | mcr.microsoft.com</br>\*.data.mcr.microsoft.com | TCP | 443 |
 
 > [!TIP]
-> * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft. It is also required by the internal training job submission process of Azure Machine Learning.
-> * __Microsoft Container Registry__ is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+> * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft. It is also required by the internal training job submission process of Azure Machine Learning. Furthermore, __Microsoft Container Registry__ is always needed regardless of the scenario.
 > * If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
 
 Also, use the information in the [compute with public IP](#scenario-using-compute-cluster-or-compute-instance-with-a-public-ip) section to add IP addresses for `BatchNodeManagement` and `AzureMachineLearning`.
