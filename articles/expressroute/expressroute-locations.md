@@ -65,7 +65,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Chief Telecom](https://www.chief.com.tw/)** |Supported |Supported | Hong Kong<br/>Taipei |
 | **China Mobile International** |Supported |Supported | Hong Kong<br/>Hong Kong2<br/>Singapore |
 | **China Telecom Global** |Supported |Supported | Hong Kong<br/>Hong Kong2 |
-| **China Unicom Global** |Supported |Supported | Frankfurt<br/>Hong Kong<br/>Singapore2<br/>Tokyo2 |
+| **China Unicom Global** |Supported |Supported | Frankfurt<br/>Hong Kong<br/>Los Angeles<br/>Silicon Valley<br/>Singapore2<br/>Tokyo2 |
 | **Chunghwa Telecom** |Supported |Supported | Taipei |
 | **[Cinia](https://www.cinia.fi/)** |Supported |Supported | Amsterdam2<br/>Stockholm |
 | **[Cirion Technologies](https://lp.ciriontechnologies.com/cloud-connect-lp-latam?c_campaign=HOTSITE&c_tactic=&c_subtactic=&utm_source=SOLUCIONES-CTA&utm_medium=Organic&utm_content=&utm_term=&utm_campaign=HOTSITE-ESP)** | Supported | Supported | Queretaro<br/>Rio De Janeiro<br/>Santiago |
@@ -84,6 +84,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland<br/>Melbourne<br/>Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/solutions/public-cloud/azure-managed-cloud-services/cloud-connect-for-azure)** | Supported |Supported | Amsterdam<br/>Frankfurt2<br/>Hong Kong2 |
+| **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | Supported | Supported | Dallas2<br/>Seattle<br/>Silicon Valley<br/>Washington DC |
 | **du datamena** |Supported |Supported | Dubai2 |
 | **[eir evo](https://www.eirevo.ie/cloud-services/cloud-connectivity)** |Supported |Supported | Dublin |
 | **[Epsilon Global Communications](https://epsilontel.com/solutions/cloud-connect/)** | Supported | Supported | Hong Kong2<br/>London2<br/>Singapore<br/>Singapore2 |
@@ -107,6 +108,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Supported | Supported | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** | Supported | Supported | Cape Town<br/>Johannesburg<br/>London |
 | **[Interxion (Digital Realty)](https://www.digitalrealty.com/partners/microsoft-azure)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Copenhagen<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>London<br/>London2<br/>Madrid<br/>Marseille<br/>Paris<br/>Stockholm<br/>Zurich |
+| **IPC** | Supported |Supported | Washington DC |
 | **[IRIDEOS](https://irideos.it/)** | Supported | Supported | Milan |
 | **Iron Mountain** | Supported |Supported | Washington DC |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**| Supported | Supported | Amsterdam<br/>London2<br/>Silicon Valley<br/>Tokyo2<br/>Toronto<br/>Washington DC |
