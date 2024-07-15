@@ -16,7 +16,7 @@ The Admin for Spring managed component offers an administrative interface for Sp
 
 This tutorial shows you how to create an Admin for Spring Java component and bind it to your container app so you can monitor and manage your Spring applications with ease.
 
-:::image type="content" source="media/java-components/spring-boot-admin-overview.png" alt-text="Overview of the Admin for Spring insights dashboard."  lightbox="media/java-components/spring-boot-admin-overview.png":::
+:::image type="content" source="media/java-components/spring-boot-admin-overview.png" alt-text="Screenshot of overview of the Admin for Spring insights dashboard."  lightbox="media/java-components/spring-boot-admin-overview.png":::
 
 In this tutorial, you learn to:
 
