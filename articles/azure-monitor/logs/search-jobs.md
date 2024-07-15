@@ -18,7 +18,7 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 | Action | Permissions required |
 |:-------|:---------------------|
-|Run a search job| `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).|
+| Run a search job | `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles). |
 
 ## When to use search jobs
 
@@ -26,10 +26,10 @@ Use a search job when the log query timeout of 10 minutes isn't sufficient to se
 
 Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
 
-- [Restoring data from Archived Logs](restore.md) for a specific time range.<br/>
+* [Restoring data from Archived Logs](restore.md) for a specific time range.<br/>
     Use restore when you have a temporary need to run many queries on a large volume of data. 
 
-- Querying Basic Logs directly and paying for each query.<br/>
+* Querying Basic Logs directly and paying for each query.<br/>
     To determine which alternative is more cost-effective, compare the cost of querying Basic Logs with the cost of running a search job and storing the search job results.
 
 ## What does a search job do?
@@ -40,12 +40,12 @@ The search job results table is an [Analytics table](../logs/basic-logs-configur
 
 The search results table schema is based on the source table schema and the specified query. The following other columns help you track the source records:
 
-| Column | Value |
-|:---|:---|
-| _OriginalType          | *Type* value from source table. |
-| _OriginalItemId        | *_ItemID* value from source table. |
+| Column                 | Value                                    |
+|:-----------------------|:-----------------------------------------|
+| _OriginalType          | *Type* value from source table.          |
+| _OriginalItemId        | *_ItemID* value from source table.       |
 | _OriginalTimeGenerated | *TimeGenerated* value from source table. |
-| TimeGenerated          | Time at which the search job ran. |
+| TimeGenerated          | Time at which the search job ran.        |
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
@@ -61,6 +61,7 @@ Run a search job to fetch records from large datasets into a new search results 
 To run a search job, in the Azure portal:
 
 1. From the **Log Analytics workspace** menu, select **Logs**. 
+
 1. Select the ellipsis menu on the right-hand side of the screen and toggle **Search job mode** on. 
 
     :::image type="content" source="media/search-job/switch-to-search-job-mode.png" alt-text="Screenshot of the Logs screen with the Search job mode switch highlighted." lightbox="media/search-job/switch-to-search-job-mode.png":::
@@ -68,6 +69,7 @@ To run a search job, in the Azure portal:
     Azure Monitor Logs intellisense supports [KQL query limitations in search job mode](#kql-query-limitations) to help you write your search job query. 
 
 1. Specify the search job date range using the time picker.
+
 1. Type the search job query and select the **Search Job** button.
 
     Azure Monitor Logs prompts you to provide a name for the result set table and informs you that the search job is subject to billing.
@@ -93,6 +95,7 @@ To run a search job, in the Azure portal:
     :::image type="content" source="media/search-job/search-job-done.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is done." lightbox="media/search-job/search-job-done.png":::
 
 ### [API](#tab/api-1)
+
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
@@ -103,13 +106,12 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 
 Include the following values in the body of the request:
 
-|Name | Type | Description |
-| --- | --- | --- |
-|properties.searchResults.query | string  | Log query written in KQL to retrieve data. |
-|properties.searchResults.limit | integer  | Maximum number of records in the result set, up to one million records. (Optional)|
-|properties.searchResults.startSearchTime | string  |Start of the time range to search. |
-|properties.searchResults.endSearchTime | string  | End of the time range to search. |
-
+| Name | Type | Description |
+| ---- | ---- | ------------------------------------------------------------------------------------------------------------------------- |
+| properties.searchResults.query           | string  | Log query written in KQL to retrieve data.                                         |
+| properties.searchResults.limit           | integer | Maximum number of records in the result set, up to one million records. (Optional) |
+| properties.searchResults.startSearchTime | string  | Start of the time range to search.                                                 |
+| properties.searchResults.endSearchTime   | string  | End of the time range to search.                                                   |
 
 **Sample request**
 
@@ -150,11 +152,34 @@ For example:
 az monitor log-analytics workspace table search-job create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --search-query 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z" --no-wait
 ```
 
+### [PowerShell](#tab/powershell-1)
+
+```powershell
+New-AzOperationalInsightsSearchTable
+   [-ResourceGroupName] <String>
+   [-WorkspaceName] <String>
+   [-TableName] <String>
+   [[-RetentionInDays] <Int32>]
+   [-TotalRetentionInDays <Int32>]
+   -SearchQuery <String>
+   -StartSearchTime <String>
+   -EndSearchTime <String>
+   [-Limit <Int32>]
+   [-AsJob]
+   [-DefaultProfile <IAzureContextContainer>]
+   [-WhatIf]
+   [-Confirm]
+   [<CommonParameters>]
+```
+
 ---
 
 ## Get search job status and details
+
 ### [Portal](#tab/portal-2)
-1. From the **Log Analytics workspace** menu, select **Logs**. 
+
+1. From the **Log Analytics workspace** menu, select **Logs**.
+
 1. From the Tables tab, select **Search results** to view all search job results tables. 
 
     The icon on the search job results table displays an update indication until the search job is completed.  
@@ -168,17 +193,16 @@ Call the **Tables - Get** API to get the status and details of a search job:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-**Table status**<br>
+**Table status**
 
 Each search job table has a property called *provisioningState*, which can have one of the following values:
 
-| Status | Description |
-|:---|:---|
-| Updating | Populating the table and its schema. |
+| Status     | Description                           |
+|:-----------|:--------------------------------------|
+| Updating   | Populating the table and its schema.  |
 | InProgress | Search job is running, fetching data. |
-| Succeeded | Search job completed. |
-| Deleting | Deleting the search job table. |
-
+| Succeeded  | Search job completed.                 |
+| Deleting   | Deleting the search job table.        |
 
 **Sample request**
 
@@ -234,21 +258,34 @@ For example:
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --output table \
 ```
 
+### [PowerShell](#tab/powershell-2)
+
+```powershell
+Get-AzOperationalInsightsTable
+   [-ResourceGroupName] <String>
+   [-WorkspaceName] <String>
+   [[-TableName] <String>]
+   [-DefaultProfile <IAzureContextContainer>]
+   [<CommonParameters>]
+```
+
 ---
 
 ## Delete a search job table
+
 We recommend you [delete the search job table](../logs/create-custom-table.md#delete-a-table) when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
 
 ## Limitations
+
 Search jobs are subject to the following limitations:
 
-- Optimized to query one table at a time.
-- Search date range is up to one year.
-- Supports long running searches up to a 24-hour time-out.
-- Results are limited to one million records in the record set.
-- Concurrent execution is limited to five search jobs per workspace.
-- Limited to 100 search results tables per workspace.
-- Limited to 100 search job executions per day per workspace. 
+* Optimized to query one table at a time.
+* Search date range is up to one year.
+* Supports long running searches up to a 24-hour time-out.
+* Results are limited to one million records in the record set.
+* Concurrent execution is limited to five search jobs per workspace.
+* Limited to 100 search results tables per workspace.
+* Limited to 100 search job executions per day per workspace. 
 
 When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
 
@@ -256,23 +293,23 @@ When you reach the record limit, Azure aborts the job with a status of *partial 
 
 Search jobs are intended to scan large volumes of data in a specific table. Therefore, search job queries must always start with a table name. To enable asynchronous execution using distribution and segmentation, the query supports a subset of KQL, including the operators: 
 
-- [where](/azure/data-explorer/kusto/query/whereoperator)
-- [extend](/azure/data-explorer/kusto/query/extendoperator)
-- [project](/azure/data-explorer/kusto/query/projectoperator)
-- [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
-- [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
-- [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
-- [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
-- [parse](/azure/data-explorer/kusto/query/parse-operator)
-- [parse-where](/azure/data-explorer/kusto/query/parse-where-operator)
+* [where](/azure/data-explorer/kusto/query/whereoperator)
+* [extend](/azure/data-explorer/kusto/query/extendoperator)
+* [project](/azure/data-explorer/kusto/query/projectoperator)
+* [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
+* [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
+* [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
+* [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
+* [parse](/azure/data-explorer/kusto/query/parse-operator)
+* [parse-where](/azure/data-explorer/kusto/query/parse-where-operator)
 
 You can use all functions and binary operators within these operators.
 
 ## Pricing model
 The charge for a search job is based on: 
 
-- Search job execution - the amount of data the search job scans.
-- Search job results - the amount of data the search job finds and is ingested into the results table, based on the regular log data ingestion prices.
+* Search job execution - the amount of data the search job scans.
+* Search job results - the amount of data the search job finds and is ingested into the results table, based on the regular log data ingestion prices.
 
 For example, if your table holds 500 GB per day, for a search over 30 days, you'll be charged for 15,000 GB of scanned data. 
 If the search job finds 1,000 records that match the search query, you'll be charged for ingesting these 1,000 records into the results table. 
