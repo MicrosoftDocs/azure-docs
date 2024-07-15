@@ -13,11 +13,11 @@ A custom IPsec or IKE policy is supported on all Azure VPN Gateway SKUs except t
 
 You can specify only one policy combination for a connection.
 
-### Can I specify a partial policy on a connection (for example, only IKE algorithms, but not IPsec)?
+### Can I specify a partial policy on a connection (for example, only IKE algorithms but not IPsec)?
 
 No, you must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
 
-### What are the algorithms and key strengths supported in the custom policy?
+### What algorithms and key strengths does the custom policy support?
 
 The following table lists the supported cryptographic algorithms and key strengths that you can configure. You must select one option for every field.
 
@@ -27,7 +27,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 
 For more information, see [Connect a VPN gateway to multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### <a name ="DH"></a>Which Diffie-Hellman groups are supported?
+### <a name ="DH"></a>Which Diffie-Hellman groups does the custom policy support?
 
 The following table lists the corresponding Diffie-Hellman groups that the custom policy supports:
 
@@ -43,13 +43,15 @@ Yes. After you specify a custom policy on a connection, Azure VPN Gateway uses o
 
 No, IPsec or IKE still helps protect the connection. After you remove the custom policy from a connection, the VPN gateway reverts to the [default list of IPsec or IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#RouteBasedOffers) and restarts the IKE handshake with your on-premises VPN device.
 
-### Would adding or updating an IPsec/IKE policy disrupt my VPN connection?
+### Would adding or updating an IPsec or IKE policy disrupt my VPN connection?
 
 Yes. It could cause a small disruption (a few seconds) as the VPN gateway tears down the existing connection and restarts the IKE handshake to reestablish the IPsec tunnel with the new cryptographic algorithms and parameters. Ensure that your on-premises VPN device is also configured with the matching algorithms and key strengths to minimize the disruption.
 
 ### Can I use different policies on different connections?
 
-Yes. A custom policy is applied on a per-connection basis. You can create and apply different IPsec or IKE policies on different connections. You can also choose to apply custom policies on a subset of connections. The remaining ones use the Azure default IPsec or IKE policy sets.
+Yes. A custom policy is applied on a per-connection basis. You can create and apply different IPsec or IKE policies on different connections.
+
+You can also choose to apply custom policies on a subset of connections. The remaining ones use the Azure default IPsec or IKE policy sets.
 
 ### Can I use a custom policy on VNet-to-VNet connections?
 
@@ -64,7 +66,7 @@ Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one fo
 The default DPD timeout is 45 seconds on VPN gateways. You can specify a different DPD timeout value on each IPsec or VNet-to-VNet connection, from 9 seconds to 3,600 seconds.
 
 > [!NOTE]
-> Setting the timeout to shorter periods will cause IKE to rekey more aggressively. The connection can then appear to be disconnected in some instances. This situation might not be desirable if your on-premises locations are farther away from the Azure region where the VPN gateway resides, or if the physical link condition could incur packet loss. We generally recommend that you set the timeout to *between 30 and 45* seconds.
+> Setting the timeout to shorter periods causes IKE to rekey more aggressively. The connection can then appear to be disconnected in some instances. This situation might not be desirable if your on-premises locations are farther away from the Azure region where the VPN gateway resides, or if the physical link condition could incur packet loss. We generally recommend that you set the timeout to *between 30 and 45* seconds.
 
 ### Does a custom IPsec or IKE policy work on ExpressRoute connections?
 
@@ -72,11 +74,11 @@ No. An IPsec or IKE policy works only on site-to-site VPN and VNet-to-VNet conne
 
 ### How do I create connections with the IKEv1 or IKEv2 protocol type?
 
-You can create IKEv1 connections on all route-based VPN type SKUs, except the Basic SKU, Standard SKU, and other [earlier SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku).
+You can create IKEv1 connections on all route-based VPN-type SKUs, except the Basic SKU, Standard SKU, and other [earlier SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku).
 
 You can specify a connection protocol type of IKEv1 or IKEv2 while creating connections. If you don't specify a connection protocol type, IKEv2 is used as default option where applicable. For more information, see the [Azure PowerShell cmdlet](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) documentation.
 
-For SKU types and IKEv1/IKEv2 support, see [Connect a VPN gateway to multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+For information about SKU types and support for IKEv1 and IKEv2, see [Connect a VPN gateway to multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### Is transit between IKEv1 and IKEv2 connections allowed?
 

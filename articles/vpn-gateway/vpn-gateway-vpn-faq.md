@@ -38,8 +38,8 @@ No. However, costs for any additional public IPs are charged accordingly. See [I
 
 The following cross-premises virtual network gateway connections are supported:
 
-* **Site-to-site**: VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or Windows Server Routing and Remote Access. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
-* **Point-to-site**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* **Site-to-site (S2S)**: VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or Windows Server Routing and Remote Access. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
+* **Point-to-site (P2S)**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * **Network-to-network**: This type of connection is the same as a site-to-site configuration. A connection between virtual networks is a VPN connection over IPsec (IKEv1 and IKEv2). It doesn't require a VPN device. For more information, see the [Configure a network-to-network VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * **Azure ExpressRoute**: ExpressRoute is a private connection to Azure from your wide area network, not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
@@ -177,7 +177,7 @@ For the classic deployment model:
 
 ### Can I use NAT-T on my VPN connections?
 
-Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway does *not* perform any NAT-like functionality on the inner packets to or from the IPsec tunnels. In this configuration, ensure that the on-premises device initiates the IPSec tunnel.
+Yes, network address translation traversal (NAT-T) is supported. Azure VPN Gateway does *not* perform any NAT-like functionality on the inner packets to or from the IPsec tunnels. In this configuration, ensure that the on-premises device initiates the IPSec tunnel.
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -366,15 +366,15 @@ Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
-You have a few options. If you have RDP enabled for your VM, you can connect to your virtual machine by using the private IP address. In that case, you would specify the private IP address and the port that you want to connect to (typically 3389). You'll need to configure the port on your virtual machine for the traffic.
+If you have Remote Desktop Protocol (RDP) enabled for your VM, you can connect to your virtual machine by using the private IP address. In that case, you specify the private IP address and the port that you want to connect to (typically 3389). You need to configure the port on your virtual machine for the traffic.
 
-You can also connect to your virtual machine by private IP address from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the private IP address if you're connecting from a location outside of your virtual network. For example, if you have a point-to-site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by private IP address.
+You can also connect to your virtual machine by private IP address from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the private IP address if you're connecting from a location outside your virtual network. For example, if you have a point-to-site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by private IP address.
 
 ### If my virtual machine is in a virtual network with cross-premises connectivity, does all the traffic from my VM go through that connection?
 
-No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified goes through the virtual network gateway.
+No. Only the traffic that has a destination IP that's contained in the virtual network's local network IP address ranges that you specified goes through the virtual network gateway.
 
-Traffic has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the VPN gateway.
+Traffic that has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks. Or if you use forced tunneling, the traffic is sent through the VPN gateway.
 
 ### How do I troubleshoot an RDP connection to a VM
 

@@ -28,7 +28,7 @@ The following links provide more configuration information:
 
 - For cryptographic requirements, see [About cryptographic requirements and Azure VPN gateways](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md).
 
-- For information about parameter information that you need to complete your configuration, see [Default IPsec/IKE parameters](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). The information includes IKE version, Diffie-Hellman group, authentication method, encryption and hashing algorithms, security association lifetime, Perfect Forward Secrecy, and Dead Peer Detection (DPD).
+- For information about parameter information that you need to complete your configuration, see [Default IPsec/IKE parameters](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). The information includes IKE version, Diffie-Hellman (DH) group, authentication method, encryption and hashing algorithms, security association (SA) lifetime, Perfect Forward Secrecy (PFS), and Dead Peer Detection (DPD).
 
 - For IPsec/IKE policy configuration steps, see [Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
 
