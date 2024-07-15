@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code
 
-This article shows you how to use Visual Studio Code to add an HTTP endpoint to the function app you created in the previous quickstart article. When triggered, this new HTTP endpoint uses an [Azure Open AI text completion input binding](functions-bindings-openai-textcompletion-input.md) to get text completion hints from your data model.
+This article shows you how to use Visual Studio Code to add an HTTP endpoint to the function app you created in the previous quickstart article. When triggered, this new HTTP endpoint uses an [Azure OpenAI text completion input binding](functions-bindings-openai-textcompletion-input.md) to get text completion hints from your data model.
 
 During this tutorial, you learn how to accomplish these tasks:  
 
