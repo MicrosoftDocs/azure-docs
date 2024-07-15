@@ -49,9 +49,9 @@ The following phases are considered for calculating the total downtime to perfor
 - **Migration of buffer**: After you finish the preceding step, you can plan for actual production migration during a time period when application traffic is low. This migration can be planned on the same day or probably a week away. By this time, the size of the source server might have increased. Update your estimated migration time for your production server based on the amount of this increase. If the increase is significant, consider doing another test by using the PITR server. But for most servers, the size increase shouldn't be significant enough.
 - **Data validation**: After the migration is finished for the production server, you need to verify if the data in the flexible server is an exact copy of the source instance. You can use open-source or third-party tools or you can do the validation manually. Prepare the validation steps you want to do before the actual migration. Validation can include:
 
-- Row count match for all the tables involved in the migration.
-- Matching counts for all the database objects (tables, sequences, extensions, procedures, and indexes).
-- Comparing maximum or minimum IDs of key application-related columns.
+   - Row count match for all the tables involved in the migration.
+   - Matching counts for all the database objects (tables, sequences, extensions, procedures, and indexes).
+   - Comparing maximum or minimum IDs of key application-related columns.
 
     > [!NOTE]
     > The size of databases needs to be the right metric for validation. The source instance might have bloats or dead tuples, which can bump up the size of the source instance. It's normal to have size differences between source instances and target servers. An issue in the first three steps of validation indicates a problem with the migration.
@@ -86,20 +86,20 @@ The preceding numbers give you an approximation of the time taken to complete th
 
 We recommend a powerful SKU for the target because the PostgreSQL migration service runs out of a container on the flexible server. A powerful SKU enables more tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to improve the migration speed if the data distribution among the tables needs to be more balanced or a more powerful SKU doesn't significantly affect the migration speed.
 
-If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration needs to be fully utilized, which creates a bottleneck. So, split large tables into smaller chunks, which are then migrated in parallel. This feature applies to tables with more than 10,000,000 (10 m) tuples. Splitting the table into smaller chunks is possible if one of the following conditions is satisfied.
+If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration needs to be fully utilized, which creates a bottleneck. So, split large tables into smaller chunks, which are then migrated in parallel. This feature applies to tables with more than 10,000,000 (10 m) tuples. Splitting the table into smaller chunks is possible if one of the following conditions is satisfied:
 
-1. The table must have a column with a simple (not composite) primary key or unique index of type int or significant int.
+- The table must have a column with a simple (not composite) primary key or unique index of type int or significant int.
 
     > [!NOTE]
-    > In the case of approaches #2 or #3, you must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column won't affect the application should you go ahead with the changes.
+    > In the case of the first or second approaches, you must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column won't affect the application should you go ahead with the changes.
 
-1. If the table doesn't have a simple primary key or unique index of type int or significant int but has a column that meets the data type criteria, the column can be converted into a unique index by using the following command. This command doesn't require a lock on the table.
+- If the table doesn't have a simple primary key or unique index of type int or significant int but has a column that meets the data type criteria, the column can be converted into a unique index by using the following command. This command doesn't require a lock on the table.
 
     ```sql
         create unique index concurrently partkey_idx on <table name> (column name);
     ```
 
-1. If the table doesn't have a simple int/big int primary key or unique index or any column that meets the data type criteria, you can add such a column by using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the `ALTER` command requires a lock on the table.
+- If the table doesn't have a simple int/big int primary key or unique index or any column that meets the data type criteria, you can add such a column by using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the `ALTER` command requires a lock on the table.
 
     ```sql
         alter table <table name> add column <column name> big serial unique;
