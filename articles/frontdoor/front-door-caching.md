@@ -207,6 +207,9 @@ The following request headers don't get forwarded to the origin when caching is 
 - `Accept-Charset`
 - `Accept-Language`
 
+> [!NOTE]
+> Requests that include authorization header will not be cached.
+
 ## Response headers
 
 If the origin response is cacheable, then the `Set-Cookie` header is removed before the response is sent to the client. If an origin response isn't cacheable, Front Door doesn't strip the header. For example, if the origin response includes a `Cache-Control` header with a `max-age` value indicates to Front Door that the response is cacheable, and the `Set-Cookie` header is stripped.

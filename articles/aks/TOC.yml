@@ -337,7 +337,17 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:    
+      items:   
+        - name: Stateful workloads 
+          items:
+            - name: Deploy a highly available PostgreSQL database
+              items:
+                - name: Overview
+                  href: postgresql-ha-overview.md
+                - name: Create infrastructure resources
+                  href: create-postgresql-ha.md
+                - name: Deploy and test PostgreSQL
+                  href: deploy-postgresql-ha.md
         - name: GPU workloads
           items:
             - name: Use GPUs
