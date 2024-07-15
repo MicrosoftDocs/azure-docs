@@ -31,7 +31,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
-|July 15|Private|[Binary Drift Public Preview](#binary-drift-public-preview-now-available-in-defender-for-containers)|
+|July 15|Preview|[Binary Drift Public Preview in Defender for Containers](#binary-drift-public-preview-now-available-in-defender-for-containers)|
 |July 14|GA|[Automated remediation scripts for AWS and GCP are now GA](#automated-remediation-scripts-for-aws-and-gcp-are-now-ga)|
 | July 11 | Upcoming update | [GitHub application permissions update](#github-application-permissions-update) |
 | July 10 | GA | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
