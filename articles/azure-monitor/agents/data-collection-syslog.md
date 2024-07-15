@@ -26,31 +26,32 @@ Syslog is an event logging protocol that's common to Linux. You can use the Sysl
 In the **Collect and deliver** step of the DCR, select **Linux Syslog** from the **Data source type** dropdown. 
 
 The following facilities are supported with the Syslog collector:
-| Pri index | Pri Name 	|
+
+| Pri index | Pri Name |
 |:---|:---|
-| 0	   	| None		|
-| 1		| Kern		|
-| 2		| user		|
-| 3 		| mail		|
-| 4		| daemon	|
-| 4		| auth		|
-| 5		| syslog	|
-| 6		| lpr		|
-| 7		| news		|
-| 8		| uucp		|
-| 9		| ftp		|
-| 10		| ntp		|
-| 11		| audit		|
-| 12		| alert		|
-| 13		| mark		|
-| 14		| local0	|
-| 15		| local1	|
-| 16		| local2	|
-| 17		| local3	|
-| 18		| local4	|
-| 19		| local5	|
-| 20		| local6	|
-| 21		| local7	|
+| 0	| None |
+| 1	| Kern |
+| 2	| user |
+| 3 | mail |
+| 4	| daemon |
+| 4	| auth |
+| 5	| syslog 
+| 6	| lpr |
+| 7	| news |
+| 8	| uucp |
+| 9	| ftp |
+| 10 | ntp |
+| 11 | audit |
+| 12 | alert |
+| 13 | mark	 |
+| 14 | local0 |
+| 15 | local1 |
+| 16 | local2 |
+| 17 | local3 |
+| 18 | local4 |
+| 19 | local5 |
+| 20 | local6 |
+| 21 | local7 |
 
 :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
 
@@ -180,31 +181,32 @@ If you edit the Syslog configuration, you must restart the Syslog daemon for the
 ## Supported facilities
 
 The following facilities are supported with the Syslog collector:
-| Pri index 	| Pri Name 	|
+
+| Pri index | Pri Name |
 |:---|:---|
-| 0	   	| None		|
-| 1		| Kern		|
-| 2		| user		|
-| 3 		| mail		|
-| 4		| daemon	|
-| 4		| auth		|
-| 5		| syslog	|
-| 6		| lpr		|
-| 7		| news		|
-| 8		| uucp		|
-| 9		| ftp		|
-| 10		| ntp		|
-| 11		| audit		|
-| 12		| alert		|
-| 13		| mark		|
-| 14		| local0	|
-| 15		| local1	|
-| 16		| local2	|
-| 17		| local3	|
-| 18		| local4	|
-| 19		| local5	|
-| 20		| local6	|
-| 21		| local7	|
+| 0 | None |
+| 1	| Kern |
+| 2	| user |
+| 3 | mail |
+| 4	| daemon |
+| 4	| auth |
+| 5	| syslog |
+| 6	| lpr |
+| 7	| news |
+| 8	| uucp |
+| 9	| ftp |
+| 10 | ntp |
+| 11 | audit |
+| 12 | alert |
+| 13 | mark	 |
+| 14 | local0 |
+| 15 | local1 |
+| 16 | local2 |
+| 17 | local3 |
+| 18 | local4 |
+| 19 | local5 |
+| 20 | local6 |
+| 21 | local7 |
 
 ## Syslog record properties
 
