@@ -220,7 +220,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
 | **China Telecom** |Supported |Not Supported |Beijing<br/>Beijing2<br/>Shanghai<br/>Shanghai2 |
-| **China Mobile** | Supported | Not Supported | Beijing2 |
+| **China Mobile** | Supported | Not Supported | Beijing2<br/>Shanghai2 |
 | **China Unicom** | Supported | Not Supported | Beijing2<br/>Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Supported |Not Supported |Beijing2<br/>Shanghai2 |
 
