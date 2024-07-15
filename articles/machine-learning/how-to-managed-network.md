@@ -1102,7 +1102,8 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 
 ## Limitations
 
-* Once you enable managed VNet isolation of your workspace, you can't disable it.
+* Azure AI Studio doesn't support using your own Azure Virtual Network to secure the hub, project, or compute resources. You can only use the managed network feature to secure these resources.
+* Once you enable managed VNet isolation of your workspace (either allow internet outbound or allow only approved outbound), you can't disable it.
 * Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed VNet is deleted when the workspace is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
