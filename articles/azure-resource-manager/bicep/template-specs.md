@@ -67,7 +67,7 @@ The following example shows a simple Bicep file for creating a storage account i
 ])
 param storageAccountType string = 'Standard_LRS'
 
-resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name:  'store${uniqueString(resourceGroup().id)}'
   location: resourceGroup().location
   sku: {
@@ -105,7 +105,7 @@ param templateSpecName string = 'CreateStorageAccount'
 param templateSpecVersionName string = '0.1'
 param location string = resourceGroup().location
 
-resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2021-05-01' = {
+resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2022-02-01' = {
   name: templateSpecName
   location: location
   properties: {
@@ -114,7 +114,7 @@ resource createTemplateSpec 'Microsoft.Resources/templateSpecs@2021-05-01' = {
   }
 }
 
-resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2021-05-01' = {
+resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2022-02-01' = {
   parent: createTemplateSpec
   name: templateSpecVersionName
   location: location
@@ -137,7 +137,7 @@ resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2
       'resources': [
         {
           'type': 'Microsoft.Storage/storageAccounts'
-          'apiVersion': '2019-06-01'
+          'apiVersion': '2023-04-01'
           'name': 'store$uniquestring(resourceGroup().id)'
           'location': resourceGroup().location
           'kind': 'StorageV2'
@@ -149,7 +149,6 @@ resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2
     }
   }
 }
-
 ```
 
 The JSON template embedded in the Bicep file needs to make these changes:
@@ -309,7 +308,6 @@ az deployment group create \
 
     For more information, see [Bicep parameters file](./parameter-files.md).
 
-
     To pass parameter file with:
 
     # [PowerShell](#tab/azure-powershell)
@@ -328,9 +326,7 @@ az deployment group create \
 
     ---
 
-
 - Use JSON parameters file
-
 
     The following JSON is a sample JSON parameters file:
 

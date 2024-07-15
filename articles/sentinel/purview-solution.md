@@ -84,7 +84,7 @@ For more information, see [Connect Microsoft Sentinel to other Microsoft service
 
 **To run a Microsoft Purview scan and view data in Microsoft Sentinel**:
 
-1. In Microsoft Purview, run a full scan of your resources. For more information, see [Manage data sources in Microsoft Purview](../purview/manage-data-sources.md).
+1. In Microsoft Purview, run a full scan of your resources. For more information, see [Scan data sources in Microsoft Purview](../purview/scan-data-sources.md).
 
 1. After your Microsoft Purview scans have completed, go back to the Microsoft Purview data connector in Microsoft Sentinel and confirm that data has been received.
 

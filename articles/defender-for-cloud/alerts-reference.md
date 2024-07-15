@@ -2850,7 +2850,7 @@ Synapse.SQLPool_ShellExternalSourceAnomaly)
 
 **[MITRE tactics](#mitre-attck-tactics)**: Execution
 
-**Severity**: High
+**Severity**: High/Medium
 
 ### **Unusual payload with obfuscated parts has been initiated by SQL Server**
 
@@ -2860,7 +2860,7 @@ Synapse.SQLPool_ShellExternalSourceAnomaly)
 
 **[MITRE tactics](#mitre-attck-tactics)**: Execution
 
-**Severity**: High
+**Severity**: High/Medium
 
 ## Alerts for open-source relational databases
 
@@ -2876,7 +2876,7 @@ SQL.MySQL_BruteForce)
 
 **[MITRE tactics](#mitre-attck-tactics)**: PreAttack
 
-**Severity**: High
+**Severity**: Medium
 
 ### **Suspected successful brute force attack**
 
@@ -2900,7 +2900,7 @@ SQL.MariaDB_BruteForce)
 
 **[MITRE tactics](#mitre-attck-tactics)**: PreAttack
 
-**Severity**: High
+**Severity**: Medium
 
 ### **Attempted logon by a potentially harmful application**
 
@@ -2912,7 +2912,7 @@ SQL.MySQL_HarmfulApplication)
 
 **[MITRE tactics](#mitre-attck-tactics)**: PreAttack
 
-**Severity**: High
+**Severity**: High/Medium
 
 ### **Login from a principal user not seen in 60 days**
 
@@ -2924,7 +2924,7 @@ SQL.MySQL_PrincipalAnomaly)
 
 **[MITRE tactics](#mitre-attck-tactics)**: Exploitation
 
-**Severity**: Medium
+**Severity**: Low
 
 ### **Login from a domain not seen in 60 days**
 

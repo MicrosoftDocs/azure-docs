@@ -952,6 +952,8 @@
       href: threat-detection.md
     - name: Scheduled analytics rules
       items:
+      - name: Overview
+        href: scheduled-rules-overview.md
       - name: Create a scheduled rule from a template
         href: create-analytics-rule-from-template.md
       - name: Create a scheduled rule from scratch
