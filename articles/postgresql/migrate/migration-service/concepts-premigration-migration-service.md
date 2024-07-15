@@ -56,7 +56,7 @@ You can choose any of the following options:
 - **Validate**: Use this option to check your server and database readiness for migration to the target. *This option won't start data migration and won't require any server downtime.*
      - Plan your migrations better by performing premigration validations in advance to know the potential issues you might encounter while you perform migrations.
 - **Migrate**: Use this option to kickstart the migration without going through a validation process. Perform validation before you trigger a migration to increase the chances of success. After validation is finished, you can use this option to start the migration process.
-- **Validate and Migrate**: This option performs validations, and migration gets triggered if all checks are in the *Succeeded* or *Warning* state. Validation failures don't start the migration between source and target servers.
+- **Validate and Migrate**: This option performs validations, and migration gets triggered if all checks are in the **Succeeded** or **Warning** state. Validation failures don't start the migration between source and target servers.
 
 We recommend that you use premigration validations to identify issues before you run migrations. This technique helps you to plan your migrations better and avoid any surprises during the migration process.
 
