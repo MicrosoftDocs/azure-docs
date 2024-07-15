@@ -102,23 +102,30 @@ metadata:
   namespace: azure-iot-operations
 spec:
   listenerRef:
-    - "my-listener" # change to match your listener name as needed
-  authorizationAttributes:
-    x509:
-        authorizationAttributes:
-          root:
-            subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
-            attributes:
-              organization = contoso
-          intermediate:
-            subject = "CN = Contoso Intermediate CA"
-            attributes:
-              city = seattle
-              foo = bar
-          smart-fan:
-            subject = "CN = smart-fan"
-            attributes:
-              building = 17
+    - listener
+  authenticationMethods:
+    - custom:
+        endpoint: https://auth-server-template
+        caCert: custom-auth-ca
+        auth:
+          x509:
+            secretName: custom-auth-client-cert
+            namespace: azure-iot-operations
+  x509:
+      authorizationAttributes:
+        root:
+          subject: "CN = Contoso Root CA Cert, OU = Engineering, C = US"
+          attributes:
+            organization: contoso
+        intermediate:
+          subject: "CN = Contoso Intermediate CA"
+          attributes:
+            city: seattle
+            foo: bar
+        smart-fan:
+          subject: "CN = smart-fan"
+          attributes:
+            building: 17
 ```
 
 In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
