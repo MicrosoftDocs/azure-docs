@@ -2,7 +2,7 @@
 title: Create pre and post events using Azure Functions.
 description: In this tutorial, you learn how to create the pre and post events using Azure Functions.
 ms.service: azure-update-manager
-ms.date: 11/21/2023
+ms.date: 07/15/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
     > You have to load the dependencies only for the first time.
 
     1. On the **Function App**, select **App files**.
-    1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirments.psd1**.
+    1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirements.psd1**.
     1. Under the **requirements.psd1**, paste the following code: 
     
        ```
@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
         ```
     1. Select **Save**.
        
-1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the **requirments.psd1** file.
+1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the **requirements.psd1** file.
 
 ## Create a function
 

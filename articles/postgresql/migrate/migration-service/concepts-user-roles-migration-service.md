@@ -120,6 +120,16 @@ REVOKE SELECT ON pg_authid FROM adminuser1;
 REVOKE SELECT ON pg_shadow FROM adminuser2;
 REVOKE UPDATE ON pg_shadow FROM adminuser2;
 ```
+<<<<<<< HEAD
+=======
+
+**Step 4: Final Verification**
+
+Run the query from Step 1 again to ensure that the resulting output set is empty.
+
+> [!NOTE]
+> Make sure you perform the above steps for all the databases included in the migration to avoid any permission-related issues during the migration.
+>>>>>>> 650471f5f972debc44f06e7f505345c09d6603d1
 
 > [!NOTE]
 > Make sure you perform the preceding steps for all the databases included in the migration to avoid any permission-related issues during the migration.
