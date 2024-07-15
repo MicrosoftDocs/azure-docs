@@ -65,9 +65,12 @@ The image version must meet the following requirements:
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
-> [!NOTE]
+> [!IMPORTANT]
 > - Microsoft Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
 > - Any image that doesn't meet Windows 365 requirements isn't shown in the list of images that are available for creation.
+
+> [!NOTE]
+> Microsoft Dev Box doesn't support preview builds from the Windows Insider Program.
 
 ### Reduce provisioning and startup times
 
