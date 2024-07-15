@@ -12,6 +12,8 @@ ms.date: 03/07/2023
 
 # Set up a lab to teach engineering classes using SOLIDWORKS
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article describes how to set up SOLIDWORKS 2019 and Network Licensing for engineering classes in Azure Lab Services.

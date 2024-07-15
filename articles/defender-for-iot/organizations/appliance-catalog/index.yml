@@ -32,6 +32,8 @@ landingContent:
             url: hpe-proliant-dl20-gen-11.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
+          - text: Dell PowerEdge R360 
+            url: dell-poweredge-r360-e1800.md
           - text: Dell PowerEdge R350 
             url: dell-poweredge-r350-e1800.md
 

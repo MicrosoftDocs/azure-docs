@@ -12,6 +12,8 @@ ms.date: 04/24/2023
 
 # Architecture fundamentals in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 Azure Lab Services is a SaaS (software as a service) solution, which means that the infrastructure resources needed by Azure Lab Services are managed for you. This article covers the fundamental resources that Azure Lab Services uses and the basic architecture of a lab.

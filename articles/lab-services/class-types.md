@@ -13,6 +13,8 @@ ms.date: 04/24/2023
 
 # Class types in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure Lab Services enables you to quickly set up lab environments in the cloud. Learn about the different class types for you can use Azure Lab Services.
 
 ## Adobe Creative Cloud

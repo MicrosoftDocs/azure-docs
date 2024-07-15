@@ -12,6 +12,8 @@ ms.date: 07/04/2023
 
 # Manage a lab virtual machine pool in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Learn how you can manage the pool of lab virtual machines (VMs) in Azure Lab Services. Change the capacity of the lab to add or remove lab VMs, connect to a lab, or manage the state of individual lab VMs.
 
 The lab virtual machine pool represents the set of lab VMs that are available for lab users to connect to. The lab VM creation starts when you publish a lab template, or when you update the lab capacity.

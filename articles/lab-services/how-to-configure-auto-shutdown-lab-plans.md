@@ -13,6 +13,8 @@ ms.date: 03/01/2023
 
 # Configure automatic shutdown of VMs for a lab plan
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]

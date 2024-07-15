@@ -12,6 +12,8 @@ ms.date: 03/28/2023
 
 # Connect your lab's network with a peer virtual network in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article provides information about peering your labs network with another network.
