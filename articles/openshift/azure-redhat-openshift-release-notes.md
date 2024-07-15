@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 05/03/2024
+ms.date: 07/15/2024
 ms.custom: references_regions
 ---
 
@@ -40,10 +40,6 @@ A cluster that is deployed with this feature and is running version 4.11 or high
 ## Version 4.12 - August 2023
 
 We're pleased to announce the launch of OpenShift 4.12 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.12](https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html).
-
-> [!NOTE]
-> Starting with ARO version 4.12, the support lifecycle for new versions will be set to 14 months from the day of general availability. That means that the end date for support of each version will no longer be dependent on the previous version (as shown in the table above for version 4.12.) This does not affect support for the previous version; two generally available (GA) minor versions of Red Hat OpenShift Container Platform will continue to be supported.
-> 
 
 ## Update - June 2023
 
