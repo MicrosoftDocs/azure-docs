@@ -65,28 +65,8 @@ pip install openai==0.28.1
 
 You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
-```python
-import os
-from openai import AzureOpenAI
-
-client = AzureOpenAI(
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2024-02-01"
-)
-
-response = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
-        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-        {"role": "user", "content": "Do other Azure AI services support this too?"}
-    ]
-)
-
-print(response.choices[0].message.content)
-```
+<!-- Not yet merged, see the snippet here: https://github.com/Azure/azure-sdk-for-python/blob/e880d6e26de88be1fd615a87d160ed26a688cd8a/sdk/openai/azure-openai/samples/chat_completions_quickstart.py -->
+:::code language="python" source="~/sdk/openai/azure-openai/samples/chat_completions_quickstart.py" range="2-21":::
 
 # [OpenAI Python 0.28.1](#tab/python)
 
