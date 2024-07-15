@@ -20,11 +20,11 @@ monikerRange: '>=doc-intel-3.0.0'
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
 
-**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+**This content applies to: **![checkmark](media/yes-icon.png) **v4.1 (preview)** **![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.1 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
 :::moniker-end
 
 The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of important contract entities. Contracts can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as Parties, Jurisdictions, Contract ID, and Title; and returns a structured JSON data representation. The model currently supports English-language document formats.
@@ -34,6 +34,15 @@ The Document Intelligence contract model uses powerful Optical Character Recogni
 Automated contract processing is the process of extracting key contract fields from documents. Historically, the contract analysis process is achieved manually and, hence, very time consuming. Accurate extraction of key data from contracts is typically the first and one of the most critical steps in the contract automation process.
 
 ## Development options
+
+::: moniker range="doc-intel-4.0.1"
+
+Document Intelligence v4.1 (2024-07-31-preview) supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Contract model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-contract**|
+::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0"
 
@@ -104,7 +113,9 @@ The following are the fields extracted from a contract in the JSON output respon
 | Parties | Array |List of legal parties| |
 | ExecutionDate | Date |Date when the agreement was fully signed and agreed upon by all parties|`On this twenty-third day of February two thousand and twenty two` |
 | ExpirationDate | Date |Date when the contract ends to be in effect| One year |
+| EffectiveDate  | Date |Date when the contract starts to be in effect| immediately |
 | RenewalDate | Date |Date when the contract needs to be renewed| `On this twenty-third day of February two thousand and twenty two` |
+| ContractDuration | String | Contract terms | 5 years |
 | Jurisdictions | Array | List of jurisdictions| |
 
 The contract key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
