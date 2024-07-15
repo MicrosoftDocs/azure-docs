@@ -87,7 +87,7 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?
 ### Start the category build process:
 
 ```bash
-curl -X POST "<your_endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview" \
+curl -X POST "<your_endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview&version={version}" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
