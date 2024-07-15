@@ -1,12 +1,12 @@
 ---
-title: BCP332
+title: BCP333
 description: Error - The provided value (whose length will always be less than or equal to <value-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/12/2024
 ---
 
-# Bicep error code - BCP332
+# Bicep error code - BCP333
 
 This error occurs when a string assigned is shorter than the allowable length.
 
