@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 11/16/2022
-ms.author: sngun
-ms.reviewer: sngun, wiassaf
+ms.author: whhender
+ms.reviewer: whhender, wiassaf
 ---
 
 # Azure Synapse Link for Azure SQL Database
