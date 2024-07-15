@@ -6,9 +6,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: conceptual
-author: wahalulu
-ms.author: mavaisma
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: mavaisma
 ms.devlang: r
 ---
 

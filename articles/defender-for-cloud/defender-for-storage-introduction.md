@@ -20,7 +20,8 @@ Microsoft Defender for Storage provides comprehensive security by analyzing the 
 Defender for Storage includes:
 
 - Activity Monitoring
-- Sensitive data threat detection (preview feature, new plan only)
+- Sensitive data threat detection (new plan only)
+
 - Malware Scanning (new plan only)
 
 :::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-overview.gif" alt-text="Animated diagram showing how Defender for Storage protects against common threats to data.":::
@@ -37,13 +38,13 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](tu
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Feature availability:|- Activity monitoring (security alerts) – General Availability (GA)<br>- Malware Scanning – General Availability (GA)<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
+|Feature availability:|- Activity monitoring (security alerts) – General Availability (GA)<br>- Malware Scanning – General Availability (GA)<br>- Sensitive data threat detection (Sensitive Data Discovery) – General Availability (GA)|
 |Pricing:|**Microsoft Defender for Storage** pricing applies to commercial clouds. Learn more about [pricing and availability per region.](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>|
 |<br><br> Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
-|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](defender-for-storage-classic.md))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](defender-for-storage-classic.md))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet (only activity monitoring support on the [classic plan](defender-for-storage-classic.md))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
-\* Azure DNS Zone isn't supported for Malware Scanning and sensitive data threat detection.
+\* Azure DNS Zone isn't supported for malware scanning and sensitive data threat detection.
 
 ## What are the benefits of Microsoft Defender for Storage?
 

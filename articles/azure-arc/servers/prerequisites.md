@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 # Connected Machine agent prerequisites
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes the basic requirements for installing the Connected Machine agent to onboard a physical server or virtual machine to Azure Arc-enabled servers. Some [onboarding methods](deployment-options.md) may have more requirements.
 
@@ -63,8 +63,31 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 
 | Operating system | Last supported agent version | End of Arc Support Date | Notes |
 | -- | -- | -- | -- | 
-| Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
-| CentOS 7 and 8 | 1.42 [Download](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi)  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+| Windows Server 2008 R2 SP1 | 1.39 [Download](https://aka.ms/AzureConnectedMachineAgent-1.39)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
+| CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+
+### Connect new limited support servers
+
+To connect a new server running a Limited Support operating system to Azure Arc, you will need to make some adjustments to the onboarding script.
+
+For Windows, modify the installation script to specify the version required, using the -AltDownload parameter.
+
+Instead of 
+
+```pwsh
+    # Install the hybrid agent
+    & "$env:TEMP\install_windows_azcmagent.ps1";
+```
+
+Use 
+
+```pwsh
+    # Install the hybrid agent
+    & "$env:TEMP\install_windows_azcmagent.ps1" -AltDownload https://aka.ms/AzureConnectedMachineAgent-1.39;
+```
+
+For Linux, the relevant package repository will only contain releases that are applicable, so no special considerations are required. 
+
 
 ### Client operating system guidance
 
@@ -114,6 +137,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 * To onboard machines, you must have the [Azure Connected Machine Onboarding](../../role-based-access-control/built-in-roles.md#azure-connected-machine-onboarding) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group where you're managing the servers.
 * To read, modify, and delete a machine, you must have the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) role for the resource group.
 * To select a resource group from the drop-down list when using the **Generate script** method, you'll also need the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role that includes **Reader** access).
+* When associating a Private Link Scope with an Arc Server, you must have Microsoft.HybridCompute/privateLinkScopes/read permission on the Private Link Scope Resource.
 
 ## Azure subscription and service limits
 
