@@ -133,12 +133,7 @@ Depending on what type of application you're developing with your use of Azure O
 
 ### Azure OpenAI alert rules
 
-The following table lists some suggested alert rules for Azure OpenAI. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure OpenAI monitoring data reference](../monitor-openai-reference.md).
-
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
+You can set alerts for any metric, log entry, or activity log entry listed in the [Azure OpenAI monitoring data reference](../monitor-openai-reference.md).
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
