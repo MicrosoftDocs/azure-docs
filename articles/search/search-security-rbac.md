@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 06/03/2024
-ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
+ms.custom: subject-rbac-steps, devx-track-azurepowershell
 ---
 
 # Connect to Azure AI Search using roles
