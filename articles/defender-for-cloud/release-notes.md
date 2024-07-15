@@ -40,7 +40,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 ### Binary Drift Public Preview Now Available in Defender for Containers
 
-We're excited to announce the public preview of Binary Drift for Defender for Containers. This new feature empowers you to identify and address potential security risks associated with unauthorized binaries running within your containers. __Receive high-severity alerts__: Binary Drift automatically identifies and alerts you to potentially risky binary processes within your containers. __Customize alert behaviour__: Define a new Binary Drift Policy to specify when you want to receive alerts or not receive them. This allows you to tailor notifications based on your specific security needs.  
+We are introducing the public preview of Binary Drift for Defender for Containers. This feature aids in identifying and mitigating potential security risks associated with unauthorized binaries in your containers. Binary Drift autonomously identifies and sends alerts about potentially harmful binary processes within your containers. Furthermore, it allows the implementation of a new Binary Drift Policy to control alert preferences, offering the ability to tailor notifications to specific security needs.
 For more information about this feature, see [Binary Drift Detection](binary-drift-detection.md)
 
 ### Automated remediation scripts for AWS and GCP are now GA
