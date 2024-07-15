@@ -20,7 +20,7 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 * Learn strategies for reducing performance impact on your API Management service instance.
 
 > [!NOTE]
-> In an API Management [workspace](workspaces-overview.md), a workspace owner can independently integrate Application Insights and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance for an API Management instance; however, configuration is scoped to the workspace instead of the API Management service. Currently, you can integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
+> In an API Management [workspace](workspaces-overview.md), a workspace owner can independently integrate Application Insights and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance for an API Management instance; however, configuration is scoped to the workspace only. Currently, you must integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
 
 ## Prerequisites
 
