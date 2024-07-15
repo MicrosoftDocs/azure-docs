@@ -57,12 +57,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "terraform_samples_test",
-      "url": "https://github.com/TomArcherMsft/terraform",
-      "branch": "UserStory275199",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "quickstart-templates",
       "url": "https://github.com/Azure/azure-quickstart-templates",
       "branch": "master",
