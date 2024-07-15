@@ -7,11 +7,7 @@ ms.author: insravan
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Azure Communication Services or Microsoft 365 users can leave or join breakoutRooms only in Teams meeting scenarios. Microsoft 365 Users will be able to manage the breakoutRooms when they are having Co-Organizer role.
-
-|APIs| Co-Organizer  | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
-| join | ✔️ | ✔️  |✔️ |
+Azure Communication Services or Microsoft 365 users can leave or join breakout rooms only in Teams meeting scenarios. Microsoft 365 Users will be able to manage the breakout rooms when they are having Co-Organizer role.
 
 BreakoutRooms is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
@@ -25,29 +21,94 @@ const breakoutRoomsFeature = call.feature(Features.BreakoutRooms);
 ```
 
 ### Handle breakoutRoom events
-The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `call` instance and contains information about the breakoutrooms created or assigned . It also has additional event types like join , breakoutRoomSettings available.
+The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `call` instance and contains information about the breakout rooms created or assigned. 
+
+To receive a breakoutroom details, subscribe to the `breakoutRoomsUpdated` event. This event internally supports 4 event types.
+
+1. BreakoutRoomsEvent : When the event type is `breakoutRooms`, the subscriber would be able to receive all the BreakoutRooms which are created by the Organizer / Co-Organizer of the meeting. These details are available to the Microsoft 365 User with Organizer / Co-Organizer role.
+  ```js
+  export interface BreakOutRoomsEvent {
+    /**
+     * Breakout room event type
+     */
+    type: "breakoutRooms",
+    /**
+     * list of Breakout rooms
+     */
+    data: BreakoutRoom[] | undefined;
+  }
+```
+
+2. AssignedBreakoutRoomEvent :  When the event type is `assignedBreakoutRoom', the subscriber would be able to receive the details of the Breakout room assigned.
 ```js
+export interface AssignedBreakoutRoomEvent {
+  /**
+   * Breakout room event type
+   */
+  type: "assignedBreakoutRoom";
+   /**
+   * Assigned breakout room details
+   */
+  data: BreakoutRoom | undefined;
+}
+```
+
+3. BreakoutRoomSettingsEvent: When the even type is `breakoutRoomSettings` the subscriber would be able to receive all the settings available on the breakout room which are set by the Organizer / Co-Organizer of the meeting.
+```js
+export interface BreakoutRoomSettingsEvent {
+  /**
+   * Breakout room event type
+   */
+  type: "breakoutRoomSettings",
+   /**
+   * Breakout Room setting details
+   */
+  data: BreakoutRoomSettings | undefined;
+}
+```
+4. JoinBreakoutRoomEvent : When the event type is `join`, the subscriber would be able to receive the breakout room call object.
+```js
+export interface JoinBreakoutRoomEvent {
+  /**
+   * Breakout room event type
+   */
+  type: "join";
+   /**
+   * Breakoutroom call object
+   */
+  data: Call | TeamsCall;
+}
+
 const breakoutRoomsUpdatedListener = (event) => {
-                        switch(event.type) {
-                            case "breakoutRooms":
-                              console.log(`Event data is an array of Breakout rooms with ${event.data.length} elements`);
-                              breakoutroomsAvailableListener(event);
-                              break;
-                            case "assignedBreakoutRoom":
-                              console.log(`event.data is a breakout room named: ${event.data.displayName}`);
-                              assignedBreakoutRoomUpdatedHandler(event);
-                              break;
-                            case "breakoutRoomSettings":
-                              console.log(`Event data is a settings object with the main meeting url: ${event.data}`);
-                              breakoutRoomSettingsAvailableListener(event);
-                              break;
-                            case "join":
-                              console.log(`Event data is a Teams call ${event.data.id}`);
-                              breakoutroomsJoinedListener(event);
-                              break;
-                          }
-                    }
+switch(event.type) {
+    case "breakoutRooms":
+      const breakoutRooms = event.data;
+      console.log(`Event data is an array of Breakout rooms with ${breakoutRooms.length} elements`);      
+      break;
+    case "assignedBreakoutRoom":
+      const assignedRoom = event.data;
+      console.log(`event.data is a breakout room named: ${assignedRoom.displayName}`);      
+      break;
+    case "breakoutRoomSettings":
+      const breakoutRoomSettings = event.data;
+      console.log(`Event data is a settings object with the room End time: ${breakoutRoomSettings.roomEndTime}`);      
+      break;
+    case "join":
+      const call = event.data;
+      console.log(`Event data is a Teams call ${call.id}`);      
+      break;
+  }
+}
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
+```
+If the assigned breakoutroom doesnot have auto Move participants to BreakoutRooms set to true, then explicitly call the "Join" api to join the breakout room when the breakout room is opened.
+```js
+const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
+const breakoutRoomCall = await breakoutRoom.join();
+```
+To retreive all the breakoutRooms created in the Teams main meeting by the Organizer / Co-organizer use the following code. These breakout rooms are available only to the Organizer / Co-Organizer of the meeting.
+```js
+const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
 ```
 
 Use the following to stop receiving breakoutRooms events
