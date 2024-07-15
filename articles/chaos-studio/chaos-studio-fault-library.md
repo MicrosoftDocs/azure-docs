@@ -31,8 +31,8 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
 | Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
-| Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
-| Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
+| Windows             | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
+| Windows             | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
 | Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)               | General system stress testing                               |
 | Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
 | Windows             | [DiskIO Pressure](#disk-io-pressure)                                        | Disk I/O performance degradation                            |

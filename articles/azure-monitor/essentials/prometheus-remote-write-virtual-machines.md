@@ -47,11 +47,12 @@ Onboarding to Azure Arc-enabled services allows you to manage and configure non-
 - Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
 
 ### Azure Monitor workspace
+
 This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
 
 ## Permissions
-Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
+Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 ## Set up authentication for remote-write
 
@@ -289,13 +290,70 @@ The output contains the `appId` and `password` values. Save these values to use 
 For more information, see [az ad app create](/cli/azure/ad/app#az-ad-app-create) and [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac).
 
 ---
+
 ## Configure remote-write
 
-Remote-write is configured in the Prometheus configuration file `prometheus.yml`.
+Remote-write is configured in the Prometheus configuration file `prometheus.yml`, or in the Prometheus Operator.
 
 For more information on configuring remote-write, see the Prometheus.io article: [Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). For more on tuning the remote write configuration, see [Remote write tuning](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning).
 
-To send data to your Azure Monitor Workspace, add the following section to the configuration file of your self-managed Prometheus instance.
+### [Configure remote-write for Prometheus Operator](#tab/prom-operator)
+
+If you are running Prometheus Operator on a Kubernetes cluster, follow the below steps to send data to your Azure Monitor Workspace.
+
+1. If you are using Microsoft Entra ID authentication, convert the secret using base64 encoding, and then apply the secret into your Kubernetes cluster. Save the following into a yaml file. Skip this step if you are using managed identity authentication.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: remote-write-secret
+  namespace: monitoring # Replace with namespace where Prometheus Operator is deployed. 
+type: Opaque
+data:
+  password: <base64-encoded-secret>
+
+```
+
+Apply the secret.
+
+```azurecli
+# set context to your cluster 
+az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
+
+kubectl apply -f <remote-write-secret.yaml>
+```
+
+2. You will need to update the values for remote write section in Prometheus Operator. Copy the following and save it as a yaml file. For the values of the yaml file, see below section. Refer to [Prometheus Operator documentation](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#azuread) for more details on the Azure Monitor Workspace remote write specification in Prometheus Operator.
+
+```yaml
+prometheus:
+  prometheusSpec:
+    remoteWrite:
+    - url: "<metrics ingestion endpoint for your Azure Monitor workspace>"
+      azureAd:
+# AzureAD configuration.
+# The Azure Cloud. Options are 'AzurePublic', 'AzureChina', or 'AzureGovernment'.
+        cloud: 'AzurePublic'
+        managedIdentity:
+          clientId: "<clientId of the managed identity>"
+        oauth:
+          clientId: "<clientId of the Entra app>"
+          clientSecret:
+            name: remote-write-secret
+            key: password
+          tenantId: "<Azure subscription tenant Id>"
+```
+
+3. Use helm to update your remote write config using the above yaml file.
+
+```azurecli
+helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus Operator is deployed>
+```
+
+### [Configure remote-write for Prometheus running in VMs or other environments](#tab/prom-vm)
+
+To send data to your Azure Monitor Workspace, add the following section to the configuration file (prometheus.yml) of your self-managed Prometheus instance.
 
 ```yaml
 remote_write:   
@@ -311,6 +369,8 @@ remote_write:
       client_secret: "<client secret from the Entra app>"
       tenant_id: "<Azure subscription tenant Id>"
 ```
+
+---
 
 The `url` parameter specifies the metrics ingestion endpoint of the Azure Monitor workspace. It can be found on the Overview page of your Azure Monitor workspace in the Azure portal.
 

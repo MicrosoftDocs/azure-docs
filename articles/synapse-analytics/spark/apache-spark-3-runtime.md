@@ -3,7 +3,7 @@ title: Azure Synapse Runtime for Apache Spark 3.1 (unsupported)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
 author: ekote
 ms.author: eskot 
-ms.reviewer: wiassaf, sngun
+ms.reviewer: whhender, whhender
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark

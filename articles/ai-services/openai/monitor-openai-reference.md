@@ -37,6 +37,7 @@ Cognitive Services metrics have the category **Cognitive Services - HTTP Request
 The following list summarizes the current subset of metrics available in Azure OpenAI from the preceding table.
 
 - Azure OpenAI Requests
+- Active Tokens
 - Generated Completion Tokens
 - Processed FineTuned Training Hours
 - Processed Inference Tokens
