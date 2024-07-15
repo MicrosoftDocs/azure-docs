@@ -38,7 +38,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 | July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
 
-### Binary Drift Public Preview Now Available in Defender for Containers
+### Binary Drift public preview now available in Defender for Containers
 
 We are introducing the public preview of Binary Drift for Defender for Containers. This feature aids in identifying and mitigating potential security risks associated with unauthorized binaries in your containers. Binary Drift autonomously identifies and sends alerts about potentially harmful binary processes within your containers. Furthermore, it allows the implementation of a new Binary Drift Policy to control alert preferences, offering the ability to tailor notifications to specific security needs.
 For more information about this feature, see [Binary Drift Detection](binary-drift-detection.md)
