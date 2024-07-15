@@ -92,45 +92,45 @@ Before you begin, create the necessary resources by executing the following comm
 
 ## Optional: Create the Eureka Server for Spring
 
-1. If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component. For more information, see [Create the Eureka Server for Spring](java-eureka-server.md#create-the-eureka server-for-spring-java-component).
+If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component. For more information, see [Create the Eureka Server for Spring](java-eureka-server.md#create-the-eureka server-for-spring-java-component).
 
-    ```azurecli
-    az containerapp env java-component eureka-server-for-spring create \
-      --environment $ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $EUREKA_COMPONENT_NAME
-    ```
+```azurecli
+az containerapp env java-component eureka-server-for-spring create \
+  --environment $ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $EUREKA_COMPONENT_NAME
+```
 
 ## Bind the components together
 
-1. Create the Admin for Spring Java component.
+Create the Admin for Spring Java component.
 
-    ```azurecli
-    az containerapp env java-component admin-for-spring create \
-      --environment $ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $ADMIN_COMPONENT_NAME \
-      --bind $EUREKA_COMPONENT_NAME
-    ```
+```azurecli
+az containerapp env java-component admin-for-spring create \
+  --environment $ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $ADMIN_COMPONENT_NAME \
+  --bind $EUREKA_COMPONENT_NAME
+```
 
 ## Bind other apps to the Eureka Server
 
 With the Eureka Server set up, you can now bind other applications to it for service discovery. And you can also monitor and manage these applications in the dashboard of Admin for Spring. Follow the steps below to create and bind a container app to the Eureka Server:
 
-1. Create the container app and bind it to the Eureka Server.
+Create the container app and bind it to the Eureka Server.
 
-    ```azurecli
-    az containerapp create \
-      --name $CLIENT_APP_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --environment $ENVIRONMENT \
-      --image $CLIENT_IMAGE \
-      --min-replicas 1 \
-      --max-replicas 1 \
-      --ingress external \
-      --target-port 8080 \
-      --bind $EUREKA_COMPONENT_NAME 
-    ```
+```azurecli
+az containerapp create \
+  --name $CLIENT_APP_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --environment $ENVIRONMENT \
+  --image $CLIENT_IMAGE \
+  --min-replicas 1 \
+  --max-replicas 1 \
+  --ingress external \
+  --target-port 8080 \
+  --bind $EUREKA_COMPONENT_NAME 
+```
 
     > [!TIP]
     > Since the Admin for Spring has been binded to the Eureka Server for Spring in previous steps. Bind the container app to the Eureka Server Java component will enable service discovery and allow to be managed through the Admin for Spring dashboard at the same time.
@@ -166,7 +166,7 @@ With the Eureka Server set up, you can now bind other applications to it for ser
       --query id -o tsv)
     ```
 
-1. Assign the role to the your account.
+1. Assign the role to your account.
 
     Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
 
@@ -197,9 +197,9 @@ With the Eureka Server set up, you can now bind other applications to it for ser
       --query properties.ingress.fqdn -o tsv
     ```
 
-    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you container app is also to you as shown in the following screenshot.
+    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, your container app is also to you as shown in the following screenshot.
 
-    :::image type="content" source="media/java-components/sba.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba.png":::
+    :::image type="content" source="media/java-components/spring-boot-admin.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/spring-boot-admin.png":::
 
     :::image type="content" source="media/java-components/eureka.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka.png":::
 

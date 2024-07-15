@@ -16,7 +16,7 @@ The Admin for Spring managed component offers an administrative interface for Sp
 
 This tutorial shows you how to create an Admin for Spring Java component and bind it to your container app so you can monitor and manage your Spring applications with ease.
 
-:::image type="content" source="media/java-components/sba-overview.png" alt-text="Overview of the Admin for Spring insights dashboard."  lightbox="media/java-components/sba-overview.png":::
+:::image type="content" source="media/java-components/spring-boot-admin-overview.png" alt-text="Overview of the Admin for Spring insights dashboard."  lightbox="media/java-components/spring-boot-admin-overview.png":::
 
 In this tutorial, you learn to:
 
@@ -67,7 +67,7 @@ The following commands help you create your resource group and Container Apps en
     | `LOCATION` | The Azure region location where you create your container app and Java component. |
     | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
     | `RESOURCE_GROUP` | The Azure resource group name for your demo application. |
-    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Admin for Spring Java component.  |
+    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create an Admin for Spring Java component.  |
     | `IMAGE` | The container image used in your container app. |
 
 1. Log in to Azure with the Azure CLI.
@@ -167,7 +167,7 @@ Now that you have an existing environment, you can create your container app and
         --query id -o tsv)
     ```
 
-1. Assign the role to the your account.
+1. Assign the role to your account.
 
     Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
 
@@ -178,9 +178,8 @@ Now that you have an existing environment, you can create your container app and
       --scope $ENVIRONMENT_ID
     ```
 
-> [!NOTE]
-> <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal.
-> <ROLE_NAME> is the name you assigned in step 1.
+    > [!NOTE]
+    > <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal. <ROLE_NAME> is the name you assigned in step 1.
 
 1. Get the URL of the Admin for Spring dashboard.
 
@@ -192,9 +191,9 @@ Now that you have an existing environment, you can create your container app and
       --query properties.ingress.fqdn -o tsv
     ```
 
-    This command returns the URL you can use to access the Admin for Spring dashboard. Through the dashboard, you container app is also to you as shown in the following screenshot.
+    This command returns the URL you can use to access the Admin for Spring dashboard. Through the dashboard, your container app is also to you as shown in the following screenshot.
 
-    :::image type="content" source="media/java-components/sba-alone.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/sba-alone.png":::
+    :::image type="content" source="media/java-components/spring-boot-admin-alone.png" alt-text="Screenshot of the overview the Admin for Spring dashboard."  lightbox="media/java-components/spring-boot-admin-alone.png":::
 
 ## Clean up resources
 

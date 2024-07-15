@@ -181,7 +181,7 @@ Now that you have an existing environment, you can create your container app and
          --query id -o tsv)
     ```
 
-1. Assign the role to the your account.
+1. Assign the role to your account.
 
     Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
 
@@ -192,9 +192,8 @@ Now that you have an existing environment, you can create your container app and
       --scope $ENVIRONMENT_ID
     ```
 
-> [!NOTE]
-> <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal.
-> <ROLE_NAME> is the name you assigned in step 1.
+    > [!NOTE]
+    > <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal. <ROLE_NAME> is the name you assigned in step 1.
 
 1. Get the URL of the Eureka Server for Spring dashboard.
 
@@ -206,7 +205,7 @@ Now that you have an existing environment, you can create your container app and
       --query properties.ingress.fqdn -o tsv
     ```
 
-    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, you container app is also to you as shown in the following screenshot.
+    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, your container app is also to you as shown in the following screenshot.
 
     :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
 
