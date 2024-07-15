@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Bicep error code - BCP036
 
-This error occurs when you assign a value to a property using a data type that differs from the one defined in the [user-defined data type](./user-defined-data-types.md).
+This error occurs when you assign a value to a property whose expected data type is not compatible with that of the assigned value.
 
 ## Error description
 
