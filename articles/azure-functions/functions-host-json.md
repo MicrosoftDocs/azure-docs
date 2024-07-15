@@ -52,7 +52,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     },
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[4.0.0, 5.0.0)"
+        "version": "[4.0.0, 5.0.0]"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
