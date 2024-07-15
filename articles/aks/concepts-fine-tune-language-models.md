@@ -2,14 +2,14 @@
 title: Concepts - Fine-tuning language models for AI and machine learning workflows
 description: Learn about how you can customize language models to use in your AI and machine learning workflows on Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/01/2024
+ms.date: 07/15/2024
 author: schaffererin
 ms.author: schaffererin
 ---
 
 # Concepts - Fine-tuning language models for AI and machine learning workflows
 
-In this article, you learn about fine-tuning [language models][language-models], including some common methods and how applying the results to your models can improve the performance of your AI and machine learning workflows on Azure Kubernetes Service (AKS).
+In this article, you learn about fine-tuning [language models][language-models], including some common methods and how applying the tuning results can improve the performance of your AI and machine learning workflows on Azure Kubernetes Service (AKS).
 
 ## Pre-trained language models
 
@@ -23,7 +23,7 @@ The following table lists some pros and cons of using PLMs in your AI and machin
 
 | Pros | Cons |
 |------|------|
-| • Get started quickly with development and deployment in your machine learning lifecycle. <br> • Avoid heavy compute costs associated with model training.. <br> • Reduces the need to store large, labeled datasets. | • Might provide generalized or outdated responses based on pre-training data sources. <br> • Might not be suitable for all tasks or domains. <br> • Performance can vary depending on inferencing context. |
+| • Get started quickly with deployment in your machine learning lifecycle. <br> • Avoid heavy compute costs associated with model training. <br> • Reduces the need to store large, labeled datasets. | • Might provide generalized or outdated responses based on pre-training data sources. <br> • Might not be suitable for all tasks or domains. <br> • Performance can vary depending on inferencing context. |
 
 ## Fine-tuning methods
 
@@ -39,15 +39,15 @@ The following table lists some pros and cons of using PLMs in your AI and machin
 
 ## Experiment with fine-tuning language models on AKS
 
-Kubernetes AI Toolchain Operator (KAITO) is an open-source operator that automates small and large language model deployments in Kubernetes clusters. The KAITO add-on for AKS simplifies onboarding and reduces the time-to-inference for open-source models on your AKS clusters. The add-on automatically provisions right-sized GPU nodes and sets up the associated interference server as an endpoint server to your chosen model.
+Kubernetes AI Toolchain Operator (KAITO) is an open-source operator that automates small and large language model deployments in Kubernetes clusters. The AI toolchain operator add-on leverages KAITO to simplify onboarding, save on infrastructure costs, and reduce the time-to-inference for open-source models on an AKS cluster. The add-on automatically provisions right-sized GPU nodes and sets up the associated inference server as an endpoint server to your chosen model.
 
-In the upcoming open source KAITO release, you can efficiently fine-tune supported MIT and Apache 2.0 licensed models with the following features:
+With KAITO version 0.3.0 or later, you can efficiently fine-tune supported MIT and Apache 2.0 licensed models with the following features:
 
 * Store your retraining data as a container image in a private container registry.
 * Host the new adapter layer image in a private container registry.
 * Efficiently pull the image for inferencing with adapter layers in new scenarios.
 
-For guidance on getting started with fine-tuning on KAITO, see the [Kaito Tuning Workspace API documentation][kaito-fine-tuning]. To learn more about deploying language models with KAITO in your AKS clusters, see the [KAITO model GitHub repository][kaito-repo]. 
+For guidance on getting started with fine-tuning on KAITO, see the [Kaito Tuning Workspace API documentation][kaito-fine-tuning]. To learn more about deploying language models with KAITO in your AKS clusters, see the [KAITO model GitHub repository][kaito-repo].
 
 ## Next steps
 
