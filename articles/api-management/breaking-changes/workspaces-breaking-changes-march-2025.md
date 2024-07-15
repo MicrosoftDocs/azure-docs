@@ -1,5 +1,5 @@
 ---
-title: Azure API Management workspaces (March 2025) | Microsoft Docs
+title: Azure API Management workspaces preview - breaking changes (March 2025)
 description: Azure API Management is removing support for preview workspaces. If your service uses preview workspaces, migrate your workspaces to the generally available version.
 services: api-management 
 author: dlepow
@@ -9,7 +9,7 @@ ms.date: 07/10/2024
 ms.author: danlep
 ---
 
-# Workspaces breaking changes (March 2025)
+# Workspaces breaking changes, part 2 (March 2025)
 
 [!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
 
@@ -57,11 +57,11 @@ To determine if a preview workspace is in a supported region:
 1. In the left menu, under **APIs**, select **Workspaces**, and select a workspace.
 1. If your workspace is in a region that doesn't support workspace gateways, you'll see a message in the portal similar to "Workspaces are currently unavailable in the region of your API Management service". 
     * If you see this message, you can [move your API Management instance](../api-management-howto-migrate.md) to a supported region.
-    * If you don't see this message, your workspace is in a supported region and you can proceed to add a dedicated gateway.
+    * If you don't see this message, your workspace is in a supported region and you can proceed to add a workspace gateway.
 
 ### Add a workspace gateway to your workspace
 
-The following are abbreviated steps to add a dedicated gateway to a workspace. For gateway networking options, prerequisites, and detailed instructions, see [Create and manage a workspace](../how-to-create-workspace.md).
+The following are abbreviated steps to add a workspace gateway to a workspace. For gateway networking options, prerequisites, and detailed instructions, see [Create and manage a workspace](../how-to-create-workspace.md).
 
 > [!NOTE]
 > * The workspace gateway incurs additional charges. For more information, see [API Management pricing](https://aka.ms/apimpricing).
@@ -77,10 +77,10 @@ The following are abbreviated steps to add a dedicated gateway to a workspace. F
 
 ### Update client apps to use the new gateway hostname
 
-After adding a dedicated gateway to your workspace, you need to update your client apps that call the workspace's APIs to use the new gateway hostname instead of the gateway hostname of your API Management instance. 
+After adding a gateway to your workspace, you need to update your client apps that call the workspace's APIs to use the new gateway hostname instead of the gateway hostname of your API Management instance. 
 
 > [!NOTE]
-> To help you migrate your workspaces, APIs in workspaces can still be accessed at runtime through October 2024 using the gateway hostname of your API Management instance. After October 2024, you must use the gateway hostname of the workspace. We strongly recommend that you complete migration before this date. If your workspace gateways are configured with private inbound access and private outbound access, make sure that connectivity to your API Management instance's built-in gateway is also secured.
+> To help you migrate your workspaces, APIs in workspaces can still be accessed at runtime through October 2024 using the gateway hostname of your API Management instance, even if a workspace gateway is associated with a workspace. We strongly recommend that you complete migration before this date. If your workspace gateways are configured with private inbound access and private outbound access, make sure that connectivity to your API Management instance's built-in gateway is also secured.
 
 ### Update dependencies on service-level managed identities
 
