@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Bicep warning code - BCP037
 
-This warning occurs when you specify a property that is not defined in a [user-defined data type](./user-defined-data-types.md).
+This warning occurs when you specify a property that isn't defined in a [user-defined data type](./user-defined-data-types.md).
 
 ## Warning description
 
@@ -20,7 +20,7 @@ Remove the undefined property.
 
 ## Examples
 
-The following example raises the warning because `bar` is not defined in `storageAccountType`:
+The following example raises the warning because `bar` isn't defined in `storageAccountType`:
 
 ```bicep
 type storageAccountConfigType = {

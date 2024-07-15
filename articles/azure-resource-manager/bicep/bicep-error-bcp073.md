@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Bicep warning code - BCP073
 
-This warning occurs when you assign a value to a read-only property
+This warning occurs when you assign a value to a read-only property.
 
 ## Warning description
 
@@ -41,7 +41,7 @@ resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2023-04-01'
 }
 ```
 
-You can fix the issue by removing the `sku` property assingment:
+You can fix the issue by removing the `sku` property assignment:
 
 ```bicep
 param location string

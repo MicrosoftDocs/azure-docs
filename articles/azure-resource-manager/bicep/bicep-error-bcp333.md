@@ -1,6 +1,6 @@
 ---
 title: BCP333
-description: Error - The provided value (whose length will always be less than or equal to <value-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.
+description: Error - The provided value (whose length will always be less than or equal to <string-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/12/2024
@@ -12,7 +12,7 @@ This error occurs when a string assigned is shorter than the allowable length.
 
 ## Error description
 
-`The provided value (whose length will always be less than or equal to <value-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.`
+`The provided value (whose length will always be less than or equal to <string-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.`
 
 ## Solution
 

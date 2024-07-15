@@ -1,9 +1,9 @@
 ---
 title: BCP332
-description: Error - The provided value (whose length will always be greater than or equal to <value-length>) is too long to assign to a target for which the maximum allowable length is <max-length>.
+description: Error - The provided value (whose length will always be greater than or equal to <string-length>) is too long to assign to a target for which the maximum allowable length is <max-length>.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ---
 
 # Bicep error code - BCP332
@@ -12,7 +12,7 @@ This error occurs when a string exceeding the allowable length is assigned.
 
 ## Error description
 
-`The provided value (whose length will always be greater than or equal to <value-length>) is too long to assign to a target for which the maximum allowable length is <max-length>.`
+`The provided value (whose length will always be greater than or equal to <string-length>) is too long to assign to a target for which the maximum allowable length is <max-length>.`
 
 ## Solution
 
