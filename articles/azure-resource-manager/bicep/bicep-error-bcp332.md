@@ -8,7 +8,7 @@ ms.date: 07/15/2024
 
 # Bicep error code - BCP332
 
-This error occurs when a string exceeding the allowable length is assigned.  
+This error occurs when a string or array exceeding the allowable length is assigned.  
 
 ## Error description
 
