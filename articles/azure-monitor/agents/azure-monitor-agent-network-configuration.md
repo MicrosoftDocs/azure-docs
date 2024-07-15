@@ -3,7 +3,7 @@ title: Azure Monitor network configuration
 description: Define network settings and enable network isolation for Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 07/10/2024
-ms.custom: references_region
+ms.custom: references_regions
 ms.reviewer: shseth
 
 ---

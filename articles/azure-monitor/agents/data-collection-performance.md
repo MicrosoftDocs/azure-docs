@@ -1,6 +1,6 @@
 ---
 title: Collect performance counters with Azure Monitor Agent
-description: Describes how to erformance counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
+description: Describes how to collect performance counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 07/12/2024
 author: guywild

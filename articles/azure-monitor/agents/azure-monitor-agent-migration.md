@@ -27,7 +27,7 @@ Migration is a complex task. Start planning your migration to Azure Monitor Agen
 ## Benefits
 Using Azure Monitor agent, you get immediate benefits as shown below:
 
-:::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Snippet of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
+:::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Diagram of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
 
 - **Cost savings** by [using data collection rules](./azure-monitor-agent-data-collection.md):
   - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
@@ -65,7 +65,7 @@ The **Azure Monitor Agent Migration Helper** workbook is a workbook-based Azure 
 
 ## Understand your agents
 
-1. Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
+Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
 To help understand your agents, review the following questions:
 
 |**Question**|**Actions**|

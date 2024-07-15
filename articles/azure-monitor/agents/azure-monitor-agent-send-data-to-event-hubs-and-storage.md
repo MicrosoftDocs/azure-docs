@@ -739,4 +739,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For more information on creating a data collection rule, see [Collect data from virtual machines wusing Azure Monitor Agent](./azure-monitor-agent-data-collection.md).
+- For more information on creating a data collection rule, see [Collect data from virtual machines using Azure Monitor Agent](./azure-monitor-agent-data-collection.md).

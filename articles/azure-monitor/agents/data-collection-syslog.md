@@ -26,8 +26,8 @@ Syslog is an event logging protocol that's common to Linux. You can use the Sysl
 In the **Collect and deliver** step of the DCR, select **Linux Syslog** from the **Data source type** dropdown. 
 
 The following facilities are supported with the Syslog collector:
-| Pri index 	| Pri Name 	|
-|---		|---		|
+| Pri index | Pri Name 	|
+|:---|:---|
 | 0	   	| None		|
 | 1		| Kern		|
 | 2		| user		|
@@ -181,7 +181,7 @@ If you edit the Syslog configuration, you must restart the Syslog daemon for the
 
 The following facilities are supported with the Syslog collector:
 | Pri index 	| Pri Name 	|
-|---		|---		|
+|:---|:---|
 | 0	   	| None		|
 | 1		| Kern		|
 | 2		| user		|

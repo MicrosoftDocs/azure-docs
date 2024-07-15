@@ -271,6 +271,6 @@ Go through the following steps if you aren't collecting data from the text log t
 
 Learn more about: 
 
-- [Azure Monitor Agent](azure-monitor-agent-overview.md).
-- [Data collection rules](../essentials/data-collection-rule-overview.md).
-- [Best practices for cost management in Azure Monitor](../best-practices-cost.md).
+- [Azure Monitor Agent](azure-monitor-agent-overview.md)
+- [Data collection rules](../essentials/data-collection-rule-overview.md)
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md)
