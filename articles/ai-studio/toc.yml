@@ -287,7 +287,7 @@ items:
     - name: Disaster recovery
       href: how-to/disaster-recovery.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/azure-ai-studio-security-baseline?context=/azure/ai-studio/context/context
+      href: /security/benchmark/azure/baselines/azure-ai-studio-security-baseline
 - name: Responsible AI
   items:
   - name: Overview
