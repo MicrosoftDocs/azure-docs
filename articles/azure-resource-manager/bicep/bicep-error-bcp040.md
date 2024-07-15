@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Bicep warning code - BCP040
 
-This warning occurs when you use string interpolation to specify a key of a [user-defined data type](./user-defined-data-types.md).
+This warning occurs when the Bicep compiler cannot determine the exact value of an interpolated string key.
 
 ## Warning description
 
