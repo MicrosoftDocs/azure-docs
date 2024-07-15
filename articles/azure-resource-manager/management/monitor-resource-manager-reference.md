@@ -31,8 +31,8 @@ The following table lists the metrics available for the microsoft.resources/subs
 
 | Dimension name | Description |
 |:-------------- |:----------- |
-| IsCustomerOriginated |
-| Microsoft.SubscriptionId |
+| IsCustomerOriginated | |
+| Microsoft.SubscriptionId | |
 | Method | The HTTP method used in the request made to Azure Resource Manager. Possible values are: <br/>- GET<br/>- HEAD<br/>- PUT<br/>- POST<br/>- PATCH<br/>- DELETE |
 | Namespace | The namespace for the Resource Provider, in all caps, like *MICROSOFT.COMPUTE*. |
 | RequestRegion | The Azure Resource Manager region where your control plane requests land, like *EastUS2*. This region isn't the resource's location. |
