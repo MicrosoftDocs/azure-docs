@@ -15,6 +15,7 @@ This page contains a list of devices that have successfully passed the Edge Secu
 |Manufacturer|Device Name|OS|Last Updated|
 ---|---|---|---
 |AAEON|[SRG-TG01](https://newdata.aaeon.com.tw/DOWNLOAD/2014%20datasheet/Systems/SRG-TG01.pdf)|Windows 10 IoT Enterprise|2022-06-14|
+|Advantech|[ITA-580](https://www.advantech.com/en-eu/products/5130beef-2b81-41f7-a89b-2c43c1f2b6e9/ita-580/mod_bf7b0383-e6b2-49d7-9181-b6fc752e188b)|Windows 10 IoT Enterprise|2024-07-08|
 |Asus|[PE200U](https://www.asus.com/networking-iot-servers/aiot-industrial-solutions/embedded-computers-edge-ai-systems/pe200u/)|Windows 10 IoT Enterprise|2022-04-20|
 |Asus|[PN64-E1 vPro](https://www.asus.com/ca-en/displays-desktops/mini-pcs/pn-series/asus-expertcenter-pn64-e1/)|Windows 10 IoT Enterprise|2023-08-08|
 |Asus|[NUC13L3Hv7](https://www.asus.com/us/displays-desktops/nucs/nuc-mini-pcs/asus-nuc-13-pro/)|Windows 10 IoT Enterprise|2023-04-28|
