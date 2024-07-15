@@ -24,8 +24,8 @@ Here are common limitations that apply to migration scenarios:
 - The migration service shows the number of tables copied from source to target. You must manually check the data and PostgreSQL objects on the target server post-migration.
 - The migration service migrates only user databases, not system databases, such as template_0 and template_1.
 - The migration service doesn't support moving TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, or PG_PARTMAN extensions from source to target.
-- You can't move extensions not supported by Azure Database for PostgreSQL – Flexible Server. The supported extensions are listed in [Extensions - Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-extensions).
-- User-defined collations can't be migrated into Azure Database for PostgreSQL – Flexible Server.
+- You can't move extensions not supported by Azure Database for PostgreSQL - Flexible Server. The supported extensions are listed in [Extensions - Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-extensions).
+- User-defined collations can't be migrated into Azure Database for PostgreSQL - Flexible Server.
 - You can't migrate to an older version. For instance, you can't migrate from Azure Database for PostgreSQL version 15 to version 14.
 - The migration service only works with preferred or required SSLMODE values.
 - The migration service doesn't support superuser privileges and objects.
