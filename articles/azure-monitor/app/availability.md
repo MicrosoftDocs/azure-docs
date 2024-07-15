@@ -33,11 +33,6 @@ There are four types of availability tests:
 >
 > * **URL ping tests:** On September 30, 2026, URL ping tests in Application Insights will be retired. Existing URL ping tests will be removed from your resources. Review the [pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) for standard tests and [transition](https://aka.ms/availabilitytestmigration) to using them before September 30, 2026 to ensure you can continue to run single-step availability tests in your Application Insights resources.
 
-<!-- Move this message to "previous-version" documents for both web tests
-> [!IMPORTANT]
-> [Multi-step web test](availability-multistep.md) and [URL ping test](monitor-web-app-availability.md) rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can resolve every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
--->
-
 ## Create an availability test
 
 ## [Standard test](#tab/standard)
@@ -348,10 +343,6 @@ Alerts are now automatically enabled by default, but to fully configure an alert
 
 > [!NOTE]
 > With the [new unified alerts](../alerts/alerts-overview.md), the alert rule severity and notification preferences with [action groups](../alerts/action-groups.md) *must be* configured in the alerts experience. Without the following steps, you'll only receive in-portal notifications.
-
-<!--
-:::image type="content" source="./media/availability-alerts/create-test.png" alt-text="Screenshot that shows the Create test dialog in the Azure portal." lightbox="./media/availability-alerts/create-test.png":::
--->
 
 1. After you save the availability test, on the **Details** tab, select the ellipsis by the test you made. Select **Open Rules (Alerts) page**.
 
@@ -764,7 +755,7 @@ Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-avail
 
 The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; AppInsights)**
 
-### TLS Support
+### TLS support
 
 #### How does this deprecation impact my web test behavior?
 
