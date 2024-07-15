@@ -1,93 +1,167 @@
 ---
-title: Define Azure Monitor Agent network settings
+title: Azure Monitor network configuration
 description: Define network settings and enable network isolation for Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 5/1/2023
-ms.custom: references_region
+ms.date: 07/10/2024
+ms.custom: references_regions
 ms.reviewer: shseth
 
 ---
-# Define Azure Monitor Agent network settings
-
+# Azure Monitor agent network configuration
 Azure Monitor Agent supports connecting by using direct proxies, Log Analytics gateway, and private links. This article explains how to define network settings and enable network isolation for Azure Monitor Agent.
+
+
 
 ## Virtual network service tags
 
-Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureResourceManager* tags are required. 
+The [Azure virtual network service tags](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. Both *AzureMonitor* and *AzureResourceManager* tags are required. 
 
 Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
 >[!NOTE]
-> Data collection endpoint public IP addresses are not part of the abovementioned network service tags. If you have custom logs or IIS log data collection rules, consider allowing the data collection endpoint's public IP addresses for these scenarios to work until these scenarios are supported by network service tags. 
+> Data collection endpoint public IP addresses are not part of the above mentioned network service tags. If you have custom logs or IIS log data collection rules, consider allowing the data collection endpoint's public IP addresses for these scenarios to work until these scenarios are supported by network service tags. 
 
-## Firewall requirements
+## Firewall endpoints
+The following table provides the endpoints that firewalls need to provide access to for different clouds. Each is an outbound connection to port 443.
 
-| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection| Example |
-|------|------|------|---------|--------|--------|------|
-| Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes | - |
-| Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes | westus2.handler.control.monitor.azure.com |
-| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
-| Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
-| Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
-| Azure Commercial | `<data-collection-endpoint>`.`<virtual-machine-region-name>`.ingest.monitor.azure.com  | Only needed if sending data to Log Analytics [Custom Logs](./data-collection-text-log.md) table | Port 443 | Outbound | Yes | 275test-01li.eastus2euap-1.canary.ingest.monitor.azure.com |
-| Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
-| Microsoft Azure operated by 21Vianet | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
+|Endpoint |Purpose | Example |
+|:--|:--|:--|
+| `global.handler.control.monitor.azure.com` |Access control service - |
+| `<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine  | westus2.handler.control.monitor.azure.com |
+|`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
+| management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database  | - |
+| `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | westus2.monitoring.azure.com |
+
+
+Replace the suffix in the endpoints with the suffix in the following table for different clouds.
+
+| Cloud | Suffix |
+|:---|:---|
+| Azure Commercial | .com |
+| Azure Government | .us |
+| Microsoft Azure operated by 21Vianet | .cn |
+
 
 >[!NOTE]
 > If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-dce). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
 > The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure operated by 21Vianet clouds.
 
-## Proxy configuration
+> [!NOTE]
+> When using AMA with AMPLS, all of your Data Collection Rules much use Data Collection Endpoints. Those DCE's must be added to the AMPLS configuration using [private link](../logs/private-link-configure.md#connect-azure-monitor-resources)
 
-If the machine connects through a proxy server to communicate over the internet, review the following requirements to understand the network configuration required.
+## Proxy configuration
 
 The Azure Monitor Agent extensions for Windows and Linux can communicate either through a proxy server or a [Log Analytics gateway](./gateway.md) to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
 
 > [!IMPORTANT]
 > Proxy configuration isn't supported for [Azure Monitor Metrics (public preview)](../essentials/metrics-custom-overview.md) as a destination. If you're sending metrics to this destination, it will use the public internet without any proxy.
 
-1. Use this flowchart to determine the values of the `Settings` and `ProtectedSettings` parameters first.
+> [!NOTE]
+> Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above. For the ARM template, if you have proxy configuration please follow the ARM template example below declaring the proxy setting inside the ARM template. Additionally, a user can set "global" environment variables that get picked up by all systemd services [via the DefaultEnvironment variable in /etc/systemd/system.conf](https://www.man7.org/linux/man-pages/man5/systemd-system.conf.5.html).
 
-    :::image type="content" source="media/azure-monitor-agent-overview/proxy-flowchart.png" lightbox="media/azure-monitor-agent-overview/proxy-flowchart.png" alt-text="Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.":::
 
-    > [!NOTE]
-    > Setting Linux system proxy via environment variables such as `http_proxy` and `https_proxy` is only supported using Azure Monitor Agent for Linux version 1.24.2 and above. For the ARM template, if you have proxy configuration please follow the ARM template example below declaring the proxy setting inside the ARM template. Additionally, a user can set "global" environment variables that get picked up by all systemd services [via the DefaultEnvironment variable in /etc/systemd/system.conf](https://www.man7.org/linux/man-pages/man5/systemd-system.conf.5.html).
-
-1. After you determine the `Settings` and `ProtectedSettings` parameter values, provide these other parameters when you deploy Azure Monitor Agent. Use PowerShell commands, as shown in the following examples:
+Use PowerShell commands in the following examples depending on your environment and configuration.:
 
 # [Windows VM](#tab/PowerShellWindows)
 
+**No proxy**
+
+```powershell
+$settingsString = '{"proxy":{"mode":"none"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>  -SettingString $settingsString
+```
+
+**Proxy with no authentication**
+
+```powershell
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "false"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>  -SettingString $settingsString
+```
+
+**Proxy with authentication**
+
 ```powershell
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "true"}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>  -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
+
 
 # [Linux VM](#tab/PowerShellLinux)
 
+**No proxy**
+
+```powershell
+$settingsString = '{"proxy":{"mode":"none"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>  -SettingString $settingsString
+```
+
+**Proxy with no authentication**
+
+```powershell
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "false"}}';
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -SettingString $settingsString
+```
+
+**Proxy with authentication**
+
 ```powershell
 $settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "true"}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>  -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
 
+
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
+
+**No proxy**
+
+```powershell
+$settings = @{"proxy" = @{mode = "none"}}
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings
+```
+
+**Proxy with no authentication**
+
+```powershell
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "false"}}
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings 
+```
+
+**Proxy with authentication**
 
 ```powershell
 $settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
 New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
 ```
 
 # [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
+**No proxy**
+
+```powershell
+$settings = @{"proxy" = @{mode = "none"}}
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings
+```
+
+**Proxy with no authentication**
+
+```powershell
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "false"}}
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings 
+```
+
+**Proxy with authentication**
+
 ```powershell
 $settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
-
 New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
 ```
+
+
+
 
 # [ARM Policy Template example](#tab/ArmPolicy)
 
@@ -260,7 +334,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ## Log Analytics gateway configuration
 
-1. Follow the preceding instructions to configure proxy settings on the agent and provide the IP address and port number that correspond to the gateway server. If you've deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.
+1. Follow the guidance above to configure proxy settings on the agent and provide the IP address and port number that correspond to the gateway server. If you've deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.
 1. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`.
@@ -273,5 +347,4 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ## Next steps
 
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
-- [Enable network isolation for Azure Monitor Agent by using Private Link](../agents/azure-monitor-agent-private-link.md).
+- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources).
