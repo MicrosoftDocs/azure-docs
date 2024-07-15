@@ -303,7 +303,7 @@ After you connect Azure OpenAI to your data, you can deploy it using the **Deplo
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
-This gives you multiple options for deploying your model.
+This gives you multiple options for deploying your solution.
 
 #### [Copilot (preview)](#tab/copilot)
 
