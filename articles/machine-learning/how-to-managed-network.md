@@ -1113,7 +1113,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * If your compute instance is in a managed network and is configured for no public IP, use the `az ml compute connect-ssh` command to connect to it using SSH.
 * When using Managed Vnet, you can't deploy compute resources inside your custom Vnet. Compute resources can only be created inside the managed Vnet.
 * Managed network isolation cannot establish a private connection from the managed virtual network to a user's on-premises resources.
-For the list of supported private connections, see [Private Endpoints](https://learn.microsoft.com/azure/machine-learning/how-to-managed-network?view=azureml-api-2&tabs=azure-cli#private-endpoints).
+For the list of supported private connections, see [Private Endpoints](/azure/machine-learning/how-to-managed-network?view=azureml-api-2&tabs=azure-cli&preserve-view=true #private-endpoints).
 
 ### Migration of compute resources
 
