@@ -4,7 +4,7 @@ description: Enrich your data with artificial intelligence (AI) in Azure Synapse
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
-ms.reviewer: sngun, garye, negust, ruxu, jessiwang
+ms.reviewer: whhender, garye, negust, ruxu, jessiwang
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 05/13/2024

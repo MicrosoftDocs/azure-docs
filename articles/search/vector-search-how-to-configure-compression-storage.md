@@ -13,7 +13,7 @@ ms.date: 06/28/2024
 # Configure vector quantization and reduced storage for smaller vectors in Azure AI Search
 
 > [!IMPORTANT]
-> These features are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-03-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) and later preview APIs provide the new data types, vector compression properties, and the `stored` property. We recommend using the lates preview APIs.
+> These features are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-03-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) and later preview APIs provide the new data types, vector compression properties, and the `stored` property. We recommend using the latest preview APIs.
 
 This article describes vector quantization and other techniques for compressing vector indexes in Azure AI Search.
 
@@ -163,9 +163,9 @@ Using preview APIs, you can assign narrow primitive data types to reduce the sto
 
 The `stored` property is a new boolean on a vector field definition that determines whether storage is allocated for retrievable vector field content. The `stored` property is set to true by default. If you don't need vector content in a query response, you can save up to 50 percent storage per field by setting `stored` to false.
 
-When considering whether to set this property, consider whether you need vectors in the response. Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream processing, such as passing query results to a model or process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing vector size.
+When evaluating whether to set this property, consider whether you need vectors in the response. Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream processing, such as passing query results to a model or process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing vector size.
 
-Another consideration is that `stored` settings are irreversible. It's set during index creation on vector fields when physical data structures are created. If you want retrievable content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
+Remember that the `stored` attribution is irreversible. It's set during index creation on vector fields when physical data structures are created. If you want retrievable vector content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
 
 The following example shows the fields collection of a search index. Set `stored` to false to permanently remove retrievable storage for the vector field.
 

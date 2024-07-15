@@ -92,11 +92,13 @@
 - name: Concepts
   items:
     - name: Core concepts
-      href: concepts-clusters-workloads.md
+      href: core-aks-concepts.md
     - name: Pricing tiers for AKS
       href: free-standard-pricing-tiers.md
     - name: Maintain and upgrade an AKS cluster
       href: upgrade.md
+    - name: Resource reservations
+      href: node-resource-reservations.md
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
@@ -154,6 +156,8 @@
       items:
         - name: Small and large language models
           href: concepts-ai-ml-language-models.md
+        - name: Fine-tuning language models
+          href: concepts-fine-tune-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -335,7 +339,17 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:    
+      items:   
+        - name: Stateful workloads 
+          items:
+            - name: Deploy a highly available PostgreSQL database
+              items:
+                - name: Overview
+                  href: postgresql-ha-overview.md
+                - name: Create infrastructure resources
+                  href: create-postgresql-ha.md
+                - name: Deploy and test PostgreSQL
+                  href: deploy-postgresql-ha.md
         - name: GPU workloads
           items:
             - name: Use GPUs
@@ -483,6 +497,8 @@
                   href: workload-identity-overview.md
                 - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
+                - name: Configure cross-tenant workload identity
+                  href: workload-identity-cross-tenant.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Microsoft Entra pod identity
@@ -691,8 +707,10 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
+            - name: Network Observability
+              href: network-observability-managed-cli.md
             - name: Advanced Network Observability - Azure managed Prometheus and Grafana
-              href: advanced-network-observability-cli.md 
+              href: advanced-network-observability-cli.md
             - name: Advanced Network Observability - Bring Your Own Prometheus and Grafana
               href: advanced-network-observability-bring-your-own-cli.md
     - name: Service Mesh
@@ -761,6 +779,8 @@
               href: keda-deploy-add-on-arm.md
             - name: Use Azure CLI
               href: keda-deploy-add-on-cli.md
+            - name: Securely scale your applications using the Kubernetes Event-driven Autoscaling (KEDA) add-on and workload identity
+              href: keda-workload-identity.md
             - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
               href: keda-integrations.md
             - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
@@ -807,6 +827,8 @@
           href: rdp.md
         - name: Use HostProcess containers
           href: use-windows-hpc.md
+        - name: Use Windows Annual Channel for Containers
+          href: windows-annual-channel.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers

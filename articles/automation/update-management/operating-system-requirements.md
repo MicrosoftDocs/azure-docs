@@ -4,14 +4,14 @@ description: This article describes the supported Windows and Linux operating sy
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 06/30/2024
+ms.date: 07/15/2024
 ms.topic: conceptual
 ---
 
 # Operating systems supported by Update Management
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
 

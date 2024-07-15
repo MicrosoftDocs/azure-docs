@@ -30,6 +30,8 @@ This documentation contains the following article types:
 
 The following are a few scenarios in which a software developer or team would require a content moderation service:
 
+- User prompts submitted to a generative AI service. 
+- Content produced by generative AI models.
 - Online marketplaces that moderate product catalogs and other user-generated content.
 - Gaming companies that moderate user-generated game artifacts and chat rooms.
 - Social messaging platforms that moderate images and text added by their users.

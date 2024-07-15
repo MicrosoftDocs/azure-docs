@@ -5,9 +5,9 @@ description: Learn how to set up AutoML training jobs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-author: manashgoswami
-ms.author: manashg
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
 ms.date: 07/20/2023
 ms.topic: how-to
 ms.custom: automl

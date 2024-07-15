@@ -276,7 +276,6 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | managedClusters | resource group | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric. |
 > | managedClusters / agentPools | managed cluster | 1-12 for Linux<br>1-6 for Windows | Lowercase letters and numbers.<br><br>Can't start with a number. |
-> | openShiftManagedClusters | resource group | 1-30 | Alphanumerics. |
 
 ## Microsoft.CustomerInsights
 

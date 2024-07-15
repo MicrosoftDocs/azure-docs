@@ -208,6 +208,8 @@
           href: how-to-customize-kubernetes-cluster-dns.md
         - name: Customize worker nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Collect debug logs for support ticket
+          href: howto-kubernetes-cluster-log-collector-script.md
         - name: Manage SSH keys
           href: howto-kubernetes-cluster-manage-ssh-key.md
     - name: Nexus Virtual Machine

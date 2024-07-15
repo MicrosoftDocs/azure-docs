@@ -51,6 +51,8 @@ items:
         href: how-to/create-azure-ai-hub-template.md
       - name: Create a hub using the Azure Machine Learning SDK and CLI
         href: how-to/develop/create-hub-project-sdk.md
+      - name: Create a hub using Terraform
+        href: how-to/create-hub-terraform.md
     - name: Create a project
       href: how-to/create-projects.md
     - name: Create and manage compute
@@ -286,6 +288,8 @@ items:
       href: concepts/vulnerability-management.md
     - name: Disaster recovery
       href: how-to/disaster-recovery.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-ai-studio-security-baseline
 - name: Responsible AI
   items:
   - name: Overview
