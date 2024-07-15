@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Bicep error code - BCP333
 
-This error occurs when a string assigned is shorter than the allowable length.
+This error occurs when an assigned string or array is shorter than the allowable length.
 
 ## Error description
 
