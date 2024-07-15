@@ -82,10 +82,7 @@ Given the many factors involved in a migration, the best approach to estimate do
 
 Offline migrations are less complex, with few chances of failure, and are the recommended way to perform migrations from a single server to a flexible server for workloads with service windows.
 
-You can contact your account teams if downtime requirements aren't met by the Offline migrations provided by a single server to a Flexible migration tool.
-
-> [!NOTE]
-> Support for online migration is coming soon.
+You can contact your account teams if downtime requirements aren't met by the Offline migrations provided by a single server to a Flexible migration tool, or use online migration.
 
 **Q. Will there be future updates to Single Server to support the latest PostgreSQL versions?**
 
