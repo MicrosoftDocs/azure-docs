@@ -46,9 +46,9 @@ sections:
   - name: Consumer email accounts
     questions:
       - question: |
-          Can I invite consumer email accounts (outlook.com and gmail.com) to the tenant and give permissions to access Azure Analysis Services?
+          Can I invite consumer email accounts (such as outlook.com and gmail.com) to the tenant and give permissions to access Azure Analysis Services?
         answer: |
-          Yes, Azure Analysis Services supports B2C accounts (consumer email accounts who are invited into the Server tenant). However there are limitations with such accounts, for example Single Sign-On from Power BI service Live Connect reports may not be supported for some providers of consumer email accounts.
+          Yes, Azure Analysis Services supports B2C accounts (consumer email accounts who are invited into the Server tenant). However there are limitations with such accounts, for example Single Sign-On from Power BI service live connect reports might not be supported for some providers of consumer email accounts.
           
   - name: Azure apps with IP address
     questions:

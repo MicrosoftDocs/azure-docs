@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/18/2024
+ms.date: 5/21/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
@@ -26,7 +26,7 @@ You can specify one or multiple audio files when creating a transcription. We re
 
 ## Supported audio formats and codecs
 
-The batch transcription API supports many different formats and codecs, such as:
+The batch transcription API (and [fast transcription API](./fast-transcription-create.md)) supports many different formats and codecs, such as:
 
 - WAV
 - MP3

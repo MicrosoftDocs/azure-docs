@@ -67,7 +67,7 @@ param deployStorage bool = true
 param storageName string
 param location string = resourceGroup().location
 
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = if (deployStorage) {
+resource myStorageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = if (deployStorage) {
   name: storageName
   location: location
   kind: 'StorageV2'
@@ -103,7 +103,7 @@ param orgNames array = [
   'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in orgNames: {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = [for name in orgNames: {
   name: 'nsg-${name}'
   location: nsgLocation
 }]

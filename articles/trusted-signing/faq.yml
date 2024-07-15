@@ -46,7 +46,7 @@ sections:
           For questions with Identity Validation reach out via Microsoft Q&A or Stack Overflow, tag: trusted-signing. Identity Validation issues aren't supported by Azure Support.
       - question: What is the cost of using Trusted Signing?
         answer: | 
-          Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
+          Refer to the [Trusted Signing pricing page](https://azure.microsoft.com/pricing/details/trusted-signing]) for details.
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           You can create a support ticket with the service in the Azure portal. You're assisted by Azure customer support. Otherwise, we recommend that you go to Microsoft Q&A or Stack Overflow and use the tag `Trusted-Signing` to ask questions.  

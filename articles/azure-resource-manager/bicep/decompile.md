@@ -72,7 +72,7 @@ Suppose you have the following ARM template:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2023-04-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -132,7 +132,7 @@ To rename across the file, right-click the name, and then select **Rename symbol
 The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 ```
 
 The complete file is:
