@@ -72,9 +72,6 @@ This section is a planning checklist in the following areas:
 
 ### Identities
 
-
-
-See [Relocation for App ]
 ## Relocate
 
 If you have access to the deployment and automation resources that created the function app in the source region, re-run the same deployment steps in the target region to create and redeploy your app. 
