@@ -113,7 +113,7 @@ landingContent:
         - text: Pull data using Azure Pipelines
           url: pull-key-value-devops-pipeline.md
         - text: Push data using GitHub Actions
-          url: concept-github-action.md
+          url: import-configuration-from-github.md
         - text: Export to project configuration file
           url: integrate-ci-cd-pipeline.md
         - text: Deploy to Kubernetes using Helm

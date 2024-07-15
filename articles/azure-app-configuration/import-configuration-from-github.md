@@ -1,6 +1,6 @@
 ---
-title:  Import configuration files from your GitHub repository to App Configuration
-description: Use GitHub Actions to automatically update your App Configuration instance when you update your configuration file in your GitHub repository
+title:  Import configuration files from your GitHub repository to App Configuration store
+description: Use GitHub Actions to automatically update your App Configuration store when you update your configuration file in your GitHub repository
 author: christinewanjau
 ms.author: cwanjau
 ms.date: 06/05/2024
@@ -88,7 +88,7 @@ You use the [Azure CLI](https://github.com/Azure/cli) GitHub Action to import a 
 > [!div class="mx-imgBorder"]
 > ![Select the Azure CLI Action](media/azure-cli-github-action.png)
 
-The example below we use the Azure CLI action to import configuration files into an Azure App Configuration store when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the script passed to the Azure CLI action updates the App Configuration store with the new values.
+In the following example, you use the Azure CLI action to import configuration files into an Azure App Configuration store when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the script passed to the Azure CLI action updates the App Configuration store with the new values.
 
 The *on* section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The *jobs* section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration store.
 
@@ -132,8 +132,6 @@ For more information about Azure App Configuration CLI import commands, see the 
 Using a dynamic label on each import is a good way to maintain clear and precise version control of your configurations. It allows each import to your App Configuration store to be uniquely identified, making it easier to map code changes to configuration updates. 
 
 #### Example using a dynamic label on import
-
-The following action inserts a dynamic label on each import, ensuring that each import to your App Configuration store can be uniquely identified and allowing code changes to be mapped to config changes.
 
 In the following example, all key-values imported will have a unique label based on the commit hash.
 
