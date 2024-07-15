@@ -3,7 +3,7 @@ title: Troubleshoot Azure Container Storage
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/09/2024
+ms.date: 07/15/2024
 ms.author: kendownie
 ms.topic: how-to
 ---
@@ -64,7 +64,7 @@ If you created an Elastic SAN storage pool, you might not be able to delete the 
 
 To resolve this, sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
 
-## Troubleshoot persistent volume issues
+## Troubleshoot volume issues
 
 ### Pod pending creation due to ephemeral volume size above available capacity
 
@@ -98,7 +98,7 @@ Use the following command to check if the persistent volume claim fails to provi
 ```output
 $ kubectl describe pvc fiopod-ephemeralvolume
 ...
-  Warning  ProvisioningFailed    107s (x13 over 20m)  containerstorage.csi.azure.com_aks-nodepool1-29463073-vmss000000_7f5bd88d-be76-40d2-a59e-e51ce000e35e  failed to provision volume with StorageClass "acstor-ephemeraldisk-temp": rpc error: code = Internal desc = Operation failed: GenericOperation("error in response: status code '507 Insufficient Storage', content: 'RestJsonError { details: \"Operation failed due to insufficient resources: Not enough suitable pools available, 0/1\", message: \"SvcError :: NotEnoughResources\", kind: ResourceExhausted }'")
+  Warning  ProvisioningFailed    107s (x13 over 20m)  containerstorage.csi.azure.com_aks-nodepool1-29463073-vmss000000_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  failed to provision volume with StorageClass "acstor-ephemeraldisk-temp": rpc error: code = Internal desc = Operation failed: GenericOperation("error in response: status code '507 Insufficient Storage', content: 'RestJsonError { details: \"Operation failed due to insufficient resources: Not enough suitable pools available, 0/1\", message: \"SvcError :: NotEnoughResources\", kind: ResourceExhausted }'")
 ```
 
 In this example, `Insufficient Storage` is shown as the reason for volume provisioning failure.
@@ -116,6 +116,61 @@ ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   5609
 In this example, the available capacity of temp disk for a single node is `75031990272` bytes or 69 GiB.
 
 Adjust the volume storage size below available capacity and re-deploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
+
+### Volume fails to attach due to metadata store offline
+
+Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to store and manage metadata of volumes to support volume orchestration operations. For high availability and resiliency, `etcd` runs in three pods. When there are less than two `etcd` instances running, Azure Container Storage will halt volume orchestration operations while still allowing data access to the volumes. Azure Container Storage automatically detects when an `etcd` instance is offline and recovers it. However, if you notice volume orchestration errors after restarting an AKS cluster, it's possible that an `etcd` instance failed to auto-recover. Follow the instructions in this section to determine the health status of the `etcd` instances.
+
+Run the following command to get a list of pods.
+
+```azurecli-interactive
+kubectl get pods
+```
+
+You'll see output similar to the following.
+
+```output
+NAME     READY   STATUS              RESTARTS   AGE 
+fiopod   0/1     ContainerCreating   0          25m 
+```
+
+Describe the pod:
+
+```azurecli-interactive
+kubectl describe pod fiopod
+```
+
+Typically, you'll see volume failure messages if the metadata store is offline. In this example, **fiopod** is in **ContainerCreating** status, and the **FailedAttachVolume** warning indicates that the creation is pending due to volume attach failure.
+
+```output
+Name:             fiopod 
+
+Events: 
+
+Type     Reason              Age                 From                     Message 
+
+----     ------              ----                ----                     ------- 
+
+Normal   Scheduled           25m                 default-scheduler        Successfully assigned default/fiopod to aks-nodepool1-xxxxxxxx-vmss000009
+
+Warning  FailedAttachVolume  3m8s (x6 over 23m)  attachdetach-controller  AttachVolume.Attach failed for volume "pvc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" : timed out waiting for external-attacher of containerstorage.csi.azure.com CSI driver to attach volume xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+You can also run the following command to check the status of `etcd` instances:
+
+```azurecli-interactive
+kubectl get pods -n acstor | grep "^etcd"
+```
+
+You should see output similar to the following, with all instances in the Running state:
+
+```output
+etcd-azurecontainerstorage-bn89qvzvzv                            1/1     Running   0               4d19h
+etcd-azurecontainerstorage-phf92lmqml                            1/1     Running   0               4d19h
+etcd-azurecontainerstorage-xznvwcgq4p                            1/1     Running   0               4d19h
+```
+
+If less than two instances are shown in the Running state, you can conclude that the volume is failing to attach due to the metadata store being offline, and the automated recovery wasn't successful. If this is the case, file a support ticket with [Azure Support]( https://azure.microsoft.com/support/).
 
 ## See also
 
