@@ -51,13 +51,9 @@ landingContent:
             url:  /python/api/overview/azure/mgmt-informaticadatamanagement-readme
           - text: JavaScript
             url:  /javascript/api/overview/azure/arm-informaticadatamanagement-readme
-#          - text: : .NET
-#            url:  : /Azure.ResourceManager.InformaticaDataManagement/1.0.0-beta.1
+#         - text: : .NET
+#           url:  : /Azure.ResourceManager.InformaticaDataManagement/1.0.0-beta.1
           - text: Java
             url:  /java/api/overview/azure/resourcemanager-informaticadatamanagement-readme
           - text: Go 
             url:  https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
-#          - text: REST API
-#            url:  /rest/api/informatica
-#          - text: Azure PowerShell
-#           url:  

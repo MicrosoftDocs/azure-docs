@@ -11,7 +11,7 @@ ms.date: 07/05/2024
 
 In this article, you see how to troubleshoot problems you might experience in creating and using an Intelligent Data Management Cloud - Azure Native ISV Service resource.
 
-For information an contacting support, see [Get support for Informatica Intelligent Data Management Cloud](informatica-get-support.md#get-support-for-informatica-intelligent-data-management-cloud).
+For information on contacting support, see [Get support for Informatica Intelligent Data Management Cloud](informatica-get-support.md#get-support-for-informatica-intelligent-data-management-cloud).
 
 ## Unable to create an Informatica resource as not a subscription owner  
 
