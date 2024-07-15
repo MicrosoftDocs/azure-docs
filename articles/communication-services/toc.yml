@@ -1055,6 +1055,8 @@ items:
           href: ../event-grid/communication-services-advanced-messaging-events.md
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
+      - name: Message Analysis Transparency FAQ
+        href: concepts/advanced-messaging/whatsapp/message-analysis-transparency-faq.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources
