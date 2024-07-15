@@ -34,7 +34,18 @@ In this section, you define a Bicep file for creating a storage account, and the
 
 The following Bicep file defines one storage account:
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/createStorage.bicep":::
+```bicep
+param rgLocation string = resourceGroup().location
+
+resource createStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}
+```
 
 Save the Bicep file locally, and then use Azure CLI or Azure PowerShell to deploy the Bicep file:
 
@@ -66,7 +77,23 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFil
 
 A for loop with an index is used in the following sample to create two storage accounts:
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopNumbered.bicep" highlight="2,4-5":::
+```bicep
+param rgLocation string = resourceGroup().location
+param storageCount int = 2
+
+resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
+  name: '${i}storage${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}]
+
+output names array = [for i in range(0,storageCount) : {
+  name: createStorages[i].name
+} ]
+```
 
 The index number is used as a part of the storage account name. After deploying the Bicep file, you get two storage accounts that are similar to:
 
@@ -98,7 +125,22 @@ The output of the preceding sample shows how to reference the resources created 
 
 You can loop through an array. The following sample shows an array of strings.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayString.bicep" highlight="2-5,7-8":::
+```bicep
+param rgLocation string = resourceGroup().location
+param storageNames array = [
+  'contoso'
+  'fabrikam'
+]
+
+resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for name in storageNames: {
+  name: '${name}str${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}]
+```
 
 The loop uses all the strings in the array as a part of the storage account names. In this case, it creates two storage accounts:
 
@@ -106,7 +148,28 @@ The loop uses all the strings in the array as a part of the storage account name
 
 You can also loop through an array of objects. The loop not only customizes the storage account names, but also configures the SKUs.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayObject.bicep" highlight="2-11,13-14,17":::
+```bicep
+param rgLocation string = resourceGroup().location
+param storages array = [
+  {
+    name: 'contoso'
+    skuName: 'Standard_LRS'
+  }
+  {
+    name: 'fabrikam'
+    skuName: 'Premium_LRS'
+  }
+]
+
+resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storage in storages: {
+  name: '${storage.name}obj${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: storage.skuName
+  }
+  kind: 'StorageV2'
+}]
+```
 
 The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
 
@@ -116,7 +179,22 @@ The loop creates two storage accounts. The SKU of the storage account with the n
 
 In same cases, you might want to combine an array loop with an index loop. The following sample shows how to use the array and the index number for the naming convention.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayStringAndNumber.bicep" highlight="2-5,7-8":::
+```bicep
+param rgLocation string = resourceGroup().location
+param storageNames array = [
+  'contoso'
+  'fabrikam'
+]
+
+resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for (name, i) in storageNames: {
+  name: '${i}${name}${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}]
+```
 
 After deploying the preceding sample, you create two storage accounts that are similar to:
 
@@ -126,7 +204,29 @@ After deploying the preceding sample, you create two storage accounts that are s
 
 To iterate over elements in a dictionary object, use the [items function](./bicep-functions-object.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="3-12,14,15,18":::
+```bicep
+param rgLocation string = resourceGroup().location
+
+param storageConfig object = {
+  storage1: {
+    name: 'contoso'
+    skuName: 'Standard_LRS'
+  }
+  storage2: {
+    name: 'fabrikam'
+    skuName: 'Premium_LRS'
+  }
+}
+
+resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for config in items(storageConfig): {
+  name: '${config.value.name}${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: config.value.skuName
+  }
+  kind: 'StorageV2'
+}]
+```
 
 The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
 
@@ -136,7 +236,20 @@ The loop creates two storage accounts. The SKU of the storage account with the n
 
 For resources and modules, you can add an `if` expression with the loop syntax to conditionally deploy the collection.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopWithCondition.bicep" highlight="3,5":::
+```bicep
+param rgLocation string = resourceGroup().location
+param storageCount int = 2
+param createNewStorage bool = true
+
+resource createStorages 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): if(createNewStorage) {
+  name: '${i}storage${uniqueString(resourceGroup().id)}'
+  location: rgLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}]
+```
 
 For more information, see [conditional deployment in Bicep](./conditional-resource-deployment.md).
 
