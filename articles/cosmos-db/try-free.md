@@ -24,6 +24,10 @@ This article walks you through how to create your account, limits, and upgrading
 
 If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
 
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/7EFcxFGRB5Y?si=e7BiJ-JGK7WH79NG]
+
 ## Limits to free account
 
 ### [NoSQL / Cassandra/ Gremlin / Table](#tab/nosql+cassandra+gremlin+table)
@@ -187,7 +191,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
 
 * Use [API for NoSQL to build a console app using .NET](nosql/quickstart-dotnet.md) to manage data in Azure Cosmos DB.
 * Use [API for MongoDB to build a sample app using Python](mongodb/quickstart-python.md) to manage data in Azure Cosmos DB.
-* [Create a Jupyter notebook](notebooks-overview.md) and analyze your data.
+* [Create a notebook](nosql/tutorial-create-notebook-vscode.md) and analyze your data.
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
   * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)

@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 6/27/2023
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -119,7 +119,7 @@ Each client has the following required properties:
 - Password ([PBKDF2 encoded](https://en.wikipedia.org/wiki/PBKDF2))
 - [Attributes for authorization](./howto-configure-authorization.md)
 
-For example, start with a `clients.toml` with identities and PBKDF2 encoded passwords.
+For example, start with a `passwords.toml` with identities and PBKDF2 encoded passwords.
 
 ```toml
 # Credential #1
@@ -143,6 +143,21 @@ floor = "floor2"
 site = "site1"
 ```
 
+Then, import it into a Kubernetes secret under that key.
+
+```bash
+kubectl create secret generic passwords-db --from-file=passwords.toml -n azure-iot-operations
+```
+
+Include a reference to the secret in the *BrokerAuthentication* custom resource.
+
+```yaml
+spec:
+  authenticationMethods:
+    - usernamePassword:
+        secretName: passwords-db
+```
+
 To encode the password using PBKDF2, use the [Azure IoT Operations CLI extension](/cli/azure/iot/ops) that includes the `az iot ops mq get-password-hash` command. It generates a PBKDF2 password hash from a password phrase using the SHA-512 algorithm and a 128-bit randomized salt.
 
 ```bash
@@ -156,23 +171,6 @@ The output shows the PBKDF2 password hash to copy:
   "hash": "$pbkdf2-sha512$i=210000,l=64$4SnaHtmi7m++00fXNHMTOQ$rPT8BWv7IszPDtpj7gFC40RhhPuP66GJHIpL5G7SYvw+8rFrybyRGDy+PVBYClmdHQGEoy0dvV+ytFTKoYSS4A"
 }
 ```
-
-Then, save the file as `passwords.toml` and import it into a Kubernetes secret under that key.
-
-```bash
-kubectl create secret generic passwords-db --from-file=passwords.toml -n azure-iot-operations
-```
-
-Include a reference to the secret in the *BrokerAuthentication* custom resource
-
-```yaml
-spec:
-  authenticationMethods:
-    - usernamePassword:
-        secretName: passwords-db
-```
-
-It might take a few minutes for the changes to take effect.
 
 You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 

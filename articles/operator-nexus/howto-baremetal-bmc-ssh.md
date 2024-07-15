@@ -1,11 +1,11 @@
 ---
 title: Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset` command for Azure Operator Nexus
 description: Step by step guide on using the `az networkcloud cluster bmckeyset` command to manage emergency access to a bare metal machine.
-author: eak13
-ms.author: ekarandjeff
+author: DanCrank
+ms.author: danielcrank
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 06/12/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -16,10 +16,17 @@ ms.custom: template-how-to, devx-track-azurecli
 
 There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure are exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Azure Group ID `--azure-group-id <Entra Group ID>`.
 
-If the User Principal Name for a user isn't a member of the supplied group, the user's status is set to "Invalid." Additionally, their status message is set to "Invalid because userPrincipal isn't a member of Entra group." If the Azure Group ID is invalid, each user in the keyset has their status set to "Invalid" and their status message is set to "Entra group doesn't exist." Invalid users remain in the keyset but their key aren't for SSH access.
+Users in a keyset are validated every four hours, and also when any changes are made to any keyset. Each user's status is then set to "Active" or "Invalid." Invalid users remain in the keyset but their keys are removed from all hosts and they aren't allowed access. Reasons for a user being invalid are:
+- The user's User Principal Name isn't a member of the given Entra group (if specified)
+- The given Entra group (if specified) doesn't exist (in which case all users in the keyset are invalid)
+- The keyset is expired (in which case all users in the keyset are invalid)
 
 > [!NOTE]
 > There is currently a transitional period where specifying User Principal Names is optional. In a future release, it will become mandatory and Microsoft Entra ID validation will be enforced for all users. Users are encouraged to add User Principal Names to their keysets before the transitional period ends (planned for July 2024) to avoid keysets being invalidated. Note that if any User Principal Names are added to a keyset, even if they are not added for all users, Microsoft Entra ID validation will be enabled, and this will result in the entire keyset being invalidated if the Group ID specified is not valid.
+
+The keyset and each individual user also have detailed status messages communicating other information:
+- The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
+- The user's statusMessage tells you whether the user is active or invalid, and a list of machines that aren't yet updated to the user's latest active/invalid state. In each case, causes of problems are included if known.
 
 When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
@@ -54,7 +61,6 @@ az networkcloud cluster bmckeyset create \
   --location <Azure Region> \
   --azure-group-id <Azure AAD Group ID> \
   --expiration <Expiration Timestamp> \
-  --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Administrator" or "ReadOnly"> \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
     "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
@@ -194,7 +200,6 @@ The command syntax is:
 ```azurecli
 az networkcloud cluster bmckeyset update \
   --name <BMC Keyset Name> \
-  --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Standard" or "Superuser"> \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
     "sshPublicKey":{"keyData":"<SSH Public Key>"}, \

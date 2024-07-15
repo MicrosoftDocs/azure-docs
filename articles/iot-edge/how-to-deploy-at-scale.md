@@ -3,7 +3,7 @@ title: Deploy modules at scale in Azure portal - Azure IoT Edge
 description: Use the Azure portal to create automatic deployments for groups of IoT Edge devices
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/03/2024
+ms.date: 06/12/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -68,10 +68,9 @@ To add custom code as a module, or to manually add an Azure service module, foll
 
 1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 1. In the **IoT Edge Modules** section of the page, select **Add**.
-1. Choose one of the three types of modules from the drop-down menu:
+1. Choose one of the types of modules from the drop-down menu:
 
-   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
-   * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
+   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name).
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
 1. If needed, repeat steps 2 and 3 to add additional modules to your deployment.

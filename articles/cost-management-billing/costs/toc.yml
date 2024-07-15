@@ -322,7 +322,7 @@
     - name: Cost Management REST API
       href: /rest/api/cost-management
     - name: Cost Management REST API samples
-      href: https://github.com/Azure-Samples/Cost-Management-Samples
+      href: https://github.com/Azure-Samples/azure-cost-management-dashboard
     - name: Azure PowerShell cmdlets for Cost Management
       href: /powershell/module/Az.CostManagement
   - name: Resources

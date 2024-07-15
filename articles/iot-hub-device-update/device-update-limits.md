@@ -16,7 +16,7 @@ This document provides an overview of the various limits that are imposed on the
 
 The following tables describe the limits for the Device Update for IoT Hub service for the Standard as well as the Free tier. 
 
-[!INCLUDE [device-update-for-iot-hub-limits](~/reusable-content/ce-skilling/azure/includes/device-update-for-iot-hub-limits.md)]
+[!INCLUDE [device-update-for-iot-hub-limits](../../includes/device-update-for-iot-hub-limits.md)]
 
 ### Requirements for large-file downloads
 If you plan to deploy large-file packages, with file size larger than 100 MB, it is recommended to utilize byte range requests for a reliable download performance.  

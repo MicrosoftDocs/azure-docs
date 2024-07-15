@@ -5,12 +5,12 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/06/2024
+ms.date: 07/02/2024
 ms.author: victorh
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic.
+You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic. The rules are terminating, so rule proceisng stops on a match.
 
 ## Rule processing using classic rules
 
@@ -195,7 +195,7 @@ As a stateful service, Azure Firewall completes a TCP three-way handshake for al
 
 Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you interrupt the three-way handshake from the initial allow rule from VNet-A to VNet-B. 
+As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. 
 
 ## Next steps
 
