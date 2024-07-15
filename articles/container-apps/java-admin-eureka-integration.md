@@ -132,8 +132,8 @@ az containerapp create \
   --bind $EUREKA_COMPONENT_NAME 
 ```
 
-    > [!TIP]
-    > Since the Admin for Spring has been binded to the Eureka Server for Spring in previous steps. Bind the container app to the Eureka Server Java component will enable service discovery and allow to be managed through the Admin for Spring dashboard at the same time.
+> [!TIP]
+> Since the previous steps bound the Admin for Spring component to the Eureka Server for Spring component, the Admin component enables service discovery and allows you to manage it through the Admin for Spring dashboard at the same time.
 
 ## View the dashboards
 
