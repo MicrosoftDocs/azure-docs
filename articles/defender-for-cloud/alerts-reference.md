@@ -4382,7 +4382,7 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 ## Alerts for AI workloads
 
-### Detected credential theft attempts on an Azure Open AI model deployment
+### Detected credential theft attempts on an Azure OpenAI model deployment
 
 (AI.Azure_CredentialTheftAttempt)
 
@@ -4392,7 +4392,7 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 **Severity**: Medium
 
-### A Jailbreak attempt on an Azure Open AI model deployment was blocked by Azure AI Content Safety Prompt Shields
+### A Jailbreak attempt on an Azure OpenAI model deployment was blocked by Azure AI Content Safety Prompt Shields
 
 (AI.Azure_Jailbreak.ContentFiltering.BlockedAttempt)
 
@@ -4402,7 +4402,7 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 **Severity**: Medium
 
-### A Jailbreak attempt on an Azure Open AI model deployment was detected by Azure AI Content Safety Prompt Shields
+### A Jailbreak attempt on an Azure OpenAI model deployment was detected by Azure AI Content Safety Prompt Shields
 
 (AI.Azure_Jailbreak.ContentFiltering.DetectedAttempt)
 
@@ -4412,7 +4412,7 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 **Severity**: Medium
 
-### Sensitive Data Exposure Detected in Azure Open AI Model Deployment
+### Sensitive Data Exposure Detected in Azure OpenAI Model Deployment
 
 (AI.Azure_DataLeakInModelResponse.Sensitive)
 
