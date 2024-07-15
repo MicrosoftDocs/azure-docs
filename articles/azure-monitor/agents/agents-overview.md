@@ -189,7 +189,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 ### Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent <sup>1</sup> |
 |:---|:---:|:---:|

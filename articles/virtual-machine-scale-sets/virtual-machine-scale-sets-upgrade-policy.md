@@ -14,7 +14,7 @@ ms.custom: upgradepolicy
 The upgrade policy of a Virtual Machine Scale Set determines how virtual machines can be brought up-to-date with the latest scale set model. 
 
 > [!NOTE]
-> Upgrade policies for Virtual Machine Scale Sets with Uniform Orchestration are in general availability (GA) . 
+> Upgrade policies for Virtual Machine Scale Sets with Uniform Orchestration are in general availability (GA). 
 >
 >**Upgrade policies for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview.** Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 

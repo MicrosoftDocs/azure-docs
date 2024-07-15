@@ -16,7 +16,7 @@ zone_pivot_groups: azure-red-hat-openshift
 
 This quickstart describes how to use either Azure Resource Manager template (ARM template) or Bicep to create an Azure Red Hat OpenShift cluster. You can deploy the Azure Red Hat OpenShift cluster with either PowerShell or the Azure command-line interface (Azure CLI).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 

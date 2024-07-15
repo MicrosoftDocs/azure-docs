@@ -31,7 +31,7 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2022
 - Visual Studio 2022, including the **Azure development** workload. 
 - Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure Functions project
 

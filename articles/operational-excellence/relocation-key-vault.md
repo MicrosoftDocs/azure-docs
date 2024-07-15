@@ -14,6 +14,9 @@ ms.custom: subject-relocation, devx-track-azurepowershell
 
 # Relocate Azure Key Vault to another region
 
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
+
 Azure Key Vault doesn't support key vault relocation to another region. 
 
 Instead of relocation, you need to:

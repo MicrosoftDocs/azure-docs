@@ -5,9 +5,9 @@ description: Learn about field-programmable gate arrays. You can deploy a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.author: bozhlin
-author: bozhong68
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: bozhlin
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, sdkv1

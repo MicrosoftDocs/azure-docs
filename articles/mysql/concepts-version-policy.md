@@ -69,7 +69,7 @@ __Azure MySQL 5.7 Deprecation Timelines__
 |Timelines|	Azure MySQL 5.7 Flexible end at	|Azure MySQL 5.7 Single end at|
 |---|---|---|
 |Creation of new servers using the Azure portal.| 	To Be Decided|	Already ended as part of [Single Server deprecation](single-server/whats-happening-to-mysql-single-server.md)|
-|Creation of new servers using the Command Line Interface (CLI). |	To Be Decided| 	September 2024| 
+|Creation of new servers using the Command Line Interface (CLI). |	To Be Decided| 	March 19, 2024| 
 |Creation of replica servers for existing servers. |	September 2025|	September 2024|
 |Creation of servers using restore workflow for the existing servers| September 2025|September 2024|
 |Creation of new servers for migrating from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server.|	NA|	September 2024|

@@ -47,6 +47,8 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
+- [Corelight, Inc.](https://corelight.com/)
+
 ### Security analytics, network/application performance management
 
 - [Awake Security](https://www.arista.com/partner/technology-partners)

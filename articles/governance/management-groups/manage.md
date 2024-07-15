@@ -19,7 +19,7 @@ Management groups give you enterprise-grade management at a large scale no matte
 subscriptions you might have. To learn more about management groups, see
 [Organize your resources with Azure management groups](./overview.md).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 > [!IMPORTANT]
 > Azure Resource Manager user tokens and management group cache lasts for 30 minutes before they are

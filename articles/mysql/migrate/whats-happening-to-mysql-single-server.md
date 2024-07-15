@@ -16,7 +16,8 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**Azure Database for MySQL - Single Server is on the retirement path** and is scheduled for retirement by **September 16, 2024**.
+> [!IMPORTANT]
+> **Azure Database for MySQL - Single Server is on the retirement path** and is scheduled for retirement by **September 16, 2024**.
 
 As part of this retirement, we'll no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023** and Azure CLI beginning **March 19, 2024**. If you still need to create Single Server instances to meet business continuity needs, raise an Azure support ticket. You'll still be able to create read replicas and perform restores (PITR and geo-restore) for your existing single server instance and this will continue to be supported until the sunset date of **September 16, 2024**.
 
@@ -42,8 +43,11 @@ For more information on migrating from Single Server to Flexible Server using ot
 > [!NOTE]  
 > In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for select Single Server database workloads. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details. If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure Database for MySQL Import to migrate. Learn more about in-place auto-migration [here](../migrate/migrate-single-flexible-in-place-auto-migration.md).
 
-## Pre-requisite checks and post-migration actions when migration from Single to Flexible Server
+## Prerequisite checks when migration from Single to Flexible Server
 
+- If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
+- If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's TLS version from v1.0 or v1.1 to TLS v1.2 before the migration as the older TLS versions have been deprecated for Flexible Server.
+- If your source Azure Database for MySQL Single Server utilizes nondefault ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned nondefault ports aren't supported on Flexible Server.
 
 ## What happens post sunset date (September 16, 2024)?
 
@@ -90,11 +94,12 @@ After the forced migration, you must reconfigure the features listed above on th
 
 When you migrate from Azure Database for MySQL - Single Server to Flexible Server with Defender for Cloud enabled, the enablement state is preserved. To achieve parity in Flexible Server for properties you can configure in Single Server, consider the details in the following table.
 
-| Property | Configuration |
+| **Property** | **Configuration** |
 | --- | --- |
-| properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). |
-| properties.emailAccountAdmins<br />properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). |
-| properties.retentionDays<br />properties.storageAccountAccessKey<br />properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md). |
+| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). <br /><br /> Single Server users can use the API property: <br /> `properties.disabledAlerts` |
+| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). <br /><br /> Single Server users can use the API properties: <br /> `properties.emailAccountAdmins`, <br /> `properties.emailAddresses` |
+| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph. <br /> You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md). <br /><br /> Single Server users can use the API properties: <br /> `properties.retentionDays`, <br /> `properties.storageAccountAccessKey`, <br /> `properties.storageEndpoint` |
+ 
 
 ## Frequently Asked Questions (FAQs)
 
@@ -116,20 +121,20 @@ When you migrate from Azure Database for MySQL - Single Server to Flexible Serve
 
 **Q. What happens to my existing Azure Database for MySQL single server instances?**
 
-**A.** Your existing Azure Database for MySQL single server workloads continue to function as before and will be officially supported until the sunset date. However, no new updates are released for Single Server and we strongly advise you to start migrating to Azure Database for MySQL Flexible Server at the earliest. Post the sunset date, your Single Server instance, along with its data files, will be [force-migrated](./whats-happening-to-mysql-single-server.md#forced-migration-post-sunset-date) to an appropriate Flexible Server instance in a phased manner.
+**A.** Your existing Azure Database for MySQL single server workloads continues to function as before and will be officially supported until the sunset date. However, no new updates are released for Single Server and we strongly advise you to start migrating to Azure Database for MySQL Flexible Server at the earliest. Post the sunset date, your Single Server instance, along with its data files, will be [force-migrated](./whats-happening-to-mysql-single-server.md#forced-migration-post-sunset-date) to an appropriate Flexible Server instance in a phased manner.
 
 **Q. Can I choose to continue running Single Server beyond the sunset date?**
 
-**A.** Unfortunately, we don't plan to support Single Server beyond the sunset date of **September 16, 2024**, and hence we strongly advise that you start planning your migration as soon as possible. Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance in a phased manner. This might lead to limited feature availability as certain advanced functionality can't be force-migrated without customer inputs to the Flexible Server instance. Read more about steps to reconfigure such features post force-migration to minimize the potential impact [here](./whats-happening-to-mysql-single-server.md#action-required-post-forced-migration). If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance will be available with limited operations to access data and to be able to migrate to Flexible Server.
+**A.** Unfortunately, we don't plan to support Single Server beyond the sunset date of **September 16, 2024**, and hence we strongly advise that you start planning your migration as soon as possible. Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance in a phased manner. This might lead to limited feature availability as certain advanced functionality can't be force-migrated without customer inputs to the Flexible Server instance. Read more about steps to reconfigure such features post force-migration to minimize the potential impact [here](./whats-happening-to-mysql-single-server.md#action-required-post-forced-migration). If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance is available with limited operations to access data and to be able to migrate to Flexible Server.
 
 **Q. My single server is deployed in a region that doesn't support flexible server. What will happen to my server post sunset date?**
-**A.** If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance will be available with limited operations to access data and to be able to migrate to Flexible Server. We strongly recommend that you use one of the following options to migrate before the sunset date to avoid any disruptions in business continuity:
+**A.** If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance is available with limited operations to access data and to be able to migrate to Flexible Server. We strongly recommend that you use one of the following options to migrate before the sunset date to avoid any disruptions in business continuity:
 
 - Use Azure DMS to perform a cross-region migration to Flexible Server in a suitable Azure region.
 - Migrate to MySQL Server hosted on a VM in the region, if you're unable to change regions due to compliance issues.
 
 **Q. Post sunset date, will there be any data loss for my Single Server?**
-**A.** No, there won't be any data loss incurred for your Single Server instance. Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance. If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance will be available with limited operations to access data and to be able to migrate to Flexible Server in an appropriate region.
+**A.** No, there won't be any data loss incurred for your Single Server instance. Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance. If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance is available with limited operations to access data and to be able to migrate to Flexible Server in an appropriate region.
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 

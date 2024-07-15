@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: edge
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 06/26/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R system requirements

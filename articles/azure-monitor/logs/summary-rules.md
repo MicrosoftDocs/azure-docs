@@ -98,9 +98,9 @@ Instead of logging hundreds of similar entries within an hour, the destination t
 
 ## Pricing model
 
-There is no direct cost using Summary rules, and cost you incur consists of the cost of the query on the source table and the cost of ingesting the results to the destination table:
+There is no additional cost for Summary rules. You only pay for the query and the ingestion of results to the destination table, based on the table plan used in query:
 
-| Source table plan | Query cost | Query results ingestion cost |
+| Source table plan | Query cost | Summary results ingestion cost |
 | --- | --- | --- |
 | Analytics | No cost    | Analytics ingested GB | 
 | Basic     | Scanned GB | Analytics ingested GB | 
@@ -488,7 +488,7 @@ The destination table schema is defined when you create or update a summary rule
 
 ### Data for removed columns remains in workspace, subject to retention period
 
-When you remove columns in query, the columns and data remain in destination table and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy, shows up.
+When you remove columns in the query, the columns and data remain in the destination table and are subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy, shows up.
 
 ## Related content
 

@@ -85,13 +85,16 @@ To resolve this issue, you need to follow these steps:
 
 Artifact cache currently supports the following upstream registries:
 
+>[!WARNING]
+> We recommend customers to [create a credential set](container-registry-artifact-cache.md#create-new-credentials) when sourcing content from Docker hub.
+
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
-| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
+| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
+| Docker Hub                                   | Supports authenticated pulls only.                       | Azure portal             |
 | Microsoft Artifact Registry                  | Supports unauthenticated pulls only.                     | Azure CLI, Azure portal  |
 | AWS Elastic Container Registry (ECR) Public Gallery | Supports unauthenticated pulls only.              | Azure CLI, Azure portal  |
 | GitHub Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
-| Nvidia                                       | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Quay                                         | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
 | registry.k8s.io                              | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Google Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |

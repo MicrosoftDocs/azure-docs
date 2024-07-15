@@ -13,7 +13,7 @@ ms.reviewer: jeffwo
 Many applications log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This article explains how to collect log data from text and JSON files on monitored machines using [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). 
 
 > [!Note]
-> The JSON ingestion is in Preview at this time.
+> The agent based JSON custom file ingestion is in Preview at this time. We have not completed the UI experience in the portal yet. Please follow the directions in the Resource Manager Template tab for best results.
 
 ## Prerequisites
 To complete this procedure, you need: 
@@ -25,9 +25,6 @@ To complete this procedure, you need:
 - JSON text must be contained in a single row for proper ingestion. The JSON body (file) format is not supported.
   
 - Optionally a Data Collection Endpoint if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
-    For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
-
-
 
 - A Virtual Machine, Virtual Machine Scale Set, Arc-enabled server on-premises or Azure Monitoring Agent on a Windows on-premises client that writes logs to a text or JSON file.
     
@@ -38,7 +35,6 @@ To complete this procedure, you need:
     - Do create a new log file every day so that you can remove old files easily. 
     - Do clean up all log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
     - Do Not overwrite an existing file with new records. You should only append new records to the end of the file. Overwriting will cause data loss.
-    - Do Not rename a file to a new name and then open a new file with the same name. This could cause data loss.
     - Do Not rename or copy large log files that match the file scan pattern in to the monitored directory. If you must, do not exceed 50MB per minute.
     - Do Not rename a file that matches the file scan pattern to a new name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
 
@@ -49,10 +45,11 @@ The table created in the script has two columns:
 
 - `TimeGenerated` (datetime) [Required]
 - `RawData` (string) [Optional if table schema provided]
-- 'FilePath' (string) [Optional]
+- `FilePath` (string) [Optional]
+- `Computer` (string) [Optional]
 - `YourOptionalColumn` (string) [Optional]
 
-The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
+The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' or 'Computer' to either stream is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
 
 Your column names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
 
@@ -79,7 +76,11 @@ $tableParams = @'
                                 "name": "FilePath",
                                 "type": "String"
                        },
-                      {
+                       {
+                                "name": "Computer",
+                                "type": "String"
+                       },
+                       {
                                 "name": "YourOptionalColumn",
                                 "type": "String"
                      }

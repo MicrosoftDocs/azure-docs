@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-ms.reviewer: larryfr
-ms.author: balapv
-author: balapv
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 05/10/2022
 ms.custom: UpdateFrequency5, cliv1
 ---

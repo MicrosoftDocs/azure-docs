@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 06/27/2024
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -55,7 +55,7 @@ You can only specify one title field, but you can have as many content and keywo
 Across all semantic configuration properties, the fields you assign must be:
 
 + Attributed as `searchable` and `retrievable`
-+ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of  `Collection(Edm.ComplexType)`
++ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of `Edm.ComplexType`
 
 ### [**Azure portal**](#tab/portal)
 

@@ -2,6 +2,8 @@
 title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
+ms.author: schaffererin
+author: schaffererin
 ms.date: 06/29/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
@@ -28,6 +30,7 @@ Private cluster is available in public regions, Azure Government, and Microsoft 
 * Azure Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
 * To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server, and make sure to add this public IP address as the *first* DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
   * The cluster's DNS zone should be what you forward to 168.63.129.16. You can find more information on zone names in [Azure services DNS zone configuration][az-dns-zone].
+* Existing AKS clusters enabled with API Server VNet Integration can have private cluster mode enabled. For more information, see [Enable or disable private cluster mode on an existing cluster with API Server VNet Integration][api-server-vnet-integration].
 
 > [!NOTE]
 > The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
@@ -38,7 +41,6 @@ Private cluster is available in public regions, Azure Government, and Microsoft 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * There's no support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents).
 * If you need to enable Azure Container Registry to work with a private AKS cluster, [set up a private link for the container registry in the cluster virtual network][container-registry-private-link] or set up peering between the Container Registry virtual network and the private cluster's virtual network.
-* There's no support for converting existing AKS clusters into private clusters.
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning.
 
 ## Create a private AKS cluster
@@ -58,7 +60,7 @@ Create a private cluster with default basic networking using the [`az aks create
 ```azurecli-interactive
 az aks create \
     --name <private-cluster-name> \
-    --resource-group-name <private-cluster-resource-group> \
+    --resource-group <private-cluster-resource-group> \
     --load-balancer-sku standard \
     --enable-private-cluster \
     --generate-ssh-keys
@@ -211,6 +213,7 @@ The API server endpoint has no public IP address. To manage the API server, you'
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
 * Use the [AKS `command invoke` feature][command-invoke].
 * Use a [private endpoint][private-endpoint-service] connection.
+* Use a [Cloud Shell][cloud-shell-vnet] instance deployed into a subnet that's connected to the API server for the cluster.
 
 > [!NOTE]
 > Creating a VM in the same VNet as the AKS cluster is the easiest option. Express Route and VPNs add costs and require additional networking complexity. Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
@@ -401,3 +404,5 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-network-vnet-peering-create]: /cli/azure/network/vnet/peering#az_network_vnet_peering_create
 [az-network-vnet-peering-list]: /cli/azure/network/vnet/peering#az_network_vnet_peering_list
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
+[cloud-shell-vnet]: ../cloud-shell/vnet/overview.md
+[api-server-vnet-integration]: ./api-server-vnet-integration.md#enable-or-disable-private-cluster-mode-on-an-existing-cluster-with-api-server-vnet-integration

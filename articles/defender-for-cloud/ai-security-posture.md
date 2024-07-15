@@ -1,7 +1,7 @@
 ---
 title: AI security posture management (Preview)
 description: Learn about AI security posture management in Microsoft Defender for Cloud and how it protects resources from AI threats.
-ms.date: 05/05/2024
+ms.date: 06/30/2024
 ms.topic: concept-article
 ms.author: elkrieger
 author: Elazark
@@ -17,6 +17,18 @@ The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender
 - Using the attack path analysis to identify and remediate risks.
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="Diagram of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
+
+> [!IMPORTANT]
+> To enable AI security posture management's capabilities on an AWS account that already:
+> - Is connected to your Azure account.
+> - Has Defender CSPM enabled. 
+> - Has permissions type set as **Least privilege access**.
+>
+> You must reconfigure the permissions on that connector to enable the relevant permissions using these steps:
+> 1. In the Azure Portal navigate to Environment Settings page and select the appropriate AWS connector.
+> 1. Select **Configure access**.
+> 1. Ensure the permissions type is set to **Least privilege access**.
+> 1. [Follow steps 5 - 8](quickstart-onboard-aws.md#select-defender-plans) to finish the configuration.
 
 ## Discovering generative AI apps
 

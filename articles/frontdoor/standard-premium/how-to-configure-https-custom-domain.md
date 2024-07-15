@@ -103,13 +103,13 @@ Register the service principal for Azure Front Door as an app in your Microsoft 
     Azure public cloud:
 
      ```azurepowershell-interactive
-     New-MgServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
+     New-MgServicePrincipal -AppId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
      ```
 
     Azure government cloud:
 
     ```azurepowershell-interactive
-     New-MgServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
+     New-MgServicePrincipal -AppId 'd4631ece-daab-479b-be77-ccb713491fc0'
      ```
 
 # [Azure CLI](#tab/cli)

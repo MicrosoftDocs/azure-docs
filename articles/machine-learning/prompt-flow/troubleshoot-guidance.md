@@ -9,9 +9,9 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-author: ChenJieting
-ms.author: chenjieting
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenjieting
 ms.date: 09/05/2023
 ---
 

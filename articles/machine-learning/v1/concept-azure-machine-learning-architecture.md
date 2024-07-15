@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: balapv
-author: balapv
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 10/21/2021
 ms.custom: UpdateFrequency5
 monikerRange: 'azureml-api-1'

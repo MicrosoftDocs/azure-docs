@@ -53,7 +53,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 ## Prerequisites
 
-A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
+A managed identity (either system or user) associated with the resources below. We highly recommend using [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) for better scalability and performance.
 
 - [Storage account](../../storage/common/storage-account-create.md)
 - [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)

@@ -27,6 +27,7 @@ ms.custom: references_regions
 | `ar-SY` | Arabic (Syria) | `ar-SY-AmanyNeural` (Female)<br/>`ar-SY-LaithNeural` (Male) |
 | `ar-TN` | Arabic (Tunisia) | `ar-TN-ReemNeural` (Female)<br/>`ar-TN-HediNeural` (Male) |
 | `ar-YE` | Arabic (Yemen) | `ar-YE-MaryamNeural` (Female)<br/>`ar-YE-SalehNeural` (Male) |
+| `as-IN` |Assamese (India) | `as-IN-YashicaNeural`<sup>5</sup> (Female)<br/>`as-IN-PriyomNeural`<sup>5</sup> (Male) |
 | `az-AZ` | Azerbaijani (Latin, Azerbaijan) | `az-AZ-BanuNeural`<sup>2</sup> (Female)<br/>`az-AZ-BabekNeural`<sup>2</sup> (Male) |
 | `bg-BG` | Bulgarian (Bulgaria) | `bg-BG-KalinaNeural` (Female)<br/>`bg-BG-BorislavNeural` (Male) |
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural`<sup>2</sup> (Female)<br/>`bn-BD-PradeepNeural`<sup>2</sup> (Male) |
@@ -117,6 +118,8 @@ ms.custom: references_regions
 | `ne-NP` | Nepali (Nepal) | `ne-NP-HemkalaNeural`<sup>2</sup> (Female)<br/>`ne-NP-SagarNeural`<sup>2</sup> (Male) |
 | `nl-BE` | Dutch (Belgium) | `nl-BE-DenaNeural` (Female)<br/>`nl-BE-ArnaudNeural` (Male) |
 | `nl-NL` | Dutch (Netherlands) | `nl-NL-FennaNeural` (Female)<br/>`nl-NL-MaartenNeural` (Male)<br/>`nl-NL-ColetteNeural` (Female) |
+| `or-IN` |Oriya (India) | `or-IN-SubhasiniNeural`<sup>5</sup> (Female)<br/>`or-IN-SukantNeural`<sup>5</sup> (Male) |
+| `pa-IN` | Punjabi (India) | `pa-IN-VaaniNeural`<sup>5</sup> (Female)<br/>`pa-IN-OjasNeural`<sup>5</sup> (Male) |
 | `pl-PL` | Polish (Poland) | `pl-PL-AgnieszkaNeural` (Female)<br/>`pl-PL-MarekNeural` (Male)<br/>`pl-PL-ZofiaNeural` (Female) |
 | `ps-AF` | Pashto (Afghanistan) | `ps-AF-LatifaNeural`<sup>2</sup> (Female)<br/>`ps-AF-GulNawazNeural`<sup>2</sup> (Male) |
 | `pt-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)<br/>`pt-BR-BrendaNeural` (Female)<br/>`pt-BR-DonatoNeural` (Male)<br/>`pt-BR-ElzaNeural` (Female)<br/>`pt-BR-FabioNeural` (Male)<br/>`pt-BR-GiovannaNeural` (Female)<br/>`pt-BR-HumbertoNeural` (Male)<br/>`pt-BR-JulioNeural` (Male)<br/>`pt-BR-LeilaNeural` (Female)<br/>`pt-BR-LeticiaNeural` (Female)<br/>`pt-BR-ManuelaNeural` (Female)<br/>`pt-BR-NicolauNeural` (Male)<br/>`pt-BR-ThalitaMultilingualNeural`<sup>1,3</sup> (Female)<br/>`pt-BR-ValerioNeural` (Male)<br/>`pt-BR-YaraNeural` (Female)<br/>`pt-BR-ThalitaNeural`<sup>1</sup> (Female) |
@@ -167,3 +170,4 @@ ms.custom: references_regions
 
 <sup>4</sup> The OpenAI text to speech voices in Azure AI Speech are in public preview and only available in North Central US (`northcentralus`) and Sweden Central (`swedencentral`). Locales not listed for OpenAI voices aren't supported. For information about additional differences between OpenAI text to speech voices and Azure AI Speech text to speech voices, see [OpenAI text to speech voices](../../openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech).
 
+<sup>5</sup> The neural voices in public preview are only available in these service [regions](../../regions.md): East Asia, Southeast Asia, East US, West US, and Central India.

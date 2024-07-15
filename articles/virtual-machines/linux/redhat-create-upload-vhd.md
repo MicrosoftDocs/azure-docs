@@ -81,6 +81,9 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 
 1. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a VM in Azure or Hyper-V:
 
+    > [!WARNING]
+    > Many 'v5' and newer VM sizes require Accelerated Networking. If it isn't enabled, NetworkManager will assign the same IP address to all virtual function interfaces. To prevent duplicate IP addresses, make sure to include this udev rule when migrating to a newer size. 
+
     ```bash
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules

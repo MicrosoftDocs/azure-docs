@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-ms.reviewer: larryfr
-ms.author: andzha
-author: Anurzeuii
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 05/09/2022
 ms.custom:
   - references_regions

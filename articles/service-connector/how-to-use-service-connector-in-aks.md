@@ -219,6 +219,16 @@ Service Connector requires permissions to operate the Azure resources you want t
 **Mitigation:**
 Check the permissions on the Azure resources specified in the error message. Obtain the required permissions and retry the creation.
 
+#### Missing subscription registration
+**Error Message:**
+`The subscription is not registered to use namespace 'Microsoft.KubernetesConfiguration'`
+
+**Reason:**
+Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
+
+**Mitigation:**
+To resolve errors related to resource provider registration, follow this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
+
 #### Other issues
 
 If the above mitigations don't resolve your issue, try resetting the service connector cluster extension by removing it and then retrying the creation. This method is expected to resolve most issues related to the Service Connector cluster extension.

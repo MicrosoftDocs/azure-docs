@@ -92,11 +92,13 @@
 - name: Concepts
   items:
     - name: Core concepts
-      href: concepts-clusters-workloads.md
+      href: core-aks-concepts.md
     - name: Pricing tiers for AKS
       href: free-standard-pricing-tiers.md
     - name: Maintain and upgrade an AKS cluster
       href: upgrade.md
+    - name: Resource reservations
+      href: node-resource-reservations.md
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
@@ -335,7 +337,17 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:    
+      items:   
+        - name: Stateful workloads 
+          items:
+            - name: Deploy a highly available PostgreSQL database
+              items:
+                - name: Overview
+                  href: postgresql-ha-overview.md
+                - name: Create infrastructure resources
+                  href: create-postgresql-ha.md
+                - name: Deploy and test PostgreSQL
+                  href: deploy-postgresql-ha.md
         - name: GPU workloads
           items:
             - name: Use GPUs
@@ -483,6 +495,8 @@
                   href: workload-identity-overview.md
                 - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
+                - name: Configure cross-tenant workload identity
+                  href: workload-identity-cross-tenant.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Microsoft Entra pod identity
@@ -691,8 +705,10 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
+            - name: Network Observability
+              href: network-observability-managed-cli.md
             - name: Advanced Network Observability - Azure managed Prometheus and Grafana
-              href: advanced-network-observability-cli.md 
+              href: advanced-network-observability-cli.md
             - name: Advanced Network Observability - Bring Your Own Prometheus and Grafana
               href: advanced-network-observability-bring-your-own-cli.md
     - name: Service Mesh
@@ -807,6 +823,8 @@
           href: rdp.md
         - name: Use HostProcess containers
           href: use-windows-hpc.md
+        - name: Use Windows Annual Channel for Containers
+          href: windows-annual-channel.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
@@ -903,6 +921,22 @@
           href: /azure/developer/jenkins/deploy-from-github-to-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use Ansible to create AKS clusters
           href: /azure/developer/ansible/aks-configure-clusters?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: AKS for Amazon EKS professionals
+      items:
+      - name: Migrate EKS event-driven workloads
+        items:
+        - name: Overview
+          href: eks-edw-overview.md
+        - name: Understand platform differences
+          href: eks-edw-understand.md
+        - name: Rearchitect for AKS
+          href: eks-edw-rearchitect.md
+        - name: Refactor app
+          href: eks-edw-refactor.md
+        - name: Prepare for deployment
+          href: eks-edw-prepare.md
+        - name: Deploy to Azure
+          href: eks-edw-deploy.md
 - name: Reference
   items:
     - name: Azure CLI
