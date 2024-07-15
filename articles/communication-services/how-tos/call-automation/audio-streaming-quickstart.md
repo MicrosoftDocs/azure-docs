@@ -19,19 +19,19 @@ Get started with using audio streams through Azure Communication Services Media 
 Functinality described in this quickstart is currently in public preview.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Media Streaming with .NET](./includes/call-automation-media/media-streaming-quickstart-csharp.md)]
+[!INCLUDE [Audio Streaming with .NET](./includes//audio-streaming-quickstart-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Media Streaming with Java](./includes/call-automation-media/media-streaming-quickstart-java.md)]
+[!INCLUDE [Audio Streaming with Java](./includes/audio-streaming-quickstart-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-JS"
-[!INCLUDE [Media Streaming with Java](./includes/call-automation-media/media-streaming-quickstart-js.md)]
+[!INCLUDE [Audio Streaming with JS](./includes/audio-streaming-quickstart-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-Python"
-[!INCLUDE [Media Streaming with Java](./includes/call-automation-media/media-streaming-quickstart-python.md)]
+[!INCLUDE [Audio Streaming with Python](./includes/audio-streaming-quickstart-python.md)]
 ::: zone-end
 
 
