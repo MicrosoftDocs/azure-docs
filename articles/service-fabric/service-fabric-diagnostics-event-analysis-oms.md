@@ -16,16 +16,7 @@ ms.date: 07/14/2022
 * How do I know when a node goes down?
 * How do I know if my application's services have started or stopped?
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
-
-## Overview of the Log Analytics workspace
-
->[!NOTE] 
->While diagnostic storage is enabled by default at the cluster creation time, you must still set up the Log Analytics workspace to read from the diagnostic storage.
-
-Azure Monitor logs collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Azure Monitor logs supports events, performance data, or any other custom data. Check out [steps to configure the diagnostics extension to aggregate events](service-fabric-diagnostics-event-aggregation-wad.md) and [steps to create a Log Analytics workspace to read from the events in storage](service-fabric-diagnostics-oms-setup.md) to make sure data is flowing into Azure Monitor logs.
-
-After data is received by Azure Monitor logs, Azure has several *Monitoring Solutions* that are prepackaged solutions or operational dashboards to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. This article describes how to use the Service Fabric Analytics solution, which is created with the workspace.
+To learn more about using Azure Monitor to collect and analyze data for this service, see [Monitor Azure Service Fabric](monitor-service-fabric.md).
 
 ## Access the Service Fabric Analytics solution
 
