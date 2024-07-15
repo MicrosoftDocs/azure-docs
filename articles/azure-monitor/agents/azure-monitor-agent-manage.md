@@ -18,6 +18,7 @@ This article details the different methods to install, uninstall, update, and co
 > Azure Monitor Agent requires at least one data collection rule (DCR) to begin collecting data after it's installed on the client machine. Depending on the installation method you use, a DCR may or may not be created automatically. If not, then you need to configure data collection following the guidance at [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md).
 
 ## Prerequisites
+
 See the following articles for prerequisites and other requirements for Azure Monitor Agent:
 
 * [Azure Monitor Agent supported operating systems and environments](./azure-monitor-agent-requirements.md)
@@ -28,6 +29,7 @@ See the following articles for prerequisites and other requirements for Azure Mo
 > Installing, upgrading, or uninstalling Azure Monitor Agent won't require a machine restart.
 
 ## Installation options
+
 The following table lists the different options for installing Azure Monitor Agent on Azure VMs and Azure Arc-enabled servers. The [Azure Arc agent](../../azure-arc/servers/deployment-options.md) must be installed on any machines not in Azure before Azure Monitor Agent can be installed.
 
 | Installation method | Description | 
@@ -44,6 +46,7 @@ The following table lists the different options for installing Azure Monitor Age
 > Cloning a machine with Azure Monitor Agent installed is not supported. The best practice for these situations is to use [Azure Policy](../../azure-arc/servers/deploy-ama-policy.md) or an Infrastructure as a code tool to deploy AMA at scale.
 
 ## Install agent extension
+
 This section provides details on installing Azure Monitor Agent using the VM extension.
 
 ### [Portal](#tab/azure-portal)
@@ -391,7 +394,7 @@ N/A
 
 1. **Prepare the environment:**
 
-    [Install AMA](#install-on-azure-virtual-machines) on your VM.
+    [Install AMA](#installation-options) on your VM.
 
 1. **Create a DCR via template deployment:**
 
