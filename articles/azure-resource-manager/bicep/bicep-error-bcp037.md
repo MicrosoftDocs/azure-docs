@@ -8,7 +8,7 @@ ms.date: 07/12/2024
 
 # Bicep warning code - BCP037
 
-This warning occurs when you specify a property that isn't defined in a [user-defined data type](./user-defined-data-types.md).
+This warning occurs when you specify a property that isn't defined in a resource type.
 
 ## Warning description
 
@@ -49,6 +49,37 @@ param foo storageAccountConfigType = {
 }
 ```
 
+The following example raises the error because `obj` is a sealed type and does not define a `baz` property.
+
+```bicep
+@sealed()
+type obj = {
+  foo: string
+  bar: string
+}
+
+param p obj = {
+  foo: 'foo'
+  bar: 'bar'
+  baz: 'baz' 
+}
+```
+
+You can fix teh issue by removing the property:
+
+```bicep
+@sealed()
+type obj = {
+  foo: string
+  bar: string
+}
+
+param p obj = {
+  foo: 'foo'
+  bar: 'bar'
+}
+```
+
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

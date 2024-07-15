@@ -1,16 +1,16 @@
 ---
 title: BCP053
-description: Error - The type <resource-type> does not contain property <property-name>. Available properties include <property-names>.
+description: Error/warning - The type <resource-type> does not contain property <property-name>. Available properties include <property-names>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/12/2024
 ---
 
-# Bicep error code - BCP053
+# Bicep error/warning code - BCP053
 
-This error occurs when you reference a property that is not defined in the resource type.
+This error/warning occurs when you reference a property that is not defined in the resource type or [user-defined data type](./user-defined-data-types.md).
 
-## Error description
+## Error/warning description
 
 `The type <resource-type> does not contain property <property-name>. Available properties include <property-names>.`
 
@@ -56,4 +56,4 @@ output foo string = storage.name
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

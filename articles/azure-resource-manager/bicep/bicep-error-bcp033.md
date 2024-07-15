@@ -1,16 +1,16 @@
 ---
 title: BCP033
-description: Error - Expected a value of type <data-type> but the provided value is of type <data-type>.
+description: Error/warning - Expected a value of type <data-type> but the provided value is of type <data-type>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 06/28/2024
 ---
 
-# Bicep error code - BCP033
+# Bicep error/warning code - BCP033
 
-This error occurs when you assign a value of a mismatched data type.
+This error/warning occurs when you assign a value of a mismatched data type.
 
-## Error description
+## Error/warning description
 
 `Expected a value of type <data-type> but the provided value is of type <data-type>.`
 
@@ -38,4 +38,4 @@ output myString string = myValue
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

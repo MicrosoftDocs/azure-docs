@@ -1,16 +1,16 @@
 ---
 title: BCP035
-description: Warning - The specified <data-type> declaration is missing the following required properties <property-name>.
+description: Error/warning - The specified <data-type> declaration is missing the following required properties <property-name>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 06/28/2024
 ---
 
-# Bicep warning code - BCP035
+# Bicep error/warning code - BCP035
 
-This warning occurs when your resource definition is missing a required property.
+This error/warning occurs when your resource definition is missing a required property.
 
-## Warning description
+## Error/warning description
 
 `The specified <date-type> declaration is missing the following required properties: <property-name>.`
 
@@ -80,4 +80,4 @@ resource networkConnection 'Microsoft.Network/connections@2023-11-01' = {
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

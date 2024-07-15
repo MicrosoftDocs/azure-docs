@@ -1,16 +1,16 @@
 ---
 title: BCP328
-description: Error - The provided value (which will always be less than or equal to <value>) is too small to assign to a target for which the minimum allowable value is <min-value>.
+description: Error/warning - The provided value (which will always be less than or equal to <value>) is too small to assign to a target for which the minimum allowable value is <min-value>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/12/2024
 ---
 
-# Bicep error code - BCP328
+# Bicep error/warning code - BCP328
 
-This error occurs when you assign a value that is less than the allowable value.
+This error/warning occurs when you assign a value that is less than the allowable value.
 
-## Error description
+## Error/warning description
 
 `The provided value (which will always be less than or equal to <value>) is too small to assign to a target for which the minimum allowable value is <min-value>.`
 
@@ -39,4 +39,4 @@ param month int = 1
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

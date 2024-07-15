@@ -1,18 +1,18 @@
 ---
 title: BCP333
-description: Error - The provided value (whose length will always be less than or equal to <string-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.
+description: Error/warning - The provided value (whose length will always be less than or equal to <length>) is too short to assign to a target for which the minimum allowable length is <min-length>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/12/2024
 ---
 
-# Bicep error code - BCP333
+# Bicep error/warning code - BCP333
 
-This error occurs when a string assigned is shorter than the allowable length.
+This error/warning occurs when an assigned string or array is shorter than the allowable length.
 
-## Error description
+## Error/warning description
 
-`The provided value (whose length will always be less than or equal to <string-length>) is too short to assign to a target for which the minimum allowable length is <min-length>.`
+`The provided value (whose length will always be less than or equal to <length>) is too short to assign to a target for which the minimum allowable length is <min-length>.`
 
 ## Solution
 
@@ -38,4 +38,4 @@ param storageAccountName string = 'myStorage'
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

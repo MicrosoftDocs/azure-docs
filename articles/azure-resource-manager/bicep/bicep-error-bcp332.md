@@ -1,18 +1,18 @@
 ---
 title: BCP332
-description: Error - The provided value (whose length will always be greater than or equal to <string-length>) is too long to assign to a target for which the maximum allowable length is <max-length>.
+description: Error/warning - The provided value (whose length will always be greater than or equal to <length>) is too long to assign to a target for which the maximum allowable length is <max-length>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/15/2024
 ---
 
-# Bicep error code - BCP332
+# Bicep error/warning code - BCP332
 
-This error occurs when a string exceeding the allowable length is assigned.  
+This error/warning occurs when a string or array exceeding the allowable length is assigned.  
 
-## Error description
+## Error/warning description
 
-`The provided value (whose length will always be greater than or equal to <string-length>) is too long to assign to a target for which the maximum allowable length is <max-length>.`
+`The provided value (whose length will always be greater than or equal to <length>) is too long to assign to a target for which the maximum allowable length is <max-length>.`
 
 ## Solution
 
@@ -38,4 +38,4 @@ param storageAccountName string = 'myStorage'
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).

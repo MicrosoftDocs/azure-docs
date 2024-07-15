@@ -1,16 +1,16 @@
 ---
 title: BCP036
-description: Error - The property <property-name> expected a value of type <data-type> but the provided value is of type <data-type>.
+description: Error/warning - The property <property-name> expected a value of type <data-type> but the provided value is of type <data-type>.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 07/12/2024
 ---
 
-# Bicep error code - BCP036
+# Bicep error/warning code - BCP036
 
-This error occurs when you assign a value to a property using a data type that differs from the one defined in the [user-defined data type](./user-defined-data-types.md).
+This error/warning occurs when you assign a value to a property whose expected data type is not compatible with that of the assigned value.
 
-## Error description
+## Error/warning description
 
 `The property <property-name> expected a value of type <data-type> but the provided value is of type <data-type>.`
 
@@ -50,4 +50,4 @@ param foo storageAccountConfigType = {
 
 ## Next steps
 
-For more information about Bicep warning and error codes, see [Bicep warnings and errors](./bicep-error-codes.md).
+For more information about Bicep error and warning codes, see [Bicep warnings and errors](./bicep-error-codes.md).
