@@ -31,7 +31,7 @@ In order to segregate worker nodes into different subnets, two main steps need t
 
 ## Deploy an ARO cluster
 
-See [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) for instructions on performing this step.
+See [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md) for instructions on performing this step.
 
 ## Create the subnets and associated machine sets
 

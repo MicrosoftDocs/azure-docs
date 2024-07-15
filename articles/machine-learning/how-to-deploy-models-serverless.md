@@ -7,13 +7,10 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
-ms.custom: 
- - build-2024
- - serverless
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
+ms.custom: build-2024, serverless, devx-track-azurecli
 ---
 
 # Deploy models as serverless API endpoints

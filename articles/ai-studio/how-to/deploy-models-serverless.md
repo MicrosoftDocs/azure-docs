@@ -10,9 +10,7 @@ ms.author: mopeakande
 author: msakande
 ms.reviewer: fasantia
 reviewer: santiagxf
-ms.custom: 
- - build-2024
- - serverless
+ms.custom: build-2024, serverless, devx-track-azurecli
 ---
 
 # Deploy models as serverless APIs
@@ -185,7 +183,6 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
                 "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
                 "apiVersion": "2024-04-01",
                 "name": "[concat(parameters('project_name'), '/', parameters('subscription_name'))]",
-                "location": "[parameters('location')]",
                 "properties": {
                     "modelId": "[parameters('model_id')]"
                 }

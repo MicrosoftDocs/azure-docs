@@ -66,7 +66,7 @@ For detailed information about instrumenting applications to enable Application 
 #### OpenTelemetry Distro
 
 * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore)
-* [ASP.NET](opentelemetry-enable.md?tabs=net)
+* [.NET](opentelemetry-enable.md?tabs=net)
 * [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
@@ -100,7 +100,7 @@ This section lists all supported platforms and frameworks.
 #### Logging frameworks
 * [`ILogger`](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [`Log4J`, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
+* [`Log4J`, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#send-custom-telemetry-using-the-application-insights-classic-api)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 

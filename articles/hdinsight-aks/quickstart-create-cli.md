@@ -1,118 +1,155 @@
 ---
-title: Quickstart - Create HDInsight on AKS cluster with Azure CLI
+title: 'Quickstart: Create HDInsight on AKS cluster pool using Azure CLI'
 description: Learn how to use Azure CLI to create an HDInsight on AKS cluster pool.
 ms.service: hdinsight-aks
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 06/04/2024
+ms.date: 06/18/2024
 ---
 
-# Quickstart: Create an HDInsight on AKS Cluster Pool with the Azure CLI on Azure
+# Quickstart: Create an HDInsight on AKS cluster pool using Azure CLI
 
-This quickstart shows you how to use the PowerShell to deploy an HDInsight on AKS Cluster Pool in Azure.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+HDInsight on AKS introduces the concept of cluster pools and clusters, which allow you to realize the complete value of data lakehouse.
+
+- **Cluster pools** are a logical grouping of clusters and maintain a set of clusters in the same pool, which helps in building robust interoperability across multiple cluster types. It can be created within an existing virtual network or outside a virtual network.
+
+  A cluster pool in HDInsight on AKS corresponds to one cluster in AKS infrastructure.
+
+- **Clusters** are individual compute workloads, such as Apache Spark, Apache Flink, or Trino, which can be created in the same cluster pool.
+
+For every cluster type, you must have a cluster pool. It can be created independently or you can create new cluster pool during cluster creation.
+In this quickstart, you learn how to create a cluster pool using the Azure CLI.
 
 ## Prerequisites
-Ensure that you completed the [subscription prerequisites](./quickstart-prerequisites-subscription.md) and [resource prerequisites](./quickstart-prerequisites-resources.md) before creating a cluster pool.
-
-The command New-AzHdInsightOnAksClusterPool is part of Azure PowerShell module "Az.HdInsightOnAks" and it isn't installed. Run **"Install-Module Az.HdInsightOnAks"** to install it.
+Ensure that you completed the [subscription prerequisites](./quickstart-prerequisites-subscription.md) before creating a cluster pool.
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+The Azure Cloud Shell is an interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+- [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires Azure CLI version 2.56.0 or higher. If you're using Azure Cloud Shell, the latest version is already installed there.
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command. For more information, see [How to manage Azure subscriptions – Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli?tabs=bash#change-the-active-subscription).
+
+- You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). 
+
+## Define environment variables
+
+The first step is to define the environment variables. Environment variables are commonly used in Linux to centralize configuration data to improve consistency and maintainability of the system. Create the following environment variables to specify the names of resources that you create later in this tutorial:
+
+```bash
+export ResourceGroup="HDIonAKSCLI"
+export Region=EastUS
+export HDIonAKSClusterPoolName="contosopool"
+export NodeType="Standard_E4s_v3"
+export ClusterVersion="1.1"
+```
+
+## Log in to Azure using the CLI
+
+In order to run commands in Azure using the CLI, you need to log in first. Log in using the `az login` command.
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed:
+A resource group is a container for related resources. All resources must be placed in a resource group. The [az group create](/cli/azure/group) command creates a resource group with the previously defined `$ResourceGroup` and `$Region` parameters.
 
-```Azure PowerShell
-New-AzResourceGroup -Name 'HDIonAKSPowershell' -Location 'West US 3'
+```bash
+az group create --name $ResourceGroup --location $Region
 ```
 
-## Create the HDInsight on AKS Cluster Pool
+Output:
 
-To create an HDInsight on AKS Cluster Pool in this resource group, use the `New-AzHdInsightOnAksClusterPool` command:
-```PowerShell
-New-AzHdInsightOnAksClusterPool
-   -Name <String>
-   -ResourceGroupName <String>
-   [-SubscriptionId <String>]
-   -Location <String>
-   [-ClusterPoolVersion <String>]
-   [-EnableLogAnalytics]
-   [-LogAnalyticWorkspaceResourceId <String>]
-   [-ManagedResourceGroupName <String>]
-   [-NetworkProfileApiServerAuthorizedIPRange <String[]>]
-   [-NetworkProfileEnablePrivateApiServer]
-   [-NetworkProfileOutboundType <String>]
-   [-SubnetId <String>]
-   [-Tag <Hashtable>]
-   [-VmSize <String>]
-   [-DefaultProfile <PSObject>]
-   [-AsJob]
-   [-NoWait]
-   [-WhatIf]
-   [-Confirm]
-   [<CommonParameters>]
+<!-- expected_similarity=0.3 -->
+```json
+{
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSCLI",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "HDIonAKSCLI",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+```
+
+## Create the HDInsight on AKS cluster pool
+
+To create a HDInsight on AKS cluster pool in this resource group, use the `az hdinsight-on-aks clusterpool create` command:
+```bash
+az hdinsight-on-aks clusterpool create --cluster-pool-name
+                                       --resource-group
+                                       [--api-server-authorized-ip-ranges]
+                                       [--cluster-pool-version]
+                                       [--enable-log-analytics {0, 1, f, false, n, no, t, true, y, yes}]
+                                       [--la-workspace-id]
+                                       [--location]
+                                       [--managed-rg-name]
+                                       [--no-wait {0, 1, f, false, n, no, t, true, y, yes}]
+                                       [--outbound-type {loadBalancer, userDefinedRouting}]
+                                       [--private-server-enabled {0, 1, f, false, n, no, t, true, y, yes}]
+                                       [--subnet-id]
+                                       [--tags]
+                                       [--workernode-size]
 ```
 Here's an example:
-```PowerShell
-$location = "West US 3"
-$clusterResourceGroupName = "HDIonAKSPowershell"
-$clusterpoolName = "HDIClusterPoolSample"
-$vmSize = "Standard_E4s_v3"
-$clusterpoolversion="1.1"
-
-# Create the cluster pool
-New-AzHdInsightOnAksClusterPool `
-    -Name $clusterpoolName `
-    -ResourceGroupName $clusterResourceGroupName `
-    -Location $location `
-    -VmSize $vmSize `
-    -ClusterPoolVersion $clusterpoolversion
+```bash
+az hdinsight-on-aks clusterpool create --resource-group $ResourceGroup --cluster-pool-name $HDIonAKSClusterPoolName --location $Region --workernode-size $NodeType --cluster-pool-version $ClusterVersion
 ```
 
-It takes a few minutes to create the HDInsight on AKS Cluster Pool. The following example output shows the created operation was successful.
+It takes a few minutes to create the HDInsight on AKS cluster pool. The following example output shows the created operation was successful.
 
-Results:
+Output:
 <!-- expected_similarity=0.3 -->
-```
-AkClusterProfileAkClusterAgentPoolIdentityProfileMsiClientId   : a75ec1ff-3f7f-4f44-820c-6eaa5c8191af
-AkClusterProfileAkClusterAgentPoolIdentityProfileMsiObjectId   : 13990b78-4140-4d10-b333-69bb78524375
-AkClusterProfileAkClusterAgentPoolIdentityProfileMsiResourceId : /subscriptions/12345-abcde-12345-abcde
-AkClusterProfileAksClusterResourceId                           : /subscriptions/subscriptions/12345-abcde-12345-abcde
-AkClusterProfileAksVersion                                     : 1.27.9
-AksManagedResourceGroupName                                    : MC_hdi-44640a235566423490b9fb694d6c05a3_HDIClusterPoolSample_westus3
-ComputeProfileCount                                            : 3
-ComputeProfileVMSize                                           : Standard_E4s_v3
-DeploymentId                                                   : 44640a235566423490b9fb694d6c05a3
-Id                                                             : /subscriptions/0b130652-e15b-417e-885a-050c9a3024a2/resourceGroups/HDIonAKSPowershell/providers/Microsoft.HDInsight/cl
-                                                                 usterpools/HDIClusterPoolSample
-Location                                                       : West US 3
-LogAnalyticProfileEnabled                                      : False
-LogAnalyticProfileWorkspaceId                                  : 
-ManagedResourceGroupName                                       : hdi-12345
-Name                                                           : Contosopool
-NetworkProfileApiServerAuthorizedIPRange                       : 
-NetworkProfileEnablePrivateApiServer                           : 
-NetworkProfileOutboundType                                     : 
-NetworkProfileSubnetId                                         : 
-ProfileClusterPoolVersion                                      : 1.1
-ProvisioningState                                              : Succeeded
-ResourceGroupName                                              : HDIonAKSPowershell
-Status                                                         : Running
-SystemDataCreatedAt                                            : 6/2/2024 11:53:01 AM
-SystemDataCreatedBy                                            : john@contoso.com
-SystemDataCreatedByType                                        : User
-SystemDataLastModifiedAt                                       : 6/2/2024 11:53:01 AM
-SystemDataLastModifiedBy                                       : john@contoso.com
-SystemDataLastModifiedByType                                   : User
-Tag                                                            : {
-                                                                 }
-Type                                                           : contoso.hdinsight/contosopools
+```json
+{
+  "aksClusterProfile": {
+    "aksClusterAgentPoolIdentityProfile": {
+      "msiClientId": "00000000-0000-0000-0000-XXXXXXXX1",
+      "msiObjectId": "00000000-0000-0000-0000-XXXXXXX11",
+      "msiResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/MC_hdi-00000000000000000000XXXX_contosopool_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contosopool-agentpool"
+    },
+    "aksClusterResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hdi-00000000000000000000XXXX/providers/Microsoft.ContainerService/managedClusters/contosopool",
+    "aksVersion": "1.27.9"
+  },
+  "aksManagedResourceGroupName": "MC_hdi-00000000000000000000XXXX_contosopool_eastus",
+  "clusterPoolProfile": {
+    "clusterPoolVersion": "1.1"
+  },
+  "computeProfile": {
+    "count": 3,
+    "vmSize": "Standard_E4s_v3"
+  },
+  "deploymentId": "00000000000000000000XXXX",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSCLI/providers/Microsoft.HDInsight/clusterpools/contosopool",
+  "location": "EastUS",
+  "managedResourceGroupName": "hdi-00000000000000000000XXXX",
+  "name": "contosopool",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "HDIonAKSCLI",
+  "status": "Running",
+  "systemData": {
+    "createdAt": "2024-05-31T15:02:42.2172295Z",
+    "createdBy": "john@contoso.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2024-05-31T15:02:42.2172295Z",
+    "lastModifiedBy": "john@contoso.com",
+    "lastModifiedByType": "User"
+  },
+  "type": "microsoft.hdinsight/clusterpools"
+}
 ```
 
-## Next steps
+> [!NOTE]
+> For more information about cluster pool CLI commands, see [commands](/cli/azure/hdinsight-on-aks/clusterpool).
 
-* [New-AzHdInsightOnAksClusterPool](/powershell/module/az.hdinsightonaks/new-azhdinsightonaksclusterpool)
-* [Create cluster pool and cluster](./quickstart-create-cluster.md)
+## Clean up resources
+
+When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group using the `az group delete` command.
+
+> [!NOTE]
+> To delete a cluster pool, ensure there are no active clusters in the cluster pool.

@@ -32,6 +32,8 @@
             href: register-apis.md
           - name: 3 - Add environments and deployments
             href: configure-environments-deployments.md
+          - name: 4 - Discover shadow APIs
+            href: discover-shadow-apis-dev-proxy.md
 - name: API inventory
   items:
       - name: Manage inventory - Azure CLI
@@ -76,7 +78,7 @@
         href: ../role-based-access-control/built-in-roles.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#integration
 - name: Resources
   items:
-      - name: Samples
-        href: /samples/browse/?terms=%22azure%20api%20center%22
+      - name: Samples and labs
+        href: resources.md
       - name: Azure updates
-        href: https://azure.microsoft.com/updates/?query=%22API%20Center%22
+        href: https://aka.ms/apic/updates

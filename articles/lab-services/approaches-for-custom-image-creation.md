@@ -12,6 +12,8 @@ ms.topic: conceptual
 
 # Recommended approaches for creating custom images for Azure Lab Services labs
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes recommended approaches for creating a custom image for Azure Lab Services labs. Learn how you can create a save a custom image from an existing lab template virtual machine, or import a virtual machine image from an Azure VM or physical lab environment.
 
 -   Create and save a custom image from a [lab's template virtual machine (VM)](how-to-create-manage-template.md).

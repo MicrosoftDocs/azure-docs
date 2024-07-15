@@ -4,7 +4,7 @@ description: Learn to send Azure Service Bus triggers and bindings in Azure Func
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -31,7 +31,7 @@ Add the extension to your project installing this [NuGet package](https://www.nu
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
 
@@ -146,7 +146,7 @@ The Service Bus extension supports parameter types according to the table below.
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 This version of the extension supports parameter types according to the table below.
 
@@ -168,7 +168,7 @@ The Service Bus extension supports parameter types according to the table below.
 
 Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 

@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 11/28/2023
+ms.date: 07/02/2024
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -146,9 +146,6 @@ az aks nodepool add --resource-group $resourceGroup --cluster-name $clusterName 
 > - Doesn't use any Windows node pools with docker as the container runtime.
 
 > [!NOTE]
-> Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
-
-> [!NOTE]
 > Upgrading an existing cluster to CNI Overlay is a non-reversible process.
 
 > [!WARNING]
@@ -251,8 +248,6 @@ The following attributes are provided to support dual-stack clusters:
         --ip-families ipv4,ipv6 \
         --generate-ssh-keys
     ```
-
----
 
 ## Create an example workload
 
@@ -383,4 +378,3 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-

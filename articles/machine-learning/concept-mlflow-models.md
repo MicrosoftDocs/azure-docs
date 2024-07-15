@@ -3,10 +3,9 @@ title: From artifacts to models in MLflow
 titleSuffix: Azure Machine Learning
 description: Learn how MLflow uses the concept of models instead of artifacts to represent your trained models and enable a streamlined path to deployment.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 12/20/2023

@@ -6,12 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, update-code3
+ms.custom: cliv2, update-code6
 
-author: balapv
-ms.author: balapv
+author: Blackmist
+ms.author: larryfr
 ms.date: 11/16/2022
-ms.reviewer: larryfr
+ms.reviewer: balapv
 ---
 
 # CLI (v2) core YAML syntax

@@ -14,7 +14,7 @@ ms.reviewer: tigorman
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-Azure is home for all Oracle workloads, including workloads that need to continue to run optimally in Azure with Oracle. If you have the [Oracle Diagnostic Pack](https://www.oracle.com/technetwork/database/enterprise-edition/overview/diagnostic-pack-11g-datasheet-1-129197.pdf) or the [Automatic Workload Repository](https://docs.oracle.com/en-us/iaas/operations-insights/doc/analyze-automatic-workload-repository-awr-performance-data.html) (AWR), you can gather data about your workloads. Use this data to assess the Oracle workload, size the resource needs, and migrate the workload to Azure. The various metrics provided by Oracle in these reports can provide an understanding of application performance and platform usage.
+Azure is home for all Oracle workloads, including workloads that need to continue to run optimally in Azure with Oracle. If you have the [Oracle Diagnostic Pack](https://www.oracle.com/technetwork/database/enterprise-edition/overview/diagnostic-pack-11g-datasheet-1-129197.pdf) or the [Automatic Workload Repository (AWR)](https://docs.oracle.com/en-us/iaas/operations-insights/doc/analyze-automatic-workload-repository-awr-performance-data.html), you can gather data about your workloads. Use this data to assess the Oracle workload, size the resource needs, and migrate the workload to Azure. The various metrics provided by Oracle in these reports can provide an understanding of application performance and platform usage.
 
 This article helps you to prepare an Oracle workload to run in Azure and explore the best architecture solutions to provide optimal cloud performance. The data provided by Oracle in the Statspack and even more so in its descendent, the AWR, assists you in developing clear expectations. These expectations include the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
 
@@ -22,7 +22,7 @@ This article helps you to prepare an Oracle workload to run in Azure and explore
 
 When you're migrating on-premises applications to Azure, keep in mind a few important differences between the two environments.
 
-One important difference is that in an Azure implementation, resources such as VMs, disks, and virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing, Azure focuses more on surviving the failure. The first approach tries to increase *mean time between failures* (MTBF) and the second tries to decrease *mean time to recovery* (MTTR).
+One important difference is that in an Azure implementation, resources such as VMs, disks, and virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing, Azure focuses more on surviving the failure. The first approach tries to increase *mean time between failures (MTBF)* and the second tries to decrease *mean time to recovery (MTTR)*.
 
 The following table lists some of the differences between an on-premises implementation and an Azure implementation of an Oracle database.
 

@@ -9,6 +9,8 @@ ms.custom: template-tutorial
 
 # Tutorial: Set up lab to lab communication with advanced networking
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
 Azure Lab Services advanced networking enables you to control the network for labs created using lab plans.  You can use advanced networking to implement various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), or lab to lab communication. In this tutorial, you set up lab-to-lab communication for a web development class.
@@ -101,7 +103,7 @@ Next, you configure the subnet to be used with Azure Lab Services.  To use a sub
 
 ## Create a network security group
 
-[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 An NSG is required when using advanced networking in Azure Lab Services.
 

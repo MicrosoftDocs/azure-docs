@@ -19,6 +19,9 @@ Azure Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional an
 
 [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, can be used with Azure Synapse Link to enable Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against your operational data at scale. Business analysts, data engineers, and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real time business intelligence, analytics, and machine learning pipelines. You can analyze real time data without affecting the performance of your transactional workloads on Azure Cosmos DB.
 
+> [!IMPORTANT]
+> Mirroring Azure Cosmos DB in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
+
 The following image shows the Azure Synapse Link integration with Azure Cosmos DB and Azure Synapse Analytics:
 
 :::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Architecture diagram for Azure Synapse Analytics integration with Azure Cosmos DB" border="false":::
@@ -108,7 +111,9 @@ Azure Synapse Link isn't recommended if you're looking for traditional data ware
 
 ## Limitations
 
-* Azure Synapse Link for Azure Cosmos DB is supported for NoSQL and MongoDB APIs. It is not supported for Cassandra or Table APIs and remains in preview for Gremlin API.
+* Azure Synapse Link for Azure Cosmos DB is supported for NoSQL, Gremlin and MongoDB APIs. It is not supported for Cassandra or Table APIs.
+
+* Data Explorer in Synapse Workspaces doesn't list Gremlin graphs in the tree view. But you can still run queries.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 

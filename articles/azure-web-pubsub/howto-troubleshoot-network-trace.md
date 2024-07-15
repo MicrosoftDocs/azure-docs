@@ -6,7 +6,7 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.custom: linux-related-content
 ms.topic: how-to 
-ms.date: 11/08/2021
+ms.date: 07/12/2024
 ---
 
 # How to collect a network trace
@@ -22,13 +22,13 @@ Fiddler is a powerful tool for collecting HTTP traces. Install it from [telerik.
 
 If you connect using HTTPS, there are some extra steps to ensure Fiddler can decrypt the HTTPS traffic. For more information, see the [Fiddler documentation](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 
-Once you've collected the trace, you can export the trace by choosing **File** > **Save** > **All Sessions** from the menu bar.
+Once you collect the trace, you can export the trace by choosing **File** > **Save** > **All Sessions** from the menu bar.
 
 ## Collect a network trace with tcpdump (macOS and Linux only)
 
 This method works for all apps.
 
-You can collect raw TCP traces using tcpdump by running the following command from a command shell. You may need to be `root` or prefix the command with `sudo` if you get a permissions error:
+You can collect raw TCP (Transmission Control Protocol) traces using tcpdump by running the following command from a command shell. You need to be `root` or prefix the command with `sudo` if you get a permissions error:
 
 ```console
 tcpdump -i [interface] -w trace.pcap
@@ -45,23 +45,27 @@ man tcpdump
 Most browser Developer Tools have a "Network" tab that allows you to capture network activity between the browser and the server. 
 
 > [!NOTE]
-> If the issues you are investigating require multiple requests to reproduce, select the **Preserve Log** option with Microsoft Edge, Google Chrome, and Safari. For Mozilla Firefox select the **Persist Logs** option.
+> If the issues you are investigating require multiple requests to reproduce, select the **Preserve Log** option with Microsoft Edge, Google Chrome, and Safari. For Mozilla Firefox, select the **Persist Logs** option.
 
 ### Microsoft Edge (Chromium)
 
-1. Open the [DevTools](/microsoft-edge/devtools-guide-chromium/)
-    * Select `F12` 
+To capture a detailed network trace using your browser's DevTools, follow these steps:
+
+1. Open the [DevTools](/microsoft-edge/devtools-guide-chromium/):
+    * Select `F12`
     * Select `Ctrl`+`Shift`+`I` \(Windows/Linux\) or `Command`+`Option`+`I` \(macOS\)
-    * Select `Settings and more` and then `More Tools > Developer Tools`  
+    * Select `Settings and more` and then `More Tools > Developer Tools`
 1. Select the `Network` Tab
 1. Refresh the page (if needed) and reproduce the problem
-1. Select the `Export HAR...` in the toolbar to export the trace as a "HAR" file
+1. Select the `Export HAR...` in the toolbar to export the trace as a "HAR (HTTP Archive)" file
 
     :::image type="content" source="./media/howto-troubleshoot-network-trace/edge-export-network-trace.png" alt-text="Collect network trace with Microsoft Edge":::
 
 ### Google Chrome
 
-1. Open the [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
+To capture a detailed network trace using your browser's DevTools, follow these steps:
+
+1. Open the [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools):
     * Select `F12` 
     * Select `Ctrl`+`Shift`+`I` \(Windows/Linux\) or `Command`+`Option`+`I` \(macOS\)  
     * Select `Customize and control Google Chrome` and then `More Tools > Developer Tools`
@@ -73,7 +77,9 @@ Most browser Developer Tools have a "Network" tab that allows you to capture net
 
 ### Mozilla Firefox
 
-1. Open the [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
+To capture a detailed network trace using your browser's DevTools, follow these steps:
+
+1. Open the [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools):
     * Select `F12`
     * Select `Ctrl`+`Shift`+`I` \(Windows/Linux\) or `Command`+`Option`+`I` \(macOS\) 
     * Select `Open menu` and then `Web Developer > Toggle Tools`
@@ -85,7 +91,9 @@ Most browser Developer Tools have a "Network" tab that allows you to capture net
 
 ### Safari
 
-1. Open the [Web Development Tools](https://developer.apple.com/safari/tools/)
+To capture a detailed network trace using your browser's DevTools, follow these steps:
+
+1. Open the [Web Development Tools](https://developer.apple.com/safari/tools/):
     * Select `Command`+`Option`+`I`
     * Select `Developer` menu and then select `Show Web Inspector` 
 1. Select the `Network` Tab

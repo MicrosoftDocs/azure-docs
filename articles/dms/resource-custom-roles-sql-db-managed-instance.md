@@ -25,7 +25,7 @@ We currently recommend creating a minimum of two custom roles for the APP ID, on
 > [!NOTE]
 > The last custom role requirement may eventually be removed, as new SQL Managed Instance code is deployed to Azure.
 
-**Custom Role for the APP ID**. This role is required for Azure Database Migration Service migration at the *resource* or *resource group* level that hosts the Azure Database Migration Service (for more information about the APP ID, see the article [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)).
+**Custom Role for the APP ID**. This role is required for Azure Database Migration Service migration at the *resource* or *resource group* level that hosts the Azure Database Migration Service (for more information about the APP ID, see the article [Use the portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal)).
 
 ```json
 {

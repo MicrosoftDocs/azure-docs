@@ -12,7 +12,6 @@ ms.custom: template-how-to
 
 Azure Virtual Network Manager provides a few different ways for you to verify if configurations are being applied correctly. In this article, we'll look at how you can verify configurations applied both at virtual network and virtual machine level. We'll also go over operations you'll see in the activity log.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Virtual network visibility
 Effective network group membership and applied configurations can be viewed on the per virtual network level.

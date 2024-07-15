@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Manage labs in a lab account
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how a lab account owner or administrator can view all the labs in a lab account, and delete a lab in the lab account.
@@ -15,7 +17,7 @@ This article shows you how a lab account owner or administrator can view all the
 
 1. On the **Lab Account** page, select **All labs** on the left menu.
 
-    ![Labs in the account](./media/how-to-manage-lab-accounts/labs-in-account.png)
+    ![Labs in the account](./media/manage-labs-1/labs-in-account.png)
 1. You see a **list of labs** in the account with the following information:
     1. Name of the lab.
     2. The date on which the lab was created.
@@ -30,10 +32,10 @@ Follow instructions in the previous section to see a list of the labs in the lab
 
 1. Select **... (ellipsis)**, and select **Delete**.
 
-    ![Delete a lab - button](./media/how-to-manage-lab-accounts/delete-lab-button.png)
+    ![Delete a lab - button](./media/manage-labs-1/delete-lab-button.png)
 2. Select **Yes** on the warning message.
 
-    ![Confirm lab deletion](./media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+    ![Confirm lab deletion](./media/manage-labs-1//confirm-lab-delete.png)
 
 ## Next steps
 

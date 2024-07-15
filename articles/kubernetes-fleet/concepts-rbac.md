@@ -5,8 +5,7 @@ ms.date: 04/29/2024
 author: nickomang
 ms.author: nickoman
 ms.service: kubernetes-fleet
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-azurecli
 ms.topic: conceptual
 ---
 

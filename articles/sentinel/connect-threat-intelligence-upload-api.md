@@ -15,12 +15,14 @@ ms.collection: usx-security
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the upload indicators API
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Upload Indicators API** data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel. This data connector uses the Sentinel upload indicators API to ingest threat intelligence indicators into Microsoft Sentinel. For more information, see [Threat Intelligence](understand-threat-intelligence.md).
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The **Threat Intelligence Upload Indicators API** allows you to use these solutions to import threat indicators into Microsoft Sentinel. The upload indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need of the data connector. The data connector only mirrors the instructions for connecting to the API endpoint detailed in this article and the supplemental API reference document [Microsoft Sentinel upload indicators API](upload-indicators-api.md).
 
 :::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Threat intelligence import path":::
 
+For more information about threat intelligence, see [Threat Intelligence](understand-threat-intelligence.md).
+
 > [!IMPORTANT]
-> The Microsoft Sentinel upload indicators API and **Threat Intelligence Upload Indicators API** data connector are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel **Threat Intelligence Upload Indicators API** is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
@@ -29,7 +31,7 @@ Many organizations use threat intelligence platform (TIP) solutions to aggregate
 **See also**: [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md)
 
 ## Prerequisites  
-- In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level. Keep in mind, you don't need to install the data connector to use the API endpoint.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must be able to register a Microsoft Entra application. 
 - The Microsoft Entra application must be granted the Microsoft Sentinel contributor role at the workspace level.
@@ -41,7 +43,6 @@ Follow these steps to import threat indicators to Microsoft Sentinel from your i
 1. Register a Microsoft Entra application and record its application ID.
 1. Generate and record a client secret for your Microsoft Entra application.
 1. Assign your Microsoft Entra application the Microsoft Sentinel contributor role or equivalent.
-1. Enable the Threat Intelligence upload API data connector in Microsoft Sentinel.
 1. Configure your TIP solution or custom application.
 
 <a name='register-an-azure-ad-application'></a>
@@ -81,9 +82,9 @@ The upload indicators API ingests threat indicators at the workspace level and a
 
 For more information on assigning roles to applications, see [Assign a role to the application](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
 
-## Enable the Threat Intelligence upload indicators API data connector in Microsoft Sentinel
+## Install the Threat Intelligence upload indicators API data connector in Microsoft Sentinel (optional)
 
-Enable the **Threat Intelligence Upload Indicators API** data connector to allow Microsoft Sentinel to receive threat indicators sent from your TIP or custom solution. These indicators are available to the Microsoft Sentinel workspace you configure.
+Install the **Threat Intelligence Upload Indicators API** data connector to see the API connection instructions from your Microsoft Sentinel workspace.
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
