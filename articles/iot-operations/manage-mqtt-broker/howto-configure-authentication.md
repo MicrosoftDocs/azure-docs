@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/01/2024
+ms.date: 07/15/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -150,12 +150,26 @@ BinaryData
 ====
 ```
 
-### Import certificate-to-attribute mapping
+### Certificate attributes
 
-To use authorization policies for clients using properties on the X.509 certificates, create a certificate-to-attribute mapping TOML file and import it as a Kubernetes secret under the key `x509Attributes.toml`. This file maps the subject name of the client certificate to the attributes that can be used in authorization policies. It's required even if you don't use authorization policies.
+x509 attributes can be specified in the *BrokerListener* resource:
 
-```bash
-kubectl create secret generic x509-attributes --from-file=x509Attributes.toml -n azure-iot-operations
+```yaml
+x509:
+    authorizationAttributes:
+      root:
+        subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
+        attributes:
+          organization = contoso
+      intermediate:
+        subject = "CN = Contoso Intermediate CA"
+        attributes:
+          city = seattle
+          foo = bar
+      smart-fan:
+        subject = "CN = smart-fan"
+        attributes:
+          building = 17
 ```
 
 To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).

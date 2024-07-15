@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 07/15/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
@@ -84,44 +84,46 @@ This broker authorization allows clients with usernames `temperature-sensor` or 
   - `temperature-sensor` can subscribe to `/commands/contoso`.
   - `some-other-username` can subscribe to `/commands/contoso`.
 
-To create this BrokerAuthorization resource, apply the YAML manifest to your Kubernetes cluster.
+To create this *BrokerAuthorization* resource, apply the YAML manifest to your Kubernetes cluster.
 
 ## Authorize clients that use X.509 authentication
 
 Clients that use [X.509 certificates for authentication](./howto-configure-authentication.md) can be authorized to access resources based on X.509 properties present on their certificate or their issuing certificates up the chain.
 
-### With certificate chain properties using attributes
+### Using attributes
 
-To create rules based on properties from a client's certificate, its root CA, or intermediate CA, a certificate-to-attributes mapping TOML file is required. For example:
+To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in in the *BrokerAuthorization* resource. For example:
 
-```toml
-[root]
-subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
-
-[root.attributes]
-organization = "contoso"
-
-[intermediate]
-subject = "CN = Contoso Intermediate CA"
-
-[intermediate.attributes]
-city = "seattle"
-foo = "bar"
-
-[smart-fan]
-subject = "CN = smart-fan"
-
-[smart-fan.attributes]
-building = "17"
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: BrokerAuthorization
+metadata:
+  name: "my-authz-policies"
+  namespace: azure-iot-operations
+spec:
+  listenerRef:
+    - "my-listener" # change to match your listener name as needed
+  authorizationAttributes:
+    x509:
+        authorizationAttributes:
+          root:
+            subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
+            attributes:
+              organization = contoso
+          intermediate:
+            subject = "CN = Contoso Intermediate CA"
+            attributes:
+              city = seattle
+              foo = bar
+          smart-fan:
+            subject = "CN = smart-fan"
+            attributes:
+              building = 17
 ```
 
 In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
 
 The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
-
-To apply the mapping, create a certificate-to-attribute mapping TOML file as a Kubernetes secret, and reference it in `authenticationMethods.x509.attributes` for the BrokerAuthentication resource.
-
-Then, authorization rules can be applied to clients using X.509 certificates with these attributes.
 
 ### With client certificate subject common name as username
 
