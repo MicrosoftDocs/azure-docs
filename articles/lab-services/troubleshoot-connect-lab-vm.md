@@ -13,6 +13,8 @@ ms.date: 02/07/2024
 
 # Troubleshoot connectivity issues with Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article provides guidance on how to troubleshoot common connectivity issues with Azure Lab Services.
 
 > [!IMPORTANT]
