@@ -11,7 +11,7 @@ metadata:
   author: mbender-ms
   ms.author: mbender
   manager: kumudD
-  ms.date: 07/31/2024
+  ms.date: 07/15/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -148,15 +148,3 @@ conceptualContent:
 
 # additionalContent section (optional)
 # Card with summary style
-additionalContent:
-  sections:
-    - title: Networking services
-      items:
-        - title: Network Foundations
-          url: https://review.learn.microsoft.com/en-us/azure/networking/foundations/?branch=pr-en-us-271114
-        - title: Network security
-          url: https://review.learn.microsoft.com/en-us/azure/networking/security/?branch=pr-en-us-273509
-        - title: Hybrid connectivity
-          url: https://review.learn.microsoft.com/en-us/azure/networking/hybrid-connectivity/?branch=pr-en-us-275407
-        - title: Network monitoring and management
-          url: /azure/networking/
