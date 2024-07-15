@@ -2,12 +2,12 @@
 title: "Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps"
 description: Learn to integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps.
 services: container-apps
-author: 
+author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/08/2024
-ms.author: 
+ms.date: 07/15/2024
+ms.author: cshoe
 ---
 
 # Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps
@@ -32,7 +32,7 @@ To complete this tutorial, you need the following items:
 |--|--|
 | Azure account | An active subscription is required. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| An existing Eureka Server for Spring Java component | If you don't have one, follow the [Create the Eureka Server for Spring](java-eureka-server.md#Create-the-Eureka-Server-for-Spring-Java-component) section to create one. |
+| An existing Eureka Server for Spring Java component | If you don't have one, follow the [Create the Eureka Server for Spring](java-eureka-server.md#create-the-eureka-server-for-spring-java-component) section to create one. |
 
 ## Considerations
 
@@ -92,7 +92,7 @@ Before you begin, create the necessary resources by executing the following comm
 
 ## Optional: Create the Eureka Server for Spring
 
-1. If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component. For more information, see [Create the Eureka Server for Spring](java-eureka-server.md#Create-the-Eureka-Server-for-Spring-Java-component).
+1. If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component. For more information, see [Create the Eureka Server for Spring](java-eureka-server.md#create-the-eureka server-for-spring-java-component).
 
     ```azurecli
     az containerapp env java-component eureka-server-for-spring create \
@@ -132,7 +132,8 @@ With the Eureka Server set up, you can now bind other applications to it for ser
       --bind $EUREKA_COMPONENT_NAME 
     ```
 
-    > [!TIP] Since the Admin for Spring has been binded to the Eureka Server for Spring in previous steps. Bind the container app to the Eureka Server Java component will enable service discovery and allow to be managed through the Admin for Spring dashboard at the same time.
+    > [!TIP]
+    > Since the Admin for Spring has been binded to the Eureka Server for Spring in previous steps. Bind the container app to the Eureka Server Java component will enable service discovery and allow to be managed through the Admin for Spring dashboard at the same time.
 
 ## View the dashboards
 
