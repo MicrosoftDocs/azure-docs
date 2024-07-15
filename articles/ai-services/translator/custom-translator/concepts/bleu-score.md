@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to understand how BLEU score works so that I understand system test outcome better.
@@ -34,7 +34,7 @@ A more extensive discussion of BLEU scores is [here](https://youtu.be/-UqDljMymM
 
 BLEU results depend strongly on the breadth of your domain; consistency of
 test, training and tuning data; and how much data you have
-available for training. If your models have been trained on a narrow domain, and
+available for training. If your models are trained within a narrow domain, and
 your training data is consistent with your test data, you can expect a high
 BLEU score.
 

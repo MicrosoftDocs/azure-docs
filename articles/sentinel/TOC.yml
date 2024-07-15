@@ -240,7 +240,7 @@
       href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
-  - name: Integrate Microsoft 365 Defender
+  - name: Integrate Microsoft Defender XDR
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate Microsoft Defender for Cloud
     href: ingest-defender-for-cloud-incidents.md
@@ -876,7 +876,7 @@
       href: connect-azure-virtual-desktop.md
     - name: Microsoft Defender for Cloud
       href: connect-defender-for-cloud.md
-    - name: Microsoft 365 Defender
+    - name: Microsoft Defender XDR
       href: connect-microsoft-365-defender.md
     - name: Integrate Microsoft Purview
       href: purview-solution.md  
@@ -952,6 +952,8 @@
       href: threat-detection.md
     - name: Scheduled analytics rules
       items:
+      - name: Overview
+        href: scheduled-rules-overview.md
       - name: Create a scheduled rule from a template
         href: create-analytics-rule-from-template.md
       - name: Create a scheduled rule from scratch
@@ -1060,6 +1062,8 @@
     href: investigate-incidents.md
   - name: Investigate incidents (Legacy)
     href: investigate-cases.md
+  - name: Investigate incidents in Copilot for Security
+    href: sentinel-security-copilot.md
   - name: Tutorial - Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Relate alerts to incidents
@@ -1143,14 +1147,14 @@
         href: automation/define-playbook-access-restrictions.md
       - name: Create and perform advanced incident tasks using playbooks
         href: automation/create-tasks-playbook.md
-- name: Optimize your security operations
+- name: SOC optimizations
   items:
-  - name: SOC optimizations overview
+  - name: Optimize your security operations
     href: soc-optimization/soc-optimization-access.md
-  - name: SOC optimization reference
-    href: soc-optimization/soc-optimization-reference.md
   - name: Use SOC optimizations programmatically
     href: soc-optimization/soc-optimization-api.md
+  - name: SOC optimization reference
+    href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing

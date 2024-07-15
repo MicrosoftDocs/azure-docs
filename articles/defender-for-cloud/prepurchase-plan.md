@@ -87,7 +87,7 @@ You can make the following types of changes to a reservation after purchase:
 - Update reservation scope
 - Azure role-based access control (Azure RBAC)
 
-You can't split or merge the Defender for Cloud commit unit prepurchase plan. For more information about managing reservations, see [Manage reservations after purchase](/azure/cost-management-billing/reservations/manage-reserved-vm-instance).
+You can't split or merge the Defender for Cloud prepurchase plan. For more information about managing reservations, see [Manage reservations after purchase](/azure/cost-management-billing/reservations/manage-reserved-vm-instance).
 
 ## Cancellations and exchanges
 

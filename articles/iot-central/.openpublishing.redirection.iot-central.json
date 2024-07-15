@@ -1207,7 +1207,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
-      "redirect_url": "/learn/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/tutorial-connect-iot-edge-device.md",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
       "redirect_document_id": false
     },
     {

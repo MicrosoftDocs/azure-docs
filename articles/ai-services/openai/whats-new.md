@@ -10,13 +10,52 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 06/19/2024
+ms.date: 07/09/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
+
+## July 2024
+
+### New GA API release
+
+API version `2024-06-01` is the latest GA data plane inference API release. It replaces API version `2024-02-01` and adds support for:
+
+- embeddings `encoding_format` & `dimensions` parameters.
+- chat completions `logprops` & `top_logprobs` parameters.
+
+Refer to our [data plane inference reference documentation](./reference.md) for more information.
+
+### Expansion of regions available for global standard deployments of gpt-4o
+
+ GPT-4o is now available for [global standard deployments](./how-to/deployment-types.md) in:
+
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     git
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
+
+For information on global standard quota, consult the [quota and limits page](./quotas-limits.md).
 
 ## June 2024
 

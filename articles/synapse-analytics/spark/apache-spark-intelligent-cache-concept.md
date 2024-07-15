@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 7/7/2022
 ms.author: avinandac
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ms.subservice: spark
 ---
 
