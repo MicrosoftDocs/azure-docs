@@ -1,7 +1,7 @@
 ---
-title: Disable access key authentication for an Azure App Configuration instance
+title: Manage access key authentication for an Azure App Configuration instance
 titleSuffix: Azure App Configuration
-description: Learn how to disable access key authentication for an Azure App Configuration instance.
+description: Learn how to manage access key authentication for an Azure App Configuration instance.
 ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
@@ -9,29 +9,31 @@ ms.topic: how-to
 ms.date: 04/05/2024
 ---
 
-# Disable access key authentication for an Azure App Configuration instance
+# Manage access key authentication for an Azure App Configuration instance
 
-Every request to an Azure App Configuration resource must be authenticated. By default, requests can be authenticated with either Microsoft Entra credentials, or by using an access key. Of these two types of authentication schemes, Microsoft Entra ID provides superior security and ease of use over access keys, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authenticate requests, you can disable the usage of access keys for an Azure App Configuration resource.
+Every request to an Azure App Configuration resource must be authenticated. By default, requests can be authenticated with either Microsoft Entra credentials, or by using an access key. Of these two types of authentication schemes, Microsoft Entra ID provides superior security and ease of use over access keys, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authenticate requests, you can disable the usage of access keys for an Azure App Configuration resource. If you want to use access keys to auth the request, it's recommended to rotate access keys each 90 days to ensure optimal security.
 
-When you disable access key authentication for an Azure App Configuration resource, any existing access keys for that resource are deleted. Any subsequent requests to the resource using the previously existing access keys will be rejected. Only requests that are authenticated using Microsoft Entra ID will succeed. For more information about using Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md).
+## Enable/Disable access key authentication
 
-## Disable access key authentication
+Access key is enabled by default, you could use access keys in your code to auth requests.
 
-Disabling access key authentication will delete all access keys. If any running applications are using access keys for authentication, they will begin to fail once access key authentication is disabled. Enabling access key authentication again will generate a new set of access keys and any applications attempting to use the old access keys will still fail.
+Disabling access key authentication will delete all access keys. If any running applications are using access keys for authentication, they will begin to fail once access key authentication is disabled. Only requests that are authenticated using Microsoft Entra ID will succeed. For more information about using Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md). Enabling access key authentication again will generate a new set of access keys and any applications attempting to use the old access keys will still fail.
 
 > [!WARNING]
 > If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Microsoft Entra ID](./concept-enable-rbac.md) before disabling access key authentication.
 
 # [Azure portal](#tab/portal)
 
-To disallow access key authentication for an Azure App Configuration resource in the Azure portal, follow these steps:
+To allow/disallow access key authentication for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 2. Locate the **Access settings** setting under **Settings**.
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
-3. Set the **Enable access keys** toggle to **Disabled**.
+3. Set the **Enable access keys** toggle to **Enabled**/**Disabled**.
+
+    :::image type="content" border="true" source="./media/enable-access-keys.png" alt-text="Screenshot showing how to enable access key authentication for Azure App Configuration":::
 
     :::image type="content" border="true" source="./media/disable-access-keys.png" alt-text="Screenshot showing how to disable access key authentication for Azure App Configuration":::
 
@@ -41,9 +43,9 @@ The capability to disable access key authentication using the Azure CLI is in de
 
 ---
 
-### Verify that access key authentication is disabled
+### Verify that access key authentication is enabled/disabled
 
-To verify that access key authentication is no longer permitted, a request can be made to list the access keys for the Azure App Configuration resource. If access key authentication is disabled, there will be no access keys, and the list operation will return an empty list.
+To verify that if access key authentication is available, a request can be made to list the access keys for the Azure App Configuration resource. If access key authentication is enables, you wil get a list of ready access keys and read-write access keys. If access key authentication is disabled, there will be no access keys, and the list operation will return an empty list.
 
 # [Azure portal](#tab/portal)
 
@@ -54,7 +56,9 @@ To verify access key authentication is disabled for an Azure App Configuration r
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
-3. Verify there are no access keys displayed and **Enable access keys** is toggled to **Disabled**.
+3. Verify if there are no access keys displayed and the toggled state of **Enable access keys**.
+
+    :::image type="content" border="true" source="./media/get-access-keys-list.png" alt-text="Screenshot showing access keys for an Azure App Configuration resource":::
 
     :::image type="content" border="true" source="./media/disable-access-keys.png" alt-text="Screenshot showing access keys being disabled for an Azure App Configuration resource":::
 
@@ -95,6 +99,25 @@ Be careful to restrict assignment of these roles only to those users who require
 
 > [!NOTE]
 > When access key authentication is disabled and [ARM authentication mode](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) of App Configuration store is local, the capability to read/write key-values in an [ARM template](./quickstart-resource-manager.md) will be disabled as well. This is because access to the Microsoft.AppConfiguration/configurationStores/keyValues resource used in ARM templates requires access key authentication with local ARM authentication mode. It's recommended to use pass-through ARM authentication mode. For more information, see [Deployment overview](./quickstart-deployment-overview.md).
+
+## Rotate access key
+Microsoft recommends that you rotate your access keys periodically to help keep your resource secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
+
+Each Azure App Configuration resource has two access keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked. The recommended rotate cycle is 90 days.
+
+You can rotate keys using the following procedure:
+
+1. If you're using both keys in production, change your code so that only one key is in use. In this guide, assume it's key 1.
+This is a necessary step because once a key is regenerated, the older version of that key stops working immediately. This would cause clients using the older key to get 401 access denied errors.
+
+2. Once you have only key 1 in use, you can regenerate key 2. Go to your resource's page on the Azure portal, select the Keys and Endpoint tab, and select the Regenerate Key 2 button at the top of the page.
+
+3. Next, update your code to use the newly generated key 2.
+It helps to have logs or availability to check that users of the key have successfully swapped from using key 1 to key 2 before you proceed.
+
+4. Now you can regenerate key 1 using the same process.
+
+5. Finally, update your code to use the new key 1.
 
 ## Next steps
 
