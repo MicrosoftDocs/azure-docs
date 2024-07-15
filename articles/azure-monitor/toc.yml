@@ -749,7 +749,7 @@ items:
         - name: MMA removal tool
           href: agents/azure-monitor-agent-mma-removal-tool.md
         - name: AMA Data Field Differences from MMA
-          href: agents/azure-monitor-agent-data-field-differences-from-mma.md
+          href: agents/azure-monitor-agent-data-field_differences-from-mma.md
         - name: Migration custom text log tables
           href: agents/azure-monitor-agent-custom-text-log-migration.md
       - name: Performance
