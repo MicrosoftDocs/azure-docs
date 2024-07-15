@@ -289,11 +289,12 @@ sections:
           
           1. Register the **‘AllowApplicationGatewayEnableFIPS’** feature to enroll the subscription for FIPS mode configuration.
           
-            To register using Azure CLI, open a Cloud Shell prompt and enter the following:
+            To register using Azure PowerShell, open a Cloud Shell prompt and enter the following:
           
             ```azurepowershell-interactive
             Register-AzProviderFeature -FeatureName AllowApplicationGatewayEnableFIPS -ProviderNamespace Microsoft.Network
             ```
+            
             To register using the **Azure portal**:
 
            - Sign in to the Azure portal and search for **Preview features**.
@@ -309,6 +310,7 @@ sections:
             # Update the application gateway
             Set-AzApplicationGateway -ApplicationGateway $appgw
             ```
+          
           Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](/windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
           
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
