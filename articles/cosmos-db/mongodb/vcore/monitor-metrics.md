@@ -25,12 +25,17 @@ It delivers:
 
 ## Metrics available today
 ### System Metrics (available on all cluster tiers)
-1. **Committed memory percent**: Shows the percentage of the committed memory limit that is allocated by applications on a node. This metric helps in monitoring the memory usage against the allocated limit.
-1. **CPU percent**: Indicates the CPU utilization on a node. 
-1. **Memory percent**: Shows the memory utilization on a node. 
-1. **Storage percent:** Displays the available storage percentage on a node. 
-1. **Storage used**: Represents the actual amount of storage used on a node. This metric is crucial for understanding the storage consumption trends and managing storage resources.
-1. **IOPS:** Measures the disk IO operations per second on a node. It provides insights into the read and write performance of the storage system, helping to optimize disk usage.
+1. **Committed memory percent**: Shows the percentage of the committed memory limit that is allocated by applications on a shard. This metric helps in monitoring the memory usage against the allocated limit.
+1. **CPU percent**: Indicates the CPU utilization on a shard. 
+   - **High CPU Utilization**: If you notice a spike in CPU utilization on average, the best option to maximize performance is to increase the cluster tier. After increasing the tier, monitor the usage to see if it stabilizes.
+   - **Low CPU Utilization**: Conversely, if the CPU utilization is consistently low, it is recommended to scale down to a lower cluster tier to save on cost.
+1. **Memory percent**: Shows the memory utilization on a shard. For read-heavy workloads, consider using cluster tiers with more RAM to optimize performance and ensure smoother operations.
+1. **Storage percent:** Displays the available storage percentage on a shard. 
+1. **Storage used**: Represents the actual amount of storage used on a shard. This metric is crucial for understanding the storage consumption trends and managing storage resources.
+   - **Monitoring and Management**: If storage utilization increases above 80%, users should monitor this more closely. It is recommended to increase the SKU size of the disk to manage storage more effectively.
+   - **Performance Optimization**: If write performance is not at the desired level, particularly during high-scale operations, increasing the disk size can enhance write performance.
+1. **IOPS:** Measures the disk IO operations per second on a shard. It provides insights into the read and write performance of the storage system, helping to optimize disk usage.
+   - **Write Heavy Workloads**: IOPS is particularly important for write-heavy workloads, especially when operating at scale. If write performance needs to be improved, it is recommended to upgrade the storage disk SKU size rather than increasing the cluster tier.
 
 ### Database Metrics 
 1. **Mongo request duration**: Captures the end-to-end duration in milliseconds of client MongoDB requests handled by the Mongo cluster, updated every 60 seconds. This metric is vital for assessing the responsiveness and latency of the database operations.
