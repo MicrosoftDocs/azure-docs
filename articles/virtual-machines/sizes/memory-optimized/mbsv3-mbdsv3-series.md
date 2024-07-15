@@ -13,7 +13,7 @@ ms.topic:    # Add the ms.topic value
 ms.date:     07/15/2024
 ---
 
-# Mbv3 and Mbdsv3 Series (Public Preview)
+# Mbsv3 and Mbdsv3 Series (Public Preview)
 
 
 
