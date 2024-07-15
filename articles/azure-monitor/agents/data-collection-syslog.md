@@ -10,7 +10,7 @@ ms.reviewer: glinuxagent
 # Collect Syslog events with Azure Monitor Agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built in to Linux devices and appliances to collect local events of the types you specify. Then you can have it send those events to a Log Analytics workspace. Applications send messages that might be stored on the local machine or delivered to a Syslog collector.
 
@@ -25,29 +25,31 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 
 
 The following facilities are supported with the Syslog collector:
-* None
-* Kern
-* user
-* mail
-* daemon
-* auth
-* syslog
-* lpr
-* news
-* uucp
-* ftp
-* ntp
-* audit
-* alert
-* mark
-* local0
-* local1
-* local2
-* local3
-* local4
-* local5
-* local6
-* local7
+| Pri index 	| Pri Name 	|
+|---		|---		|
+| 0	   	| None		|
+| 1		| Kern		|
+| 2		| user		|
+| 3 		| mail		|
+| 4		| daemon	|
+| 4		| auth		|
+| 5		| syslog	|
+| 6		| lpr		|
+| 7		| news		|
+| 8		| uucp		|
+| 9		| ftp		|
+| 10		| ntp		|
+| 11		| audit		|
+| 12		| alert		|
+| 13		| mark		|
+| 14		| local0	|
+| 15		| local1	|
+| 16		| local2	|
+| 17		| local3	|
+| 18		| local4	|
+| 19		| local5	|
+| 20		| local6	|
+| 21		| local7	|
 
 The following are the severity levels of the events:
 * info

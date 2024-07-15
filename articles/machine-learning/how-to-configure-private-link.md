@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurecli, sdkv2
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 01/02/2024
 ---
 

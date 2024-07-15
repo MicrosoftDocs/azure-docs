@@ -12,6 +12,8 @@ ms.date: 01/31/2023
 
 # Considerations for migrating from physical labs to Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure Lab Services enables you to provide lab environments that users can access from anywhere, any time of the day. When you migrate from physical labs to Azure Lab Services, you should reassess your lab structure to minimize costs and optimize the experience for lab creators and users. In this article, you learn about the considerations and benefits of migrating from physical labs to Azure Lab Services.
 
 ## Considerations for moving to Azure Lab Services

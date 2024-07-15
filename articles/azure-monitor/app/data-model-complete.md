@@ -49,7 +49,7 @@ You can group requests by logical `name` and define the `source` of this request
 
 Request telemetry supports the standard extensibility model by using custom `properties` and `measurements`.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Name
 
@@ -425,24 +425,24 @@ This can occur if you're using string values. Only numeric values work with cust
 ## Next steps
 
 Learn how to use the [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:
-- [Custom request telemetry](./api-custom-events-metrics.md#trackrequest)
-- [Custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
-- [Custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
-- [Custom event telemetry](./api-custom-events-metrics.md#trackevent)
-- [Custom metric telemetry](./api-custom-events-metrics.md#trackmetric)
+* [Custom request telemetry](./api-custom-events-metrics.md#trackrequest)
+* [Custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
+* [Custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
+* [Custom event telemetry](./api-custom-events-metrics.md#trackevent)
+* [Custom metric telemetry](./api-custom-events-metrics.md#trackmetric)
 
 Set up dependency tracking for:
-- [.NET](./asp-net-dependencies.md)
-- [Java](./opentelemetry-enable.md?tabs=java)
+* [.NET](./asp-net-dependencies.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 
 To learn more:
 
-- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
-- Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
-- Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
-- Explore [Java trace logs in Application Insights](./opentelemetry-add-modify.md?tabs=java#logs).
-- Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
-- Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
-- Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
-- Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
-- Use [sampling](./sampling.md) to minimize the amount of telemetry based on data model.
+* Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
+* Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+* Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
+* Explore [Java trace logs in Application Insights](./opentelemetry-add-modify.md?tabs=java#send-custom-telemetry-using-the-application-insights-classic-api).
+* Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
+* Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
+* Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
+* Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
+* Use [sampling](./sampling.md) to minimize the amount of telemetry based on data model.

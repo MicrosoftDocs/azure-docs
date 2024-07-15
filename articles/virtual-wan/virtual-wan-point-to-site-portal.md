@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * View your virtual WAN
 > * Modify settings
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Prerequisites
 
