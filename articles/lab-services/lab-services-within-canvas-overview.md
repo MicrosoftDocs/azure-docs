@@ -11,6 +11,8 @@ ms.date: 06/02/2023
 
 # Use Azure Lab Services within Canvas
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure Lab Services provides an integrated experience for using labs with Canvas. [Canvas LMS](https://www.instructure.com/canvas) is a cloud-based learning management system that provides one place for course content, quizzes, and grades for both educators and students. Educators can create labs from within Canvas and students will see their lab virtual machines alongside their other material for a course.
 
 This article outlines the benefits of using Azure Lab Services within Canvas and provides links to other articles for instructions on how to create and manage labs within Canvas.

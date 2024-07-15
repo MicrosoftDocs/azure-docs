@@ -12,6 +12,8 @@ ms.date: 09/28/2023
 
 # Troubleshoot a lab VM with redeploy or reimage
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to troubleshoot problems with connecting to your lab virtual machine (VM) in Azure Lab Services. As a lab user, you can perform troubleshooting operations on the lab VM, without support from the lab creator or an administrator.
 
 You can perform the following troubleshooting operations on the lab VM:
