@@ -12,7 +12,7 @@ ms.date: 07/08/2024
 ---
 
 # RAG with vCore-based Azure Cosmos DB for MongoDB
-n the fast-evolving realm of generative AI, Large Language Models (LLMs) like GPT-3.5 have transformed natural language processing. However, an emerging trend in AI is the use of vector stores, which play a pivotal role in enhancing AI applications. 
+In the fast-evolving realm of generative AI, Large Language Models (LLMs) like GPT-3.5 have transformed natural language processing. However, an emerging trend in AI is the use of vector stores, which play a pivotal role in enhancing AI applications. 
 
 This tutorial explores how to use Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI to implement Retrieval-Augmented Generation (RAG) for superior AI performance alongside discussing LLMs and their limitations. We explore the rapidly adopted paradigm of "retrieval-augmented generation" (RAG), and briefly discuss the LangChain framework, Azure OpenAI models. Finally, we integrate these concepts into a real-world application. By the end, readers will have a solid understanding of these concepts.
 
