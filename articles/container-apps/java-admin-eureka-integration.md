@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps (preview)"
+title: "Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps"
 description: Learn to integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: 
@@ -10,7 +10,7 @@ ms.date: 07/08/2024
 ms.author: 
 ---
 
-# Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps (preview)
+# Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps
 
 This tutorial will guide you through the process of integrating a managed Admin for Spring with a Eureka Server for Spring within Azure Container Apps.
 
