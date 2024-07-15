@@ -19,15 +19,70 @@ Then you can get the feature API object from the call instance:
 ```js
 const breakoutRoomsFeature = call.feature(Features.BreakoutRooms);
 ```
+### Breakout room  properties
 
-### Handle breakoutRoom events
+Breakout rooms have the following properties :
+
+```js
+const url : string = breakoutRoom.url;
+```
+- `url` : Url of the breakout room.
+
+```js
+const displayName : string = breakoutRoom.displayName;
+```
+- `displayName` : Name of the breakout room.
+
+```js
+const threadId : string = breakoutRoom.threadId;
+```
+- `threadId` : threadId of the breakout room used for chat
+
+```js
+const state : BreakoutRoomState = breakoutRoom.state;
+```
+- `state` : state of the breakout room. It can be either 'Open' or Closed. Users would be able to join the breakout room only when the state is open.
+
+```js
+const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom;
+```
+- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the room is opened by the Organizer.
+
+```js
+const call : Call | TeamsCall = breakoutRoom.call;
+```
+- `call` : breakout room call object. This is returned when the user joins the breakout room call automatically or by calling breakoutRoom.join().
+
+```js
+const invitees : Invitee[] = breakoutRoom.invitees;
+```
+- `invitees` : the list of invitees who are assigned to the breakout room.
+
+### Breakout room  settings
+
+```js
+const mainMeetingUrl : string = breakoutRoom.mainMeetingUrl;
+```
+- `mainMeetingUrl` : main meeting url of the Teams meeting.
+
+```js
+const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMeeting;
+```
+- `disableReturnToMainMeeting` : disable participants to return to the main meeting from the breakout room call.
+
+```js
+const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
+```
+- `roomEndTime` : breakout room end time set by the organizer of the main meeting.
+
+### Handle breakout Room events
 The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `call` instance and contains information about the breakout rooms created or assigned. 
 
 To receive a breakoutroom details, subscribe to the `breakoutRoomsUpdated` event. This event internally supports 4 event types.
 
 1. BreakoutRoomsEvent : When the event type is `breakoutRooms`, the subscriber would be able to receive all the BreakoutRooms which are created by the Organizer / Co-Organizer of the meeting. These details are available to the Microsoft 365 User with Organizer / Co-Organizer role.
   ```js
-  export interface BreakOutRoomsEvent {
+  export interface BreakoutRoomsEvent {
     /**
      * Breakout room event type
      */
