@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 07/15/2024
 ms.author: cshoe
 ---
 
@@ -134,7 +134,7 @@ Now that you have an existing environment, you can create your container app and
 
     This property indicates that the Admin for Spring component client should prefer the IP address of the container app instance when connecting to the Admin for Spring server.
 
-    You can also [remove a binding](admin-for-spring-usage.md#unbind) from your application.
+    You can also [remove a binding](java-admin-for-spring-usage.md#unbind) from your application.
 
 ## View the dashboard
 

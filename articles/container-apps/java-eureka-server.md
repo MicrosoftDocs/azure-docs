@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/07/2024
+ms.date: 07/15/2024
 ms.author: cshoe
 ---
 
