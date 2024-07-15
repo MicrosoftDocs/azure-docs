@@ -14,15 +14,15 @@ ms.date: 07/15/2024
 
 This article introduces the Grafana settings available in Azure Managed Grafana. These settings are designed to enable Azure Managed Grafana customers to customize their Grafana instances by enabling or disabling the Grafana options listed below.
 
-These options are referenced in the Grafana documentation settings, go to [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/). 
+These options are referenced in the Grafana documentation settings, under [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/). 
 
 ## Viewers Can Edit
 
-The **Viewers Can Edit** setting allows users with the Grafana Viewer role to edit dashboards. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. While they can edit dashboards, they cannot save these edits.
+The **Viewers Can Edit** setting allows users with the Grafana Viewer role to edit dashboards. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. While they can edit dashboards, they can't save these edits.
 
-This option also gives Grafana Viewers access to the **Explore** menu in the Grafana UI, where they can perform interactive queries and analyze data within Grafana. However, it's important to note that any changes made by Viewers will not be saved permanently unless they have the appropriate Editor permissions.
+This option also gives Grafana Viewers access to the **Explore** menu in the Grafana UI, where they can perform interactive queries and analyze data within Grafana. However, it's important to note that any changes made by Viewers won't be saved permanently unless they have the appropriate Editor permissions.
 
-To enable or disable this option, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings** > **Viewers can edit**. This option is set to disabled by default.
+To enable or disable this option, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings** > **Viewers can edit**. This option is disabled by default.
 
 ## External Enabled
 
