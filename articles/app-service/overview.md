@@ -62,7 +62,7 @@ If you need to create another web app with an outdated runtime version that is n
 
 ## App Service Environments
 
-An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service offering where supporting ingfrastructure is shared, compute is dedicated to a single customer with App Service Environment. For more information on the differences between App Service Environment and App Service, see the [comparison](./environment/ase-multi-tenant-comparison.md).
+An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service offering where supporting infrastructure is shared, compute is dedicated to a single customer with App Service Environment. For more information on the differences between App Service Environment and App Service, see the [comparison](./environment/ase-multi-tenant-comparison.md).
 
 ## Next steps
 
