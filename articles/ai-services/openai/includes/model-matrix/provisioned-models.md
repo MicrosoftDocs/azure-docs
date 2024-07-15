@@ -5,6 +5,7 @@ description: PTU-managed model availability by region.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
+ms.custom: references_regions
 ms.date: 07/12/2024
 ---
 
