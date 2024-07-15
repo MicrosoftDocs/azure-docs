@@ -9,7 +9,7 @@ ms.date: 06/19/2023
 
 # Monitor and optimize the execution of your scheduled analytics rules
 
-To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of insights on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to manually rerun previous executions of rules on specific time windows, for testing and/or troubleshooting purposes.
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of insights on your [scheduled analytics rules'](scheduled-rules-overview.md) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to manually rerun previous executions of rules on specific time windows, for testing and/or troubleshooting purposes.
 
 > [!IMPORTANT]
 >

@@ -290,6 +290,5 @@ aks_target.delete()
 
 ## Next steps
 
-* [Deploy model on FPGA](how-to-deploy-fpga-web-service.md)
 * [Deploy model with ONNX](../concept-onnx.md#onnx-model-deployment-in-azure)
 * [Train TensorFlow DNN Models](../how-to-train-tensorflow.md)

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to discover shadow APIs in your app
 author: waldekmastykarz
 ms.service: api-center
 ms.topic: tutorial
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ms.author: wmastyka 
 ---
 
@@ -20,7 +20,7 @@ One way to check for shadow APIs is by using [Dev Proxy](https://aka.ms/devproxy
 
 ## Before you start
 
-To detect shadow APIs, you need to have an [Azure API Center](/azure/api-center/) instance with information about the APIs that you use in your organization.
+To detect shadow APIs, you need to have an Azure API Center instance with information about the APIs that you use in your organization. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md). Additionally, you need to install [Dev Proxy](https://aka.ms/devproxy).
 
 ### Copy API Center information
 
