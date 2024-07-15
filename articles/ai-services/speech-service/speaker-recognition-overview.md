@@ -18,7 +18,7 @@ Speaker recognition can help determine who is speaking in an audio clip. The ser
 You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification). You can also cross-check audio voice samples against a *group* of enrolled speaker profiles to see if it matches any profile in the group (speaker identification).
 
 > [!IMPORTANT]
-> Microsoft limits access to speaker recognition. You can apply for access through the [Azure AI services speaker recognition limited access review](https://aka.ms/azure-speaker-recognition). For more information, see [Limited access for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
+> Microsoft limits access to Speaker Recognition. We have paused all new registrations for the Speaker Recognition Limited Access program at this time.
 
 ## Speaker verification
 
