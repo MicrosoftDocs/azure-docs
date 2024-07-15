@@ -72,5 +72,3 @@ Learn more:
 ## Next steps
 
 [Deidentification quickstart](quickstart.md)
-
-[!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]
