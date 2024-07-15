@@ -21,7 +21,7 @@
     href: faq.md
 - name: How-to guides
   items:
-  - name: Request access to an Azure Extended Zone
+  - name: Request access to an Extended Zone
     href: request-access.md
   - name: Deploy an AKS cluster in an Extended Zone
     href: deploy-aks-cluster.md
