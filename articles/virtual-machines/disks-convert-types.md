@@ -32,14 +32,15 @@ As a public preview, you can switch existing disks to Premium SSD v2 disks the s
 
 The preview allowing direct switching to Premium SSD v2 disks has some additional limitations and regional restrictions:
 
-- You can't directly switch Ultra Disks to Premium SSD v2 disks.
 - You can't switch an OS disk to a Premium SSD v2 disk.
-- You can't directly switch a Premium SSD v2 to another disk type.
-- Existing disks can only be directly switched to 512 sector size Premium SSD v2 disks. 
+- Existing disks can only be directly switched to 512 sector size Premium SSD v2 disks.
 - You can only perform 40 conversions at the same time per subscription per region.
-- If your disk is using host caching, you must set it to none before changing to Premium SSD v2.
-- If your disk is using bursting, you must disable it before changing to Premium SSD v2.
-- If your disk is using double encryption, you must switch to one of the single encryption options before changing to Premium SSD v2.
+- If your existing disk is a shared disk, you must detach all VMs before changing to Premium SSD v2.
+- If your existing disk is using host caching, you must set it to none before changing to Premium SSD v2.
+- If your existing disk is using bursting, you must disable it before changing to Premium SSD v2.
+- If your existing disk is using double encryption, you must switch to one of the single encryption options before changing to Premium SSD v2.
+- You can't directly switch from a Premium SSD v2 to another disk type. If you want to change a Premium SSD v2 to another disk type, you must migrate using [snapshots](#migrate-to-premium-ssd-v2-or-ultra-disk).
+- You can't directly switch from Ultra Disks to Premium SSD v2 disks, you must migrate using [snapshots](#migrate-to-premium-ssd-v2-or-ultra-disk).
 - If you're using the rest API, you must use an API version `2020-12-01` or newer for both the Compute Resource Provider and the Disk Resource Provider.
 
 This preview is currently only available in the following regions:
