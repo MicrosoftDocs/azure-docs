@@ -3,7 +3,7 @@ title: Enable Azure Automation Update Management from Automation account
 description: This article tells how to enable Update Management from an Automation account.
 services: automation
 ms.subservice: update-management
-ms.date: 11/09/2020
+ms.date: 07/15/2024
 ms.topic: conceptual
 ms.custom: mvc
 ---
