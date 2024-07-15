@@ -385,7 +385,7 @@ The value is set by the runtime based on the language stack and deployment statu
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~4`). When new minor versions of the same major version are available, they're automatically installed in the function app. 
 
 |Key|Sample value|
 |---|------------|
@@ -396,9 +396,10 @@ The following major runtime version values are supported:
 | Value | Runtime target | Comment |
 | ------ | -------- | --- |
 | `~4` | 4.x | Recommended |
-| `~3` | 3.x | No longer supported |
-| `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Support ends September 14, 2026 |
+
+A value of `~4` means that your app runs on version 4.x of the runtime. A value of `~1` pins your app to version 1.x of the runtime. Runtime versions 2.x and 3.x are no longer supported. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+If requested by support to pin your app to a specific minor version, use the full version number (for example, `4.0.12345`). For more information, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## FUNCTIONS\_INPROC\_NET8\_ENABLED
 
