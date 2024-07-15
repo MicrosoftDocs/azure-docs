@@ -23,6 +23,20 @@ Defender for Cloud provides secrets scanning for virtual machines, and for cloud
 - **Cloud deployments**: Agentless secrets scanning across multicloud infrastructure-as-code deployment resources.
 - **Azure DevOps**: [Scanning to discover exposed secrets in Azure DevOps](defender-for-devops-introduction.md).
 
+## Prerequisites
+
+Required roles and permissions:
+
+   - Security Reader
+   
+      - Security Admin
+      
+         - Reader
+         
+            - Contributor
+            
+               - Owner
+               
 ## Deploying secrets scanning
 
 Secrets scanning is provided as a feature in Defender for Cloud plans:
