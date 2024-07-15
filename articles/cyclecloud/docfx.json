@@ -3,7 +3,8 @@
     "content":
        [
          {
-             "files": ["breadcrumb/toc.yml"]
+             "files": ["breadcrumb/toc.yml"],
+             "group": "cyclecloud-7-group"
          },
          {
           "group": "cyclecloud-7-group",
