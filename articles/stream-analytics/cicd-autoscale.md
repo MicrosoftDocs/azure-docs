@@ -87,7 +87,9 @@ If you have a working Stream Analytics project on the local machine, follow thes
 
     ![Screenshot that shows autoscale files generated after configuration of autoscale.](./media/cicd-autoscale/configure-autoscale.png)
 
-    For a list of metrics that you can use to define autoscale rules, see [Supported metrics for Microsoft.StreamAnalytics/streamingjobs](monitor-azure-stream-analytics-reference.md#supported-metrics-for-microsoftstreamanalyticsstreamingjobs).
+    The following table lists the metrics that you can use to define autoscale rules:
+
+    [!INCLUDE [microsoft-streamanalytics-streamingjobs-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-streamanalytics-streamingjobs-metrics-include.md)]
 
     The default value for all metric thresholds is `70`. If you want to set the metric threshold to another number, open the *\*.AutoscaleSettingTemplate.parameters.json* file and change the `Threshold` value. 
 
