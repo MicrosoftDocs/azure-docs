@@ -4217,7 +4217,16 @@
             "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
         }
+
+
+
+        
 
     ]
 }
