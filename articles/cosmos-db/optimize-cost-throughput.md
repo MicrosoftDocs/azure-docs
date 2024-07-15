@@ -112,13 +112,13 @@ Furthermore, if you're using Azure Cosmos DB, and you know you are not going to 
 
 By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](index-policy.md). 
 
-## Monitoring provisioned and consumed throughput 
+## Monitor provisioned and consumed throughput
 
-You can monitor the total number of RUs provisioned, number of rate-limited requests as well as the number of RUs you’ve consumed in the Azure portal. The following image shows an example usage metric:
+You can monitor the total number of request units provisioned, number of rate-limited requests, and the number of RUs you’ve consumed in the Azure portal. To learn more, see [Analyze Azure Cosmos DB metrics](monitor.md#analyze-azure-cosmos-db-metrics). The following image shows an example usage metric:
 
 :::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Monitor request units in the Azure portal":::
 
-You can also set alerts to check if the number of rate-limited requests exceeds a specific threshold. See [How to monitor Azure Cosmos DB](use-metrics.md) article for more details. These alerts can send an email to the account administrators or call a custom HTTP Webhook or an Azure Function to automatically increase provisioned throughput. 
+You can also set alerts to check if the number of rate-limited requests exceeds a specific threshold. To learn more about alerts, see [Azure Monitor alerts](monitor.md#alerts).
 
 ## Scale your throughput elastically and on-demand 
 

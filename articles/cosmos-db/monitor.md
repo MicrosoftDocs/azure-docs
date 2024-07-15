@@ -50,7 +50,12 @@ You can monitor diagnostic logs from your Azure Cosmos DB account and create das
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#resource-logs).
 
+<a name="activity-log"></a>
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+### Audit restore actions for continuous backup mode
+
+By using activity logs, you can list all the point-in-time restores for continuous mode that were performed on an Azure Cosmos DB account. To learn how to view these operations in the Azure portal, see [Audit the point-in-time restore action for continuous backup mode](audit-restore-continuous.md).
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
