@@ -14,7 +14,7 @@ ms.date: 07/08/2024
 # RAG with vCore-based Azure Cosmos DB for MongoDB
 n the fast-evolving realm of generative AI, Large Language Models (LLMs) like GPT-3.5 have transformed natural language processing. However, an emerging trend in AI is the use of vector stores, which play a pivotal role in enhancing AI applications. 
 
-This tutorial explores how to leverage Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI to implement Retrieval-Augmented Generation (RAG) for superior AI performance alongside discussing LLMs and their limitations. We explore the rapidly adopted paradigm of "retrieval-augmented generation" (RAG), and briefly discuss the LangChain framework, Azure OpenAI models. Finally, we integrate these concepts into a real-world application. By the end, readers will have a solid understanding of these concepts.
+This tutorial explores how to use Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI to implement Retrieval-Augmented Generation (RAG) for superior AI performance alongside discussing LLMs and their limitations. We explore the rapidly adopted paradigm of "retrieval-augmented generation" (RAG), and briefly discuss the LangChain framework, Azure OpenAI models. Finally, we integrate these concepts into a real-world application. By the end, readers will have a solid understanding of these concepts.
 
 ## Understanding Large Language Models (LLMs) and Their Limitations
 
@@ -48,7 +48,7 @@ We'll now discuss the various frameworks, models, and components used in this tu
 
 ### Azure Cosmos DB for MongoDB (vCore)
 
-Azure Cosmos DB for MongoDB (vCore) supports semantic similarity searches, essential for AI-powered applications. It allows data in various formats to be represented as vector embeddings, which can be stored alongside source data and metadata. Using an approximate nearest neighbors algorithm (HNSW vector index), these embeddings can be queried for fast semantic similarity searches.
+Azure Cosmos DB for MongoDB (vCore) supports semantic similarity searches, essential for AI-powered applications. It allows data in various formats to be represented as vector embeddings, which can be stored alongside source data and metadata. Using an approximate nearest neighbors algorithm, like Hierarchical navigable small world (HNSW), these embeddings can be queried for fast semantic similarity searches.
 
 ### LangChain Framework
 
@@ -82,7 +82,7 @@ OpenAI is a leader in AI research, providing various models for language generat
 |                           | - Clustering and classification of text data                                                                          | - Language translation                                                                                                        |
 |                           | - Information retrieval                                                                                               | - Summarization                                                                                                               |
 | **Data Representation**   | Numerical representation (embeddings)                                                                                 | Natural language text                                                                                                         |
-| **Dimensionality**        | The length of the array corresponds to the number of dimensions in the embedding space, e.g., 1536 dimensions.        | Typically represented as a sequence of tokens, with the context determining the length.                                       |
+| **Dimensionality**        | The length of the array corresponds to the number of dimensions in the embedding space, for example, 1536 dimensions.        | Typically represented as a sequence of tokens, with the context determining the length.                                       |
 
 
 ### Main Components of the Application
@@ -104,8 +104,8 @@ To get started with optimizing retrieval-augmented generation (RAG) using Azure 
 **Create the following resources on Microsoft Azure:**
     - **Azure Cosmos DB for MongoDB vCore cluster**: See the [Quick Start guide here](https://aka.ms/tryvcore).
     - **Azure OpenAI resource with:**
-        - **Embedding model deployment** (e.g., `text-embedding-ada-002`).
-        - **Chat model deployment** (e.g., `gpt-35-turbo`).
+        - **Embedding model deployment** (for example, `text-embedding-ada-002`).
+        - **Chat model deployment** (for example, `gpt-35-turbo`).
 
 ### Sample documents 
 In this tutorial, we will be loading a single text file using [Document](https://python.langchain.com/v0.1/docs/modules/data_connection/document_loaders/). These files should be saved in a directory named **data** in the **src** folder. The contents of the are as follows: 
@@ -153,7 +153,7 @@ vector_store: AzureCosmosDBVectorSearch = AzureCosmosDBVectorSearch.from_documen
 )
 ```
 
-1. Create the following [HNSW vector Index](./vector-search.md) on the collection, please ensure the name of the index is same as above.
+1. Create the following [HNSW vector Index](./vector-search.md) on the collection, (Note the name of the index is same as above).
 ```
 num_lists = 100
 dimensions = 1536
@@ -179,7 +179,7 @@ vector_store: AzureCosmosDBVectorSearch =  AzureCosmosDBVectorSearch.from_connec
 )
 ```
 
-1. Define a function that performs semantic similarity search using Cosmos DB Vector Search on a query (note this is just a test function).
+1. Define a function that performs semantic similarity search using Cosmos DB Vector Search on a query (note this code snippet is just a test function).
 ```
 query = "beef dishes"
 docs = vector_store.similarity_search(query)
