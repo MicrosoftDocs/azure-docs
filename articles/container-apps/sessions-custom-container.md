@@ -63,7 +63,7 @@ az containerapp sessionpool create \
     --registry-password <PASSWORD> \
     --container-type CustomContainer \
     --image myregistry.azurecr.io/my-container-image:1.0 \ 
-    --cpu 1.0 --memory 2.0Gi \
+    --cpu 0.25 --memory 0.5Gi \
     --target-port 80 \
     --cooldown-period 300 \
     --network-status EgressDisabled \
