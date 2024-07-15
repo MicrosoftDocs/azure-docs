@@ -31,11 +31,17 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
+|July 15|Private|[Binary Drift Public Preview](#binary-drift-public-preview-now-available-in-defender-for-containers)|
 |July 14|GA|[Automated remediation scripts for AWS and GCP are now GA](#automated-remediation-scripts-for-aws-and-gcp-are-now-ga)|
 | July 11 | Upcoming update | [GitHub application permissions update](#github-application-permissions-update) |
 | July 10 | GA | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
 | July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
+
+### Binary Drift Public Preview Now Available in Defender for Containers
+
+We're excited to announce the public preview of Binary Drift for Defender for Containers. This new feature empowers you to identify and address potential security risks associated with unauthorized binaries running within your containers. __Receive high-severity alerts__: Binary Drift automatically identifies and alerts you to potentially risky binary processes within your containers. __Customize alert behaviour__: Define a new Binary Drift Policy to specify when you want to receive alerts or not receive them. This allows you to tailor notifications based on your specific security needs.  
+For more information see: [Binary Drift Detection](https://binary-drift-detection.md)
 
 ### Automated remediation scripts for AWS and GCP are now GA
 July 14, 2024
