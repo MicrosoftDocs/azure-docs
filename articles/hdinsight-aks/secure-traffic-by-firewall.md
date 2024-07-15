@@ -9,6 +9,8 @@ ms.date: 02/19/2024
 
 # Use firewall to restrict outbound traffic using Azure CLI
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 
 When an enterprise wants to use their own virtual network for the cluster deployments, securing the traffic of the virtual network becomes important.
 This article provides the steps to secure outbound traffic from your HDInsight on AKS cluster via Azure Firewall using [Azure CLI](/azure/cloud-shell/quickstart?tabs=azurecli).
