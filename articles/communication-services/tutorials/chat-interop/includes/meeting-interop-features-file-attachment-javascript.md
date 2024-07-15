@@ -236,7 +236,7 @@ async function renderReceivedMessage(event) {
     messages += `<div class="container lighter"> ${event.message} </div>`;
     messagesContainer.innerHTML = messages;
     console.log(event);
-    // filter out inline images from attachments
+    // Filter out inline images from attachments
     const imageAttachments = event.attachments?.filter(
         (attachment) =>
         attachment.attachmentType === "image" && !messages.includes(attachment.id)
@@ -248,7 +248,7 @@ async function renderReceivedMessage(event) {
         .join("") ?? "";
     messagesContainer.innerHTML += imageAttachmentHtml;
 
-    // get list of attachments and calls renderFileAttachments to construct a file attachment card
+    // Get list of attachments and calls renderFileAttachments to construct a file attachment card
     var attachmentHtml =
         event.attachments
         ?.filter((attachment) => attachment.attachmentType === "file")
@@ -256,7 +256,7 @@ async function renderReceivedMessage(event) {
         .join("") ?? "";
     messagesContainer.innerHTML += attachmentHtml;
 
-    // fetch and render preview images
+    // Fetch and render preview images
     fetchPreviewImages(imageAttachments);
 }
 
