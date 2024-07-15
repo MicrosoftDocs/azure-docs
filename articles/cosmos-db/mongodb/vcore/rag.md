@@ -161,7 +161,6 @@ kind = CosmosDBVectorSearchType.VECTOR_HNSW
 m = 16
 ef_construction = 64
 
-# Create the collection and the index
 vector_store.create_index(
     num_lists, dimensions, similarity_algorithm, kind, m, ef_construction
 )
