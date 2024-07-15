@@ -1225,6 +1225,12 @@
       "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-sdk-for-python",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
