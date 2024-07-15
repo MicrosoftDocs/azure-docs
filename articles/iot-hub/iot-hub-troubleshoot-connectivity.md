@@ -56,7 +56,7 @@ Explore the following articles to learn more about monitoring device connection 
 
 ## Azure Monitor: Use logs to resolve connectivity errors
 
-When you detect device disconnects by using Azure Monitor metric alerts or Event Grid, you can use logs to help troubleshoot the reason. This section describes how to look for common issues in Azure Monitor Logs. The steps below assume you've already created a [diagnostic setting](#azure-monitor-route-connection-events-to-logs) to send IoT Hub Connections logs to a Log Analytics workspace.
+When you detect device disconnects by using Azure Monitor metric alerts or Event Grid, you can use logs to help troubleshoot the reason. This section describes how to look for common issues in Azure Monitor Logs. The steps below assume you've already created a [diagnostic setting](monitor-iot-hub.md#route-connection-events-to-logs) to send IoT Hub Connections logs to a Log Analytics workspace.
 
 After you've created a diagnostic setting to route IoT Hub resource logs to Azure Monitor Logs, follow these steps to view the logs in Azure portal.
 
