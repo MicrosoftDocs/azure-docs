@@ -46,7 +46,7 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 :::image type="content" source="media/concept-agentless-data-collection/agentless-scanning-process.png" alt-text="Diagram of the process for collecting operating system data through agentless scanning.":::
 
-## Next steps
+## Related content
 
 This article explains how agentless scanning works and how it helps you collect data from your machines.
 
