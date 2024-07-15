@@ -101,7 +101,7 @@ OpenAI is a leader in AI research, providing various models for language generat
 
 To get started with optimizing retrieval-augmented generation (RAG) using Azure Cosmos DB for MongoDB (vCore), follow these steps:
 
-**Create the following resources on Microsoft Azure:**
+- **Create the following resources on Microsoft Azure:**
     - **Azure Cosmos DB for MongoDB vCore cluster**: See the [Quick Start guide here](https://aka.ms/tryvcore).
     - **Azure OpenAI resource with:**
         - **Embedding model deployment** (for example, `text-embedding-ada-002`).
