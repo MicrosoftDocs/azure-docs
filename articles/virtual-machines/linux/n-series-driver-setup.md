@@ -75,7 +75,7 @@ Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVI
 
    The installation can take several minutes.
 
-4. Reboot the VM after installation compleates:
+4. Reboot the VM after installation completes:
    ```bash
    sudo reboot
    ```
