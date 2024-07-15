@@ -24,26 +24,24 @@ Azure Communication Services requires your server application to set up a WebSoc
 You can optionally use Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call
-In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../../call-automation/callflows-for-customer-interactions.md).
+Establish a call and provide streaming details
 
-## Start Audio Streaming
-
-When Azure Communication Services has received the URL for your WebSocket server, it will create a connection to it. Once Azure Communication Services has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets. 
-
-The metadata packet will look like this:
-``` 
-{ 
-    "kind": <string> // What kind of data this is, e.g. AudioMetadata, AudioData. 
-    "audioMetadata": { 
-        "subscriptionId": <string>, // unique identifier for a subscription request 
-        "encoding":<string>, // PCM only supported 
-        "sampleRate": <int>, // 16000 default 
-        "channels": <int>, // 1 default 
-        "length": <int> // 640 default 
-    } 
-} 
+``` Java
+CallInvite callInvite = new CallInvite(target, caller);  
+              
+            CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint());  
+            MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(appConfig.getWebSocketUrl(), MediaStreamingTransport.WEBSOCKET, MediaStreamingContentType.AUDIO, MediaStreamingAudioChannel.UNMIXED);  
+            mediaStreamingOptions.setStartMediaStreaming(false);  
+          
+            CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());  
+            createCallOptions.setCallIntelligenceOptions(callIntelligenceOptions);  
+            createCallOptions.setMediaStreamingOptions(mediaStreamingOptions);  
+  
+            Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);  
+            return result.getValue().getCallConnectionProperties().getCallConnectionId();  
 ```
 
+## Start Audio Streaming
 
 How to start audio streaming:
 ``` java
@@ -60,6 +58,22 @@ Method2: 
                     .getCallMedia()  
                     .startMediaStreaming();  
 ```
+When Azure Communication Services has received the URL for your WebSocket server, it will create a connection to it. Once Azure Communication Services has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets. 
+
+The metadata packet will look like this:
+``` 
+{ 
+    "kind": <string> // What kind of data this is, e.g. AudioMetadata, AudioData. 
+    "audioMetadata": { 
+        "subscriptionId": <string>, // unique identifier for a subscription request 
+        "encoding":<string>, // PCM only supported 
+        "sampleRate": <int>, // 16000 default 
+        "channels": <int>, // 1 default 
+        "length": <int> // 640 default 
+    } 
+} 
+```
+
 
 ## Stop Audio Streaming
 How to stop audio streaming
