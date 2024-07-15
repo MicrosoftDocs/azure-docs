@@ -47,14 +47,8 @@ items:
     items:
     - name: Code Sample page
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
-    - name: C#
-      items:
-      - name: C# samples
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
-      - name: Authenticate with Microsoft Entra ID
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
-      - name: Authenticate using Microsoft Entra tokens
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
+    - name: C# samples
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
     - name: Java
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
     - name: Python
@@ -89,29 +83,29 @@ items:
     - name: Translate behind firewalls
       displayName: domain,IP,filtering,tag,endpoints,CognitiveServicesManagement
       href: firewalls.md
-  - name: Reference
-    items:
-    - name: v3 Translator reference
-      displayName: 401000,405000,400000
-      href: reference/v3-0-reference.md
-    - name: Text Translation REST APIs
-      href:  reference/rest-api-guide.md
-    - name: Languages
-      href: reference/v3-0-languages.md
-    - name: Translate
-      displayName: detection,detect
-      href: reference/v3-0-translate.md
-    - name: Transliterate
-      href: reference/v3-0-transliterate.md
-    - name: Detect
-      href: reference/v3-0-detect.md
-    - name: BreakSentence
-      displayName: detection,detect
-      href: reference/v3-0-break-sentence.md
-    - name: Dictionary Lookup
-      href: reference/v3-0-dictionary-lookup.md
-    - name: Dictionary Examples
-      href: reference/v3-0-dictionary-examples.md
+    - name: Reference
+      items:
+      - name: v3 Translator reference
+        displayName: 401000,405000,400000
+        href: reference/v3-0-reference.md
+      - name: Text Translation REST APIs
+        href:  reference/rest-api-guide.md
+      - name: Languages
+        href: reference/v3-0-languages.md
+      - name: Translate
+        displayName: detection,detect
+        href: reference/v3-0-translate.md
+      - name: Transliterate
+        href: reference/v3-0-transliterate.md
+      - name: Detect
+        href: reference/v3-0-detect.md
+      - name: BreakSentence
+        displayName: detection,detect
+        href: reference/v3-0-break-sentence.md
+      - name: Dictionary Lookup
+        href: reference/v3-0-dictionary-lookup.md
+      - name: Dictionary Examples
+        href: reference/v3-0-dictionary-examples.md
 - name: Document translation
   items:
   - name: What is Document Translation?
