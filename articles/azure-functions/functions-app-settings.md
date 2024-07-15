@@ -3,7 +3,7 @@ title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
-ms.date: 12/28/2023
+ms.date: 07/11/2024
 ---
 
 # App settings reference for Azure Functions
@@ -63,6 +63,8 @@ The connection string for Application Insights by using Microsoft Entra authenti
 |Key|Sample value|
 |---|------------|
 |APPLICATIONINSIGHTS_AUTHENTICATION_STRING|`ClientId=<YOUR_CLIENT_ID>;Authorization=AAD`|
+
+[!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
