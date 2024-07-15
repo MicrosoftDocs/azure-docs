@@ -9,7 +9,7 @@ ms.date: 07/15/2024
 
 ---
 
-# Request access to Azure Extended Zones
+# Request access to an Azure Extended Zone
 
 > [!IMPORTANT]
 > Azure Extended Zones service is currently in PREVIEW.
