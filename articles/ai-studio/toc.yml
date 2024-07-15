@@ -288,6 +288,8 @@ items:
       href: concepts/vulnerability-management.md
     - name: Disaster recovery
       href: how-to/disaster-recovery.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-ai-studio-security-baseline
 - name: Responsible AI
   items:
   - name: Overview
