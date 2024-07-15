@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure IoT Hub
 description: This article contains important reference material you need when you monitor the Azure IoT Hub service.
-ms.date: 06/26/2024
+ms.date: 07/15/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: kgremban
