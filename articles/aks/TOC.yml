@@ -62,6 +62,8 @@
           href: learn/quick-windows-container-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-windows-container-deploy-portal.md
+        - name: Use Terraform
+          href: learn/quick-windows-container-deploy-terraform.md
     - name: Work with package managers
       expanded: true
       items:
