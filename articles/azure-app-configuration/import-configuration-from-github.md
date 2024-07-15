@@ -10,7 +10,7 @@ ms.service: azure-app-configuration
 ---
 # Import configuration files from your GitHub repository to App Configuration store
 
-If you have adopted [Configuration as Code](./howto-best-practices.md) and manage your configurations in GitHub, you can use GitHub Actions to automatically import configuration files from your GitHub repository into your App Configuration store. This allows you to make changes to your configuration files as you normally would, while getting App Configuration store benefits like:
+If you have adopted [Configuration as Code](./howto-best-practices.md#configuration-as-code) and manage your configurations in GitHub, you can use GitHub Actions to automatically import configuration files from your GitHub repository into your App Configuration store. This allows you to make changes to your configuration files as you normally would, while getting App Configuration store benefits like:
 * Centralized configuration outside of your code.
 * Updating configuration without redeploying your entire app. 
 * Integration with services like Azure App Service and Functions.
@@ -21,7 +21,7 @@ A [GitHub Action workflow](https://docs.github.com/en/actions/learn-github-actio
 To import configurations to your Azure App Configuration store you can authenticate using one of the following methods:
 
 ### Use Microsoft Entra ID
-The recommended way to authenticate is by using Microsoft Entra ID, which allows you to securely connect to your Azure resources. You can automate the authentication process using the [Azure login](/azure/developer/github/connect-from-azure) Github action.
+The recommended way to authenticate is by using Microsoft Entra ID, which allows you to securely connect to your Azure resources. You can automate the authentication process using the [Azure Login](/azure/developer/github/connect-from-azure) Github action.
 
 Azure Login allows you to authenticate using service principals with secrets or OpenID Connect with a Federated Identity Credential. In this example, you’ll use OpenID Connect to log in to your App Configuration store.
 
@@ -156,4 +156,4 @@ In the following example, all key-values imported will have a unique label based
 
 To learn how to use CLI import commands, check out our comprehensive guide [Azure CLI import commands](/cli/azure/appconfig/kv#az-appconfig-kv-import).
 
-To learn more about different file content profiles, see [Azure App Configuration support for configuration files](./concept-config-file.md)
+To learn more about different file content profiles, see [Azure App Configuration support for configuration files](./concept-config-file.md).
