@@ -272,8 +272,7 @@ Use the [Defender for IoT API](references-work-with-defender-for-iot-apis.md) to
 
 Use the [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.md#maintenancewindow-create-alert-exclusions) API to define the sensors, analytics engines, start time, and end time to apply the rule.  Exclusion rules created via API are shown in the on-premises management console as read-only.
 
-For more information, see 
-[Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
+For more information, see [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
 
 ## Next steps
 
