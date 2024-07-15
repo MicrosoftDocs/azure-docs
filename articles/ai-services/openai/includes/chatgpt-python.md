@@ -68,6 +68,9 @@ You need to set the `model` variable to the deployment name you chose when you d
 <!-- Not yet merged, see the snippet here: https://github.com/Azure/azure-sdk-for-python/blob/6c39da8e64d7e62c5503eaae4e794f2c58504089/sdk/openai/azure-openai/samples/chat_completions_quickstart.py -->
 :::code language="python" source="~/sdk/openai/azure-openai/samples/chat_completions_quickstart.py" range="27-57":::
 
+<!-- Alternatively use snippet IDs
+:::code language="python" source="~/sdk/openai/azure-openai/samples/chat_completions_quickstart.py" id="chat_completions_quickstart"::: -->
+
 # [OpenAI Python 0.28.1](#tab/python)
 
 You need to set the `engine` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
