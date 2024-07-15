@@ -33,25 +33,25 @@ You can create the managed private endpoint using the user interface provided fo
 
 After successfully provisioned, the managed private endpoint shows like this in the **Managed private endpoints** page of [Azure Data Factory Studio](https://adf.azure.com):
 
-:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-provisioned.png" alt-text="Managed private endpoints page in Azure Data Factory Studio showing successfully provisioned and pending approval." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-provisioned.png":::
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-provisioned.png" alt-text="Screenshot that presents the Managed private endpoints page in Azure Data Factory Studio showing a private endpoint which is successfully provisioned and pending approval." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-provisioned.png":::
 
 ## Approve a private endpoint
 
 After you provision a private endpoint, you must approve it before incoming traffic through it is permitted. If you have access to the instance of Azure Data Factory and also have permissions to approve private endpoints created against the instance of Azure Database for PostgreSQL flexible server, you can use the **Managed private endpoints** page of [Azure Data Factory Studio](https://adf.azure.com), select the name of the managed private endpoint and, on the opening pane, select **Manage approvals in Azure portal**.
 
-:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approval.png" alt-text="Managed private endpoints page in Azure Data Factory Studio showing how to approve an endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approval.png":::
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approval.png" alt-text="Screenshot that presents the Managed private endpoints page in Azure Data Factory Studio showing how to approve an endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approval.png":::
 
 That will take you to the **Networking** page of the instance of Azure Database for PostgreSQL flexible server to which your Azure Data Factory managed private endpoint is pointing to.
 
 If you don't have permissions to approve the private endpoint, ask someone with such permissions to approve the endpoint for you.
 
-:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approving.png" alt-text="Networking page of Azure Database for PostgreSQL Flexible Server showing how to approve a private endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approving.png":::
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approving.png" alt-text="Screenshot that presents the Networking page of Azure Database for PostgreSQL Flexible Server showing how to approve a private endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approving.png":::
 
 It may take several minutes for Data Factory to discover that the private endpoint is approved.
 
 After successfully provisioning and approving the managed private endpoint, it shows like this in the **Managed private endpoints** page of [Azure Data Factory Studio](https://adf.azure.com):
 
-:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approved.png" alt-text="Managed private endpoints page in Azure Data Factory Studio showing successfully provisioned and approved." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approved.png":::
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approved.png" alt-text="Screenshot that presents the Managed private endpoints page in Azure Data Factory Studio showing successfully provisioned and approved private endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approved.png":::
 
 ## Add a Linked Service in Data Factory to your instance of Azure Database for PostgreSQL flexible server 
 
@@ -59,15 +59,15 @@ With the private endpoint provisioned and approved, you can finally leverage the
 
 1. In [Azure Data Factory Studio](https://adf.azure.com) select the **Manage** hub and, under the **Connections** section, select **Linked services**, and select **New** to create a new linked service:
 
-   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create.png" alt-text="Create a linked service in Azure Data Factory." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create.png":::
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create.png" alt-text="Screenshot that shows how to create a new linked service in Azure Data Factory." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create.png":::
 
 1. Fill all required fields for the connector. Make sure that the integration runtime selected is the one on which you've created the private endpoint in its managed virtual network. Also, make sure that the **Interactive authoring** feature is enabled on that integration runtime so that you can test the connection when all required information has been provided.
 
-   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png" alt-text="Select integration runtime with managed virtual network." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png":::
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png" alt-text="Screenshot that shows where to select integration runtime with managed virtual network." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png":::
 
 1. Select an **Encryption method**. If you select **No encryption**, the connection will only succeed if the server parameter [require_secure_transport](./server-parameters-table-tls.md?#require_secure_transport) is set to `off`, which is not a recommended practice since it relaxes security.
 
-   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-encryption-method.png" alt-text="Example screenshot of connection properties." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-encryption-method.png":::
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-encryption-method.png" alt-text="Screenshot that shows options available for the encryption method field." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-encryption-method.png":::
 
 1. Select **Test connection**. A **Connection successful** message should appear next to the **Test connection** button.
 
