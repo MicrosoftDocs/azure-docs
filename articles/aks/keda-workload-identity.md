@@ -21,8 +21,6 @@ This article shows you how to securely scale your applications with the Kubernet
 - You need the [Azure CLI installed](/cli/azure/install-azure-cli).
 - Ensure you have firewall rules configured to allow access to the Kubernetes API server. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters][aks-firewall-requirements].
 
-[!INCLUDE [KEDA workload ID callout](./includes/keda/keda-workload-identity-callout.md)]
-
 ## Create a resource group
 
 * Create a resource group using the [`az group create`][az-group-create] command. Make sure you replace the placeholder values with your own values.
