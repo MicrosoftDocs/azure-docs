@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-integrate-maps.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-maps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/single-server/azure-pipelines-mysql-deploy.md",
       "redirect_url": "/previous-versions/azure/mysql/single-server/azure-pipelines-mysql-deploy",
       "redirect_document_id": false
@@ -4749,11 +4754,9 @@
             "redirect_document_id": false
         },
         {
-
            "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
            "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
            "redirect_document_id": false
-
         },
         {
            "source_path_from_root": "/articles/site-recovery/move-vaults-across-regions.md",
@@ -4764,7 +4767,21 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
             "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
         }
+
+
+
+        
 
     ]
 }

@@ -478,7 +478,7 @@ Run MSBuild to convert the Bicep file and the Bicep parameter file to JSON.
       "resources": [
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2022-05-01",
+          "apiVersion": "2023-04-01",
           "name": "[variables('storageAccountName')]",
           "location": "[parameters('location')]",
           "sku": {
