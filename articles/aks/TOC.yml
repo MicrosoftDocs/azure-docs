@@ -156,6 +156,8 @@
       items:
         - name: Small and large language models
           href: concepts-ai-ml-language-models.md
+        - name: Fine-tuning language models
+          href: concepts-fine-tune-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -777,6 +779,8 @@
               href: keda-deploy-add-on-arm.md
             - name: Use Azure CLI
               href: keda-deploy-add-on-cli.md
+            - name: Securely scale your applications using the Kubernetes Event-driven Autoscaling (KEDA) add-on and workload identity
+              href: keda-workload-identity.md
             - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
               href: keda-integrations.md
             - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
