@@ -129,7 +129,7 @@ index_name = "ContosoIndex"
 collection = db[collection_name]
 ```
 
-1. Initialize the Embedding Client.
+2. Initialize the Embedding Client.
 ```python
 from langchain_openai import AzureOpenAIEmbeddings
 
@@ -142,7 +142,7 @@ azure_openai_embeddings: AzureOpenAIEmbeddings = AzureOpenAIEmbeddings(
 )
 ```
 
-1. Create embeddings from the data, save to the database and return a connection to your vector store, Cosmos DB for MongoDB (vCore).
+3. Create embeddings from the data, save to the database and return a connection to your vector store, Cosmos DB for MongoDB (vCore).
 ```python
 vector_store: AzureCosmosDBVectorSearch = AzureCosmosDBVectorSearch.from_documents(
     json_data,
@@ -152,7 +152,7 @@ vector_store: AzureCosmosDBVectorSearch = AzureCosmosDBVectorSearch.from_documen
 )
 ```
 
-1. Create the following [HNSW vector Index](./vector-search.md) on the collection, (Note the name of the index is same as above).
+4. Create the following [HNSW vector Index](./vector-search.md) on the collection, (Note the name of the index is same as above).
 ```python
 num_lists = 100
 dimensions = 1536
@@ -177,14 +177,14 @@ vector_store: AzureCosmosDBVectorSearch =  AzureCosmosDBVectorSearch.from_connec
 )
 ```
 
-1. Define a function that performs semantic similarity search using Cosmos DB Vector Search on a query (note this code snippet is just a test function).
+2. Define a function that performs semantic similarity search using Cosmos DB Vector Search on a query (note this code snippet is just a test function).
 ```python
 query = "beef dishes"
 docs = vector_store.similarity_search(query)
 print(docs[0].page_content)
 ```
 
-1. Initialize the Chat Client to implement a RAG function.
+3. Initialize the Chat Client to implement a RAG function.
 ```python
 azure_openai_chat: AzureChatOpenAI = AzureChatOpenAI(
     model=openai_chat_model,
@@ -192,7 +192,7 @@ azure_openai_chat: AzureChatOpenAI = AzureChatOpenAI(
 )
 ```
 
-1. Create a RAG function.
+4. Create a RAG function.
 ```python
 history_prompt = ChatPromptTemplate.from_messages(
     [
@@ -215,24 +215,24 @@ context_prompt = ChatPromptTemplate.from_messages(
 )
 ```
 
-1. Converts the vector store into a retriever, which can search for relevant documents based on specified parameters.
+5. Converts the vector store into a retriever, which can search for relevant documents based on specified parameters.
 ```python
 vector_store_retriever = vector_store.as_retriever(
     search_type=search_type, search_kwargs={"k": limit, "score_threshold": score_threshold}
 )
 ```
 
-1. Create a retriever chain that is aware of the conversation history, ensuring contextually relevant document retrieval using the **azure_openai_chat** model and **vector_store_retriever**.
+6. Create a retriever chain that is aware of the conversation history, ensuring contextually relevant document retrieval using the **azure_openai_chat** model and **vector_store_retriever**.
 ```python
 retriever_chain = create_history_aware_retriever(azure_openai_chat, vector_store_retriever, history_prompt)
 ```
 
-1. Create a chain that combines retrieved documents into a coherent response using the language model (**azure_openai_chat**) and a specified prompt (**context_prompt**).
+7. Create a chain that combines retrieved documents into a coherent response using the language model (**azure_openai_chat**) and a specified prompt (**context_prompt**).
 ```python
 context_chain = create_stuff_documents_chain(llm=azure_openai_chat, prompt=context_prompt)
 ```
 
-1. Create a chain that handles the entire retrieval process, integrating the history-aware retriever chain and the document combination chain. This RAG chain can be executed to retrieve and generate contextually accurate responses.
+8. Create a chain that handles the entire retrieval process, integrating the history-aware retriever chain and the document combination chain. This RAG chain can be executed to retrieve and generate contextually accurate responses.
 ```python
 rag_chain: Runnable = create_retrieval_chain(
     retriever=retriever_chain,
