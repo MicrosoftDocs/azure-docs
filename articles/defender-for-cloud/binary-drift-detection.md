@@ -38,15 +38,15 @@ To create and configure policies, follow these steps:
 
 1. In Microsoft Defender for Cloud, go to **Environment settings**. Select **Containers drift policy**.
 
-    :::image type="content" source="media/binary-drift-detection/select-containers-drift-policy.png" alt-text="Select Containers drift policy in Environment settings." lightbox="media/binary-drift-detection/select-containers-drift-policy.png":::
+    :::image type="content" source="media/binary-drift-detection/select-containers-drift-policy.png" alt-text="Screenshot of Select Containers drift policy in Environment settings." lightbox="media/binary-drift-detection/select-containers-drift-policy.png":::
 
 1. You receive two rules out of the box: the **Alert on Kube-System namespace** rule and the **Default binary drift** rule. The default rule is a special rule that applies to everything if no other rule before it is matched. You can only modify its action, either to **Drift detection alert** or return it to the default **Ignore drift detection**. The **Alert on Kube-System namespace** rule is an out-of-the-box suggestion and can be modified like any other rule.
 
-    :::image type="content" source="media/binary-drift-detection/default-rule.png" alt-text="Default rule appears at the bottom of the list of rules." lightbox="media/binary-drift-detection/default-rule.png":::
+    :::image type="content" source="media/binary-drift-detection/default-rule.png" alt-text="Screenshot of Default rule appears at the bottom of the list of rules." lightbox="media/binary-drift-detection/default-rule.png":::
 
 1. To add a new rule, select **Add rule**. A side panel appears where you can configure the rule.
 
-    :::image type="content" source="media/binary-drift-detection/add-rule.png" alt-text="Select Add rule to create and configure a new rule." lightbox="media/binary-drift-detection/add-rule.png":::
+    :::image type="content" source="media/binary-drift-detection/add-rule.png" alt-text="Screenshot of Select Add rule to create and configure a new rule." lightbox="media/binary-drift-detection/add-rule.png":::
 
 1. To configure the rule, define the following fields:
 
