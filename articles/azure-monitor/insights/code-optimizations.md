@@ -47,6 +47,8 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 - Connects data with the methods and functions in your application code.
 - Narrows down the culprit by finding bottlenecks within the code.
 
+[See Code Optimizations at work in the Azure portal.](https://ms.portal.azure.com/#view/Microsoft_Azure_CodeOptimizations/CodeOptimizationsBlade)
+
 ## Cost and overhead
 
 Code Optimizations incurs no extra costs. 
