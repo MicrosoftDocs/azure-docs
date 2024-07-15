@@ -31,10 +31,18 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
+|July 14|GA|[Automated remediation scripts for AWS and GCP are now GA](#automated-remediation-scripts-for-aws-and-gcp-are-now-ga)|
 | July 11 | Upcoming update | [GitHub application permissions update](#github-application-permissions-update) |
 | July 10 | GA | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
 | July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
+
+### Automated remediation scripts for AWS and GCP are now GA
+July 14, 2024
+
+In March, we released automated remediation scripts for AWS & GCP to Public Preview, that allows you to remediate recommendations for AWS & GCP at scale programmatically. 
+
+Today we are releasing this feature to  generally available (GA). [Learn how to use automated remediation scripts](/azure/defender-for-cloud/implement-security-recommendations)>
 
 ### GitHub application permissions update
 
