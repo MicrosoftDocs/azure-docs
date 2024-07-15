@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 03/23/2022
 ms.author: fipopovi
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
