@@ -28,7 +28,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Flexible"></a>Flexible storage:
-    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Flexible service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
+    The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. It can also be used to create high-capacity volumes with (relatively) low throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/s regardless of the pool quota; the maximum is 640 MiB/s per one TiB of capacity provisioned.You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of another service level.
 
     Flexible storage capacity pools enforce single encryption. They do not support double encryption. 
 
@@ -66,6 +66,20 @@ For example, for an SAP HANA system, this capacity pool can be used to create th
 The following diagram illustrates the scenarios for the SAP HANA volumes:
 
 ![QoS SAP HANA volume scenarios](./media/azure-netapp-files-service-levels/qos-sap-hana-volume-scenarios.png) 
+
+Flexible service level throughput examples:
+
+| Flexible pool size (TiB) | Allowable throughput min (MiB/s) | Allowable throughput max (MiB/s) |
+| - | - | -- |
+| 1 | 128 | 5 * 128 * 1 = 640 |
+| 2 | 128 | 5 * 128 * 2 = 1,280 |
+| 5 | 128 | 5 * 128 * 5 = 3,200 |
+| 10 | 128 | 5 * 128 * 10 = 6,400 |
+| 50 | 128 | 5 * 128 * 50 = 32,000 |
+| 100 | 128 | 5 * 128 * 100 = 64,000 |
+
+>[!NOTE]
+>A flexible capacity pool with 128 MiB/s throughput assigned to it is only charged for the allocated capacity.
 
 ## Next steps
 
