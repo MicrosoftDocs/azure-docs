@@ -1,7 +1,7 @@
 ---
-title: RAG with Azure Cosmos DB for MongoDB (vCore), Langchain, and OpenAI
+title: Optimize Retrieval-Augmented Generation (RAG) with Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI
 titleSuffix: Azure Cosmos DB
-description: Use vector store in Azure Cosmos DB for MongoDB (vCore) to enhance AI-based applications.
+description: Learn how to enhance AI-based applications using Retrieval-Augmented Generation (RAG) with Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI. Discover key concepts, architecture, and real-world applications.
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: gahllevy
@@ -12,11 +12,11 @@ ms.date: 07/08/2024
 ---
 
 # RAG with vCore-based Azure Cosmos DB for MongoDB
-In the dynamic world of generative AI, while Large Language Models (LLMs) have garnered significant attention, another crucial trend is emerging: the rise of vector stores. Vector stores or vector databases are essential in building applications using LLMs. Azure Cosmos DB for MongoDB (vCore) positions itself as a strong contender in the vector store arena.
+n the fast-evolving realm of generative AI, Large Language Models (LLMs) like GPT-3.5 have transformed natural language processing. However, an emerging trend in AI is the use of vector stores, which play a pivotal role in enhancing AI applications. 
 
-This tutorial aims to provide an overview of the key concepts of Azure Cosmos DB for MongoDB (vCore) as a vector store, alongside discussing LLMs and their limitations. We explore the rapidly adopted paradigm of "retrieval-augmented generation" (RAG), and briefly discuss the LangChain framework, OpenAI models, and Azure App Service. Finally, we integrate these concepts into a real-world application. By the end, readers will have a solid understanding of these concepts.
+This tutorial explores how to leverage Azure Cosmos DB for MongoDB (vCore), LangChain, and OpenAI to implement Retrieval-Augmented Generation (RAG) for superior AI performance alongside discussing LLMs and their limitations. We explore the rapidly adopted paradigm of "retrieval-augmented generation" (RAG), and briefly discuss the LangChain framework, Azure OpenAI models. Finally, we integrate these concepts into a real-world application. By the end, readers will have a solid understanding of these concepts.
 
-### Understanding Large Language Models (LLMs) and Their Limitations
+## Understanding Large Language Models (LLMs) and Their Limitations
 
 Large Language Models (LLMs) are advanced deep neural network models trained on extensive text datasets, enabling them to understand and generate human-like text. While revolutionary in natural language processing, LLMs have inherent limitations:
 
@@ -25,7 +25,7 @@ Large Language Models (LLMs) are advanced deep neural network models trained on 
 - **No Access to User’s Local Data**: LLMs don't have direct access to personal or localized data, restricting their ability to provide personalized responses.
 - **Token Limits**: LLMs have a maximum token limit per interaction, constraining the amount of text they can process at once. For example, OpenAI’s gpt-3.5-turbo has a token limit of 4096.
 
-### Leveraging Retrieval-Augmented Generation (RAG)
+## Leveraging Retrieval-Augmented Generation (RAG)
 
 Retrieval-augmented generation (RAG) is an architecture designed to overcome LLM limitations. RAG uses vector search to retrieve relevant documents based on an input query, providing these documents as context to the LLM for generating more accurate responses. Instead of relying solely on pretrained patterns, RAG enhances responses by incorporating up-to-date, relevant information. This approach helps to:
 
@@ -36,11 +36,13 @@ Retrieval-augmented generation (RAG) is an architecture designed to overcome LLM
 
 This tutorial demonstrates how RAG can be implemented using Azure Cosmos DB for MongoDB (vCore) to build a question-answering application tailored to your data.
 
-### Application Architecture
+## Application Architecture Overview
 
-The architecture of our application is outlined below:
+The architecture diagram below illustrates the key components of our RAG implementation:
 
 ![Architecture Diagram](./media/vector/architecture-diagram.png)
+
+## Key Components and Frameworks 
 
 We'll now discuss the various frameworks, models, and components used in this tutorial, emphasizing their roles and nuances.
 
@@ -61,7 +63,7 @@ Key aspects of LangChain:
 
 ### Azure App Services Interface
 
-App services provide a robust platform for building user-friendly web interfaces for Gen-AI applications. This tutorial uses Azure App services to create an interactive interface for the application.
+App services provide a robust platform for building user-friendly web interfaces for Gen-AI applications. This tutorial uses Azure App services to create an interactive web interface for the application.
 
 ### OpenAI Models
 
