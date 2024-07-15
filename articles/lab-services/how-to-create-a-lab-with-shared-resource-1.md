@@ -9,6 +9,8 @@ ms.service: lab-services
 
 # How to create a lab with a shared resource in Azure Lab Services when using lab accounts
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 When you're creating a lab, there might be some resources that need to be shared among all the students in a lab. For example, you have a licensing server or SQL Server for a database class. This article will discuss the steps to enable the shared resource for a lab. We’ll also talk about how to limit access to the shared resource.

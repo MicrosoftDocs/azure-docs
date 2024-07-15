@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 07/08/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -14,7 +14,7 @@ recommendations: false
 
 # Azure OpenAI Service models
 
-Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region. For GPT-3 and other models retiring in July 2024, see [Azure OpenAI Service legacy models](./legacy-models.md).
+Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region.
 
 | Models | Description |
 |--|--|
@@ -34,7 +34,7 @@ GPT-4o is the latest model from OpenAI. GPT-4o integrates text and images in a s
 
 GPT-4o is available for **standard** and **global-standard** model deployment.
 
-You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability-preview) region where the model is available.
+You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability) region where the model is available.
 
 When your resource is created, you can [deploy](../how-to/create-resource.md#deploy-a-model) the GPT-4o model. If you are performing a programmatic deployment, the **model** name is `gpt-4o`, and the **version** is `2024-05-13`.
 
@@ -74,9 +74,6 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 > [!CAUTION]
 > We don't recommend using preview models in production. We will upgrade all deployments of preview models to either future preview versions or to the latest stable/GA version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
-
-> [!NOTE]
-> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 - GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  
 - GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview. Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
@@ -148,9 +145,9 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 [!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
-This table doesn't include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
+This table doesn't include [global standard](../how-to/deployment-types.md) model deployment regional availability for GPT-4o, or fine-tuning regional availability information.  Consult the dedicated [global standard deployment section](#global-standard-model-availability) and the [fine-tuning section](#fine-tuning-models) for this information.
 
-### Standard deployment model quota
+### Standard and global standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
@@ -167,7 +164,7 @@ You need to speak with your Microsoft sales/account team to acquire provisioned 
 
 For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
 
-### Global standard model availability (preview)
+### Global standard model availability
 
 **Supported models:**
 
@@ -175,18 +172,35 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 
 **Supported regions:**
 
- - eastus
- - eastus2
- - northcentralus
- - southcentralus
- - westus
- - westus3
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
 
 ### GPT-4 and GPT-4 Turbo model availability
 
 #### Public cloud regions
 
 [!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+
 
 #### Select customer access
 
@@ -215,9 +229,6 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 c
 GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
-
-> [!NOTE]
-> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than August 1, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than August 1, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 ### GPT-3.5-Turbo model availability
 
@@ -301,24 +312,28 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). The listed models and regions can be used with both Assistants v1 and v2.
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` |
-|-----|---|---|---|---|---|---|
-| Australia East | ✅ | ✅ | | ✅ |✅ | |
-| East US  | ✅ | | | | | ✅ |
-| East US 2 | ✅ |  | ✅ | ✅ |✅ | |
-| France Central  | ✅ | ✅ | | ✅ |✅ |  |
-| Japan East | ✅ |  | | | | | 
-| Norway East | |  | | | ✅ |  |
-| Sweden Central  | ✅ |✅ | ✅ |✅ |✅| |
-| UK South | ✅  | ✅ | | | ✅ | ✅ |  
-| West US |  | ✅ | | | ✅ | | 
-| West US 3 |  |  | | |✅ | | 
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` |
+|-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Australia East | ✅ | ✅ | | ✅ |✅ | | |
+| East US  | ✅ | | | | | ✅ | ✅ |
+| East US 2 | ✅ |  | ✅ | ✅ |✅ | |✅|
+| France Central  | ✅ | ✅ | | ✅ |✅ |  | |
+| Japan East | ✅ |  | | | | | |
+| Norway East | |  | | | ✅ |  | |
+| Sweden Central | ✅ |✅ | ✅ |✅ |✅| |✅|
+| UK South | ✅  | ✅ | | | ✅ | ✅ |  |
+| West US |  | ✅ | | | ✅ | |✅|
+| West US 3 |  |  | | |✅ | |✅|
 
+## Model retirement
+
+For the latest information on model retirements, refer to the [model retirement guide](./model-retirements.md).
 
 ## Next steps
 
+- [Model retirement and deprecation](./model-retirements.md)
 - [Learn more about working with Azure OpenAI models](../how-to/working-with-models.md)
 - [Learn more about Azure OpenAI](../overview.md)
 - [Learn more about fine-tuning Azure OpenAI models](../how-to/fine-tuning.md)

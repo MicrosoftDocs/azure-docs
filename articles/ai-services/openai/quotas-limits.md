@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 06/12/2024
+ms.date: 07/01/2024
 ms.author: mbullwin
 ---
 
@@ -49,7 +49,6 @@ The following sections provide you with a quick guide to the default quotas and 
 | GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
 | GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
 
-
 ## Regional quota limits
 
 [!INCLUDE [Quota](./includes/model-matrix/quota.md)]
@@ -59,9 +58,6 @@ The following sections provide you with a quick guide to the default quotas and 
 `gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
 
 ### gpt-4o global standard
-
-> [!NOTE]
-> The [global standard model deployment type](./how-to/deployment-types.md#deployment-types) is currently in public preview.
 
 |Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|:---:|:---:|
@@ -99,7 +95,8 @@ If your Azure subscription is linked to certain [offer types](https://azure.micr
 |Tier| Quota Limit in tokens per minute (TPM) |
 |---|:---|
 |Azure for Students, Free Trials | 1 K (all models)|
-| Monthly credit card based accounts <sup>1</sup> | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K  <br> |
+| MSDN subscriptions | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K   |
+| Monthly credit card based subscriptions <sup>1</sup> | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K  |
 
 <sup>1</sup> This currently applies to [offer type 0003P](https://azure.microsoft.com/support/legal/offer-details/)
 

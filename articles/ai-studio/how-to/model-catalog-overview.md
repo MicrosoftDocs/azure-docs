@@ -52,7 +52,7 @@ Features | Managed compute | serverless API (pay-as-you-go)
 Deployment experience and billing |  Model weights are deployed to dedicated Virtual Machines with Managed Online Endpoints. The managed online endpoint, which can have one or more deployments, makes available a REST API for inference. You're billed for the Virtual Machine core hours used by the deployments.  | Access to models is through a deployment that provisions an API to access the model. The API provides access to the model hosted and managed by Microsoft, for inference. This mode of access is referred to as "Models as a Service".   You're billed for inputs and outputs to the APIs, typically in tokens; pricing information is provided before you deploy.  
 | API authentication   | Keys and Microsoft Entra ID authentication.| Keys only.  
 Content safety | Use Azure Content Safety service APIs.  | Azure AI Content Safety filters are available integrated with inference APIs. Azure AI Content Safety filters may be billed separately.  
-Network isolation | Configure Managed Network. [Learn more.]( configure-managed-network.md)  | 
+Network isolation | [Configure managed networks for Azure AI Studio hubs.](configure-managed-network.md)  | MaaS endpoint will follow your hub's public network access (PNA) flag setting. For more information, see the [Network isolation for models deployed via Serverless APIs](#network-isolation-for-models-deployed-via-serverless-apis) section.
 
 Model | Managed compute | Serverless API (pay-as-you-go) 
 --|--|--
@@ -136,7 +136,7 @@ Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/p
 Llama-2-7b <br> Llama-2-13b <br> Llama-2-70b | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, West US, West US 3 | West US 3
 Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, West US, West US 3,  | Not available
 Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
-Mistral-Large | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US, East US 2, France Central, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
+Mistral-Large | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan |  East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 TimeGEN-1 | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Mexico <br> Israel| East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 jais-30b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
@@ -145,14 +145,32 @@ Phi-3-mini-128k-instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-in
 
 <!-- docutune:enable -->
 
-### Content safety for models deployed via Serverless API
+### Content safety for models deployed via Serverless APIs
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) in language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering for individual serverless endpoints when you first deploy a language model or in the deployment details page by clicking the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
+[!INCLUDE [content-safety-serverless-models](../includes/content-safety-serverless-models.md)]
 
 
+### Network isolation for models deployed via Serverless APIs
 
-## Next steps
+Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the AI Studio Hub that has the project in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your AI Studio Hub. You can secure inbound communication from a client to your endpoint by using a private endpoint for the hub.
+
+To set the PNA flag for the Azure AI hub:
+
+* Go to the [Azure portal](https://ms.portal.azure.com/)
+* Search for the Resource group to which the hub belongs, and select your Azure AI hub from the resources listed for this Resource group.
+* On the hub Overview page, use the left navigation pane to go to **Settings** > **Networking**.
+* Under the __Public access__ tab, you can configure settings for the public network access flag.
+* Save your changes. Your changes might take up to five minutes to propagate.
+
+#### Limitations
+
+* If you have an AI Studio hub with a private endpoint created before July 11, 2024, new MaaS endpoints added to projects in this hub won't follow the networking configuration of the hub. Instead, you need to create a new private endpoint for the hub and create new serverless API deployments in the project so that the new deployments can follow the hub's networking configuration.
+* If you have an AI studio hub with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this hub, the existing MaaS deployments won't follow the hub's networking configuration. For serverless API deployments in the hub to follow the hub's networking configuration, you need to create the deployments again.
+* Currently [On Your Data](#rag-with-models-deployed-as-serverless-apis) support isn't available for MaaS deployments in private hubs, since private hubs have the PNA flag disabled.
+* Any network configuration change (for example, enabling or disabling the PNA flag) might take up to five minutes to propagate.
+
+## Next step
 
 - [Explore Azure AI foundation models in Azure AI Studio](models-foundation-azure-ai.md)

@@ -1,13 +1,13 @@
 ---
-title: Azure mobile app alerts and notifications
+title: Manage alerts and notifications in the Azure mobile app
 description: Use Azure mobile app notifications to get up-to-date alerts and information on your resources and services.
 ms.date: 11/2/2023
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
-# Azure mobile app alerts and notifications
+# Manage alerts and notifications in the Azure mobile app
 
-Use  Azure mobile app notifications to get up-to-date alerts and information on your resources and services.
+Use Azure mobile app notifications to get up-to-date alerts and information on your resources and services.
 
 Azure mobile app notifications offer users flexibility in how they receive push notifications.
 

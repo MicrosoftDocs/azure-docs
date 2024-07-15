@@ -83,9 +83,8 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
 1. Select **Create**.
 
 > [!IMPORTANT]
-
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
+>
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 ## Create NAT gateway

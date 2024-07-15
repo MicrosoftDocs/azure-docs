@@ -167,11 +167,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Keyword queries (BM25 ranking)
+    - name: BM25 ranking
       href: index-similarity-and-scoring.md
-    - name: Vector queries
+    - name: Vector ranking
       href: vector-search-ranking.md
-    - name: Hybrid queries (RRF)
+    - name: Hybrid ranking (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
@@ -190,6 +190,8 @@
     items:
     - name: Create a search service
       href: search-create-service-portal.md
+    - name: Choose a region
+      href: search-region-support.md
     - name: Choose a tier
       href: search-sku-tier.md
     - name: Service limits
@@ -218,16 +220,16 @@
         href: search-howto-move-across-regions.md
   - name: Index management
     items:
-    - name: Create a search index
+    - name: Create an index
       href: search-how-to-create-search-index.md
-    - name: Create an index alias
-      href: search-how-to-alias.md
     - name: Load an index
       href: search-how-to-load-search-index.md
-    - name: Index large data sets
-      href: search-howto-large-index.md
-    - name: Drop and rebuild an index
+    - name: Update or rebuild an index
       href: search-howto-reindex.md
+    - name: Alias an index
+      href: search-how-to-alias.md
+    - name: Import large data sets
+      href: search-howto-large-index.md
     - name: Indexers
       items:
       - name: Create an indexer
@@ -332,7 +334,7 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
-    - name: Index binary data for vector search
+    - name: Index binary data for vector search (preview)
       href: vector-search-how-to-index-binary-data.md
     - name: Query vectors
       href: vector-search-how-to-query.md
@@ -354,8 +356,6 @@
     items:
     - name: Full text query
       href: search-query-create.md
-    - name: Semantic query
-      href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
     - name: Query examples (simple syntax)
@@ -398,16 +398,6 @@
         href: search-pagination-page-layout.md
       - name: Return a semantic answer
         href: semantic-answers.md
-    - name: Relevance
-      items:
-      - name: Enable or disable semantic ranking
-        href: semantic-how-to-enable-disable.md      
-      - name: Configure semantic ranking
-        href: semantic-how-to-configure.md
-      - name: Configure BM25 ranking
-        href: index-ranking-similarity.md
-      - name: Add a scoring profile
-        href: index-add-scoring-profiles.md
     - name: Advanced queries
       items:
       - name: Use full Lucene (examples)
@@ -418,30 +408,34 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
+  - name: Ranking and relevance
+    items:
+    - name: Enable or disable semantic ranking
+      href: semantic-how-to-enable-disable.md      
+    - name: Configure semantic ranking
+      href: semantic-how-to-configure.md
+    - name: Configure BM25 ranking
+      href: index-ranking-similarity.md
+    - name: Add semantic ranking to queries
+      href: semantic-how-to-query-request.md
+    - name: Add a scoring profile
+      href: index-add-scoring-profiles.md
   - name: Security
     items:
-    - name: Enable role-based access control
+    - name: Configure network access
+      href: service-configure-firewall.md
+    - name: Enable role-based access
       href: search-security-enable-roles.md
-    - name: Configure a managed identity
-      href: search-howto-managed-identities-data-sources.md
-    - name: Inbound connections
-      items:
-      - name: Connect using API keys
-        href: search-security-api-keys.md
-      - name: Connect using Azure roles
-        href: search-security-rbac.md
-      - name: Configure apps for Microsoft Entra ID
-        href: search-howto-aad.md
-      - name: Configure an IP firewall
-        href: service-configure-firewall.md
-      - name: Create a private endpoint
-        href: service-create-private-endpoint.md
-      - name: Troubleshoot private connections
-        href: troubleshoot-shared-private-link-resources.md
+    - name: Assign roles (users)
+      href: search-security-rbac.md
+    - name: Assign roles (apps)
+      href: keyless-connections.md
+    - name: Authenticate with keys
+      href: search-security-api-keys.md
     - name: Outbound connections
       items:
-      - name: Connect as a trusted service
-        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Configure a managed identity
+        href: search-howto-managed-identities-data-sources.md
       - name: Connect using a managed identity
         items:
         - name: Azure Storage
@@ -454,22 +448,26 @@
           href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
+      - name: Connect as a trusted service
+        href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect through a shared private link
         href: search-indexer-howto-access-private.md
       - name: Connect to a SQL managed instance private endpoint
         href: search-indexer-how-to-access-private-sql.md
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Find encrypted objects
-        href: search-security-get-encryption-keys.md
     - name: Document-level security
+      href: search-security-trimming-for-azure-search.md
+    - name: Advanced options
       items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Microsoft Entra ID
-        href: search-security-trimming-for-azure-search-with-aad.md
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
+      - name: Data encryption
+        items:
+        - name: Customer-managed keys
+          href: search-security-manage-encryption-keys.md
+        - name: Find encrypted objects
+          href: search-security-get-encryption-keys.md
   - name: Development
     items:
     - name: API versions
@@ -526,7 +524,7 @@
     href: /legal/search/transparency-note?context=/azure/search/context/context
 - name: Reference
   items:
-  - name: API reference
+  - name: REST API reference
     items:
     - name: Search REST API
       href: /rest/api/searchservice

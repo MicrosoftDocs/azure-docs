@@ -35,8 +35,7 @@ Next, add the required Azure CLI extensions.
 
 ```azurecli-interactive
 az extension add --upgrade --yes --name customlocation
-az extension remove --name containerapp
-az extension add -s https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 ## Create a resource group

@@ -3,9 +3,9 @@ title: Log metrics, parameters, and files with MLflow
 titleSuffix: Azure Machine Learning
 description: Enable logging on your ML training runs to monitor real-time run metrics with MLflow, and to help diagnose errors and warnings.
 services: machine-learning
-ms.author: fasantia
-author: santiagxf
-ms.reviewer: mopeakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/26/2024

@@ -9,9 +9,9 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-author: ChenJieting
-ms.author: chenjieting
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenjieting
 ms.date: 09/05/2023
 ---
 
@@ -281,11 +281,11 @@ You need to change auth type of datastore to None, which stands for meid_token b
 
 For blob based datastore, you can change auth type and also enable workspace MSI to access the storage account.
 
-:::image type="content" source="./media/faq/datastore-update-auth-type.png" alt-text="Screenshot of update auth type for blob based datastore. " lightbox = "./media/faq/datastore-update-auth-type.png":::
+:::image type="content" source="./media/faq/datastore-update-auth-type-file.png" alt-text="Screenshot of update auth type for blob based datastore. " lightbox = "./media/faq/datastore-update-auth-type-file.png":::
 
 For file share based datastore, you can change auth type only.
 
-:::image type="content" source="./media/faq/datastore-update-auth-type-file.png" alt-text="Screenshot of update auth type for file share based datastore. " lightbox = "./media/faq/datastore-update-auth-type-file.png":::
+:::image type="content" source="./media/faq/datastore-update-auth-type.png" alt-text="Screenshot of update auth type for file share based datastore. " lightbox = "./media/faq/datastore-update-auth-type.png":::
 
 
 #### Grant permission to user identity or managed identity

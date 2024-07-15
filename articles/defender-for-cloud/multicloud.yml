@@ -78,11 +78,6 @@ landingContent:
         links:
           - text: How to connect AWS to Microsoft Defender for Cloud
             url: https://youtu.be/LHwgEFXT3kQ
-      - linkListType: reference
-        links:
-          - text: Security recommendations for AWS resources
-            url: recommendations-reference-aws.md
-
   # Card
   - title: Defend Google GCP resources
     linkLists:

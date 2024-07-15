@@ -156,7 +156,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = '${uniqueString(resourceGroup().id)}storage'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-08-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -177,7 +177,7 @@ And, paste the following JSON:
 ```json
 {
   "type": "Microsoft.Batch/batchAccounts",
-  "apiVersion": "2021-06-01",
+  "apiVersion": "2024-02-01",
   "name": "[parameters('batchAccountName')]",
   "location": "[parameters('location')]",
   "tags": {
