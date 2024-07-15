@@ -8,7 +8,7 @@ ms.subservice: automl
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: manashg
-ms.date: 07/12/2024
+ms.date: 07/15/2024
 ms.topic: how-to
 ms.custom: automl
 
@@ -24,13 +24,13 @@ This tutorial provides a high-level overview for working with Automated ML in th
 - **Time series forecasting**: [Tutorial: Forecast demand with Automated ML in the studio](tutorial-automated-ml-forecast.md)
 - **Natural Language Processing (NLP)**: [Set up Automated ML to train an NLP model (Azure CLI or Python SDK)](how-to-auto-train-nlp-models.md)
 - **Computer vision**: [Set up AutoML to train computer vision models (Azure CLI or Python SDK)](how-to-auto-train-image-models.md)
-- **Regression**: [Train a regression model with Automated ML (Python SDK)](how-to-auto-train-models-v1.md)
+- **Regression**: [Train a regression model with Automated ML (Python SDK)](./v1/how-to-auto-train-models-v1.md)
 
 ## Prerequisites
 
 - An Azure subscription. You can create a [free or paid account](https://azure.microsoft.com/free/) for Azure Machine Learning.
 
-- An Azure Machine Learning workspace or compute instance. To prepare these resources, see [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md).
+- An Azure Machine Learning workspace or compute instance. To prepare these resources, see [Quickstart: Get started with Azure Machine Learning](./quickstart-create-resources.md).
 
 - The data asset to use for the Automated ML training job. This tutorial describes how to select an existing data asset or create a data asset from a data source, such as a local file, web url, or datastore. For more information, see [Create and manage data assets](how-to-create-data-assets.md).
 
@@ -38,6 +38,8 @@ This tutorial provides a high-level overview for working with Automated ML in th
    > There are two requirements for the training data:
    > - The data must be in tabular form.
    > - The value to predict (the _target_ column) must be present in the data.
+
+<a name="create-and-run-experiment"></a>
 
 ## Create experiment
 
@@ -177,6 +179,8 @@ The **Additional configuration** page shows default values based on your experim
 | **Allowed models**           | (Available when **Use all supported models** isn't selected) Use the dropdown list and select the models to use for the training job. <br> **Important**: Available only for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). |
 | **Explain best model**       | Choose this option to automatically show explainability on the best model created by Automated ML. |
 | **Positive class label**     | Enter the label for Automated ML to use for calculating binary metrics. |
+
+<a name="customize-featurization"></a>
 
 #### Configure featurization settings
 
