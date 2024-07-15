@@ -9,11 +9,13 @@ ms.date: 07/15/2024
 
 Microsoft Defender for Cloud allows you to enhance the security of your AI workloads by incorporating the code samples provided in this document, into your generative AI application's code 
 
-When AI threat protection is enabled on your Azure subscription
+When AI threat protection is enabled you gain threat protection for AI workloads on your Azure subscription which provide  insights to threats that might affect your generative AI applications.
+
+:::image type="content" source="media/gain-end-user-context-ai/before-code.png" alt-text="Screenshot of the Defender XDR portal that shows the threat protection alerts provided." lightbox="media/gain-end-user-context-ai/before-code.png":::
 
 By adding the code provided on this page, your AI models gain the ability to pass critical end-user context to Defender for Cloud's AI alerts. The addition of the end-user context allows the security alerts to contain more details and lead to more actionable alerts. For example, you can improve real-time threat detection and incident response.
 
-
+:::image type="content" source="media/gain-end-user-context-ai/after-code.png" alt-text="Screenshot of the Defender XDR portal that shows all of the additional benefits gained by adding the code." lightbox="media/gain-end-user-context-ai/after-code.png":::
 
 ## Prerequisites
 
@@ -55,42 +57,27 @@ The provided code consists of the `SecurityContext` field which contains several
 | SourceRequestHeaders  | Dictionary<string, string> | Captures a subset of end user's request headers that are added by proxies or load balancers. Headers like X-Forwarded-For, X-Real-IP, or Forwarded are used by Microsoft Defender for Cloud to get the original client's IP address. User-Agent header will provide context about the client software initiating the API request. <br><br> Recommended header names include: User-Agent, X-Forwarded-For, X-Real-IP, Forwarded, CF-Connecting-IP, True-Client-IP, X-Client-IP, X-Forwarded, Forwarded-For | Yes | - |
 | ApplicationName | string | The name of the application, used for identification and UI purposes. | Yes | Contoso HR Copilot, Customer sales chat bot. |
 
-1. Select the tab that corresponds to your development environment.
+## Add the SecurityContext code to your application
 
+We recommend adding all of the code samples provided in this document to your generative AI application's code.
 
-    ### [Basic C# Initialization Example](#tab/basic-c-initialization-example)
-    
-    ```csharp
-    Add code here
-    ```
-    
-    ### [Azure AI C# SDK](#tab/azure-ai-c-sdk)
-    
-    ```csharp
-    Add code here
-    ```
-    
-    ### [Semantic Kernel](#tab/sementic-kernel)
-    
-    Require version 1.3.0 or later
-    
-    ```bash
-    Add code here
-    ```
-    
-    ### [Azure AI Python SDK](#tab/azure-ai-python-sdk)
-    
-    ```azurecli
-    Add code here
-    ```
-    
-    ---
-Check out the following examples:
-- [sample-app-aoai-chatGPT](https://github.com/microsoft/sample-app-aoai-chatGPT)
-- [ms_defender_utils.py](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/f3f19bf5f4cd9754ff0f759ade72057ca1e01fbc/backend/security/ms_defender_utils.py#L3)
-- [app.py](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/f3f19bf5f4cd9754ff0f759ade72057ca1e01fbc/app.py#L741C1-L742C1).
+1. Select one of these examples:
+
+    - [sample-app-aoai-chatGPT](https://github.com/microsoft/sample-app-aoai-chatGPT)
+    - [ms_defender_utils.py](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/f3f19bf5f4cd9754ff0f759ade72057ca1e01fbc/backend/security/ms_defender_utils.py#L3)
+    - [app.py](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/f3f19bf5f4cd9754ff0f759ade72057ca1e01fbc/app.py#L741C1-L742C1).
+
+1. Locate and copy the sample code.
+
+    :::image type="content" source="media/gain-end-user-context-ai/sample-code-security-context.png" alt-text="Screenshot of the sample code provided from GitHub." lightbox="media/gain-end-user-context-ai/sample-code-security-context.png":::
+
+1. Add the code to your generative AI application's code.
+
+1. Alter the code parameters to match your requirements.  
+
 1. Save the changes.
-1. ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
+
+Once you have added the code and saved your changes, ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
 
 ## Next step
 
