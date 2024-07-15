@@ -49,7 +49,7 @@ curl --location --request GET 'https://management.azure.com/subscriptions/000000
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
-This snippet returns the definition for the metrics schema. Notably, this schema includes [the dimensions you can filter on with the Monitor API](monitor-resrouce-manager-reference.md#metric-dimensions).
+This snippet returns the definition for the metrics schema. Notably, this schema includes [the dimensions you can filter on with the Monitor API](monitor-resource-manager-reference.md#metric-dimensions).
 
 ## Examples
 
