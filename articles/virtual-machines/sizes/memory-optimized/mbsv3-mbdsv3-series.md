@@ -1,11 +1,11 @@
 ---
-title:       # Add a title for the browser tab
-description: # Add a meaningful description for search results
-author:      iamwilliew # GitHub alias
-ms.author:   iamwilliew # Microsoft alias
-ms.service:  # Add the ms.service or ms.prod value
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # Add the ms.topic value
+title:       Overview of Mbsv3 and Mbdsv3 Series
+description:  Overview of Mbsv3 and Mbdsv3 virtual machines
+author:      mingjiongz
+ms.author:   zhangjay
+ms.service:  virtual-machines
+# ms.prod:   sizes
+ms.topic:    conceptual
 ms.date:     07/15/2024
 ---
 
