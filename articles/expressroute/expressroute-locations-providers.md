@@ -170,7 +170,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Beijing** | China Telecom | n/a | Supported | China Telecom |
 | **Beijing2** | GDS | n/a | Supported | China Telecom<br/>China Mobile<br/>China Unicom<br/>GDS |
 | **Shanghai** | China Telecom | n/a | Supported | China Telecom |
-| **Shanghai2** | GDS | n/a | Supported | China Telecom<br/>China Unicom<br/>GDS |
+| **Shanghai2** | GDS | n/a | Supported | China Mobile<br/>China Telecom<br/>China Unicom<br/>GDS |
 
 To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
