@@ -111,6 +111,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
             "redirect_url": "/azure/virtual-network/quick-create-cli",
             "redirect_document_id": false
