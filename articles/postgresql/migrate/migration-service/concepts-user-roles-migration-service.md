@@ -28,7 +28,7 @@ This section explores the differences in permissions granted to the **azure_pg_a
 
 ### PG catalog permissions
 
-Unlike user-created schemas, which organize database objects into logical groups, pg_catalog is a system schema. It houses crucial system-level information, such as details about tables, columns, and other internal bookkeeping data. Essentially, it's where PostgreSQL stores important metadata.
+Unlike user-created schemas, which organize database objects into logical groups, pg_catalog is a system schema. It houses crucial system-level information, such as details about tables, columns, and other internal bookkeeping data. It's where PostgreSQL stores important metadata.
 
 - In a single server environment, a user belonging to the azure_pg_admin role is granted select privileges for all pg_catalog tables and views.
 - In a flexible server environment, privileges are restricted for certain tables and views so that only superusers are allowed to query them.
@@ -57,7 +57,7 @@ We removed all privileges for non-superusers on the following pg_catalog views:
 
 - pg_shadow
 
-Allowing unrestricted access to these system tables and views could lead to unauthorized modifications, accidental deletions, or even security breaches. Festricted access reduces the risk of unintended changes or data exposure.
+Allowing unrestricted access to these system tables and views could lead to unauthorized modifications, accidental deletions, or even security breaches. Restricted access reduces the risk of unintended changes or data exposure.
 
 ### pg_pltemplate deprecation
 
@@ -66,7 +66,7 @@ Another important consideration is the deprecation of the **pg_pltemplate** syst
 #### What is the impact?
 
 - If your application is designed to directly query the affected tables and views, it encounters issues upon migrating to the flexible server. We strongly advise you to refactor your application to avoid direct queries to these system tables.
-- If you have granted or revoked privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. You can identify this error by the following pattern:
+- If you've granted or revoked privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. You can identify this error by the following pattern:
 
 ```sql
 pg_restore error: could not execute query <GRANT/REVOKE> <PRIVILEGES> on <affected TABLE/VIEWS> to <user>.
@@ -120,16 +120,13 @@ REVOKE SELECT ON pg_authid FROM adminuser1;
 REVOKE SELECT ON pg_shadow FROM adminuser2;
 REVOKE UPDATE ON pg_shadow FROM adminuser2;
 ```
-<<<<<<< HEAD
-=======
 
 **Step 4: Final Verification**
 
-Run the query from Step 1 again to ensure that the resulting output set is empty.
+Run the query from step 1 again to ensure that the resulting output set is empty.
 
 > [!NOTE]
-> Make sure you perform the above steps for all the databases included in the migration to avoid any permission-related issues during the migration.
->>>>>>> 650471f5f972debc44f06e7f505345c09d6603d1
+> Make sure you perform the preceding steps for all the databases included in the migration to avoid any permission-related issues during the migration.
 
 > [!NOTE]
 > Make sure you perform the preceding steps for all the databases included in the migration to avoid any permission-related issues during the migration.

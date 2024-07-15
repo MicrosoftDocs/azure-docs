@@ -53,7 +53,7 @@ The following phases are considered for calculating the total downtime to perfor
 - Matching counts for all the database objects (tables, sequences, extensions, procedures, and indexes).
 - Comparing maximum or minimum IDs of key application-related columns.
 
-    > [!NOTE]  
+    > [!NOTE]
     > The size of databases needs to be the right metric for validation. The source instance might have bloats or dead tuples, which can bump up the size of the source instance. It's normal to have size differences between source instances and target servers. An issue in the first three steps of validation indicates a problem with the migration.
 
 - **Migration of server settings**: Any custom server parameters, firewall rules (if applicable), tags, and alerts must be manually copied from the source instance to the target.
@@ -90,7 +90,7 @@ If the data distribution on the source is highly skewed, with most of the data p
 
 1. The table must have a column with a simple (not composite) primary key or unique index of type int or significant int.
 
-    > [!NOTE]  
+    > [!NOTE]
     > In the case of approaches #2 or #3, you must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column won't affect the application should you go ahead with the changes.
 
 1. If the table doesn't have a simple primary key or unique index of type int or significant int but has a column that meets the data type criteria, the column can be converted into a unique index by using the following command. This command doesn't require a lock on the table.
