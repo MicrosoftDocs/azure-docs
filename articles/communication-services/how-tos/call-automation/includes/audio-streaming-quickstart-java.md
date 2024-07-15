@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Alvin
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 09/06/2022
+ms.date: 07/15/2024
 ms.topic: include
 ms.topic: include file
 ms.author: alvinhan
