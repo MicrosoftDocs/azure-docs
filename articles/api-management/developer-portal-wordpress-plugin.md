@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: 
 ms.topic: how-to
-ms.date: 07/09/2024
+ms.date: 07/15/2024
 ms.author: danlep
 ---
 
@@ -20,12 +20,14 @@ In this article, you create a WordPress site on Azure App Service and configure 
 
 ## Prerequisites
 
-* An API Management instance. If needed, [create an instance](get-started-create-service-instance.md). The developer portal is available in all tiers except the Consumption tier.
+* An API Management instance. If needed, [create an instance](get-started-create-service-instance.md). 
+    > [!NOTE]
+    > Currently, the plugin isn't supported in the API Management v2 tiers.
 * Enable and publish the developer portal. For steps, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 * Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription.
 * Installation files for the developer portal WordPress plugin and customized WordPress theme from the [plugin repo](https://aka.ms/apim/wpplugin). Download the following zip files from the [dist](https://github.com/Azure/AzureAPIM-Wordpress-plugin/tree/main/dist) folder in the repo:
     * `apim-devportal.zip` - Plugin file
-    * `twentytwentyfour.1.1.zip` - Theme file
+    * `twentytwentyfour.zip` - Theme file
 
 ## Step 1: Create WordPress on App Service  
 
@@ -98,7 +100,7 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
     1. Enter the **Application (client) Id** and **Client secret** from the app registration that you created in the previous step.
     1. In **Issuer URL**, enter a value appropriate for the authentication endpoint of your Azure environment, such as `https://login.microsoftonline.com/<tenant-id>/v2.0` for global Azure. Replace `<tenant-id>` with the **Directory (tenant) Id** from the app registration.
 1. In **Allowed token audiences**, enter the **Application ID URI** from the app registration. Example: `api://<app-id>`.
-1. Under **Additional checks**:
+1. Under **Additional checks**, select values appropriate for your environment, for example:
     1. In **Client application requirement**, select **Allow requests from specific client applications**.
     1. In **Tenant requirement**, select **Use default restrictions based on issuer**.
 1. Accept the default values for the remaining settings and select **Add**.
@@ -112,11 +114,11 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Developer portal**, select **Identities** > **+ Add**.
 1. On the **Add identity provider** page, select **Azure Active Directory** (Microsoft Entra ID).
-1. Enter the **Client Id**, **Client secret**, and **Signin tenant** values from the app registration you created in a previous step.
+1. Enter the **Client Id**, **Client secret**, and **Signin tenant** values from the app registration that you created in a previous step.
 1. In **Client library**, select **MSAL**.
 1. Accept default values for the remaining settings and select **Add**.
 1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
-1. Test the authentication by signing into the developer portal at the following URL, substituting the name of your API Management instance: `https://<apim-instance-name>.developer.azure-api.net/signin`. Select the **Azure Active Directory** (Microsoft Entra ID) button to sign in.
+1. Test the authentication by signing into the developer portal at the following URL, substituting the name of your API Management instance: `https://<apim-instance-name>.developer.azure-api.net/signin`. Select the **Azure Active Directory** (Microsoft Entra ID) button at the bottom to sign in.
 
     When you open it for the first time, you're prompted to consent to specific permissions.
     
@@ -127,10 +129,11 @@ Configure the same Microsoft Entra app registration as an identity provider for 
 
     When you open it for the first time, you're prompted to consent to specific permissions.
 
-1. Sign into the WordPress admin site using the username and password you entered while creating WordPress on App Service. 
+1. Sign into the WordPress admin site using the username and password that you entered while creating WordPress on App Service. 
 1. In the left menu, select **Appearance** > **Themes** and then **Add New Theme**.
-1. Select **Upload Theme**. Select **Choose File** to upload the API Management developer portal theme zip file (`twentytwentyfour.1.1.zip`) that you downloaded previously. Select **Install Now**.
+1. Select **Upload Theme**. Select **Choose File** to upload the API Management developer portal theme zip file that you downloaded previously. Select **Install Now**.
 1. In the next screen, select **Replace active with uploaded**. 
+1. Select **Activate**.
 
 ## Step 6: Install the developer portal plugin 
 
@@ -289,6 +292,5 @@ The following screenshot shows a sample page of the API Management developer por
 ## Related content
 
 - [Create a WordPress site on Azure App Service](../app-service/quickstart-wordpress.md)
-- [WordPress on Linux App Service repo](https://github.com/Azure/wordpress-linux-appservice)
 - [Customize the developer portal](api-management-howto-developer-portal-customize.md) 
 - [Authorize developer accounts by using Microsoft Entra ID in Azure API Management](api-management-howto-aad.md).
