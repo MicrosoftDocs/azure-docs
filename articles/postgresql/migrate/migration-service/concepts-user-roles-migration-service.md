@@ -67,6 +67,8 @@ Another important consideration is the deprecation of the **pg_pltemplate** syst
 pg_restore error: could not execute query <GRANT/REVOKE> <PRIVILEGES> on <affected TABLE/VIEWS> to <user>.
  ```
 
+#### Workaround
+
 To resolve this error, it's necessary to undo the privileges granted to users and roles on the affected pg_catalog tables and views. You can accomplish this by taking the following steps.
 
    **Step 1: Identify Privileges**
@@ -98,10 +100,12 @@ GROUP BY
 The output of the query shows the list of privileges granted to roles on the impacted tables and views.
 
 For example:
+
 | Privileges | Relation name | Grantee |
 | :--- |:--- |:--- | 
 | SELECT | pg_authid | adminuser1 |
-| SELECT, UPDATE  |pg_shadow | adminuser2 |
+| SELECT, UPDATE |pg_shadow | adminuser2 |
+
 
 **Step 3: Undo the privileges**
 
@@ -112,8 +116,13 @@ REVOKE SELECT ON pg_authid FROM adminuser1;
 REVOKE SELECT ON pg_shadow FROM adminuser2;
 REVOKE UPDATE ON pg_shadow FROM adminuser2;
 ```
+
+**Step 4: Final Verification**
+
+Run the query from Step 1 again to ensure that the resulting output set is empty.
+
 > [!NOTE]
-> Make sure you perform the above steps for all the databases included in the migration to avoid any permission-related issues during the migration..
+> Make sure you perform the above steps for all the databases included in the migration to avoid any permission-related issues during the migration.
 
 After completing these steps, you can proceed to initiate a new migration from the single server to the flexible server using the migration service. You shouldn't encounter permission-related issues during this process.
 

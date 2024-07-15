@@ -6,20 +6,20 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.author: lajanuar
-ms.date: 07/18/2023
+ms.date: 07/08/2024
 ms.topic: overview
 ---
-# Custom Translator for beginners 
+# Custom Translator for beginners
 
  [Custom Translator](overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translation API](../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 
-The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than 60 languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../language-support.md).
+The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than 60 languages that map directly to the languages available for Neural machine translation (NMT). For a complete list, *see* [Translator language support](../language-support.md).
 
 ## Is a custom translation model the right choice for me?
 
 A well-trained custom translation model provides more accurate domain-specific translations because it relies on previously translated in-domain documents to learn preferred translations. Translator uses these terms and phrases in context to produce fluent translations in the target language while respecting context-dependent grammar.
 
-Training a full custom translation model requires a substantial amount of data. If you don't have at least 10,000 sentences of previously trained documents, you won't be able to train a full-language translation model. However, you can either train a dictionary-only model or use the high-quality, out-of-the-box translations available with the Text Translation API.
+Training a full custom translation model requires a substantial amount of data. If you don't have at least 10,000 sentences of previously trained documents, you can't train a full-language translation model. However, you can either train a dictionary-only model or use the high-quality, out-of-the-box translations available with the Text Translation API.
 
 :::image type="content" source="media/how-to/for-beginners.png" alt-text="Screenshot illustrating the difference between custom and general models.":::
 
@@ -31,15 +31,15 @@ Building a custom translation model requires:
 
 * Obtaining in-domain translated data (preferably human translated).
 
-* The ability to assess translation quality or target language translations.
+* Assessing translation quality or target language translations.
 
 ## How do I evaluate my use-case?
 
 Having clarity on your use-case and what success looks like is the first step towards sourcing proficient training data. Here are a few considerations:
 
-* What is your desired outcome and how will you measure it?
+* Is your desired outcome specified and how is it measured?
 
-* What is your business domain?
+* Is your business domain identified?
 
 * Do you have in-domain sentences of similar terminology and style?
 
@@ -53,7 +53,7 @@ Having clarity on your use-case and what success looks like is the first step to
 
 Finding in-domain quality data is often a challenging task that varies based on user classification. Here are some questions you can ask yourself as you evaluate what data may be available to you:
 
-* Enterprises often have a wealth of translation data that has accumulated over many years of using human translation. Does your company have previous translation data available that you can use?
+* Does your company have previous translation data available that you can use? Enterprises often have a wealth of translation data accumulated over many years of using human translation.
 
 * Do you have a vast amount of monolingual data? Monolingual data is data in only one language. If so, can you get translations for this data?
 
@@ -67,11 +67,11 @@ Finding in-domain quality data is often a challenging task that varies based on 
 | Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translate in the future. |
 | Test documents | Calculate the [BLEU score](concepts/bleu-score.md?WT.mc_id=aiml-43548-heboelma).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
 | Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it's better to not use a phrase dictionary and let the system learn. |
-| Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry won't match. |
+| Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry doesn't match. |
 
 ## What is a BLEU score?
 
-BLEU (Bilingual Evaluation Understudy) is an algorithm for evaluating the precision or accuracy of text that has been machine translated from one language to another. Custom Translator uses the BLEU metric as one way of conveying translation accuracy.
+BLEU (Bilingual Evaluation Understudy) is an algorithm for evaluating the precision or accuracy of text that is machine translated from one language to another. Custom Translator uses the BLEU metric as one way of conveying translation accuracy.
 
 A BLEU score is a number between zero and 100. A score of zero indicates a low quality translation where nothing in the translation matched the reference. A score of 100 indicates a perfect translation that is identical to the reference. It's not necessary to attain a score of 100 - a BLEU score between 40 and 60 indicates a high-quality translation.
 
@@ -79,7 +79,7 @@ A BLEU score is a number between zero and 100. A score of zero indicates a low q
 
 ## What happens if I don't submit tuning or testing data?
 
-Tuning and test sentences are optimally representative of what you plan to translate in the future. If you don't submit any tuning or testing data, Custom Translator will automatically exclude sentences from your training documents to use as tuning and test data.
+Tuning and test sentences are optimally representative of what you plan to translate in the future. If you don't submit any tuning or testing data, Custom Translator automatically excludes sentences from your training documents to use as tuning and test data.
 
 | System-generated | Manual-selection |
 |---|---|
@@ -90,24 +90,24 @@ Tuning and test sentences are optimally representative of what you plan to trans
 
 ## How is training material processed by Custom Translator?
 
-To prepare for training, documents undergo a series of processing and filtering steps. These steps are explained below. Knowledge of the filtering process may help with understanding the sentence count displayed as well as the steps you can take to prepare training documents for training with Custom Translator.
+To prepare for training, documents undergo a series of processing and filtering steps. Knowledge of the filtering process may help with understanding the sentence count displayed as well as the steps you can take to prepare training documents for training with Custom Translator. The filtering steps are as follows:
 
 * ### Sentence alignment
 
-  If your document isn't in XLIFF, XLSX, TMX, or ALIGN format, Custom Translator aligns the sentences of your source and target documents to each other, sentence-by-sentence. Translator doesn't perform document alignment—it follows your naming convention for the documents to find a matching document in the other language. Within the source text, Custom Translator tries to find the corresponding sentence in the target language. It uses document markup like embedded HTML tags to help with the alignment.
+  If your document isn't in `XLIFF`, `XLSX`, `TMX`, or `ALIGN` format, Custom Translator aligns the sentences of your source and target documents to each other, sentence-by-sentence. Translator doesn't perform document alignment—it follows your naming convention for the documents to find a matching document in the other language. Within the source text, Custom Translator tries to find the corresponding sentence in the target language. It uses document markup like embedded HTML tags to help with the alignment.
 
   If you see a large discrepancy between the number of sentences in the source and target documents, your source document may not be parallel, or couldn't be aligned. The document pairs with a large difference (>10%) of sentences on each side warrant a second look to make sure they're indeed parallel.
 
-* ### Extracting tuning and testing data
+* ### Tuning and testing data extraction
 
-  Tuning and testing data is optional. If you don't provide it, the system will remove an appropriate percentage from your training documents to use for tuning and testing. The removal happens dynamically as part of the training process. Since this step occurs as part of training, your uploaded documents aren't affected. You can see the final used sentence counts for each category of data—training, tuning, testing, and dictionary—on the Model details page after training has succeeded.
+  Tuning and testing data is optional. If you don't provide it, the system removes an appropriate percentage from your training documents to use for tuning and testing. The removal happens dynamically as part of the training process. Since this step occurs as part of training, your uploaded documents aren't affected. You can see the final used sentence counts for each category of data—training, tuning, testing, and dictionary—on the Model details page after training succeeds.
 
 * ### Length filter
 
   * Removes sentences with only one word on either side.
   * Removes sentences with more than 100 words on either side. Chinese, Japanese, Korean are exempt.
   * Removes sentences with fewer than three characters. Chinese, Japanese, Korean are exempt.
-  * Removes sentences with more than 2000 characters for Chinese, Japanese, Korean.
+  * Removes sentences with more than 2,000 characters for Chinese, Japanese, Korean.
   * Removes sentences with less than 1% alphanumeric characters.
   * Removes dictionary entries containing more than 50 words.
 
@@ -140,15 +140,15 @@ To prepare for training, documents undergo a series of processing and filtering 
 
 * Remove sentences with invalid encoding.
 * Remove Unicode control characters.
-* If feasible, align sentences (source-to-target).
+* Align sentences (source-to-target), if feasible.
 * Remove source and target sentences that don't match the source and target languages.
 * When source and target sentences have mixed languages, ensure that untranslated words are intentional, for example, names of organizations and products.
-* Correct grammatical and typographical errors to prevent teaching these errors to your model.
-* Though our training process handles source and target lines containing multiple sentences, it's better to have one source sentence mapped to one target sentence.
+* Avoid teaching errors to your model by making certain that grammar and typography are correct.
+* Have one source sentence mapped to one target sentence. Although our training process handles source and target lines containing multiple sentences, one-to-one mapping is a best practice.
 
 ## How do I evaluate the results?
 
-After your model is successfully trained, you can view the model's BLEU score and baseline model BLEU score on the model details page. We use the same set of test data to generate both the model's BLEU score and the baseline BLEU score. This data will help you make an informed decision regarding which model would be better for your use-case.
+After your model is successfully trained, you can view the model's BLEU score and baseline model BLEU score on the model details page. We use the same set of test data to generate both the model's BLEU score and the baseline BLEU score. This data helps you make an informed decision regarding which model would be better for your use-case.
 
 ## Next steps
 

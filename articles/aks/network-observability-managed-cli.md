@@ -153,7 +153,7 @@ az aks create \
     --network-plugin azure \
     --network-plugin-mode overlay \
     --pod-cidr 192.168.0.0/16 \
-    --enable-network-observability
+    --enable-advanced-network-observability
 ```
 
 ###### Update Existing cluster
@@ -164,7 +164,7 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observabilit
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --enable-network-observability
+    --enable-advanced-network-observability
 ```
 
 ##### Example 2: **Cilium**

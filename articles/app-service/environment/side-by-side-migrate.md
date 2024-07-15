@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 6/28/2024
+ms.date: 7/11/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -197,6 +197,10 @@ Side-by-side migration requires a three to six hour service window for App Servi
 
 When this step completes, your application traffic is still going to your old App Service Environment v2 front ends and the inbound IP that was assigned to it. However, your apps are actually running on workers in your new App Service Environment v3.
 
+> [!NOTE]
+> Due to a known bug, web jobs might not start during the hybrid deployment step. If you use web jobs, this bug might cause app issues/downtime. Open a support case if you have any questions or concerns about this issue.
+>
+
 ### Get the inbound IP address for your new App Service Environment v3 and update dependent resources
 
 The new inbound IP address is given so that you can set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md) and update any of your private DNS zones. Don't move on to the next step until you make these changes. There's downtime if you don't update dependent resources with the new inbound IP. **It's your responsibility to update any and all resources that are impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
@@ -296,7 +300,7 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022
 
 ### 5. Update dependent resources with new outbound IPs
 
-By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step.
+By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step. For example, if you have a custom domain suffix and an Azure Key Vault and are managing access restrictions with a firewall, you need to update the Azure Key Vault's firewall to allow either just the new outbound IPs or the entire new subnet.
 
 ### 6. Delegate your App Service Environment subnet
 
@@ -389,7 +393,11 @@ If you're using a system assigned managed identity for your custom domain suffix
 
 After you complete all of the preceding steps, you can start the migration. Make sure that you understand the [implications of migration](#migrate-to-app-service-environment-v3).
 
-This step takes three to six hours complete. During that time, there's no application downtime. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
+This step takes three to six hours complete. During that time, there's no application downtime if you've followed the previous steps. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
+
+> [!NOTE]
+> Due to a known bug, web jobs might not start during the hybrid deployment step. If you use web jobs, this bug may cause app issues/downtime. Open a support case if you have any questions or concerns about this issue.
+>
 
 Run the following command to start the migration:
 

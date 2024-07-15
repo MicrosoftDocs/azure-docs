@@ -98,7 +98,7 @@ If a template isn't available, Copilot in Azure provides information to help you
 - "Azure AI search + OpenAI template?"
 - "Can you suggest a template for app services using SAP cloud SDK?"
 - "Java app with Azure OpenAI?"
-- "Can I use Azure Open AI with React?"
+- "Can I use Azure OpenAI with React?"
 - "Enterprise chat with GPT using Java?"
 - "How can I deploy a sample app using Enterprise chat with GPT and java?"
 - "I want to use Azure functions to build an OpenAI app"
