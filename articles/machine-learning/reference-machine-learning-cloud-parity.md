@@ -84,7 +84,6 @@ The information in the rest of this document provides information on what featur
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
 | [The Azure Machine Learning CLI v1](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
-| [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
 | [Integrate Azure Stream Analytics with Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Public Preview       | NO                 | NO          |
