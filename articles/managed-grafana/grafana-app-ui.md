@@ -73,7 +73,6 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 * [Dashboard JSON model](https://grafana.com/docs/grafana/latest/dashboards/json-model/)
 * [Scripted dashboards](https://grafana.com/docs/grafana/latest/dashboards/)
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create a Grafana dashboard](./how-to-create-dashboard.md)
+- [Related article title](link.md)

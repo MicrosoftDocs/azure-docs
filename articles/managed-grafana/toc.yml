@@ -28,6 +28,8 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
+  - name: Grafana settings
+    href: grafana-settings.md
 - name: How-to guides
   expanded: true
   items:

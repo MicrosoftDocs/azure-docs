@@ -51,22 +51,6 @@ Charges for active users are prorated during the first and the last calendar mon
   - On February 28, the full monthly charge applies for 20 users.
   - Upon deletion on March 25, the charge for March would be prorated for 15 users for 25 days out of 31 days, totaling a charge for 12.09 active users.
 
-## How does the Viewers Can Edit option work?
-
-The Viewers Can Edit setting allows users with the Grafana Viewer role to edit dashboards. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. While they can edit dashboards, they cannot save these edits.
-
-This option also gives Grafana Viewers access to the **Explore** menu in the Grafana UI, where they can perform interactive queries and analyze data within Grafana. However, it's important to note that any changes made by Viewers will not be saved permanently unless they have the appropriate Editor permissions.
-
-To enable or disable this option, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Viewers can edit**. This option is set to disabled by default.
-
-## How does the External Enabled option work?
-
-The External Enabled setting controls the public sharing of snapshots. By default, this option is enabled, allowing users to publish snapshots of their dashboards. 
-
-With this option enabled, users can publish a snapshot of a dashboard to an external URL by opening a dashboard, selecting **Share** > **Snapshot**, and then **Publish to snapshots.raintanks.io**.
-
-However, you can disable the External Enabled option to restrict the public sharing of snapshots. To do this, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Configuration Settings** and toggle off the **External Enabled** setting.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
