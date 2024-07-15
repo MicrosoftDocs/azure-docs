@@ -55,14 +55,18 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
 1. Select **+ Create** and enter the following details:
 
     - **Name**. Enter a meaningful name for your rule.
+
     - **Description**. Enter an optional description.
+
     - **Destination table**. Define the custom log table where your data is aggregated:
+
         - If you select **Existing custom log table**, select the table you want to use.
+
         - If you select **New custom log table**, enter a meaningful name for your table. Your full table name uses the following syntax: `<tableName>_CL`.
 
 1. We recommend that you enable **SummaryLogs** diagnostic settings on your workspace to get visibility for historical runes and failures. If **SummaryLogs** diagnostic settings aren't enabled, you're prompted to enable them in the **Diagnostic settings** area.
 
-    If **SummaryLogs** diagnostic settings are already enabled, but you want to modify the settings, select **Configure advanced diagnostic settings**. When you come back to the **Summary rule wizard** page, make sure to select **Refresh** to refresh your setting details. 
+    If **SummaryLogs** diagnostic settings are already enabled, but you want to modify the settings, select **Configure advanced diagnostic settings**. When you come back to the **Summary rule wizard** page, make sure to select **Refresh** to refresh your setting details.
 
     > [!IMPORTANT]
     > The **SummaryLogs** diagnostic settings has additional costs. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
@@ -103,9 +107,7 @@ To delete a rule, select the rule row and then select **Delete** in the toolbar 
 
 ## Sample summary rule scenarios
 
-This section reviews common scenarios for creating summary rules in Microsoft Sentinel, and our recommendations for how to configure each rule
-
-For more information and examples, see [Use summary rules with auxillary logs (sample process)](#use-summary-rules-with-auxillary-logs-sample-process).
+This section reviews common scenarios for creating summary rules in Microsoft Sentinel, and our recommendations for how to configure each rule. For more information and examples, see [Use summary rules with auxiliary logs (sample process)](#use-summary-rules-with-auxiliary-logs-sample-process) and [Log sources to use for Basic Logs ingestion](basic-logs-use-cases.md).
 
 ### Quickly find a malicious IP address in your network traffic
 
@@ -246,113 +248,71 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
     | project LatestIndicatorTime, TI_Domain = DomainName, Description, ConfidenceScore, AdditionalInformation, LogicApp
     ```
 
-## Use summary rules with auxillary logs (sample process)
+## Use summary rules with auxiliary logs (sample process)
 
-This procedure describes a sample process for using summary rules with auxillary logs. In this example, we use CEF data ingested via [Logstash](connect-logstash-data-connection-rules.md).
+This procedure describes a sample process for using summary rules with auxiliary logs, using a custom connection to ingest CEF data from Logstash.
 
-1. Set up your log ingestion by creating a custom log table to transfer your auxillary logs via Logstash, with the CEF schema as your target table.
+1. Set up your custom CEF connector from Logstash:
 
-    When creating your custom log table, make sure to enter a meaningful name as your table name and the workspace ID where your table is stored.
+    1. Deploy the following ARM template to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE).
 
-    Note the following details from your table output:
-    
-    - `tenant_id`
-    - `data_collection_endpoint`
-    - `dcr_immutable_id`
-    - `dcr_stream_name`
+        > [!div class="nextstepaction"]
+        > [Deploy to Azure]()
 
-    <!--i need more details about how to do this - where do i link to?-->
+    1. Note the following deatails from the ARM template output:
 
-1. Create a Microsoft Entra application, and note the application's **Client ID** and **Secret**. For more information, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal).
+        - `tenant_id`
+        - `data_collection_endpoint`
+        - `dcr_immutable_id`
+        - `dcr_stream_name`
 
-1. Use the following configuration to send the CEF logs to your custom table and use the Logstash output plugin to transform the JSON data to DCR format, modifying any columns neccesary. <!--correct data syntax for what?-->
+    1. Create a Microsoft Entra application, and note the application's **Client ID** and **Secret**. For more information, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal).
 
-    <!--what format is this? what does it actually do? what's the image below this code in the word file?-->
-    ```
-    input { 
+    1. Use the following sample script to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. Make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
 
+        ```json
+        input { 
         syslog { 
-
             port => 514 
-
             codec => cef 
-
           } 
+        } 
+        filter{ 
+          ruby { 
+            code => " 
+              require 'json' 
+              new_hash = event.to_hash 
+              event.set('Message', new_hash.to_json) 
+            " 
+          } 
+          mutate{ 
+            rename => {"name" => "Activity"} 
+            rename => {"severity" => "LogSeverity"} 
+            rename => {"cefVersion" => "CefVersion"} 
+            rename => {"deviceVendor" => "DeviceVendor"} 
+            rename => {"deviceProduct" => "DeviceProduct"} 
+            rename => {"deviceVersion" => "DeviceVersion"} 
+            rename => {"deviceEventClassId" => "DeviceEventClassID"} 
+            rename => {"@timestamp" => "TimeGenerated"} 
+            add_field => {"LogstashVersion" => "${LOGSTASH_VERSION}"}     
+          } 
+          prune { 
+            whitelist_names => [ "Message", "TimeGenerated", "Activity", "LogSeverity",     "CefVersion", "DeviceVendor", "DeviceProduct", "DeviceVersion", "DeviceEventClassID"] 
+          } 
+        } 
+         output { 
+          microsoft-sentinel-log-analytics-logstash-output-plugin { 
+            client_app_Id => "00000000-0000-0000-0000-000000000000" 
+            client_app_secret => "00000000-0000-0000-0000-000000000000" 
+            tenant_id => "000000000-0000-0000-0000-000000000000" 
+            data_collection_endpoint => "https://xxxxxxxxxxxxx.ingest.monitor.azure.com" 
+            dcr_immutable_id => "dcr-x-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+            dcr_stream_name => "Custom-LS-CefAux_CL"  
+          } 
+        }
+        ```
 
-    } 
-
- 
-
-    filter{ 
-
-      ruby { 
-
-        code => " 
-
-          require 'json' 
-
-          new_hash = event.to_hash 
-
-          event.set('Message', new_hash.to_json) 
-
-        " 
-
-      } 
-
-      mutate{ 
-
-        rename => {"name" => "Activity"} 
-
-        rename => {"severity" => "LogSeverity"} 
-
-        rename => {"cefVersion" => "CefVersion"} 
-
-        rename => {"deviceVendor" => "DeviceVendor"} 
-
-        rename => {"deviceProduct" => "DeviceProduct"} 
-
-        rename => {"deviceVersion" => "DeviceVersion"} 
-
-        rename => {"deviceEventClassId" => "DeviceEventClassID"} 
-
-        rename => {"@timestamp" => "TimeGenerated"} 
-
-        add_field => {"LogstashVersion" => "${LOGSTASH_VERSION}"} 
-
-      } 
-
-      prune { 
-
-        whitelist_names => [ "Message", "TimeGenerated", "Activity", "LogSeverity",     "CefVersion", "DeviceVendor", "DeviceProduct", "DeviceVersion", "DeviceEventClassID"] 
-
-      } 
-
-    } 
-
- 
-
-    output { 
-
-      microsoft-sentinel-log-analytics-logstash-output-plugin { 
-
-        client_app_Id => "00000000-0000-0000-0000-000000000000" 
-
-        client_app_secret => "00000000-0000-0000-0000-000000000000" 
-
-        tenant_id => "000000000-0000-0000-0000-000000000000" 
-
-        data_collection_endpoint => "https://xxxxxxxxxxxxx.ingest.monitor.azure.com" 
-
-        dcr_immutable_id => "dcr-x-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-
-        dcr_stream_name => "Custom-LS-CefAux_CL"  
-
-      } 
-
-    }
-    ```
-
-1. In Microsoft Sentinel, go to the **Logs** page to check that data is flowing as expected. For example, run the following query:
+1. Check to see that your CEF data is flowing from Logstash as expected. For example, in Microsoft Sentinel, go to the **Logs** page and run the following query:
 
     ```kusto
     CefAux_CL
@@ -361,50 +321,50 @@ This procedure describes a sample process for using summary rules with auxillary
 
 1. Create summary rules that aggregate your CEF data. For example:
 
-    -**Lookup incident of concern (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurences, and then query only those occurences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other medata, which can then be used against IoC lookups:
+    - **Lookup incident of concern (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurences, and then query only those occurences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other medata, which can then be used against IoC lookups:
 
-    ```kusto
-    // Daily Network traffic trend Per Destination IP along with Data transfer stats 
+        ```kusto
+        // Daily Network traffic trend Per Destination IP along with Data transfer stats 
 
-    // Frequency - Daily - Maintain 30 day or 60 Day History. 
+        // Frequency - Daily - Maintain 30 day or 60 Day History. 
 
-      Custom_CommonSecurityLog 
+          Custom_CommonSecurityLog 
 
-      | where TimeGenerated > ago(1d) 
+          | where TimeGenerated > ago(1d) 
 
-      | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
+          | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
 
-      | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
+          | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
 
-      by Day,DestinationIp, DeviceVendor 
-    ```
+          by Day,DestinationIp, DeviceVendor 
+        ```
 
     - **Query a summary baseline for anomaly detections**. Instead of running your queries against large historical periods, such as 30 or 60 days, we recommend that you ingest data into custom logs, and then only query summary baseline data, such as for time series anomaly detections. For example:
 
-    ```kusto
-    // Time series data for Firewall traffic logs 
+        ```kusto
+        // Time series data for Firewall traffic logs 
 
-    let starttime = 14d; 
+        let starttime = 14d; 
 
-    let endtime = 1d; 
+        let endtime = 1d; 
 
-    let timeframe = 1h; 
+        let timeframe = 1h; 
 
-    let TimeSeriesData =  
+        let TimeSeriesData =  
 
-    Custom_CommonSecurityLog 
+        Custom_CommonSecurityLog 
 
-      | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) 
+          | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) 
 
-      | where isnotempty(DestinationIP) and isnotempty(SourceIP) 
+          | where isnotempty(DestinationIP) and isnotempty(SourceIP) 
 
-      | where ipv4_is_private(DestinationIP) == false 
+          | where ipv4_is_private(DestinationIP) == false 
 
-      | project TimeGenerated, SentBytes, DeviceVendor 
+          | project TimeGenerated, SentBytes, DeviceVendor 
 
-      | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
-    ```
-    
+          | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
+        ```
+
 ## Related content
 
 - [Aggregate data in Log Analytics workspace with Summary rules](/azure/azure-monitor/logs/summary-rules)
