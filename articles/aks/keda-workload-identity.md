@@ -188,7 +188,7 @@ This article shows you how to securely scale your applications with the Kubernet
     kubectl get pod -n kube-system -lapp=keda-operator -w
     ````
 
-1. Once you've confirmed the keda-operator pods have finished rolling hit `Ctrl+c` to break the previous watch command then then confirm the Workload Identity environment variables have been injected.
+1. Once you've confirmed the keda-operator pods have finished rolling hit `Ctrl+c` to break the previous watch command then confirm the Workload Identity environment variables have been injected.
     
     ```azurecli-interactive
     KEDA_POD_ID=$(kubectl get po -n kube-system -l app.kubernetes.io/name=keda-operator -ojsonpath='{.items[0].metadata.name}')
