@@ -35,8 +35,9 @@ The systems listed in the following tables are supported by Microsoft, either ge
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Debian 10 (Buster) | ![Debian + AMD64](./media/support/green-check.png)  | ![Debian + ARM32v7](./media/support/green-check.png) | ![Debian + + ARM64](./media/support/green-check.png)  |
+| Debian 11 (Bullseye) | ![Debian + AMD64](./media/support/green-check.png)  | ![Debian + ARM32v7](./media/support/green-check.png) | ![Debian + + ARM64](./media/support/green-check.png)  |
 | Ubuntu Server 20.04 | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) |
-| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 18.04 + ARM64](./media/support/green-check.png) |
+| Ubuntu Server 22.04 | ![Ubuntu Server 22.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 22.04 + ARM64](./media/support/green-check.png) |
 
 
 > [!NOTE]
