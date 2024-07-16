@@ -3,7 +3,7 @@ title: Major version upgrades in Azure Database for PostgreSQL - Flexible Server
 description: Learn how to use Azure Database for PostgreSQL - Flexible Server to do in-place major version upgrades of PostgreSQL on a server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 7/12/2024
+ms.date: 7/15/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -46,6 +46,8 @@ Here are some of the important considerations with in-place major version upgrad
 - After an in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a point-in-time recovery (PITR) to a time before the upgrade to restore the previous version of the database instance.
 
 - Azure Database for PostgreSQL Flexible Server takes snapshot of your database during an upgrade. The snapshot is taken before the upgrade starts. If the upgrade fails, the system will automatically restore your database to its state from the snapshot.
+
+- [PostgreSQL 16 introduces role-based security](./concepts-security.md#postgresql-16-changes-with-role-based-security) measures. After a major version upgrade on Azure Database for PostgreSQL Flexible Server, the first user created on the server—who is granted the ADMIN option—will now have administrative privileges over other roles for essential maintenance operations.
 
 ## Post upgrade/migrate
 
