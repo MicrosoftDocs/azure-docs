@@ -124,6 +124,8 @@ See the following list for the input requirements for each feature.
 - **Protected material detection (preview)**: 
   - Default maximum length: 1K characters.
   - Default minimum length: 110 characters (for scanning LLM completions, not user prompts).
+- **Custom categories (standard)**:
+  - Maximum inference input length: 1K characters.
 
 
 ### Language support

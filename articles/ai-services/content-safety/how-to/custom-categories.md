@@ -86,8 +86,20 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?
 
 ### Start the category build process:
 
+After you receive the response, store the operation ID (referred to as `id`) in a temporary. You need this ID to retrieve the build status using the **Get status** API.
+
 ```bash
-curl -X POST "<your_endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview" \
+curl -X POST "<your_endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview&version={version}" \
+     -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
+     -H "Content-Type: application/json"
+```
+
+### Get the category build status:
+
+To retrieve the status, utilize the `id` obtained from the previous API response and place it in the path of the API below.
+
+```bash
+curl -X GET "<your_endpoint>/contentsafety/text/categories/operations/<id>?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json"
 ```
@@ -172,6 +184,22 @@ result = trigger_category_build_process(category_name, version)
 print(result)
 ```
 
+### Get the category build status:
+
+To retrieve the status, utilize the `id` obtained from the previous response.
+
+```python
+def get_build_status(id):
+    url = f"{ENDPOINT}/contentsafety/text/categories/operations/{id}?api-version=2024-02-15-preview"
+    response = requests.get(url, headers=headers)
+    return response.status_code
+
+# Replace the parameter with your own value
+id = "your-operation-id"
+
+result = get_build_status(id)
+print(result)
+```
 
 ## Analyze text with a customized category
 
