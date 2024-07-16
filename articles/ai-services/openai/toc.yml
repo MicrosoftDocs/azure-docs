@@ -53,7 +53,7 @@ items:
     - name: Default safety policies
       href: ./concepts/default-safety-policies.md
     - name: Prompt transformations
-      href: ./concepts/prompt-transformations.md
+      href: ./concepts/prompt-transformation.md
     - name: Customizing Large Language Models (LLMs)
       href: ./concepts/customizing-llms.md
     - name: Embeddings
