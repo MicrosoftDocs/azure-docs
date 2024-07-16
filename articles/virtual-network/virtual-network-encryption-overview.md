@@ -6,8 +6,8 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 05/06/2024
-ms.custom: template-overview, references_regions
+ms.date: 07/16/2024
+ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
@@ -55,10 +55,35 @@ Azure Virtual Network encryption has the following limitations:
 
 - **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
-- Virtual networks with encryption enabled do not support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview).
+- Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview).
 
-## Next steps
+## Supported scenarios
+
+Virtual network encryption is supported in the following scenarios:
+
+| Scenario | Support |
+| --- | --- |
+| VMs in the same virtual network (including virtual machine scale sets and their internal load balancer) | Supported on traffic between VMs from these [SKUs](#requirements). |
+| Virtual network peering | Supported on traffic between VMs across regional peering. |
+| Global virtual network peering | Supported on traffic between VMs across global peering. |
+| VM to Azure VPN Gateway | Supported on Dv5 VM SKUs (SKU not controlled by user). |
+| VM to Azure Application Gateway | Not supported <sup>1</sup>. |
+| VM to Azure Firewall | Not supported <sup>1</sup>. |
+| Azure Kubernetes Service (AKS) | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic will be encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic will be encrypted, but pod traffic won't be encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
+| Azure App Service | Not supported <sup>1</sup>. |
+| Azure SQL Database | Not supported <sup>1</sup>. |
+| Azure Storage | Not supported <sup>1</sup>. |
+| Azure Functions Premium | Not supported <sup>1</sup>. |
+| Private Endpoint  | Not supported <sup>1</sup>. |
+| Azure NetApp Files | Not supported <sup>1</sup>. |
+| VM to ExpressRoute gateway | Not supported <sup>1</sup>. |
+| VM to internet (using public IP address or load balancer) | Not supported <sup>1</sup>. |
+
+<sup>1</sup> Data flows unencrypted in these scenarios.  
+
+> [!NOTE]
+> VM to PaaS injected services requires onboarding of the PaaS services to support encryption using supported VM SKUs.
+
+## Next step
 
 - For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-
-
