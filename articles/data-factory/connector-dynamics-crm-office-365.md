@@ -246,7 +246,8 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 >[!Note]
->If you are using "Ifd" authentication type in your solution, please switch to "ActiveDirectoryAuthentication" authentication type before **August 31, 2024**.
+>Due to the sunset of Idf authentication type by
+**August 31, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
  
 #### Example: Dynamics on-premises with IFD using Active Directory authentication
 
