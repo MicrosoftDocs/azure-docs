@@ -161,7 +161,7 @@ Each Azure App Configuration resource has two access keys to enable secret rotat
 You can rotate keys using the following procedure:
 
 1. If you're using both keys in production, change your code so that only one key is in use. In this guide, assume it's key 1.
-This is a necessary step because once a key is regenerated, the older version of that key stops working immediately. This would cause clients using the older key to get 401 access denied errors.
+You must have only one key in your code, because when you regenerate your secondary key, the older version of that key will stop working immediately, causing clients using the older key to get 401 access denied errors.
 
 1. Once the primary key is the only key in use, you can regenerate the secondary key. Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
 
